@@ -1,0 +1,1 @@
+pydm --hide-nav-bar --hide-menu-bar  --hide-status-bar -m '{"DEVICE":"DEVICE:PREFIX", "PREFIX_C1":"CHANNEL1:PREFIX", "PREFIX_C2":"CHANNEL2:PREFIX", "PREFIX_C3":"CHANNEL3:PREFIX", "PREFIX_C4":"CHANNEL4:PREFIX"}'  main.ui 
