@@ -1,0 +1,1423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>830</width>
+    <height>335</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QFrame" name="frame">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="4" column="0">
+         <widget class="QFrame" name="frame_3">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="4" column="3">
+            <widget class="PyDMLabel" name="PyDMLabel">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayStatusRb-${r1}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="7">
+            <widget class="PyDMLabel" name="PyDMLabel_13">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayRb-${r4}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLabel::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="2">
+            <widget class="PyDMEnumComboBox" name="PyDMEnumComboBox_2">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QComboBox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    Signals
+    -------
+    send_value_signal : int, float, str, bool or np.ndarray
+        Emitted when the user changes the value.
+    activated : int, str
+        Emitted when the user chooses an item in the combobox.
+    currentIndexChanged : int, str
+        Emitted when the index is changed in the combobox.
+    highlighted : int, str
+        Emitted when an item in the combobox popup list is highlighted
+        by the user.
+    </string>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayStatusSp-${r2}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="6" colspan="2">
+            <widget class="QLabel" name="label_15">
+             <property name="text">
+              <string>Setpoint</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="2">
+            <widget class="PyDMEnumComboBox" name="PyDMEnumComboBox_3">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QComboBox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    Signals
+    -------
+    send_value_signal : int, float, str, bool or np.ndarray
+        Emitted when the user changes the value.
+    activated : int, str
+        Emitted when the user chooses an item in the combobox.
+    currentIndexChanged : int, str
+        Emitted when the index is changed in the combobox.
+    highlighted : int, str
+        Emitted when an item in the combobox popup list is highlighted
+        by the user.
+    </string>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayStatusSp-${r3}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>Relay ${r2}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="6" colspan="2">
+            <widget class="QLabel" name="label_12">
+             <property name="text">
+              <string>Setpoint</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="8">
+            <widget class="PyDMLineEdit" name="PyDMLineEdit_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>90</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayHystSp-${r1}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLineEdit::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="4">
+            <widget class="PyDMLabel" name="PyDMLabel_21">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:ProtectionSetpointRb-${channel}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLabel::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0" colspan="10">
+            <widget class="Line" name="line">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="4" colspan="2">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>Channel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>Relay ${r3}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="10">
+            <widget class="Line" name="line_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="4" colspan="2">
+            <widget class="PyDMLabel" name="PyDMLabel_8">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayDirectionRb-${r4}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="4" colspan="2">
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>Direction</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="PyDMEnumComboBox" name="PyDMEnumComboBox">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QComboBox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    Signals
+    -------
+    send_value_signal : int, float, str, bool or np.ndarray
+        Emitted when the user changes the value.
+    activated : int, str
+        Emitted when the user chooses an item in the combobox.
+    currentIndexChanged : int, str
+        Emitted when the index is changed in the combobox.
+    highlighted : int, str
+        Emitted when an item in the combobox popup list is highlighted
+        by the user.
+    </string>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayStatusSp-${r1}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_6">
+             <property name="text">
+              <string>Relay ${r4}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="2">
+            <widget class="PyDMEnumComboBox" name="PyDMEnumComboBox_9">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QComboBox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    Signals
+    -------
+    send_value_signal : int, float, str, bool or np.ndarray
+        Emitted when the user changes the value.
+    activated : int, str
+        Emitted when the user chooses an item in the combobox.
+    currentIndexChanged : int, str
+        Emitted when the index is changed in the combobox.
+    highlighted : int, str
+        Emitted when an item in the combobox popup list is highlighted
+        by the user.
+    </string>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:ControlChannelCTLSp-${channel}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="8">
+            <widget class="PyDMLineEdit" name="PyDMLineEdit_10">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>90</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:ControlSetpointHystSp-${channel}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLineEdit::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="3">
+            <widget class="PyDMLabel" name="PyDMLabel_3">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayStatusRb-${r3}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="3">
+            <widget class="QLabel" name="label_13">
+             <property name="text">
+              <string>Protection Setpoint</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="8" colspan="2">
+            <widget class="QLabel" name="label_16">
+             <property name="text">
+              <string>Hysteresis</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="PyDMLineEdit" name="PyDMLineEdit_11">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>90</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:ProtectionSetpointSp-${channel}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLineEdit::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2" colspan="2">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>Status</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="4" colspan="2">
+            <widget class="PyDMLabel" name="PyDMLabel_5">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayDirectionRb-${r1}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="9">
+            <widget class="PyDMLabel" name="PyDMLabel_10">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayHystRb-${r1}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLabel::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="8" colspan="2">
+            <widget class="QLabel" name="label_14">
+             <property name="text">
+              <string>Hysteresis</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="6">
+            <widget class="PyDMLineEdit" name="PyDMLineEdit_9">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>90</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:ControlSetpointSp-${channel}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLineEdit::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="4" colspan="2">
+            <widget class="PyDMLabel" name="PyDMLabel_7">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayDirectionRb-${r3}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="3">
+            <widget class="PyDMLabel" name="PyDMLabel_2">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayStatusRb-${r2}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="9">
+            <widget class="PyDMLabel" name="PyDMLabel_22">
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:Unit</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0">
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>Control SP</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Relay ${r1}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1" colspan="3">
+            <widget class="QLabel" name="label_11">
+             <property name="text">
+              <string>Controlling Gauge Status</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="5">
+            <widget class="PyDMLabel" name="PyDMLabel_18">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:ControlChannelStatusRb-${channel}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="2">
+            <widget class="PyDMEnumComboBox" name="PyDMEnumComboBox_4">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QComboBox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    Signals
+    -------
+    send_value_signal : int, float, str, bool or np.ndarray
+        Emitted when the user changes the value.
+    activated : int, str
+        Emitted when the user chooses an item in the combobox.
+    currentIndexChanged : int, str
+        Emitted when the index is changed in the combobox.
+    highlighted : int, str
+        Emitted when an item in the combobox popup list is highlighted
+        by the user.
+    </string>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayStatusSp-${r4}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="3">
+            <widget class="PyDMLabel" name="PyDMLabel_4">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayStatusRb-${r4}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="8">
+            <widget class="PyDMLineEdit" name="PyDMLineEdit_7">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>90</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayHystSp-${r3}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLineEdit::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="4">
+            <widget class="PyDMEnumComboBox" name="PyDMEnumComboBox_10">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QComboBox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    Signals
+    -------
+    send_value_signal : int, float, str, bool or np.ndarray
+        Emitted when the user changes the value.
+    activated : int, str
+        Emitted when the user chooses an item in the combobox.
+    currentIndexChanged : int, str
+        Emitted when the index is changed in the combobox.
+    highlighted : int, str
+        Emitted when an item in the combobox popup list is highlighted
+        by the user.
+    </string>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:ControlChannelStatusSp-${channel}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="4" colspan="2">
+            <widget class="PyDMLabel" name="PyDMLabel_6">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayDirectionRb-${r2}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="9">
+            <widget class="PyDMLabel" name="PyDMLabel_14">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayHystRb-${r2}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLabel::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="7">
+            <widget class="PyDMLabel" name="PyDMLabel_19">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:ControlSetpointRb-${channel}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLabel::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="9">
+            <widget class="PyDMLabel" name="PyDMLabel_20">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:ControlSetpointHystRb-${channel}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLabel::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="8">
+            <widget class="PyDMLineEdit" name="PyDMLineEdit_8">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>90</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayHystSp-${r4}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLineEdit::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="8">
+            <widget class="PyDMLineEdit" name="PyDMLineEdit_6">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>90</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayHystSp-${r2}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLineEdit::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="9">
+            <widget class="PyDMLabel" name="PyDMLabel_15">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayHystRb-${r3}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLabel::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="9">
+            <widget class="PyDMLabel" name="PyDMLabel_16">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayHystRb-${r4}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLabel::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="3">
+            <widget class="PyDMLabel" name="PyDMLabel_17">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:ControlChannelCTLRb-${channel}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="7">
+            <widget class="PyDMLabel" name="PyDMLabel_11">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayRb-${r2}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLabel::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="6">
+            <widget class="PyDMLineEdit" name="PyDMLineEdit_4">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>90</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelaySp-${r3}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLineEdit::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="6">
+            <widget class="PyDMLineEdit" name="PyDMLineEdit_5">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>90</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelaySp-${r4}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLineEdit::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="6">
+            <widget class="PyDMLineEdit" name="PyDMLineEdit_3">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>90</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelaySp-${r2}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLineEdit::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="7">
+            <widget class="PyDMLabel" name="PyDMLabel_9">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayRb-${r1}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLabel::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="7">
+            <widget class="PyDMLabel" name="PyDMLabel_12">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelayRb-${r3}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLabel::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="6">
+            <widget class="PyDMLineEdit" name="PyDMLineEdit">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>90</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="precisionFromPV" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="precision" stdset="0">
+              <number>3</number>
+             </property>
+             <property name="channel" stdset="0">
+              <string>ca://${DEVICE}:RelaySp-${r1}</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLineEdit::Exponential</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="8">
+            <widget class="QLabel" name="label_17">
+             <property name="text">
+              <string>Unit</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QFrame" name="frame_2">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>MKS 937b Cold Cathod Setup</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Gauge ${GAUGE}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PyDMEnumComboBox</class>
+   <extends>QComboBox</extends>
+   <header>pydm.widgets.enum_combo_box</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>pydm.widgets.line_edit</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
