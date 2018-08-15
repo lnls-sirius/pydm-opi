@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1228</width>
+    <height>759</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QFrame" name="frame_2">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Storage Ring - ALPHA</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>1210</width>
+       <height>685</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>2</x>
+        <y>-3</y>
+        <width>1205</width>
+        <height>692</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;images/storage_ring.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_3">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>86</y>
+        <width>114</width>
+        <height>33</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="whatsThis">
+       <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+      </property>
+      <property name="text">
+       <string>GC-CLCL</string>
+      </property>
+      <property name="displayFilename" stdset="0">
+       <string>../python/device_menu.py</string>
+      </property>
+      <property name="macros" stdset="0">
+       <string>{     &quot;DEVICE&quot; : &quot;VGC1&quot;,     &quot;A&quot;:&quot;CC&quot;,     &quot;B&quot;:&quot;CC&quot;,     &quot;C&quot;:&quot;PR&quot; }</string>
+      </property>
+      <property name="openInNewWindow" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_2">
+      <property name="geometry">
+       <rect>
+        <x>648</x>
+        <y>32</y>
+        <width>114</width>
+        <height>33</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="whatsThis">
+       <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+      </property>
+      <property name="text">
+       <string>GC-CLCL</string>
+      </property>
+      <property name="displayFilename" stdset="0">
+       <string>../python/device_menu.py</string>
+      </property>
+      <property name="macros" stdset="0">
+       <string>{     &quot;DEVICE&quot; : &quot;VGC3&quot;,     &quot;A&quot;:&quot;CC&quot;,     &quot;B&quot;:&quot;CC&quot;,     &quot;C&quot;:&quot;PR&quot; }</string>
+      </property>
+      <property name="openInNewWindow" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_7">
+      <property name="geometry">
+       <rect>
+        <x>818</x>
+        <y>368</y>
+        <width>114</width>
+        <height>33</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="whatsThis">
+       <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+      </property>
+      <property name="text">
+       <string>GC-CLCL</string>
+      </property>
+      <property name="displayFilename" stdset="0">
+       <string>../python/device_menu.py</string>
+      </property>
+      <property name="macros" stdset="0">
+       <string>{     &quot;DEVICE&quot; : &quot;VGC6&quot;,     &quot;A&quot;:&quot;CC&quot;,     &quot;B&quot;:&quot;CC&quot;,     &quot;C&quot;:&quot;PR&quot; }</string>
+      </property>
+      <property name="openInNewWindow" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_5">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>413</y>
+        <width>114</width>
+        <height>33</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="whatsThis">
+       <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+      </property>
+      <property name="text">
+       <string>GC-CLCL</string>
+      </property>
+      <property name="displayFilename" stdset="0">
+       <string>../python/device_menu.py</string>
+      </property>
+      <property name="macros" stdset="0">
+       <string>{     &quot;DEVICE&quot; : &quot;VGC4&quot;,     &quot;A&quot;:&quot;CC&quot;,     &quot;B&quot;:&quot;CC&quot;,     &quot;C&quot;:&quot;PR&quot; }</string>
+      </property>
+      <property name="openInNewWindow" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_4">
+      <property name="geometry">
+       <rect>
+        <x>356</x>
+        <y>222</y>
+        <width>114</width>
+        <height>33</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="whatsThis">
+       <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+      </property>
+      <property name="text">
+       <string>GC-CLCL</string>
+      </property>
+      <property name="displayFilename" stdset="0">
+       <string>../python/device_menu.py</string>
+      </property>
+      <property name="macros" stdset="0">
+       <string>{     &quot;DEVICE&quot; : &quot;VGC2&quot;,     &quot;A&quot;:&quot;CC&quot;,     &quot;B&quot;:&quot;CC&quot;,     &quot;C&quot;:&quot;PR&quot; }</string>
+      </property>
+      <property name="openInNewWindow" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_6">
+      <property name="geometry">
+       <rect>
+        <x>354</x>
+        <y>556</y>
+        <width>114</width>
+        <height>33</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="whatsThis">
+       <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+      </property>
+      <property name="text">
+       <string>GC-CLCL</string>
+      </property>
+      <property name="displayFilename" stdset="0">
+       <string>../python/device_menu.py</string>
+      </property>
+      <property name="macros" stdset="0">
+       <string>{     &quot;DEVICE&quot; : &quot;VGC5&quot;,     &quot;A&quot;:&quot;CC&quot;,     &quot;B&quot;:&quot;CC&quot;,     &quot;C&quot;:&quot;PR&quot; }</string>
+      </property>
+      <property name="openInNewWindow" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PyDMRelatedDisplayButton</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.related_display_button</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../images/imgs.qrc"/>
+ </resources>
+ <connections/>
+</ui>

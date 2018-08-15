@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1114</width>
+    <height>553</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="1" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <property name="tabBarAutoHide">
+        <bool>false</bool>
+       </property>
+       <widget class="QWidget" name="tabGA">
+        <attribute name="title">
+         <string>Gauge A</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="0">
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0">
+            <widget class="PyDMEmbeddedDisplay" name="pdispA">
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QFrame capable of rendering a PyDM Display
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+
+    </string>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tabGB">
+        <attribute name="title">
+         <string>Gauge B</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_6">
+         <item row="0" column="0">
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <widget class="PyDMEmbeddedDisplay" name="pdispB">
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QFrame capable of rendering a PyDM Display
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+
+    </string>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tabGC">
+        <attribute name="title">
+         <string>Gauge C</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_8">
+         <item row="0" column="0">
+          <layout class="QGridLayout" name="gridLayout_7">
+           <item row="0" column="0">
+            <widget class="PyDMEmbeddedDisplay" name="pdispC">
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>
+    A QFrame capable of rendering a PyDM Display
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+
+    </string>
+             </property>
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="0">
+    <widget class="QFrame" name="frame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>MKS 937b Channel Setup</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="PyDMLabel" name="PyDMLabel">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="whatsThis">
+         <string/>
+        </property>
+        <property name="text">
+         <string>${DEVICE}</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PyDMEmbeddedDisplay</class>
+   <extends>QFrame</extends>
+   <header>pydm.widgets.embedded_display</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
