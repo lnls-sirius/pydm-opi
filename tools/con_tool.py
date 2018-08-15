@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from pydm.tools import ExternalTool
 from pydm.utilities.iconfont import IconFont
 
@@ -12,7 +13,7 @@ class ArchiverApplianceTool(ExternalTool):
         ExternalTool.__init__(self, icon=icon, name=name, group=group, use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
-        sender.window().new_window('archiver.py', macros={'url': 'https://10.0.4.57:11995/mgmt/ui/index.html'})
+        sender.window().new_window('../../../tools/archiver.py', macros={'url': 'https://10.0.6.57:11995/mgmt/ui/index.html'})
 
     def to_json(self):
         return ""
@@ -36,8 +37,8 @@ class ArchiverViwerTool(ExternalTool):
         ExternalTool.__init__(self, icon=icon, name=name, group=group, use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
-        sender.window().new_window('archiver.py',
-                                   macros={'url': 'http://10.0.4.57:11998/retrieval/ui/archiver-viewer/index.html'})
+        sender.window().new_window('../../../tools/archiver.py',
+                                   macros={'url': 'http://10.0.6.57:11998/retrieval/ui/archiver-viewer/index.html'})
 
     def to_json(self):
         return ""
@@ -61,7 +62,7 @@ class BeableboneTool(ExternalTool):
         ExternalTool.__init__(self, icon=icon, name=name, group=group, use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
-        sender.window().new_window('bbb.ui', macros={})
+        sender.window().new_window('../../../tools/bbb.ui', macros={})
 
     def to_json(self):
         return ""
