@@ -25,6 +25,10 @@ class DeviceMenu(Display):
         self.btnSettings.macros = json.dumps(get_device_macro(macros.get(
             'DEVICE'), macros.get('A'), macros.get('B'), macros.get('C')))
 
+        self.btnInfo.displayFilename = '../ui/info.ui'
+        self.btnInfo.macros = json.dumps(get_device_macro(macros.get(
+            'DEVICE'), macros.get('A'), macros.get('B'), macros.get('C')))
+
     def ui_filename(self):
         return '../ui/device_menu.ui'
 

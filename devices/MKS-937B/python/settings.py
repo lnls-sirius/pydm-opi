@@ -9,7 +9,6 @@ from macros import *
                     
 from os import path
 import json
-#from pydm.PyQt5.QtWidgets import QPushButton
 
 class Settings(Display):
   def __init__(self, parent=None, args=[], macros=None):
