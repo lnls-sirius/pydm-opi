@@ -32,6 +32,13 @@
           </property>
          </widget>
         </item>
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>${DEVICE}</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
      </item>
@@ -1758,6 +1765,11 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
    <class>PyDMTimePlot</class>
    <extends>QGraphicsView</extends>
    <header>pydm.widgets.timeplot</header>
@@ -1771,11 +1783,6 @@
    <class>PyDMEnumComboBox</class>
    <extends>QComboBox</extends>
    <header>pydm.widgets.enum_combo_box</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMLabel</class>
-   <extends>QLabel</extends>
-   <header>pydm.widgets.label</header>
   </customwidget>
  </customwidgets>
  <resources/>

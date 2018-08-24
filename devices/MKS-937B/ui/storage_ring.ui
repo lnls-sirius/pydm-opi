@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1228</width>
-    <height>759</height>
+    <width>1280</width>
+    <height>747</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="0" colspan="3">
     <widget class="QFrame" name="frame_2">
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -22,9 +22,9 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="label_2">
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lbl_title">
         <property name="font">
          <font>
           <pointsize>15</pointsize>
@@ -43,295 +43,352 @@
      </layout>
     </widget>
    </item>
-   <item>
-    <widget class="QFrame" name="frame">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>1210</width>
-       <height>685</height>
-      </size>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>2</x>
-        <y>-3</y>
-        <width>1205</width>
-        <height>692</height>
-       </rect>
+   <item row="1" column="2">
+    <widget class="QWidget" name="widget" native="true">
+     <layout class="QGridLayout" name="gridLayout">
+      <property name="leftMargin">
+       <number>0</number>
       </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;images/storage_ring.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <property name="topMargin">
+       <number>0</number>
       </property>
-     </widget>
-     <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_3">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>86</y>
-        <width>114</width>
-        <height>33</height>
-       </rect>
+      <property name="rightMargin">
+       <number>0</number>
       </property>
-      <property name="toolTip">
-       <string/>
+      <property name="bottomMargin">
+       <number>0</number>
       </property>
-      <property name="whatsThis">
-       <string>
-    A QPushButton capable of opening a new Display at the same of at a
-    new window.
-
-    Parameters
-    ----------
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    filename : str, optional
-        The file to be opened
-    </string>
+      <property name="spacing">
+       <number>0</number>
       </property>
-      <property name="text">
-       <string>GC-CLCL</string>
-      </property>
-      <property name="displayFilename" stdset="0">
-       <string>../python/device_menu.py</string>
-      </property>
-      <property name="macros" stdset="0">
-       <string>{     &quot;DEVICE&quot; : &quot;VGC1&quot;,     &quot;A&quot;:&quot;CC&quot;,     &quot;B&quot;:&quot;CC&quot;,     &quot;C&quot;:&quot;PR&quot; }</string>
-      </property>
-      <property name="openInNewWindow" stdset="0">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_2">
-      <property name="geometry">
-       <rect>
-        <x>648</x>
-        <y>32</y>
-        <width>114</width>
-        <height>33</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="whatsThis">
-       <string>
-    A QPushButton capable of opening a new Display at the same of at a
-    new window.
-
-    Parameters
-    ----------
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    filename : str, optional
-        The file to be opened
-    </string>
-      </property>
-      <property name="text">
-       <string>GC-CLCL</string>
-      </property>
-      <property name="displayFilename" stdset="0">
-       <string>../python/device_menu.py</string>
-      </property>
-      <property name="macros" stdset="0">
-       <string>{     &quot;DEVICE&quot; : &quot;VGC3&quot;,     &quot;A&quot;:&quot;CC&quot;,     &quot;B&quot;:&quot;CC&quot;,     &quot;C&quot;:&quot;PR&quot; }</string>
-      </property>
-      <property name="openInNewWindow" stdset="0">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_7">
-      <property name="geometry">
-       <rect>
-        <x>818</x>
-        <y>368</y>
-        <width>114</width>
-        <height>33</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="whatsThis">
-       <string>
-    A QPushButton capable of opening a new Display at the same of at a
-    new window.
-
-    Parameters
-    ----------
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    filename : str, optional
-        The file to be opened
-    </string>
-      </property>
-      <property name="text">
-       <string>GC-CLCL</string>
-      </property>
-      <property name="displayFilename" stdset="0">
-       <string>../python/device_menu.py</string>
-      </property>
-      <property name="macros" stdset="0">
-       <string>{     &quot;DEVICE&quot; : &quot;VGC6&quot;,     &quot;A&quot;:&quot;CC&quot;,     &quot;B&quot;:&quot;CC&quot;,     &quot;C&quot;:&quot;PR&quot; }</string>
-      </property>
-      <property name="openInNewWindow" stdset="0">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_5">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>413</y>
-        <width>114</width>
-        <height>33</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="whatsThis">
-       <string>
-    A QPushButton capable of opening a new Display at the same of at a
-    new window.
-
-    Parameters
-    ----------
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    filename : str, optional
-        The file to be opened
-    </string>
-      </property>
-      <property name="text">
-       <string>GC-CLCL</string>
-      </property>
-      <property name="displayFilename" stdset="0">
-       <string>../python/device_menu.py</string>
-      </property>
-      <property name="macros" stdset="0">
-       <string>{     &quot;DEVICE&quot; : &quot;VGC4&quot;,     &quot;A&quot;:&quot;CC&quot;,     &quot;B&quot;:&quot;CC&quot;,     &quot;C&quot;:&quot;PR&quot; }</string>
-      </property>
-      <property name="openInNewWindow" stdset="0">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_4">
-      <property name="geometry">
-       <rect>
-        <x>356</x>
-        <y>222</y>
-        <width>114</width>
-        <height>33</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="whatsThis">
-       <string>
-    A QPushButton capable of opening a new Display at the same of at a
-    new window.
-
-    Parameters
-    ----------
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    filename : str, optional
-        The file to be opened
-    </string>
-      </property>
-      <property name="text">
-       <string>GC-CLCL</string>
-      </property>
-      <property name="displayFilename" stdset="0">
-       <string>../python/device_menu.py</string>
-      </property>
-      <property name="macros" stdset="0">
-       <string>{     &quot;DEVICE&quot; : &quot;VGC2&quot;,     &quot;A&quot;:&quot;CC&quot;,     &quot;B&quot;:&quot;CC&quot;,     &quot;C&quot;:&quot;PR&quot; }</string>
-      </property>
-      <property name="openInNewWindow" stdset="0">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_6">
-      <property name="geometry">
-       <rect>
-        <x>354</x>
-        <y>556</y>
-        <width>114</width>
-        <height>33</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="whatsThis">
-       <string>
-    A QPushButton capable of opening a new Display at the same of at a
-    new window.
-
-    Parameters
-    ----------
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    filename : str, optional
-        The file to be opened
-    </string>
-      </property>
-      <property name="text">
-       <string>GC-CLCL</string>
-      </property>
-      <property name="displayFilename" stdset="0">
-       <string>../python/device_menu.py</string>
-      </property>
-      <property name="macros" stdset="0">
-       <string>{     &quot;DEVICE&quot; : &quot;VGC5&quot;,     &quot;A&quot;:&quot;CC&quot;,     &quot;B&quot;:&quot;CC&quot;,     &quot;C&quot;:&quot;PR&quot; }</string>
-      </property>
-      <property name="openInNewWindow" stdset="0">
-       <bool>true</bool>
-      </property>
-     </widget>
+      <item row="0" column="0">
+       <widget class="QFrame" name="frame">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label">
+         <property name="geometry">
+          <rect>
+           <x>-40</x>
+           <y>350</y>
+           <width>1031</width>
+           <height>251</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;images/ringB2A.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_2">
+         <property name="geometry">
+          <rect>
+           <x>-40</x>
+           <y>160</y>
+           <width>1031</width>
+           <height>171</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;images/ringB1A.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
-   <item>
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
+   <item row="1" column="1">
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="maximumSize">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>250</width>
+       <height>16777215</height>
       </size>
      </property>
-    </spacer>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>226</width>
+        <height>1436</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="2" column="0">
+        <widget class="PyDMEmbeddedDisplay" name="disp_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>180</width>
+           <height>220</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="whatsThis">
+          <string>
+    A QFrame capable of rendering a PyDM Display
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+
+    </string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="PyDMEmbeddedDisplay" name="disp_5">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>180</width>
+           <height>220</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="whatsThis">
+          <string>
+    A QFrame capable of rendering a PyDM Display
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+
+    </string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="PyDMEmbeddedDisplay" name="disp_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>180</width>
+           <height>220</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="whatsThis">
+          <string>
+    A QFrame capable of rendering a PyDM Display
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+
+    </string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="PyDMEmbeddedDisplay" name="disp_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>180</width>
+           <height>220</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="whatsThis">
+          <string>
+    A QFrame capable of rendering a PyDM Display
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+
+    </string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="PyDMEmbeddedDisplay" name="disp_1">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>180</width>
+           <height>220</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="whatsThis">
+          <string>
+    A QFrame capable of rendering a PyDM Display
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+
+    </string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="PyDMEmbeddedDisplay" name="disp_6">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>180</width>
+           <height>220</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="whatsThis">
+          <string>
+    A QFrame capable of rendering a PyDM Display
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+
+    </string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Sub-sector</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="PyDMEnumComboBox" name="cb_sector">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    A QComboBox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    Signals
+    -------
+    send_value_signal : int, float, str, bool or np.ndarray
+        Emitted when the user changes the value.
+    activated : int, str
+        Emitted when the user chooses an item in the combobox.
+    currentIndexChanged : int, str
+        Emitted when the index is changed in the combobox.
+    highlighted : int, str
+        Emitted when an item in the combobox popup list is highlighted
+        by the user.
+    </string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
    </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMRelatedDisplayButton</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.related_display_button</header>
+   <class>PyDMEmbeddedDisplay</class>
+   <extends>QFrame</extends>
+   <header>pydm.widgets.embedded_display</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMEnumComboBox</class>
+   <extends>QComboBox</extends>
+   <header>pydm.widgets.enum_combo_box</header>
   </customwidget>
  </customwidgets>
  <resources>

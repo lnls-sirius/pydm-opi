@@ -1,4 +1,2 @@
-
-
-pydm --hide-nav-bar --hide-menu-bar  ui/storage_ring.ui &
+pydm --hide-menu-bar  python/main.py &
 
