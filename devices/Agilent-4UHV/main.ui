@@ -7,62 +7,62 @@
     <x>0</x>
     <y>0</y>
     <width>431</width>
-    <height>325</height>
+    <height>342</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>16</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Agilent 4UHV&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="verticalSpacer_3">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Minimum</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="PyDMRelatedDisplayButton" name="btn_device">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="whatsThis">
-        <string>
+   <item row="0" column="0" rowspan="2" colspan="2">
+    <widget class="QFrame" name="frame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Agilent 4UHV&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="0" rowspan="2" colspan="2">
+    <widget class="QFrame" name="frame_2">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="PyDMRelatedDisplayButton" name="btn_device">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="whatsThis">
+         <string>
     A QPushButton capable of opening a new Display at the same of at a
     new window.
 
@@ -74,50 +74,50 @@
     filename : str, optional
         The file to be opened
     </string>
-       </property>
-       <property name="text">
-        <string>Agilent 4UHV Ion Pump Controller ${DEVICE}</string>
-       </property>
-       <property name="displayFilename" stdset="0">
-        <string>device.ui</string>
-       </property>
-       <property name="macros" stdset="0">
-        <string>{&quot;PREFIX&quot;:&quot;${DEVICE}&quot;}</string>
-       </property>
-       <property name="openInNewWindow" stdset="0">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="verticalSpacer">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="PyDMRelatedDisplayButton" name="btn_ch1">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="whatsThis">
-        <string>
+        </property>
+        <property name="text">
+         <string>Agilent 4UHV Ion Pump Controller ${DEVICE}</string>
+        </property>
+        <property name="displayFilename" stdset="0">
+         <string>device.ui</string>
+        </property>
+        <property name="macros" stdset="0">
+         <string>{&quot;PREFIX&quot;:&quot;${DEVICE}&quot;}</string>
+        </property>
+        <property name="openInNewWindow" stdset="0">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="PyDMRelatedDisplayButton" name="btn_ch1">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="whatsThis">
+         <string>
     A QPushButton capable of opening a new Display at the same of at a
     new window.
 
@@ -129,31 +129,31 @@
     filename : str, optional
         The file to be opened
     </string>
-       </property>
-       <property name="text">
-        <string>Channel 1 ${PREFIX_C1}</string>
-       </property>
-       <property name="displayFilename" stdset="0">
-        <string>channel.ui</string>
-       </property>
-       <property name="macros" stdset="0">
-        <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C1}&quot;}</string>
-       </property>
-       <property name="openInNewWindow" stdset="0">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="PyDMRelatedDisplayButton" name="btn_ch2">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="whatsThis">
-        <string>
+        </property>
+        <property name="text">
+         <string>Channel 1 ${PREFIX_C1}</string>
+        </property>
+        <property name="displayFilename" stdset="0">
+         <string>channel.ui</string>
+        </property>
+        <property name="macros" stdset="0">
+         <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C1}&quot;}</string>
+        </property>
+        <property name="openInNewWindow" stdset="0">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="PyDMRelatedDisplayButton" name="btn_ch2">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="whatsThis">
+         <string>
     A QPushButton capable of opening a new Display at the same of at a
     new window.
 
@@ -165,31 +165,31 @@
     filename : str, optional
         The file to be opened
     </string>
-       </property>
-       <property name="text">
-        <string>Channel 2 ${PREFIX_C2}</string>
-       </property>
-       <property name="displayFilename" stdset="0">
-        <string>channel.ui</string>
-       </property>
-       <property name="macros" stdset="0">
-        <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C2}&quot;}</string>
-       </property>
-       <property name="openInNewWindow" stdset="0">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="PyDMRelatedDisplayButton" name="btn_ch3">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="whatsThis">
-        <string>
+        </property>
+        <property name="text">
+         <string>Channel 2 ${PREFIX_C2}</string>
+        </property>
+        <property name="displayFilename" stdset="0">
+         <string>channel.ui</string>
+        </property>
+        <property name="macros" stdset="0">
+         <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C2}&quot;}</string>
+        </property>
+        <property name="openInNewWindow" stdset="0">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="PyDMRelatedDisplayButton" name="btn_ch3">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="whatsThis">
+         <string>
     A QPushButton capable of opening a new Display at the same of at a
     new window.
 
@@ -201,31 +201,31 @@
     filename : str, optional
         The file to be opened
     </string>
-       </property>
-       <property name="text">
-        <string>Channel 3 ${PREFIX_C3}</string>
-       </property>
-       <property name="displayFilename" stdset="0">
-        <string>channel.ui</string>
-       </property>
-       <property name="macros" stdset="0">
-        <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C3}&quot;}</string>
-       </property>
-       <property name="openInNewWindow" stdset="0">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="PyDMRelatedDisplayButton" name="btn_ch4">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="whatsThis">
-        <string>
+        </property>
+        <property name="text">
+         <string>Channel 3 ${PREFIX_C3}</string>
+        </property>
+        <property name="displayFilename" stdset="0">
+         <string>channel.ui</string>
+        </property>
+        <property name="macros" stdset="0">
+         <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C3}&quot;}</string>
+        </property>
+        <property name="openInNewWindow" stdset="0">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="PyDMRelatedDisplayButton" name="btn_ch4">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="whatsThis">
+         <string>
     A QPushButton capable of opening a new Display at the same of at a
     new window.
 
@@ -237,41 +237,36 @@
     filename : str, optional
         The file to be opened
     </string>
-       </property>
-       <property name="text">
-        <string>Channel 4 ${PREFIX_C4}</string>
-       </property>
-       <property name="displayFilename" stdset="0">
-        <string>channel.ui</string>
-       </property>
-       <property name="macros" stdset="0">
-        <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C4}&quot;}</string>
-       </property>
-       <property name="openInNewWindow" stdset="0">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="verticalSpacer_2">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Expanding</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
+        </property>
+        <property name="text">
+         <string>Channel 4 ${PREFIX_C4}</string>
+        </property>
+        <property name="displayFilename" stdset="0">
+         <string>channel.ui</string>
+        </property>
+        <property name="macros" stdset="0">
+         <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C4}&quot;}</string>
+        </property>
+        <property name="openInNewWindow" stdset="0">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
    </item>
   </layout>
  </widget>
