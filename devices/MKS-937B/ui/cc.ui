@@ -92,6 +92,9 @@
           <property name="whatsThis">
            <string/>
           </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
+          </property>
           <property name="precisionFromPV" stdset="0">
            <bool>false</bool>
           </property>
@@ -140,6 +143,9 @@
         Emitted when an item in the combobox popup list is highlighted
         by the user.
     </string>
+          </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
           </property>
           <property name="channel" stdset="0">
            <string>ca://${DEVICE}:RelayStatusSp-${r2}</string>
@@ -191,6 +197,9 @@
         by the user.
     </string>
           </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
+          </property>
           <property name="channel" stdset="0">
            <string>ca://${DEVICE}:RelayStatusSp-${r3}</string>
           </property>
@@ -238,6 +247,9 @@
           </property>
           <property name="whatsThis">
            <string/>
+          </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -354,6 +366,9 @@
         by the user.
     </string>
           </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
+          </property>
           <property name="channel" stdset="0">
            <string>ca://${DEVICE}:RelayStatusSp-${r1}</string>
           </property>
@@ -401,6 +416,9 @@
         by the user.
     </string>
           </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
+          </property>
           <property name="channel" stdset="0">
            <string>ca://${DEVICE}:ControlChannelCTLSp-${channel}</string>
           </property>
@@ -425,6 +443,9 @@
           </property>
           <property name="whatsThis">
            <string/>
+          </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
           </property>
           <property name="precisionFromPV" stdset="0">
            <bool>false</bool>
@@ -627,6 +648,9 @@
           <property name="whatsThis">
            <string/>
           </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
+          </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
@@ -663,6 +687,9 @@
           </property>
           <property name="whatsThis">
            <string/>
+          </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -804,6 +831,9 @@
           <property name="whatsThis">
            <string/>
           </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
+          </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
@@ -841,6 +871,9 @@
           <property name="whatsThis">
            <string/>
           </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
+          </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
@@ -877,6 +910,9 @@
           </property>
           <property name="whatsThis">
            <string/>
+          </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -977,6 +1013,9 @@
           <property name="whatsThis">
            <string/>
           </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
+          </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
@@ -1023,6 +1062,9 @@
              </property>
              <property name="whatsThis">
               <string/>
+             </property>
+             <property name="autoFillBackground">
+              <bool>true</bool>
              </property>
              <property name="precisionFromPV" stdset="0">
               <bool>false</bool>
@@ -1108,6 +1150,9 @@
              </property>
              <property name="whatsThis">
               <string/>
+             </property>
+             <property name="autoFillBackground">
+              <bool>true</bool>
              </property>
              <property name="precisionFromPV" stdset="0">
               <bool>false</bool>
@@ -1349,6 +1394,9 @@
         by the user.
     </string>
           </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
+          </property>
           <property name="channel" stdset="0">
            <string>ca://${DEVICE}:RelayStatusSp-${r4}</string>
           </property>
@@ -1392,6 +1440,9 @@
           </property>
           <property name="whatsThis">
            <string/>
+          </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -1444,6 +1495,9 @@
         Emitted when an item in the combobox popup list is highlighted
         by the user.
     </string>
+          </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
           </property>
           <property name="channel" stdset="0">
            <string>ca://${DEVICE}:ControlChannelStatusSp-${channel}</string>
@@ -1498,14 +1552,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMEnumComboBox</class>
-   <extends>QComboBox</extends>
-   <header>pydm.widgets.enum_combo_box</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMLabel</class>
    <extends>QLabel</extends>
    <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMEnumComboBox</class>
+   <extends>QComboBox</extends>
+   <header>pydm.widgets.enum_combo_box</header>
   </customwidget>
   <customwidget>
    <class>PyDMLineEdit</class>
