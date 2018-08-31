@@ -7,10 +7,11 @@ from pydm.widgets import PyDMRelatedDisplayButton
 import json
 
 from consts import COLD_CATHODE, PIRANI, ARGS_HIDE_ALL, PRESSURE_PY, SETTINGS_PY, SETTINGS_UI, \
-    INFO_UI, PRESSURE_PY, DEVICE_MENU_UI
+    INFO_UI, PRESSURE_PY, DEVICE_MENU_UI, ARCHIVER_URL
 
+from PyQt5.QtGui import QDesktopServices
+from PyQt5.QtCore import QUrl
 from utils import get_abs_path
-
 from macros import get_device_macro
 
 
@@ -29,7 +30,12 @@ class DeviceMenu(Display):
         self.btnInfo.displayFilename = get_abs_path(INFO_UI)
         self.btnInfo.macros = json.dumps(get_device_macro(macros.get(
             'DEVICE'), macros.get('A'), macros.get('B'), macros.get('C')))
-
+        
+        self.btnArchiver.clicked.connect(self.open_archiver)
+         
+    def open_archiver(self):
+        QDesktopServices.openUrl(QUrl(ARCHIVER_URL))
+        
     def ui_filename(self):
         return DEVICE_MENU_UI
 

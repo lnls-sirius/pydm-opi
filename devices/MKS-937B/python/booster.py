@@ -60,8 +60,13 @@ class Booster(Display):
 
     @pyqtSlot(int)
     def change_sub_sector(self, index):
-        sub_sector_modfier = index
-        self.change_display(self.disp_1, get_dev_str(0, sub_sector_modfier)) 
+        modfier = index
+
+        self.change_display(self.disp_1, get_dev_str(0, modfier))
+        self.vg1.setText('{}{}'.format(
+            DEVICE_PREFIX, sector_devices[0 + modfier][0]))
+        self.vg1.adjustSize() 
+
             
     @pyqtSlot(str)
     def title_update(self, sub_sector):

@@ -6,41 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>333</width>
-    <height>373</height>
+    <width>327</width>
+    <height>502</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="5" column="0">
-    <widget class="PyDMRelatedDisplayButton" name="btnBooster">
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string>
-    A QPushButton capable of opening a new Display at the same of at a
-    new window.
-
-    Parameters
-    ----------
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    filename : str, optional
-        The file to be opened
-    </string>
-     </property>
-     <property name="text">
-      <string>Booster</string>
-     </property>
-     <property name="displayFilename" stdset="0">
-      <string>../python/booster.py</string>
-     </property>
-    </widget>
-   </item>
+  <layout class="QGridLayout" name="gridLayout_4">
    <item row="0" column="0">
     <widget class="QFrame" name="frame">
      <property name="frameShape">
@@ -518,34 +491,20 @@
      </layout>
     </widget>
    </item>
-   <item row="4" column="0">
-    <widget class="PyDMRelatedDisplayButton" name="btnRing">
-     <property name="toolTip">
-      <string/>
+   <item row="5" column="0">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
      </property>
-     <property name="whatsThis">
-      <string>
-    A QPushButton capable of opening a new Display at the same of at a
-    new window.
-
-    Parameters
-    ----------
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    filename : str, optional
-        The file to be opened
-    </string>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>0</height>
+      </size>
      </property>
-     <property name="text">
-      <string>Storage Ring</string>
-     </property>
-     <property name="displayFilename" stdset="0">
-      <string>../python/storage_ring.py</string>
-     </property>
-    </widget>
+    </spacer>
    </item>
-   <item row="1" column="0" colspan="2">
+   <item row="1" column="0">
     <widget class="QLabel" name="label">
      <property name="font">
       <font>
@@ -558,6 +517,224 @@
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QFrame" name="frame_2">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="PyDMRelatedDisplayButton" name="btnRing">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="whatsThis">
+         <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+        </property>
+        <property name="text">
+         <string>Storage Ring</string>
+        </property>
+        <property name="displayFilename" stdset="0">
+         <string>../python/storage_ring.py</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="PyDMRelatedDisplayButton" name="btnBooster">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="whatsThis">
+         <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+        </property>
+        <property name="text">
+         <string>Booster</string>
+        </property>
+        <property name="displayFilename" stdset="0">
+         <string>../python/booster.py</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="PyDMRelatedDisplayButton" name="btnLtb">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="whatsThis">
+         <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+        </property>
+        <property name="text">
+         <string>LTB</string>
+        </property>
+        <property name="displayFilename" stdset="0">
+         <string>../python/ltb.py</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="PyDMRelatedDisplayButton" name="btnBts">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="whatsThis">
+         <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+        </property>
+        <property name="text">
+         <string>BTS</string>
+        </property>
+        <property name="displayFilename" stdset="0">
+         <string>../python/bts.py</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="PyDMPushButton" name="btnIocReboot">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="whatsThis">
+         <string>
+    Basic PushButton to send a fixed value.
+
+    The PyDMPushButton is meant to hold a specific value, and send that value
+    to a channel when it is clicked, much like the MessageButton does in EDM.
+    The PyDMPushButton works in two different modes of operation, first, a
+    fixed value can be given to the :attr:`.pressValue` attribute, whenever the
+    button is clicked a signal containing this value will be sent to the
+    connected channel. This is the default behavior of the button. However, if
+    the :attr:`.relativeChange` is set to True, the fixed value will be added
+    to the current value of the channel. This means that the button will
+    increment a channel by a fixed amount with every click, a consistent
+    relative move
+
+    Parameters
+    ----------
+    parent : QObject, optional
+        Parent of PyDMPushButton
+
+    label : str, optional
+        String to place on button
+
+    icon : QIcon, optional
+        An Icon to display on the PyDMPushButton
+
+    pressValue : int, float, str
+        Value to be sent when the button is clicked
+
+    relative : bool, optional
+        Choice to have the button perform a relative put, instead of always
+        setting to an absolute value
+
+    init_channel : str, optional
+        ID of channel to manipulate
+
+    </string>
+        </property>
+        <property name="text">
+         <string>Ioc Reboot</string>
+        </property>
+        <property name="showConfirmDialog" stdset="0">
+         <bool>true</bool>
+        </property>
+        <property name="confirmMessage" stdset="0">
+         <string>Are you sure you want to reboot the ioc?</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lbl_reboot">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="PyDMRelatedDisplayButton" name="btnIocMan">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="whatsThis">
+         <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+        </property>
+        <property name="text">
+         <string>Reboot Config</string>
+        </property>
+        <property name="displayFilename" stdset="0">
+         <string>../python/iocMan.py</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item row="2" column="0">
@@ -576,76 +753,14 @@
      </property>
     </spacer>
    </item>
-   <item row="6" column="0">
-    <widget class="PyDMRelatedDisplayButton" name="btnLtb">
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string>
-    A QPushButton capable of opening a new Display at the same of at a
-    new window.
-
-    Parameters
-    ----------
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    filename : str, optional
-        The file to be opened
-    </string>
-     </property>
-     <property name="text">
-      <string>LTB</string>
-     </property>
-     <property name="displayFilename" stdset="0">
-      <string>../python/ltb.py</string>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="0">
-    <widget class="PyDMRelatedDisplayButton" name="btnBts">
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string>
-    A QPushButton capable of opening a new Display at the same of at a
-    new window.
-
-    Parameters
-    ----------
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    filename : str, optional
-        The file to be opened
-    </string>
-     </property>
-     <property name="text">
-      <string>BTS</string>
-     </property>
-     <property name="displayFilename" stdset="0">
-      <string>../python/bts.py</string>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="0">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>0</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>PyDMPushButton</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.pushbutton</header>
+  </customwidget>
   <customwidget>
    <class>PyDMRelatedDisplayButton</class>
    <extends>QPushButton</extends>

@@ -5,6 +5,17 @@ COLD_CATHODE = 'CC'
 PIRANI = 'PR'
 NONE  = 'None'
 
+# IOC_DIR = 
+
+IOC_FILENAME = '/opt/stream-ioc/' + 'mks937_min.cmd'
+ARCHIVER_URL = 'https://10.0.6.57/mgmt/ui/index.html'
+# def getIocFileName():
+#     return IOC_FILENAME
+# def setIocFilename(iocFileName):
+#     global IOC_FILENAME
+
+# setIocFilename('/opt/stream-ioc/' + 'mks937_min.cmd')
+
 DEVICE_PREFIX = "VGC"
 ARGS_HIDE_ALL =  ['--hide-nav-bar', '--hide-menu-bar', '--hide-status-bar']
 
@@ -46,6 +57,8 @@ INFO_UI = '../ui/info.ui'
 DEVICE_MENU_PY = 'device_menu.py'
 DEVICE_MENU_UI = '../ui/device_menu.ui'
 
+IOC_MAN_PY = 'ioc_man.py'
+IOC_MAN_UI = '../ui/ioc_man.ui'
 
 ring_sub_sectors = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
 ring_sector_devices = [

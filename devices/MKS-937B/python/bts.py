@@ -61,10 +61,17 @@ class Bts(Display):
 
     @pyqtSlot(int)
     def change_sub_sector(self, index):
-        sub_sector_modfier = index * 2
-        self.change_display(self.disp_1, get_dev_str(0, sub_sector_modfier))
-        self.change_display(self.disp_2, get_dev_str(1, sub_sector_modfier))
-            
+        modfier = index * 2 
+        self.change_display(self.disp_1, get_dev_str(0, modfier))
+        self.vg1.setText('{}{}'.format(
+            DEVICE_PREFIX, sector_devices[0 + modfier][0]))
+        self.vg1.adjustSize() 
+
+        self.change_display(self.disp_2, get_dev_str(1, modfier))
+        self.vg2.setText('{}{}'.format(
+            DEVICE_PREFIX, sector_devices[1 + modfier][0]))
+        self.vg2.adjustSize() 
+        
     @pyqtSlot(str)
     def title_update(self, sub_sector):
         self.lbl_title.setText("BTS\t{}".format(sub_sector))

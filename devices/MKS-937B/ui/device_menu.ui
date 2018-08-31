@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>316</width>
-    <height>250</height>
+    <height>242</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -112,36 +112,50 @@
        </widget>
       </item>
       <item>
-       <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton">
+       <widget class="PyDMPushButton" name="btnArchiver">
         <property name="toolTip">
          <string/>
         </property>
         <property name="whatsThis">
          <string>
-    A QPushButton capable of opening a new Display at the same of at a
-    new window.
+    Basic PushButton to send a fixed value.
+
+    The PyDMPushButton is meant to hold a specific value, and send that value
+    to a channel when it is clicked, much like the MessageButton does in EDM.
+    The PyDMPushButton works in two different modes of operation, first, a
+    fixed value can be given to the :attr:`.pressValue` attribute, whenever the
+    button is clicked a signal containing this value will be sent to the
+    connected channel. This is the default behavior of the button. However, if
+    the :attr:`.relativeChange` is set to True, the fixed value will be added
+    to the current value of the channel. This means that the button will
+    increment a channel by a fixed amount with every click, a consistent
+    relative move
 
     Parameters
     ----------
-    init_channel : str, optional
-        The channel to be used by the widget.
+    parent : QObject, optional
+        Parent of PyDMPushButton
 
-    filename : str, optional
-        The file to be opened
+    label : str, optional
+        String to place on button
+
+    icon : QIcon, optional
+        An Icon to display on the PyDMPushButton
+
+    pressValue : int, float, str
+        Value to be sent when the button is clicked
+
+    relative : bool, optional
+        Choice to have the button perform a relative put, instead of always
+        setting to an absolute value
+
+    init_channel : str, optional
+        ID of channel to manipulate
+
     </string>
         </property>
         <property name="text">
          <string>Archiver</string>
-        </property>
-        <property name="openInNewWindow" stdset="0">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="Line" name="line">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
@@ -208,6 +222,11 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>PyDMPushButton</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.pushbutton</header>
+  </customwidget>
   <customwidget>
    <class>PyDMRelatedDisplayButton</class>
    <extends>QPushButton</extends>

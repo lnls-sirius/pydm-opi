@@ -65,6 +65,46 @@
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;images/btts.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
+        <widget class="QLabel" name="vg1">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>250</y>
+           <width>58</width>
+           <height>18</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>CC + PR</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="vg2">
+         <property name="geometry">
+          <rect>
+           <x>730</x>
+           <y>90</y>
+           <width>58</width>
+           <height>18</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>CC + PR</string>
+         </property>
+        </widget>
        </widget>
       </item>
      </layout>
@@ -221,7 +261,7 @@
      </widget>
     </widget>
    </item>
-   <item row="0" column="0" colspan="3">
+   <item row="0" column="1" colspan="2">
     <widget class="QFrame" name="frame_2">
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
