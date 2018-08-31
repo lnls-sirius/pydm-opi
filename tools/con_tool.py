@@ -2,6 +2,14 @@
 from pydm.tools import ExternalTool
 from pydm.utilities.iconfont import IconFont
 
+from os import path
+
+def get_abs_path(relative):
+    """
+    relative = relative path with base at python/
+    """
+    return path.join(path.dirname(path.realpath(__file__)), relative)
+
 
 class ArchiverApplianceTool(ExternalTool):
 
@@ -13,7 +21,7 @@ class ArchiverApplianceTool(ExternalTool):
         ExternalTool.__init__(self, icon=icon, name=name, group=group, use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
-        sender.window().new_window('../../../tools/archiver.py', macros={'url': 'https://10.0.6.57:11995/mgmt/ui/index.html'})
+        sender.window().new_window(get_abs_path('archiver.py'), macros={'url': 'https://10.0.6.57:11995/mgmt/ui/index.html'})
 
     def to_json(self):
         return ""
@@ -37,7 +45,7 @@ class ArchiverViwerTool(ExternalTool):
         ExternalTool.__init__(self, icon=icon, name=name, group=group, use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
-        sender.window().new_window('../../../tools/archiver.py',
+        sender.window().new_window(get_abs_path('archiver.py'),
                                    macros={'url': 'http://10.0.6.57:11998/retrieval/ui/archiver-viewer/index.html'})
 
     def to_json(self):
@@ -62,7 +70,7 @@ class BeableboneTool(ExternalTool):
         ExternalTool.__init__(self, icon=icon, name=name, group=group, use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
-        sender.window().new_window('../../../tools/bbb.ui', macros={})
+        sender.window().new_window(get_abs_path('bbb.ui'), macros={})
 
     def to_json(self):
         return ""
