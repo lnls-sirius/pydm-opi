@@ -1,20 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import os
+import platform
+
+IS_LINUX =  (os.name == 'posix' or platform.system() == 'Linux')
 
 COLD_CATHODE = 'CC'
 PIRANI = 'PR'
-NONE  = 'None'
-
-# IOC_DIR = 
+NONE  = 'None' 
 
 IOC_FILENAME = '/opt/stream-ioc/' + 'mks937_min.cmd'
-ARCHIVER_URL = 'https://10.0.6.57/mgmt/ui/index.html'
-# def getIocFileName():
-#     return IOC_FILENAME
-# def setIocFilename(iocFileName):
-#     global IOC_FILENAME
-
-# setIocFilename('/opt/stream-ioc/' + 'mks937_min.cmd')
+ARCHIVER_URL = 'https://10.0.6.57/mgmt/ui/index.html' 
 
 DEVICE_PREFIX = "VGC"
 ARGS_HIDE_ALL =  ['--hide-nav-bar', '--hide-menu-bar', '--hide-status-bar']
@@ -46,7 +42,10 @@ PR_UI = '../ui/pirani.ui'
 PR_PY = 'pirani.py'
 
 PRESSURE_PY = 'pressure.py'
-PRESSURE_UI = '../ui/pressure.ui'
+if IS_LINUX:
+    PRESSURE_UI = '../ui/pressure.ui'
+else:
+    PRESSURE_UI = '../ui/pressure_win.ui'
 
 SETTINGS_PY = 'settings.py'
 SETTINGS_UI = '../ui/settings.ui'
