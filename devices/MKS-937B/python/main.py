@@ -1,14 +1,15 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 from pydm import Display
 from os import path
 
+from PyQt5.QtCore import QTimer
+from PyQt5.QtWidgets import QMessageBox
+
 from utils import get_abs_path
 from consts import MAIN_UI, STORAGE_RING_PY, BOOSTER_PY, BTS_PY, LTB_PY, IOC_MAN_PY
 from pydm.utilities import IconFont
-from PyQt5.QtCore import QTimer
-from PyQt5.QtWidgets import QMessageBox
 
 from ioc import kill_ioc
 
