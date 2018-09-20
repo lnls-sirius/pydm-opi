@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import json
 from os import path
 from pydm import Display
 from pydm.widgets import related_display_button, PyDMEmbeddedDisplay
 
-import json
-
 from PyQt5.QtWidgets import QComboBox
-from PyQt5.QtCore import pyqtSlot,Qt
+from PyQt5.QtCore import pyqtSlot, Qt
 
-from macros import get_device_macro 
+from macros import get_device_macro
 
 from consts import DEVICE_PREFIX, LTB_UI, NONE_UI, DEVICE_PREVIEW_PY
 from consts import ltb_sub_sectors as sub_sectors, ltb_sector_devices as sector_devices

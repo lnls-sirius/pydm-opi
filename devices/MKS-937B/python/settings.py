@@ -36,6 +36,10 @@ class Settings(Display):
                 self.pdispC.macros = json.dumps(get_macro_pr(macros.get('DEVICE'), 'C'))
                 self.pdispC.filename =  get_abs_path(PR_UI)
 
+        self.pdispA.setAutoFillBackground(False)
+        self.pdispB.setAutoFillBackground(False)
+        self.pdispC.setAutoFillBackground(False)
+
     def ui_filename(self):
         return SETTINGS_UI
 

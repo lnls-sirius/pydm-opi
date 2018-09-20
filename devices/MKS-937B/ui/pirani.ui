@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>716</width>
-    <height>366</height>
+    <width>739</width>
+    <height>442</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="5" column="0">
@@ -113,7 +116,7 @@
          <string/>
         </property>
         <property name="autoFillBackground">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -215,7 +218,7 @@
          <string/>
         </property>
         <property name="autoFillBackground">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -420,7 +423,7 @@
     </string>
         </property>
         <property name="autoFillBackground">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="channel" stdset="0">
          <string>ca://${DEVICE}:RelayDirectionSp-${r3}</string>
@@ -470,7 +473,7 @@
     </string>
         </property>
         <property name="autoFillBackground">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="channel" stdset="0">
          <string>ca://${DEVICE}:RelayStatusSp-${r4}</string>
@@ -513,7 +516,7 @@
     </string>
         </property>
         <property name="autoFillBackground">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="channel" stdset="0">
          <string>ca://${DEVICE}:RelayDirectionSp-${r4}</string>
@@ -585,7 +588,7 @@
     </string>
         </property>
         <property name="autoFillBackground">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="channel" stdset="0">
          <string>ca://${DEVICE}:RelayStatusSp-${r3}</string>
@@ -672,7 +675,7 @@
     </string>
         </property>
         <property name="autoFillBackground">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="channel" stdset="0">
          <string>ca://${DEVICE}:RelayStatusSp-${r2}</string>
@@ -734,7 +737,7 @@
     </string>
         </property>
         <property name="autoFillBackground">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="channel" stdset="0">
          <string>ca://${DEVICE}:RelayDirectionSp-${r2}</string>
@@ -821,7 +824,7 @@
          <string/>
         </property>
         <property name="autoFillBackground">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -971,7 +974,7 @@
     </string>
         </property>
         <property name="autoFillBackground">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="channel" stdset="0">
          <string>ca://${DEVICE}:RelayStatusSp-${r1}</string>
@@ -1014,7 +1017,7 @@
     </string>
         </property>
         <property name="autoFillBackground">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="channel" stdset="0">
          <string>ca://${DEVICE}:RelayDirectionSp-${r1}</string>
@@ -1086,7 +1089,7 @@
          <string/>
         </property>
         <property name="autoFillBackground">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>

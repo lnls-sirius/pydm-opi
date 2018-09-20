@@ -3,20 +3,22 @@
 import os
 import platform
 
-IS_LINUX =  (os.name == 'posix' or platform.system() == 'Linux')
+IS_LINUX = (os.name == 'posix' or platform.system() == 'Linux')
 
 COLD_CATHODE = 'CC'
 PIRANI = 'PR'
-NONE  = 'None' 
+NONE = 'None'
 
 IOC_FILENAME = '/opt/stream-ioc/' + 'mks937_min.cmd'
 ARCHIVER_URL = 'https://10.0.6.57/mgmt/ui/index.html' 
 
 DEVICE_PREFIX = "VGC"
-ARGS_HIDE_ALL =  ['--hide-nav-bar', '--hide-menu-bar', '--hide-status-bar']
-
+ARGS_HIDE_ALL = ['--hide-nav-bar', '--hide-menu-bar', '--hide-status-bar']
 
 MAIN_UI = '../ui/main.ui'
+
+TABLE_PY = 'table.py'
+TABLE_UI = '../ui/table.ui'
 
 STORAGE_RING_PY = 'storage_ring.py'
 STORAGE_RING_UI = '../ui/storage_ring.ui'
@@ -36,7 +38,7 @@ DEVICE_PREVIEW_PY = 'device_preview.py'
 DEVICE_PREVIEW_UI = '../ui/device_preview.ui'
 
 CC_UI = '../ui/cc.ui' 
-CC_PY = 'cc.py' 
+CC_PY = 'cc.py'
 
 PR_UI = '../ui/pirani.ui'
 PR_PY = 'pirani.py'

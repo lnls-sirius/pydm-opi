@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>327</width>
-    <height>502</height>
+    <width>394</width>
+    <height>614</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -529,6 +529,40 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
+       <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="whatsThis">
+         <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+        </property>
+        <property name="text">
+         <string>Overview</string>
+        </property>
+        <property name="displayFilename" stdset="0">
+         <string>../python/table.py</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="Line" name="line_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="PyDMRelatedDisplayButton" name="btnRing">
         <property name="toolTip">
          <string/>
@@ -645,6 +679,9 @@
       </item>
       <item>
        <widget class="PyDMPushButton" name="btnIocReboot">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="toolTip">
          <string/>
         </property>
@@ -709,6 +746,9 @@
       </item>
       <item>
        <widget class="PyDMRelatedDisplayButton" name="btnIocMan">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="toolTip">
          <string/>
         </property>

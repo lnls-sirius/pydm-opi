@@ -8,7 +8,7 @@ from PyQt5.QtCore import QTimer
 from PyQt5.QtWidgets import QMessageBox
 
 from utils import get_abs_path
-from consts import MAIN_UI, STORAGE_RING_PY, BOOSTER_PY, BTS_PY, LTB_PY, IOC_MAN_PY
+from consts import MAIN_UI, STORAGE_RING_PY, BOOSTER_PY, BTS_PY, LTB_PY, IOC_MAN_PY, DEVICE_PREFIX
 from pydm.utilities import IconFont
 
 from ioc import kill_ioc
@@ -31,9 +31,11 @@ class Main(Display):
         
         self.btnIocMan.displayFilename = get_abs_path(get_abs_path(IOC_MAN_PY)) 
         self.btnIocMan.setIcon(IconFont().icon('arrow-right'))
-        
         self.btnIocReboot.clicked.connect(self.reboot_ioc)
         self.btnIocReboot.setIcon(IconFont().icon('arrow-right'))
+        
+        self.btnIocMan.hide()
+        self.btnIocReboot.hide()
     
     def clear_text(self):
         self.lbl_reboot.setText('')
