@@ -1,1 +1,2 @@
-pydm --hide-nav-bar --hide-menu-bar  --hide-status-bar -m '{"DEVICE":"DEVICE:PREFIX", "PREFIX_C1":"CHANNEL1:PREFIX", "PREFIX_C2":"CHANNEL2:PREFIX", "PREFIX_C3":"CHANNEL3:PREFIX", "PREFIX_C4":"CHANNEL4:PREFIX"}'  main.ui 
+export EPICS_CA_SERVER_PORT=5072
+pydm --hide-nav-bar --hide-menu-bar  --hide-status-bar -m '{"DEVICE":"Ag", "PREFIX_C1":"Ag:Ch1", "PREFIX_C2":"Ag:Ch2", "PREFIX_C3":"Ag:Ch3", "PREFIX_C4":"Ag:Ch4"}'  main.ui 
