@@ -16,7 +16,6 @@ Currently the project is structured as:
 │   ├── agilent4uhv
 │   ├── mks937b
 │   └── tools
-├── tools
 └── ui
     ├── agilent4uhv
     ├── mks937b
