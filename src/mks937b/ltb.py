@@ -15,7 +15,6 @@ from src.mks937b.consts import ltb_sub_sectors as sub_sectors, ltb_sector_device
 
 from src.paths import get_abs_path,  LTB_UI, NONE_UI, DEVICE_PREVIEW
 
-
 def get_dev_str(num, modfier):
     return json.dumps(get_device_macro(
         device='{}{}'.format(DEVICE_PREFIX, sector_devices[num + modfier][0]),
@@ -23,7 +22,6 @@ def get_dev_str(num, modfier):
         b=sector_devices[num + modfier][2],
         c=sector_devices[num + modfier][3]
     ))
-
 
 class StorageRing(Display):
     def __init__(self, parent=None, args=[], macros=None):

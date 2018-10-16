@@ -15,9 +15,7 @@ class Worker(QObject):
     def __init__(self, parent=None):
         super(Worker, self).__init__(parent)
 
-
 worker = None
-
 
 def go__():
     global worker
@@ -27,11 +25,9 @@ def go__():
         event.wait(1)
         worker.parse_triggered.emit()
 
-
 t = Thread(target=go__)
 t.setDaemon(True)
 t.start()
-
 
 def get_process():
     list = []
@@ -46,10 +42,8 @@ def get_process():
                 list.append(json.dumps(pinfo))
     return list
 
-
 def on_terminate(proc):
     print("process {} terminated with exit code {}".format(proc, proc.returncode))
-
 
 def kill_ioc(include_parent=True, callback=on_terminate):
     log = ''

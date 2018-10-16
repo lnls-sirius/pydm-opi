@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>547</width>
-    <height>396</height>
+    <height>390</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -463,6 +463,9 @@
         <property name="channel" stdset="0">
          <string>ca://${PREFIX}:Pressure-Mon</string>
         </property>
+        <property name="displayFormat" stdset="0">
+         <enum>PyDMLabel::Exponential</enum>
+        </property>
        </widget>
       </item>
       <item row="8" column="0">
@@ -485,6 +488,9 @@
         </property>
         <property name="channel" stdset="0">
          <string>ca://${PREFIX}:Current-Mon</string>
+        </property>
+        <property name="displayFormat" stdset="0">
+         <enum>PyDMLabel::Exponential</enum>
         </property>
        </widget>
       </item>
@@ -570,7 +576,7 @@
          <string>ca://${PREFIX}:Setpoint-SP</string>
         </property>
         <property name="displayFormat" stdset="0">
-         <enum>PyDMLineEdit::Default</enum>
+         <enum>PyDMLineEdit::Exponential</enum>
         </property>
        </widget>
       </item>
