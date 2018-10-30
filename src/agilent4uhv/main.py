@@ -9,19 +9,20 @@ from os import path
 from pydm import Display, PyDMApplication
 from pydm.utilities import IconFont
 from pydm.widgets import PyDMRelatedDisplayButton, PyDMEmbeddedDisplay, PyDMLabel, PyDMByteIndicator
-from PyQt5.QtWidgets import QComboBox, QLabel, QTableWidgetItem, QWidget, QHBoxLayout
+
+from PyQt5.QtWidgets import QComboBox, QLabel, QTableWidgetItem, QWidget, QHBoxLayout, QStyleFactory
 from PyQt5.QtCore import pyqtSlot, Qt, QThread, QObject, pyqtSignal
+from PyQt5.QtGui import QColor
 
 from src.agilent4uhv.consts import ring_sector_devices, booster_sector_devices, bts_sector_devices, ltb_sector_devices
 from src.paths import get_abs_path, AGILENT_MAIN_UI, AGILENT_DEVICE_MAIN_UI
 
-ALARM, CURRENT, PRESSURE, VOLTAGE, TEMPERATURE, DEVICE_NAME = range(6)
+ALARM, CURRENT, PRESSURE, VOLTAGE, TEMPERATURE, DEVICE_NAME, CH_CONFIG, AUTOSTART = range(8)
 BOOSTER, RING, BTS, LTB = range(4)
 
 EXECUTOR = ThreadPoolExecutor(max_workers=4)
 
- 
-def get_label(parent, content, tooltip, displayFormat=PyDMLabel.DisplayFormat.Default):
+def get_label(parent, content, tooltip, displayFormat=PyDMLabel.DisplayFormat.Default): 
     lbl = PyDMLabel(parent=parent, init_channel=content)
     lbl.precisionFromPV = False
     lbl.precision = 4
@@ -32,6 +33,8 @@ def get_label(parent, content, tooltip, displayFormat=PyDMLabel.DisplayFormat.De
 
 def get_byte_indicator(parent, content, tooltip, LSB=True):
     byte = PyDMByteIndicator(parent, content)
+    byte.offColor = QColor(59, 0, 0)
+    byte.onColor = QColor(255, 0, 0)
     byte.showLabels = False
     byte.orientation = Qt.Horizontal
     if LSB:
@@ -46,7 +49,7 @@ class TableDataController(QObject):
 
     update_content = pyqtSignal()
 
-    TABLE_BATCH = 20
+    TABLE_BATCH = 24
     FILTER_PATTERN = None
 
     def __init__(self, table, table_type):
@@ -66,8 +69,8 @@ class TableDataController(QObject):
         elif table_type == LTB:
             self.devices = ltb_sector_devices
 
-        if len(self.devices) < self.TABLE_BATCH:
-            self.TABLE_BATCH = len(self.devices)
+        if len(self.devices) * 4 < self.TABLE_BATCH:
+            self.TABLE_BATCH = len(self.devices) * 4
             
         self.init_table()
         self.update_content.connect(self.update_table_content)
@@ -76,21 +79,31 @@ class TableDataController(QObject):
 
     def init_table(self):
         self.table.setRowCount(self.TABLE_BATCH)
-        self.table.setColumnCount(10)
-        self.table.setHorizontalHeaderLabels(
-            [
+        self.horizontalHeaderLabels = [
                 'Channel Name',             # 0
                 'Device Name',              # 1
                 'Unit',                     # 2
+                'Fan Temperature',          # 3
+                'Autostart',                # 4
 
-                'Pressure',                 # 3
-                'Voltage',                  # 4
-                'Current',                  # 5
-                'Temperature',              # 6
-                'Error Code Mon LSB',       # 7
-                'Error Code Mon MSB',       # 8
+                'Pressure',                 # 5
+                'Voltage',                  # 6
+                'Current',                  # 7
+                'Temperature',              # 8
+                'Error Code Mon LSB',       # 9
+                'Error Code Mon MSB',       # 10
 
-                'Details'])                 # 9
+                'HV State',                 # 11
+                'Power Max',                # 12
+                'V Target',                 # 13
+                'I Protect',                # 14
+                'Setpoint',                 # 15
+                
+
+                'Details']
+
+        self.table.setColumnCount(len(self.horizontalHeaderLabels))
+        self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
                 
         for actual_row in range(self.TABLE_BATCH):
                 # Channel Name
@@ -99,37 +112,59 @@ class TableDataController(QObject):
                 self.table.setCellWidget(actual_row, 1, QLabel(''))
                 # Device Unit
                 self.table.setCellWidget(actual_row, 2, get_label(self.table, '', ''))
-                # Pressure
-                self.table.setCellWidget(actual_row, 3, get_label(self.table, '', '', PyDMLabel.DisplayFormat.Exponential))
-                # Voltage
+                # Fan Temperature
+                self.table.setCellWidget(actual_row, 3, get_label(self.table, '', ''))
+                # Autostart
                 self.table.setCellWidget(actual_row, 4, get_label(self.table, '', ''))
+
+                # Pressure
+                self.table.setCellWidget(actual_row, 5, get_label(self.table, '', '', PyDMLabel.DisplayFormat.Exponential))
+                # Voltage
+                self.table.setCellWidget(actual_row, 6, get_label(self.table, '', ''))
                 # Current
-                self.table.setCellWidget(actual_row, 5, get_label(self.table,'', '', PyDMLabel.DisplayFormat.Exponential))
+                self.table.setCellWidget(actual_row, 7, get_label(self.table,'', '', PyDMLabel.DisplayFormat.Exponential))
                 # Temperature
-                self.table.setCellWidget(actual_row, 6, get_label(self.table, '', '',))
+                self.table.setCellWidget(actual_row, 8, get_label(self.table, '', '',))
                 # LSB
-                self.table.setCellWidget(actual_row, 7, get_byte_indicator(self.table, '', ''))
+                self.table.setCellWidget(actual_row, 9, get_byte_indicator(self.table, '', ''))
                 # MSB
-                self.table.setCellWidget(actual_row, 8, get_byte_indicator(self.table, '', '', LSB=False))
+                self.table.setCellWidget(actual_row, 10, get_byte_indicator(self.table, '', '', LSB=False))
                 rel = PyDMRelatedDisplayButton(self.table, get_abs_path(AGILENT_DEVICE_MAIN_UI))
                 rel.openInNewWindow = True
+
+                # HV State
+                self.table.setCellWidget(actual_row, 11, get_label(self.table, '', '',))
+                # Power Max
+                self.table.setCellWidget(actual_row, 12, get_label(self.table, '', '',))
+                # V Target
+                self.table.setCellWidget(actual_row, 13, get_label(self.table, '', '',))
+                # I Protect
+                self.table.setCellWidget(actual_row, 14, get_label(self.table, '', '',))
+                # Setpoint
+                self.table.setCellWidget(actual_row, 15, get_label(self.table, '', '',))
+                
                 # Details
-                self.table.setCellWidget(actual_row, 9, rel)
+                self.table.setCellWidget(actual_row, 16, rel)
 
     def showHideColumn(self, _type, HIDE):
         if _type == ALARM:
-            self.table.setColumnHidden(7, HIDE)
-            self.table.setColumnHidden(8, HIDE)
+            self.table.setColumnHidden(9, HIDE)
+            self.table.setColumnHidden(10, HIDE)
         elif _type == CURRENT:
-            self.table.setColumnHidden(5, HIDE)
+            self.table.setColumnHidden(7, HIDE)
         elif _type == PRESSURE:
-            self.table.setColumnHidden(3, HIDE)
+            self.table.setColumnHidden(5, HIDE)
         elif _type == VOLTAGE:
-            self.table.setColumnHidden(4, HIDE)
-        elif _type == TEMPERATURE:
             self.table.setColumnHidden(6, HIDE)
+        elif _type == TEMPERATURE:
+            self.table.setColumnHidden(8, HIDE)
         elif _type == DEVICE_NAME:
             self.table.setColumnHidden(1, HIDE)
+        elif _type == AUTOSTART:
+            self.table.setColumnHidden(4, HIDE)
+        elif _type == CH_CONFIG:
+            for index in range(11,16):
+                self.table.setColumnHidden(index, HIDE)
 
     def filter(self, pattern):
         if not pattern:
@@ -166,11 +201,7 @@ class TableDataController(QObject):
 
         # Maximum Allowed
         if self.batch_offset >= total_rows:
-            return
-
-        # Clear table
-        # self.app.close_widget_connections(self.table)
-        # self.table.clearContents()
+            return 
 
         # Adding New Content
         actual_row = 0
@@ -183,33 +214,59 @@ class TableDataController(QObject):
             if render and dataset_row >= self.batch_offset and actual_row != self.TABLE_BATCH:               
                 self.table.setRowHidden(actual_row, False)
 
-                # Channel Name
-                self.table.cellWidget(actual_row, 0).setText(device[devNum])
-                # Device Name
-                self.table.cellWidget(actual_row, 1).setText(device[0])
-                # Device Unit
-                device_name = 'ca://' + device[0]
-                self.connect_widget(actual_row, 2, device_name + ':Unit-RB')
-                device_name = 'ca://' + device[1]
-                # Pressure
-                self.connect_widget(actual_row, 3, device_name + ':Pressure-Mon')
-                # Voltage
-                self.connect_widget(actual_row, 4, device_name + ':Voltage-Mon')
-                # Current
-                self.connect_widget(actual_row, 5, device_name + ':Current-Mon')
-                # Temperature
-                self.connect_widget(actual_row, 6, device_name + ':HVTemperature-Mon')
-                # LSB
-                self.connect_widget(actual_row, 7, device_name + ':ErrorCode-Mon')
-                # MSB
-                self.connect_widget(actual_row, 8, device_name + ':ErrorCode-Mon')
-                # Details
+                # Channel Access
+                device_ca = 'ca://' + device[0]
+                channel_ca = 'ca://' + device[devNum]
+                
+                # Datails Button Macro
                 macros = '{"DEVICE":"' + device[0] + \
                     '", "PREFIX_C1":"' + device[1] + \
                     '", "PREFIX_C2":"' + device[2] + \
                     '", "PREFIX_C3":"' + device[3] + \
                     '", "PREFIX_C4":"' + device[4] + '"}'
-                self.connect_widget(actual_row, 9, None, macros)
+                
+                # EXECUTOR.submit(lambda row=actual_row, dev_name=device[0], ch_name=device[devNum], dev_ca=device_ca, ch_ca=channel_ca, macro=macros:\
+                #                         self.connect_row(row, dev_name, ch_name, dev_ca, ch_ca, macro))
+                
+                # Channel Name
+                self.table.cellWidget(actual_row, 0).setText(device[devNum])
+                # Device Name
+                self.table.cellWidget(actual_row, 1).setText(device[0])
+                # Device Unit
+                self.connect_widget(actual_row, 2, device_ca + ':Unit-RB')
+                # Fan Temperature
+                self.connect_widget(actual_row, 3, device_ca + ':FanTemperature-Mon')
+                # Mode-RB
+                self.connect_widget(actual_row, 4, device_ca + ':Mode-RB')
+
+
+                # Pressure
+                self.connect_widget(actual_row, 5,  channel_ca + ':Pressure-Mon')
+                # Voltage
+                self.connect_widget(actual_row, 6, channel_ca + ':Voltage-Mon')
+                # Current
+                self.connect_widget(actual_row, 7, channel_ca + ':Current-Mon')
+                # Temperature
+                self.connect_widget(actual_row, 8, channel_ca + ':HVTemperature-Mon')
+                # LSB
+                self.connect_widget(actual_row, 9, channel_ca + ':ErrorCode-Mon')
+                # MSB
+                self.connect_widget(actual_row, 10, channel_ca + ':ErrorCode-Mon')
+                
+                # HVState-RB
+                self.connect_widget(actual_row, 11, channel_ca + ':HVState-RB')
+                # PowerMax-RB
+                self.connect_widget(actual_row, 12, channel_ca + ':PowerMax-RB')
+                # VoltageTarget-RB
+                self.connect_widget(actual_row, 13, channel_ca + ':VoltageTarget-RB')
+                # CurrentProtect-RB
+                self.connect_widget(actual_row, 14, channel_ca + ':CurrentProtect-RB')
+                # Setpoint-RB
+                self.connect_widget(actual_row, 15, channel_ca + ':Setpoint-RB')
+
+
+                # Details
+                self.connect_widget(actual_row, 16, None, macros)
 
                 actual_row += 1
             dataset_row += 1
@@ -217,19 +274,38 @@ class TableDataController(QObject):
             if actual_row != self.TABLE_BATCH:
                 for row in range(actual_row, self.TABLE_BATCH):
                     self.table.setRowHidden(row, True)
-                
-            # New connections ...
-            # self.app.establish_widget_connections(self.table)
 
+    def connect_row(self, row, dev_name, ch_name, dev_ca, ch_ca, macro):
+        # Channel Name
+        self.table.cellWidget(row, 0).setText(ch_name)
+        # Device Name
+        self.table.cellWidget(row, 1).setText(dev_name)
+        # Device Unit
+        self.connect_widget(row, 2, dev_ca + ':Unit-RB')
+        # Pressure
+        self.connect_widget(row, 3,  ch_ca + ':Pressure-Mon')
+        # Voltage
+        self.connect_widget(row, 4, ch_ca + ':Voltage-Mon')
+        # Current
+        self.connect_widget(row, 5, ch_ca + ':Current-Mon')
+        # Temperature
+        self.connect_widget(row, 6, ch_ca + ':HVTemperature-Mon')
+        # LSB
+        self.connect_widget(row, 7, ch_ca + ':ErrorCode-Mon')
+        # MSB
+        self.connect_widget(row, 8, ch_ca + ':ErrorCode-Mon')
+        # Details
+        self.connect_widget(row, 9, None, macro)
+        
     def connect_widget(self, row, col, channel_name, macros=None):
         widget = self.table.cellWidget(row, col)
-        if widget:
-            PyDMApplication.instance().close_widget_connections(widget)
-            if channel_name:
-                widget.channel = channel_name
-            if macros:
-                widget.macros = macros
-            PyDMApplication.instance().establish_widget_connections(widget)
+        PyDMApplication.instance().close_widget_connections(widget)
+        if channel_name:
+            widget.channel = channel_name
+        if macros:
+            widget.macros = macros
+        PyDMApplication.instance().establish_widget_connections(widget)
+        # print('Channel Configured row=',row,' col=',col,' name=',channel_name,' macros=',macros)
 
     def changeBatch(self, increase):
         if increase:
@@ -247,7 +323,8 @@ class StorageRing(Display):
     def __init__(self, parent=None, args=[], macros=None):
         super(StorageRing, self).__init__(
             parent=parent, args=args, macros=macros)
-
+        # for key in (QStyleFactory.keys):
+        #     print('Key ', key)
         self.TABLES = [self.boosterTableWidget, self.ringTableWidget,
                        self.ltbTableWidget, self.btsTableWidget]
 
@@ -262,6 +339,8 @@ class StorageRing(Display):
         self.chVoltage.stateChanged.connect(lambda: self.showHideColumn(VOLTAGE, self.chVoltage))
         self.chTemperature.stateChanged.connect(lambda: self.showHideColumn(TEMPERATURE, self.chTemperature))
         self.chDeviceName.stateChanged.connect(lambda: self.showHideColumn(DEVICE_NAME, self.chDeviceName))
+        self.chChConfig.stateChanged.connect(lambda: self.showHideColumn(CH_CONFIG, self.chChConfig))
+        self.chAutostart.stateChanged.connect(lambda: self.showHideColumn(AUTOSTART, self.chAutostart))
 
         self.tfFilter.editingFinished.connect(
             lambda: self.filter(self.tfFilter.text()))
@@ -281,9 +360,6 @@ class StorageRing(Display):
             self.ltbTableDataController.changeBatch(increase)
         elif current_nav == BTS:
             self.btsTableDataController.changeBatch(increase)
-
-    def update_table_widgets(self, table, offset=0):
-        pass
 
     def filter(self, pattern):
         self.boosterTableDataController.filter(pattern)

@@ -5,11 +5,11 @@ from os import path
 
 from pydm import Display
 from pydm.widgets import related_display_button, PyDMEmbeddedDisplay
+
 from PyQt5.QtWidgets import QComboBox
 from PyQt5.QtCore import pyqtSlot, Qt
 
 from src.mks937b.macros import get_device_macro
-
 from src.mks937b.consts import booster_sub_sectors as sub_sectors, booster_sector_devices as sector_devices, DEVICE_PREFIX
 
 from src.paths import get_abs_path, BOOSTER_UI, NONE_UI, DEVICE_PREVIEW
