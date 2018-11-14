@@ -18,31 +18,23 @@ class Settings(Display):
 
         if macros:
             if macros.get('A') == COLD_CATHODE:
-                self.pdispA.macros = json.dumps(
-                    get_macro_cc(macros.get('DEVICE'), 'A'))
                 self.pdispA.filename = get_abs_path(CC_UI)
             elif macros.get('A') == PIRANI:
-                self.pdispA.macros = json.dumps(
-                    get_macro_pr(macros.get('DEVICE'), 'A'))
                 self.pdispA.filename = get_abs_path(PR_UI)
 
             if macros.get('B') == COLD_CATHODE:
-                self.pdispB.macros = json.dumps(
-                    get_macro_cc(macros.get('DEVICE'), 'B'))
                 self.pdispB.filename = get_abs_path(CC_UI)
             elif macros.get('B') == PIRANI:
-                self.pdispB.macros = json.dumps(
-                    get_macro_pr(macros.get('DEVICE'), 'B'))
                 self.pdispB.filename = get_abs_path(PR_UI)
 
             if macros.get('C') == COLD_CATHODE:
-                self.pdispC.macros = json.dumps(
-                    get_macro_cc(macros.get('DEVICE'), 'C'))
                 self.pdispC.filename = get_abs_path(CC_UI)
             elif macros.get('C') == PIRANI:
-                self.pdispC.macros = json.dumps(
-                    get_macro_pr(macros.get('DEVICE'), 'C'))
                 self.pdispC.filename = get_abs_path(PR_UI)
+
+            self.pdispA.macros = json.dumps(get_macro(macros.get('DEVICE'), 'A', macros.get('G1'), macros.get('G2')))
+            self.pdispB.macros = json.dumps(get_macro(macros.get('DEVICE'), 'B', macros.get('G3'), macros.get('G4')))
+            self.pdispC.macros = json.dumps(get_macro(macros.get('DEVICE'), 'C', macros.get('G5'), macros.get('G6')))
 
         self.pdispA.setAutoFillBackground(False)
         self.pdispB.setAutoFillBackground(False)

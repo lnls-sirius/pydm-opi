@@ -11,13 +11,13 @@ from src.paths import get_abs_path, PRESSURE_UI, IS_LINUX
 class Pressure(Display):
     def __init__(self, parent=None, args=[], macros=None):
         super(Pressure, self).__init__(parent=parent, args=args, macros=macros)
-        if IS_LINUX:
-            self.tpA1.setLogMode(False, True)
-            self.tpA2.setLogMode(False, True)
-            self.tpB1.setLogMode(False, True)
-            self.tpB2.setLogMode(False, True)
-            self.tpC1.setLogMode(False, True)
-            self.tpC2.setLogMode(False, True)
+        # if IS_LINUX:
+            # self.tpA1.setLogMode(False, True)
+            # self.tpA2.setLogMode(False, True)
+            # self.tpB1.setLogMode(False, True)
+            # self.tpB2.setLogMode(False, True)
+            # self.tpC1.setLogMode(False, True)
+            # self.tpC2.setLogMode(False, True)
 
         if macros:
             if macros.get('A') == COLD_CATHODE:

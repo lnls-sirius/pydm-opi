@@ -40,7 +40,7 @@
            <string/>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayStatusRb-${r1}</string>
+           <string>ca://${DEVICE}:Relay${r1}:Status-RB</string>
           </property>
          </widget>
         </item>
@@ -65,7 +65,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayRb-${r4}</string>
+           <string>ca://${DEVICE}:Relay${r4}-RB</string>
           </property>
          </widget>
         </item>
@@ -142,7 +142,7 @@
            <bool>true</bool>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayStatusSp-${r2}</string>
+           <string>ca://${DEVICE}:Relay${r2}:Status-SP</string>
           </property>
          </widget>
         </item>
@@ -195,7 +195,7 @@
            <bool>true</bool>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayStatusSp-${r3}</string>
+           <string>ca://${DEVICE}:Relay${r3}:Status-SP</string>
           </property>
          </widget>
         </item>
@@ -255,7 +255,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayHystSp-${r1}</string>
+           <string>ca://${DEVICE}:Relay${r1}:Hyst-SP</string>
           </property>
          </widget>
         </item>
@@ -308,7 +308,7 @@
            <set>Qt::AlignCenter</set>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayDirectionRb-${r4}</string>
+           <string>ca://${DEVICE}:Relay${r4}:Direction-RB</string>
           </property>
          </widget>
         </item>
@@ -361,7 +361,7 @@
            <bool>true</bool>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayStatusSp-${r1}</string>
+           <string>ca://${DEVICE}:Relay${r1}:Status-SP</string>
           </property>
          </widget>
         </item>
@@ -464,7 +464,7 @@
            <string/>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayStatusRb-${r3}</string>
+           <string>ca://${DEVICE}:Relay${r3}:Status-RB</string>
           </property>
          </widget>
         </item>
@@ -506,7 +506,7 @@
            <set>Qt::AlignCenter</set>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayDirectionRb-${r1}</string>
+           <string>ca://${DEVICE}:Relay${r1}:Direction-RB</string>
           </property>
          </widget>
         </item>
@@ -528,7 +528,7 @@
            <set>Qt::AlignCenter</set>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayDirectionRb-${r2}</string>
+           <string>ca://${DEVICE}:Relay${r2}:Direction-RB</string>
           </property>
          </widget>
         </item>
@@ -553,7 +553,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayHystRb-${r2}</string>
+           <string>ca://${DEVICE}:Relay${r2}:Hyst-RB</string>
           </property>
          </widget>
         </item>
@@ -640,7 +640,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayHystSp-${r4}</string>
+           <string>ca://${DEVICE}:Relay${r4}:Hyst-SP</string>
           </property>
          </widget>
         </item>
@@ -677,7 +677,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayHystSp-${r2}</string>
+           <string>ca://${DEVICE}:Relay${r2}:Hyst-SP</string>
           </property>
          </widget>
         </item>
@@ -702,7 +702,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayHystRb-${r3}</string>
+           <string>ca://${DEVICE}:Relay${r3}:Hyst-RB</string>
           </property>
          </widget>
         </item>
@@ -727,7 +727,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayHystRb-${r4}</string>
+           <string>ca://${DEVICE}:Relay${r4}:Hyst-RB</string>
           </property>
          </widget>
         </item>
@@ -771,7 +771,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayRb-${r2}</string>
+           <string>ca://${DEVICE}:Relay${r2}-RB</string>
           </property>
          </widget>
         </item>
@@ -808,7 +808,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelaySp-${r3}</string>
+           <string>ca://${DEVICE}:Relay${r3}-SP</string>
           </property>
          </widget>
         </item>
@@ -845,7 +845,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelaySp-${r4}</string>
+           <string>ca://${DEVICE}:Relay${r4}-SP</string>
           </property>
          </widget>
         </item>
@@ -882,7 +882,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelaySp-${r2}</string>
+           <string>ca://${DEVICE}:Relay${r2}-SP</string>
           </property>
          </widget>
         </item>
@@ -907,7 +907,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayRb-${r1}</string>
+           <string>ca://${DEVICE}:Relay${r1}-RB</string>
           </property>
          </widget>
         </item>
@@ -932,7 +932,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayRb-${r3}</string>
+           <string>ca://${DEVICE}:Relay${r3}-RB</string>
           </property>
          </widget>
         </item>
@@ -975,7 +975,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelaySp-${r1}</string>
+           <string>ca://${DEVICE}:Relay${r1}-SP</string>
           </property>
          </widget>
         </item>
@@ -1195,7 +1195,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayHystRb-${r1}</string>
+           <string>ca://${DEVICE}:Relay${r1}:Hyst-RB</string>
           </property>
          </widget>
         </item>
@@ -1227,7 +1227,7 @@
            <set>Qt::AlignCenter</set>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayDirectionRb-${r3}</string>
+           <string>ca://${DEVICE}:Relay${r3}:Direction-RB</string>
           </property>
          </widget>
         </item>
@@ -1246,7 +1246,7 @@
            <string/>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayStatusRb-${r2}</string>
+           <string>ca://${DEVICE}:Relay${r2}:Status-RB</string>
           </property>
          </widget>
         </item>
@@ -1329,7 +1329,7 @@
            <bool>true</bool>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayStatusSp-${r4}</string>
+           <string>ca://${DEVICE}:Relay${r4}:Status-SP</string>
           </property>
          </widget>
         </item>
@@ -1348,7 +1348,7 @@
            <string/>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayStatusRb-${r4}</string>
+           <string>ca://${DEVICE}:Relay${r4}:Status-RB</string>
           </property>
          </widget>
         </item>
@@ -1385,7 +1385,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:RelayHystSp-${r3}</string>
+           <string>ca://${DEVICE}:Relay${r3}:Hyst-SP</string>
           </property>
          </widget>
         </item>

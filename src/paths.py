@@ -25,8 +25,8 @@ AGILENT_DEVICE_MAIN_UI = "../ui/agilent4uhv/device_main.ui"
 #######################################################################################
 #                                          MKS                                        # 
 #######################################################################################
-MKS_MAIN = "mks937b/main.py"
-MKS_MAIN_UI = "../ui/mks937b/main.ui"
+MKS_MAIN = "mks937b/table.py"
+MKS_MAIN_UI = "../ui/mks937b/table.ui"
 
 TABLE = 'mks937b/table.py'
 TABLE_UI = '../ui/mks937b/table.ui'

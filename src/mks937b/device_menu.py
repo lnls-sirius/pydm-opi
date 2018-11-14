@@ -15,23 +15,23 @@ from src.paths import get_abs_path, PRESSURE, SETTINGS, SETTINGS_UI, \
 from src.mks937b.consts import ARGS_HIDE_ALL, COLD_CATHODE, PIRANI, ARCHIVER_URL
 from src.mks937b.macros import get_device_macro
 
-
+def get_json_macro(macros):
+    return json.dumps(macros)
 class DeviceMenu(Display):
     def __init__(self, parent=None, args=[], macros=None):
         super(DeviceMenu, self).__init__(
             parent=parent, args=args, macros=macros)
+        # print(type(macros),macros, macros)
+        json_macro = get_json_macro(macros)
 
         self.btnMON.displayFilename = get_abs_path(PRESSURE)
-        self.btnMON.macros = json.dumps(get_device_macro(macros.get(
-            'DEVICE'), macros.get('A'), macros.get('B'), macros.get('C')))
+        self.btnMON.macros = json_macro
 
         self.btnSettings.displayFilename = get_abs_path(SETTINGS)
-        self.btnSettings.macros = json.dumps(get_device_macro(macros.get(
-            'DEVICE'), macros.get('A'), macros.get('B'), macros.get('C')))
+        self.btnSettings.macros = json_macro
 
         self.btnInfo.displayFilename = get_abs_path(INFO_UI)
-        self.btnInfo.macros = json.dumps(get_device_macro(macros.get(
-            'DEVICE'), macros.get('A'), macros.get('B'), macros.get('C')))
+        self.btnInfo.macros = json_macro
 
         self.btnArchiver.clicked.connect(self.open_archiver)
 
