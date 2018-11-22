@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>739</width>
-    <height>442</height>
+    <height>384</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -159,7 +159,7 @@
          <number>3</number>
         </property>
         <property name="channel" stdset="0">
-         <string>ca://${DEVICE}:Relay${r3}-RB</string>
+         <string>ca://${DEVICE}:Relay${r3}:Setpoint-RB</string>
         </property>
         <property name="displayFormat" stdset="0">
          <enum>PyDMLabel::Exponential</enum>
@@ -190,7 +190,7 @@
          <number>3</number>
         </property>
         <property name="channel" stdset="0">
-         <string>ca://${DEVICE}:Relay${r4}-RB</string>
+         <string>ca://${DEVICE}:Relay${r4}:Setpoint-RB</string>
         </property>
         <property name="displayFormat" stdset="0">
          <enum>PyDMLabel::Exponential</enum>
@@ -796,7 +796,7 @@
          <number>3</number>
         </property>
         <property name="channel" stdset="0">
-         <string>ca://${DEVICE}:Relay${r2}-RB</string>
+         <string>ca://${DEVICE}:Relay${r2}:Setpoint-RB</string>
         </property>
         <property name="displayFormat" stdset="0">
          <enum>PyDMLabel::Exponential</enum>
@@ -885,7 +885,7 @@
          <number>3</number>
         </property>
         <property name="channel" stdset="0">
-         <string>ca://${DEVICE}:Relay${r1}-RB</string>
+         <string>ca://${DEVICE}:Relay${r1}:Setpoint-RB</string>
         </property>
         <property name="displayFormat" stdset="0">
          <enum>PyDMLabel::Exponential</enum>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1139</width>
-    <height>597</height>
+    <width>962</width>
+    <height>346</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,6 +25,31 @@
         <enum>QFrame::Raised</enum>
        </property>
        <layout class="QGridLayout" name="gridLayout_4">
+        <item row="6" column="7">
+         <widget class="PyDMLabel" name="PyDMLabel_12">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="whatsThis">
+           <string/>
+          </property>
+          <property name="precisionFromPV" stdset="0">
+           <bool>false</bool>
+          </property>
+          <property name="precision" stdset="0">
+           <number>3</number>
+          </property>
+          <property name="channel" stdset="0">
+           <string>ca://${DEVICE}:Relay${r3}:Setpoint-RB</string>
+          </property>
+         </widget>
+        </item>
         <item row="4" column="3">
          <widget class="PyDMLabel" name="PyDMLabel">
           <property name="minimumSize">
@@ -65,7 +90,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:Relay${r4}-RB</string>
+           <string>ca://${DEVICE}:Relay${r4}:Setpoint-RB</string>
           </property>
          </widget>
         </item>
@@ -90,7 +115,7 @@
            <string/>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="precisionFromPV" stdset="0">
            <bool>false</bool>
@@ -99,7 +124,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:ControlSetpointSp-${channel}</string>
+           <string>ca://${GA}:ControlSetpoint-SP</string>
           </property>
          </widget>
         </item>
@@ -139,7 +164,7 @@
     </string>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="channel" stdset="0">
            <string>ca://${DEVICE}:Relay${r2}:Status-SP</string>
@@ -192,7 +217,7 @@
     </string>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="channel" stdset="0">
            <string>ca://${DEVICE}:Relay${r3}:Status-SP</string>
@@ -243,7 +268,7 @@
            <string/>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -358,7 +383,7 @@
     </string>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="channel" stdset="0">
            <string>ca://${DEVICE}:Relay${r1}:Status-SP</string>
@@ -408,10 +433,10 @@
     </string>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:ControlChannelCTLSp-${channel}</string>
+           <string>ca://${GA}:ControlChannelCTL-SP</string>
           </property>
          </widget>
         </item>
@@ -436,7 +461,7 @@
            <string/>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="precisionFromPV" stdset="0">
            <bool>false</bool>
@@ -445,7 +470,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:ControlSetpointHystSp-${channel}</string>
+           <string>ca://${GA}:ControlSetpointHyst-SP</string>
           </property>
          </widget>
         </item>
@@ -578,7 +603,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:ControlSetpointRb-${channel}</string>
+           <string>ca://${GA}:ControlSetpoint-RB</string>
           </property>
          </widget>
         </item>
@@ -603,7 +628,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:ControlSetpointHystRb-${channel}</string>
+           <string>ca://${GA}:ControlSetpointHyst-RB</string>
           </property>
          </widget>
         </item>
@@ -628,7 +653,7 @@
            <string/>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -665,7 +690,7 @@
            <string/>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -746,7 +771,7 @@
            <string/>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:ControlChannelCTLRb-${channel}</string>
+           <string>ca://${GA}:ControlChannelCTL-RB</string>
           </property>
          </widget>
         </item>
@@ -771,7 +796,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:Relay${r2}-RB</string>
+           <string>ca://${DEVICE}:Relay${r2}:Setpoint-RB</string>
           </property>
          </widget>
         </item>
@@ -796,7 +821,7 @@
            <string/>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -808,7 +833,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:Relay${r3}-SP</string>
+           <string>ca://${DEVICE}:Relay${r3}:Setpoint-SP</string>
           </property>
          </widget>
         </item>
@@ -833,7 +858,7 @@
            <string/>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -845,7 +870,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:Relay${r4}-SP</string>
+           <string>ca://${DEVICE}:Relay${r4}:Setpoint-SP</string>
           </property>
          </widget>
         </item>
@@ -870,7 +895,7 @@
            <string/>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -882,7 +907,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:Relay${r2}-SP</string>
+           <string>ca://${DEVICE}:Relay${r2}:Setpoint-SP</string>
           </property>
          </widget>
         </item>
@@ -907,32 +932,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:Relay${r1}-RB</string>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="7">
-         <widget class="PyDMLabel" name="PyDMLabel_12">
-          <property name="minimumSize">
-           <size>
-            <width>80</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="toolTip">
-           <string/>
-          </property>
-          <property name="whatsThis">
-           <string/>
-          </property>
-          <property name="precisionFromPV" stdset="0">
-           <bool>false</bool>
-          </property>
-          <property name="precision" stdset="0">
-           <number>3</number>
-          </property>
-          <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:Relay${r3}-RB</string>
+           <string>ca://${DEVICE}:Relay${r1}:Setpoint-RB</string>
           </property>
          </widget>
         </item>
@@ -963,7 +963,7 @@
            <string/>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -975,7 +975,7 @@
            <number>3</number>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:Relay${r1}-SP</string>
+           <string>ca://${DEVICE}:Relay${r1}:Setpoint-SP</string>
           </property>
          </widget>
         </item>
@@ -1010,7 +1010,7 @@
               <string/>
              </property>
              <property name="autoFillBackground">
-              <bool>true</bool>
+              <bool>false</bool>
              </property>
              <property name="precisionFromPV" stdset="0">
               <bool>false</bool>
@@ -1019,7 +1019,7 @@
               <number>3</number>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${DEVICE}:FastRelaySp-${channel}</string>
+              <string>ca://${GA}:FastRelay-SP</string>
              </property>
             </widget>
            </item>
@@ -1044,7 +1044,7 @@
               <number>3</number>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${DEVICE}:FastRelayRb-${channel}</string>
+              <string>ca://${GA}:FastRelay-RB</string>
              </property>
             </widget>
            </item>
@@ -1092,7 +1092,7 @@
               <string/>
              </property>
              <property name="autoFillBackground">
-              <bool>true</bool>
+              <bool>false</bool>
              </property>
              <property name="precisionFromPV" stdset="0">
               <bool>false</bool>
@@ -1101,7 +1101,7 @@
               <number>3</number>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${DEVICE}:ProtectionSetpointSp-${channel}</string>
+              <string>ca://${GA}:ProtectionSetpoint-SP</string>
              </property>
             </widget>
            </item>
@@ -1126,7 +1126,7 @@
               <number>3</number>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${DEVICE}:ProtectionSetpointRb-${channel}</string>
+              <string>ca://${GA}:ProtectionSetpoint-RB</string>
              </property>
             </widget>
            </item>
@@ -1286,7 +1286,7 @@
            <string/>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:ControlChannelStatusRb-${channel}</string>
+           <string>ca://${GA}:ControlChannelStatus-RB</string>
           </property>
          </widget>
         </item>
@@ -1326,7 +1326,7 @@
     </string>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="channel" stdset="0">
            <string>ca://${DEVICE}:Relay${r4}:Status-SP</string>
@@ -1373,7 +1373,7 @@
            <string/>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -1425,10 +1425,10 @@
     </string>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="channel" stdset="0">
-           <string>ca://${DEVICE}:ControlChannelStatusSp-${channel}</string>
+           <string>ca://${GA}:ControlChannelStatus-SP</string>
           </property>
          </widget>
         </item>

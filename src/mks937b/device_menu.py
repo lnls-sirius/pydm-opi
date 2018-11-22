@@ -17,11 +17,11 @@ from src.mks937b.macros import get_device_macro
 
 def get_json_macro(macros):
     return json.dumps(macros)
+    
 class DeviceMenu(Display):
     def __init__(self, parent=None, args=[], macros=None):
         super(DeviceMenu, self).__init__(
             parent=parent, args=args, macros=macros)
-        # print(type(macros),macros, macros)
         json_macro = get_json_macro(macros)
 
         self.btnMON.displayFilename = get_abs_path(PRESSURE)

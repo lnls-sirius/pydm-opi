@@ -24,28 +24,37 @@ class StorageRing(Display):
         self.config_table(self.ltbTableWidget, ltb_sector_devices)
         self.config_table(self.btsTableWidget, bts_sector_devices)
 
-    def get_label(self,parent, *args, **kwargs):
+    def get_label(self, parent, *args, **kwargs):
+        """
+        Get a PYDMLabel.
+        """
         lbl = PyDMLabel(parent, args[0])
         return lbl
-
+             
     def config_table(self, table, devices):
-        num_devices = len(devices)
-        table.setRowCount(num_devices)
-        table.setColumnCount(15)
-        table.setHorizontalHeaderLabels(
-            ['Device Name',
-             'Pressure 1', 'Alarm',
-             'Pressure 2', 'Alarm',
-             'Pressure 3', 'Alarm',
-             'Pressure 4', 'Alarm',
-             'Pressure 5', 'Alarm',
-             'Pressure 6', 'Alarm',
-             'Unit',
-             'Device Details'])
-        for row in range(0, num_devices):
+        """
+        Configures a table with the following devices.
+        :param table: Parent table.
+        :param devices: Devices list according to consts.py.
+        """ 
+        header_labels = [
+            'Device Name',
+            'Pressure 1', 'Alarm',
+            'Pressure 2', 'Alarm',
+            'Pressure 3', 'Alarm',
+            'Pressure 4', 'Alarm',
+            'Pressure 5', 'Alarm',
+            'Pressure 6', 'Alarm',
+            'Unit',
+            'Device Details']
+
+        table.setRowCount(len(devices))
+        table.setColumnCount(len(header_labels))
+        table.setHorizontalHeaderLabels(header_labels)
+
+        for row in range(0, len(devices)):
             # PyDMLabel
             device = devices[row]
-            
             device_name = 'ca://' +  device[4][0]
             table.setCellWidget(row, 0, QLabel(device[4][0]))
             table.setCellWidget(row, 1, self.get_label(
