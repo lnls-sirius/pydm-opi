@@ -2,6 +2,14 @@
 # -*- coding: utf-8 -*-
 import os
 import platform
+import re 
+import pandas
+
+FILE = os.path.dirname(os.path.realpath(__file__)) + '/../../etc/devices.xlsx'
+SHEET = 'PVs MKS937b'
+
+sheet = pandas.read_excel(FILE, sheet_name=SHEET, dtype=str) 
+sheet = sheet.replace('nan', '')
 
 IS_LINUX = (os.name == 'posix' or platform.system() == 'Linux')
 
@@ -12,94 +20,40 @@ NONE = 'None'
 IOC_FILENAME = '/opt/stream-ioc/' + 'mks937_min.cmd'
 ARCHIVER_URL = 'https://10.0.6.57/mgmt/ui/index.html'
 
+
 DEVICE_PREFIX = ""
 ARGS_HIDE_ALL = ['--hide-nav-bar', '--hide-menu-bar', '--hide-status-bar']
 
 ring_sub_sectors = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
-ring_sector_devices = [
-    ['VGC1', COLD_CATHODE, COLD_CATHODE, PIRANI,          ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['VGC2', COLD_CATHODE, COLD_CATHODE, PIRANI,          ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['VGC3', COLD_CATHODE, COLD_CATHODE, PIRANI,          ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['VGC4', COLD_CATHODE, COLD_CATHODE, PIRANI,          ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['VGC5', COLD_CATHODE, COLD_CATHODE, PIRANI,          ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['6', COLD_CATHODE, COLD_CATHODE, PIRANI,          ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['7', COLD_CATHODE, COLD_CATHODE, PIRANI,          ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['8', COLD_CATHODE, COLD_CATHODE, PIRANI,          ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['9', COLD_CATHODE, COLD_CATHODE, PIRANI,          ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['10', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['11', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['12', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['13', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['14', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['15', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['16', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['16', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['17', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['18', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['20', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['21', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['22', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['23', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['24', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['25', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['26', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['27', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['28', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['29', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['30', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['31', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['32', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['33', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['34', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['35', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['36', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['37', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['38', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['39', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['40', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['41', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['42', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['43', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['44', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['45', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['46', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['47', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['48', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['49', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['50', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['51', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['52', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['53', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['54', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['55', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['56', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['57', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['58', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['59', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['60', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-]
+ring_sector_devices = []
 
 booster_sub_sectors = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
-booster_sector_devices = [
-    ['VGC1', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['2', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['3', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['4', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['5', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['6', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['7', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['8', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['9', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['10', COLD_CATHODE, COLD_CATHODE, PIRANI,        ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']]
-]
+booster_sector_devices = []
 
 ltb_sub_sectors = ['1']
-ltb_sector_devices = [
-    ['VGC1', COLD_CATHODE, COLD_CATHODE, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']]
-]
+ltb_sector_devices = []
 
 bts_sub_sectors = ['1']
-bts_sector_devices = [
-    ['Another:BTS-Device', PIRANI, PIRANI, PIRANI,         ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-    ['Just-a-Random:Dev', COLD_CATHODE, COLD_CATHODE, COLD_CATHODE, ['VGC1:G1', 'VGC1:G2', 'VGC1:G3', 'VGC1:G4', 'VGC1:G5', 'VGC1:G6']],
-]
+bts_sector_devices = []
+
+# Setor	RS485 ID	Rack	Dispositivo	A1	A2	B1	B2	C1	C2
+for index, row in sheet.iterrows():
+    setor = row['Setor']
+    data = [row['Dispositivo']]
+
+    for c in  row['Configuracao'].split(' '):
+        if c == 'CC':
+            data.append(COLD_CATHODE)
+        else:
+            data.append(PIRANI)
+    
+    data.append([row['A1'], row['A2'], row['B1'], row['B2'], row['C1'], row['C2']])
+    
+    if setor == 'Booster':
+        booster_sector_devices.append(data)
+    elif setor == 'Anel':
+        ring_sector_devices.append(data)
+    elif setor == 'BTS':
+        bts_sector_devices.append(data)
+    elif setor == 'LTB':
+        ltb_sector_devices.append(data)
