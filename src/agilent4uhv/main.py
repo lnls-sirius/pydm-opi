@@ -173,17 +173,19 @@ class TableDataController(QObject):
             self.batch_offset = 0
             self.FILTER_PATTERN = pattern
             try:
-                regex = re.compile(self.FILTER_PATTERN, re.I | re.U)
+                # regex = re.compile(self.FILTER_PATTERN, re.I | re.U)
                 # data[0] -> Devices
                 # data[1] -> Channel Num
                 # data[2] -> To render or not
                 for data in self.table_data:
-                    RENDER = not \
-                        (
-                            regex.match(data[0][0]) == None
-                            and
-                            regex.match(data[0][data[1]]) == None
-                        )
+                    RENDER = self.FILTER_PATTERN in data[0][0] or self.FILTER_PATTERN in data[0][data[1]]
+                    # RENDER = regex.match(data[0][0]) != None or regex.match(data[0][data[1]]) == None
+                        #  not \
+                        # (
+                        #     regex.match(data[0][0]) == None
+                        #     and
+                        #     regex.match(data[0][data[1]]) == None
+                        # )
                     data[2] = RENDER
                 self.update_content.emit()
             except:
