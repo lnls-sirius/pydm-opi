@@ -10,6 +10,8 @@ PyQt5==5.9.2
 PyQt5-sip==4.19.12
 pyqtgraph==0.10.0
 pydm==1.4.2+3.gb6dd133
+pandas==0.23.4
+xlrd==1.1.0
 ```
 
 ## Usage
