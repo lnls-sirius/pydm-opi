@@ -24,13 +24,12 @@ class StorageRing(Display):
         self.config_table(self.ltbTableWidget, ltb_sector_devices)
         self.config_table(self.btsTableWidget, bts_sector_devices)
 
-    def get_label(self, parent, *args, **kwargs):
+    def add_label(self, table, row, col, pv, *args, **kwargs):
         """
-        Get a PYDMLabel.
+        Add a PYDMLabel to the table.
         """
-        lbl = PyDMLabel(parent, args[0])
-        return lbl
-             
+        table.setCellWidget(row, col, PyDMLabel(table, pv))
+
     def config_table(self, table, devices):
         """
         Configures a table with the following devices.
@@ -57,45 +56,33 @@ class StorageRing(Display):
             device = devices[row]
             device_name = 'ca://' +  device[4][0]
             table.setCellWidget(row, 0, QLabel(device[4][0]))
-            table.setCellWidget(row, 1, self.get_label(
-                table, device_name + ':Pressure-RB-s'))
-            table.setCellWidget(row, 2, self.get_label(
-                table, device_name + ':Pressure-RB.STAT'))
+            
+            self.add_label(table, row, 1, device_name + ':Pressure-Mon-s')
+            self.add_label(table, row, 2, device_name + ':Pressure-Mon.STAT') 
 
             device_name = 'ca://' +  device[4][1]
-            table.setCellWidget(row, 3, self.get_label(
-                table, device_name + ':Pressure-RB-s'))
-            table.setCellWidget(row, 4, self.get_label(
-                table, device_name + ':Pressure-RB.STAT'))
-
+            self.add_label(table, row, 3, device_name + ':Pressure-Mon-s')
+            self.add_label(table, row, 4, device_name + ':Pressure-Mon.STAT') 
+            
             device_name = 'ca://' +  device[4][2]
-            table.setCellWidget(row, 5, self.get_label(
-                table, device_name + ':Pressure-RB-s'))
-            table.setCellWidget(row, 6, self.get_label(
-                table, device_name + ':Pressure-RB.STAT'))
-
+            self.add_label(table, row, 5, device_name + ':Pressure-Mon-s')
+            self.add_label(table, row, 6, device_name + ':Pressure-Mon.STAT') 
+            
             device_name = 'ca://' +  device[4][3]
-            table.setCellWidget(row, 7, self.get_label(
-                table, device_name + ':Pressure-RB-s'))
-            table.setCellWidget(row, 4, self.get_label(
-                table, device_name + ':Pressure-RB.STAT',))
-
+            self.add_label(table, row, 7, device_name + ':Pressure-Mon-s')
+            self.add_label(table, row, 8, device_name + ':Pressure-Mon.STAT') 
+          
             device_name = 'ca://' +  device[4][4]
-            table.setCellWidget(row, 9, self.get_label(
-                table, device_name + ':Pressure-RB-s'))
-            table.setCellWidget(row, 10, self.get_label(
-                table, device_name + ':Pressure-RB.STAT'))
-
+            self.add_label(table, row, 9, device_name + ':Pressure-Mon-s')
+            self.add_label(table, row, 10, device_name + ':Pressure-Mon.STAT') 
+           
             device_name = 'ca://' +  device[4][5]
-            table.setCellWidget(row, 11, self.get_label(
-                table, device_name + ':Pressure-RB-s'))
-            table.setCellWidget(row, 12, self.get_label(
-                table, device_name + ':Pressure-RB.STAT'))
-
+            self.add_label(table, row, 11, device_name + ':Pressure-Mon-s')
+            self.add_label(table, row, 12, device_name + ':Pressure-Mon.STAT') 
+            
             device_name = 'ca://' +  device[0]
-            table.setCellWidget(row, 13, self.get_label(
-                table, device_name + ':Unit', 'Unit'))
-
+            self.add_label(table, row, 13, device_name + ':Unit', 'Unit') 
+            
             rel = PyDMRelatedDisplayButton(table, get_abs_path(DEVICE_MENU))
             rel.openInNewWindow = True
             rel.macros = \

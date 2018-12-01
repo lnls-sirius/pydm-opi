@@ -21,48 +21,44 @@ def get_device_macro(device, a, b, c, **kwargs):
 
 
 def get_macro(device, gauge, *args):
-    if gauge == 'A':
-        return{
-            "DEVICE": device,
-            "r1": "1",
-            "r2": "2", 
-            "r3": "3", 
-            "r4": "4",
-            "GAUGE": "A1", "channel": "1",
-            "GA" : args[0],
-            "GB" : args[1]
-        }
-        
-    if gauge == 'B':
-        return{
-            "DEVICE": device,
-            "r1": "5",
-            "r2": "6",
-            "r3": "7",
-            "r4": "8",
-            "GAUGE": "B1", "channel": "3",
-            "GA" : args[0],
-            "GB" : args[1]
-        }
-    if gauge == 'C':
-        return{
-            "DEVICE": device,
-            "r1": "9",
-            "r2": "10",
-            "r3": "11",
-            "r4": "12",
-            "GAUGE": "C1", "channel": "5",
-            "GA" : args[0],
-            "GB" : args[1]
-        }
-    return {
+    macro = {
         "DEVICE": "",
         "r1": "",
         "r2": "",
         "r3": "",
         "r4": "",
-        "GAUGE": "", "channel": "",
+        "GAUGE": "",
+        "channel": "",
         "GA" : "",
         "GB" : ""
     }
+    if len(args == 2):
+        macro['GA'] = args[0]
+        macro['GB'] = args[1]
+
+    if gauge == 'A':
+        macro['r1'] = '1'
+        macro['r2'] = '2'
+        macro['r3'] = '3'
+        macro['r4'] = '4'
+        macro['GAUGE'] = 'A1'
+        macro['channel'] = '1'
+
+    elif gauge == 'B':
+        macro['r1'] = '5'
+        macro['r2'] = '6'
+        macro['r3'] = '7'
+        macro['r4'] = '8'
+        macro['GAUGE'] = 'B1'
+        macro['channel'] = '3'
+
+    elif gauge == 'C':
+        macro['r1'] = '9'
+        macro['r2'] = '10'
+        macro['r3'] = '11'
+        macro['r4'] = '12'
+        macro['GAUGE'] = 'C1'
+        macro['channel'] = '5'
+
+    return macro
     
