@@ -5,7 +5,7 @@ import json
 from pydm import Display
 from pydm.widgets import PyDMEmbeddedDisplay
 
-from src.mks937b.consts import COLD_CATHODE, PIRANI
+from src.consts.mks937b import COLD_CATHODE, PIRANI
 from src.mks937b.macros import *
 
 from src.paths import get_abs_path, CC_UI, PR_UI, CC_UI, PR_UI, SETTINGS_UI

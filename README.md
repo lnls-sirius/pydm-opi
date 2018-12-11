@@ -15,10 +15,11 @@ xlrd==1.1.0
 ```
 
 ## Usage
-Inside `launch.sh` the user should set the ip/port where the PV Gateway is running. This is done by editing:
+Inside `launch.sh` the user should set the ip/port where the PV Gateway or the IOCs are running.
+This is done by editing:
 ```
 # PV Gateway Address
-export EPICS_CA_ADDR_LIST=127.0.0.1:5072
+export EPICS_CA_ADDR_LIST=127.0.0.1
 ```
 After that, simply run:
 ```
@@ -44,11 +45,6 @@ Currently the project is structured as:
 Python code is to be placed inside `./src/` folder.
 Qt Designer .ui files inside `./ui/` folder.
 Images and .qrc files inside `./images/` folder.
-```
-Inside each device folder there's a `consts.py` file where the PV namming is configured. If the user wishes to change/add a pv name it's necessary to edit the file at:<br>
-```
-./src/<device-name>/consts.py
-```
 
 When moving files around or changing names, it's necessary to update the correspondiong entry at:
 ```

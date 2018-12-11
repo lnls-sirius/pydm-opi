@@ -16,10 +16,10 @@ LAUNCH_WINDOW_UI = "../ui/launcher.ui"
 #######################################################################################
 #                                      Agilent                                        # 
 #######################################################################################
-AGILENT_MAIN = "agilent4uhv/main.py"
+AGILENT_MAIN = "agilent4uhv.py"
 AGILENT_MAIN_UI = "../ui/agilent4uhv/main.ui"
 
-AGILENT_DEVICE_MAIN = "agilent4uhv/device_main.py"
+# AGILENT_DEVICE_MAIN = "agilent4uhv/device_main.py"
 AGILENT_DEVICE_MAIN_UI = "../ui/agilent4uhv/device_main.ui"
 
 #######################################################################################

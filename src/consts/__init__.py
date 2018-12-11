@@ -8,3 +8,7 @@ IOC_FILENAME = '/opt/stream-ioc/' + 'mks937_min.cmd'
 ARCHIVER_URL = 'https://10.0.6.57/mgmt/ui/index.html' 
 
 ARGS_HIDE_ALL = ['--hide-nav-bar', '--hide-menu-bar', '--hide-status-bar']
+
+ARCHIVER_URL = 'https://10.0.6.57/mgmt/ui/index.html'
+
+FILE = os.path.dirname(os.path.realpath(__file__)) + '/../../Redes e Beaglebones.xlsx'

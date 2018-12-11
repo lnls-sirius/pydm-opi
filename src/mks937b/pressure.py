@@ -4,7 +4,7 @@
 from pydm import Display
 from pydm.widgets import PyDMTimePlot
 
-from src.mks937b.consts import COLD_CATHODE, PIRANI
+from src.consts.mks937b import COLD_CATHODE, PIRANI
 from src.paths import get_abs_path, PRESSURE_UI, IS_LINUX
 
 

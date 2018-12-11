@@ -7,7 +7,7 @@ from pydm import Display
 from pydm.widgets import PyDMRelatedDisplayButton
 from pydm.utilities import IconFont
 
-from src.mks937b.consts import COLD_CATHODE
+from src.consts.mks937b import COLD_CATHODE
 from src.paths import get_abs_path, DEVICE_PREVIEW_UI, DEVICE_MENU
 
 

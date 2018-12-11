@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-from consts import COLD_CATHODE, PIRANI
-# @todo: DO BETTER !
-
+from src.consts.mks937b import COLD_CATHODE, PIRANI
 
 def get_device_macro(device, a, b, c, **kwargs):
     return {
@@ -22,26 +19,25 @@ def get_device_macro(device, a, b, c, **kwargs):
 
 def get_macro(device, gauge, *args):
     macro = {
-        "DEVICE": "",
+        "DEVICE": device,
         "r1": "",
         "r2": "",
         "r3": "",
         "r4": "",
-        "GAUGE": "",
+        "GAUGE": gauge,
         "channel": "",
         "GA" : "",
         "GB" : ""
-    }
-    if len(args == 2):
-        macro['GA'] = args[0]
-        macro['GB'] = args[1]
+    } 
+
+    macro['GA'] = args[0]
+    macro['GB'] = args[1]
 
     if gauge == 'A':
         macro['r1'] = '1'
         macro['r2'] = '2'
         macro['r3'] = '3'
         macro['r4'] = '4'
-        macro['GAUGE'] = 'A1'
         macro['channel'] = '1'
 
     elif gauge == 'B':
@@ -49,7 +45,6 @@ def get_macro(device, gauge, *args):
         macro['r2'] = '6'
         macro['r3'] = '7'
         macro['r4'] = '8'
-        macro['GAUGE'] = 'B1'
         macro['channel'] = '3'
 
     elif gauge == 'C':
@@ -57,8 +52,7 @@ def get_macro(device, gauge, *args):
         macro['r2'] = '10'
         macro['r3'] = '11'
         macro['r4'] = '12'
-        macro['GAUGE'] = 'C1'
         macro['channel'] = '5'
-
+        
     return macro
     

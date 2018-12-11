@@ -12,7 +12,8 @@ from PyQt5.QtCore import QUrl
 from src.paths import get_abs_path, PRESSURE, SETTINGS, SETTINGS_UI, \
     INFO_UI, PRESSURE, DEVICE_MENU_UI
 
-from src.mks937b.consts import ARGS_HIDE_ALL, COLD_CATHODE, PIRANI, ARCHIVER_URL
+from src.consts import ARCHIVER_URL, ARGS_HIDE_ALL
+from src.consts.mks937b import COLD_CATHODE, PIRANI
 from src.mks937b.macros import get_device_macro
 
 def get_json_macro(macros):

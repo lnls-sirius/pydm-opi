@@ -4,7 +4,6 @@ import json
 import re
 
 from concurrent.futures import ThreadPoolExecutor
-
 from os import path
 from pydm import Display, PyDMApplication
 from pydm.utilities import IconFont
@@ -14,7 +13,7 @@ from PyQt5.QtWidgets import QComboBox, QLabel, QTableWidgetItem, QWidget, QHBoxL
 from PyQt5.QtCore import pyqtSlot, Qt, QThread, QObject, pyqtSignal
 from PyQt5.QtGui import QColor
 
-from src.agilent4uhv.consts import ring_sector_devices, booster_sector_devices, bts_sector_devices, ltb_sector_devices
+from src.consts.agilent4uhv import devices
 from src.paths import get_abs_path, AGILENT_MAIN_UI, AGILENT_DEVICE_MAIN_UI
 
 ALARM, CURRENT, PRESSURE, VOLTAGE, TEMPERATURE, DEVICE_NAME, CH_CONFIG, AUTOSTART = range(8)
@@ -27,8 +26,7 @@ def get_label(parent, content, tooltip, displayFormat=PyDMLabel.DisplayFormat.De
     lbl.precisionFromPV = False
     lbl.precision = 4
     lbl.displayFormat = displayFormat
-    lbl.showUnits = True
-    # PyDMApplication.instance().establish_widget_connections(lbl)
+    lbl.showUnits = True 
     return lbl
 
 def get_byte_indicator(parent, content, tooltip, LSB=True):
@@ -41,36 +39,23 @@ def get_byte_indicator(parent, content, tooltip, LSB=True):
         byte.numBits = 8
     else:
         byte.numBits = 4
-        byte.shift = 8
-    # PyDMApplication.instance().establish_widget_connections(byte)
+        byte.shift = 8 
     return byte
 
 class TableDataController(QObject):
-
     update_content = pyqtSignal()
-
     TABLE_BATCH = 24
     FILTER_PATTERN = None
 
-    def __init__(self, table, table_type):
+    def __init__(self, table, *args, **kwargs):
         super().__init__()
         self.table_data = []
-        self.devices = []
         self.table = table
 
         self.batch_offset = 0
 
-        if table_type == BOOSTER:
-            self.devices = booster_sector_devices
-        elif table_type == RING:
-            self.devices = ring_sector_devices
-        elif table_type == BTS:
-            self.devices = bts_sector_devices
-        elif table_type == LTB:
-            self.devices = ltb_sector_devices
-
-        if len(self.devices) * 4 < self.TABLE_BATCH:
-            self.TABLE_BATCH = len(self.devices) * 4
+        if len(devices) * 4 < self.TABLE_BATCH:
+            self.TABLE_BATCH = len(devices) * 4
             
         self.init_table()
         self.update_content.connect(self.update_table_content)
@@ -173,26 +158,15 @@ class TableDataController(QObject):
             self.batch_offset = 0
             self.FILTER_PATTERN = pattern
             try:
-                # regex = re.compile(self.FILTER_PATTERN, re.I | re.U)
-                # data[0] -> Devices
-                # data[1] -> Channel Num
-                # data[2] -> To render or not
                 for data in self.table_data:
                     RENDER = self.FILTER_PATTERN in data[0][0] or self.FILTER_PATTERN in data[0][data[1]]
-                    # RENDER = regex.match(data[0][0]) != None or regex.match(data[0][data[1]]) == None
-                        #  not \
-                        # (
-                        #     regex.match(data[0][0]) == None
-                        #     and
-                        #     regex.match(data[0][data[1]]) == None
-                        # )
                     data[2] = RENDER
                 self.update_content.emit()
             except:
                 pass
 
     def load_table_data(self):
-        for device in self.devices:
+        for device in devices:
             for ch in range(1, 5):
                 aux = [device, ch, True]
                 self.table_data.append(aux)
@@ -227,9 +201,6 @@ class TableDataController(QObject):
                     '", "PREFIX_C3":"' + device[3] + \
                     '", "PREFIX_C4":"' + device[4] + '"}'
                 
-                # EXECUTOR.submit(lambda row=actual_row, dev_name=device[0], ch_name=device[devNum], dev_ca=device_ca, ch_ca=channel_ca, macro=macros:\
-                #                         self.connect_row(row, dev_name, ch_name, dev_ca, ch_ca, macro))
-                
                 # Channel Name
                 self.table.cellWidget(actual_row, 0).setText(device[devNum])
                 # Device Name
@@ -240,7 +211,6 @@ class TableDataController(QObject):
                 self.connect_widget(actual_row, 3, device_ca + ':FanTemperature-Mon')
                 # Mode-RB
                 self.connect_widget(actual_row, 4, device_ca + ':Mode-RB')
-
 
                 # Pressure
                 self.connect_widget(actual_row, 5,  channel_ca + ':Pressure-Mon')
@@ -307,7 +277,6 @@ class TableDataController(QObject):
         if macros:
             widget.macros = macros
         PyDMApplication.instance().establish_widget_connections(widget)
-        # print('Channel Configured row=',row,' col=',col,' name=',channel_name,' macros=',macros)
 
     def changeBatch(self, increase):
         if increase:
@@ -325,15 +294,8 @@ class StorageRing(Display):
     def __init__(self, parent=None, args=[], macros=None):
         super(StorageRing, self).__init__(
             parent=parent, args=args, macros=macros)
-        # for key in (QStyleFactory.keys):
-        #     print('Key ', key)
-        self.TABLES = [self.boosterTableWidget, self.ringTableWidget,
-                       self.ltbTableWidget, self.btsTableWidget]
-
-        self.boosterTableDataController = TableDataController(self.TABLES[0], BOOSTER)
-        self.ringTableDataController = TableDataController(self.TABLES[1], RING)
-        self.ltbTableDataController = TableDataController(self.TABLES[2], LTB)
-        self.btsTableDataController = TableDataController(self.TABLES[3], BTS)
+        
+        self.tdc = TableDataController(self.table)
 
         self.chAlarms.stateChanged.connect(lambda: self.showHideColumn(ALARM, self.chAlarms))
         self.chCurrent.stateChanged.connect(lambda: self.showHideColumn(CURRENT, self.chCurrent))
@@ -353,29 +315,14 @@ class StorageRing(Display):
         self.btnNavRight.setIcon(IconFont().icon('arrow-right'))
     
     def update_navbar(self, increase = True):
-        current_nav = self.tabWidget.currentIndex()
-        if current_nav == BOOSTER:
-            self.boosterTableDataController.changeBatch(increase)
-        elif current_nav == RING:
-            self.ringTableDataController.changeBatch(increase)
-        elif current_nav == LTB:
-            self.ltbTableDataController.changeBatch(increase)
-        elif current_nav == BTS:
-            self.btsTableDataController.changeBatch(increase)
+        self.tdc.changeBatch(increase)
 
     def filter(self, pattern):
-        self.boosterTableDataController.filter(pattern)
-        self.ringTableDataController.filter(pattern)
-        self.ltbTableDataController.filter(pattern)
-        self.btsTableDataController.filter(pattern)
+        self.tdc.filter(pattern)
 
     def showHideColumn(self, _type, chk):
         HIDE = not chk.isChecked()
-
-        self.boosterTableDataController.showHideColumn(_type, HIDE)
-        self.ringTableDataController.showHideColumn(_type, HIDE)
-        self.ltbTableDataController.showHideColumn(_type, HIDE)
-        self.btsTableDataController.showHideColumn(_type, HIDE)
+        self.tdc.showHideColumn(_type, HIDE)
 
     def ui_filename(self):
         return AGILENT_MAIN_UI

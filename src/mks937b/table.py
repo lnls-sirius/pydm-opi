@@ -2,27 +2,47 @@
 # -*- coding: utf-8 -*-
 import json
 from os import path
+
 from pydm import Display
 from pydm.widgets import PyDMRelatedDisplayButton, PyDMEmbeddedDisplay, PyDMLabel
 
 from PyQt5.QtWidgets import QComboBox, QLabel, QTableWidgetItem
-from PyQt5.QtCore import pyqtSlot, Qt
+from PyQt5.QtCore import pyqtSlot, Qt, pyqtSignal
 
-from src.mks937b.consts import COLD_CATHODE, PIRANI
-from src.mks937b.consts import ring_sector_devices, booster_sector_devices, bts_sector_devices, ltb_sector_devices
+from src.consts.mks937b import devices, COLD_CATHODE, PIRANI
 
 from src.paths import get_abs_path, TABLE_UI, DEVICE_MENU
 
 
 class StorageRing(Display):
+    update_content = pyqtSignal()
+
     def __init__(self, parent=None, args=[], macros=None):
         super(StorageRing, self).__init__(
             parent=parent, args=args, macros=macros)
+        self.config_table(self.boosterTableWidget, devices)
+        self.update_content.connect(self.update_table_content)
 
-        self.config_table(self.boosterTableWidget, booster_sector_devices)
-        self.config_table(self.ringTableWidget, ring_sector_devices)
-        self.config_table(self.ltbTableWidget, ltb_sector_devices)
-        self.config_table(self.btsTableWidget, bts_sector_devices)
+        #self.tfFilter.editingFinished.connect(
+        #            lambda: self.filter(self.tfFilter.text()))
+
+        def filter(self, pattern):
+                if not pattern:
+                    pattern = ""
+                if pattern != self.FILTER_PATTERN:
+                    self.batch_offset = 0
+                    self.FILTER_PATTERN = pattern
+                    try:
+                        for data in self.table_data:
+                            RENDER = self.FILTER_PATTERN in data[0][0] or self.FILTER_PATTERN in data[0][data[1]]
+                            data[2] = RENDER
+                        self.update_content.emit()
+                    except:
+                        pass
+
+    def update_table_content(self):
+        # Todo!
+        pass
 
     def add_label(self, table, row, col, pv, *args, **kwargs):
         """
@@ -35,68 +55,50 @@ class StorageRing(Display):
         Configures a table with the following devices.
         :param table: Parent table.
         :param devices: Devices list according to consts.py.
-        """ 
+        """
         header_labels = [
-            'Device Name',
-            'Pressure 1', 'Alarm',
-            'Pressure 2', 'Alarm',
-            'Pressure 3', 'Alarm',
-            'Pressure 4', 'Alarm',
-            'Pressure 5', 'Alarm',
-            'Pressure 6', 'Alarm',
+            'Gauge',
+            'Device',
+            'Pressure',
+            'Alarm',
             'Unit',
-            'Device Details']
+            'Details']
 
-        table.setRowCount(len(devices))
+        table.setRowCount(len(devices)*6)
         table.setColumnCount(len(header_labels))
         table.setHorizontalHeaderLabels(header_labels)
 
-        for row in range(0, len(devices)):
-            # PyDMLabel
-            device = devices[row]
-            device_name = 'ca://' +  device[4][0]
-            table.setCellWidget(row, 0, QLabel(device[4][0]))
-            
-            self.add_label(table, row, 1, device_name + ':Pressure-Mon-s')
-            self.add_label(table, row, 2, device_name + ':Pressure-Mon.STAT') 
+        row = 0
+        for data in devices:
+            device_name = data[0]
+            for gauge in data[4]:
+                gauge_ca = 'ca://' +  gauge
 
-            device_name = 'ca://' +  device[4][1]
-            self.add_label(table, row, 3, device_name + ':Pressure-Mon-s')
-            self.add_label(table, row, 4, device_name + ':Pressure-Mon.STAT') 
-            
-            device_name = 'ca://' +  device[4][2]
-            self.add_label(table, row, 5, device_name + ':Pressure-Mon-s')
-            self.add_label(table, row, 6, device_name + ':Pressure-Mon.STAT') 
-            
-            device_name = 'ca://' +  device[4][3]
-            self.add_label(table, row, 7, device_name + ':Pressure-Mon-s')
-            self.add_label(table, row, 8, device_name + ':Pressure-Mon.STAT') 
-          
-            device_name = 'ca://' +  device[4][4]
-            self.add_label(table, row, 9, device_name + ':Pressure-Mon-s')
-            self.add_label(table, row, 10, device_name + ':Pressure-Mon.STAT') 
-           
-            device_name = 'ca://' +  device[4][5]
-            self.add_label(table, row, 11, device_name + ':Pressure-Mon-s')
-            self.add_label(table, row, 12, device_name + ':Pressure-Mon.STAT') 
-            
-            device_name = 'ca://' +  device[0]
-            self.add_label(table, row, 13, device_name + ':Unit', 'Unit') 
-            
-            rel = PyDMRelatedDisplayButton(table, get_abs_path(DEVICE_MENU))
-            rel.openInNewWindow = True
-            rel.macros = \
-            '{"DEVICE" :"' +  device[0] + '",\
-              "G1":"' + device[4][0] + '",\
-              "G2":"' + device[4][1] + '",\
-              "G3":"' + device[4][2] + '",\
-              "G4":"' + device[4][3] + '",\
-              "G5":"' + device[4][4] + '",\
-              "G6":"' + device[4][5] + '",\
-              "A":"' + device[1] + '",\
-              "B":"' + device[2] + '", \
-              "C":"' + device[3] + '"}'
-            table.setCellWidget(row, 14, rel)
+                table.setCellWidget(row, 0, QLabel(gauge))
+                table.setCellWidget(row, 1, QLabel(device_name))
+
+                self.add_label(table, row, 2, gauge_ca + ':Pressure-Mon-s')
+                self.add_label(table, row, 3, gauge_ca + ':Pressure-Mon.STAT')
+
+                self.add_label(table, row, 4, device_name + ':Unit', 'Unit')
+
+
+                rel = PyDMRelatedDisplayButton(table, get_abs_path(DEVICE_MENU))
+                rel.openInNewWindow = True
+                rel.macros = \
+                '{"DEVICE" :"' +  device_name + '",\
+                "G1":"' + data[4][0] + '",\
+                "G2":"' + data[4][1] + '",\
+                "G3":"' + data[4][2] + '",\
+                "G4":"' + data[4][3] + '",\
+                "G5":"' + data[4][4] + '",\
+                "G6":"' + data[4][5] + '",\
+                "A":"' + data[1] + '",\
+                "B":"' + data[2] + '", \
+                "C":"' + data[3] + '"}'
+                table.setCellWidget(row, 5, rel)
+
+                row += 1
 
     def ui_filename(self):
         return TABLE_UI
