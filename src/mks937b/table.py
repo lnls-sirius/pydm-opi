@@ -73,6 +73,7 @@ class StorageRing(Display):
             device_name = data[0]
             for gauge in data[4]:
                 gauge_ca = 'ca://' +  gauge
+                device_ca = 'ca://' +  device_name
 
                 table.setCellWidget(row, 0, QLabel(gauge))
                 table.setCellWidget(row, 1, QLabel(device_name))
@@ -80,7 +81,7 @@ class StorageRing(Display):
                 self.add_label(table, row, 2, gauge_ca + ':Pressure-Mon-s')
                 self.add_label(table, row, 3, gauge_ca + ':Pressure-Mon.STAT')
 
-                self.add_label(table, row, 4, device_name + ':Unit', 'Unit')
+                self.add_label(table, row, 4, device_ca + ':Unit', 'Unit')
 
 
                 rel = PyDMRelatedDisplayButton(table, get_abs_path(DEVICE_MENU))
