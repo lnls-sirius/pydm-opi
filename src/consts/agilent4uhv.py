@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 import os
 import platform
-import re 
 import pandas
+import re 
 
 from . import FILE
 

@@ -3,7 +3,7 @@ from pydm import PyDMApplication
 
 from PyQt5.QtWidgets import QStyleFactory
 
-from src.paths import LAUNCH_WINDOW_UI, AGILENT_MAIN, MKS_MAIN, get_abs_path
+from src.paths import LAUNCH_WINDOW_UI, AGILENT_MAIN, MKS_MAIN, MBTEMP_MAIN, get_abs_path
 
 class Launcher(Display):
     """
@@ -17,6 +17,10 @@ class Launcher(Display):
 
         self.btnMks.displayFilename = get_abs_path(MKS_MAIN)     
         self.btnMks.openInNewWindow = True
+
+        self.btnMBTemp.displayFilename = get_abs_path(MBTEMP_MAIN)     
+        self.btnMBTemp.openInNewWindow = True
+        
         self.btnExit.clicked.connect(self.exitApp)
 
     def exitApp(self):

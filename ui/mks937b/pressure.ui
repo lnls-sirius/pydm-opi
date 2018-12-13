@@ -673,7 +673,7 @@
     </string>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay3:SetpointStatus-RB</string>
+                <string>ca://${DEVICE}:Relay3:SetpointStatus-Mon</string>
                </property>
                <property name="circles" stdset="0">
                 <bool>true</bool>
@@ -705,7 +705,7 @@
     </string>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay1:SetpointStatus-RB</string>
+                <string>ca://${DEVICE}:Relay1:SetpointStatus-Mon</string>
                </property>
                <property name="circles" stdset="0">
                 <bool>true</bool>
@@ -737,7 +737,7 @@
     </string>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay2:SetpointStatus-RB</string>
+                <string>ca://${DEVICE}:Relay2:SetpointStatus-Mon</string>
                </property>
                <property name="circles" stdset="0">
                 <bool>true</bool>
@@ -769,7 +769,7 @@
     </string>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay4:SetpointStatus-RB</string>
+                <string>ca://${DEVICE}:Relay4:SetpointStatus-Mon</string>
                </property>
                <property name="circles" stdset="0">
                 <bool>true</bool>
@@ -920,7 +920,7 @@
     </string>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay12:SetpointStatus-RB</string>
+                <string>ca://${DEVICE}:Relay12:SetpointStatus-Mon</string>
                </property>
                <property name="circles" stdset="0">
                 <bool>true</bool>
@@ -1223,7 +1223,7 @@
                 <number>3</number>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay11:Status-RB1</string>
+                <string>ca://${DEVICE}:Relay11:Status-RB</string>
                </property>
               </widget>
              </item>
@@ -1390,7 +1390,7 @@
     </string>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay9:SetpointStatus-RB</string>
+                <string>ca://${DEVICE}:Relay9:SetpointStatus-Mon</string>
                </property>
                <property name="circles" stdset="0">
                 <bool>true</bool>
@@ -1422,7 +1422,7 @@
     </string>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay10:SetpointStatus-RB</string>
+                <string>ca://${DEVICE}:Relay10:SetpointStatus-Mon</string>
                </property>
                <property name="circles" stdset="0">
                 <bool>true</bool>
@@ -1454,7 +1454,7 @@
     </string>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay11:SetpointStatus-RB</string>
+                <string>ca://${DEVICE}:Relay11:SetpointStatus-Mon</string>
                </property>
                <property name="circles" stdset="0">
                 <bool>true</bool>
@@ -1638,7 +1638,7 @@
     </string>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay5:SetpointStatus-RB</string>
+                <string>ca://${DEVICE}:Relay5:SetpointStatus-Mon</string>
                </property>
                <property name="circles" stdset="0">
                 <bool>true</bool>
@@ -1670,7 +1670,7 @@
     </string>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay6:SetpointStatus-RB</string>
+                <string>ca://${DEVICE}:Relay6:SetpointStatus-Mon</string>
                </property>
                <property name="circles" stdset="0">
                 <bool>true</bool>
@@ -2116,7 +2116,7 @@
     </string>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay7:SetpointStatus-RB</string>
+                <string>ca://${DEVICE}:Relay7:SetpointStatus-Mon</string>
                </property>
                <property name="circles" stdset="0">
                 <bool>true</bool>
@@ -2148,7 +2148,7 @@
     </string>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay8:SetpointStatus-RB</string>
+                <string>ca://${DEVICE}:Relay8:SetpointStatus-Mon</string>
                </property>
                <property name="circles" stdset="0">
                 <bool>true</bool>

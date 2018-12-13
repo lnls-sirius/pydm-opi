@@ -18,7 +18,6 @@ from src.paths import get_abs_path, AGILENT_MAIN_UI, AGILENT_DEVICE_MAIN_UI
 
 ALARM, CURRENT, PRESSURE, VOLTAGE, TEMPERATURE, DEVICE_NAME, CH_CONFIG, AUTOSTART = range(8)
 BOOSTER, RING, BTS, LTB = range(4)
-
 EXECUTOR = ThreadPoolExecutor(max_workers=4)
 
 def get_label(parent, content, tooltip, displayFormat=PyDMLabel.DisplayFormat.Default): 

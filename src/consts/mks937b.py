@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 import os
 import platform
-import re 
 import pandas
+import re 
 
 from . import FILE, IS_LINUX
 
@@ -20,7 +20,6 @@ IOC_FILENAME = '/opt/stream-ioc/' + 'mks937_min.cmd'
 devices = []
 # Setor	RS485 ID	Rack	Dispositivo	A1	A2	B1	B2	C1	C2
 for index, row in sheet.iterrows():
-    setor = row['Setor']
     data = [row['Dispositivo']]
     
     for c in  row['Configuracao'].split(' '):
