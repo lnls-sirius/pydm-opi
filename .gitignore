@@ -1,7 +1,7 @@
 .config
 .vscode
 .local
-
+.virtualenv
 # Created by https://www.gitignore.io/api/pycharm+all
 ### PyCharm+all ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm

@@ -1,4 +1,12 @@
 #!/bin/bash
+function cleanup {
+    deactivate
+    echo "  Bye !  "
+}
+
+source .virtualenv/bin/activate
+trap cleanup EXIT
+
 export PYTHONPATH=${PWD}
 export HOME=${PWD}
 
