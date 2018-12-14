@@ -7,6 +7,8 @@ function cleanup {
 source .virtualenv/bin/activate
 trap cleanup EXIT
 
+git pull
+
 export PYTHONPATH=${PWD}
 export HOME=${PWD}
 

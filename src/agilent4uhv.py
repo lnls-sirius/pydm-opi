@@ -13,6 +13,7 @@ from PyQt5.QtWidgets import QComboBox, QLabel, QTableWidgetItem, QWidget, QHBoxL
 from PyQt5.QtCore import pyqtSlot, Qt, QThread, QObject, pyqtSignal
 from PyQt5.QtGui import QColor
 
+from src import get_label, TableDataController
 from src.consts.agilent4uhv import devices
 from src.paths import get_abs_path, AGILENT_MAIN_UI, AGILENT_DEVICE_MAIN_UI
 
@@ -41,55 +42,16 @@ def get_byte_indicator(parent, content, tooltip, LSB=True):
         byte.shift = 8 
     return byte
 
-class TableDataController(QObject):
-    update_content = pyqtSignal()
-    TABLE_BATCH = 24
-    FILTER_PATTERN = None
-
-    def __init__(self, table, *args, **kwargs):
-        super().__init__()
-        self.table_data = []
-        self.table = table
-
-        self.batch_offset = 0
-
-        if len(devices) * 4 < self.TABLE_BATCH:
-            self.TABLE_BATCH = len(devices) * 4
-            
-        self.init_table()
-        self.update_content.connect(self.update_table_content)
-
-        EXECUTOR.submit(lambda: self.load_table_data())
-
-    def init_table(self):
-        self.table.setRowCount(self.TABLE_BATCH)
-        self.horizontalHeaderLabels = [
-                'Channel Name',             # 0
-                'Device Name',              # 1
-                'Unit',                     # 2
-                'Fan Temperature',          # 3
-                'Autostart',                # 4
-
-                'Pressure',                 # 5
-                'Voltage',                  # 6
-                'Current',                  # 7
-                'Temperature',              # 8
-                'Error Code Mon LSB',       # 9
-                'Error Code Mon MSB',       # 10
-
-                'HV State',                 # 11
-                'Power Max',                # 12
-                'V Target',                 # 13
-                'I Protect',                # 14
-                'Setpoint',                 # 15
-                
-
-                'Details']
+class UHVDataController(TableDataController): 
+    def init_table(self): 
+        self.table.setRowCount(self.table_batch)
+        self.table.setColumnCount(len(self.horizontalHeaderLabels))
+        self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
 
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
                 
-        for actual_row in range(self.TABLE_BATCH):
+        for actual_row in range(self.table_batch):
                 # Channel Name
                 self.table.setCellWidget(actual_row, 0, QLabel(''))
                 # Device Name
@@ -182,11 +144,11 @@ class TableDataController(QObject):
         actual_row = 0
         dataset_row = 0
 
-        self.table.setVerticalHeaderLabels([str(i) for i in range(self.batch_offset, self.TABLE_BATCH + self.batch_offset)])
+        self.table.setVerticalHeaderLabels([str(i) for i in range(self.batch_offset, self.table_batch + self.batch_offset)])
         for device, devNum, render in self.table_data:
 
             # To render or not to render  ...
-            if render and dataset_row >= self.batch_offset and actual_row != self.TABLE_BATCH:               
+            if render and dataset_row >= self.batch_offset and actual_row != self.table_batch:               
                 self.table.setRowHidden(actual_row, False)
 
                 # Channel Access
@@ -242,59 +204,43 @@ class TableDataController(QObject):
                 actual_row += 1
             dataset_row += 1
 
-            if actual_row != self.TABLE_BATCH:
-                for row in range(actual_row, self.TABLE_BATCH):
+            if actual_row != self.table_batch:
+                for row in range(actual_row, self.table_batch):
                     self.table.setRowHidden(row, True)
 
-    def connect_row(self, row, dev_name, ch_name, dev_ca, ch_ca, macro):
-        # Channel Name
-        self.table.cellWidget(row, 0).setText(ch_name)
-        # Device Name
-        self.table.cellWidget(row, 1).setText(dev_name)
-        # Device Unit
-        self.connect_widget(row, 2, dev_ca + ':Unit-RB')
-        # Pressure
-        self.connect_widget(row, 3,  ch_ca + ':Pressure-Mon')
-        # Voltage
-        self.connect_widget(row, 4, ch_ca + ':Voltage-Mon')
-        # Current
-        self.connect_widget(row, 5, ch_ca + ':Current-Mon')
-        # Temperature
-        self.connect_widget(row, 6, ch_ca + ':HVTemperature-Mon')
-        # LSB
-        self.connect_widget(row, 7, ch_ca + ':ErrorCode-Mon')
-        # MSB
-        self.connect_widget(row, 8, ch_ca + ':ErrorCode-Mon')
-        # Details
-        self.connect_widget(row, 9, None, macro)
-        
-    def connect_widget(self, row, col, channel_name, macros=None):
-        widget = self.table.cellWidget(row, col)
-        PyDMApplication.instance().close_widget_connections(widget)
-        if channel_name:
-            widget.channel = channel_name
-        if macros:
-            widget.macros = macros
-        PyDMApplication.instance().establish_widget_connections(widget)
 
-    def changeBatch(self, increase):
-        if increase:
-            if self.batch_offset < len(self.table_data):
-                self.batch_offset += self.TABLE_BATCH
-                self.update_content.emit()
-        else:
-            if self.batch_offset != 0:
-                self.batch_offset -= self.TABLE_BATCH
-                if self.batch_offset < 0:
-                    self.batch_offset = 0
-                self.update_content.emit()
-
-class StorageRing(Display):
+class UHV(Display):
     def __init__(self, parent=None, args=[], macros=None):
-        super(StorageRing, self).__init__(
+        super(UHV, self).__init__(
             parent=parent, args=args, macros=macros)
         
-        self.tdc = TableDataController(self.table)
+        table_batch = len(devices) * 4 if len(devices) * 8 < 30 else 30
+
+        horizontal_header_labels = [
+                'Channel Name',             # 0
+                'Device Name',              # 1
+                'Unit',                     # 2
+                'Fan Temperature',          # 3
+                'Autostart',                # 4
+
+                'Pressure',                 # 5
+                'Voltage',                  # 6
+                'Current',                  # 7
+                'Temperature',              # 8
+                'Error Code Mon LSB',       # 9
+                'Error Code Mon MSB',       # 10
+
+                'HV State',                 # 11
+                'Power Max',                # 12
+                'V Target',                 # 13
+                'I Protect',                # 14
+                'Setpoint',                 # 15
+                
+
+                'Details']
+        # self.tdc = UHVDataController(self.table)
+        self.tdc = UHVDataController(self.table, 
+            devices=devices, table_batch=table_batch, horizontal_header_labels=horizontal_header_labels)
 
         self.chAlarms.stateChanged.connect(lambda: self.showHideColumn(ALARM, self.chAlarms))
         self.chCurrent.stateChanged.connect(lambda: self.showHideColumn(CURRENT, self.chCurrent))

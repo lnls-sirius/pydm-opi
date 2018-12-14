@@ -100,6 +100,7 @@ class StorageRing(Display):
                 table.setCellWidget(row, 5, rel)
 
                 row += 1
+        table.resizeColumnsToContents()
 
     def ui_filename(self):
         return TABLE_UI

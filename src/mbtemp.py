@@ -94,7 +94,7 @@ class MBTempTableDataController(TableDataController):
         
         for row in range(actual_row, self.table_batch):
             self.table.setRowHidden(row, True)
-            
+             
 class TableDisplay(Display):
     def __init__(self, parent=None, args=[], macros=None):
         super(TableDisplay, self).__init__(
@@ -116,10 +116,8 @@ class TableDisplay(Display):
         self.btnNavRight.clicked.connect(lambda: self.update_navbar(True))
         self.btnNavRight.setIcon(IconFont().icon('arrow-right'))
 
-    def update_navbar(self, increase = True):
-        current_nav = self.tabWidget.currentIndex()
+    def update_navbar(self, increase = True): 
         self.tdc.changeBatch(increase)
-
 
     def filter(self, pattern):
         self.tdc.filter(pattern)

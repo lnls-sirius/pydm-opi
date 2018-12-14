@@ -4,7 +4,7 @@ from pydm import Display, PyDMApplication
 from pydm.utilities import IconFont
 from pydm.widgets import PyDMRelatedDisplayButton, PyDMEmbeddedDisplay, PyDMLabel, PyDMByteIndicator
 
-from PyQt5.QtWidgets import QLabel, QTableWidgetItem, QWidget, QHBoxLayout, QStyleFactory
+from PyQt5.QtWidgets import QHeaderView, QLabel, QTableWidgetItem, QWidget, QHBoxLayout, QStyleFactory
 from PyQt5.QtCore import pyqtSlot, Qt, QThread, QObject, pyqtSignal
 from PyQt5.QtGui import QColor
 
@@ -30,7 +30,7 @@ class TableDataController(QObject):
             *args, **kwargs):
 
         super().__init__()
-
+        self.table_data = []
         self.devices = devices
         self.table = table
         self.table_batch = table_batch
@@ -40,8 +40,17 @@ class TableDataController(QObject):
            
         self.init_table()
         self.update_content.connect(self.update_table_content)
+        self.update_content.connect(self.resize)
 
         self.load_table_data()
+        # header = self.table.horizontalHeader()   
+        # for i in range(len(self.horizontalHeaderLabels)):
+        #     header.setSectionResizeMode(i, QHeaderView.ResizeToContents)
+        #     # header.setSectionResizeMode(1, QHeaderView.ResizeToContents)
+        #     # header.setSectionResizeMode(2, QHeaderView.ResizeToContents)
+    def resize(self):
+        if self.table:
+            self.table.resizeColumnsToContents()
 
     def init_table(self):
         self.table.setRowCount(self.table_batch)

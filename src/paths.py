@@ -61,10 +61,7 @@ PR = 'mks937b/pirani.py'
 PR_UI = '../ui/mks937b/pirani.ui'
 
 PRESSURE = 'mks937b/pressure.py'
-if IS_LINUX:
-    PRESSURE_UI = '../ui/mks937b/pressure.ui'
-else:
-    PRESSURE_UI = '../ui/mks937b/pressure_win.ui'
+PRESSURE_UI = '../ui/mks937b/pressure.ui'
 
 SETTINGS = 'mks937b/settings.py'
 SETTINGS_UI = '../ui/mks937b/settings.ui'
