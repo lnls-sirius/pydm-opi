@@ -94,12 +94,12 @@ class UHVDataController(TableDataController):
     def filter(self, pattern):
         if not pattern:
             pattern = ""
-        if pattern != self.FILTER_PATTERN:
+        if pattern != self.filter_pattern:
             self.batch_offset = 0
-            self.FILTER_PATTERN = pattern
+            self.filter_pattern = pattern
             try:
                 for data in self.table_data:
-                    RENDER = self.FILTER_PATTERN in data[0][0] or self.FILTER_PATTERN in data[0][data[1]]
+                    RENDER = self.filter_pattern in data[0][0] or self.filter_pattern in data[0][data[1]]
                     data[2] = RENDER
                 self.update_content.emit()
             except:
