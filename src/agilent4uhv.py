@@ -13,34 +13,13 @@ from PyQt5.QtWidgets import QComboBox, QLabel, QTableWidgetItem, QWidget, QHBoxL
 from PyQt5.QtCore import pyqtSlot, Qt, QThread, QObject, pyqtSignal
 from PyQt5.QtGui import QColor
 
-from src import get_label, TableDataController
+from src import get_label, get_byte_indicator, TableDataController
 from src.consts.agilent4uhv import devices
 from src.paths import get_abs_path, AGILENT_MAIN_UI, AGILENT_DEVICE_MAIN_UI
 
 ALARM, CURRENT, PRESSURE, VOLTAGE, TEMPERATURE, DEVICE_NAME, CH_CONFIG, AUTOSTART = range(8)
 BOOSTER, RING, BTS, LTB = range(4)
 EXECUTOR = ThreadPoolExecutor(max_workers=4)
-
-def get_label(parent, content, tooltip, displayFormat=PyDMLabel.DisplayFormat.Default): 
-    lbl = PyDMLabel(parent=parent, init_channel=content)
-    lbl.precisionFromPV = False
-    lbl.precision = 4
-    lbl.displayFormat = displayFormat
-    lbl.showUnits = True 
-    return lbl
-
-def get_byte_indicator(parent, content, tooltip, LSB=True):
-    byte = PyDMByteIndicator(parent, content)
-    byte.offColor = QColor(59, 0, 0)
-    byte.onColor = QColor(255, 0, 0)
-    byte.showLabels = False
-    byte.orientation = Qt.Horizontal
-    if LSB:
-        byte.numBits = 8
-    else:
-        byte.numBits = 4
-        byte.shift = 8 
-    return byte
 
 class UHVDataController(TableDataController): 
     def init_table(self): 
@@ -214,7 +193,7 @@ class UHV(Display):
         super(UHV, self).__init__(
             parent=parent, args=args, macros=macros)
         
-        table_batch = len(devices) * 4 if len(devices) * 8 < 30 else 30
+        table_batch = len(devices) * 4 if len(devices) * 4 < 30 else 30
 
         horizontal_header_labels = [
                 'Channel Name',             # 0

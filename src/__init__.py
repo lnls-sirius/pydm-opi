@@ -15,6 +15,19 @@ def get_label(parent, content, tooltip, displayFormat=PyDMLabel.DisplayFormat.De
     lbl.displayFormat = displayFormat
     lbl.showUnits = True
     return lbl
+    
+def get_byte_indicator(parent, content, tooltip, LSB=True):
+    byte = PyDMByteIndicator(parent, content)
+    byte.offColor = QColor(59, 0, 0)
+    byte.onColor = QColor(255, 0, 0)
+    byte.showLabels = False
+    byte.orientation = Qt.Horizontal
+    if LSB:
+        byte.numBits = 8
+    else:
+        byte.numBits = 4
+        byte.shift = 8 
+    return byte
 
 
 class TableDataController(QObject):
