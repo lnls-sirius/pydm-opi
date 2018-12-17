@@ -3,12 +3,12 @@
 import os
 import platform
 import pandas
-import re 
+import re
 
 from . import FILE
 
 SHEET = 'PVs Agilent 4UHV'
-sheet = pandas.read_excel(FILE, sheet_name=SHEET, dtype=str) 
+sheet = pandas.read_excel(FILE, sheet_name=SHEET, dtype=str)
 sheet = sheet.replace('nan', '')
 
 devices = []

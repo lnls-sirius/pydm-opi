@@ -25,7 +25,7 @@ class MBTempTableDataController(TableDataController):
         self.table.setRowCount(self.table_batch)
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
-                
+
         for actual_row in range(self.table_batch):
                 # Channel Name
                 self.table.setCellWidget(actual_row, 0, QLabel(''))
@@ -60,7 +60,7 @@ class MBTempTableDataController(TableDataController):
 
         # Maximum Allowed
         if self.batch_offset >= total_rows:
-            return 
+            return
 
         # Adding New Content
         actual_row = 0
@@ -77,7 +77,7 @@ class MBTempTableDataController(TableDataController):
                 # Channel Access
                 device_ca = 'ca://' + dev
                 channel_ca = 'ca://' + channel
-                
+
                 # Channel
                 self.table.cellWidget(actual_row, 0).setText(channel)
                 # Device
@@ -87,14 +87,14 @@ class MBTempTableDataController(TableDataController):
                 # Temp
                 self.connect_widget(actual_row, 3, channel_ca)
                 self.connect_widget(actual_row, 4, channel_ca + '-Raw')
-                
+
                 actual_row += 1
 
             dataset_row += 1
-        
+
         for row in range(actual_row, self.table_batch):
             self.table.setRowHidden(row, True)
-             
+
 class TableDisplay(Display):
     def __init__(self, parent=None, args=[], macros=None):
         super(TableDisplay, self).__init__(
@@ -105,7 +105,7 @@ class TableDisplay(Display):
         horizontal_header_labels = [
             'Channel Name', 'Device Name', 'Device Alpha', 'Temperature', 'Temperature Raw']
 
-        self.tdc = MBTempTableDataController(self.table, 
+        self.tdc = MBTempTableDataController(self.table,
             devices=devices, table_batch=table_batch, horizontal_header_labels=horizontal_header_labels)
 
         self.tfFilter.editingFinished.connect(
@@ -116,7 +116,7 @@ class TableDisplay(Display):
         self.btnNavRight.clicked.connect(lambda: self.update_navbar(True))
         self.btnNavRight.setIcon(IconFont().icon('arrow-right'))
 
-    def update_navbar(self, increase = True): 
+    def update_navbar(self, increase = True):
         self.tdc.changeBatch(increase)
 
     def filter(self, pattern):

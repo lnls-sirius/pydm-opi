@@ -3,7 +3,6 @@
 import json
 import re
 
-from concurrent.futures import ThreadPoolExecutor
 from os import path
 from pydm import Display, PyDMApplication
 from pydm.utilities import IconFont
@@ -19,17 +18,16 @@ from src.paths import get_abs_path, AGILENT_MAIN_UI, AGILENT_DEVICE_MAIN_UI
 
 ALARM, CURRENT, PRESSURE, VOLTAGE, TEMPERATURE, DEVICE_NAME, CH_CONFIG, AUTOSTART = range(8)
 BOOSTER, RING, BTS, LTB = range(4)
-EXECUTOR = ThreadPoolExecutor(max_workers=4)
 
-class UHVDataController(TableDataController): 
-    def init_table(self): 
+class UHVDataController(TableDataController):
+    def init_table(self):
         self.table.setRowCount(self.table_batch)
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
 
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
-                
+
         for actual_row in range(self.table_batch):
                 # Channel Name
                 self.table.setCellWidget(actual_row, 0, QLabel(''))
@@ -67,7 +65,7 @@ class UHVDataController(TableDataController):
                 self.table.setCellWidget(actual_row, 14, get_label(self.table, '', '',))
                 # Setpoint
                 self.table.setCellWidget(actual_row, 15, get_label(self.table, '', '',))
-                
+
                 # Details
                 self.table.setCellWidget(actual_row, 16, rel)
 
@@ -94,12 +92,12 @@ class UHVDataController(TableDataController):
     def filter(self, pattern):
         if not pattern:
             pattern = ""
-        if pattern != self.FILTER_PATTERN:
+        if pattern != self.filter_pattern:
             self.batch_offset = 0
-            self.FILTER_PATTERN = pattern
+            self.filter_pattern = pattern
             try:
                 for data in self.table_data:
-                    RENDER = self.FILTER_PATTERN in data[0][0] or self.FILTER_PATTERN in data[0][data[1]]
+                    RENDER = self.filter_pattern in data[0][0] or self.filter_pattern in data[0][data[1]]
                     data[2] = RENDER
                 self.update_content.emit()
             except:
@@ -117,7 +115,7 @@ class UHVDataController(TableDataController):
 
         # Maximum Allowed
         if self.batch_offset >= total_rows:
-            return 
+            return
 
         # Adding New Content
         actual_row = 0
@@ -127,20 +125,20 @@ class UHVDataController(TableDataController):
         for device, devNum, render in self.table_data:
 
             # To render or not to render  ...
-            if render and dataset_row >= self.batch_offset and actual_row != self.table_batch:               
+            if render and dataset_row >= self.batch_offset and actual_row != self.table_batch:
                 self.table.setRowHidden(actual_row, False)
 
                 # Channel Access
                 device_ca = 'ca://' + device[0]
                 channel_ca = 'ca://' + device[devNum]
-                
+
                 # Datails Button Macro
                 macros = '{"DEVICE":"' + device[0] + \
                     '", "PREFIX_C1":"' + device[1] + \
                     '", "PREFIX_C2":"' + device[2] + \
                     '", "PREFIX_C3":"' + device[3] + \
                     '", "PREFIX_C4":"' + device[4] + '"}'
-                
+
                 # Channel Name
                 self.table.cellWidget(actual_row, 0).setText(device[devNum])
                 # Device Name
@@ -164,7 +162,7 @@ class UHVDataController(TableDataController):
                 self.connect_widget(actual_row, 9, channel_ca + ':ErrorCode-Mon')
                 # MSB
                 self.connect_widget(actual_row, 10, channel_ca + ':ErrorCode-Mon')
-                
+
                 # HVState-RB
                 self.connect_widget(actual_row, 11, channel_ca + ':HVState-RB')
                 # PowerMax-RB
@@ -192,7 +190,7 @@ class UHV(Display):
     def __init__(self, parent=None, args=[], macros=None):
         super(UHV, self).__init__(
             parent=parent, args=args, macros=macros)
-        
+
         table_batch = len(devices) * 4 if len(devices) * 4 < 30 else 30
 
         horizontal_header_labels = [
@@ -214,11 +212,11 @@ class UHV(Display):
                 'V Target',                 # 13
                 'I Protect',                # 14
                 'Setpoint',                 # 15
-                
+
 
                 'Details']
         # self.tdc = UHVDataController(self.table)
-        self.tdc = UHVDataController(self.table, 
+        self.tdc = UHVDataController(self.table,
             devices=devices, table_batch=table_batch, horizontal_header_labels=horizontal_header_labels)
 
         self.chAlarms.stateChanged.connect(lambda: self.showHideColumn(ALARM, self.chAlarms))
@@ -237,7 +235,7 @@ class UHV(Display):
         self.btnNavLeft.setIcon(IconFont().icon('arrow-left'))
         self.btnNavRight.clicked.connect(lambda: self.update_navbar(True))
         self.btnNavRight.setIcon(IconFont().icon('arrow-right'))
-    
+
     def update_navbar(self, increase = True):
         self.tdc.changeBatch(increase)
 

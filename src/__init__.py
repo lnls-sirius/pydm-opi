@@ -8,14 +8,16 @@ from PyQt5.QtWidgets import QHeaderView, QLabel, QTableWidgetItem, QWidget, QHBo
 from PyQt5.QtCore import pyqtSlot, Qt, QThread, QObject, pyqtSignal
 from PyQt5.QtGui import QColor
 
-def get_label(parent, content, tooltip, displayFormat=PyDMLabel.DisplayFormat.Default): 
+def get_label(parent, content, tooltip, displayFormat=PyDMLabel.DisplayFormat.Default, precision = None):
     lbl = PyDMLabel(parent=parent, init_channel=content)
     lbl.precisionFromPV = False
     lbl.precision = 4
     lbl.displayFormat = displayFormat
     lbl.showUnits = True
+    if precision:
+        lbl.precision_changed(precision)
     return lbl
-    
+
 def get_byte_indicator(parent, content, tooltip, LSB=True):
     byte = PyDMByteIndicator(parent, content)
     byte.offColor = QColor(59, 0, 0)
@@ -26,7 +28,7 @@ def get_byte_indicator(parent, content, tooltip, LSB=True):
         byte.numBits = 8
     else:
         byte.numBits = 4
-        byte.shift = 8 
+        byte.shift = 8
     return byte
 
 
@@ -36,7 +38,7 @@ class TableDataController(QObject):
     table_batch = 24
     filter_pattern = None
 
-    def __init__(self, 
+    def __init__(self,
             table, devices = [],
             table_batch = 24,
             horizontal_header_labels=[],
@@ -50,17 +52,13 @@ class TableDataController(QObject):
         self.horizontalHeaderLabels = horizontal_header_labels
 
         self.batch_offset = 0
-           
+
         self.init_table()
         self.update_content.connect(self.update_table_content)
         self.update_content.connect(self.resize)
 
         self.load_table_data()
-        # header = self.table.horizontalHeader()   
-        # for i in range(len(self.horizontalHeaderLabels)):
-        #     header.setSectionResizeMode(i, QHeaderView.ResizeToContents)
-        #     # header.setSectionResizeMode(1, QHeaderView.ResizeToContents)
-        #     # header.setSectionResizeMode(2, QHeaderView.ResizeToContents)
+
     def resize(self):
         if self.table:
             self.table.resizeColumnsToContents()
@@ -69,7 +67,7 @@ class TableDataController(QObject):
         self.table.setRowCount(self.table_batch)
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
-                
+
         # TODO: Impplement ...
         raise NotImplementedError("Subclass must implement abstract method")
 
@@ -85,7 +83,7 @@ class TableDataController(QObject):
          # TODO: Impplement ...
         raise NotImplementedError("Subclass must implement abstract method")
 
-            
+
 
     def connect_widget(self, row, col, channel_name = None, macros=None):
         widget = self.table.cellWidget(row, col)

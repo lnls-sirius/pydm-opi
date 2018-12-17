@@ -4,59 +4,110 @@ import json
 from os import path
 
 from pydm import Display
+from pydm.utilities import IconFont
 from pydm.widgets import PyDMRelatedDisplayButton, PyDMEmbeddedDisplay, PyDMLabel
 
 from PyQt5.QtWidgets import QComboBox, QLabel, QTableWidgetItem
 from PyQt5.QtCore import pyqtSlot, Qt, pyqtSignal
 
+from src import get_label, TableDataController
 from src.consts.mks937b import devices, COLD_CATHODE, PIRANI
+from src.paths import get_abs_path, MBTEMP_MAIN_UI as TABLE_UI, DEVICE_MENU
 
-from src.paths import get_abs_path, TABLE_UI, DEVICE_MENU
+class MKSTableDataController(TableDataController):
+    def __init__(self, table, devices=[], table_batch=24, horizontal_header_labels=[], *args, **kwargs):
+        return super().__init__(table, devices=devices, table_batch=table_batch, horizontal_header_labels=horizontal_header_labels, *args, **kwargs)
 
+    def init_table(self):
+        self.table.setRowCount(self.table_batch)
+        self.table.setColumnCount(len(self.horizontalHeaderLabels))
+        self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
+        for actual_row in range(self.table_batch):
+                self.table.setCellWidget(actual_row, 0, QLabel(''))
+                self.table.setCellWidget(actual_row, 1, QLabel(''))
+                self.table.setCellWidget(actual_row, 2, get_label(self.table, '', ''))
+                self.table.setCellWidget(actual_row, 3, get_label(self.table, '', ''))
+                self.table.setCellWidget(actual_row, 4, get_label(self.table, '', ''))
+                rel = PyDMRelatedDisplayButton(self.table, get_abs_path(DEVICE_MENU))
+                rel.openInNewWindow = True
+                self.table.setCellWidget(actual_row, 5, rel)
 
-class StorageRing(Display):
-    update_content = pyqtSignal()
+    def filter(self, pattern):
+        if pattern != self.filter_pattern:
+            self.filter_pattern = pattern if pattern != None else ''
+            self.batch_offset = 0
+            self.filter_pattern = pattern
 
-    def __init__(self, parent=None, args=[], macros=None):
-        super(StorageRing, self).__init__(
-            parent=parent, args=args, macros=macros)
-        self.config_table(self.boosterTableWidget, devices)
-        self.update_content.connect(self.update_table_content)
+            for data in self.table_data:
+                data['render'] = self.filter_pattern in data['device'] or self.filter_pattern in data['gauge']
+            self.update_content.emit()
 
-        #self.tfFilter.editingFinished.connect(
-        #            lambda: self.filter(self.tfFilter.text()))
+    def load_table_data(self):
+        self.table_data = []
+        for device in self.devices:
+            # Gauges are from data[4:]
+            # Device is data[0]
+            macro = \
+                '{"DEVICE" :"' +  device[0] + '",\
+                "G1":"' + device[4] + '",\
+                "G2":"' + device[5] + '",\
+                "G3":"' + device[6] + '",\
+                "G4":"' + device[7] + '",\
+                "G5":"' + device[8] + '",\
+                "G6":"' + device[9] + '",\
+                "A":"' + device[1] + '",\
+                "B":"' + device[2] + '", \
+                "C":"' + device[3] + '"}'
 
-        def filter(self, pattern):
-                if not pattern:
-                    pattern = ""
-                if pattern != self.FILTER_PATTERN:
-                    self.batch_offset = 0
-                    self.FILTER_PATTERN = pattern
-                    try:
-                        for data in self.table_data:
-                            RENDER = self.FILTER_PATTERN in data[0][0] or self.FILTER_PATTERN in data[0][data[1]]
-                            data[2] = RENDER
-                        self.update_content.emit()
-                    except:
-                        pass
+            for item in device[4:]:
+                self.table_data.append({'device':device[0], 'gauge':item, 'macro':macro, 'render':True})
+        self.total_rows = len(self.table_data)
+        self.update_content.emit()
 
     def update_table_content(self):
-        # Todo!
-        pass
 
-    def add_label(self, table, row, col, pv, *args, **kwargs):
-        """
-        Add a PYDMLabel to the table.
-        """
-        table.setCellWidget(row, col, PyDMLabel(table, pv))
+        # Maximum Allowed
+        if self.batch_offset >= self.total_rows:
+            return
 
-    def config_table(self, table, devices):
-        """
-        Configures a table with the following devices.
-        :param table: Parent table.
-        :param devices: Devices list according to consts.py.
-        """
-        header_labels = [
+        # Adding New Content
+        actual_row = 0
+        dataset_row = 0
+        self.table.setVerticalHeaderLabels([str(i) for i in range(self.batch_offset, self.table_batch + self.batch_offset)])
+
+        for data in self.table_data:
+            if actual_row == self.table_batch:
+                continue
+
+            # To render or not to render  ...
+            if data['render'] and dataset_row >= self.batch_offset:
+                self.table.setRowHidden(actual_row, False)
+                # Channel Access
+                device_ca = 'ca://' + data['device']
+                channel_ca = 'ca://' + data['gauge']
+
+                self.table.cellWidget(actual_row, 0).setText(data['gauge'])
+                self.table.cellWidget(actual_row, 1).setText(data['device'])
+                self.connect_widget(actual_row, 2, channel_ca + ':Pressure-Mon-s')
+                self.connect_widget(actual_row, 3, channel_ca + ':Pressure-Mon.STAT')
+                self.connect_widget(actual_row, 4, device_ca + ':Unit')
+                self.connect_widget(actual_row, 5, None, data['macro'])
+                actual_row += 1
+
+            dataset_row += 1
+
+        for row in range(actual_row, self.table_batch):
+            self.table.setRowHidden(row, True)
+
+
+class MKS(Display):
+
+    def __init__(self, parent=None, args=[], macros=None):
+        super(MKS, self).__init__(
+            parent=parent, args=args, macros=macros)
+
+        table_batch = len(devices) * 6
+        horizontal_header_labels = [
             'Gauge',
             'Device',
             'Pressure',
@@ -64,43 +115,25 @@ class StorageRing(Display):
             'Unit',
             'Details']
 
-        table.setRowCount(len(devices)*6)
-        table.setColumnCount(len(header_labels))
-        table.setHorizontalHeaderLabels(header_labels)
+        self.tdc = MKSTableDataController(self.table,
+                    devices=devices, table_batch=table_batch, horizontal_header_labels=horizontal_header_labels)
 
-        row = 0
-        for data in devices:
-            device_name = data[0]
-            for gauge in data[4]:
-                gauge_ca = 'ca://' +  gauge
-                device_ca = 'ca://' +  device_name
+        self.tfFilter.editingFinished.connect(
+            lambda: self.filter(self.tfFilter.text()))
 
-                table.setCellWidget(row, 0, QLabel(gauge))
-                table.setCellWidget(row, 1, QLabel(device_name))
+        self.btnNavLeft.clicked.connect(lambda: self.update_navbar(False))
+        self.btnNavLeft.setIcon(IconFont().icon('arrow-left'))
+        self.btnNavRight.clicked.connect(lambda: self.update_navbar(True))
+        self.btnNavRight.setIcon(IconFont().icon('arrow-right'))
 
-                self.add_label(table, row, 2, gauge_ca + ':Pressure-Mon-s')
-                self.add_label(table, row, 3, gauge_ca + ':Pressure-Mon.STAT')
+    def filter(self, pattern):
+        self.tdc.filter(pattern)
 
-                self.add_label(table, row, 4, device_ca + ':Unit', 'Unit')
+    def update_navbar(self, increase = True):
+        self.tdc.changeBatch(increase)
 
-
-                rel = PyDMRelatedDisplayButton(table, get_abs_path(DEVICE_MENU))
-                rel.openInNewWindow = True
-                rel.macros = \
-                '{"DEVICE" :"' +  device_name + '",\
-                "G1":"' + data[4][0] + '",\
-                "G2":"' + data[4][1] + '",\
-                "G3":"' + data[4][2] + '",\
-                "G4":"' + data[4][3] + '",\
-                "G5":"' + data[4][4] + '",\
-                "G6":"' + data[4][5] + '",\
-                "A":"' + data[1] + '",\
-                "B":"' + data[2] + '", \
-                "C":"' + data[3] + '"}'
-                table.setCellWidget(row, 5, rel)
-
-                row += 1
-        table.resizeColumnsToContents()
+    def filter(self, pattern):
+        self.tdc.filter(pattern)
 
     def ui_filename(self):
         return TABLE_UI

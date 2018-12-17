@@ -10,17 +10,17 @@ def get_abs_path(relative):
     """
     return os.path.join(os.path.dirname(os.path.realpath(__file__)), relative)
 
- 
+
 LAUNCH_WINDOW_UI = "../ui/launcher.ui"
 
 #######################################################################################
-#                                       MBTemp                                        # 
+#                                       MBTemp                                        #
 #######################################################################################
 MBTEMP_MAIN_UI = '../ui/mbtemp/main.ui'
 MBTEMP_MAIN = 'mbtemp.py'
 
 #######################################################################################
-#                                      Agilent                                        # 
+#                                      Agilent                                        #
 #######################################################################################
 AGILENT_MAIN = "agilent4uhv.py"
 AGILENT_MAIN_UI = "../ui/agilent4uhv/main.ui"
@@ -29,7 +29,7 @@ AGILENT_MAIN_UI = "../ui/agilent4uhv/main.ui"
 AGILENT_DEVICE_MAIN_UI = "../ui/agilent4uhv/device_main.ui"
 
 #######################################################################################
-#                                          MKS                                        # 
+#                                          MKS                                        #
 #######################################################################################
 MKS_MAIN = "mks937b/table.py"
 MKS_MAIN_UI = "../ui/mks937b/table.ui"

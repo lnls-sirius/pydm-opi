@@ -3,13 +3,13 @@
 import os
 import platform
 import pandas
-import re 
+import re
 
 from . import FILE, IS_LINUX
 
 SHEET = 'PVs MBTemp'
 
-sheet = pandas.read_excel(FILE, sheet_name=SHEET, dtype=str) 
+sheet = pandas.read_excel(FILE, sheet_name=SHEET, dtype=str)
 sheet = sheet.replace('nan', '')
 
 IOC_FILENAME = '/opt/stream-ioc/' + 'mks937_min.cmd'
@@ -17,7 +17,7 @@ devices = []
 
 #IP	Rack	ADDR	Dev	CH1	CH2	CH3	CH4	CH5	CH6	CH7	CH8
 for index, row in sheet.iterrows():
-    data = [    
+    data = [
         row['Dev'],
         row['CH1'], row['CH2'], row['CH3'],
         row['CH4'], row['CH5'], row['CH5'],
