@@ -113,7 +113,7 @@
                  </property>
                  <property name="curves">
                   <stringlist>
-                   <string>{&quot;channel&quot;: &quot;ca://${DEVICE}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 1 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
+                   <string>{&quot;channel&quot;: &quot;ca://${G1}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 1 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
                   </stringlist>
                  </property>
                  <property name="updatesAsynchronously">
@@ -155,7 +155,7 @@
                  </property>
                  <property name="curves">
                   <stringlist>
-                   <string>{&quot;channel&quot;: &quot;ca://${DEVICE}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 2 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
+                   <string>{&quot;channel&quot;: &quot;ca://${G2}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 2 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
                   </stringlist>
                  </property>
                  <property name="updatesAsynchronously">
@@ -830,7 +830,7 @@
                  </property>
                  <property name="curves">
                   <stringlist>
-                   <string>{&quot;channel&quot;: &quot;ca://${DEVICE}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 5 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
+                   <string>{&quot;channel&quot;: &quot;ca://${G3}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 5 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
                   </stringlist>
                  </property>
                  <property name="updatesAsynchronously">
@@ -872,7 +872,7 @@
                  </property>
                  <property name="curves">
                   <stringlist>
-                   <string>{&quot;channel&quot;: &quot;ca://${DEVICE}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 6 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
+                   <string>{&quot;channel&quot;: &quot;ca://${G4}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 6 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
                   </stringlist>
                  </property>
                  <property name="updatesAsynchronously">
@@ -1535,7 +1535,7 @@
                  </property>
                  <property name="curves">
                   <stringlist>
-                   <string>{&quot;channel&quot;: &quot;ca://${DEVICE}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 3 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
+                   <string>{&quot;channel&quot;: &quot;ca://${G5}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 3 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
                   </stringlist>
                  </property>
                  <property name="updatesAsynchronously">
@@ -1577,7 +1577,7 @@
                  </property>
                  <property name="curves">
                   <stringlist>
-                   <string>{&quot;channel&quot;: &quot;ca://${DEVICE}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 4 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
+                   <string>{&quot;channel&quot;: &quot;ca://${G6}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 4 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
                   </stringlist>
                  </property>
                  <property name="updatesAsynchronously">
