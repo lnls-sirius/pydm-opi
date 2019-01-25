@@ -11,7 +11,7 @@ from PyQt5.QtGui import QColor
 def get_label(parent, content, tooltip, displayFormat=PyDMLabel.DisplayFormat.Default, precision = None):
     lbl = PyDMLabel(parent=parent, init_channel=content)
     lbl.precisionFromPV = False
-    lbl.precision = 4
+    lbl.precision = 2
     lbl.displayFormat = displayFormat
     lbl.showUnits = True
     if precision:
