@@ -20,7 +20,7 @@ for index, row in sheet.iterrows():
     data = [
         row['Dev'],
         row['CH1'], row['CH2'], row['CH3'],
-        row['CH4'], row['CH5'], row['CH5'],
-        row['CH6'], row['CH7'], row['CH8']
+        row['CH4'], row['CH5'], row['CH6'],
+        row['CH7'], row['CH8']
     ]
     devices.append(data)
