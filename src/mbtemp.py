@@ -3,7 +3,7 @@
 import json
 import re
 
-
+import logging
 from os import path
 from pydm import Display, PyDMApplication
 from pydm.utilities import IconFont
@@ -17,15 +17,14 @@ from src import get_label, TableDataController
 from src.consts.mbtemp import devices
 from src.paths import get_abs_path, MBTEMP_MAIN_UI
 
+logger = logging.getLogger()
+
 class MBTempTableDataController(TableDataController):
-    def __init__(self, table, devices=[], table_batch=24, horizontal_header_labels=[], *args, **kwargs):
-        return super().__init__(table, devices=devices, table_batch=table_batch, horizontal_header_labels=horizontal_header_labels, *args, **kwargs)
 
     def init_table(self):
         self.table.setRowCount(self.table_batch)
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
-
         for actual_row in range(self.table_batch):
                 # Channel Name
                 self.table.setCellWidget(actual_row, 0, QLabel(''))
@@ -100,7 +99,7 @@ class TableDisplay(Display):
         super(TableDisplay, self).__init__(
             parent=parent, args=args, macros=macros)
 
-        table_batch = len(devices) * 8 if len(devices) * 8 < 30 else 30
+        table_batch = len(devices) * 8 # if len(devices) * 8 < 30 else 30
 
         horizontal_header_labels = [
             'Channel Name', 'Device Name', 'Device Alpha', 'Temperature', 'Temperature Raw']
