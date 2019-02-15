@@ -4,10 +4,8 @@ function cleanup {
     echo "  Bye !  "
 }
 
-source .virtualenv/bin/activate
+#source .virtualenv/bin/activate
 trap cleanup EXIT
-
-git pull
 
 export PYTHONPATH=${PWD}
 export HOME=${PWD}
@@ -20,6 +18,5 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-#OPTS="--hide-nav-bar --hide-menu-bar --hide-status-bar"
 OPTS=""
 pydm $OPTS src/launcher.py

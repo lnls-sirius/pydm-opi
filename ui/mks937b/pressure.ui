@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>832</width>
-    <height>586</height>
+    <width>1065</width>
+    <height>848</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -54,8 +54,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>796</width>
-        <height>933</height>
+        <width>1049</width>
+        <height>790</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_7">
@@ -830,7 +830,7 @@
                  </property>
                  <property name="curves">
                   <stringlist>
-                   <string>{&quot;channel&quot;: &quot;ca://${G3}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 5 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
+                   <string>{&quot;channel&quot;: &quot;ca://${G5}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 5 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
                   </stringlist>
                  </property>
                  <property name="updatesAsynchronously">
@@ -872,7 +872,7 @@
                  </property>
                  <property name="curves">
                   <stringlist>
-                   <string>{&quot;channel&quot;: &quot;ca://${G4}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 6 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
+                   <string>{&quot;channel&quot;: &quot;ca://${G6}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 6 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
                   </stringlist>
                  </property>
                  <property name="updatesAsynchronously">
@@ -1535,7 +1535,7 @@
                  </property>
                  <property name="curves">
                   <stringlist>
-                   <string>{&quot;channel&quot;: &quot;ca://${G5}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 3 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
+                   <string>{&quot;channel&quot;: &quot;ca://${G3}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 3 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
                   </stringlist>
                  </property>
                  <property name="updatesAsynchronously">
@@ -1577,7 +1577,7 @@
                  </property>
                  <property name="curves">
                   <stringlist>
-                   <string>{&quot;channel&quot;: &quot;ca://${G6}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 4 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
+                   <string>{&quot;channel&quot;: &quot;ca://${G4}:Pressure-Mon&quot;, &quot;name&quot;: &quot;Channel 4 Pressure &quot;, &quot;color&quot;: &quot;white&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
                   </stringlist>
                  </property>
                  <property name="updatesAsynchronously">
@@ -2175,24 +2175,24 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMLabel</class>
-   <extends>QLabel</extends>
-   <header>pydm.widgets.label</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMTimePlot</class>
    <extends>QGraphicsView</extends>
    <header>pydm.widgets.timeplot</header>
   </customwidget>
   <customwidget>
-   <class>PyDMByteIndicator</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.byte</header>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
   </customwidget>
   <customwidget>
    <class>PyDMEnumComboBox</class>
    <extends>QComboBox</extends>
    <header>pydm.widgets.enum_combo_box</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
   </customwidget>
  </customwidgets>
  <resources/>
