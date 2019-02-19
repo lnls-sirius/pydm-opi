@@ -14,14 +14,7 @@ pandas==0.23.4
 xlrd==1.1.0
 ```
 
-## Usage
-Inside `launch.sh` the user should set the ip/port where the PV Gateway or the IOCs are running.
-This is done by editing:
-```
-# PV Gateway Address
-export EPICS_CA_ADDR_LIST=127.0.0.1
-```
-After that, simply run:
+## Usage 
 ```
 ./launch.sh
 ```
@@ -42,7 +35,7 @@ Currently the project is structured as:
     ├── ...
     └── tools
 
-Python code is to be placed inside `./src/` folder.
+Python code placed inside `./src/` folder.
 Qt Designer .ui files inside `./ui/` folder.
 Images and .qrc files inside `./images/` folder.
 
