@@ -11,7 +11,8 @@ export PYTHONPATH=${PWD}
 export HOME=${PWD}
 
 # PV Gateway Address
-export EPICS_CA_ADDR_LIST=10.0.38.34
+export EPICS_CA_ADDR_LIST=10.0.6.57
+export EPICS_CA_AUTO_ADDR_LIST=YES
 
 # PYDM expects the following language setup
 export LC_ALL=en_US.UTF-8
