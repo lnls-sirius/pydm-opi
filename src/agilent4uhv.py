@@ -190,7 +190,7 @@ class UHV(Display):
         super(UHV, self).__init__(
             parent=parent, args=args, macros=macros)
 
-        table_batch = len(devices) * 4
+        table_batch = 30
 
         horizontal_header_labels = [
                 'Channel Name',             # 0
