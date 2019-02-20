@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>547</width>
-    <height>390</height>
+    <width>545</width>
+    <height>389</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -78,79 +78,13 @@
           <height>250</height>
          </size>
         </property>
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_2">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>150</y>
-           <width>241</width>
-           <height>91</height>
-          </rect>
-         </property>
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="whatsThis">
-          <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-         </property>
-         <property name="precisionFromPV" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://${PREFIX}:ErrorCode-Mon</string>
-         </property>
-         <property name="onColor" stdset="0">
-          <color>
-           <red>255</red>
-           <green>0</green>
-           <blue>0</blue>
-          </color>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>59</red>
-           <green>0</green>
-           <blue>0</blue>
-          </color>
-         </property>
-         <property name="numBits" stdset="0">
-          <number>4</number>
-         </property>
-         <property name="shift" stdset="0">
-          <number>8</number>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist>
-           <string>Measurement Error           </string>
-           <string>HV Out Error</string>
-           <string>Short Circuit</string>
-           <string>HV Disabled Error                             </string>
-          </stringlist>
-         </property>
-        </widget>
         <widget class="PyDMByteIndicator" name="PyDMByteIndicator">
          <property name="geometry">
           <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>217</width>
-           <height>156</height>
+           <x>6</x>
+           <y>6</y>
+           <width>211</width>
+           <height>241</height>
           </rect>
          </property>
          <property name="toolTip">
@@ -211,7 +145,7 @@
           <bool>false</bool>
          </property>
          <property name="numBits" stdset="0">
-          <number>8</number>
+          <number>12</number>
          </property>
          <property name="shift" stdset="0">
           <number>0</number>
@@ -226,6 +160,10 @@
            <string>Interlock Cable</string>
            <string>Overtemp HV</string>
            <string>Protect</string>
+           <string>Measurement  Error</string>
+           <string>HV Out Error</string>
+           <string>Short Circuit</string>
+           <string>HV Disabled Error</string>
           </stringlist>
          </property>
         </widget>
@@ -312,6 +250,12 @@
         </property>
         <property name="whatsThis">
          <string/>
+        </property>
+        <property name="precisionFromPV" stdset="0">
+         <bool>false</bool>
+        </property>
+        <property name="precision" stdset="0">
+         <number>2</number>
         </property>
         <property name="showUnits" stdset="0">
          <bool>true</bool>
@@ -441,6 +385,12 @@
         <property name="whatsThis">
          <string/>
         </property>
+        <property name="precisionFromPV" stdset="0">
+         <bool>false</bool>
+        </property>
+        <property name="precision" stdset="0">
+         <number>2</number>
+        </property>
         <property name="showUnits" stdset="0">
          <bool>true</bool>
         </property>
@@ -456,6 +406,12 @@
         </property>
         <property name="whatsThis">
          <string/>
+        </property>
+        <property name="precisionFromPV" stdset="0">
+         <bool>false</bool>
+        </property>
+        <property name="precision" stdset="0">
+         <number>2</number>
         </property>
         <property name="showUnits" stdset="0">
          <bool>true</bool>
@@ -482,6 +438,12 @@
         </property>
         <property name="whatsThis">
          <string/>
+        </property>
+        <property name="precisionFromPV" stdset="0">
+         <bool>false</bool>
+        </property>
+        <property name="precision" stdset="0">
+         <number>2</number>
         </property>
         <property name="showUnits" stdset="0">
          <bool>true</bool>
@@ -606,9 +568,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMLabel</class>
-   <extends>QLabel</extends>
-   <header>pydm.widgets.label</header>
+   <class>PyDMEnumComboBox</class>
+   <extends>QComboBox</extends>
+   <header>pydm.widgets.enum_combo_box</header>
   </customwidget>
   <customwidget>
    <class>PyDMByteIndicator</class>
@@ -616,14 +578,14 @@
    <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
-   <class>PyDMEnumComboBox</class>
-   <extends>QComboBox</extends>
-   <header>pydm.widgets.enum_combo_box</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMLineEdit</class>
    <extends>QLineEdit</extends>
    <header>pydm.widgets.line_edit</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
   </customwidget>
  </customwidgets>
  <resources/>

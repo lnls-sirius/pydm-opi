@@ -28,7 +28,7 @@
            <x>0</x>
            <y>0</y>
            <width>1260</width>
-           <height>720</height>
+           <height>725</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
@@ -107,7 +107,7 @@
          <string>Temperature</string>
         </property>
         <property name="checked">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -117,7 +117,7 @@
          <string>Alarms</string>
         </property>
         <property name="checked">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -137,7 +137,7 @@
          <string>Current</string>
         </property>
         <property name="checked">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -205,7 +205,7 @@
          <string>Voltage</string>
         </property>
         <property name="checked">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -232,7 +232,7 @@
          <string>Channel Configuration</string>
         </property>
         <property name="checked">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -242,7 +242,7 @@
          <string>Autostart</string>
         </property>
         <property name="checked">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
       </item>
