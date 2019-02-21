@@ -12,7 +12,7 @@ from PyQt5.QtCore import pyqtSlot, Qt, pyqtSignal
 
 from src import get_label, TableDataController
 from src.consts.mks937b import devices, COLD_CATHODE, PIRANI
-from src.paths import get_abs_path, MBTEMP_MAIN_UI as TABLE_UI, DEVICE_MENU
+from src.paths import get_abs_path, TABLE_UI, DEVICE_MENU
 
 class MKSTableDataController(TableDataController):
     def __init__(self, table, devices=[], table_batch=24, horizontal_header_labels=[], *args, **kwargs):

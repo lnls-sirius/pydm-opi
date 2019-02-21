@@ -114,7 +114,7 @@ class TableDisplay(Display):
         self.btnNavLeft.setIcon(IconFont().icon('arrow-left'))
         self.btnNavRight.clicked.connect(lambda: self.update_navbar(True))
         self.btnNavRight.setIcon(IconFont().icon('arrow-right'))
-
+        PyDMApplication.instance().hide_nav_bar = True
     def update_navbar(self, increase = True):
         self.tdc.changeBatch(increase)
 
