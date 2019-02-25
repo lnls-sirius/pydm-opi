@@ -27,8 +27,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>1248</width>
-           <height>763</height>
+           <width>1250</width>
+           <height>725</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
@@ -65,14 +65,128 @@
      <property name="lineWidth">
       <number>1</number>
      </property>
-     <layout class="QGridLayout" name="gridLayout_11">
-      <item row="0" column="11">
-       <widget class="PyDMPushButton" name="btnNavLeft">
-        <property name="toolTip">
-         <string/>
-        </property>
-        <property name="whatsThis">
-         <string>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="2" rowspan="2">
+       <widget class="QWidget" name="widget" native="true"/>
+      </item>
+      <item row="2" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QCheckBox" name="chPressure">
+          <property name="text">
+           <string>Pressure</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="chDeviceName">
+          <property name="text">
+           <string>Device Name</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="chVoltage">
+          <property name="text">
+           <string>Voltage</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="chCurrent">
+          <property name="text">
+           <string>Current</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="chChConfig">
+          <property name="text">
+           <string>Channel Configuration</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="chTemperature">
+          <property name="text">
+           <string>Temperature</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="chFanTemperature">
+          <property name="text">
+           <string>Fan Temperature</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="chAutostart">
+          <property name="text">
+           <string>Autostart</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="chAlarms">
+          <property name="text">
+           <string>Alarms</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="lbl_title">
+          <property name="font">
+           <font>
+            <family>Sans Serif</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Agilent 4UHV</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="PyDMPushButton" name="btnNavLeft">
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="whatsThis">
+           <string>
     Basic PushButton to send a fixed value.
 
     The PyDMPushButton is meant to hold a specific value, and send that value
@@ -108,132 +222,20 @@
         ID of channel to manipulate
 
     </string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="7">
-       <widget class="QCheckBox" name="chVoltage">
-        <property name="text">
-         <string>Voltage</string>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3">
-       <widget class="QCheckBox" name="chPressure">
-        <property name="text">
-         <string>Pressure</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="12">
-       <widget class="PyDMPushButton" name="btnNavRight">
-        <property name="toolTip">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="8">
-       <widget class="QCheckBox" name="chChConfig">
-        <property name="text">
-         <string>Channel Configuration</string>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="9">
-       <widget class="QCheckBox" name="chAutostart">
-        <property name="text">
-         <string>Autostart</string>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="4">
-       <widget class="QCheckBox" name="chTemperature">
-        <property name="text">
-         <string>Temperature</string>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QCheckBox" name="chAlarms">
-        <property name="text">
-         <string>Alarms</string>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QCheckBox" name="chDeviceName">
-        <property name="text">
-         <string>Device Name</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="5">
-       <widget class="QCheckBox" name="chCurrent">
-        <property name="text">
-         <string>Current</string>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="13">
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="0" column="14">
-       <widget class="QLineEdit" name="tfFilter"/>
-      </item>
-      <item row="0" column="10">
-       <widget class="QWidget" name="widget" native="true"/>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="lbl_title">
-        <property name="font">
-         <font>
-          <family>Sans Serif</family>
-          <pointsize>12</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Agilent 4UHV</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="PyDMPushButton" name="btnNavRight">
+          <property name="toolTip">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="tfFilter"/>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>

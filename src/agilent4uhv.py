@@ -16,7 +16,7 @@ from src import get_label, get_byte_indicator, TableDataController
 from src.consts.agilent4uhv import devices
 from src.paths import get_abs_path, AGILENT_MAIN_UI, AGILENT_DEVICE_MAIN_UI
 
-ALARM, CURRENT, PRESSURE, VOLTAGE, TEMPERATURE, DEVICE_NAME, CH_CONFIG, AUTOSTART = range(8)
+ALARM, CURRENT, PRESSURE, VOLTAGE, FAN_TEMPERATURE, TEMPERATURE, DEVICE_NAME, CH_CONFIG, AUTOSTART = range(9)
 BOOSTER, RING, BTS, LTB = range(4)
 
 class UHVDataController(TableDataController):
@@ -74,6 +74,8 @@ class UHVDataController(TableDataController):
             self.table.setColumnHidden(9, HIDE)
         elif _type == CURRENT:
             self.table.setColumnHidden(7, HIDE)
+        elif _type == FAN_TEMPERATURE:
+            self.table.setColumnHidden(2, HIDE)
         elif _type == PRESSURE:
             self.table.setColumnHidden(4, HIDE)
             self.table.setColumnHidden(5, HIDE)
@@ -222,6 +224,8 @@ class UHV(Display):
         self.chPressure.stateChanged.connect(lambda: self.showHideColumn(PRESSURE, self.chPressure))
         self.chVoltage.stateChanged.connect(lambda: self.showHideColumn(VOLTAGE, self.chVoltage))
         self.chTemperature.stateChanged.connect(lambda: self.showHideColumn(TEMPERATURE, self.chTemperature))
+        self.chFanTemperature.stateChanged.connect(lambda: self.showHideColumn(FAN_TEMPERATURE, self.chFanTemperature))
+        self.chDeviceName.stateChanged.connect(lambda: self.showHideColumn(DEVICE_NAME, self.chDeviceName))
         self.chDeviceName.stateChanged.connect(lambda: self.showHideColumn(DEVICE_NAME, self.chDeviceName))
         self.chChConfig.stateChanged.connect(lambda: self.showHideColumn(CH_CONFIG, self.chChConfig))
         self.chAutostart.stateChanged.connect(lambda: self.showHideColumn(AUTOSTART, self.chAutostart))
@@ -238,6 +242,8 @@ class UHV(Display):
         self.showHideColumn(CURRENT, False)
         self.showHideColumn(VOLTAGE, False)
         self.showHideColumn(TEMPERATURE, False)
+        self.showHideColumn(FAN_TEMPERATURE, False)
+        self.showHideColumn(CH_CONFIG, False)
         self.showHideColumn(CH_CONFIG, False)
         self.showHideColumn(AUTOSTART, False)
 
