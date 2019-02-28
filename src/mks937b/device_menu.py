@@ -18,7 +18,7 @@ from src.mks937b.macros import get_device_macro
 
 def get_json_macro(macros):
     return json.dumps(macros)
-    
+
 class DeviceMenu(Display):
     def __init__(self, parent=None, args=[], macros=None):
         super(DeviceMenu, self).__init__(
@@ -34,7 +34,7 @@ class DeviceMenu(Display):
         self.btnInfo.displayFilename = get_abs_path(INFO_UI)
         self.btnInfo.macros = json_macro
 
-        self.btnArchiver.clicked.connect(self.open_archiver)
+        #self.btnArchiver.clicked.connect(self.open_archiver)
 
     def open_archiver(self):
         QDesktopServices.openUrl(QUrl(ARCHIVER_URL))
