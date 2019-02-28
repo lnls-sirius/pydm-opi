@@ -21,6 +21,7 @@ class Pressure(Display):
 
         if macros:
             if macros.get('A') == COLD_CATHODE:
+                self.alarm2.hide()
                 self.lblA2.hide()
                 self.cbA2.hide()
                 self.biA2.hide()
@@ -30,6 +31,8 @@ class Pressure(Display):
 
             if macros.get('B') == COLD_CATHODE:
                 self.lblB2.hide()
+                self.alarm4.hide()
+                self.lblA2.hide()
                 self.cbB2.hide()
                 self.biB2.hide()
                 self.plblB2.hide()
@@ -38,6 +41,8 @@ class Pressure(Display):
 
             if macros.get('C') == COLD_CATHODE:
                 self.lblC2.hide()
+                self.alarm6.hide()
+                self.lblA2.hide()
                 self.cbC2.hide()
                 self.biC2.hide()
                 self.plblC2.hide()

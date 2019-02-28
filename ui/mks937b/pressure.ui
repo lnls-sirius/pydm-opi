@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>880</width>
-    <height>839</height>
+    <width>939</width>
+    <height>1109</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -54,7 +54,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>846</width>
+        <width>905</width>
         <height>1260</height>
        </rect>
       </property>
@@ -80,120 +80,14 @@
              <number>0</number>
             </property>
             <layout class="QGridLayout" name="gridLayout_8">
-             <item row="5" column="1" colspan="8">
-              <widget class="QWidget" name="widget_6" native="true">
-               <layout class="QGridLayout" name="gridLayout_4">
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_9">
-                  <property name="text">
-                   <string>Alarms</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QLabel" name="label_24">
-                  <property name="text">
-                   <string>HI</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="3">
-                 <widget class="PyDMLineEdit" name="PyDMLineEdit">
-                  <property name="toolTip">
-                   <string/>
-                  </property>
-                  <property name="precisionFromPV" stdset="0">
-                   <bool>false</bool>
-                  </property>
-                  <property name="precision" stdset="0">
-                   <number>2</number>
-                  </property>
-                  <property name="channel" stdset="0">
-                   <string>ca://${G1}:Pressure-Mon.HIHI</string>
-                  </property>
-                  <property name="displayFormat" stdset="0">
-                   <enum>PyDMLineEdit::Exponential</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QLabel" name="label_23">
-                  <property name="text">
-                   <string>HIHI</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="3">
-                 <widget class="PyDMLineEdit" name="PyDMLineEdit_2">
-                  <property name="toolTip">
-                   <string/>
-                  </property>
-                  <property name="precisionFromPV" stdset="0">
-                   <bool>false</bool>
-                  </property>
-                  <property name="precision" stdset="0">
-                   <number>2</number>
-                  </property>
-                  <property name="channel" stdset="0">
-                   <string>ca://${G1}:Pressure-Mon.HIGH</string>
-                  </property>
-                  <property name="displayFormat" stdset="0">
-                   <enum>PyDMLineEdit::Exponential</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="2">
-                 <widget class="PyDMLabel" name="PyDMLabel_2">
-                  <property name="toolTip">
-                   <string/>
-                  </property>
-                  <property name="precisionFromPV" stdset="0">
-                   <bool>false</bool>
-                  </property>
-                  <property name="precision" stdset="0">
-                   <number>2</number>
-                  </property>
-                  <property name="channel" stdset="0">
-                   <string>ca://${G1}:Pressure-Mon.HIHI</string>
-                  </property>
-                  <property name="displayFormat" stdset="0">
-                   <enum>PyDMLabel::Exponential</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="2">
-                 <widget class="PyDMLabel" name="PyDMLabel_3">
-                  <property name="toolTip">
-                   <string/>
-                  </property>
-                  <property name="precisionFromPV" stdset="0">
-                   <bool>false</bool>
-                  </property>
-                  <property name="precision" stdset="0">
-                   <number>2</number>
-                  </property>
-                  <property name="channel" stdset="0">
-                   <string>ca://${G1}:Pressure-Mon.HIGH</string>
-                  </property>
-                  <property name="displayFormat" stdset="0">
-                   <enum>PyDMLabel::Exponential</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="4">
-                 <spacer name="horizontalSpacer">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
+             <item row="8" column="1">
+              <widget class="QLabel" name="label_14">
+               <property name="text">
+                <string>Relay 4</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
               </widget>
              </item>
              <item row="6" column="6" colspan="2">
@@ -212,8 +106,8 @@
                </property>
               </widget>
              </item>
-             <item row="4" column="4">
-              <widget class="PyDMLabel" name="PyDMLabel_9">
+             <item row="8" column="4">
+              <widget class="PyDMLabel" name="PyDMLabel_11">
                <property name="toolTip">
                 <string/>
                </property>
@@ -230,39 +124,7 @@
                 <number>3</number>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay2:Status-RB</string>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="6">
-              <widget class="PyDMLabel" name="PyDMLabel_23">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="precisionFromPV" stdset="0">
-                <bool>false</bool>
-               </property>
-               <property name="precision" stdset="0">
-                <number>3</number>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay3:Setpoint-RB</string>
-               </property>
-               <property name="displayFormat" stdset="0">
-                <enum>PyDMLabel::Exponential</enum>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="8">
-              <widget class="QLabel" name="label_7">
-               <property name="text">
-                <string>Relay SP Status</string>
+                <string>ca://${DEVICE}:Relay4:Status-RB</string>
                </property>
               </widget>
              </item>
@@ -292,114 +154,13 @@
                </property>
               </widget>
              </item>
-             <item row="2" column="4">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${G1}:Enable-RB</string>
-               </property>
-               <property name="showLabels" stdset="0">
-                <bool>false</bool>
-               </property>
-               <property name="circles" stdset="0">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="6" column="3">
-              <widget class="PyDMEnumComboBox" name="cbA2">
-               <property name="minimumSize">
-                <size>
-                 <width>70</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string>
-    A QComboBox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    Signals
-    -------
-    send_value_signal : int, float, str, bool or np.ndarray
-        Emitted when the user changes the value.
-    activated : int, str
-        Emitted when the user chooses an item in the combobox.
-    currentIndexChanged : int, str
-        Emitted when the index is changed in the combobox.
-    highlighted : int, str
-        Emitted when an item in the combobox popup list is highlighted
-        by the user.
-    </string>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${G2}:Enable-SP</string>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="1">
-              <widget class="QLabel" name="label_13">
+             <item row="3" column="1">
+              <widget class="QLabel" name="label_11">
                <property name="text">
-                <string>Relay 3</string>
+                <string>Relay 1</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1" colspan="2">
-              <widget class="QLabel" name="label_4">
-               <property name="text">
-                <string>Channel 1</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="6">
-              <widget class="PyDMLabel" name="PyDMLabel_13">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="precisionFromPV" stdset="0">
-                <bool>false</bool>
-               </property>
-               <property name="precision" stdset="0">
-                <number>3</number>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay2:Setpoint-RB</string>
-               </property>
-               <property name="displayFormat" stdset="0">
-                <enum>PyDMLabel::Exponential</enum>
                </property>
               </widget>
              </item>
@@ -413,6 +174,13 @@
                </property>
                <property name="channel" stdset="0">
                 <string>ca://${DEVICE}:ModuleType-A</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1" colspan="2">
+              <widget class="QLabel" name="lblA2">
+               <property name="text">
+                <string>Channel 2</string>
                </property>
               </widget>
              </item>
@@ -461,64 +229,53 @@
                </property>
               </widget>
              </item>
-             <item row="6" column="4">
-              <widget class="PyDMByteIndicator" name="biA2">
+             <item row="4" column="6">
+              <widget class="PyDMLabel" name="PyDMLabel_13">
                <property name="toolTip">
                 <string/>
                </property>
                <property name="whatsThis">
-                <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
+                <string/>
                </property>
-               <property name="channel" stdset="0">
-                <string>ca://${G2}:Enable-RB</string>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
                </property>
-               <property name="showLabels" stdset="0">
+               <property name="precisionFromPV" stdset="0">
                 <bool>false</bool>
                </property>
-               <property name="circles" stdset="0">
-                <bool>true</bool>
+               <property name="precision" stdset="0">
+                <number>3</number>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay2:Setpoint-RB</string>
+               </property>
+               <property name="displayFormat" stdset="0">
+                <enum>PyDMLabel::Exponential</enum>
                </property>
               </widget>
              </item>
-             <item row="4" column="8">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_5">
+             <item row="7" column="6">
+              <widget class="PyDMLabel" name="PyDMLabel_23">
                <property name="toolTip">
                 <string/>
                </property>
                <property name="whatsThis">
-                <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="precisionFromPV" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="precision" stdset="0">
+                <number>3</number>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay2:SetpointStatus-Mon</string>
+                <string>ca://${DEVICE}:Relay3:Setpoint-RB</string>
                </property>
-               <property name="circles" stdset="0">
-                <bool>true</bool>
-               </property>
-               <property name="labels" stdset="0">
-                <stringlist>
-                 <string>Clear</string>
-                 <string>Set</string>
-                </stringlist>
+               <property name="displayFormat" stdset="0">
+                <enum>PyDMLabel::Exponential</enum>
                </property>
               </widget>
              </item>
@@ -562,146 +319,20 @@
                </property>
               </widget>
              </item>
-             <item row="8" column="4">
-              <widget class="PyDMLabel" name="PyDMLabel_11">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="precisionFromPV" stdset="0">
-                <bool>false</bool>
-               </property>
-               <property name="precision" stdset="0">
-                <number>3</number>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay4:Status-RB</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="8">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_6">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay1:SetpointStatus-Mon</string>
-               </property>
-               <property name="circles" stdset="0">
-                <bool>true</bool>
-               </property>
-               <property name="labels" stdset="0">
-                <stringlist>
-                 <string>Clear</string>
-                 <string>Set</string>
-                </stringlist>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="8">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_2">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay3:SetpointStatus-Mon</string>
-               </property>
-               <property name="circles" stdset="0">
-                <bool>true</bool>
-               </property>
-               <property name="labels" stdset="0">
-                <stringlist>
-                 <string>Clear</string>
-                 <string>Set</string>
-                </stringlist>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="6">
-              <widget class="PyDMLabel" name="PyDMLabel_12">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="precisionFromPV" stdset="0">
-                <bool>false</bool>
-               </property>
-               <property name="precision" stdset="0">
-                <number>3</number>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay1:Setpoint-RB</string>
-               </property>
-               <property name="displayFormat" stdset="0">
-                <enum>PyDMLabel::Exponential</enum>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="4" colspan="2">
-              <widget class="QLabel" name="label_2">
+             <item row="0" column="8">
+              <widget class="QLabel" name="label_7">
                <property name="text">
-                <string>Status</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
+                <string>Relay SP Status</string>
                </property>
               </widget>
              </item>
-             <item row="3" column="4">
-              <widget class="PyDMLabel" name="PyDMLabel_8">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
+             <item row="7" column="1">
+              <widget class="QLabel" name="label_13">
+               <property name="text">
+                <string>Relay 3</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
-               </property>
-               <property name="precisionFromPV" stdset="0">
-                <bool>false</bool>
-               </property>
-               <property name="precision" stdset="0">
-                <number>3</number>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay1:Status-RB</string>
                </property>
               </widget>
              </item>
@@ -730,20 +361,115 @@
                </property>
               </widget>
              </item>
-             <item row="9" column="1" colspan="8">
-              <widget class="QWidget" name="widget_7" native="true">
+             <item row="4" column="4">
+              <widget class="PyDMLabel" name="PyDMLabel_9">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="precisionFromPV" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="precision" stdset="0">
+                <number>3</number>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay2:Status-RB</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="4">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${G1}:Enable-RB</string>
+               </property>
+               <property name="showLabels" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="circles" stdset="0">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="4">
+              <widget class="PyDMByteIndicator" name="biA2">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${G2}:Enable-RB</string>
+               </property>
+               <property name="showLabels" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="circles" stdset="0">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="4">
+              <widget class="PyDMLabel" name="PyDMLabel_8">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="precisionFromPV" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="precision" stdset="0">
+                <number>3</number>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay1:Status-RB</string>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="1" colspan="8">
+              <widget class="QWidget" name="alarm2" native="true">
                <layout class="QGridLayout" name="gridLayout_9">
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_25">
-                  <property name="text">
-                   <string>Alarms</string>
-                  </property>
-                 </widget>
-                </item>
                 <item row="2" column="1">
                  <widget class="QLabel" name="label_26">
                   <property name="text">
-                   <string>HI</string>
+                   <string>Warning HIGH</string>
                   </property>
                  </widget>
                 </item>
@@ -751,6 +477,9 @@
                  <widget class="PyDMLineEdit" name="PyDMLineEdit_3">
                   <property name="toolTip">
                    <string/>
+                  </property>
+                  <property name="alarmSensitiveContent" stdset="0">
+                   <bool>false</bool>
                   </property>
                   <property name="precisionFromPV" stdset="0">
                    <bool>false</bool>
@@ -769,7 +498,7 @@
                 <item row="1" column="1">
                  <widget class="QLabel" name="label_27">
                   <property name="text">
-                   <string>HIHI</string>
+                   <string>Alarm HIHI</string>
                   </property>
                  </widget>
                 </item>
@@ -843,24 +572,17 @@
                   </property>
                  </spacer>
                 </item>
+                <item row="0" column="0" colspan="5">
+                 <widget class="QLabel" name="label_25">
+                  <property name="text">
+                   <string>Alarms ${G2}</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
                </layout>
-              </widget>
-             </item>
-             <item row="6" column="1" colspan="2">
-              <widget class="QLabel" name="lblA2">
-               <property name="text">
-                <string>Channel 2</string>
-               </property>
-              </widget>
-             </item>
-             <item row="8" column="1">
-              <widget class="QLabel" name="label_14">
-               <property name="text">
-                <string>Relay 4</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
               </widget>
              </item>
              <item row="7" column="4">
@@ -885,14 +607,301 @@
                </property>
               </widget>
              </item>
-             <item row="3" column="1">
-              <widget class="QLabel" name="label_11">
-               <property name="text">
-                <string>Relay 1</string>
+             <item row="7" column="8">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_2">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay3:SetpointStatus-Mon</string>
+               </property>
+               <property name="circles" stdset="0">
+                <bool>true</bool>
+               </property>
+               <property name="labels" stdset="0">
+                <stringlist>
+                 <string>Clear</string>
+                 <string>Set</string>
+                </stringlist>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="6">
+              <widget class="PyDMLabel" name="PyDMLabel_12">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string/>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
                </property>
+               <property name="precisionFromPV" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="precision" stdset="0">
+                <number>3</number>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay1:Setpoint-RB</string>
+               </property>
+               <property name="displayFormat" stdset="0">
+                <enum>PyDMLabel::Exponential</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1" colspan="2">
+              <widget class="QLabel" name="label_4">
+               <property name="text">
+                <string>Channel 1</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="3">
+              <widget class="PyDMEnumComboBox" name="cbA2">
+               <property name="minimumSize">
+                <size>
+                 <width>70</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    A QComboBox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    Signals
+    -------
+    send_value_signal : int, float, str, bool or np.ndarray
+        Emitted when the user changes the value.
+    activated : int, str
+        Emitted when the user chooses an item in the combobox.
+    currentIndexChanged : int, str
+        Emitted when the index is changed in the combobox.
+    highlighted : int, str
+        Emitted when an item in the combobox popup list is highlighted
+        by the user.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${G2}:Enable-SP</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="8">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_6">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay1:SetpointStatus-Mon</string>
+               </property>
+               <property name="circles" stdset="0">
+                <bool>true</bool>
+               </property>
+               <property name="labels" stdset="0">
+                <stringlist>
+                 <string>Clear</string>
+                 <string>Set</string>
+                </stringlist>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="4" colspan="2">
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string>Status</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="8">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_5">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay2:SetpointStatus-Mon</string>
+               </property>
+               <property name="circles" stdset="0">
+                <bool>true</bool>
+               </property>
+               <property name="labels" stdset="0">
+                <stringlist>
+                 <string>Clear</string>
+                 <string>Set</string>
+                </stringlist>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="1" colspan="8">
+              <widget class="QWidget" name="alarm1" native="true">
+               <layout class="QGridLayout" name="gridLayout_4">
+                <item row="2" column="1">
+                 <widget class="QLabel" name="label_24">
+                  <property name="text">
+                   <string>Warning HIGH</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="3">
+                 <widget class="PyDMLineEdit" name="PyDMLineEdit">
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="precisionFromPV" stdset="0">
+                   <bool>false</bool>
+                  </property>
+                  <property name="precision" stdset="0">
+                   <number>2</number>
+                  </property>
+                  <property name="channel" stdset="0">
+                   <string>ca://${G1}:Pressure-Mon.HIHI</string>
+                  </property>
+                  <property name="displayFormat" stdset="0">
+                   <enum>PyDMLineEdit::Exponential</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLabel" name="label_23">
+                  <property name="text">
+                   <string>Alarm HIHI</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="3">
+                 <widget class="PyDMLineEdit" name="PyDMLineEdit_2">
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="precisionFromPV" stdset="0">
+                   <bool>false</bool>
+                  </property>
+                  <property name="precision" stdset="0">
+                   <number>2</number>
+                  </property>
+                  <property name="channel" stdset="0">
+                   <string>ca://${G1}:Pressure-Mon.HIGH</string>
+                  </property>
+                  <property name="displayFormat" stdset="0">
+                   <enum>PyDMLineEdit::Exponential</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="PyDMLabel" name="PyDMLabel_2">
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="precisionFromPV" stdset="0">
+                   <bool>false</bool>
+                  </property>
+                  <property name="precision" stdset="0">
+                   <number>2</number>
+                  </property>
+                  <property name="channel" stdset="0">
+                   <string>ca://${G1}:Pressure-Mon.HIHI</string>
+                  </property>
+                  <property name="displayFormat" stdset="0">
+                   <enum>PyDMLabel::Exponential</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="PyDMLabel" name="PyDMLabel_3">
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="precisionFromPV" stdset="0">
+                   <bool>false</bool>
+                  </property>
+                  <property name="precision" stdset="0">
+                   <number>2</number>
+                  </property>
+                  <property name="channel" stdset="0">
+                   <string>ca://${G1}:Pressure-Mon.HIGH</string>
+                  </property>
+                  <property name="displayFormat" stdset="0">
+                   <enum>PyDMLabel::Exponential</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="4">
+                 <spacer name="horizontalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0" colspan="5">
+                 <widget class="QLabel" name="label_9">
+                  <property name="text">
+                   <string>Alarms ${G1}</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </widget>
              </item>
             </layout>
@@ -1120,231 +1129,6 @@
           <item row="9" column="0" rowspan="2" colspan="5">
            <widget class="QWidget" name="widget_5" native="true">
             <layout class="QGridLayout" name="gridLayout_6">
-             <item row="7" column="4">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_14">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay12:SetpointStatus-Mon</string>
-               </property>
-               <property name="circles" stdset="0">
-                <bool>true</bool>
-               </property>
-               <property name="labels" stdset="0">
-                <stringlist>
-                 <string>Clear</string>
-                 <string>Set</string>
-                </stringlist>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0" colspan="2">
-              <widget class="QLabel" name="label_19">
-               <property name="text">
-                <string>Relay 9</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="3">
-              <widget class="PyDMLabel" name="PyDMLabel_18">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${G5}:Pressure-Mon-s</string>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="3">
-              <widget class="PyDMLabel" name="PyDMLabel_40">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="precisionFromPV" stdset="0">
-                <bool>false</bool>
-               </property>
-               <property name="precision" stdset="0">
-                <number>3</number>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay12:Setpoint-RB</string>
-               </property>
-               <property name="displayFormat" stdset="0">
-                <enum>PyDMLabel::Exponential</enum>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="3">
-              <widget class="PyDMLabel" name="plblC2">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${G6}:Pressure-Mon-s</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="3">
-              <widget class="PyDMLabel" name="PyDMLabel_37">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="precisionFromPV" stdset="0">
-                <bool>false</bool>
-               </property>
-               <property name="precision" stdset="0">
-                <number>3</number>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay9:Setpoint-RB</string>
-               </property>
-               <property name="displayFormat" stdset="0">
-                <enum>PyDMLabel::Exponential</enum>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="2">
-              <widget class="PyDMLabel" name="PyDMLabel_29">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="precisionFromPV" stdset="0">
-                <bool>false</bool>
-               </property>
-               <property name="precision" stdset="0">
-                <number>3</number>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay9:Status-RB</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_3">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${G5}:Enable-RB</string>
-               </property>
-               <property name="showLabels" stdset="0">
-                <bool>false</bool>
-               </property>
-               <property name="circles" stdset="0">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="6" column="0" colspan="2">
-              <widget class="QLabel" name="label_21">
-               <property name="text">
-                <string>Relay 11</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="PyDMEnumComboBox" name="PyDMEnumComboBox_5">
-               <property name="minimumSize">
-                <size>
-                 <width>70</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string>
-    A QComboBox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    Signals
-    -------
-    send_value_signal : int, float, str, bool or np.ndarray
-        Emitted when the user changes the value.
-    activated : int, str
-        Emitted when the user chooses an item in the combobox.
-    currentIndexChanged : int, str
-        Emitted when the index is changed in the combobox.
-    highlighted : int, str
-        Emitted when an item in the combobox popup list is highlighted
-        by the user.
-    </string>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${G5}:Enable-SP</string>
-               </property>
-              </widget>
-             </item>
              <item row="6" column="3">
               <widget class="PyDMLabel" name="PyDMLabel_39">
                <property name="toolTip">
@@ -1370,62 +1154,18 @@
                </property>
               </widget>
              </item>
-             <item row="7" column="2">
-              <widget class="PyDMLabel" name="PyDMLabel_32">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="precisionFromPV" stdset="0">
-                <bool>false</bool>
-               </property>
-               <property name="precision" stdset="0">
-                <number>3</number>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay12:Status-RB</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="2">
-              <widget class="PyDMLabel" name="PyDMLabel_30">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="precisionFromPV" stdset="0">
-                <bool>false</bool>
-               </property>
-               <property name="precision" stdset="0">
-                <number>3</number>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay10:Status-RB</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0" colspan="2">
-              <widget class="QLabel" name="label_20">
+             <item row="7" column="0" colspan="2">
+              <widget class="QLabel" name="label_22">
                <property name="text">
-                <string>Relay 10</string>
+                <string>Relay 12</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
                </property>
               </widget>
              </item>
-             <item row="6" column="2">
-              <widget class="PyDMLabel" name="PyDMLabel_31">
+             <item row="7" column="3">
+              <widget class="PyDMLabel" name="PyDMLabel_40">
                <property name="toolTip">
                 <string/>
                </property>
@@ -1442,29 +1182,7 @@
                 <number>3</number>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay11:Status-RB</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="3">
-              <widget class="PyDMLabel" name="PyDMLabel_38">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="precisionFromPV" stdset="0">
-                <bool>false</bool>
-               </property>
-               <property name="precision" stdset="0">
-                <number>3</number>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay10:Setpoint-RB</string>
+                <string>ca://${DEVICE}:Relay12:Setpoint-RB</string>
                </property>
                <property name="displayFormat" stdset="0">
                 <enum>PyDMLabel::Exponential</enum>
@@ -1511,6 +1229,32 @@
                </property>
               </widget>
              </item>
+             <item row="2" column="0" colspan="2">
+              <widget class="QLabel" name="label_19">
+               <property name="text">
+                <string>Relay 9</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="3">
+              <widget class="PyDMLabel" name="PyDMLabel_18">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${G5}:Pressure-Mon-s</string>
+               </property>
+              </widget>
+             </item>
              <item row="5" column="0">
               <widget class="QLabel" name="lblC2">
                <property name="text">
@@ -1518,126 +1262,25 @@
                </property>
               </widget>
              </item>
-             <item row="7" column="0" colspan="2">
-              <widget class="QLabel" name="label_22">
-               <property name="text">
-                <string>Relay 12</string>
+             <item row="6" column="2">
+              <widget class="PyDMLabel" name="PyDMLabel_31">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string/>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
                </property>
-              </widget>
-             </item>
-             <item row="5" column="2">
-              <widget class="PyDMByteIndicator" name="biC2">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${G6}:Enable-RB</string>
-               </property>
-               <property name="showLabels" stdset="0">
+               <property name="precisionFromPV" stdset="0">
                 <bool>false</bool>
                </property>
-               <property name="circles" stdset="0">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="PyDMLabel" name="PyDMLabel_22">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
+               <property name="precision" stdset="0">
+                <number>3</number>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:ModuleType-C</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_8">
-               <property name="text">
-                <string>Channel 5</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="4">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_11">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay9:SetpointStatus-Mon</string>
-               </property>
-               <property name="circles" stdset="0">
-                <bool>true</bool>
-               </property>
-               <property name="labels" stdset="0">
-                <stringlist>
-                 <string>Clear</string>
-                 <string>Set</string>
-                </stringlist>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="4">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_12">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay10:SetpointStatus-Mon</string>
-               </property>
-               <property name="circles" stdset="0">
-                <bool>true</bool>
-               </property>
-               <property name="labels" stdset="0">
-                <stringlist>
-                 <string>Clear</string>
-                 <string>Set</string>
-                </stringlist>
+                <string>ca://${DEVICE}:Relay11:Status-RB</string>
                </property>
               </widget>
              </item>
@@ -1673,20 +1316,498 @@
                </property>
               </widget>
              </item>
-             <item row="4" column="0" colspan="5">
-              <widget class="QWidget" name="widget_10" native="true">
-               <layout class="QGridLayout" name="gridLayout_12">
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_35">
+             <item row="1" column="1">
+              <widget class="PyDMEnumComboBox" name="PyDMEnumComboBox_5">
+               <property name="minimumSize">
+                <size>
+                 <width>70</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    A QComboBox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    Signals
+    -------
+    send_value_signal : int, float, str, bool or np.ndarray
+        Emitted when the user changes the value.
+    activated : int, str
+        Emitted when the user chooses an item in the combobox.
+    currentIndexChanged : int, str
+        Emitted when the index is changed in the combobox.
+    highlighted : int, str
+        Emitted when an item in the combobox popup list is highlighted
+        by the user.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${G5}:Enable-SP</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>Channel 5</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="2">
+              <widget class="PyDMLabel" name="PyDMLabel_32">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="precisionFromPV" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="precision" stdset="0">
+                <number>3</number>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay12:Status-RB</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="3">
+              <widget class="PyDMLabel" name="PyDMLabel_37">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="precisionFromPV" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="precision" stdset="0">
+                <number>3</number>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay9:Setpoint-RB</string>
+               </property>
+               <property name="displayFormat" stdset="0">
+                <enum>PyDMLabel::Exponential</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="2">
+              <widget class="PyDMByteIndicator" name="biC2">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${G6}:Enable-RB</string>
+               </property>
+               <property name="showLabels" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="circles" stdset="0">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0" colspan="2">
+              <widget class="QLabel" name="label_20">
+               <property name="text">
+                <string>Relay 10</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="0" colspan="2">
+              <widget class="QLabel" name="label_21">
+               <property name="text">
+                <string>Relay 11</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="3">
+              <widget class="PyDMLabel" name="PyDMLabel_38">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="precisionFromPV" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="precision" stdset="0">
+                <number>3</number>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay10:Setpoint-RB</string>
+               </property>
+               <property name="displayFormat" stdset="0">
+                <enum>PyDMLabel::Exponential</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="4">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_12">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay10:SetpointStatus-Mon</string>
+               </property>
+               <property name="circles" stdset="0">
+                <bool>true</bool>
+               </property>
+               <property name="labels" stdset="0">
+                <stringlist>
+                 <string>Clear</string>
+                 <string>Set</string>
+                </stringlist>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_3">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${G5}:Enable-RB</string>
+               </property>
+               <property name="showLabels" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="circles" stdset="0">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="3">
+              <widget class="PyDMLabel" name="plblC2">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${G6}:Pressure-Mon-s</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="4">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_11">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay9:SetpointStatus-Mon</string>
+               </property>
+               <property name="circles" stdset="0">
+                <bool>true</bool>
+               </property>
+               <property name="labels" stdset="0">
+                <stringlist>
+                 <string>Clear</string>
+                 <string>Set</string>
+                </stringlist>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="0" colspan="5">
+              <widget class="QWidget" name="alarm6" native="true">
+               <layout class="QGridLayout" name="gridLayout_13">
+                <item row="2" column="1">
+                 <widget class="QLabel" name="label_39">
                   <property name="text">
-                   <string>Alarms</string>
+                   <string>Warning HIGH</string>
                   </property>
                  </widget>
                 </item>
+                <item row="1" column="3">
+                 <widget class="PyDMLineEdit" name="PyDMLineEdit_11">
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="precisionFromPV" stdset="0">
+                   <bool>false</bool>
+                  </property>
+                  <property name="precision" stdset="0">
+                   <number>2</number>
+                  </property>
+                  <property name="channel" stdset="0">
+                   <string>ca://${G6}:Pressure-Mon.HIHI</string>
+                  </property>
+                  <property name="displayFormat" stdset="0">
+                   <enum>PyDMLineEdit::Exponential</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLabel" name="label_40">
+                  <property name="text">
+                   <string>Alarm HIHI</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="3">
+                 <widget class="PyDMLineEdit" name="PyDMLineEdit_12">
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="precisionFromPV" stdset="0">
+                   <bool>false</bool>
+                  </property>
+                  <property name="precision" stdset="0">
+                   <number>2</number>
+                  </property>
+                  <property name="channel" stdset="0">
+                   <string>ca://${G6}:Pressure-Mon.HIGH</string>
+                  </property>
+                  <property name="displayFormat" stdset="0">
+                   <enum>PyDMLineEdit::Exponential</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="PyDMLabel" name="PyDMLabel_42">
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="precisionFromPV" stdset="0">
+                   <bool>false</bool>
+                  </property>
+                  <property name="precision" stdset="0">
+                   <number>2</number>
+                  </property>
+                  <property name="channel" stdset="0">
+                   <string>ca://${G6}:Pressure-Mon.HIHI</string>
+                  </property>
+                  <property name="displayFormat" stdset="0">
+                   <enum>PyDMLabel::Exponential</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="PyDMLabel" name="PyDMLabel_43">
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="precisionFromPV" stdset="0">
+                   <bool>false</bool>
+                  </property>
+                  <property name="precision" stdset="0">
+                   <number>2</number>
+                  </property>
+                  <property name="channel" stdset="0">
+                   <string>ca://${G6}:Pressure-Mon.HIGH</string>
+                  </property>
+                  <property name="displayFormat" stdset="0">
+                   <enum>PyDMLabel::Exponential</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="4">
+                 <spacer name="horizontalSpacer_6">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0" colspan="5">
+                 <widget class="QLabel" name="label_38">
+                  <property name="text">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Alarms ${G6}&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item row="7" column="4">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_14">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay12:SetpointStatus-Mon</string>
+               </property>
+               <property name="circles" stdset="0">
+                <bool>true</bool>
+               </property>
+               <property name="labels" stdset="0">
+                <stringlist>
+                 <string>Clear</string>
+                 <string>Set</string>
+                </stringlist>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="2">
+              <widget class="PyDMLabel" name="PyDMLabel_29">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="precisionFromPV" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="precision" stdset="0">
+                <number>3</number>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay9:Status-RB</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="PyDMLabel" name="PyDMLabel_22">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string/>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:ModuleType-C</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="2">
+              <widget class="PyDMLabel" name="PyDMLabel_30">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="precisionFromPV" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="precision" stdset="0">
+                <number>3</number>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay10:Status-RB</string>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="0" colspan="5">
+              <widget class="QWidget" name="alarm5" native="true">
+               <layout class="QGridLayout" name="gridLayout_12">
                 <item row="2" column="1">
                  <widget class="QLabel" name="label_36">
                   <property name="text">
-                   <string>HI</string>
+                   <string>Warning HIGH</string>
                   </property>
                  </widget>
                 </item>
@@ -1712,7 +1833,7 @@
                 <item row="1" column="1">
                  <widget class="QLabel" name="label_37">
                   <property name="text">
-                   <string>HIHI</string>
+                   <string>Alarm HIHI</string>
                   </property>
                  </widget>
                 </item>
@@ -1786,121 +1907,15 @@
                   </property>
                  </spacer>
                 </item>
-               </layout>
-              </widget>
-             </item>
-             <item row="8" column="0" colspan="5">
-              <widget class="QWidget" name="widget_11" native="true">
-               <layout class="QGridLayout" name="gridLayout_13">
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_38">
+                <item row="0" column="0" colspan="5">
+                 <widget class="QLabel" name="label_35">
                   <property name="text">
-                   <string>Alarms</string>
+                   <string>Alarms  ${G5}</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
                   </property>
                  </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QLabel" name="label_39">
-                  <property name="text">
-                   <string>HI</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="3">
-                 <widget class="PyDMLineEdit" name="PyDMLineEdit_11">
-                  <property name="toolTip">
-                   <string/>
-                  </property>
-                  <property name="precisionFromPV" stdset="0">
-                   <bool>false</bool>
-                  </property>
-                  <property name="precision" stdset="0">
-                   <number>2</number>
-                  </property>
-                  <property name="channel" stdset="0">
-                   <string>ca://${G6}:Pressure-Mon.HIHI</string>
-                  </property>
-                  <property name="displayFormat" stdset="0">
-                   <enum>PyDMLineEdit::Exponential</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QLabel" name="label_40">
-                  <property name="text">
-                   <string>HIHI</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="3">
-                 <widget class="PyDMLineEdit" name="PyDMLineEdit_12">
-                  <property name="toolTip">
-                   <string/>
-                  </property>
-                  <property name="precisionFromPV" stdset="0">
-                   <bool>false</bool>
-                  </property>
-                  <property name="precision" stdset="0">
-                   <number>2</number>
-                  </property>
-                  <property name="channel" stdset="0">
-                   <string>ca://${G5}:Pressure-Mon.HIGH</string>
-                  </property>
-                  <property name="displayFormat" stdset="0">
-                   <enum>PyDMLineEdit::Exponential</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="2">
-                 <widget class="PyDMLabel" name="PyDMLabel_42">
-                  <property name="toolTip">
-                   <string/>
-                  </property>
-                  <property name="precisionFromPV" stdset="0">
-                   <bool>false</bool>
-                  </property>
-                  <property name="precision" stdset="0">
-                   <number>2</number>
-                  </property>
-                  <property name="channel" stdset="0">
-                   <string>ca://${G6}:Pressure-Mon.HIHI</string>
-                  </property>
-                  <property name="displayFormat" stdset="0">
-                   <enum>PyDMLabel::Exponential</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="2">
-                 <widget class="PyDMLabel" name="PyDMLabel_43">
-                  <property name="toolTip">
-                   <string/>
-                  </property>
-                  <property name="precisionFromPV" stdset="0">
-                   <bool>false</bool>
-                  </property>
-                  <property name="precision" stdset="0">
-                   <number>2</number>
-                  </property>
-                  <property name="channel" stdset="0">
-                   <string>ca://${G6}:Pressure-Mon.HIGH</string>
-                  </property>
-                  <property name="displayFormat" stdset="0">
-                   <enum>PyDMLabel::Exponential</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="4">
-                 <spacer name="horizontalSpacer_6">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
                 </item>
                </layout>
               </widget>
@@ -2057,35 +2072,35 @@
           <item row="6" column="0" rowspan="2" colspan="5">
            <widget class="QWidget" name="widget_4" native="true">
             <layout class="QGridLayout" name="gridLayout_5">
-             <item row="2" column="4">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_7">
+             <item row="6" column="2">
+              <widget class="PyDMLabel" name="PyDMLabel_27">
                <property name="toolTip">
                 <string/>
                </property>
                <property name="whatsThis">
-                <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay5:SetpointStatus-Mon</string>
+                <string>ca://${DEVICE}:Relay7:Status-RB</string>
                </property>
-               <property name="circles" stdset="0">
-                <bool>true</bool>
+              </widget>
+             </item>
+             <item row="2" column="2">
+              <widget class="PyDMLabel" name="PyDMLabel_25">
+               <property name="toolTip">
+                <string/>
                </property>
-               <property name="labels" stdset="0">
-                <stringlist>
-                 <string>Clear</string>
-                 <string>Set</string>
-                </stringlist>
+               <property name="whatsThis">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay5:Status-RB</string>
                </property>
               </widget>
              </item>
@@ -2160,6 +2175,38 @@
                </property>
               </widget>
              </item>
+             <item row="2" column="4">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_7">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay5:SetpointStatus-Mon</string>
+               </property>
+               <property name="circles" stdset="0">
+                <bool>true</bool>
+               </property>
+               <property name="labels" stdset="0">
+                <stringlist>
+                 <string>Clear</string>
+                 <string>Set</string>
+                </stringlist>
+               </property>
+              </widget>
+             </item>
              <item row="2" column="3">
               <widget class="PyDMLabel" name="PyDMLabel_33">
                <property name="toolTip">
@@ -2201,42 +2248,6 @@
                </property>
               </widget>
              </item>
-             <item row="6" column="0" colspan="2">
-              <widget class="QLabel" name="label_17">
-               <property name="text">
-                <string>Relay 7</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="2">
-              <widget class="PyDMLabel" name="PyDMLabel_26">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay6:Status-RB</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0" colspan="2">
-              <widget class="QLabel" name="label_15">
-               <property name="text">
-                <string>Relay 6</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
              <item row="5" column="3">
               <widget class="PyDMLabel" name="plblB2">
                <property name="toolTip">
@@ -2269,92 +2280,135 @@
                </property>
               </widget>
              </item>
-             <item row="7" column="0" colspan="2">
-              <widget class="QLabel" name="label_18">
-               <property name="text">
-                <string>Relay 8</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
+             <item row="9" column="0" colspan="5">
+              <widget class="QWidget" name="alarm4" native="true">
+               <layout class="QGridLayout" name="gridLayout_11">
+                <item row="2" column="1">
+                 <widget class="QLabel" name="label_33">
+                  <property name="text">
+                   <string>Warning HIGH</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="3">
+                 <widget class="PyDMLineEdit" name="PyDMLineEdit_7">
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="precisionFromPV" stdset="0">
+                   <bool>false</bool>
+                  </property>
+                  <property name="precision" stdset="0">
+                   <number>2</number>
+                  </property>
+                  <property name="channel" stdset="0">
+                   <string>ca://${G4}:Pressure-Mon.HIHI</string>
+                  </property>
+                  <property name="displayFormat" stdset="0">
+                   <enum>PyDMLineEdit::Exponential</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLabel" name="label_34">
+                  <property name="text">
+                   <string>Alarm HIHI</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="3">
+                 <widget class="PyDMLineEdit" name="PyDMLineEdit_8">
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="precisionFromPV" stdset="0">
+                   <bool>false</bool>
+                  </property>
+                  <property name="precision" stdset="0">
+                   <number>2</number>
+                  </property>
+                  <property name="channel" stdset="0">
+                   <string>ca://${G4}:Pressure-Mon.HIGH</string>
+                  </property>
+                  <property name="displayFormat" stdset="0">
+                   <enum>PyDMLineEdit::Exponential</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="PyDMLabel" name="PyDMLabel_15">
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="precisionFromPV" stdset="0">
+                   <bool>false</bool>
+                  </property>
+                  <property name="precision" stdset="0">
+                   <number>2</number>
+                  </property>
+                  <property name="channel" stdset="0">
+                   <string>ca://${G4}:Pressure-Mon.HIHI</string>
+                  </property>
+                  <property name="displayFormat" stdset="0">
+                   <enum>PyDMLabel::Exponential</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="PyDMLabel" name="PyDMLabel_17">
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="precisionFromPV" stdset="0">
+                   <bool>false</bool>
+                  </property>
+                  <property name="precision" stdset="0">
+                   <number>2</number>
+                  </property>
+                  <property name="channel" stdset="0">
+                   <string>ca://${G4}:Pressure-Mon.HIGH</string>
+                  </property>
+                  <property name="displayFormat" stdset="0">
+                   <enum>PyDMLabel::Exponential</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="4">
+                 <spacer name="horizontalSpacer_4">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0" colspan="5">
+                 <widget class="QLabel" name="label_32">
+                  <property name="text">
+                   <string>Alarms  ${G4}</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </widget>
              </item>
-             <item row="2" column="0" colspan="2">
-              <widget class="QLabel" name="label_16">
-               <property name="text">
-                <string>Relay 5</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="1">
-              <widget class="PyDMEnumComboBox" name="cbB2">
-               <property name="minimumSize">
-                <size>
-                 <width>70</width>
-                 <height>0</height>
-                </size>
-               </property>
+             <item row="0" column="0">
+              <widget class="PyDMLabel" name="PyDMLabel_21">
                <property name="toolTip">
                 <string/>
                </property>
                <property name="whatsThis">
-                <string>
-    A QComboBox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    Signals
-    -------
-    send_value_signal : int, float, str, bool or np.ndarray
-        Emitted when the user changes the value.
-    activated : int, str
-        Emitted when the user chooses an item in the combobox.
-    currentIndexChanged : int, str
-        Emitted when the index is changed in the combobox.
-    highlighted : int, str
-        Emitted when an item in the combobox popup list is highlighted
-        by the user.
-    </string>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${G4}:Enable-SP</string>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="2">
-              <widget class="PyDMByteIndicator" name="biB2">
-               <property name="toolTip">
                 <string/>
                </property>
-               <property name="whatsThis">
-                <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-               </property>
                <property name="channel" stdset="0">
-                <string>ca://${G4}:Enable-RB</string>
-               </property>
-               <property name="showLabels" stdset="0">
-                <bool>false</bool>
-               </property>
-               <property name="circles" stdset="0">
-                <bool>true</bool>
+                <string>ca://${DEVICE}:ModuleType-B</string>
                </property>
               </widget>
              </item>
@@ -2409,6 +2463,195 @@
                </property>
                <property name="displayFormat" stdset="0">
                 <enum>PyDMLabel::Exponential</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="PyDMEnumComboBox" name="cbB2">
+               <property name="minimumSize">
+                <size>
+                 <width>70</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    A QComboBox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    Signals
+    -------
+    send_value_signal : int, float, str, bool or np.ndarray
+        Emitted when the user changes the value.
+    activated : int, str
+        Emitted when the user chooses an item in the combobox.
+    currentIndexChanged : int, str
+        Emitted when the index is changed in the combobox.
+    highlighted : int, str
+        Emitted when an item in the combobox popup list is highlighted
+        by the user.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${G4}:Enable-SP</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="0" colspan="2">
+              <widget class="QLabel" name="label_17">
+               <property name="text">
+                <string>Relay 7</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="2">
+              <widget class="PyDMLabel" name="PyDMLabel_26">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay6:Status-RB</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="2">
+              <widget class="PyDMByteIndicator" name="biB2">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${G4}:Enable-RB</string>
+               </property>
+               <property name="showLabels" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="circles" stdset="0">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="0" colspan="2">
+              <widget class="QLabel" name="label_18">
+               <property name="text">
+                <string>Relay 8</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0" colspan="2">
+              <widget class="QLabel" name="label_16">
+               <property name="text">
+                <string>Relay 5</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0" colspan="2">
+              <widget class="QLabel" name="label_15">
+               <property name="text">
+                <string>Relay 6</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="4">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_10">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay8:SetpointStatus-Mon</string>
+               </property>
+               <property name="circles" stdset="0">
+                <bool>true</bool>
+               </property>
+               <property name="labels" stdset="0">
+                <stringlist>
+                 <string>Clear</string>
+                 <string>Set</string>
+                </stringlist>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="4">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_9">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+               </property>
+               <property name="channel" stdset="0">
+                <string>ca://${DEVICE}:Relay7:SetpointStatus-Mon</string>
+               </property>
+               <property name="circles" stdset="0">
+                <bool>true</bool>
+               </property>
+               <property name="labels" stdset="0">
+                <stringlist>
+                 <string>Clear</string>
+                 <string>Set</string>
+                </stringlist>
                </property>
               </widget>
              </item>
@@ -2477,129 +2720,13 @@
                </property>
               </widget>
              </item>
-             <item row="6" column="2">
-              <widget class="PyDMLabel" name="PyDMLabel_27">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay7:Status-RB</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="2">
-              <widget class="PyDMLabel" name="PyDMLabel_25">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay5:Status-RB</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="PyDMLabel" name="PyDMLabel_21">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:ModuleType-B</string>
-               </property>
-              </widget>
-             </item>
-             <item row="6" column="4">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_9">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay7:SetpointStatus-Mon</string>
-               </property>
-               <property name="circles" stdset="0">
-                <bool>true</bool>
-               </property>
-               <property name="labels" stdset="0">
-                <stringlist>
-                 <string>Clear</string>
-                 <string>Set</string>
-                </stringlist>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="4">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_10">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="whatsThis">
-                <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-               </property>
-               <property name="channel" stdset="0">
-                <string>ca://${DEVICE}:Relay8:SetpointStatus-Mon</string>
-               </property>
-               <property name="circles" stdset="0">
-                <bool>true</bool>
-               </property>
-               <property name="labels" stdset="0">
-                <stringlist>
-                 <string>Clear</string>
-                 <string>Set</string>
-                </stringlist>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="0" colspan="5">
-              <widget class="QWidget" name="widget_8" native="true">
+             <item row="8" column="0" colspan="5">
+              <widget class="QWidget" name="alarm3" native="true">
                <layout class="QGridLayout" name="gridLayout_10">
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_29">
-                  <property name="text">
-                   <string>Alarms</string>
-                  </property>
-                 </widget>
-                </item>
                 <item row="2" column="1">
                  <widget class="QLabel" name="label_30">
                   <property name="text">
-                   <string>HI</string>
+                   <string>Warning High</string>
                   </property>
                  </widget>
                 </item>
@@ -2625,7 +2752,7 @@
                 <item row="1" column="1">
                  <widget class="QLabel" name="label_31">
                   <property name="text">
-                   <string>HIHI</string>
+                   <string>Alarm HIHI</string>
                   </property>
                  </widget>
                 </item>
@@ -2699,121 +2826,15 @@
                   </property>
                  </spacer>
                 </item>
-               </layout>
-              </widget>
-             </item>
-             <item row="8" column="0" colspan="5">
-              <widget class="QWidget" name="widget_9" native="true">
-               <layout class="QGridLayout" name="gridLayout_11">
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_32">
+                <item row="0" column="0" colspan="5">
+                 <widget class="QLabel" name="label_29">
                   <property name="text">
-                   <string>Alarms</string>
+                   <string>Alarms  ${G3}</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
                   </property>
                  </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QLabel" name="label_33">
-                  <property name="text">
-                   <string>HI</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="3">
-                 <widget class="PyDMLineEdit" name="PyDMLineEdit_7">
-                  <property name="toolTip">
-                   <string/>
-                  </property>
-                  <property name="precisionFromPV" stdset="0">
-                   <bool>false</bool>
-                  </property>
-                  <property name="precision" stdset="0">
-                   <number>2</number>
-                  </property>
-                  <property name="channel" stdset="0">
-                   <string>ca://${G4}:Pressure-Mon.HIHI</string>
-                  </property>
-                  <property name="displayFormat" stdset="0">
-                   <enum>PyDMLineEdit::Exponential</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QLabel" name="label_34">
-                  <property name="text">
-                   <string>HIHI</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="3">
-                 <widget class="PyDMLineEdit" name="PyDMLineEdit_8">
-                  <property name="toolTip">
-                   <string/>
-                  </property>
-                  <property name="precisionFromPV" stdset="0">
-                   <bool>false</bool>
-                  </property>
-                  <property name="precision" stdset="0">
-                   <number>2</number>
-                  </property>
-                  <property name="channel" stdset="0">
-                   <string>ca://${G4}:Pressure-Mon.HIGH</string>
-                  </property>
-                  <property name="displayFormat" stdset="0">
-                   <enum>PyDMLineEdit::Exponential</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="2">
-                 <widget class="PyDMLabel" name="PyDMLabel_15">
-                  <property name="toolTip">
-                   <string/>
-                  </property>
-                  <property name="precisionFromPV" stdset="0">
-                   <bool>false</bool>
-                  </property>
-                  <property name="precision" stdset="0">
-                   <number>2</number>
-                  </property>
-                  <property name="channel" stdset="0">
-                   <string>ca://${G4}:Pressure-Mon.HIHI</string>
-                  </property>
-                  <property name="displayFormat" stdset="0">
-                   <enum>PyDMLabel::Exponential</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="2">
-                 <widget class="PyDMLabel" name="PyDMLabel_17">
-                  <property name="toolTip">
-                   <string/>
-                  </property>
-                  <property name="precisionFromPV" stdset="0">
-                   <bool>false</bool>
-                  </property>
-                  <property name="precision" stdset="0">
-                   <number>2</number>
-                  </property>
-                  <property name="channel" stdset="0">
-                   <string>ca://${G4}:Pressure-Mon.HIGH</string>
-                  </property>
-                  <property name="displayFormat" stdset="0">
-                   <enum>PyDMLabel::Exponential</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="4">
-                 <spacer name="horizontalSpacer_4">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
                 </item>
                </layout>
               </widget>
