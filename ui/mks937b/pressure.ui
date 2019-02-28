@@ -53,7 +53,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-187</y>
+        <y>0</y>
         <width>846</width>
         <height>1260</height>
        </rect>
@@ -135,7 +135,7 @@
                    <number>2</number>
                   </property>
                   <property name="channel" stdset="0">
-                   <string>ca://${G1}:Pressure-Mon.HI</string>
+                   <string>ca://${G1}:Pressure-Mon.HIGH</string>
                   </property>
                   <property name="displayFormat" stdset="0">
                    <enum>PyDMLineEdit::Exponential</enum>
@@ -173,7 +173,7 @@
                    <number>2</number>
                   </property>
                   <property name="channel" stdset="0">
-                   <string>ca://${G1}:Pressure-Mon.HI</string>
+                   <string>ca://${G1}:Pressure-Mon.HIGH</string>
                   </property>
                   <property name="displayFormat" stdset="0">
                    <enum>PyDMLabel::Exponential</enum>
@@ -785,7 +785,7 @@
                    <number>2</number>
                   </property>
                   <property name="channel" stdset="0">
-                   <string>ca://${G2}:Pressure-Mon.HI</string>
+                   <string>ca://${G2}:Pressure-Mon.HIGH</string>
                   </property>
                   <property name="displayFormat" stdset="0">
                    <enum>PyDMLineEdit::Exponential</enum>
@@ -823,7 +823,7 @@
                    <number>2</number>
                   </property>
                   <property name="channel" stdset="0">
-                   <string>ca://${G2}:Pressure-Mon.HI</string>
+                   <string>ca://${G2}:Pressure-Mon.HIGH</string>
                   </property>
                   <property name="displayFormat" stdset="0">
                    <enum>PyDMLabel::Exponential</enum>
@@ -1728,7 +1728,7 @@
                    <number>2</number>
                   </property>
                   <property name="channel" stdset="0">
-                   <string>ca://${G5}:Pressure-Mon.HI</string>
+                   <string>ca://${G5}:Pressure-Mon.HIGH</string>
                   </property>
                   <property name="displayFormat" stdset="0">
                    <enum>PyDMLineEdit::Exponential</enum>
@@ -1766,7 +1766,7 @@
                    <number>2</number>
                   </property>
                   <property name="channel" stdset="0">
-                   <string>ca://${G5}:Pressure-Mon.HI</string>
+                   <string>ca://${G5}:Pressure-Mon.HIGH</string>
                   </property>
                   <property name="displayFormat" stdset="0">
                    <enum>PyDMLabel::Exponential</enum>
@@ -1844,7 +1844,7 @@
                    <number>2</number>
                   </property>
                   <property name="channel" stdset="0">
-                   <string>ca://${G5}:Pressure-Mon.HI</string>
+                   <string>ca://${G5}:Pressure-Mon.HIGH</string>
                   </property>
                   <property name="displayFormat" stdset="0">
                    <enum>PyDMLineEdit::Exponential</enum>
@@ -1882,7 +1882,7 @@
                    <number>2</number>
                   </property>
                   <property name="channel" stdset="0">
-                   <string>ca://${G6}:Pressure-Mon.HI</string>
+                   <string>ca://${G6}:Pressure-Mon.HIGH</string>
                   </property>
                   <property name="displayFormat" stdset="0">
                    <enum>PyDMLabel::Exponential</enum>
@@ -2641,7 +2641,7 @@
                    <number>2</number>
                   </property>
                   <property name="channel" stdset="0">
-                   <string>ca://${G3}:Pressure-Mon.HI</string>
+                   <string>ca://${G3}:Pressure-Mon.HIGH</string>
                   </property>
                   <property name="displayFormat" stdset="0">
                    <enum>PyDMLineEdit::Exponential</enum>
@@ -2679,7 +2679,7 @@
                    <number>2</number>
                   </property>
                   <property name="channel" stdset="0">
-                   <string>ca://${G3}:Pressure-Mon.HI</string>
+                   <string>ca://${G3}:Pressure-Mon.HIGH</string>
                   </property>
                   <property name="displayFormat" stdset="0">
                    <enum>PyDMLabel::Exponential</enum>
@@ -2757,7 +2757,7 @@
                    <number>2</number>
                   </property>
                   <property name="channel" stdset="0">
-                   <string>ca://${G4}:Pressure-Mon.HI</string>
+                   <string>ca://${G4}:Pressure-Mon.HIGH</string>
                   </property>
                   <property name="displayFormat" stdset="0">
                    <enum>PyDMLineEdit::Exponential</enum>
@@ -2795,7 +2795,7 @@
                    <number>2</number>
                   </property>
                   <property name="channel" stdset="0">
-                   <string>ca://${G4}:Pressure-Mon.HI</string>
+                   <string>ca://${G4}:Pressure-Mon.HIGH</string>
                   </property>
                   <property name="displayFormat" stdset="0">
                    <enum>PyDMLabel::Exponential</enum>
