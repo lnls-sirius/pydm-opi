@@ -27,8 +27,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>1248</width>
-           <height>763</height>
+           <width>1250</width>
+           <height>764</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
@@ -68,13 +68,6 @@
      <layout class="QGridLayout" name="gridLayout_11">
       <item row="0" column="9">
        <widget class="QWidget" name="widget" native="true"/>
-      </item>
-      <item row="0" column="13">
-       <widget class="PyDMPushButton" name="btnNavRight">
-        <property name="toolTip">
-         <string/>
-        </property>
-       </widget>
       </item>
       <item row="0" column="12">
        <widget class="PyDMPushButton" name="btnNavLeft">
@@ -121,7 +114,7 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="14">
+      <item row="0" column="15">
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -134,7 +127,7 @@
         </property>
        </spacer>
       </item>
-      <item row="0" column="15">
+      <item row="0" column="16">
        <widget class="QLineEdit" name="tfFilter"/>
       </item>
       <item row="0" column="0">
@@ -151,6 +144,20 @@
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="13">
+       <widget class="PyDMPushButton" name="btnNavRight">
+        <property name="toolTip">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="14">
+       <widget class="QPushButton" name="btnAllHvOn">
+        <property name="text">
+         <string>ALL HV ON</string>
         </property>
        </widget>
       </item>

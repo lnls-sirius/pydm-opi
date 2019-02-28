@@ -11,4 +11,4 @@ ARGS_HIDE_ALL = ['--hide-nav-bar', '--hide-menu-bar', '--hide-status-bar']
 
 ARCHIVER_URL = 'https://10.0.6.57/mgmt/ui/index.html'
 
-FILE = os.path.dirname(os.path.realpath(__file__)) + '/../../Redes e Beaglebones.xlsx'
+FILE = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../Redes e Beaglebones.xlsx')
