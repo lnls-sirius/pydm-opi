@@ -14,7 +14,7 @@ def get_label(parent, content, tooltip, displayFormat=PyDMLabel.DisplayFormat.De
     lbl.precision = 2
     lbl.displayFormat = displayFormat
     lbl.showUnits = True
-    lbl.alarm_sensitive_content = True
+    lbl.alarmSensitiveContent = True
     if precision:
         lbl.precision_changed(precision)
     return lbl

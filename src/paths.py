@@ -10,6 +10,10 @@ def get_abs_path(relative):
     """
     return os.path.join(os.path.dirname(os.path.realpath(__file__)), relative)
 
+TABLE_ALARMS_QSS= ''
+with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../css/table-alarm.qss')) as f:
+    TABLE_ALARMS_QSS = f.readlines()
+    # print(TABLE_ALARMS_QSS)
 
 LAUNCH_WINDOW_UI = "../ui/launcher.ui"
 
