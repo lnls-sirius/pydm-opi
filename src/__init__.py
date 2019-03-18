@@ -4,6 +4,8 @@ from pydm import Display, PyDMApplication
 from pydm.utilities import IconFont
 from pydm.widgets import PyDMRelatedDisplayButton, PyDMEmbeddedDisplay, PyDMLabel, PyDMByteIndicator
 
+from src.paths import TABLE_ALARMS_QSS
+
 from PyQt5.QtWidgets import QHeaderView, QLabel, QTableWidgetItem, QWidget, QHBoxLayout, QStyleFactory
 from PyQt5.QtCore import pyqtSlot, Qt, QThread, QObject, pyqtSignal
 from PyQt5.QtGui import QColor
@@ -14,7 +16,9 @@ def get_label(parent, content, tooltip, displayFormat=PyDMLabel.DisplayFormat.De
     lbl.precision = 2
     lbl.displayFormat = displayFormat
     lbl.showUnits = True
+    lbl.alarmSensitiveBorder = True
     lbl.alarmSensitiveContent = True
+    lbl.setStyleSheet(TABLE_ALARMS_QSS)
     if precision:
         lbl.precision_changed(precision)
     return lbl
