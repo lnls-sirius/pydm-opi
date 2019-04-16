@@ -62,9 +62,9 @@ class UHVDataController(TableDataController):
                 # V Target
                 self.table.setCellWidget(actual_row, 12, get_label(self.table, '', ''))
                 # I Protect
-                self.table.setCellWidget(actual_row, 13, get_label(self.table, '', '', PyDMLabel.DisplayFormat.Exponential))
+                self.table.setCellWidget(actual_row, 13, get_label(self.table, '', ''))
                 # Setpoint
-                self.table.setCellWidget(actual_row, 14, get_label(self.table, '', ''))
+                self.table.setCellWidget(actual_row, 14, get_label(self.table, '', '', PyDMLabel.DisplayFormat.Exponential))
 
                 # Details
                 self.table.setCellWidget(actual_row, 15, rel)
