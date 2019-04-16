@@ -71,6 +71,7 @@ class Overview(pydm.Display):
         lblName.setText("{}".format(macros.get('PV', None)))
         lblName.setObjectName("lblName")
         lblName.setToolTip("{}".format(macros.get('PV', None)))
+        
 
         lblVal = PyDMLabel(frame)
         lblVal.setGeometry(QtCore.QRect(10, 10, 380, 30))
@@ -82,6 +83,9 @@ class Overview(pydm.Display):
         lblVal.setProperty("showUnits", False)
         lblVal.setObjectName("lblVal")
         lblVal.channel = "ca://{}".format(macros.get('PV', None))
+        lblVal.precisionFromPV = False
+        lblVal.precision = 2
+        lblVal.displayFormat = PyDMLabel.DisplayFormat.Exponential
         return frame
 
     def ui_filename(self):
