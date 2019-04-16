@@ -1,7 +1,8 @@
-from pydm import Display
+from pydm import Display 
 from pydm import PyDMApplication
+import json
 
-from src.paths import LAUNCH_WINDOW_UI, AGILENT_MAIN, MKS_MAIN, MBTEMP_MAIN, get_abs_path
+from src.paths import LAUNCH_WINDOW_UI, AGILENT_MAIN, MKS_MAIN, MBTEMP_MAIN, OVERVIEW, get_abs_path
 
 class Launcher(Display):
     """
@@ -11,12 +12,19 @@ class Launcher(Display):
         super(Launcher, self).__init__(parent=parent, args=args, macros=macros)
         self.btnAgilent.displayFilename = get_abs_path(AGILENT_MAIN)
         self.btnAgilent.openInNewWindow = True
+        self.btnAgilentOverview.displayFilename = get_abs_path(OVERVIEW)
+        self.btnAgilentOverview.base_macros = {"device":"UHV", "TITLE": "ION Pump Agilent 4UHV"}
+        self.btnAgilentOverview.openInNewWindow = True
 
         self.btnMks.displayFilename = get_abs_path(MKS_MAIN)
         self.btnMks.openInNewWindow = True
+        self.btnMksOverview.displayFilename = get_abs_path(OVERVIEW)
+        self.btnMksOverview.base_macros = {"device":"MKS", "TITLE": "MKS 937b"}
+        self.btnMksOverview.openInNewWindow = True
 
         self.btnMBTemp.displayFilename = get_abs_path(MBTEMP_MAIN)
         self.btnMBTemp.openInNewWindow = True
+        
 
         self.btnExit.clicked.connect(self.exitApp)
 
