@@ -30,11 +30,6 @@ def get_byte_indicator(parent, content, tooltip, **kwargs):
     byte.showLabels = False
     byte.orientation = Qt.Horizontal
     byte.numBits = 12
-    # if LSB:
-    #     byte.numBits = 8
-    # else:
-    #     byte.numBits = 4
-    #     byte.shift = 8
     return byte
 
 

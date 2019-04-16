@@ -56,15 +56,15 @@ class UHVDataController(TableDataController):
                 rel.openInNewWindow = True
 
                 # HV State
-                self.table.setCellWidget(actual_row, 10, get_label(self.table, '', '',))
+                self.table.setCellWidget(actual_row, 10, get_label(self.table, '', ''))
                 # Power Max
-                self.table.setCellWidget(actual_row, 11, get_label(self.table, '', '',))
+                self.table.setCellWidget(actual_row, 11, get_label(self.table, '', ''))
                 # V Target
-                self.table.setCellWidget(actual_row, 12, get_label(self.table, '', '',))
+                self.table.setCellWidget(actual_row, 12, get_label(self.table, '', ''))
                 # I Protect
-                self.table.setCellWidget(actual_row, 13, get_label(self.table, '', '',))
+                self.table.setCellWidget(actual_row, 13, get_label(self.table, '', '', PyDMLabel.DisplayFormat.Exponential))
                 # Setpoint
-                self.table.setCellWidget(actual_row, 14, get_label(self.table, '', '',))
+                self.table.setCellWidget(actual_row, 14, get_label(self.table, '', ''))
 
                 # Details
                 self.table.setCellWidget(actual_row, 15, rel)
@@ -192,7 +192,7 @@ class UHV(Display):
         super(UHV, self).__init__(
             parent=parent, args=args, macros=macros)
 
-        table_batch = 30
+        table_batch = 600
 
         horizontal_header_labels = [
                 'Channel Name',             # 0
