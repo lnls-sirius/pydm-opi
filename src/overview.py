@@ -25,25 +25,30 @@ class Overview(pydm.Display):
 
     def load_pvs(self):
         if self.macros.get('device','') == 'UHV':
-            from src.consts.agilent4uhv import devices
-            for d in devices:
-                self.pvs.append({'PV':d[1]+':Pressure-Mon', 'ALARM':d[1]+':Pressure-Mon.STAT'})
-                self.pvs.append({'PV':d[2]+':Pressure-Mon', 'ALARM':d[2]+':Pressure-Mon.STAT'})
-                self.pvs.append({'PV':d[3]+':Pressure-Mon', 'ALARM':d[3]+':Pressure-Mon.STAT'})
-                self.pvs.append({'PV':d[4]+':Pressure-Mon', 'ALARM':d[4]+':Pressure-Mon.STAT'})
+            from src.consts.agilent4uhv import data
         elif self.macros.get('device','') == 'MKS':
-            from src.consts.mks937b import devices
-            for d in devices:
-                self.pvs.append({'PV':d[4]+':Pressure-Mon-s', 'ALARM':d[4]+':Pressure-Mon.STAT'})
-                self.pvs.append({'PV':d[5]+':Pressure-Mon-s', 'ALARM':d[5]+':Pressure-Mon.STAT'})
-                self.pvs.append({'PV':d[6]+':Pressure-Mon-s', 'ALARM':d[6]+':Pressure-Mon.STAT'})
-                self.pvs.append({'PV':d[7]+':Pressure-Mon-s', 'ALARM':d[7]+':Pressure-Mon.STAT'})
-                self.pvs.append({'PV':d[8]+':Pressure-Mon-s', 'ALARM':d[8]+':Pressure-Mon.STAT'})
-                self.pvs.append({'PV':d[9]+':Pressure-Mon-s', 'ALARM':d[9]+':Pressure-Mon.STAT'})
+            from src.consts.mks937b import data
         else:
             logger.error('Wrong macro[\'device\'] ! {} '.format(self.macros))
 
+        for d_row in data:
+            if d_row.enable:
+                for ch_prefix in d_row.channel_prefix:
+                    self.pvs.append({
+                        'PV'    : ch_prefix + ':Pressure-Mon-s',
+                        'ALARM' : ch_prefix + ':Pressure-Mon.STAT',
+                        'SECTOR': d_row.sector,
+                        'RACK'  : d_row.rack,
+                        'IP'    : d_row.ip
+                    })      
+
     def get_gauge(self, parent, macros):
+
+        aux = []
+        for k, v in macros.items():
+            aux.append('{}\t{}\n'.format(k.ljust(20), v))
+        tooltip = ''.join(aux)
+
         frame = QtWidgets.QFrame(parent)
         frame.setGeometry(QtCore.QRect(10, 10, 400, 80))
         frame.setMinimumSize(400,80)
@@ -54,7 +59,7 @@ class Overview(pydm.Display):
         alarmRec = PyDMDrawingRectangle(frame)
         alarmRec.channel = "ca://{}".format(macros.get('ALARM', None))
         alarmRec.setGeometry(QtCore.QRect(0, 0, 400, 80))
-        alarmRec.setToolTip("ca://{}".format(macros.get('ALARM', None)))
+        alarmRec.setToolTip(tooltip)
         alarmRec.setProperty("alarmSensitiveContent", True)
         brush = QtGui.QBrush(QtGui.QColor(180, 180, 180))
         brush.setStyle(QtCore.Qt.NoBrush)
@@ -67,10 +72,13 @@ class Overview(pydm.Display):
 
         lblName = QtWidgets.QLabel(frame)
         lblName.setGeometry(QtCore.QRect(10, 50, 380, 20))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        lblName.setFont(font)
         lblName.setAlignment(QtCore.Qt.AlignCenter)
         lblName.setText("{}".format(macros.get('PV', None)))
         lblName.setObjectName("lblName")
-        lblName.setToolTip("{}".format(macros.get('PV', None)))
+        lblName.setToolTip(tooltip)
         
 
         lblVal = PyDMLabel(frame)
@@ -78,7 +86,7 @@ class Overview(pydm.Display):
         font = QtGui.QFont()
         font.setPointSize(14)
         lblVal.setFont(font)
-        lblVal.setToolTip("ca://{}".format(macros.get('PV', None)))
+        lblVal.setToolTip(tooltip)
         lblVal.setAlignment(QtCore.Qt.AlignCenter)
         lblVal.setProperty("showUnits", False)
         lblVal.setObjectName("lblVal")

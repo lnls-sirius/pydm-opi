@@ -17,22 +17,47 @@ NONE = 'None'
 
 IOC_FILENAME = '/opt/stream-ioc/' + 'mks937_min.cmd'
 
+class DataRow():
+    def __init__(self, row):
+        self.enable = True if row['ENABLE'] == 'True' else False
+        
+        self.channel_config = []
+        for config in row['Configuracao'].split(' '):
+            self.channel_config.append(COLD_CATHODE if config == 'CC' else PIRANI)
+        
+        self.channel_prefix = []
+        self.channel_prefix.append(row['A1'])
+        self.channel_prefix.append(row['A2'])
+        self.channel_prefix.append(row['B1'])
+        self.channel_prefix.append(row['B2'])
+        self.channel_prefix.append(row['C1'])
+        self.channel_prefix.append(row['C2'])
+
+        self.ip         = row['IP']
+        self.sector     = row['Setor']
+        self.rs485_id   = row['RS485 ID']
+        self.rack       = row['Rack']
+
+
+data = []
 devices = []
 # Setor	RS485 ID	Rack	Dispositivo	A1	A2	B1	B2	C1	C2
 for index, row in sheet.iterrows():
-    data = [row['Dispositivo']]
+    data.append(DataRow(row))
+
+    d = [row['Dispositivo']]
 
     for c in  row['Configuracao'].split(' '):
         if c == 'CC':
-            data.append(COLD_CATHODE)
+            d.append(COLD_CATHODE)
         else:
-            data.append(PIRANI)
+            d.append(PIRANI)
 
-    data.append(row['A1'])
-    data.append(row['A2'])
-    data.append(row['B1'])
-    data.append(row['B2'])
-    data.append(row['C1'])
-    data.append(row['C2'])
+    d.append(row['A1'])
+    d.append(row['A2'])
+    d.append(row['B1'])
+    d.append(row['B2'])
+    d.append(row['C1'])
+    d.append(row['C2'])
 
-    devices.append(data)
+    devices.append(d)
