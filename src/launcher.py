@@ -13,7 +13,7 @@ class Launcher(Display):
         self.btnAgilent.displayFilename = get_abs_path(AGILENT_MAIN)
         self.btnAgilent.openInNewWindow = True
         self.btnAgilentOverview.displayFilename = get_abs_path(OVERVIEW)
-        self.btnAgilentOverview.base_macros = {"device":"UHV", "TITLE": "ION Pump Agilent 4UHV"}
+        self.btnAgilentOverview.base_macros = {"device":"UHV", "TITLE": "ION Pump Agilent 4UHV", 'FORMAT': 'EXP'}
         self.btnAgilentOverview.openInNewWindow = True
 
         self.btnMks.displayFilename = get_abs_path(MKS_MAIN)

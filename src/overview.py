@@ -3,6 +3,7 @@ import sys
 import src.paths
 import src
 import logging
+import re
 import pydm
 from pydm.widgets.label import PyDMLabel
 from pydm.widgets.drawing import PyDMDrawingRectangle
@@ -26,11 +27,23 @@ class Overview(pydm.Display):
     def load_pvs(self):
         if self.macros.get('device','') == 'UHV':
             from src.consts.agilent4uhv import data
+            ch_reg = re.compile(r':[C][0-9]')
+            ed_reg = re.compile(r'-ED')
             for d_row in data:
                 if d_row.enable:
                     for ch_prefix in d_row.channel_prefix:
+
+                        if not ed_reg.match(ch_prefix[-3:]):
+                            # Filter out readings that aren't -ED
+                            continue
+
+                        if ch_reg.match(ch_prefix[-3:]):
+                            # Filter out unnused channels by it's name
+                            continue
+
                         self.pvs.append({
                             'PV'    : ch_prefix + ':Pressure-Mon',
+                            'DISP'  : ch_prefix + ':Pressure-Mon',
                             'ALARM' : ch_prefix + ':Pressure-Mon.STAT',
                             'SECTOR': d_row.sector,
                             'RACK'  : d_row.rack,
@@ -40,17 +53,28 @@ class Overview(pydm.Display):
 
         elif self.macros.get('device','') == 'MKS':
             from src.consts.mks937b import data
+            ch_reg = re.compile(r':[A-C][0-9]')
             for d_row in data:
                 if d_row.enable:
+                    i = 0
                     for ch_prefix in d_row.channel_prefix:
+                        if i >= 2:
+                            # Filter out PR
+                            continue
+                        if ch_reg.match(ch_prefix[-3:]):
+                            # Filter out unnused channels by it's name
+                            continue
+
                         self.pvs.append({
                             'PV'    : ch_prefix + ':Pressure-Mon-s',
+                            'DISP'  : ch_prefix + ':Pressure-Mon',
                             'ALARM' : ch_prefix + ':Pressure-Mon.STAT',
-                            'SEC.': d_row.sector,
+                            'SEC.'  : d_row.sector,
                             'RACK'  : d_row.rack,
-                            'RS485'  : d_row.rs485_id,
+                            'RS485' : d_row.rs485_id,
                             'IP'    : d_row.ip
                         })
+                        i += 1
         else:
             logger.error('Wrong macro[\'device\'] ! {} '.format(self.macros))
 
@@ -86,10 +110,10 @@ class Overview(pydm.Display):
         lblName = QtWidgets.QLabel(frame)
         lblName.setGeometry(QtCore.QRect(10, 50, 380, 20))
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(10)
         lblName.setFont(font)
         lblName.setAlignment(QtCore.Qt.AlignCenter)
-        lblName.setText("{}".format(macros.get('PV', None)))
+        lblName.setText("{}".format(macros.get('DISP', None)))
         lblName.setObjectName("lblName")
         lblName.setToolTip(tooltip)
         
@@ -97,7 +121,7 @@ class Overview(pydm.Display):
         lblVal = PyDMLabel(frame)
         lblVal.setGeometry(QtCore.QRect(10, 10, 380, 30))
         font = QtGui.QFont()
-        font.setPointSize(14)
+        font.setPointSize(16)
         lblVal.setFont(font)
         lblVal.setToolTip(tooltip)
         lblVal.setAlignment(QtCore.Qt.AlignCenter)
@@ -106,7 +130,8 @@ class Overview(pydm.Display):
         lblVal.channel = "ca://{}".format(macros.get('PV', None))
         lblVal.precisionFromPV = False
         lblVal.precision = 2
-        lblVal.displayFormat = PyDMLabel.DisplayFormat.Exponential
+        if self.macros.get('FORMAT', '') == 'EXP':
+            lblVal.displayFormat = PyDMLabel.DisplayFormat.Exponential
         return frame
 
     def ui_filename(self):
