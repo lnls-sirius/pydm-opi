@@ -26,27 +26,40 @@ class Overview(pydm.Display):
     def load_pvs(self):
         if self.macros.get('device','') == 'UHV':
             from src.consts.agilent4uhv import data
+            for d_row in data:
+                if d_row.enable:
+                    for ch_prefix in d_row.channel_prefix:
+                        self.pvs.append({
+                            'PV'    : ch_prefix + ':Pressure-Mon',
+                            'ALARM' : ch_prefix + ':Pressure-Mon.STAT',
+                            'SECTOR': d_row.sector,
+                            'RACK'  : d_row.rack,
+                            'RS485'  : d_row.rs485_id,
+                            'IP'    : d_row.ip
+                        })
+
         elif self.macros.get('device','') == 'MKS':
             from src.consts.mks937b import data
+            for d_row in data:
+                if d_row.enable:
+                    for ch_prefix in d_row.channel_prefix:
+                        self.pvs.append({
+                            'PV'    : ch_prefix + ':Pressure-Mon-s',
+                            'ALARM' : ch_prefix + ':Pressure-Mon.STAT',
+                            'SEC.': d_row.sector,
+                            'RACK'  : d_row.rack,
+                            'RS485'  : d_row.rs485_id,
+                            'IP'    : d_row.ip
+                        })
         else:
             logger.error('Wrong macro[\'device\'] ! {} '.format(self.macros))
 
-        for d_row in data:
-            if d_row.enable:
-                for ch_prefix in d_row.channel_prefix:
-                    self.pvs.append({
-                        'PV'    : ch_prefix + ':Pressure-Mon-s',
-                        'ALARM' : ch_prefix + ':Pressure-Mon.STAT',
-                        'SECTOR': d_row.sector,
-                        'RACK'  : d_row.rack,
-                        'IP'    : d_row.ip
-                    })      
 
     def get_gauge(self, parent, macros):
 
         aux = []
         for k, v in macros.items():
-            aux.append('{}\t{}\n'.format(k.ljust(20), v))
+            aux.append('{}\t{}\n'.format(k, v))
         tooltip = ''.join(aux)
 
         frame = QtWidgets.QFrame(parent)
