@@ -45,7 +45,7 @@ class Overview(pydm.Display):
                             'PV'    : ch_prefix + ':Pressure-Mon',
                             'DISP'  : ch_prefix + ':Pressure-Mon',
                             'ALARM' : ch_prefix + ':Pressure-Mon.STAT',
-                            'SECTOR': d_row.sector,
+                            'SEC.': d_row.sector,
                             'RACK'  : d_row.rack,
                             'RS485'  : d_row.rs485_id,
                             'IP'    : d_row.ip
