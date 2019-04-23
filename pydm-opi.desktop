@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Vacuum OPI
+Icon=/home/sirius/.pydm-opi/images/LNLS.png
+Exec=/usr/local/bin/docker-compose -f /home/sirius/.pydm-opi/docker-compose.yml up
+StartupNotify=true
+Terminal=false
