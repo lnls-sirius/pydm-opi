@@ -25,7 +25,7 @@ class MKSTableDataController(TableDataController):
         for actual_row in range(self.table_batch):
                 self.table.setCellWidget(actual_row, 0, QLabel(''))
                 self.table.setCellWidget(actual_row, 1, QLabel(''))
-                self.table.setCellWidget(actual_row, 2, get_label(self.table, '', '', displayFormat=3, precision=2))
+                self.table.setCellWidget(actual_row, 2, get_label(self.table, '', ''))
                 self.table.setCellWidget(actual_row, 3, get_label(self.table, '', ''))
                 self.table.setCellWidget(actual_row, 4, get_label(self.table, '', ''))
                 rel = PyDMRelatedDisplayButton(self.table, get_abs_path(DEVICE_MENU))
