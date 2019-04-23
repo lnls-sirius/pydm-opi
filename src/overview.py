@@ -28,7 +28,7 @@ class Overview(pydm.Display):
         if self.macros.get('device','') == 'UHV':
             from src.consts.agilent4uhv import data
             ch_reg = re.compile(r':[C][0-9]')
-            ed_reg = re.compile(r'-ED')
+            ed_reg = re.compile(r'-BG')
             for d_row in data:
                 if d_row.enable:
                     for ch_prefix in d_row.channel_prefix:
