@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  pydm-opi:
+    network_mode: 'host'
+    build: '.'
+    image: lnlscon/pydm-opi 
+    hostname: pydm-opi
+    environment:
+     - DISPLAY
+     - EPICS_CA_AUTO_ADDR_LIST=YES
+    container_name: pydm-opi 
+    working_dir: /opt/pydm-opi
+    command: '/opt/pydm-opi/launch.sh > /dev/null'
+    volumes:
+     - "$HOME/.Xauthority:/root/.Xauthority:rw"
+    # Mount your workspace here 
+     - "/home/sirius/.pydm-opi:/opt/pydm-opi"
+
