@@ -1,8 +1,8 @@
-from pydm import Display 
+from pydm import Display
 from pydm import PyDMApplication
 import json
 
-from src.paths import LAUNCH_WINDOW_UI, AGILENT_MAIN, MKS_MAIN, MBTEMP_MAIN, OVERVIEW, get_abs_path
+from src.paths import LAUNCH_WINDOW_UI, AGILENT_MAIN, MKS_MAIN, MBTEMP_MAIN, OVERVIEW, get_abs_path, MKS_OVERVIEW
 
 class Launcher(Display):
     """
@@ -18,13 +18,13 @@ class Launcher(Display):
 
         self.btnMks.displayFilename = get_abs_path(MKS_MAIN)
         self.btnMks.openInNewWindow = True
-        self.btnMksOverview.displayFilename = get_abs_path(OVERVIEW)
+        self.btnMksOverview.displayFilename = get_abs_path(MKS_OVERVIEW)
         self.btnMksOverview.base_macros = {"device":"MKS", "TITLE": "MKS 937b"}
         self.btnMksOverview.openInNewWindow = True
 
         self.btnMBTemp.displayFilename = get_abs_path(MBTEMP_MAIN)
         self.btnMBTemp.openInNewWindow = True
-        
+
 
         self.btnExit.clicked.connect(self.exitApp)
 
