@@ -102,9 +102,9 @@ class Overview(pydm.Display):
         brush.setStyle(QtCore.Qt.NoBrush)
         alarmRec.setProperty("brush", brush)
         alarmRec.setObjectName("alarmRec")
-        alarmRec.setStyleSheet("\
-            margin:5px; border:3px solid rgb(0, 0, 0); \
-        ")
+        #alarmRec.setStyleSheet("\
+        #    margin:5px; border:3px solid rgb(0, 0, 0); \
+        #")
 
 
         lblName = QtWidgets.QLabel(frame)

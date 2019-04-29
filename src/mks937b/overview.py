@@ -11,6 +11,7 @@ from pydm.widgets.drawing import PyDMDrawingRectangle
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from src import FlowLayout
+#from src.paths import DRAW_ALARMS_NO_INVALID_QSS
 
 logger = logging.getLogger()
 
@@ -59,49 +60,64 @@ class Overview(pydm.Display):
         tooltip = ''.join(aux)
 
         frame = QtWidgets.QFrame(parent)
-        frame.setGeometry(QtCore.QRect(10, 10, 400, 80))
-        frame.setMinimumSize(400,80)
+        frame.setGeometry(QtCore.QRect(10, 10, 400, 100))
+        frame.setMinimumSize(400, 100)
         frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         frame.setFrameShadow(QtWidgets.QFrame.Raised)
         frame.setObjectName("frame")
 
-        alarmRec = PyDMDrawingRectangle(frame)
-        alarmRec.channel = "ca://{}".format(pv.get('ALARM', None))
-        alarmRec.setGeometry(QtCore.QRect(0, 30, 400, 50))
-        alarmRec.setToolTip(tooltip)
-        alarmRec.setProperty("alarmSensitiveContent", True)
         brush = QtGui.QBrush(QtGui.QColor(180, 180, 180))
         brush.setStyle(QtCore.Qt.NoBrush)
-        alarmRec.setProperty("brush", brush)
-        alarmRec.setObjectName("alarmRec")
-        alarmRec.setStyleSheet("\
-            margin:5px; border:3px solid rgb(0, 0, 0); \
-        ")
 
         alarmRec = PyDMDrawingRectangle(frame)
-        alarmRec.channel = "ca://{}".format(pv.get('DEVICE', None) + ':Pressure:Read')
-        alarmRec.setGeometry(QtCore.QRect(0, 0, 400, 30))
-        alarmRec.setToolTip('Connection Indicator: {}\t{}'.format('DEVICE',pv.get('DEVICE', None) + ':Pressure:Read'))
+        alarmRec.channel = "ca://{}".format(pv.get('ALARM', None))
+        alarmRec.setGeometry(QtCore.QRect(0, 0, 400, 80))
+        alarmRec.setToolTip(tooltip)
         alarmRec.setProperty("alarmSensitiveContent", True)
-        brush = QtGui.QBrush(QtGui.QColor(180, 180, 180))
-        brush.setStyle(QtCore.Qt.NoBrush)
         alarmRec.setProperty("brush", brush)
         alarmRec.setObjectName("alarmRec")
-        alarmRec.setStyleSheet("\
-            border:3px solid rgb(0, 0, 0); \
-        ")
+        #alarmRec.setStyleSheet(DRAW_ALARMS_NO_INVALID_QSS)
+
+        alarmRecComm = PyDMDrawingRectangle(frame)
+        alarmRecComm.channel = "ca://{}".format(pv.get('DEVICE', None) + ':Pressure:Read')
+        alarmRecComm.setGeometry(QtCore.QRect(0, 80, 400, 20))
+        alarmRecComm.setToolTip('Connection Indicator: {}\t{}'.format('DEVICE',pv.get('DEVICE', None) + ':Pressure:Read'))
+        alarmRecComm.setProperty("alarmSensitiveContent", True)
+        alarmRecComm.setProperty("brush", brush)
+        alarmRecComm.setObjectName("alarmRecComm")
+        alarmRecComm.setStyleSheet("""
+            border:1px solid rgb(214, 214, 214);
+        """)
 
 
         lblName = QtWidgets.QLabel(frame)
         lblName.setGeometry(QtCore.QRect(10, 50, 380, 20))
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setPointSize(11)
         lblName.setFont(font)
         lblName.setAlignment(QtCore.Qt.AlignCenter)
         lblName.setText("{}".format(pv.get('DISP', None)))
         lblName.setObjectName("lblName")
         lblName.setToolTip(tooltip)
 
+        font = QtGui.QFont()
+        font.setPointSize(11)
+
+        lblComm = QtWidgets.QLabel(frame)
+        lblComm.setGeometry(QtCore.QRect(10, 80, 190, 20))
+        lblComm.setFont(font)
+        lblComm.setAlignment(QtCore.Qt.AlignCenter)
+        lblComm.setText('COMM Status')
+        lblComm.setObjectName("lblComm")
+        lblComm.setToolTip('Communication status to device {}'.format(pv.get('DEVICE', '')))
+
+        lblCommPv = PyDMLabel(frame)
+        lblCommPv.setGeometry(QtCore.QRect(150, 80, 190, 20))
+        lblCommPv.setFont(font)
+        lblCommPv.setToolTip('Communication status to device {}'.format(pv.get('DEVICE', '')))
+        lblCommPv.setAlignment(QtCore.Qt.AlignCenter)
+        lblCommPv.setObjectName("lblCommPv")
+        lblCommPv.channel = "ca://{}".format(pv.get('DEVICE', None) + ':Pressure:Read.STAT')
 
         lblVal = PyDMLabel(frame)
         lblVal.setGeometry(QtCore.QRect(10, 10, 380, 30))
