@@ -10,11 +10,17 @@ def get_abs_path(relative):
     """
     return os.path.join(os.path.dirname(os.path.realpath(__file__)), relative)
 
+DRAW_ALARMS_NO_INVALID_QSS= ''
+with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../css/draw_no-invalid.qss')) as f:
+    DRAW_ALARMS_NO_INVALID_QSS = ''.join(f.readlines())
+
 TABLE_ALARMS_QSS= ''
 with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../css/table-alarm.qss')) as f:
     TABLE_ALARMS_QSS = ''.join(f.readlines())
 
 LAUNCH_WINDOW_UI = "../ui/launcher.ui"
+
+MKS_OVERVIEW = 'mks937b/overview.py'
 
 OVERVIEW_UI = '../ui/overview.ui'
 OVERVIEW = 'overview.py'

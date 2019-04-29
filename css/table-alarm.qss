@@ -27,24 +27,28 @@ PyDMLineEdit[alarmSensitiveContent="true"][alarmSeverity="0"] > QLabel#valueLabe
 
 }
 
+/* Minor */
 PyDMLabel[alarmSensitiveContent="true"][alarmSeverity="1"],
 PyDMLineEdit[alarmSensitiveContent="true"][alarmSeverity="1"] > QLabel#valueLabel {
 	color: #000000;
     background-color: #EBEB00;
 }
 
+/* Major */
 PyDMLabel[alarmSensitiveContent="true"][alarmSeverity="2"],
 PyDMLineEdit[alarmSensitiveContent="true"][alarmSeverity="2"] > QLabel#valueLabel {
 	color: #FFFFFF;
     background-color: #FF0000;
 }
 
+/* Invalid */
 PyDMLabel[alarmSensitiveContent="true"][alarmSeverity="3"],
 PyDMLineEdit[alarmSensitiveContent="true"][alarmSeverity="3"] > QLabel#valueLabel {
 	color: #FFFFFF;
     background-color: #EB00EB;
 }
 
+/* Disconnected */
 PyDMLabel[alarmSensitiveContent="true"][alarmSeverity="4"],
 PyDMLineEdit[alarmSensitiveContent="true"][alarmSeverity="4"] > QLabel#valueLabel {
 	color: #FFFFFF;
