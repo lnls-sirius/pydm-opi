@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>343</width>
-    <height>325</height>
+    <width>258</width>
+    <height>268</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -63,8 +63,11 @@
         <property name="text">
          <string>Monitor</string>
         </property>
-        <property name="openInNewWindow" stdset="0">
+        <property name="showIcon" stdset="0">
          <bool>false</bool>
+        </property>
+        <property name="openInNewWindow" stdset="0">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -95,8 +98,11 @@
         <property name="text">
          <string>Settings</string>
         </property>
-        <property name="openInNewWindow" stdset="0">
+        <property name="showIcon" stdset="0">
          <bool>false</bool>
+        </property>
+        <property name="openInNewWindow" stdset="0">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -127,8 +133,11 @@
         <property name="text">
          <string>Info</string>
         </property>
-        <property name="openInNewWindow" stdset="0">
+        <property name="showIcon" stdset="0">
          <bool>false</bool>
+        </property>
+        <property name="openInNewWindow" stdset="0">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
