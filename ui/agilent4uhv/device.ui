@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>365</width>
-    <height>315</height>
+    <width>394</width>
+    <height>442</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -54,7 +54,125 @@
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
        <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="2">
+        <item row="2" column="1">
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="0" column="0" rowspan="4">
+           <widget class="PyDMByteIndicator" name="PyDMByteIndicator_2">
+            <property name="maximumSize">
+             <size>
+              <width>90</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="channel" stdset="0">
+             <string>ca://${PREFIX}:Protect-RB</string>
+            </property>
+            <property name="numBits" stdset="0">
+             <number>4</number>
+            </property>
+            <property name="labels" stdset="0">
+             <stringlist>
+              <string>Channel 1</string>
+              <string>Channel 2</string>
+              <string>Channel 3</string>
+              <string>Channel 4</string>
+             </stringlist>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="PyDMCheckbox" name="PyDMCheckbox_5">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="channel" stdset="0">
+             <string>ca://${PREFIX}:Protect4-SP</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="PyDMCheckbox" name="PyDMCheckbox_6">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="whatsThis">
+             <string>
+    A QCheckbox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    </string>
+            </property>
+            <property name="channel" stdset="0">
+             <string>ca://${PREFIX}:Protect2-SP</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="PyDMCheckbox" name="PyDMCheckbox_7">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="channel" stdset="0">
+             <string>ca://${PREFIX}:Protect3-SP</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="PyDMCheckbox" name="PyDMCheckbox_8">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="whatsThis">
+             <string>
+    A QCheckbox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    </string>
+            </property>
+            <property name="channel" stdset="0">
+             <string>ca://${PREFIX}:Protect1-SP</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="toolTip">
+           <string>Device Model
+Window 319</string>
+          </property>
+          <property name="text">
+           <string>Controller Model</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'serif';&quot;&gt;The high voltage provided to an ion pump can change from 3kV up to 7kV. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'serif';&quot;&gt;The user can set the Fixed mode with the voltage of 3kV or 5kV or 7kV using the front panel or through the serial commands or through the remote I/O. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;Step Mode&lt;/p&gt;&lt;p&gt;Window 603&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Step Mode</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <widget class="PyDMEnumComboBox" name="cb_mesurement_unit">
@@ -108,20 +226,7 @@
           </item>
          </layout>
         </item>
-        <item row="2" column="2">
-         <widget class="PyDMLabel" name="PyDMLabel_3">
-          <property name="toolTip">
-           <string/>
-          </property>
-          <property name="whatsThis">
-           <string/>
-          </property>
-          <property name="channel" stdset="0">
-           <string>ca://${PREFIX}:Protect-Mon</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="2">
+        <item row="5" column="1">
          <widget class="PyDMLabel" name="lbl_model">
           <property name="toolTip">
            <string/>
@@ -145,18 +250,7 @@ Window 800</string>
           </property>
          </widget>
         </item>
-        <item row="5" column="0">
-         <widget class="QLabel" name="label_6">
-          <property name="toolTip">
-           <string>Device Model
-Window 319</string>
-          </property>
-          <property name="text">
-           <string>Controller Model</string>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="2">
+        <item row="6" column="1">
          <widget class="PyDMLabel" name="lbl_serial_num">
           <property name="toolTip">
            <string/>
@@ -180,10 +274,37 @@ Window 323</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="2">
+        <item row="1" column="1">
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
-           <widget class="PyDMCheckbox" name="PyDMCheckbox">
+           <widget class="PyDMByteIndicator" name="PyDMByteIndicator">
+            <property name="maximumSize">
+             <size>
+              <width>90</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="rules" stdset="0">
+             <string>[]</string>
+            </property>
+            <property name="channel" stdset="0">
+             <string>ca://${PREFIX}:Mode-RB</string>
+            </property>
+            <property name="numBits" stdset="0">
+             <number>1</number>
+            </property>
+            <property name="labels" stdset="0">
+             <stringlist>
+              <string>               .</string>
+             </stringlist>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="PyDMCheckbox" name="PyDMCheckbox_4">
             <property name="toolTip">
              <string/>
             </property>
@@ -202,19 +323,6 @@ Window 323</string>
             </property>
             <property name="channel" stdset="0">
              <string>ca://${PREFIX}:Mode-SP</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="PyDMLabel" name="PyDMLabel_2">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="whatsThis">
-             <string/>
-            </property>
-            <property name="channel" stdset="0">
-             <string>ca://${PREFIX}:Mode-RB</string>
             </property>
            </widget>
           </item>
@@ -242,29 +350,7 @@ Window 600</string>
           </property>
          </widget>
         </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_3">
-          <property name="toolTip">
-           <string>&quot;Protect&quot; Reading
-Window 602</string>
-          </property>
-          <property name="text">
-           <string>Protect</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="label_4">
-          <property name="toolTip">
-           <string>Step Mode
-Window 603</string>
-          </property>
-          <property name="text">
-           <string>Step Mode</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="2">
+        <item row="4" column="1">
          <widget class="PyDMLabel" name="lbl_fan_temp">
           <property name="toolTip">
            <string/>
@@ -280,16 +366,110 @@ Window 603</string>
           </property>
          </widget>
         </item>
-        <item row="3" column="2">
-         <widget class="PyDMLabel" name="PyDMLabel_4">
+        <item row="3" column="1">
+         <layout class="QGridLayout" name="gridLayout_7">
+          <item row="0" column="0" rowspan="4">
+           <widget class="PyDMByteIndicator" name="PyDMByteIndicator_3">
+            <property name="maximumSize">
+             <size>
+              <width>90</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="channel" stdset="0">
+             <string>ca://${PREFIX}:Step-RB</string>
+            </property>
+            <property name="numBits" stdset="0">
+             <number>4</number>
+            </property>
+            <property name="labels" stdset="0">
+             <stringlist>
+              <string>Channel 1</string>
+              <string>Channel 2</string>
+              <string>Channel 3</string>
+              <string>Channel 4</string>
+             </stringlist>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="PyDMCheckbox" name="PyDMCheckbox_9">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="channel" stdset="0">
+             <string>ca://${PREFIX}:Step4-SP</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="PyDMCheckbox" name="PyDMCheckbox_10">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="whatsThis">
+             <string>
+    A QCheckbox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    </string>
+            </property>
+            <property name="channel" stdset="0">
+             <string>ca://${PREFIX}:Step2-SP</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="PyDMCheckbox" name="PyDMCheckbox_11">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="channel" stdset="0">
+             <string>ca://${PREFIX}:Step3-SP</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="PyDMCheckbox" name="PyDMCheckbox_12">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="whatsThis">
+             <string>
+    A QCheckbox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    </string>
+            </property>
+            <property name="channel" stdset="0">
+             <string>ca://${PREFIX}:Step1-SP</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_3">
           <property name="toolTip">
-           <string/>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'serif';&quot;&gt;If this function is enabled, the controller waits 120 seconds from the HV ON, then it begins to check the current provided.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'serif';&quot;&gt;If the current exceeds the threshold in the following table, the HV channel turns off and the controller gives the “Protect Error”.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&amp;quot;Protect&amp;quot; Reading&lt;/p&gt;&lt;p&gt;Window 602&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
-          <property name="whatsThis">
-           <string/>
-          </property>
-          <property name="channel" stdset="0">
-           <string>ca://${PREFIX}:Step-Mon</string>
+          <property name="text">
+           <string>Protect</string>
           </property>
          </widget>
         </item>
@@ -321,6 +501,11 @@ Window 603</string>
    <class>PyDMLabel</class>
    <extends>QLabel</extends>
    <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
    <class>PyDMCheckbox</class>
