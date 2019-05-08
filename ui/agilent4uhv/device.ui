@@ -85,8 +85,14 @@
           </item>
           <item row="3" column="1">
            <widget class="PyDMCheckbox" name="PyDMCheckbox_5">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="toolTip">
              <string/>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <property name="channel" stdset="0">
              <string>ca://${PREFIX}:Protect4-SP</string>
@@ -95,6 +101,9 @@
           </item>
           <item row="1" column="1">
            <widget class="PyDMCheckbox" name="PyDMCheckbox_6">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="toolTip">
              <string/>
             </property>
@@ -110,6 +119,9 @@
         The channel to be used by the widget.
 
     </string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <property name="channel" stdset="0">
              <string>ca://${PREFIX}:Protect2-SP</string>
@@ -118,8 +130,14 @@
           </item>
           <item row="2" column="1">
            <widget class="PyDMCheckbox" name="PyDMCheckbox_7">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="toolTip">
              <string/>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <property name="channel" stdset="0">
              <string>ca://${PREFIX}:Protect3-SP</string>
@@ -128,6 +146,9 @@
           </item>
           <item row="0" column="1">
            <widget class="PyDMCheckbox" name="PyDMCheckbox_8">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="toolTip">
              <string/>
             </property>
@@ -143,6 +164,9 @@
         The channel to be used by the widget.
 
     </string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <property name="channel" stdset="0">
              <string>ca://${PREFIX}:Protect1-SP</string>
@@ -397,8 +421,14 @@ Window 600</string>
           </item>
           <item row="3" column="1">
            <widget class="PyDMCheckbox" name="PyDMCheckbox_9">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="toolTip">
              <string/>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <property name="channel" stdset="0">
              <string>ca://${PREFIX}:Step4-SP</string>
@@ -407,6 +437,9 @@ Window 600</string>
           </item>
           <item row="1" column="1">
            <widget class="PyDMCheckbox" name="PyDMCheckbox_10">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="toolTip">
              <string/>
             </property>
@@ -422,6 +455,9 @@ Window 600</string>
         The channel to be used by the widget.
 
     </string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <property name="channel" stdset="0">
              <string>ca://${PREFIX}:Step2-SP</string>
@@ -430,8 +466,14 @@ Window 600</string>
           </item>
           <item row="2" column="1">
            <widget class="PyDMCheckbox" name="PyDMCheckbox_11">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="toolTip">
              <string/>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <property name="channel" stdset="0">
              <string>ca://${PREFIX}:Step3-SP</string>
@@ -440,6 +482,9 @@ Window 600</string>
           </item>
           <item row="0" column="1">
            <widget class="PyDMCheckbox" name="PyDMCheckbox_12">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="toolTip">
              <string/>
             </property>
@@ -455,6 +500,9 @@ Window 600</string>
         The channel to be used by the widget.
 
     </string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <property name="channel" stdset="0">
              <string>ca://${PREFIX}:Step1-SP</string>
