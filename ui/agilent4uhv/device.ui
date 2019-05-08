@@ -68,7 +68,7 @@
              <string/>
             </property>
             <property name="channel" stdset="0">
-             <string>ca://${PREFIX}:Protect-RB</string>
+             <string>ca://${PREFIX}:Protect-Mon</string>
             </property>
             <property name="numBits" stdset="0">
              <number>4</number>
@@ -404,7 +404,7 @@ Window 600</string>
              <string/>
             </property>
             <property name="channel" stdset="0">
-             <string>ca://${PREFIX}:Step-RB</string>
+             <string>ca://${PREFIX}:Step-Mon</string>
             </property>
             <property name="numBits" stdset="0">
              <number>4</number>
