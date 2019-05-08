@@ -14,46 +14,6 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
-   <item row="1" column="0">
-    <widget class="QWidget" name="widget_2" native="true">
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QScrollArea" name="scrollArea">
-        <property name="widgetResizable">
-         <bool>true</bool>
-        </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>1250</width>
-           <height>764</height>
-          </rect>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_3">
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item row="0" column="0">
-           <widget class="QTableWidget" name="table"/>
-          </item>
-         </layout>
-        </widget>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
    <item row="0" column="0">
     <widget class="QFrame" name="frame">
      <property name="frameShape">
@@ -66,8 +26,24 @@
       <number>1</number>
      </property>
      <layout class="QGridLayout" name="gridLayout_11">
-      <item row="0" column="9">
-       <widget class="QWidget" name="widget" native="true"/>
+      <item row="0" column="17">
+       <widget class="QLineEdit" name="tfFilter"/>
+      </item>
+      <item row="0" column="15">
+       <widget class="QPushButton" name="btnAllHvOn">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Turn &lt;/span&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#aa0000;&quot;&gt;ON&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; all channels&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>All Channels ON</string>
+        </property>
+       </widget>
       </item>
       <item row="0" column="12">
        <widget class="PyDMPushButton" name="btnNavLeft">
@@ -114,7 +90,17 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="15">
+      <item row="0" column="13">
+       <widget class="PyDMPushButton" name="btnNavRight">
+        <property name="toolTip">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="9">
+       <widget class="QWidget" name="widget" native="true"/>
+      </item>
+      <item row="0" column="16">
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -126,9 +112,6 @@
          </size>
         </property>
        </spacer>
-      </item>
-      <item row="0" column="16">
-       <widget class="QLineEdit" name="tfFilter"/>
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="lbl_title">
@@ -147,18 +130,76 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="13">
-       <widget class="PyDMPushButton" name="btnNavRight">
-        <property name="toolTip">
-         <string/>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="14">
-       <widget class="QPushButton" name="btnAllHvOn">
-        <property name="text">
-         <string>ALL HV ON</string>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QWidget" name="widget_2" native="true">
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QScrollArea" name="scrollArea">
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>1246</width>
+           <height>726</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QTableWidget" name="table"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="PyDMLogDisplay" name="PyDMLogDisplay">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>250</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="logLevel" stdset="0">
+             <enum>PyDMLogDisplay::INFO</enum>
+            </property>
+            <property name="logName" stdset="0">
+             <string>MKS_Logger</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
        </widget>
       </item>
      </layout>
@@ -167,6 +208,11 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>PyDMLogDisplay</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.logdisplay</header>
+  </customwidget>
   <customwidget>
    <class>PyDMPushButton</class>
    <extends>QPushButton</extends>
