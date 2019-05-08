@@ -189,7 +189,7 @@ Window 319</string>
         <item row="3" column="0">
          <widget class="QLabel" name="label_4">
           <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'serif';&quot;&gt;The high voltage provided to an ion pump can change from 3kV up to 7kV. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'serif';&quot;&gt;The user can set the Fixed mode with the voltage of 3kV or 5kV or 7kV using the front panel or through the serial commands or through the remote I/O. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;Step Mode&lt;/p&gt;&lt;p&gt;Window 603&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string></string>
           </property>
           <property name="text">
            <string>Step Mode</string>
@@ -514,7 +514,7 @@ Window 600</string>
         <item row="2" column="0">
          <widget class="QLabel" name="label_3">
           <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'serif';&quot;&gt;If this function is enabled, the controller waits 120 seconds from the HV ON, then it begins to check the current provided.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'serif';&quot;&gt;If the current exceeds the threshold in the following table, the HV channel turns off and the controller gives the “Protect Error”.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&amp;quot;Protect&amp;quot; Reading&lt;/p&gt;&lt;p&gt;Window 602&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string></string>
           </property>
           <property name="text">
            <string>Protect</string>
