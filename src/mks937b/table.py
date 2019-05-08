@@ -16,14 +16,7 @@ from src import get_label, TableDataController
 from src.consts.mks937b import devices, COLD_CATHODE, PIRANI, data
 from src.paths import get_abs_path, TABLE_UI, DEVICE_MENU
 
-logger = logging.getLogger()
-def turn_on():
-    for d in data:
-        for p in d.channel_prefix:
-            command = p + ':Enable-SP'
-            logger.info("{} 'On'".format(command))
-            res = epics.caput(command, 'On', timeout=.2)
-            logger.info('Caput command: {}\t{}'.format(command, 'OK' if res == 1 else 'FAIL'))
+logger = logging.getLogger('MKS_Logger')
 
 class MKSTableDataController(TableDataController):
     def __init__(self, table, devices=[], table_batch=24, horizontal_header_labels=[], *args, **kwargs):
@@ -137,7 +130,21 @@ class MKS(Display):
         self.btnNavRight.clicked.connect(lambda: self.update_navbar(True))
         self.btnNavRight.setIcon(IconFont().icon('arrow-right'))
 
-        self.btnAllHvOn.clicked.connect(turn_on)
+        self.btnAllHvOn.clicked.connect(lambda : self.turn_on_channels())
+
+    def turn_on_channels(self):
+        #@todo: use asyncio
+        logger.info('Turning all channels ON')
+        self.turn_on()
+
+    def turn_on(self):
+        for d in data:
+            if not d.enable:
+                continue
+            for p in d.channel_prefix:
+                command = p + ':Enable-SP'
+                res = epics.caput(command, 'On', timeout=.2)
+                logger.info('Caput command: {} \'On\'         {}'.format(command, 'OK' if res == 1 else 'FAIL'))
 
     def filter(self, pattern):
         self.tdc.filter(pattern)
