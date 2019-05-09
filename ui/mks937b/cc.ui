@@ -1075,6 +1075,9 @@
              <property name="channel" stdset="0">
               <string>ca://${GA}:FastRelay-SP</string>
              </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLineEdit::Exponential</enum>
+             </property>
             </widget>
            </item>
            <item>
@@ -1099,6 +1102,9 @@
              </property>
              <property name="channel" stdset="0">
               <string>ca://${GA}:FastRelay-RB</string>
+             </property>
+             <property name="displayFormat" stdset="0">
+              <enum>PyDMLabel::Exponential</enum>
              </property>
             </widget>
            </item>
