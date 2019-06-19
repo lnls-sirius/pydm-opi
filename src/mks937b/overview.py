@@ -32,12 +32,25 @@ class Overview(pydm.Display):
         for d_row in data:
             if d_row.enable:
                 i = 0
-                for ch_prefix in d_row.channel_prefix:
-                    if i >= 2:
-                        # Filter out PR
-                        continue
+                for ch_prefix in d_row.channel_prefix[:4]:
+                    #if i >= 5:
+                    #    # Filter out PR
+                    #    continue
                     if ch_reg.match(ch_prefix[-3:]):
                         # Filter out unnused channels by it's name
+                        continue
+
+                    if self.macros.get('TYPE') == 'BO':
+                        if not ch_prefix.startswith('BO') and not ch_prefix.startswith('TB'):
+                            logger.info('Ignore {}'.format(ch_prefix))
+                            continue
+                    elif self.macros.get('TYPE') == 'SR':
+                        if not ch_prefix.startswith('SI') and not ch_prefix.startswith('TS'):
+                            logger.info('Ignore {}'.format(ch_prefix))
+                            continue
+                    else:
+                        logger.warning('TYPE != BO and TYPE != SR')
+                        logger.info('Ignore {}'.format(ch_prefix))
                         continue
 
                     self.pvs.append({

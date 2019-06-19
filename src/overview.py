@@ -9,7 +9,7 @@ from pydm.widgets.label import PyDMLabel
 from pydm.widgets.drawing import PyDMDrawingRectangle
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from src import FlowLayout 
+from src import FlowLayout
 
 logger = logging.getLogger()
 
@@ -35,6 +35,22 @@ class Overview(pydm.Display):
 
                         if not ed_reg.match(ch_prefix[-3:]):
                             # Filter out readings that aren't -ED
+                            continue
+
+                        if self.macros.get('TYPE') == 'BO':
+                            if not ch_prefix.startswith('BO') and not ch_prefix.startswith('TB'):
+                                logger.info('Ignored {}'.format(ch_prefix))
+                                continue
+
+                        elif self.macros.get('TYPE') == 'SR':
+                            if not ch_prefix.startswith('SI') and not ch_prefix.startswith('TS'):
+                                logger.info('Ignored {}'.format(ch_prefix))
+                                continue
+                            pass
+
+                        else:
+                            logger.info('Ignored {}'.format(ch_prefix))
+                            logger.warning('TYPE != BO and TYPE != SR')
                             continue
 
                         if ch_reg.match(ch_prefix[-3:]):
@@ -63,6 +79,19 @@ class Overview(pydm.Display):
                             continue
                         if ch_reg.match(ch_prefix[-3:]):
                             # Filter out unnused channels by it's name
+                            continue
+
+                        if self.macros.get('TYPE') == 'BO':
+                            if not ch_prefix.startswith('BO') and not ch_prefix.startswith('TB'):
+                                logger.info('Ignore {}'.format(ch_prefix))
+                                continue
+                        elif self.macros.get('TYPE') == 'SR':
+                            if not ch_prefix.startswith('SI') and not ch_prefix.startswith('TS'):
+                                logger.info('Ignore {}'.format(ch_prefix))
+                                continue
+                        else:
+                            logger.warning('TYPE != BO and TYPE != SR')
+                            logger.info('Ignore {}'.format(ch_prefix))
                             continue
 
                         self.pvs.append({
@@ -116,7 +145,7 @@ class Overview(pydm.Display):
         lblName.setText("{}".format(macros.get('DISP', None)))
         lblName.setObjectName("lblName")
         lblName.setToolTip(tooltip)
-        
+
 
         lblVal = PyDMLabel(frame)
         lblVal.setGeometry(QtCore.QRect(10, 10, 380, 30))

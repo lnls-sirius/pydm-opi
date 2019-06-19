@@ -12,15 +12,25 @@ class Launcher(Display):
         super(Launcher, self).__init__(parent=parent, args=args, macros=macros)
         self.btnAgilent.displayFilename = get_abs_path(AGILENT_MAIN)
         self.btnAgilent.openInNewWindow = True
-        self.btnAgilentOverview.displayFilename = get_abs_path(OVERVIEW)
-        self.btnAgilentOverview.base_macros = {"device":"UHV", "TITLE": "ION Pump Agilent 4UHV", 'FORMAT': 'EXP'}
-        self.btnAgilentOverview.openInNewWindow = True
+
+        self.btnAgilentSROverview.displayFilename = get_abs_path(OVERVIEW)
+        self.btnAgilentSROverview.base_macros = {"device":"UHV", 'TYPE':'SR', "TITLE": "ION Pump Agilent 4UHV - SI and TS", 'FORMAT': 'EXP'}
+        self.btnAgilentSROverview.openInNewWindow = True
+
+        self.btnAgilentBOOverview.displayFilename = get_abs_path(OVERVIEW)
+        self.btnAgilentBOOverview.base_macros = {"device":"UHV", 'TYPE':'BO', "TITLE": "ION Pump Agilent 4UHV - BO and TB", 'FORMAT': 'EXP'}
+        self.btnAgilentBOOverview.openInNewWindow = True
 
         self.btnMks.displayFilename = get_abs_path(MKS_MAIN)
         self.btnMks.openInNewWindow = True
-        self.btnMksOverview.displayFilename = get_abs_path(MKS_OVERVIEW)
-        self.btnMksOverview.base_macros = {"device":"MKS", "TITLE": "MKS 937b"}
-        self.btnMksOverview.openInNewWindow = True
+
+        self.btnMksSROverview.displayFilename = get_abs_path(MKS_OVERVIEW)
+        self.btnMksSROverview.base_macros = {"device":"MKS", 'TYPE':'SR', "TITLE": "MKS 937b - SI and TS"}
+        self.btnMksSROverview.openInNewWindow = True
+
+        self.btnMksBOOverview.displayFilename = get_abs_path(MKS_OVERVIEW)
+        self.btnMksBOOverview.base_macros = {"device":"MKS", 'TYPE':'BO', "TITLE": "MKS 937b - BO and TB"}
+        self.btnMksBOOverview.openInNewWindow = True
 
         self.btnMBTemp.displayFilename = get_abs_path(MBTEMP_MAIN)
         self.btnMBTemp.openInNewWindow = True
