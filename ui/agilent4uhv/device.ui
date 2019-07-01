@@ -68,7 +68,7 @@
              <string/>
             </property>
             <property name="channel" stdset="0">
-             <string>ca://${PREFIX}:Protect-Mon</string>
+             <string>ca://${PREFIX}:Protect-RB</string>
             </property>
             <property name="numBits" stdset="0">
              <number>4</number>
@@ -189,7 +189,7 @@ Window 319</string>
         <item row="3" column="0">
          <widget class="QLabel" name="label_4">
           <property name="toolTip">
-           <string></string>
+           <string/>
           </property>
           <property name="text">
            <string>Step Mode</string>
@@ -404,7 +404,7 @@ Window 600</string>
              <string/>
             </property>
             <property name="channel" stdset="0">
-             <string>ca://${PREFIX}:Step-Mon</string>
+             <string>ca://${PREFIX}:Step-RB</string>
             </property>
             <property name="numBits" stdset="0">
              <number>4</number>
@@ -514,7 +514,7 @@ Window 600</string>
         <item row="2" column="0">
          <widget class="QLabel" name="label_3">
           <property name="toolTip">
-           <string></string>
+           <string/>
           </property>
           <property name="text">
            <string>Protect</string>
