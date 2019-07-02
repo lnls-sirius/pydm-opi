@@ -147,8 +147,8 @@ class UHVDataController(TableDataController):
                 self.table.cellWidget(actual_row, 1).setText(device[0])
                 # Fan Temperature
                 self.connect_widget(actual_row, 2, device_ca + ':FanTemperature-Mon')
-                # Mode-RB
-                self.connect_widget(actual_row, 3, device_ca + ':Mode-RB')
+                # Autostart-RB
+                self.connect_widget(actual_row, 3, device_ca + ':Autostart-RB')
 
                 # Pressure
                 self.connect_widget(actual_row, 4,  channel_ca + ':Pressure-Mon')
