@@ -17,6 +17,7 @@ from src.consts.mks937b import devices, COLD_CATHODE, PIRANI, data
 from src.paths import get_abs_path, TABLE_UI, DEVICE_MENU
 
 logger = logging.getLogger('MKS_Logger')
+l = logging.getLogger()
 
 class MKSTableDataController(TableDataController):
     def __init__(self, table, devices=[], table_batch=24, horizontal_header_labels=[], *args, **kwargs):
@@ -32,7 +33,8 @@ class MKSTableDataController(TableDataController):
                 self.table.setCellWidget(actual_row, 2, get_label(self.table, '', ''))
                 self.table.setCellWidget(actual_row, 3, get_label(self.table, '', ''))
                 self.table.setCellWidget(actual_row, 4, get_label(self.table, '', ''))
-                rel = PyDMRelatedDisplayButton(self.table, get_abs_path(DEVICE_MENU))
+                rel = PyDMRelatedDisplayButton(self.table)
+                rel.filenames = [get_abs_path(DEVICE_MENU)] 
                 rel.openInNewWindow = True
                 self.table.setCellWidget(actual_row, 5, rel)
 

@@ -53,6 +53,7 @@ class UHVDataController(TableDataController):
                 self.table.setCellWidget(actual_row, 9, get_byte_indicator(self.table, '', ''))
 
                 rel = PyDMRelatedDisplayButton(self.table, get_abs_path(AGILENT_DEVICE_MAIN_UI))
+                rel.filenames = [get_abs_path(AGILENT_DEVICE_MAIN_UI)]
                 rel.openInNewWindow = True
 
                 # HV State

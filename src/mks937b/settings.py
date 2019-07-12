@@ -3,7 +3,6 @@
 import json
 
 from pydm import Display
-from pydm.widgets import PyDMEmbeddedDisplay
 
 from src.consts.mks937b import COLD_CATHODE, PIRANI
 from src.mks937b.macros import *
