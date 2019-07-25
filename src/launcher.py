@@ -43,7 +43,7 @@ class Launcher(Display):
         self.btnExit.clicked.connect(self.exitApp)
 
     def launch_epp(self):
-        subprocess.Popen('cd ../SPIxCONV/software/pydm/launcher; ./start.sh', shell=True)
+        subprocess.Popen('cd ../SPIxCONV/software/pydm/launcher; pydm --hide-nav-bar launch_ui_main_window.py', shell=True)
 
     def exitApp(self):
         exit()
