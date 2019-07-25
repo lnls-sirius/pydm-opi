@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Vacuum OPI
-Icon=/home/sirius/.pydm-opi/images/LNLS.png
-Exec=/bin/bash /home/sirius/.pydm-opi/launch.sh
-StartupNotify=true
-Terminal=false
