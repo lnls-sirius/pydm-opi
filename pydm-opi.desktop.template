@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=CONS PyDM OPIs
+Path=${D}
+Icon=${D}/images/LNLS.png
+Exec=/bin/bash ${D}/launch.sh
+StartupNotify=true
+Terminal=false

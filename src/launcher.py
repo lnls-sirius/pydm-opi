@@ -1,8 +1,8 @@
 from pydm import Display
 from pydm import PyDMApplication
 import json
-
-from src.paths import LAUNCH_WINDOW_UI, AGILENT_MAIN, MKS_MAIN, MBTEMP_MAIN, OVERVIEW, get_abs_path, MKS_OVERVIEW
+import subprocess
+from src.paths import LAUNCH_WINDOW_UI, AGILENT_MAIN, MKS_MAIN, MBTEMP_MAIN, OVERVIEW, get_abs_path, MKS_OVERVIEW, PCTRL_MAIN, EPP_MAIN
 
 class Launcher(Display):
     """
@@ -35,8 +35,15 @@ class Launcher(Display):
         self.btnMBTemp.displayFilename = get_abs_path(MBTEMP_MAIN)
         self.btnMBTemp.openInNewWindow = True
 
+        self.btnProcServCtrl.openInNewWindow = True
+        self.btnProcServCtrl.filenames = [get_abs_path(PCTRL_MAIN)]
+
+        self.btnEpp.clicked.connect(self.launch_epp)
 
         self.btnExit.clicked.connect(self.exitApp)
+
+    def launch_epp(self):
+        subprocess.Popen('cd ../SPIxCONV/software/pydm/launcher; ./start.sh', shell=True)
 
     def exitApp(self):
         exit()
