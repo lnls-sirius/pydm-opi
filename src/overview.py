@@ -114,19 +114,22 @@ class Overview(pydm.Display):
         for k, v in macros.items():
             aux.append('{}\t{}\n'.format(k, v))
         tooltip = ''.join(aux)
+        min_w = 300
+        min_h = 80
 
         frame = QtWidgets.QFrame(parent)
-        frame.setGeometry(QtCore.QRect(10, 10, 400, 80))
-        frame.setMinimumSize(400,80)
+        frame.setGeometry(QtCore.QRect(10, 10, min_w, min_h))
+        frame.setMinimumSize(min_w, min_h)
         frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         frame.setFrameShadow(QtWidgets.QFrame.Raised)
         frame.setObjectName("frame")
 
         alarmRec = PyDMDrawingRectangle(frame)
         alarmRec.channel = "ca://{}".format(macros.get('ALARM', None))
-        alarmRec.setGeometry(QtCore.QRect(0, 0, 400, 80))
+        alarmRec.setGeometry(QtCore.QRect(0, 0, min_w, min_h))
         alarmRec.setToolTip(tooltip)
         alarmRec.setProperty("alarmSensitiveContent", True)
+
         brush = QtGui.QBrush(QtGui.QColor(180, 180, 180))
         brush.setStyle(QtCore.Qt.NoBrush)
         alarmRec.setProperty("brush", brush)
@@ -137,9 +140,9 @@ class Overview(pydm.Display):
 
 
         lblName = QtWidgets.QLabel(frame)
-        lblName.setGeometry(QtCore.QRect(10, 50, 380, 20))
+        lblName.setGeometry(QtCore.QRect(min_w*0.05, 50, min_w - min_w*0.05, 20))
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setPointSize(12)
         lblName.setFont(font)
         lblName.setAlignment(QtCore.Qt.AlignCenter)
         lblName.setText("{}".format(macros.get('DISP', None)))
@@ -148,9 +151,9 @@ class Overview(pydm.Display):
 
 
         lblVal = PyDMLabel(frame)
-        lblVal.setGeometry(QtCore.QRect(10, 10, 380, 30))
+        lblVal.setGeometry(QtCore.QRect(min_w*0.05, 10, min_w - min_w*0.05, 30))
         font = QtGui.QFont()
-        font.setPointSize(16)
+        font.setPointSize(18)
         lblVal.setFont(font)
         lblVal.setToolTip(tooltip)
         lblVal.setAlignment(QtCore.Qt.AlignCenter)

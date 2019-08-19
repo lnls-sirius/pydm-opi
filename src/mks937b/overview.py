@@ -72,9 +72,12 @@ class Overview(pydm.Display):
             aux.append('{}\t{}\n'.format(k, v))
         tooltip = ''.join(aux)
 
+        width  = 320
+        height = 100
+
         frame = QtWidgets.QFrame(parent)
-        frame.setGeometry(QtCore.QRect(10, 10, 400, 100))
-        frame.setMinimumSize(400, 100)
+        frame.setGeometry(QtCore.QRect(10, 10, width, height))
+        frame.setMinimumSize(width, height)
         frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         frame.setFrameShadow(QtWidgets.QFrame.Raised)
         frame.setObjectName("frame")
@@ -84,7 +87,7 @@ class Overview(pydm.Display):
 
         alarmRec = PyDMDrawingRectangle(frame)
         alarmRec.channel = "ca://{}".format(pv.get('ALARM', None))
-        alarmRec.setGeometry(QtCore.QRect(0, 0, 400, 80))
+        alarmRec.setGeometry(QtCore.QRect(0, 0, width, height*.8))
         alarmRec.setToolTip(tooltip)
         alarmRec.setProperty("alarmSensitiveContent", True)
         alarmRec.setProperty("brush", brush)
@@ -93,7 +96,7 @@ class Overview(pydm.Display):
 
         alarmRecComm = PyDMDrawingRectangle(frame)
         alarmRecComm.channel = "ca://{}".format(pv.get('DEVICE', None) + ':Pressure:Read')
-        alarmRecComm.setGeometry(QtCore.QRect(0, 80, 400, 20))
+        alarmRecComm.setGeometry(QtCore.QRect(0, height*.8, width, height*.2))
         alarmRecComm.setToolTip('Connection Indicator: {}\t{}'.format('DEVICE',pv.get('DEVICE', None) + ':Pressure:Read'))
         alarmRecComm.setProperty("alarmSensitiveContent", True)
         alarmRecComm.setProperty("brush", brush)
@@ -104,9 +107,9 @@ class Overview(pydm.Display):
 
 
         lblName = QtWidgets.QLabel(frame)
-        lblName.setGeometry(QtCore.QRect(10, 50, 380, 20))
+        lblName.setGeometry(QtCore.QRect(width*0.05, 50, width - width*0.05, 20))
         font = QtGui.QFont()
-        font.setPointSize(11)
+        font.setPointSize(12)
         lblName.setFont(font)
         lblName.setAlignment(QtCore.Qt.AlignCenter)
         lblName.setText("{}".format(pv.get('DISP', None)))
@@ -114,7 +117,7 @@ class Overview(pydm.Display):
         lblName.setToolTip(tooltip)
 
         font = QtGui.QFont()
-        font.setPointSize(11)
+        font.setPointSize(12)
 
         lblComm = QtWidgets.QLabel(frame)
         lblComm.setGeometry(QtCore.QRect(10, 80, 190, 20))
@@ -133,9 +136,9 @@ class Overview(pydm.Display):
         lblCommPv.channel = "ca://{}".format(pv.get('DEVICE', None) + ':Pressure:Read.STAT')
 
         lblVal = PyDMLabel(frame)
-        lblVal.setGeometry(QtCore.QRect(10, 10, 380, 30))
+        lblVal.setGeometry(QtCore.QRect(0.05*width, 10, width - 0.05*width, 30))
         font = QtGui.QFont()
-        font.setPointSize(16)
+        font.setPointSize(18)
         lblVal.setFont(font)
         lblVal.setToolTip(tooltip)
         lblVal.setAlignment(QtCore.Qt.AlignCenter)
