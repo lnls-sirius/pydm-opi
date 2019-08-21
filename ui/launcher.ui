@@ -1983,7 +1983,7 @@
       <item row="8" column="1" colspan="3">
        <widget class="QPushButton" name="btnRegatron">
         <property name="text">
-         <string>PushButton</string>
+         <string>Regatron</string>
         </property>
        </widget>
       </item>
