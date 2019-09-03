@@ -47,7 +47,7 @@ class Launcher(Display):
         subprocess.Popen('cd ../SPIxCONV/software/pydm/launcher; pydm --hide-nav-bar launch_ui_main_window.py', shell=True)
 
     def launch_regatron(self):
-        subprocess.Popen('cd ../cons-topcon/opi; pydm --hide-nav-bar launch.ui', shell=True)
+        subprocess.Popen('cd ../cons-topcon/opi; pydm --hide-nav-bar launch.py', shell=True)
 
     def exitApp(self):
         exit()
