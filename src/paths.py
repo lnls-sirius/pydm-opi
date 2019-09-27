@@ -25,7 +25,7 @@ MKS_OVERVIEW = 'mks937b/overview.py'
 OVERVIEW_UI = '../ui/overview.ui'
 OVERVIEW = 'overview.py'
 
-PCTRL_MAIN = '../ui/pctrl/main.ui'
+PCTRL_MAIN = '../ui/pctrl/main.py'
 EPP_MAIN = '../ui/spixconv/launch_ui_main_window.py'
 #######################################################################################
 #                                       MBTemp                                        #
