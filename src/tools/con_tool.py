@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+from os import path
+
 from pydm.tools import ExternalTool
 from pydm.utilities.iconfont import IconFont
 
-from os import path
 
 def get_abs_path(relative):
     """
@@ -18,10 +19,13 @@ class ArchiverApplianceTool(ExternalTool):
         name = 'Archiver Appliance'
         group = 'CON'
         use_with_widgets = False
-        ExternalTool.__init__(self, icon=icon, name=name, group=group, use_with_widgets=use_with_widgets)
+        ExternalTool.__init__(self, icon=icon, name=name, group=group,
+                              use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
-        sender.window().new_window(get_abs_path('archiver.py'), macros={'url': 'https://10.0.6.57:11995/mgmt/ui/index.html'})
+        sender.window().new_window(
+            get_abs_path('archiver.py'),
+            macros={'url': 'https://10.0.6.57:11995/mgmt/ui/index.html'})
 
     def to_json(self):
         return ""
@@ -42,11 +46,13 @@ class ArchiverViwerTool(ExternalTool):
         name = 'Archiver Viwer'
         group = 'CON'
         use_with_widgets = False
-        ExternalTool.__init__(self, icon=icon, name=name, group=group, use_with_widgets=use_with_widgets)
+        ExternalTool.__init__(self, icon=icon, name=name, group=group,
+                              use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
+        url = 'http://10.0.6.57:11998/retrieval/ui/archiver-viewer/index.html'
         sender.window().new_window(get_abs_path('archiver.py'),
-                                   macros={'url': 'http://10.0.6.57:11998/retrieval/ui/archiver-viewer/index.html'})
+                                   macros={'url': url})
 
     def to_json(self):
         return ""
@@ -67,7 +73,8 @@ class BeableboneTool(ExternalTool):
         name = 'Beaglebone Daemon'
         group = 'CON'
         use_with_widgets = False
-        ExternalTool.__init__(self, icon=icon, name=name, group=group, use_with_widgets=use_with_widgets)
+        ExternalTool.__init__(self, icon=icon, name=name, group=group,
+                              use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
         sender.window().new_window(get_abs_path('bbb.ui'), macros={})

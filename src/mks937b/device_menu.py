@@ -1,25 +1,24 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from os import path
 import json
 
+from qtpy.QtGui import QDesktopServices
+from qtpy.QtCore import QUrl
+
 from pydm import Display
-from pydm.widgets import PyDMRelatedDisplayButton
-from PyQt5.QtGui import QDesktopServices
-from PyQt5.QtCore import QUrl
 
+from src.paths import get_abs_path, PRESSURE, SETTINGS, \
+    INFO_UI, DEVICE_MENU_UI
 
-from src.paths import get_abs_path, PRESSURE, SETTINGS, SETTINGS_UI, \
-    INFO_UI, PRESSURE, DEVICE_MENU_UI
+from src.consts import ARCHIVER_URL
 
-from src.consts import ARCHIVER_URL, ARGS_HIDE_ALL
-from src.consts.mks937b import COLD_CATHODE, PIRANI
-from src.mks937b.macros import get_device_macro
 
 def get_json_macro(macros):
     return json.dumps(macros)
 
+
 class DeviceMenu(Display):
+
     def __init__(self, parent=None, args=[], macros=None):
         super(DeviceMenu, self).__init__(
             parent=parent, args=args, macros=macros)
@@ -34,7 +33,7 @@ class DeviceMenu(Display):
         self.btnInfo.displayFilename = get_abs_path(INFO_UI)
         self.btnInfo.macros = json_macro
 
-        #self.btnArchiver.clicked.connect(self.open_archiver)
+        # self.btnArchiver.clicked.connect(self.open_archiver)
 
     def open_archiver(self):
         QDesktopServices.openUrl(QUrl(ARCHIVER_URL))

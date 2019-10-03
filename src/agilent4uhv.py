@@ -1,23 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import json
-import re
 
-from os import path
-from pydm import Display, PyDMApplication
+from qtpy.QtWidgets import QLabel
+
+from pydm import Display
 from pydm.utilities import IconFont
-from pydm.widgets import PyDMRelatedDisplayButton, PyDMEmbeddedDisplay, PyDMLabel, PyDMByteIndicator
-
-from PyQt5.QtWidgets import QComboBox, QLabel, QTableWidgetItem, QWidget, QHBoxLayout, QStyleFactory
-from PyQt5.QtCore import pyqtSlot, Qt, QThread, QObject, pyqtSignal
-from PyQt5.QtGui import QColor
+from pydm.widgets import PyDMRelatedDisplayButton, PyDMLabel
 
 from src import get_label, get_byte_indicator, TableDataController
 from src.consts.agilent4uhv import devices
 from src.paths import get_abs_path, AGILENT_MAIN_UI, AGILENT_DEVICE_MAIN_UI
 
-ALARM, CURRENT, PRESSURE, VOLTAGE, FAN_TEMPERATURE, TEMPERATURE, DEVICE_NAME, CH_CONFIG, AUTOSTART = range(9)
+ALARM, CURRENT, PRESSURE, VOLTAGE, FAN_TEMPERATURE, TEMPERATURE, \
+    DEVICE_NAME, CH_CONFIG, AUTOSTART = range(9)
 BOOSTER, RING, BTS, LTB = range(4)
+
 
 class UHVDataController(TableDataController):
     def init_table(self):
@@ -29,46 +26,63 @@ class UHVDataController(TableDataController):
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
 
         for actual_row in range(self.table_batch):
-                # Channel Name
-                self.table.setCellWidget(actual_row, 0, QLabel(''))
-                # Device Name
-                self.table.setCellWidget(actual_row, 1, QLabel(''))
-                # Fan Temperature
-                self.table.setCellWidget(actual_row, 2, get_label(self.table, '', ''))
-                # Autostart
-                self.table.setCellWidget(actual_row, 3, get_label(self.table, '', ''))
+            # Channel Name
+            self.table.setCellWidget(actual_row, 0, QLabel(''))
+            # Device Name
+            self.table.setCellWidget(actual_row, 1, QLabel(''))
+            # Fan Temperature
+            self.table.setCellWidget(
+                actual_row, 2, get_label(self.table, '', ''))
+            # Autostart
+            self.table.setCellWidget(
+                actual_row, 3, get_label(self.table, '', ''))
 
-                # Pressure
-                self.table.setCellWidget(actual_row, 4, get_label(self.table, '', '', PyDMLabel.DisplayFormat.Exponential))
-                # Device Unit
-                self.table.setCellWidget(actual_row, 5, get_label(self.table, '', ''))
+            # Pressure
+            self.table.setCellWidget(
+                actual_row, 4, get_label(
+                    self.table, '', '', PyDMLabel.DisplayFormat.Exponential))
+            # Device Unit
+            self.table.setCellWidget(
+                actual_row, 5, get_label(self.table, '', ''))
 
-                # Voltage
-                self.table.setCellWidget(actual_row, 6, get_label(self.table, '', ''))
-                # Current
-                self.table.setCellWidget(actual_row, 7, get_label(self.table,'', '', PyDMLabel.DisplayFormat.Exponential))
-                # Temperature
-                self.table.setCellWidget(actual_row, 8, get_label(self.table, '', '',))
-                # Error Code Mon
-                self.table.setCellWidget(actual_row, 9, get_byte_indicator(self.table, '', ''))
+            # Voltage
+            self.table.setCellWidget(
+                actual_row, 6, get_label(self.table, '', ''))
+            # Current
+            self.table.setCellWidget(
+                actual_row, 7, get_label(
+                    self.table, '', '', PyDMLabel.DisplayFormat.Exponential))
+            # Temperature
+            self.table.setCellWidget(
+                actual_row, 8, get_label(self.table, '', '',))
+            # Error Code Mon
+            self.table.setCellWidget(
+                actual_row, 9, get_byte_indicator(self.table, '', ''))
 
-                rel = PyDMRelatedDisplayButton(self.table, get_abs_path(AGILENT_DEVICE_MAIN_UI))
-                rel.filenames = [get_abs_path(AGILENT_DEVICE_MAIN_UI)]
-                rel.openInNewWindow = True
+            rel = PyDMRelatedDisplayButton(
+                self.table, get_abs_path(AGILENT_DEVICE_MAIN_UI))
+            rel.filenames = [get_abs_path(AGILENT_DEVICE_MAIN_UI)]
+            rel.openInNewWindow = True
 
-                # HV State
-                self.table.setCellWidget(actual_row, 10, get_label(self.table, '', ''))
-                # Power Max
-                self.table.setCellWidget(actual_row, 11, get_label(self.table, '', ''))
-                # V Target
-                self.table.setCellWidget(actual_row, 12, get_label(self.table, '', ''))
-                # I Protect
-                self.table.setCellWidget(actual_row, 13, get_label(self.table, '', ''))
-                # Setpoint
-                self.table.setCellWidget(actual_row, 14, get_label(self.table, '', '', PyDMLabel.DisplayFormat.Exponential))
+            # HV State
+            self.table.setCellWidget(
+                actual_row, 10, get_label(self.table, '', ''))
+            # Power Max
+            self.table.setCellWidget(
+                actual_row, 11, get_label(self.table, '', ''))
+            # V Target
+            self.table.setCellWidget(
+                actual_row, 12, get_label(self.table, '', ''))
+            # I Protect
+            self.table.setCellWidget(
+                actual_row, 13, get_label(self.table, '', ''))
+            # Setpoint
+            self.table.setCellWidget(
+                actual_row, 14, get_label(
+                    self.table, '', '', PyDMLabel.DisplayFormat.Exponential))
 
-                # Details
-                self.table.setCellWidget(actual_row, 15, rel)
+            # Details
+            self.table.setCellWidget(actual_row, 15, rel)
 
     def showHideColumn(self, _type, HIDE):
         if _type == ALARM:
@@ -89,7 +103,7 @@ class UHVDataController(TableDataController):
         elif _type == AUTOSTART:
             self.table.setColumnHidden(3, HIDE)
         elif _type == CH_CONFIG:
-            for index in range(10,15):
+            for index in range(10, 15):
                 self.table.setColumnHidden(index, HIDE)
 
     def filter(self, pattern):
@@ -100,10 +114,11 @@ class UHVDataController(TableDataController):
             self.filter_pattern = pattern
             try:
                 for data in self.table_data:
-                    RENDER = self.filter_pattern in data[0][0] or self.filter_pattern in data[0][data[1]]
+                    RENDER = self.filter_pattern in data[0][0] or \
+                        self.filter_pattern in data[0][data[1]]
                     data[2] = RENDER
                 self.update_content.emit()
-            except:
+            except Exception:
                 pass
 
     def load_table_data(self):
@@ -124,11 +139,14 @@ class UHVDataController(TableDataController):
         actual_row = 0
         dataset_row = 0
 
-        self.table.setVerticalHeaderLabels([str(i) for i in range(self.batch_offset, self.table_batch + self.batch_offset)])
+        iterable = range(self.batch_offset,
+                         self.table_batch + self.batch_offset)
+        self.table.setVerticalHeaderLabels([str(i) for i in iterable])
         for device, devNum, render in self.table_data:
 
             # To render or not to render  ...
-            if render and dataset_row >= self.batch_offset and actual_row != self.table_batch:
+            if render and dataset_row >= self.batch_offset and \
+                    actual_row != self.table_batch:
                 self.table.setRowHidden(actual_row, False)
 
                 # Channel Access
@@ -147,35 +165,47 @@ class UHVDataController(TableDataController):
                 # Device Name
                 self.table.cellWidget(actual_row, 1).setText(device[0])
                 # Fan Temperature
-                self.connect_widget(actual_row, 2, device_ca + ':FanTemperature-Mon')
+                self.connect_widget(actual_row, 2,
+                                    device_ca + ':FanTemperature-Mon')
                 # Autostart-RB
-                self.connect_widget(actual_row, 3, device_ca + ':Autostart-RB')
+                self.connect_widget(actual_row, 3,
+                                    device_ca + ':Autostart-RB')
 
                 # Pressure
-                self.connect_widget(actual_row, 4,  channel_ca + ':Pressure-Mon')
+                self.connect_widget(actual_row, 4,
+                                    channel_ca + ':Pressure-Mon')
                 # Device Unit
-                self.connect_widget(actual_row, 5, device_ca + ':Unit-RB')
+                self.connect_widget(actual_row, 5,
+                                    device_ca + ':Unit-RB')
 
                 # Voltage
-                self.connect_widget(actual_row, 6, channel_ca + ':Voltage-Mon')
+                self.connect_widget(actual_row, 6,
+                                    channel_ca + ':Voltage-Mon')
                 # Current
-                self.connect_widget(actual_row, 7, channel_ca + ':Current-Mon')
+                self.connect_widget(actual_row, 7,
+                                    channel_ca + ':Current-Mon')
                 # Temperature
-                self.connect_widget(actual_row, 8, channel_ca + ':HVTemperature-Mon')
+                self.connect_widget(actual_row, 8,
+                                    channel_ca + ':HVTemperature-Mon')
                 # LSB
-                self.connect_widget(actual_row, 9, channel_ca + ':ErrorCode-Mon')
+                self.connect_widget(actual_row, 9,
+                                    channel_ca + ':ErrorCode-Mon')
 
                 # HVState-RB
-                self.connect_widget(actual_row, 10, channel_ca + ':HVState-RB')
+                self.connect_widget(actual_row, 10,
+                                    channel_ca + ':HVState-RB')
                 # PowerMax-RB
-                self.connect_widget(actual_row, 11, channel_ca + ':PowerMax-RB')
+                self.connect_widget(actual_row, 11,
+                                    channel_ca + ':PowerMax-RB')
                 # VoltageTarget-RB
-                self.connect_widget(actual_row, 12, channel_ca + ':VoltageTarget-RB')
+                self.connect_widget(actual_row, 12,
+                                    channel_ca + ':VoltageTarget-RB')
                 # CurrentProtect-RB
-                self.connect_widget(actual_row, 13, channel_ca + ':CurrentProtect-RB')
+                self.connect_widget(actual_row, 13,
+                                    channel_ca + ':CurrentProtect-RB')
                 # Setpoint-RB
-                self.connect_widget(actual_row, 14, channel_ca + ':Setpoint-RB')
-
+                self.connect_widget(actual_row, 14,
+                                    channel_ca + ':Setpoint-RB')
 
                 # Details
                 self.connect_widget(actual_row, 15, None, macros)
@@ -217,19 +247,33 @@ class UHV(Display):
 
                 'Details']
         # self.tdc = UHVDataController(self.table)
-        self.tdc = UHVDataController(self.table,
-            devices=devices, table_batch=table_batch, horizontal_header_labels=horizontal_header_labels)
+        self.tdc = UHVDataController(
+            self.table,
+            devices=devices,
+            table_batch=table_batch,
+            horizontal_header_labels=horizontal_header_labels)
 
-        self.chAlarms.stateChanged.connect(lambda: self.showHideColumn(ALARM, self.chAlarms))
-        self.chCurrent.stateChanged.connect(lambda: self.showHideColumn(CURRENT, self.chCurrent))
-        self.chPressure.stateChanged.connect(lambda: self.showHideColumn(PRESSURE, self.chPressure))
-        self.chVoltage.stateChanged.connect(lambda: self.showHideColumn(VOLTAGE, self.chVoltage))
-        self.chTemperature.stateChanged.connect(lambda: self.showHideColumn(TEMPERATURE, self.chTemperature))
-        self.chFanTemperature.stateChanged.connect(lambda: self.showHideColumn(FAN_TEMPERATURE, self.chFanTemperature))
-        self.chDeviceName.stateChanged.connect(lambda: self.showHideColumn(DEVICE_NAME, self.chDeviceName))
-        self.chDeviceName.stateChanged.connect(lambda: self.showHideColumn(DEVICE_NAME, self.chDeviceName))
-        self.chChConfig.stateChanged.connect(lambda: self.showHideColumn(CH_CONFIG, self.chChConfig))
-        self.chAutostart.stateChanged.connect(lambda: self.showHideColumn(AUTOSTART, self.chAutostart))
+        self.chAlarms.stateChanged.connect(
+            lambda: self.showHideColumn(ALARM, self.chAlarms))
+        self.chCurrent.stateChanged.connect(
+            lambda: self.showHideColumn(CURRENT, self.chCurrent))
+        self.chPressure.stateChanged.connect(
+            lambda: self.showHideColumn(PRESSURE, self.chPressure))
+        self.chVoltage.stateChanged.connect(
+            lambda: self.showHideColumn(VOLTAGE, self.chVoltage))
+        self.chTemperature.stateChanged.connect(
+            lambda: self.showHideColumn(TEMPERATURE, self.chTemperature))
+        self.chFanTemperature.stateChanged.connect(
+            lambda: self.showHideColumn(FAN_TEMPERATURE,
+                                        self.chFanTemperature))
+        self.chDeviceName.stateChanged.connect(
+            lambda: self.showHideColumn(DEVICE_NAME, self.chDeviceName))
+        self.chDeviceName.stateChanged.connect(
+            lambda: self.showHideColumn(DEVICE_NAME, self.chDeviceName))
+        self.chChConfig.stateChanged.connect(
+            lambda: self.showHideColumn(CH_CONFIG, self.chChConfig))
+        self.chAutostart.stateChanged.connect(
+            lambda: self.showHideColumn(AUTOSTART, self.chAutostart))
 
         self.tfFilter.editingFinished.connect(
             lambda: self.filter(self.tfFilter.text()))
@@ -248,7 +292,7 @@ class UHV(Display):
         self.showHideColumn(CH_CONFIG, False)
         self.showHideColumn(AUTOSTART, False)
 
-    def update_navbar(self, increase = True):
+    def update_navbar(self, increase=True):
         self.tdc.changeBatch(increase)
 
     def filter(self, pattern):

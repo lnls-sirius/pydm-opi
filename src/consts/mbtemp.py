@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import os
-import platform
 import pandas
-import re
 
-from . import FILE, IS_LINUX
+from . import FILE
 
 SHEET = 'PVs MBTemp'
 
@@ -15,7 +12,8 @@ sheet = sheet.replace('nan', '')
 IOC_FILENAME = '/opt/stream-ioc/' + 'mks937_min.cmd'
 devices = []
 
-#IP	Rack	ADDR	Dev	CH1	CH2	CH3	CH4	CH5	CH6	CH7	CH8
+
+# IP	Rack	ADDR	Dev	CH1	CH2	CH3	CH4	CH5	CH6	CH7	CH8
 for index, row in sheet.iterrows():
     data = [
         row['Dev'],

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from src.consts.mks937b import COLD_CATHODE, PIRANI
+
 
 def get_device_macro(device, a, b, c, **kwargs):
     return {
@@ -8,12 +8,12 @@ def get_device_macro(device, a, b, c, **kwargs):
         "A": a,
         "B": b,
         "C": c,
-        "G1" : kwargs['G1'],
-        "G2" : kwargs['G2'],
-        "G3" : kwargs['G3'],
-        "G4" : kwargs['G4'],
-        "G5" : kwargs['G5'],
-        "G6" : kwargs['G6']
+        "G1": kwargs['G1'],
+        "G2": kwargs['G2'],
+        "G3": kwargs['G3'],
+        "G4": kwargs['G4'],
+        "G5": kwargs['G5'],
+        "G6": kwargs['G6']
     }
 
 
@@ -26,9 +26,9 @@ def get_macro(device, gauge, *args):
         "r4": "",
         "GAUGE": gauge,
         "channel": "",
-        "GA" : "",
-        "GB" : ""
-    } 
+        "GA": "",
+        "GB": ""
+    }
 
     macro['GA'] = args[0]
     macro['GB'] = args[1]
@@ -53,6 +53,5 @@ def get_macro(device, gauge, *args):
         macro['r3'] = '11'
         macro['r4'] = '12'
         macro['channel'] = '5'
-        
+
     return macro
-    

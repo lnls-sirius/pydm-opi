@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from os import path
-
-from PyQt5.QtWidgets import QSplitter, QLineEdit
 from pydm import Display
-from pydm.widgets import PyDMRelatedDisplayButton
 from pydm.utilities import IconFont
 
 from src.consts.mks937b import COLD_CATHODE

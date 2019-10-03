@@ -4,18 +4,20 @@ import platform
 
 IS_LINUX = (os.name == 'posix' or platform.system() == 'Linux')
 
+
 def get_abs_path(relative):
     """
     relative = relative path with base at python/
     """
     return os.path.join(os.path.dirname(os.path.realpath(__file__)), relative)
 
-DRAW_ALARMS_NO_INVALID_QSS= ''
-with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../css/draw_no-invalid.qss')) as f:
+
+DRAW_ALARMS_NO_INVALID_QSS = ''
+with open(get_abs_path('../css/draw_no-invalid.qss')) as f:
     DRAW_ALARMS_NO_INVALID_QSS = ''.join(f.readlines())
 
-TABLE_ALARMS_QSS= ''
-with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../css/table-alarm.qss')) as f:
+TABLE_ALARMS_QSS = ''
+with open(get_abs_path('../css/table-alarm.qss')) as f:
     TABLE_ALARMS_QSS = ''.join(f.readlines())
 
 LAUNCH_WINDOW_UI = "../ui/launcher.ui"
@@ -27,24 +29,24 @@ OVERVIEW = 'overview.py'
 
 PCTRL_MAIN = '../ui/pctrl/main.py'
 EPP_MAIN = '../ui/spixconv/launch_ui_main_window.py'
-#######################################################################################
-#                                       MBTemp                                        #
-#######################################################################################
+###############################################################################
+#                                   MBTemp                                    #
+###############################################################################
 MBTEMP_MAIN_UI = '../ui/mbtemp/main.ui'
 MBTEMP_MAIN = 'mbtemp.py'
 
-#######################################################################################
-#                                      Agilent                                        #
-#######################################################################################
+###############################################################################
+#                                  Agilent                                    #
+###############################################################################
 AGILENT_MAIN = "agilent4uhv.py"
 AGILENT_MAIN_UI = "../ui/agilent4uhv/main.ui"
 
 # AGILENT_DEVICE_MAIN = "agilent4uhv/device_main.py"
 AGILENT_DEVICE_MAIN_UI = "../ui/agilent4uhv/device_main.ui"
 
-#######################################################################################
-#                                          MKS                                        #
-#######################################################################################
+###############################################################################
+#                                      MKS                                    #
+###############################################################################
 MKS_MAIN = "mks937b/table.py"
 MKS_MAIN_UI = "../ui/mks937b/table.ui"
 

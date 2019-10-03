@@ -1,18 +1,17 @@
 #!/usr/bin/python3
-from os import path
-from pydm import Display, PyDMApplication
-from pydm.utilities import IconFont
-from pydm.widgets import PyDMRelatedDisplayButton, PyDMEmbeddedDisplay, PyDMLabel, PyDMByteIndicator
+from qtpy.QtCore import Qt, QObject, Signal, QRect, QSize, QPoint
+from qtpy.QtGui import QColor
+from qtpy.QtWidgets import QLayout, QSizePolicy, QStyle
+
+from pydm import PyDMApplication
+from pydm.widgets import PyDMLabel, PyDMByteIndicator
+
+from src.paths import TABLE_ALARMS_QSS
 
 
-from src.paths import TABLE_ALARMS_QSS, get_abs_path
-
-from PyQt5.QtWidgets import QHeaderView, QLabel, QTableWidgetItem, QWidget, QHBoxLayout, QStyleFactory
-from PyQt5.QtCore import pyqtSlot, Qt, QThread, QObject, pyqtSignal
-from PyQt5.QtGui import QColor
-from PyQt5 import QtCore, QtGui, QtWidgets
-
-def get_label(parent, content, tooltip, displayFormat=PyDMLabel.DisplayFormat.Default, precision = None):
+def get_label(parent, content, tooltip,
+              displayFormat=PyDMLabel.DisplayFormat.Default,
+              precision=None):
     lbl = PyDMLabel(parent=parent, init_channel=content)
     lbl.precisionFromPV = False
     lbl.precision = 2
@@ -25,6 +24,7 @@ def get_label(parent, content, tooltip, displayFormat=PyDMLabel.DisplayFormat.De
         lbl.precision_changed(precision)
     return lbl
 
+
 def get_byte_indicator(parent, content, tooltip, **kwargs):
     byte = PyDMByteIndicator(parent, content)
     byte.offColor = QColor(59, 0, 0)
@@ -35,7 +35,8 @@ def get_byte_indicator(parent, content, tooltip, **kwargs):
     return byte
 
 
-class FlowLayout(QtWidgets.QLayout):
+class FlowLayout(QLayout):
+
     def __init__(self, parent=None, margin=-1, hspacing=-1, vspacing=-1):
         super(FlowLayout, self).__init__(parent)
         self._hspacing = hspacing
@@ -53,15 +54,13 @@ class FlowLayout(QtWidgets.QLayout):
         if self._hspacing >= 0:
             return self._hspacing
         else:
-            return self.smartSpacing(
-                QtWidgets.QStyle.PM_LayoutHorizontalSpacing)
+            return self.smartSpacing(QStyle.PM_LayoutHorizontalSpacing)
 
     def verticalSpacing(self):
         if self._vspacing >= 0:
             return self._vspacing
         else:
-            return self.smartSpacing(
-                QtWidgets.QStyle.PM_LayoutVerticalSpacing)
+            return self.smartSpacing(QStyle.PM_LayoutVerticalSpacing)
 
     def count(self):
         return len(self._items)
@@ -75,13 +74,13 @@ class FlowLayout(QtWidgets.QLayout):
             return self._items.pop(index)
 
     def expandingDirections(self):
-        return QtCore.Qt.Orientations(0)
+        return Qt.Orientations(0)
 
     def hasHeightForWidth(self):
         return True
 
     def heightForWidth(self, width):
-        return self.doLayout(QtCore.QRect(0, 0, width, 0), True)
+        return self.doLayout(QRect(0, 0, width, 0), True)
 
     def setGeometry(self, rect):
         super(FlowLayout, self).setGeometry(rect)
@@ -91,11 +90,11 @@ class FlowLayout(QtWidgets.QLayout):
         return self.minimumSize()
 
     def minimumSize(self):
-        size = QtCore.QSize()
+        size = QSize()
         for item in self._items:
             size = size.expandedTo(item.minimumSize())
         left, top, right, bottom = self.getContentsMargins()
-        size += QtCore.QSize(left + right, top + bottom)
+        size += QSize(left + right, top + bottom)
         return size
 
     def doLayout(self, rect, testonly):
@@ -109,13 +108,13 @@ class FlowLayout(QtWidgets.QLayout):
             hspace = self.horizontalSpacing()
             if hspace == -1:
                 hspace = widget.style().layoutSpacing(
-                    QtWidgets.QSizePolicy.PushButton,
-                    QtWidgets.QSizePolicy.PushButton, QtCore.Qt.Horizontal)
+                    QSizePolicy.PushButton,
+                    QSizePolicy.PushButton, Qt.Horizontal)
             vspace = self.verticalSpacing()
             if vspace == -1:
                 vspace = widget.style().layoutSpacing(
-                    QtWidgets.QSizePolicy.PushButton,
-                    QtWidgets.QSizePolicy.PushButton, QtCore.Qt.Vertical)
+                    QSizePolicy.PushButton,
+                    QSizePolicy.PushButton, Qt.Vertical)
             nextX = x + item.sizeHint().width() + hspace
             if nextX - hspace > effective.right() and lineheight > 0:
                 x = effective.x()
@@ -124,7 +123,7 @@ class FlowLayout(QtWidgets.QLayout):
                 lineheight = 0
             if not testonly:
                 item.setGeometry(
-                    QtCore.QRect(QtCore.QPoint(x, y), item.sizeHint()))
+                    QRect(QPoint(x, y), item.sizeHint()))
             x = nextX
             lineheight = max(lineheight, item.sizeHint().height())
         return y + lineheight - rect.y() + bottom
@@ -138,18 +137,16 @@ class FlowLayout(QtWidgets.QLayout):
         else:
             return parent.spacing()
 
+
 class TableDataController(QObject):
-    update_content = pyqtSignal()
+
+    update_content = Signal()
 
     table_batch = 24
     filter_pattern = None
 
-    def __init__(self,
-            table, devices = [],
-            table_batch = 24,
-            horizontal_header_labels=[],
-            *args, **kwargs):
-
+    def __init__(self, table, devices=[], table_batch=24,
+                 horizontal_header_labels=[], *args, **kwargs):
         super().__init__()
         self.table_data = []
         self.devices = devices
@@ -178,20 +175,18 @@ class TableDataController(QObject):
         raise NotImplementedError("Subclass must implement abstract method")
 
     def filter(self, pattern):
-         # TODO: Impplement ...
+        # TODO: Impplement ...
         raise NotImplementedError("Subclass must implement abstract method")
 
     def load_table_data(self):
-         # TODO: Impplement ...
+        # TODO: Impplement ...
         raise NotImplementedError("Subclass must implement abstract method")
 
     def update_table_content(self):
-         # TODO: Impplement ...
+        # TODO: Impplement ...
         raise NotImplementedError("Subclass must implement abstract method")
 
-
-
-    def connect_widget(self, row, col, channel_name = None, macros=None):
+    def connect_widget(self, row, col, channel_name=None, macros=None):
         widget = self.table.cellWidget(row, col)
         PyDMApplication.instance().close_widget_connections(widget)
         if channel_name:
