@@ -10,9 +10,9 @@ from pydm import Display
 from pydm.widgets.label import PyDMLabel
 from pydm.widgets.drawing import PyDMDrawingRectangle
 
-import src.paths
-from src import FlowLayout
+from src.paths import get_abs_path, OVERVIEW_UI
 from src.consts.agilent4uhv import data
+from src import FlowLayout
 
 logger = logging.getLogger()
 
@@ -127,7 +127,7 @@ class Overview(Display):
         return frame
 
     def ui_filename(self):
-        return src.paths.OVERVIEW_UI
+        return OVERVIEW_UI
 
     def ui_filepath(self):
-        return src.get_abs_path(src.paths.OVERVIEW_UI)
+        return get_abs_path(OVERVIEW_UI)

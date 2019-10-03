@@ -6,20 +6,19 @@ from qtpy.QtCore import Qt, QRect
 from qtpy.QtGui import QBrush, QColor, QFont
 from qtpy.QtWidgets import QFrame, QLabel
 
-import pydm
+from pydm import Display
 from pydm.widgets.label import PyDMLabel
 from pydm.widgets.drawing import PyDMDrawingRectangle
 
-import src
-import src.paths
-from src import FlowLayout
+from src.paths import get_abs_path, OVERVIEW_UI
 from src.consts.mks937b import data
+from src import FlowLayout
 # from src.paths import DRAW_ALARMS_NO_INVALID_QSS
 
 logger = logging.getLogger()
 
 
-class Overview(pydm.Display):
+class Overview(Display):
 
     def __init__(self, parent=None, args=None, macros=None):
         super(Overview, self).__init__(parent=parent, args=args, macros=macros)
@@ -47,16 +46,16 @@ class Overview(pydm.Display):
                     if self.macros.get('TYPE') == 'BO':
                         if not ch_prefix.startswith('BO') and \
                                 not ch_prefix.startswith('TB'):
-                            logger.info('Ignore {}'.format(ch_prefix))
+                            logger.info('Ignored {}'.format(ch_prefix))
                             continue
                     elif self.macros.get('TYPE') == 'SR':
                         if not ch_prefix.startswith('SI') and \
                                 not ch_prefix.startswith('TS'):
-                            logger.info('Ignore {}'.format(ch_prefix))
+                            logger.info('Ignored {}'.format(ch_prefix))
                             continue
                     else:
                         logger.warning('TYPE != BO and TYPE != SR')
-                        logger.info('Ignore {}'.format(ch_prefix))
+                        logger.info('Ignored {}'.format(ch_prefix))
                         continue
 
                     self.pvs.append({
@@ -145,7 +144,7 @@ class Overview(pydm.Display):
             pv.get('DEVICE', None) + ':Pressure:Read.STAT')
 
         lblVal = PyDMLabel(frame)
-        lblVal.setGeometry(QRect(0.05*width, 10, width - 0.05*width, 30))
+        lblVal.setGeometry(QRect(width*0.05, 10, width - width*0.05, 30))
         font = QFont()
         font.setPointSize(18)
         lblVal.setFont(font)
@@ -161,7 +160,7 @@ class Overview(pydm.Display):
         return frame
 
     def ui_filename(self):
-        return src.paths.OVERVIEW_UI
+        return OVERVIEW_UI
 
     def ui_filepath(self):
-        return src.get_abs_path(src.paths.OVERVIEW_UI)
+        return get_abs_path(OVERVIEW_UI)

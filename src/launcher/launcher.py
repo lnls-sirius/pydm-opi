@@ -2,7 +2,7 @@ from pydm import Display
 
 import subprocess
 from src.paths import LAUNCH_WINDOW_UI, AGILENT_MAIN, MKS_MAIN, MBTEMP_MAIN, \
-    OVERVIEW, get_abs_path, MKS_OVERVIEW, PCTRL_MAIN
+    AGILENT_OVERVIEW, get_abs_path, MKS_OVERVIEW, PCTRL_MAIN
 
 
 class Launcher(Display):
@@ -14,7 +14,7 @@ class Launcher(Display):
         self.btnAgilent.filenames = [get_abs_path(AGILENT_MAIN)]
         self.btnAgilent.openInNewWindow = True
 
-        self.btnAgilentSROverview.filenames = [get_abs_path(OVERVIEW)]
+        self.btnAgilentSROverview.filenames = [get_abs_path(AGILENT_OVERVIEW)]
         self.btnAgilentSROverview.base_macros = {
             "device": "UHV",
             "TYPE": "SR",
@@ -22,7 +22,7 @@ class Launcher(Display):
             "FORMAT": "EXP"}
         self.btnAgilentSROverview.openInNewWindow = True
 
-        self.btnAgilentBOOverview.filenames = [get_abs_path(OVERVIEW)]
+        self.btnAgilentBOOverview.filenames = [get_abs_path(AGILENT_OVERVIEW)]
         self.btnAgilentBOOverview.base_macros = {
             "device": "UHV",
             "TYPE": "BO",
@@ -50,8 +50,8 @@ class Launcher(Display):
         self.btnMBTemp.filenames = [get_abs_path(MBTEMP_MAIN)]
         self.btnMBTemp.openInNewWindow = True
 
-        self.btnProcServCtrl.openInNewWindow = True
         self.btnProcServCtrl.filenames = [get_abs_path(PCTRL_MAIN)]
+        self.btnProcServCtrl.openInNewWindow = True
 
         self.btnEpp.clicked.connect(self.launch_epp)
         self.btnRegatron.clicked.connect(self.launch_regatron)
