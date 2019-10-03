@@ -3,8 +3,8 @@
 
 from pydm import Display
 
-from src.consts.mks937b import COLD_CATHODE
-from src.paths import get_abs_path, PRESSURE_UI, IS_LINUX
+from src.utils.consts import IS_LINUX
+from src.mks937b.consts import COLD_CATHODE, PRESSURE_UI
 
 
 class Pressure(Display):
@@ -53,4 +53,4 @@ class Pressure(Display):
         return PRESSURE_UI
 
     def ui_filepath(self):
-        return get_abs_path(PRESSURE_UI)
+        return PRESSURE_UI

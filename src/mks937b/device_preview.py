@@ -3,15 +3,14 @@
 from pydm import Display
 from pydm.utilities import IconFont
 
-from src.consts.mks937b import COLD_CATHODE
-from src.paths import get_abs_path, DEVICE_PREVIEW_UI, DEVICE_MENU
+from src.mks937b.consts import COLD_CATHODE, DEVICE_PREVIEW_UI, DEVICE_MENU
 
 
 class DevicePreview(Display):
     def __init__(self, parent=None, args=[], macros=None):
         super(DevicePreview, self).__init__(
             parent=parent, args=args, macros=macros)
-        self.btn1.filenames = [get_abs_path(DEVICE_MENU)]
+        self.btn1.filenames = [DEVICE_MENU]
         self.btn1.setIcon(IconFont().icon('edit'))
 
         if macros:
@@ -31,4 +30,4 @@ class DevicePreview(Display):
         return DEVICE_PREVIEW_UI
 
     def ui_filepath(self):
-        return get_abs_path(DEVICE_PREVIEW_UI)
+        return DEVICE_PREVIEW_UI

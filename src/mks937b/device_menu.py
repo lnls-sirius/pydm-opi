@@ -7,10 +7,8 @@ from qtpy.QtCore import QUrl
 
 from pydm import Display
 
-from src.paths import get_abs_path, PRESSURE, SETTINGS, \
-    INFO_UI, DEVICE_MENU_UI
-
-from src.consts import ARCHIVER_URL
+from src.utils.consts import ARCHIVER_URL
+from src.mks937b.consts import PRESSURE, SETTINGS, INFO_UI, DEVICE_MENU_UI
 
 
 def get_json_macro(macros):
@@ -24,13 +22,13 @@ class DeviceMenu(Display):
             parent=parent, args=args, macros=macros)
         json_macro = get_json_macro(macros)
 
-        self.btnMON.filenames = [get_abs_path(PRESSURE)]
+        self.btnMON.filenames = [PRESSURE]
         self.btnMON.macros = json_macro
 
-        self.btnSettings.filenames = [get_abs_path(SETTINGS)]
+        self.btnSettings.filenames = [SETTINGS]
         self.btnSettings.macros = json_macro
 
-        self.btnInfo.filenames = [get_abs_path(INFO_UI)]
+        self.btnInfo.filenames = [INFO_UI]
         self.btnInfo.macros = json_macro
 
         # self.btnArchiver.clicked.connect(self.open_archiver)
@@ -42,4 +40,4 @@ class DeviceMenu(Display):
         return DEVICE_MENU_UI
 
     def ui_filepath(self):
-        return get_abs_path(DEVICE_MENU_UI)
+        return DEVICE_MENU_UI

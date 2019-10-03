@@ -1,8 +1,11 @@
 from pydm import Display
 
 import subprocess
-from src.paths import LAUNCH_WINDOW_UI, AGILENT_MAIN, MKS_MAIN, MBTEMP_MAIN, \
-    AGILENT_OVERVIEW, get_abs_path, MKS_OVERVIEW, PCTRL_MAIN
+from src.launcher.consts import LAUNCH_WINDOW_UI
+from src.agilent4uhv.consts import AGILENT_MAIN, AGILENT_OVERVIEW
+from src.mbtemp.consts import MBTEMP_MAIN
+from src.mks937b.consts import MKS_MAIN, MKS_OVERVIEW
+from src.launcher.consts import PCTRL_MAIN
 
 
 class Launcher(Display):
@@ -11,10 +14,10 @@ class Launcher(Display):
     """
     def __init__(self, parent=None, args=[], macros=None, **kwargs):
         super(Launcher, self).__init__(parent=parent, args=args, macros=macros)
-        self.btnAgilent.filenames = [get_abs_path(AGILENT_MAIN)]
+        self.btnAgilent.filenames = [AGILENT_MAIN]
         self.btnAgilent.openInNewWindow = True
 
-        self.btnAgilentSROverview.filenames = [get_abs_path(AGILENT_OVERVIEW)]
+        self.btnAgilentSROverview.filenames = [AGILENT_OVERVIEW]
         self.btnAgilentSROverview.base_macros = {
             "device": "UHV",
             "TYPE": "SR",
@@ -22,7 +25,7 @@ class Launcher(Display):
             "FORMAT": "EXP"}
         self.btnAgilentSROverview.openInNewWindow = True
 
-        self.btnAgilentBOOverview.filenames = [get_abs_path(AGILENT_OVERVIEW)]
+        self.btnAgilentBOOverview.filenames = [AGILENT_OVERVIEW]
         self.btnAgilentBOOverview.base_macros = {
             "device": "UHV",
             "TYPE": "BO",
@@ -30,27 +33,27 @@ class Launcher(Display):
             "FORMAT": "EXP"}
         self.btnAgilentBOOverview.openInNewWindow = True
 
-        self.btnMks.filenames = [get_abs_path(MKS_MAIN)]
+        self.btnMks.filenames = [MKS_MAIN]
         self.btnMks.openInNewWindow = True
 
-        self.btnMksSROverview.filenames = [get_abs_path(MKS_OVERVIEW)]
+        self.btnMksSROverview.filenames = [MKS_OVERVIEW]
         self.btnMksSROverview.base_macros = {
             "device": "MKS",
             "TYPE": "SR",
             "TITLE": "MKS 937b - SI and TS"}
         self.btnMksSROverview.openInNewWindow = True
 
-        self.btnMksBOOverview.filenames = [get_abs_path(MKS_OVERVIEW)]
+        self.btnMksBOOverview.filenames = [MKS_OVERVIEW]
         self.btnMksBOOverview.base_macros = {
             "device": "MKS",
             "TYPE": "BO",
             "TITLE": "MKS 937b - BO and TB"}
         self.btnMksBOOverview.openInNewWindow = True
 
-        self.btnMBTemp.filenames = [get_abs_path(MBTEMP_MAIN)]
+        self.btnMBTemp.filenames = [MBTEMP_MAIN]
         self.btnMBTemp.openInNewWindow = True
 
-        self.btnProcServCtrl.filenames = [get_abs_path(PCTRL_MAIN)]
+        self.btnProcServCtrl.filenames = [PCTRL_MAIN]
         self.btnProcServCtrl.openInNewWindow = True
 
         self.btnEpp.clicked.connect(self.launch_epp)
@@ -77,4 +80,4 @@ class Launcher(Display):
         return LAUNCH_WINDOW_UI
 
     def ui_filepath(self):
-        return get_abs_path(LAUNCH_WINDOW_UI)
+        return LAUNCH_WINDOW_UI

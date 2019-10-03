@@ -9,9 +9,8 @@ from pydm import Display
 from pydm.utilities import IconFont
 from pydm.widgets import PyDMRelatedDisplayButton
 
-from src import get_label, TableDataController
-from src.consts.mks937b import devices, data
-from src.paths import get_abs_path, TABLE_UI, DEVICE_MENU
+from src.utils.widgets import get_label, TableDataController
+from src.mks937b.consts import devices, data, TABLE_UI, DEVICE_MENU
 
 logger = logging.getLogger('MKS_Logger')
 
@@ -41,7 +40,7 @@ class MKSTableDataController(TableDataController):
             self.table.setCellWidget(
                 actual_row, 4, get_label(self.table, '', ''))
             rel = PyDMRelatedDisplayButton(self.table)
-            rel.filenames = [get_abs_path(DEVICE_MENU)]
+            rel.filenames = [DEVICE_MENU]
             rel.openInNewWindow = True
             self.table.setCellWidget(actual_row, 5, rel)
 
@@ -178,4 +177,4 @@ class MKS(Display):
         return TABLE_UI
 
     def ui_filepath(self):
-        return get_abs_path(TABLE_UI)
+        return TABLE_UI

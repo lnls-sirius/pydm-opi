@@ -7,9 +7,10 @@ from pydm import Display
 from pydm.utilities import IconFont
 from pydm.widgets import PyDMRelatedDisplayButton, PyDMLabel
 
-from src import get_label, get_byte_indicator, TableDataController
-from src.consts.agilent4uhv import devices
-from src.paths import get_abs_path, AGILENT_MAIN_UI, AGILENT_DEVICE_MAIN
+from src.utils.widgets import get_label, get_byte_indicator, \
+    TableDataController
+from src.agilent4uhv.consts import devices, AGILENT_MAIN_UI, \
+    AGILENT_DEVICE_MAIN
 
 ALARM, CURRENT, PRESSURE, VOLTAGE, FAN_TEMPERATURE, TEMPERATURE, \
     DEVICE_NAME, CH_CONFIG, AUTOSTART = range(9)
@@ -59,9 +60,8 @@ class UHVDataController(TableDataController):
             self.table.setCellWidget(
                 actual_row, 9, get_byte_indicator(self.table, '', ''))
 
-            rel = PyDMRelatedDisplayButton(
-                self.table, get_abs_path(AGILENT_DEVICE_MAIN))
-            rel.filenames = [get_abs_path(AGILENT_DEVICE_MAIN)]
+            rel = PyDMRelatedDisplayButton(self.table, AGILENT_DEVICE_MAIN)
+            rel.filenames = [AGILENT_DEVICE_MAIN]
             rel.openInNewWindow = True
 
             # HV State
@@ -309,4 +309,4 @@ class UHV(Display):
         return AGILENT_MAIN_UI
 
     def ui_filepath(self):
-        return get_abs_path(AGILENT_MAIN_UI)
+        return AGILENT_MAIN_UI

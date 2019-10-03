@@ -1,13 +1,11 @@
 #!/usr/bin/python3
 import epics
 import pandas
-from src.paths import get_abs_path
+from src.utils.consts import FILE
 
 
 def set_mks_channel_on():
-    spreadsheet = get_abs_path('../../Redes e Beaglebones.xlsx')
-
-    sheet = pandas.read_excel(spreadsheet, sheet_name='PVs MKS937b', dtype=str)
+    sheet = pandas.read_excel(FILE, sheet_name='PVs MKS937b', dtype=str)
     sheet = sheet.replace('nan', '')
 
     for index, row in sheet.iterrows():

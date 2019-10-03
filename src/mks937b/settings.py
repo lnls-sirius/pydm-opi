@@ -4,9 +4,8 @@ import json
 
 from pydm import Display
 
-from src.consts.mks937b import COLD_CATHODE, PIRANI
+from src.mks937b.consts import COLD_CATHODE, PIRANI, CC_UI, PR_UI, SETTINGS_UI
 from src.mks937b.macros import get_macro
-from src.paths import get_abs_path, CC_UI, PR_UI, SETTINGS_UI
 
 
 class Settings(Display):
@@ -32,19 +31,19 @@ class Settings(Display):
 
         if macros:
             if macros.get('A') == COLD_CATHODE:
-                self.pdispA.filename = get_abs_path(CC_UI)
+                self.pdispA.filename = CC_UI
             elif macros.get('A') == PIRANI:
-                self.pdispA.filename = get_abs_path(PR_UI)
+                self.pdispA.filename = PR_UI
 
             if macros.get('B') == COLD_CATHODE:
-                self.pdispB.filename = get_abs_path(CC_UI)
+                self.pdispB.filename = CC_UI
             elif macros.get('B') == PIRANI:
-                self.pdispB.filename = get_abs_path(PR_UI)
+                self.pdispB.filename = PR_UI
 
             if macros.get('C') == COLD_CATHODE:
-                self.pdispC.filename = get_abs_path(CC_UI)
+                self.pdispC.filename = CC_UI
             elif macros.get('C') == PIRANI:
-                self.pdispC.filename = get_abs_path(PR_UI)
+                self.pdispC.filename = PR_UI
 
         self.pdispA.setAutoFillBackground(False)
         self.pdispB.setAutoFillBackground(False)
@@ -54,4 +53,4 @@ class Settings(Display):
         return SETTINGS_UI
 
     def ui_filepath(self):
-        return get_abs_path(SETTINGS_UI)
+        return SETTINGS_UI

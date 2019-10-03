@@ -1,15 +1,37 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import os
 import pandas
+from src.utils.consts import FILE
 
-from . import FILE
 
+# Consts
+def get_abs_path(filename):
+    return os.path.join(os.path.dirname(os.path.realpath(__file__)), filename)
+
+
+AGILENT_OVERVIEW = get_abs_path('overview.py')
+
+AGILENT_MAIN = get_abs_path('main.py')
+AGILENT_MAIN_UI = get_abs_path('ui/main.ui')
+
+AGILENT_DEVICE_MAIN = get_abs_path('device_main.py')
+AGILENT_DEVICE_MAIN_UI = get_abs_path('ui/device_main.ui')
+
+# AGILENT_DEVICE = get_abs_path('device.py')
+AGILENT_DEVICE_UI = get_abs_path('ui/device.ui')
+
+# AGILENT_CHANNEL = get_abs_path('channel.py')
+AGILENT_CHANNEL_UI = get_abs_path('ui/channel.ui')
+
+
+# Data and devices
 SHEET = 'PVs Agilent 4UHV'
 sheet = pandas.read_excel(FILE, sheet_name=SHEET, dtype=str)
 sheet = sheet.replace('nan', '')
 
-devices = []
 data = []
+devices = []
 
 
 class DataRow():

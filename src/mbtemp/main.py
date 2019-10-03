@@ -7,9 +7,8 @@ from qtpy.QtWidgets import QLabel
 from pydm import Display, PyDMApplication
 from pydm.utilities import IconFont
 
-from src import get_label, TableDataController
-from src.consts.mbtemp import devices
-from src.paths import get_abs_path, MBTEMP_MAIN_UI
+from src.utils.widgets import get_label, TableDataController
+from src.mbtemp.consts import devices, MBTEMP_MAIN_UI
 
 logger = logging.getLogger()
 
@@ -135,4 +134,4 @@ class TableDisplay(Display):
         return MBTEMP_MAIN_UI
 
     def ui_filepath(self):
-        return get_abs_path(MBTEMP_MAIN_UI)
+        return MBTEMP_MAIN_UI
