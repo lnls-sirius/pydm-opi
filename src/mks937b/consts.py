@@ -15,22 +15,22 @@ def get_abs_path(filename):
 
 MKS_OVERVIEW = get_abs_path('overview.py')
 
-MKS_MAIN = get_abs_path('table.py')
+MKS_MAIN = get_abs_path('main.py')
 MKS_MAIN_UI = get_abs_path('ui/table.ui')
 
-TABLE = get_abs_path('table.py')
-TABLE_UI = get_abs_path('ui/table.ui')
+MKS_LAUNCH = get_abs_path('launcher.py')
+MKS_LAUNCH_UI = get_abs_path('ui/main.ui')
 
-# STORAGE_RING = get_abs_path('storage_ring.py')
+STORAGE_RING = get_abs_path('storage_ring.py')
 STORAGE_RING_UI = get_abs_path('ui/storage_ring.ui')
 
-# BOOSTER = get_abs_path('booster.py')
+BOOSTER = get_abs_path('booster.py')
 BOOSTER_UI = get_abs_path('ui/booster.ui')
 
-# BTS = get_abs_path('bts.py')
+BTS = get_abs_path('bts.py')
 BTS_UI = get_abs_path('ui/bts.ui')
 
-# LTB = get_abs_path('ltb.py')
+LTB = get_abs_path('ltb.py')
 LTB_UI = get_abs_path('ui/ltb.ui')
 
 NONE_UI = get_abs_path('ui/mks937b/none.ui')

@@ -1,11 +1,14 @@
+import subprocess
+
+from qtpy.QtGui import QPixmap
+
 from pydm import Display
 
-import subprocess
-from src.launcher.consts import LAUNCH_WINDOW_UI
 from src.agilent4uhv.consts import AGILENT_MAIN, AGILENT_OVERVIEW
 from src.mbtemp.consts import MBTEMP_MAIN
 from src.mks937b.consts import MKS_MAIN, MKS_OVERVIEW
-from src.launcher.consts import PCTRL_MAIN
+from src.launcher.consts import LAUNCH_WINDOW_UI, PCTRL_MAIN
+from src.utils.consts import CNPEM_IMG, LNLS_IMG
 
 
 class Launcher(Display):
@@ -60,6 +63,9 @@ class Launcher(Display):
         self.btnRegatron.clicked.connect(self.launch_regatron)
 
         self.btnExit.clicked.connect(self.exitApp)
+
+        self.label_cnpem.setPixmap(QPixmap(CNPEM_IMG))
+        self.label_lnls.setPixmap(QPixmap(LNLS_IMG))
 
     def launch_epp(self):
         subprocess.Popen(

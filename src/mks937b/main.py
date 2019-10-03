@@ -10,7 +10,7 @@ from pydm.utilities import IconFont
 from pydm.widgets import PyDMRelatedDisplayButton
 
 from src.utils.widgets import get_label, TableDataController
-from src.mks937b.consts import devices, data, TABLE_UI, DEVICE_MENU
+from src.mks937b.consts import devices, data, MKS_MAIN_UI, DEVICE_MENU
 
 logger = logging.getLogger('MKS_Logger')
 
@@ -174,7 +174,7 @@ class MKS(Display):
         self.tdc.changeBatch(increase)
 
     def ui_filename(self):
-        return TABLE_UI
+        return MKS_MAIN_UI
 
     def ui_filepath(self):
-        return TABLE_UI
+        return MKS_MAIN_UI

@@ -52,7 +52,7 @@
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="label_pic">
          <property name="geometry">
           <rect>
            <x>-80</x>
@@ -60,9 +60,6 @@
            <width>1071</width>
            <height>471</height>
           </rect>
-         </property>
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;images/booster.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
         <widget class="QLabel" name="vg1">
@@ -112,8 +109,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>246</width>
-        <height>681</height>
+        <width>248</width>
+        <height>677</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
@@ -254,8 +251,6 @@
    <header>pydm.widgets.enum_combo_box</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../images/imgs.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

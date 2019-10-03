@@ -249,8 +249,5 @@
    <header>pydm.widgets.pushbutton</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../../images/imgs.qrc"/>
- </resources>
  <connections/>
 </ui>

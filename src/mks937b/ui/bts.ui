@@ -52,7 +52,7 @@
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="label_pic">
          <property name="geometry">
           <rect>
            <x>-440</x>
@@ -60,9 +60,6 @@
            <width>1561</width>
            <height>591</height>
           </rect>
-         </property>
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;images/btts.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
         <widget class="QLabel" name="vg1">
@@ -132,8 +129,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>246</width>
-        <height>553</height>
+        <width>248</width>
+        <height>549</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
@@ -304,8 +301,6 @@
    <header>pydm.widgets.enum_combo_box</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../images/imgs.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

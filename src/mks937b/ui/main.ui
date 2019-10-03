@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>327</width>
-    <height>366</height>
+    <width>337</width>
+    <height>380</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -52,11 +52,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="2">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;images/CNPEM.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
+       <widget class="QLabel" name="label_cnpem"/>
       </item>
       <item row="1" column="2">
        <widget class="QLabel" name="label_294">
@@ -481,11 +477,7 @@
        </spacer>
       </item>
       <item row="0" column="1" rowspan="4">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;images/LNLS.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
+       <widget class="QLabel" name="label_lnls"/>
       </item>
       <item row="0" column="0">
        <spacer name="horizontalSpacer_2">
@@ -584,11 +576,6 @@
         <property name="text">
          <string>Storage Ring</string>
         </property>
-        <property name="filenames" stdset="0">
-         <stringlist>
-          <string>../python/storage_ring.py</string>
-         </stringlist>
-        </property>
        </widget>
       </item>
       <item>
@@ -612,11 +599,6 @@
         </property>
         <property name="text">
          <string>Booster</string>
-        </property>
-        <property name="filenames" stdset="0">
-         <stringlist>
-          <string>../python/booster.py</string>
-         </stringlist>
         </property>
        </widget>
       </item>
@@ -642,11 +624,6 @@
         <property name="text">
          <string>LTB</string>
         </property>
-        <property name="filenames" stdset="0">
-         <stringlist>
-          <string>../python/ltb.py</string>
-         </stringlist>
-        </property>
        </widget>
       </item>
       <item>
@@ -671,11 +648,6 @@
         <property name="text">
          <string>BTS</string>
         </property>
-        <property name="filenames" stdset="0">
-         <stringlist>
-          <string>../python/bts.py</string>
-         </stringlist>
-        </property>
        </widget>
       </item>
       <item>
@@ -697,8 +669,6 @@
    <header>pydm.widgets.related_display_button</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../../images/imgs.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

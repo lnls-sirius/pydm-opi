@@ -40,14 +40,11 @@
        </widget>
       </item>
       <item row="0" column="3" colspan="2">
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="label_cnpem">
         <property name="font">
          <font>
           <pointsize>11</pointsize>
          </font>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;images/CNPEM.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </item>
@@ -474,11 +471,7 @@
        </widget>
       </item>
       <item row="0" column="1" rowspan="3">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;images/LNLS.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
+       <widget class="QLabel" name="label_lnls"/>
       </item>
       <item row="0" column="0">
        <spacer name="horizontalSpacer_2">
@@ -756,8 +749,6 @@
    <header>pydm.widgets.related_display_button</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../../images/imgs.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

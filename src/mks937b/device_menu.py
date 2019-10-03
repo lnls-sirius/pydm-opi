@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 import json
 
-from qtpy.QtGui import QDesktopServices
+from qtpy.QtGui import QDesktopServices, QPixmap
 from qtpy.QtCore import QUrl
 
 from pydm import Display
 
-from src.utils.consts import ARCHIVER_URL
+from src.utils.consts import ARCHIVER_URL, CNPEM_IMG, LNLS_IMG
 from src.mks937b.consts import PRESSURE, SETTINGS, INFO_UI, DEVICE_MENU_UI
 
 
@@ -32,6 +32,9 @@ class DeviceMenu(Display):
         self.btnInfo.macros = json_macro
 
         # self.btnArchiver.clicked.connect(self.open_archiver)
+
+        self.label_cnpem.setPixmap(QPixmap(CNPEM_IMG))
+        self.label_lnls.setPixmap(QPixmap(LNLS_IMG))
 
     def open_archiver(self):
         QDesktopServices.openUrl(QUrl(ARCHIVER_URL))

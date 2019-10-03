@@ -1,10 +1,13 @@
 
 import json
 
+from qtpy.QtGui import QPixmap
+
 from pydm import Display
 
 from src.agilent4uhv.consts import AGILENT_DEVICE_MAIN_UI, \
     AGILENT_DEVICE_UI, AGILENT_CHANNEL_UI
+from src.utils.consts import CNPEM_IMG, LNLS_IMG
 
 
 class DeviceMain(Display):
@@ -32,6 +35,9 @@ class DeviceMain(Display):
         self.btn_ch4.filenames = [AGILENT_CHANNEL_UI]
         self.btn_ch4.macros = json.dumps({"PREFIX": macros["PREFIX_C4"]})
         self.btn_ch4.openInNewWindow = True
+
+        self.label_cnpem.setPixmap(QPixmap(CNPEM_IMG))
+        self.label_lnls.setPixmap(QPixmap(LNLS_IMG))
 
     def ui_filename(self):
         return AGILENT_DEVICE_MAIN_UI
