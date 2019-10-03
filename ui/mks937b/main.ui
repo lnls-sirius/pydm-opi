@@ -584,8 +584,10 @@
         <property name="text">
          <string>Storage Ring</string>
         </property>
-        <property name="displayFilename" stdset="0">
-         <string>../python/storage_ring.py</string>
+        <property name="filenames" stdset="0">
+         <stringlist>
+          <string>../python/storage_ring.py</string>
+         </stringlist>
         </property>
        </widget>
       </item>
@@ -611,8 +613,10 @@
         <property name="text">
          <string>Booster</string>
         </property>
-        <property name="displayFilename" stdset="0">
-         <string>../python/booster.py</string>
+        <property name="filenames" stdset="0">
+         <stringlist>
+          <string>../python/booster.py</string>
+         </stringlist>
         </property>
        </widget>
       </item>
@@ -638,8 +642,10 @@
         <property name="text">
          <string>LTB</string>
         </property>
-        <property name="displayFilename" stdset="0">
-         <string>../python/ltb.py</string>
+        <property name="filenames" stdset="0">
+         <stringlist>
+          <string>../python/ltb.py</string>
+         </stringlist>
         </property>
        </widget>
       </item>
@@ -665,8 +671,10 @@
         <property name="text">
          <string>BTS</string>
         </property>
-        <property name="displayFilename" stdset="0">
-         <string>../python/bts.py</string>
+        <property name="filenames" stdset="0">
+         <stringlist>
+          <string>../python/bts.py</string>
+         </stringlist>
         </property>
        </widget>
       </item>

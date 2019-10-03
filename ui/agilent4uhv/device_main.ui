@@ -535,11 +535,15 @@
         <property name="text">
          <string>Agilent 4UHV Ion Pump Controller ${DEVICE}</string>
         </property>
-        <property name="displayFilename" stdset="0">
-         <string>device.ui</string>
+        <property name="filenames" stdset="0">
+         <stringlist>
+          <string>device.ui</string>
+         </stringlist>
         </property>
         <property name="macros" stdset="0">
-         <string>{&quot;PREFIX&quot;:&quot;${DEVICE}&quot;}</string>
+         <stringlist>
+          <string>{&quot;PREFIX&quot;:&quot;${DEVICE}&quot;}</string>
+         </stringlist>
         </property>
         <property name="openInNewWindow" stdset="0">
          <bool>true</bool>
@@ -595,11 +599,15 @@
         <property name="text">
          <string>Channel 1 ${PREFIX_C1}</string>
         </property>
-        <property name="displayFilename" stdset="0">
-         <string>channel.ui</string>
+        <property name="filenames" stdset="0">
+         <stringlist>
+          <string>channel.ui</string>
+         </stringlist>
         </property>
         <property name="macros" stdset="0">
-         <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C1}&quot;}</string>
+         <stringlist>
+          <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C1}&quot;}</string>
+         </stringlist>
         </property>
         <property name="openInNewWindow" stdset="0">
          <bool>true</bool>
@@ -636,11 +644,15 @@
         <property name="text">
          <string>Channel 2 ${PREFIX_C2}</string>
         </property>
-        <property name="displayFilename" stdset="0">
-         <string>channel.ui</string>
+        <property name="filenames" stdset="0">
+         <stringlist>
+          <string>channel.ui</string>
+         </stringlist>
         </property>
         <property name="macros" stdset="0">
-         <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C2}&quot;}</string>
+         <stringlist>
+          <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C2}&quot;}</string>
+         </stringlist>
         </property>
         <property name="openInNewWindow" stdset="0">
          <bool>true</bool>
@@ -677,11 +689,15 @@
         <property name="text">
          <string>Channel 3 ${PREFIX_C3}</string>
         </property>
-        <property name="displayFilename" stdset="0">
-         <string>channel.ui</string>
+        <property name="filenames" stdset="0">
+         <stringlist>
+          <string>channel.ui</string>
+         </stringlist>
         </property>
         <property name="macros" stdset="0">
-         <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C3}&quot;}</string>
+         <stringlist>
+          <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C3}&quot;}</string>
+         </stringlist>
         </property>
         <property name="openInNewWindow" stdset="0">
          <bool>true</bool>
@@ -718,11 +734,15 @@
         <property name="text">
          <string>Channel 4 ${PREFIX_C4}</string>
         </property>
-        <property name="displayFilename" stdset="0">
-         <string>channel.ui</string>
+        <property name="filenames" stdset="0">
+         <stringlist>
+          <string>channel.ui</string>
+         </stringlist>
         </property>
         <property name="macros" stdset="0">
-         <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C4}&quot;}</string>
+         <stringlist>
+          <string>{&quot;PREFIX&quot;:&quot;${PREFIX_C4}&quot;}</string>
+         </stringlist>
         </property>
         <property name="openInNewWindow" stdset="0">
          <bool>true</bool>

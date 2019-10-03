@@ -11,7 +11,7 @@ class DevicePreview(Display):
     def __init__(self, parent=None, args=[], macros=None):
         super(DevicePreview, self).__init__(
             parent=parent, args=args, macros=macros)
-        self.btn1.displayFilename = get_abs_path(DEVICE_MENU)
+        self.btn1.filenames = [get_abs_path(DEVICE_MENU)]
         self.btn1.setIcon(IconFont().icon('edit'))
 
         if macros:

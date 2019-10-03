@@ -3,7 +3,6 @@ from qtpy.QtCore import Qt, QObject, Signal, QRect, QSize, QPoint
 from qtpy.QtGui import QColor
 from qtpy.QtWidgets import QLayout, QSizePolicy, QStyle
 
-from pydm import PyDMApplication
 from pydm.widgets import PyDMLabel, PyDMByteIndicator
 
 from src.paths import TABLE_ALARMS_QSS
@@ -188,12 +187,10 @@ class TableDataController(QObject):
 
     def connect_widget(self, row, col, channel_name=None, macros=None):
         widget = self.table.cellWidget(row, col)
-        PyDMApplication.instance().close_widget_connections(widget)
         if channel_name:
             widget.channel = channel_name
         if macros:
             widget.macros = macros
-        PyDMApplication.instance().establish_widget_connections(widget)
 
     def changeBatch(self, increase):
         if increase:
