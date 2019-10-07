@@ -8,9 +8,10 @@ from pydm.widgets.related_display_button import PyDMRelatedDisplayButton
 
 from qtpy.QtWidgets import QWidget, QVBoxLayout, QPushButton, QLabel, QSpacerItem, QSizePolicy
 from qtpy.QtGui import QFont
+from siriushlacon.pctrl.consts import IOCS_JSON, PCTRL_UI, PCTRL_DET_UI
 
 def load_iocs():
-    with pkg_resources.resource_stream(__name__, 'iocs.json') as f:
+    with open(IOCS_JSON, 'rb') as f:
         iocs = json.load(f)
     return iocs
 
@@ -18,7 +19,7 @@ logger = logging.getLogger()
 
 class Main(Display):
     def __init__(self,parent=None):
-        super().__init__(parent=parent, ui_filename='ui/main.ui')
+        super().__init__(parent=parent, ui_filename=PCTRL_UI)
         self.iocs = load_iocs()
         self.areas = set([e['area'] for e in self.iocs])
         self.tabs = {}

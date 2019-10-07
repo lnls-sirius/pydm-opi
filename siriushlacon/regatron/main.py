@@ -10,13 +10,14 @@ from qtpy.QtGui import QPixmap
 from qtpy.QtWidgets import QWidget, QGridLayout, QPushButton, QLabel, QSpacerItem, QSizePolicy
 from qtpy.QtGui import QFont
 
-from siriushlacon.regatron.consts import REGATRON_UI, DETAILS_MAIN, SIMPLE_MAIN, DETAILS_MAIN
+from siriushlacon.regatron.consts import REGATRON_UI, DETAILS_MAIN, SIMPLE_MAIN, DETAILS_MAIN,\
+    DATA_JSON
 from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
 
 
 def load_data():
     data = None
-    with pkg_resources.resource_stream(__name__, 'data.json') as f:
+    with open(DATA_JSON, 'rb') as f:
         data = json.load(f)
     return data
 
@@ -44,8 +45,8 @@ class Launcher(Display):
     def __init__(self, parent=None, macros=None, **kwargs):
         super().__init__(parent=parent, ui_filename=REGATRON_UI)
 
-        self.label_cnpem.setPixmap(QPixmap(CNPEM_IMG))
-        self.label_lnls.setPixmap(QPixmap(LNLS_IMG))
+        self.logo_cnpem.setPixmap(QPixmap(CNPEM_IMG))
+        self.logo_lnls.setPixmap(QPixmap(LNLS_IMG))
 
         self.data = load_data()
         self.grid_layout = QGridLayout()

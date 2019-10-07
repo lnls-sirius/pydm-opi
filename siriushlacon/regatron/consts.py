@@ -6,6 +6,8 @@ import pkg_resources
 def get_abs_path(filename):
     return pkg_resources.resource_filename(__name__, filename)
 
+DATA_JSON = get_abs_path('data.json')
+
 REGATRON_MAIN = get_abs_path('main.py')
 DETAILS_MAIN = get_abs_path('details.py')
 SIMPLE_MAIN = get_abs_path('simple.py')
