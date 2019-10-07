@@ -2,6 +2,8 @@
 import os
 import platform
 import logging
+import pkg_resources
+import urllib.request
 
 logger = logging.getLogger()
 
@@ -10,15 +12,16 @@ def get_abs_path(relative):
     """
     relative = relative path with base at python/
     """
-    return os.path.join(os.path.dirname(os.path.realpath(__file__)), relative)
+    return pkg_resources.resource_filename(__name__, relative)
 
+FILE = get_abs_path('Redes e Beaglebones.xlsx')
 
-res = os.system('wget -T 1 -r --tries=2 http://10.0.38.42/streamdevice-ioc/Redes%20e%20Beaglebones.xlsx -O /var/tmp/pydm-opi')
-if int(res) != 0:
-    logger.warning('Failed to update the spreadsheet from http://10.0.38.42/streamdevice-ioc/Redes%20e%20Beaglebones.xlsx ! Using old data ...')
-    FILE = get_abs_path('../../Redes e Beaglebones.xlsx')
-else:
-    FILE = '/var/tmp/pydm-opi'
+url = 'http://10.0.38.42/streamdevice-ioc/Redes%20e%20Beaglebones.xlsx'
+try:
+    urllib.request.urlretrieve(url, FILE)
+    logger.info('File {} updated.'.format(FILE))
+except:
+    logger.exception('Failed to update the spreadsheet from http://10.0.38.42/streamdevice-ioc/Redes%20e%20Beaglebones.xlsx ! Using old data ...')
 
 IS_LINUX = (os.name == 'posix' or platform.system() == 'Linux')
 
