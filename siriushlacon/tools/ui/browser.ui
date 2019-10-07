@@ -31,7 +31,7 @@
      </property>
      <property name="url">
       <url>
-       <string>https://10.0.6.57/retrieval/ui/archiver-viewer/index.html</string>
+       <string>${url}</string>
       </url>
      </property>
     </widget>

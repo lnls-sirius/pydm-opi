@@ -4,6 +4,8 @@ from os import path
 from pydm.tools import ExternalTool
 from pydm.utilities.iconfont import IconFont
 
+from siriushlacon.tools.consts import BROWSER_MAIN
+
 
 def get_abs_path(relative):
     """
@@ -24,8 +26,8 @@ class ArchiverApplianceTool(ExternalTool):
 
     def call(self, channels, sender):
         sender.window().new_window(
-            get_abs_path('archiver.py'),
-            macros={'url': 'https://10.0.6.57:11995/mgmt/ui/index.html'})
+            get_abs_path(BROWSER_MAIN),
+            macros={'url': 'https://10.0.38.42/mgmt'})
 
     def to_json(self):
         return ""
@@ -50,9 +52,10 @@ class ArchiverViwerTool(ExternalTool):
                               use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
-        url = 'http://10.0.6.57:11998/retrieval/ui/archiver-viewer/index.html'
-        sender.window().new_window(get_abs_path('archiver.py'),
-                                   macros={'url': url})
+        url = 'https://10.0.38.42/archiver-viewer/index.html'
+        sender.window().new_window(
+            get_abs_path(BROWSER_MAIN),
+            macros={'url': url})
 
     def to_json(self):
         return ""
@@ -66,7 +69,7 @@ class ArchiverViwerTool(ExternalTool):
         return ret
 
 
-class BeableboneTool(ExternalTool):
+class BeagleboneTool(ExternalTool):
 
     def __init__(self):
         icon = IconFont().icon('paw')
@@ -77,7 +80,8 @@ class BeableboneTool(ExternalTool):
                               use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
-        sender.window().new_window(get_abs_path('bbb.ui'), macros={})
+        sender.window().new_window(get_abs_path(BROWSER_MAIN),
+        macros={'url':'https://10.128.255.5/bbb-daemon/index.html'})
 
     def to_json(self):
         return ""
