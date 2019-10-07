@@ -2,16 +2,12 @@
 # -*- coding: utf-8 -*-
 import os
 import pandas
+import pkg_resources
 
 from siriushlacon.utils.consts import FILE
 
-
-IOC_FILENAME = '/opt/stream-ioc/mks937_min.cmd'
-
-
-# Const
 def get_abs_path(filename):
-    return os.path.join(os.path.dirname(os.path.realpath(__file__)), filename)
+    return pkg_resources.resource_filename(__name__, filename)
 
 
 MBTEMP_MAIN = get_abs_path('main.py')
