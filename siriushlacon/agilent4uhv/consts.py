@@ -2,13 +2,12 @@
 # -*- coding: utf-8 -*-
 import os
 import pandas
+import pkg_resources
+
 from siriushlacon.utils.consts import FILE
 
-
-# Consts
 def get_abs_path(filename):
-    return os.path.join(os.path.dirname(os.path.realpath(__file__)), filename)
-
+    return pkg_resources.resource_filename(__name__, filename)
 
 AGILENT_OVERVIEW = get_abs_path('overview.py')
 
