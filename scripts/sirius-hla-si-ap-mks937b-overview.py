@@ -1,3 +1,4 @@
+#!/usr/local/env python3
 import subprocess
 from siriushlacon.mks937b.consts import MKS_OVERVIEW
 
