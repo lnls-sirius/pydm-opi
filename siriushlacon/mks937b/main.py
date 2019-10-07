@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import logging
 import epics
+import threading
 
 from qtpy.QtWidgets import QLabel
 
@@ -19,7 +20,7 @@ class MKSTableDataController(TableDataController):
 
     def __init__(self, table, devices=[], table_batch=24,
                  horizontal_header_labels=[], *args, **kwargs):
-        return super().__init__(
+        super().__init__(
             table,
             devices=devices,
             table_batch=table_batch,
@@ -126,6 +127,8 @@ class MKS(Display):
     def __init__(self, parent=None, args=[], macros=None):
         super(MKS, self).__init__(
             parent=parent, args=args, macros=macros)
+        self.caput_lock = threading.RLock()
+        self.caput_enable = True
 
         table_batch = len(devices) * 6
         horizontal_header_labels = [
@@ -154,8 +157,14 @@ class MKS(Display):
 
     def turn_on_channels(self):
         # TODO: use asyncio
-        logger.info('Turning all channels ON')
-        self.turn_on()
+        with self.caput_lock:
+            if self.caput_enable:
+                logger.info('Turning all channels ON')
+                thread = threading.Thread(target=self.turn_on, daemon=True)
+                thread.start()
+                self.caput_enable = False
+            else:
+                logger.info('Wait the previous command completion')
 
     def turn_on(self):
         for d in data:
@@ -166,6 +175,8 @@ class MKS(Display):
                 res = epics.caput(command, 'On', timeout=.2)
                 logger.info('Caput command: {} \'On\'         {}'.format(
                     command, 'OK' if res == 1 else 'FAIL'))
+        with self.caput_lock:
+            self.caput_enable = True
 
     def filter(self, pattern):
         self.tdc.filter(pattern)
