@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>448</width>
-    <height>436</height>
+    <height>379</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -32,7 +32,7 @@
          </font>
         </property>
         <property name="text">
-         <string>EPP</string>
+         <string>EPPS</string>
         </property>
        </widget>
       </item>
@@ -528,13 +528,6 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="1" colspan="3">
-       <widget class="QPushButton" name="btnEpp">
-        <property name="text">
-         <string>EPP</string>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="0">
        <widget class="QLabel" name="label">
         <property name="font">
@@ -1007,7 +1000,7 @@
          </font>
         </property>
         <property name="text">
-         <string>ELP</string>
+         <string>ELPS</string>
         </property>
        </widget>
       </item>
@@ -1981,9 +1974,28 @@
        </widget>
       </item>
       <item row="8" column="1" colspan="3">
-       <widget class="QPushButton" name="btnRegatron">
+       <widget class="PyDMRelatedDisplayButton" name="btnRegatron">
+        <property name="toolTip">
+         <string/>
+        </property>
         <property name="text">
          <string>Regatron</string>
+        </property>
+        <property name="showIcon" stdset="0">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1" colspan="3">
+       <widget class="PyDMRelatedDisplayButton" name="btnEpp">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="text">
+         <string>Pulsed Magnets</string>
+        </property>
+        <property name="showIcon" stdset="0">
+         <bool>false</bool>
         </property>
        </widget>
       </item>

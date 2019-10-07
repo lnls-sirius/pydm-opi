@@ -7,9 +7,10 @@ from pydm import Display
 from siriushlacon.agilent4uhv.consts import AGILENT_MAIN, AGILENT_OVERVIEW
 from siriushlacon.mbtemp.consts import MBTEMP_MAIN
 from siriushlacon.mks937b.consts import MKS_MAIN, MKS_OVERVIEW
+from siriushlacon.regatron.consts import REGATRON_MAIN
 from siriushlacon.launcher.consts import LAUNCH_WINDOW_UI, PCTRL_MAIN
+from siriushlacon.spixconv.consts import SPIXCONV_MAIN
 from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
-
 
 class Launcher(Display):
     """
@@ -59,25 +60,16 @@ class Launcher(Display):
         self.btnProcServCtrl.filenames = [PCTRL_MAIN]
         self.btnProcServCtrl.openInNewWindow = True
 
-        self.btnEpp.clicked.connect(self.launch_epp)
-        self.btnRegatron.clicked.connect(self.launch_regatron)
+        self.btnRegatron.filenames = [REGATRON_MAIN]
+        self.btnRegatron.openInNewWindow = True
+
+        self.btnEpp.filenames = [SPIXCONV_MAIN]
+        self.btnEpp.openInNewWindow = True
 
         self.btnExit.clicked.connect(self.exitApp)
 
         self.label_cnpem.setPixmap(QPixmap(CNPEM_IMG))
         self.label_lnls.setPixmap(QPixmap(LNLS_IMG))
-
-    def launch_epp(self):
-        subprocess.Popen(
-            'cd ../../SPIxCONV/software/pydm/launcher; '
-            'pydm --hide-nav-bar launch_ui_main_window.py',
-            shell=True)
-
-    def launch_regatron(self):
-        subprocess.Popen(
-            'cd ../../cons-topcon/opi; '
-            'pydm --hide-nav-bar launch.py',
-            shell=True)
 
     def exitApp(self):
         exit()
