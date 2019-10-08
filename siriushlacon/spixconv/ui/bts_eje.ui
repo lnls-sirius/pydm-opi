@@ -7,61 +7,501 @@
     <x>0</x>
     <y>0</y>
     <width>1627</width>
-    <height>533</height>
+    <height>531</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_343">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="WindowText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>136</red>
+           <green>138</green>
+           <blue>133</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Light">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>204</red>
+           <green>207</green>
+           <blue>200</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Midlight">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>170</red>
+           <green>172</green>
+           <blue>166</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Dark">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>68</red>
+           <green>69</green>
+           <blue>66</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Mid">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>91</red>
+           <green>92</green>
+           <blue>89</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="BrightText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>136</red>
+           <green>138</green>
+           <blue>133</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Shadow">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="AlternateBase">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>195</red>
+           <green>196</green>
+           <blue>194</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ToolTipBase">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>220</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ToolTipText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="PlaceholderText">
+         <brush brushstyle="NoBrush">
+          <color alpha="128">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="WindowText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>136</red>
+           <green>138</green>
+           <blue>133</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Light">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>204</red>
+           <green>207</green>
+           <blue>200</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Midlight">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>170</red>
+           <green>172</green>
+           <blue>166</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Dark">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>68</red>
+           <green>69</green>
+           <blue>66</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Mid">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>91</red>
+           <green>92</green>
+           <blue>89</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="BrightText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>136</red>
+           <green>138</green>
+           <blue>133</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Shadow">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="AlternateBase">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>195</red>
+           <green>196</green>
+           <blue>194</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ToolTipBase">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>220</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ToolTipText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="PlaceholderText">
+         <brush brushstyle="NoBrush">
+          <color alpha="128">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="WindowText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>68</red>
+           <green>69</green>
+           <blue>66</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>136</red>
+           <green>138</green>
+           <blue>133</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Light">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>204</red>
+           <green>207</green>
+           <blue>200</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Midlight">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>170</red>
+           <green>172</green>
+           <blue>166</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Dark">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>68</red>
+           <green>69</green>
+           <blue>66</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Mid">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>91</red>
+           <green>92</green>
+           <blue>89</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>68</red>
+           <green>69</green>
+           <blue>66</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="BrightText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>68</red>
+           <green>69</green>
+           <blue>66</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>136</red>
+           <green>138</green>
+           <blue>133</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>136</red>
+           <green>138</green>
+           <blue>133</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Shadow">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="AlternateBase">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>136</red>
+           <green>138</green>
+           <blue>133</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ToolTipBase">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>220</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ToolTipText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="PlaceholderText">
+         <brush brushstyle="NoBrush">
+          <color alpha="128">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cantarell</family>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="text">
+      <string>BTS  (BO Ejection)</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
    <item row="1" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <layout class="QGridLayout" name="BO_Eje_Kckr">
-       <item row="3" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_32">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://BO-48D:PU-EjeKckr:Intlk1-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
-         </property>
-        </widget>
-       </item>
        <item row="10" column="4" colspan="2">
         <widget class="PyDMLabel" name="PyDMLabel_16">
          <property name="sizePolicy">
@@ -242,6 +682,15 @@
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -379,6 +828,15 @@
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -510,6 +968,15 @@
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -759,6 +1226,15 @@
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -896,6 +1372,15 @@
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -1027,6 +1512,15 @@
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -1203,7 +1697,9 @@
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -1229,50 +1725,6 @@
          </property>
          <property name="channel" stdset="0">
           <string>ca://BO-48D:PU-EjeKckr:PwrState-Sts.DESC</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_34">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://BO-48D:PU-EjeKckr:Intlk3-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
          </property>
         </widget>
        </item>
@@ -1358,50 +1810,6 @@
          </property>
          <property name="channel" stdset="0">
           <string>ca://BO-48D:PU-EjeKckr:PwrStateLabel1-Cte</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_35">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://BO-48D:PU-EjeKckr:Intlk5-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
          </property>
         </widget>
        </item>
@@ -1598,6 +2006,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -1729,6 +2146,15 @@ Power Supply</string>
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -1872,6 +2298,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </disabled>
           </palette>
          </property>
@@ -1892,50 +2327,6 @@ Power Supply</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_36">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://BO-48D:PU-EjeKckr:Intlk7-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
          </property>
         </widget>
        </item>
@@ -2104,50 +2495,6 @@ Power Supply</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_37">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://BO-48D:PU-EjeKckr:CtrlMode-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
-         </property>
-        </widget>
-       </item>
        <item row="3" column="5">
         <widget class="PyDMLabel" name="PyDMLabel_32">
          <property name="sizePolicy">
@@ -2170,138 +2517,6 @@ Power Supply</string>
          </property>
          <property name="channel" stdset="0">
           <string>ca://BO-48D:PU-EjeKckr:Voltage-Mon</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_38">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://BO-48D:PU-EjeKckr:Intlk6-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_39">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://BO-48D:PU-EjeKckr:Intlk4-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_40">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://BO-48D:PU-EjeKckr:Intlk2-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
          </property>
         </widget>
        </item>
@@ -2463,6 +2678,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -2600,6 +2824,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -2731,6 +2964,15 @@ Power Supply</string>
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -2934,50 +3176,6 @@ Power Supply</string>
          </property>
         </spacer>
        </item>
-       <item row="10" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_87">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://BO-48D:PU-EjeKckr:Intlk8-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
-         </property>
-        </widget>
-       </item>
        <item row="10" column="7">
         <widget class="PyDMLabel" name="PyDMLabel_106">
          <property name="sizePolicy">
@@ -3003,6 +3201,312 @@ Power Supply</string>
          </property>
          <property name="channel" stdset="0">
           <string>ca://BO-48D:PU-EjeKckr:Intlk8Label-Cte</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_18">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://BO-48D:PU-EjeKckr:CtrlMode-Mon.RVAL</string>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_13">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://BO-48D:PU-EjeKckr:Intlk1-Mon.RVAL</string>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_12">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://BO-48D:PU-EjeKckr:Intlk2-Mon.RVAL</string>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_11">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://BO-48D:PU-EjeKckr:Intlk3-Mon.RVAL</string>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_10">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://BO-48D:PU-EjeKckr:Intlk4-Mon.RVAL</string>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_17">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://BO-48D:PU-EjeKckr:Intlk5-Mon.RVAL</string>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_16">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://BO-48D:PU-EjeKckr:Intlk6-Mon.RVAL</string>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_14">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://BO-48D:PU-EjeKckr:Intlk7-Mon.RVAL</string>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_15">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://BO-48D:PU-EjeKckr:Intlk8-Mon.RVAL</string>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -3049,37 +3553,6 @@ Power Supply</string>
      </item>
      <item>
       <layout class="QGridLayout" name="TS_Eje_Sept_G">
-       <item row="4" column="7">
-        <widget class="PyDMLabel" name="PyDMLabel_77">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>37</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string>Intlk2Label-Cte</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:Intlk2Label-Cte</string>
-         </property>
-        </widget>
-       </item>
        <item row="4" column="5">
         <widget class="PyDMLineEdit" name="PyDMLineEdit_7">
          <property name="sizePolicy">
@@ -3099,1086 +3572,8 @@ Power Supply</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="4" colspan="2">
-        <widget class="PyDMLabel" name="PyDMLabel_78">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:ResetLabel-Cte</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="7">
-        <widget class="PyDMLabel" name="PyDMLabel_79">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>37</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string>Intlk7Label-Cte</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:Intlk7Label-Cte</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0" colspan="8">
-        <widget class="QLabel" name="label_335">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>40</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="palette">
-          <palette>
-           <active>
-            <colorrole role="WindowText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Button">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Light">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Midlight">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>221</red>
-               <green>221</green>
-               <blue>221</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Dark">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>93</red>
-               <green>93</green>
-               <blue>93</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Mid">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>125</red>
-               <green>125</green>
-               <blue>125</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Text">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="BrightText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ButtonText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Base">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Window">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Shadow">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="AlternateBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>221</red>
-               <green>221</green>
-               <blue>221</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ToolTipBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>220</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ToolTipText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </active>
-           <inactive>
-            <colorrole role="WindowText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Button">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Light">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Midlight">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>221</red>
-               <green>221</green>
-               <blue>221</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Dark">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>93</red>
-               <green>93</green>
-               <blue>93</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Mid">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>125</red>
-               <green>125</green>
-               <blue>125</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Text">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="BrightText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ButtonText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Base">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Window">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Shadow">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="AlternateBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>221</red>
-               <green>221</green>
-               <blue>221</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ToolTipBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>220</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ToolTipText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </inactive>
-           <disabled>
-            <colorrole role="WindowText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>93</red>
-               <green>93</green>
-               <blue>93</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Button">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Light">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Midlight">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>221</red>
-               <green>221</green>
-               <blue>221</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Dark">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>93</red>
-               <green>93</green>
-               <blue>93</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Mid">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>125</red>
-               <green>125</green>
-               <blue>125</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Text">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>93</red>
-               <green>93</green>
-               <blue>93</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="BrightText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ButtonText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>93</red>
-               <green>93</green>
-               <blue>93</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Base">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Window">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Shadow">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="AlternateBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ToolTipBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>220</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ToolTipText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </disabled>
-          </palette>
-         </property>
-         <property name="font">
-          <font>
-           <family>Cantarell</family>
-           <pointsize>20</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="autoFillBackground">
-          <bool>true</bool>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string>TS-01:PU-EjeSeptG</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0" colspan="6">
-        <widget class="QLabel" name="label_336">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="palette">
-          <palette>
-           <active>
-            <colorrole role="WindowText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Button">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Light">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Midlight">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>221</red>
-               <green>221</green>
-               <blue>221</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Dark">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>93</red>
-               <green>93</green>
-               <blue>93</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Mid">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>125</red>
-               <green>125</green>
-               <blue>125</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Text">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="BrightText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ButtonText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Base">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Window">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Shadow">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="AlternateBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>221</red>
-               <green>221</green>
-               <blue>221</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ToolTipBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>220</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ToolTipText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </active>
-           <inactive>
-            <colorrole role="WindowText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Button">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Light">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Midlight">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>221</red>
-               <green>221</green>
-               <blue>221</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Dark">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>93</red>
-               <green>93</green>
-               <blue>93</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Mid">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>125</red>
-               <green>125</green>
-               <blue>125</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Text">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="BrightText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ButtonText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Base">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Window">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Shadow">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="AlternateBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>221</red>
-               <green>221</green>
-               <blue>221</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ToolTipBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>220</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ToolTipText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </inactive>
-           <disabled>
-            <colorrole role="WindowText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>93</red>
-               <green>93</green>
-               <blue>93</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Button">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Light">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Midlight">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>221</red>
-               <green>221</green>
-               <blue>221</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Dark">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>93</red>
-               <green>93</green>
-               <blue>93</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Mid">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>125</red>
-               <green>125</green>
-               <blue>125</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Text">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>93</red>
-               <green>93</green>
-               <blue>93</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="BrightText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ButtonText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>93</red>
-               <green>93</green>
-               <blue>93</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Base">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Window">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Shadow">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="AlternateBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>187</red>
-               <green>187</green>
-               <blue>187</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ToolTipBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>220</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="ToolTipText">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </disabled>
-          </palette>
-         </property>
-         <property name="font">
-          <font>
-           <family>Cantarell</family>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="autoFillBackground">
-          <bool>true</bool>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string>PS Voltage</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_68">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:Intlk1-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="5">
-        <widget class="PyDMLabel" name="PyDMLabel_80">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string>Voltage-Mon</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:Voltage-Mon</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_69">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:CtrlMode-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0" colspan="5">
-        <widget class="QLabel" name="label_31">
+       <item row="4" column="0" colspan="5">
+        <widget class="QLabel" name="label_35">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -4192,15 +3587,96 @@ Power Supply</string>
           </size>
          </property>
          <property name="text">
-          <string>Voltage-RB</string>
+          <string>Voltage-SP</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
-       <item row="5" column="5">
-        <widget class="PyDMLabel" name="PyDMLabel_81">
+       <item row="2" column="0" colspan="5">
+        <widget class="QLabel" name="label_34">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>Full scale
+Power Supply</string>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_74">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:Intlk6-Mon.RVAL</string>
+         </property>
+         <property name="offColor" stdset="0">
+          <color>
+           <red>239</red>
+           <green>41</green>
+           <blue>41</blue>
+          </color>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="labels" stdset="0">
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="4" colspan="2">
+        <widget class="PyDMLabel" name="PyDMLabel_84">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -4213,14 +3689,76 @@ Power Supply</string>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
-         <property name="text">
-          <string>Voltage-RB</string>
-         </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
          <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:Voltage-RB</string>
+          <string>ca://TS-01:PU-EjeSeptG:PulseLabel-Cte</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="5">
+        <widget class="QLabel" name="label_33">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>1 kV</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="2">
+        <widget class="PyDMCheckbox" name="PyDMCheckbox_14">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+         <property name="shortcut">
+          <string notr="true"/>
+         </property>
+         <property name="autoRepeat">
+          <bool>false</bool>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:PwrState-Sel</string>
          </property>
         </widget>
        </item>
@@ -4382,6 +3920,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -4513,6 +4060,15 @@ Power Supply</string>
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -4656,6 +4212,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </disabled>
           </palette>
          </property>
@@ -4673,6 +4238,490 @@ Power Supply</string>
          </property>
          <property name="text">
           <string>Interlocks</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="8">
+        <widget class="QLabel" name="label_335">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="palette">
+          <palette>
+           <active>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Button">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Light">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Midlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>221</red>
+               <green>221</green>
+               <blue>221</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Dark">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>93</red>
+               <green>93</green>
+               <blue>93</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Mid">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>125</red>
+               <green>125</green>
+               <blue>125</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="BrightText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Base">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Window">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Shadow">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>221</red>
+               <green>221</green>
+               <blue>221</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ToolTipBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>220</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ToolTipText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </active>
+           <inactive>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Button">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Light">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Midlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>221</red>
+               <green>221</green>
+               <blue>221</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Dark">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>93</red>
+               <green>93</green>
+               <blue>93</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Mid">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>125</red>
+               <green>125</green>
+               <blue>125</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="BrightText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Base">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Window">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Shadow">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>221</red>
+               <green>221</green>
+               <blue>221</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ToolTipBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>220</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ToolTipText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </inactive>
+           <disabled>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>93</red>
+               <green>93</green>
+               <blue>93</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Button">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Light">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Midlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>221</red>
+               <green>221</green>
+               <blue>221</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Dark">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>93</red>
+               <green>93</green>
+               <blue>93</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Mid">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>125</red>
+               <green>125</green>
+               <blue>125</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>93</red>
+               <green>93</green>
+               <blue>93</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="BrightText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>93</red>
+               <green>93</green>
+               <blue>93</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Base">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Window">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Shadow">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ToolTipBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>220</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ToolTipText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </disabled>
+          </palette>
+         </property>
+         <property name="font">
+          <font>
+           <family>Cantarell</family>
+           <pointsize>20</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>TS-01:PU-EjeSeptG</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -4701,6 +4750,897 @@ Power Supply</string>
          </property>
         </widget>
        </item>
+       <item row="1" column="0" colspan="6">
+        <widget class="QLabel" name="label_336">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="palette">
+          <palette>
+           <active>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Button">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Light">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Midlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>221</red>
+               <green>221</green>
+               <blue>221</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Dark">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>93</red>
+               <green>93</green>
+               <blue>93</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Mid">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>125</red>
+               <green>125</green>
+               <blue>125</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="BrightText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Base">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Window">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Shadow">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>221</red>
+               <green>221</green>
+               <blue>221</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ToolTipBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>220</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ToolTipText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </active>
+           <inactive>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Button">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Light">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Midlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>221</red>
+               <green>221</green>
+               <blue>221</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Dark">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>93</red>
+               <green>93</green>
+               <blue>93</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Mid">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>125</red>
+               <green>125</green>
+               <blue>125</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="BrightText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Base">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Window">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Shadow">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>221</red>
+               <green>221</green>
+               <blue>221</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ToolTipBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>220</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ToolTipText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </inactive>
+           <disabled>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>93</red>
+               <green>93</green>
+               <blue>93</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Button">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Light">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Midlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>221</red>
+               <green>221</green>
+               <blue>221</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Dark">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>93</red>
+               <green>93</green>
+               <blue>93</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Mid">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>125</red>
+               <green>125</green>
+               <blue>125</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>93</red>
+               <green>93</green>
+               <blue>93</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="BrightText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>93</red>
+               <green>93</green>
+               <blue>93</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Base">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Window">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Shadow">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>187</red>
+               <green>187</green>
+               <blue>187</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ToolTipBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>220</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ToolTipText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </disabled>
+          </palette>
+         </property>
+         <property name="font">
+          <font>
+           <family>Cantarell</family>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>PS Voltage</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="5">
+        <widget class="PyDMLabel" name="PyDMLabel_80">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>Voltage-Mon</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:Voltage-Mon</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_70">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:Intlk7-Mon.RVAL</string>
+         </property>
+         <property name="offColor" stdset="0">
+          <color>
+           <red>239</red>
+           <green>41</green>
+           <blue>41</blue>
+          </color>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="labels" stdset="0">
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_75">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:Intlk5-Mon.RVAL</string>
+         </property>
+         <property name="offColor" stdset="0">
+          <color>
+           <red>239</red>
+           <green>41</green>
+           <blue>41</blue>
+          </color>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="labels" stdset="0">
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="7">
+        <widget class="PyDMLabel" name="PyDMLabel_77">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>37</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>Intlk2Label-Cte</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:Intlk2Label-Cte</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="4" colspan="2">
+        <widget class="PyDMLabel" name="PyDMLabel_78">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:ResetLabel-Cte</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_73">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:Intlk4-Mon.RVAL</string>
+         </property>
+         <property name="offColor" stdset="0">
+          <color>
+           <red>239</red>
+           <green>41</green>
+           <blue>41</blue>
+          </color>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="labels" stdset="0">
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="7">
+        <widget class="PyDMLabel" name="PyDMLabel_85">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>37</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>Intlk1Label-Cte</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:Intlk1Label-Cte</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="7">
+        <widget class="PyDMLabel" name="PyDMLabel_88">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>37</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>Intlk5Label-Cte</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:Intlk5Label-Cte</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="7">
+        <widget class="PyDMLabel" name="PyDMLabel_87">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>37</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>Intlk3Label-Cte</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:Intlk3Label-Cte</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="4" colspan="2">
+        <widget class="PyDMLabel" name="PyDMLabel_89">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>PwrState-Sel</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:PwrStateLabel1-Cte</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0">
+        <spacer name="horizontalSpacer_32">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>13</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="10" column="1" colspan="2">
+        <widget class="PyDMPushButton" name="PyDMPushButton_7">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:Reset-Cmd</string>
+         </property>
+         <property name="pressValue" stdset="0">
+          <string>1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="7">
+        <widget class="PyDMLabel" name="PyDMLabel_79">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>37</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>Intlk7Label-Cte</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:Intlk7Label-Cte</string>
+         </property>
+        </widget>
+       </item>
        <item row="3" column="0" colspan="5">
         <widget class="QLabel" name="label_32">
          <property name="sizePolicy">
@@ -4720,6 +5660,83 @@ Power Supply</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="7">
+        <widget class="PyDMLabel" name="PyDMLabel_90">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>37</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>Intlk4Label-Cte</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:Intlk4Label-Cte</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_71">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:Intlk2-Mon.RVAL</string>
+         </property>
+         <property name="offColor" stdset="0">
+          <color>
+           <red>239</red>
+           <green>41</green>
+           <blue>41</blue>
+          </color>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="labels" stdset="0">
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -4747,6 +5764,62 @@ Power Supply</string>
           <string>ca://TS-01:PU-EjeSeptG:PwrState-Sts.DESC</string>
          </property>
         </widget>
+       </item>
+       <item row="8" column="1" colspan="2">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_72">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:PwrState-Sts</string>
+         </property>
+         <property name="offColor" stdset="0">
+          <color>
+           <red>239</red>
+           <green>41</green>
+           <blue>41</blue>
+          </color>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="labels" stdset="0">
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0" colspan="2">
+        <spacer name="horizontalSpacer_34">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Maximum</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>15</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item row="6" column="0" colspan="6">
         <widget class="QLabel" name="label_338">
@@ -4906,6 +5979,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -5037,6 +6119,15 @@ Power Supply</string>
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -5180,6 +6271,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </disabled>
           </palette>
          </property>
@@ -5203,8 +6303,8 @@ Power Supply</string>
          </property>
         </widget>
        </item>
-       <item row="9" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_70">
+       <item row="2" column="7">
+        <widget class="PyDMLabel" name="PyDMLabel_86">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -5214,38 +6314,38 @@ Power Supply</string>
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
+           <height>37</height>
           </size>
          </property>
          <property name="toolTip">
           <string/>
          </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
          <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:Intlk7-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
+          <string>ca://TS-01:PU-EjeSeptG:CtrlMode-Mon.DESC</string>
          </property>
         </widget>
+       </item>
+       <item row="7" column="3" rowspan="4">
+        <spacer name="horizontalSpacer_31">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>13</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item row="8" column="7">
         <widget class="PyDMLabel" name="PyDMLabel_83">
@@ -5278,406 +6378,8 @@ Power Supply</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="5">
-        <widget class="QLabel" name="label_33">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string>1 kV</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="4" colspan="2">
-        <widget class="PyDMLabel" name="PyDMLabel_84">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:PulseLabel-Cte</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="3" rowspan="4">
-        <spacer name="horizontalSpacer_31">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>5</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="10" column="0">
-        <spacer name="horizontalSpacer_32">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>5</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="3" column="7">
-        <widget class="PyDMLabel" name="PyDMLabel_85">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>37</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string>Intlk1Label-Cte</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:Intlk1Label-Cte</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="7">
-        <widget class="PyDMLabel" name="PyDMLabel_86">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>37</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:CtrlMode-Mon.DESC</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="7">
-        <widget class="PyDMLabel" name="PyDMLabel_87">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>37</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string>Intlk3Label-Cte</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:Intlk3Label-Cte</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="0">
-        <spacer name="horizontalSpacer_33">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>30</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="7" column="7">
-        <widget class="PyDMLabel" name="PyDMLabel_88">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>37</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string>Intlk5Label-Cte</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:Intlk5Label-Cte</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_71">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:Intlk2-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="1" colspan="2">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_72">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:PwrState-Sts</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="2">
-        <widget class="PyDMCheckbox" name="PyDMCheckbox_14">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>70</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="sizeIncrement">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>16</width>
-           <height>16</height>
-          </size>
-         </property>
-         <property name="shortcut">
-          <string notr="true"/>
-         </property>
-         <property name="autoRepeat">
-          <bool>false</bool>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:PwrState-Sel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0" colspan="5">
-        <widget class="QLabel" name="label_34">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>150</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="acceptDrops">
-          <bool>false</bool>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="text">
-          <string>Full scale
-Power Supply</string>
-         </property>
-         <property name="scaledContents">
-          <bool>false</bool>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="4" colspan="2">
-        <widget class="PyDMLabel" name="PyDMLabel_89">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string>PwrState-Sel</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:PwrStateLabel1-Cte</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0" colspan="5">
-        <widget class="QLabel" name="label_35">
+       <item row="5" column="0" colspan="5">
+        <widget class="QLabel" name="label_31">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -5691,129 +6393,10 @@ Power Supply</string>
           </size>
          </property>
          <property name="text">
-          <string>Voltage-SP</string>
+          <string>Voltage-RB</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="7">
-        <widget class="PyDMLabel" name="PyDMLabel_90">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>37</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string>Intlk4Label-Cte</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:Intlk4Label-Cte</string>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="1" colspan="2">
-        <widget class="PyDMPushButton" name="PyDMPushButton_7">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:Reset-Cmd</string>
-         </property>
-         <property name="pressValue" stdset="0">
-          <string>1</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="0" colspan="2">
-        <spacer name="horizontalSpacer_34">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Maximum</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>15</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="6" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_73">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:Intlk4-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
          </property>
         </widget>
        </item>
@@ -5833,8 +6416,8 @@ Power Supply</string>
          </property>
         </spacer>
        </item>
-       <item row="8" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_74">
+       <item row="3" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_68">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -5857,7 +6440,7 @@ Power Supply</string>
           <string/>
          </property>
          <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:Intlk6-Mon.RVAL</string>
+          <string>ca://TS-01:PU-EjeSeptG:Intlk1-Mon.RVAL</string>
          </property>
          <property name="offColor" stdset="0">
           <color>
@@ -5873,51 +6456,34 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
-       <item row="7" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_75">
+       <item row="5" column="5">
+        <widget class="PyDMLabel" name="PyDMLabel_81">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
          <property name="toolTip">
           <string/>
          </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>Voltage-RB</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
          <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptG:Intlk5-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist/>
+          <string>ca://TS-01:PU-EjeSeptG:Voltage-RB</string>
          </property>
         </widget>
        </item>
@@ -5961,9 +6527,73 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
+       </item>
+       <item row="2" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_69">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:CtrlMode-Mon.RVAL</string>
+         </property>
+         <property name="offColor" stdset="0">
+          <color>
+           <red>239</red>
+           <green>41</green>
+           <blue>41</blue>
+          </color>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="labels" stdset="0">
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <spacer name="horizontalSpacer_33">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>30</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </item>
@@ -6269,6 +6899,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -6406,6 +7045,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -6537,6 +7185,15 @@ Power Supply</string>
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -6726,6 +7383,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -6857,6 +7523,15 @@ Power Supply</string>
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -7000,6 +7675,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </disabled>
           </palette>
          </property>
@@ -7063,7 +7747,9 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -7132,7 +7818,9 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -7341,6 +8029,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -7478,6 +8175,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -7609,6 +8315,15 @@ Power Supply</string>
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -7865,6 +8580,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -7996,6 +8720,15 @@ Power Supply</string>
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -8139,6 +8872,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </disabled>
           </palette>
          </property>
@@ -8202,7 +8944,9 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -8487,7 +9231,9 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -8525,7 +9271,9 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -8772,7 +9520,9 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -8832,7 +9582,9 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -8876,7 +9628,9 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -8920,470 +9674,15 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
       </layout>
      </item>
     </layout>
-   </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="label_343">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>40</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="palette">
-      <palette>
-       <active>
-        <colorrole role="WindowText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Button">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>136</red>
-           <green>138</green>
-           <blue>133</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Light">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>204</red>
-           <green>207</green>
-           <blue>200</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Midlight">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>170</red>
-           <green>172</green>
-           <blue>166</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Dark">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>68</red>
-           <green>69</green>
-           <blue>66</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Mid">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>91</red>
-           <green>92</green>
-           <blue>89</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Text">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="BrightText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>255</green>
-           <blue>255</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="ButtonText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Base">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>255</green>
-           <blue>255</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Window">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>136</red>
-           <green>138</green>
-           <blue>133</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Shadow">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="AlternateBase">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>195</red>
-           <green>196</green>
-           <blue>194</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="ToolTipBase">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>255</green>
-           <blue>220</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="ToolTipText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </active>
-       <inactive>
-        <colorrole role="WindowText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Button">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>136</red>
-           <green>138</green>
-           <blue>133</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Light">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>204</red>
-           <green>207</green>
-           <blue>200</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Midlight">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>170</red>
-           <green>172</green>
-           <blue>166</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Dark">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>68</red>
-           <green>69</green>
-           <blue>66</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Mid">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>91</red>
-           <green>92</green>
-           <blue>89</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Text">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="BrightText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>255</green>
-           <blue>255</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="ButtonText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Base">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>255</green>
-           <blue>255</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Window">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>136</red>
-           <green>138</green>
-           <blue>133</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Shadow">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="AlternateBase">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>195</red>
-           <green>196</green>
-           <blue>194</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="ToolTipBase">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>255</green>
-           <blue>220</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="ToolTipText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </inactive>
-       <disabled>
-        <colorrole role="WindowText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>68</red>
-           <green>69</green>
-           <blue>66</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Button">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>136</red>
-           <green>138</green>
-           <blue>133</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Light">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>204</red>
-           <green>207</green>
-           <blue>200</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Midlight">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>170</red>
-           <green>172</green>
-           <blue>166</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Dark">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>68</red>
-           <green>69</green>
-           <blue>66</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Mid">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>91</red>
-           <green>92</green>
-           <blue>89</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Text">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>68</red>
-           <green>69</green>
-           <blue>66</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="BrightText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>255</green>
-           <blue>255</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="ButtonText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>68</red>
-           <green>69</green>
-           <blue>66</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Base">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>136</red>
-           <green>138</green>
-           <blue>133</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Window">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>136</red>
-           <green>138</green>
-           <blue>133</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Shadow">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="AlternateBase">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>136</red>
-           <green>138</green>
-           <blue>133</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="ToolTipBase">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>255</green>
-           <blue>220</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="ToolTipText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </disabled>
-      </palette>
-     </property>
-     <property name="font">
-      <font>
-       <family>Cantarell</family>
-       <pointsize>20</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="autoFillBackground">
-      <bool>true</bool>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="text">
-      <string>BTS  (BO Ejection)</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
    </item>
   </layout>
  </widget>
@@ -9394,6 +9693,11 @@ Power Supply</string>
    <header>pydm.widgets.label</header>
   </customwidget>
   <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
+  </customwidget>
+  <customwidget>
    <class>PyDMCheckbox</class>
    <extends>QCheckBox</extends>
    <header>pydm.widgets.checkbox</header>
@@ -9402,11 +9706,6 @@ Power Supply</string>
    <class>PyDMLineEdit</class>
    <extends>QLineEdit</extends>
    <header>pydm.widgets.line_edit</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMByteIndicator</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
    <class>PyDMPushButton</class>

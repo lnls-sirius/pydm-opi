@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1071</width>
-    <height>533</height>
+    <height>531</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -58,7 +58,9 @@
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -242,6 +244,15 @@
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -379,6 +390,15 @@
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -510,6 +530,15 @@
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -759,6 +788,15 @@
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -896,6 +934,15 @@
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -1027,6 +1074,15 @@
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -1203,7 +1259,9 @@
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -1272,7 +1330,9 @@
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -1401,7 +1461,9 @@
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -1598,6 +1660,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -1729,6 +1800,15 @@ Power Supply</string>
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -1872,6 +1952,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </disabled>
           </palette>
          </property>
@@ -1935,7 +2024,9 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -2144,7 +2235,9 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -2213,7 +2306,9 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -2257,7 +2352,9 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -2301,7 +2398,9 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -2463,6 +2562,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -2600,6 +2708,15 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -2731,6 +2848,15 @@ Power Supply</string>
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -2974,7 +3100,9 @@ Power Supply</string>
           <bool>true</bool>
          </property>
          <property name="labels" stdset="0">
-          <stringlist/>
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
          </property>
         </widget>
        </item>
@@ -3091,7 +3219,9 @@ Power Supply</string>
             <bool>true</bool>
            </property>
            <property name="labels" stdset="0">
-            <stringlist/>
+            <stringlist>
+             <string>Bit 0</string>
+            </stringlist>
            </property>
           </widget>
          </item>
@@ -3275,6 +3405,15 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
+              <colorrole role="PlaceholderText">
+               <brush brushstyle="NoBrush">
+                <color alpha="128">
+                 <red>0</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
              </active>
              <inactive>
               <colorrole role="WindowText">
@@ -3412,6 +3551,15 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
+              <colorrole role="PlaceholderText">
+               <brush brushstyle="NoBrush">
+                <color alpha="128">
+                 <red>0</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
              </inactive>
              <disabled>
               <colorrole role="WindowText">
@@ -3543,6 +3691,15 @@ Power Supply</string>
               <colorrole role="ToolTipText">
                <brush brushstyle="SolidPattern">
                 <color alpha="255">
+                 <red>0</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="PlaceholderText">
+               <brush brushstyle="NoBrush">
+                <color alpha="128">
                  <red>0</red>
                  <green>0</green>
                  <blue>0</blue>
@@ -3792,6 +3949,15 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
+              <colorrole role="PlaceholderText">
+               <brush brushstyle="NoBrush">
+                <color alpha="128">
+                 <red>0</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
              </active>
              <inactive>
               <colorrole role="WindowText">
@@ -3929,6 +4095,15 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
+              <colorrole role="PlaceholderText">
+               <brush brushstyle="NoBrush">
+                <color alpha="128">
+                 <red>0</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
              </inactive>
              <disabled>
               <colorrole role="WindowText">
@@ -4060,6 +4235,15 @@ Power Supply</string>
               <colorrole role="ToolTipText">
                <brush brushstyle="SolidPattern">
                 <color alpha="255">
+                 <red>0</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="PlaceholderText">
+               <brush brushstyle="NoBrush">
+                <color alpha="128">
                  <red>0</red>
                  <green>0</green>
                  <blue>0</blue>
@@ -4236,7 +4420,9 @@ Power Supply</string>
             <bool>true</bool>
            </property>
            <property name="labels" stdset="0">
-            <stringlist/>
+            <stringlist>
+             <string>Bit 0</string>
+            </stringlist>
            </property>
           </widget>
          </item>
@@ -4305,7 +4491,9 @@ Power Supply</string>
             <bool>true</bool>
            </property>
            <property name="labels" stdset="0">
-            <stringlist/>
+            <stringlist>
+             <string>Bit 0</string>
+            </stringlist>
            </property>
           </widget>
          </item>
@@ -4434,7 +4622,9 @@ Power Supply</string>
             <bool>true</bool>
            </property>
            <property name="labels" stdset="0">
-            <stringlist/>
+            <stringlist>
+             <string>Bit 0</string>
+            </stringlist>
            </property>
           </widget>
          </item>
@@ -4631,6 +4821,15 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
+              <colorrole role="PlaceholderText">
+               <brush brushstyle="NoBrush">
+                <color alpha="128">
+                 <red>0</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
              </active>
              <inactive>
               <colorrole role="WindowText">
@@ -4762,6 +4961,15 @@ Power Supply</string>
               <colorrole role="ToolTipText">
                <brush brushstyle="SolidPattern">
                 <color alpha="255">
+                 <red>0</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="PlaceholderText">
+               <brush brushstyle="NoBrush">
+                <color alpha="128">
                  <red>0</red>
                  <green>0</green>
                  <blue>0</blue>
@@ -4905,6 +5113,15 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
+              <colorrole role="PlaceholderText">
+               <brush brushstyle="NoBrush">
+                <color alpha="128">
+                 <red>0</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
              </disabled>
             </palette>
            </property>
@@ -4968,7 +5185,9 @@ Power Supply</string>
             <bool>true</bool>
            </property>
            <property name="labels" stdset="0">
-            <stringlist/>
+            <stringlist>
+             <string>Bit 0</string>
+            </stringlist>
            </property>
           </widget>
          </item>
@@ -5177,7 +5396,9 @@ Power Supply</string>
             <bool>true</bool>
            </property>
            <property name="labels" stdset="0">
-            <stringlist/>
+            <stringlist>
+             <string>Bit 0</string>
+            </stringlist>
            </property>
           </widget>
          </item>
@@ -5246,7 +5467,9 @@ Power Supply</string>
             <bool>true</bool>
            </property>
            <property name="labels" stdset="0">
-            <stringlist/>
+            <stringlist>
+             <string>Bit 0</string>
+            </stringlist>
            </property>
           </widget>
          </item>
@@ -5290,7 +5513,9 @@ Power Supply</string>
             <bool>true</bool>
            </property>
            <property name="labels" stdset="0">
-            <stringlist/>
+            <stringlist>
+             <string>Bit 0</string>
+            </stringlist>
            </property>
           </widget>
          </item>
@@ -5334,7 +5559,9 @@ Power Supply</string>
             <bool>true</bool>
            </property>
            <property name="labels" stdset="0">
-            <stringlist/>
+            <stringlist>
+             <string>Bit 0</string>
+            </stringlist>
            </property>
           </widget>
          </item>
@@ -5496,6 +5723,15 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
+              <colorrole role="PlaceholderText">
+               <brush brushstyle="NoBrush">
+                <color alpha="128">
+                 <red>0</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
              </active>
              <inactive>
               <colorrole role="WindowText">
@@ -5633,6 +5869,15 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
+              <colorrole role="PlaceholderText">
+               <brush brushstyle="NoBrush">
+                <color alpha="128">
+                 <red>0</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
              </inactive>
              <disabled>
               <colorrole role="WindowText">
@@ -5764,6 +6009,15 @@ Power Supply</string>
               <colorrole role="ToolTipText">
                <brush brushstyle="SolidPattern">
                 <color alpha="255">
+                 <red>0</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="PlaceholderText">
+               <brush brushstyle="NoBrush">
+                <color alpha="128">
                  <red>0</red>
                  <green>0</green>
                  <blue>0</blue>
@@ -6131,6 +6385,15 @@ Power Supply</string>
           </color>
          </brush>
         </colorrole>
+        <colorrole role="PlaceholderText">
+         <brush brushstyle="NoBrush">
+          <color alpha="128">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
        </active>
        <inactive>
         <colorrole role="WindowText">
@@ -6262,6 +6525,15 @@ Power Supply</string>
         <colorrole role="ToolTipText">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="PlaceholderText">
+         <brush brushstyle="NoBrush">
+          <color alpha="128">
            <red>0</red>
            <green>0</green>
            <blue>0</blue>
@@ -6405,6 +6677,15 @@ Power Supply</string>
           </color>
          </brush>
         </colorrole>
+        <colorrole role="PlaceholderText">
+         <brush brushstyle="NoBrush">
+          <color alpha="128">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
        </disabled>
       </palette>
      </property>
@@ -6439,6 +6720,11 @@ Power Supply</string>
    <header>pydm.widgets.label</header>
   </customwidget>
   <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
+  </customwidget>
+  <customwidget>
    <class>PyDMCheckbox</class>
    <extends>QCheckBox</extends>
    <header>pydm.widgets.checkbox</header>
@@ -6447,11 +6733,6 @@ Power Supply</string>
    <class>PyDMLineEdit</class>
    <extends>QLineEdit</extends>
    <header>pydm.widgets.line_edit</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMByteIndicator</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
    <class>PyDMPushButton</class>
