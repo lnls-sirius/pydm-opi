@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1660</width>
-    <height>621</height>
+    <height>626</height>
    </rect>
   </property>
   <property name="contextMenuPolicy">
@@ -20,7 +20,7 @@
    <item row="0" column="1">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>5</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="Main">
       <attribute name="title">
@@ -46,7 +46,7 @@
           </spacer>
          </item>
          <item row="5" column="7">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_29">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_29" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -81,7 +81,7 @@
           </widget>
          </item>
          <item row="3" column="12">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_23">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_23" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -277,7 +277,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -414,7 +414,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -551,7 +551,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -588,7 +588,7 @@
           </widget>
          </item>
          <item row="4" column="17">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_18">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_18" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -860,7 +860,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -997,7 +997,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -1134,7 +1134,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -1160,7 +1160,7 @@
           </widget>
          </item>
          <item row="5" column="12">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_19">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_19" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -1346,7 +1346,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -1483,7 +1483,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -1620,7 +1620,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -1656,7 +1656,7 @@
           </widget>
          </item>
          <item row="5" column="17">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_16">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_16" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -1723,7 +1723,7 @@
           </widget>
          </item>
          <item row="3" column="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_14">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_14" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -1948,7 +1948,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -2085,7 +2085,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -2222,7 +2222,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -2259,7 +2259,7 @@
           </widget>
          </item>
          <item row="6" column="17">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_17">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_17" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -2356,7 +2356,7 @@
           </widget>
          </item>
          <item row="4" column="12">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_30">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_30" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -2487,7 +2487,7 @@
           </spacer>
          </item>
          <item row="3" column="7">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_22">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_22" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -2522,7 +2522,7 @@
           </widget>
          </item>
          <item row="3" column="17">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_15">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_15" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -2570,7 +2570,7 @@
           </widget>
          </item>
          <item row="4" column="7">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_27">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_27" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -2853,7 +2853,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -2990,7 +2990,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -3127,7 +3127,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -3163,7 +3163,7 @@
           </widget>
          </item>
          <item row="4" column="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_13">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_13" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -3289,7 +3289,7 @@
        <item row="1" column="4">
         <layout class="QGridLayout" name="BO_Inj_Kckr">
          <item row="3" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_77">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_77" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -3514,7 +3514,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -3651,7 +3651,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -3788,7 +3788,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -4031,7 +4031,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -4168,7 +4168,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -4305,7 +4305,7 @@
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -4442,7 +4442,7 @@
           </widget>
          </item>
          <item row="8" column="1" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_78">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_78" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -4507,7 +4507,7 @@
           </widget>
          </item>
          <item row="5" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_79">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_79" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -4638,7 +4638,7 @@
           </widget>
          </item>
          <item row="7" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_80">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_80" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -4876,7 +4876,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -5013,7 +5013,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -5150,7 +5150,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -5174,7 +5174,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="9" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_81">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_81" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -5385,7 +5385,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="2" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_82">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_82" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -5456,7 +5456,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="8" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_83">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_83" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -5502,7 +5502,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="6" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_84">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_84" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -5548,7 +5548,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="4" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_85">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_85" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -5751,7 +5751,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -5888,7 +5888,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -6025,7 +6025,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -6223,7 +6223,7 @@ Power Supply</string>
           </spacer>
          </item>
          <item row="10" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_86">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_86" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -6306,7 +6306,7 @@ Power Supply</string>
          <item row="0" column="0">
           <layout class="QGridLayout" name="gridLayout_13">
            <item row="3" column="6">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_20">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_20" native="true">
              <property name="sizePolicy">
               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -6531,7 +6531,7 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                               </active>
+               </active>
                <inactive>
                 <colorrole role="WindowText">
                  <brush brushstyle="SolidPattern">
@@ -6668,7 +6668,7 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                               </inactive>
+               </inactive>
                <disabled>
                 <colorrole role="WindowText">
                  <brush brushstyle="SolidPattern">
@@ -6805,7 +6805,7 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                               </disabled>
+               </disabled>
               </palette>
              </property>
              <property name="font">
@@ -7048,7 +7048,7 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                               </active>
+               </active>
                <inactive>
                 <colorrole role="WindowText">
                  <brush brushstyle="SolidPattern">
@@ -7185,7 +7185,7 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                               </inactive>
+               </inactive>
                <disabled>
                 <colorrole role="WindowText">
                  <brush brushstyle="SolidPattern">
@@ -7322,7 +7322,7 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                               </disabled>
+               </disabled>
               </palette>
              </property>
              <property name="font">
@@ -7459,7 +7459,7 @@ Power Supply</string>
             </widget>
            </item>
            <item row="8" column="1" colspan="2">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_11">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_11" native="true">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -7524,7 +7524,7 @@ Power Supply</string>
             </widget>
            </item>
            <item row="5" column="6">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_21">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_21" native="true">
              <property name="sizePolicy">
               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -7655,7 +7655,7 @@ Power Supply</string>
             </widget>
            </item>
            <item row="7" column="6">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_24">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_24" native="true">
              <property name="sizePolicy">
               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -7893,7 +7893,7 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                               </active>
+               </active>
                <inactive>
                 <colorrole role="WindowText">
                  <brush brushstyle="SolidPattern">
@@ -8030,7 +8030,7 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                               </inactive>
+               </inactive>
                <disabled>
                 <colorrole role="WindowText">
                  <brush brushstyle="SolidPattern">
@@ -8167,7 +8167,7 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                               </disabled>
+               </disabled>
               </palette>
              </property>
              <property name="font">
@@ -8191,7 +8191,7 @@ Power Supply</string>
             </widget>
            </item>
            <item row="9" column="6">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_25">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_25" native="true">
              <property name="sizePolicy">
               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -8402,7 +8402,7 @@ Power Supply</string>
             </widget>
            </item>
            <item row="2" column="6">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_26">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_26" native="true">
              <property name="sizePolicy">
               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -8473,7 +8473,7 @@ Power Supply</string>
             </widget>
            </item>
            <item row="8" column="6">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_28">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_28" native="true">
              <property name="sizePolicy">
               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -8519,7 +8519,7 @@ Power Supply</string>
             </widget>
            </item>
            <item row="6" column="6">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_12">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_12" native="true">
              <property name="sizePolicy">
               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -8565,7 +8565,7 @@ Power Supply</string>
             </widget>
            </item>
            <item row="4" column="6">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_31">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_31" native="true">
              <property name="sizePolicy">
               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -8768,7 +8768,7 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                               </active>
+               </active>
                <inactive>
                 <colorrole role="WindowText">
                  <brush brushstyle="SolidPattern">
@@ -8905,7 +8905,7 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                               </inactive>
+               </inactive>
                <disabled>
                 <colorrole role="WindowText">
                  <brush brushstyle="SolidPattern">
@@ -9042,7 +9042,7 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                               </disabled>
+               </disabled>
               </palette>
              </property>
              <property name="font">
@@ -9440,7 +9440,7 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </active>
+           </active>
            <inactive>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -9577,7 +9577,7 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </inactive>
+           </inactive>
            <disabled>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -9714,7 +9714,7 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </disabled>
+           </disabled>
           </palette>
          </property>
          <property name="font">
@@ -10025,7 +10025,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -10162,7 +10162,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -10299,7 +10299,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -10482,7 +10482,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -10619,7 +10619,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -10756,7 +10756,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -10780,7 +10780,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="3" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_68">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_68" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -10851,7 +10851,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="2" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_69">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_69" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -11101,7 +11101,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -11238,7 +11238,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -11375,7 +11375,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -11625,7 +11625,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -11762,7 +11762,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -11899,7 +11899,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -11923,7 +11923,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="9" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_70">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_70" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -12210,7 +12210,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="4" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_71">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_71" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -12256,7 +12256,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="8" column="1" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_72">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_72" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -12499,7 +12499,7 @@ Power Supply</string>
           </spacer>
          </item>
          <item row="6" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_73">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_73" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -12561,7 +12561,7 @@ Power Supply</string>
           </spacer>
          </item>
          <item row="8" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_74">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_74" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -12607,7 +12607,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="7" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_75">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_75" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -12653,7 +12653,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="5" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_76">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_76" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -12719,7 +12719,7 @@ Power Supply</string>
        <item row="1" column="0">
         <layout class="QGridLayout" name="BO_Eje_Kckr">
          <item row="3" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_32">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_32" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -12944,7 +12944,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -13081,7 +13081,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -13218,7 +13218,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -13461,7 +13461,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -13598,7 +13598,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -13735,7 +13735,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -13872,7 +13872,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="8" column="1" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_33">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_33" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -13937,7 +13937,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="5" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_34">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_34" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -14068,7 +14068,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="7" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_35">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_35" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -14306,7 +14306,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -14443,7 +14443,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -14580,7 +14580,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -14604,7 +14604,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="9" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_36">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_36" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -14815,7 +14815,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="2" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_37">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_37" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -14886,7 +14886,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="8" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_38">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_38" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -14932,7 +14932,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="6" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_39">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_39" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -14978,7 +14978,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="4" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_40">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_40" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -15181,7 +15181,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -15318,7 +15318,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -15455,7 +15455,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -15653,7 +15653,7 @@ Power Supply</string>
           </spacer>
          </item>
          <item row="10" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_87">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_87" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -16017,7 +16017,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -16154,7 +16154,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -16291,7 +16291,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -16474,7 +16474,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -16611,7 +16611,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -16748,7 +16748,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -16772,7 +16772,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="3" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_50">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_50" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -16843,7 +16843,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="2" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_55">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_55" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -17093,7 +17093,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -17230,7 +17230,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -17367,7 +17367,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -17617,7 +17617,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -17754,7 +17754,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -17891,7 +17891,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -17915,7 +17915,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="9" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_54">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_54" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -18202,7 +18202,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="4" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_58">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_58" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -18248,7 +18248,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="8" column="1" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_51">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_51" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -18491,7 +18491,7 @@ Power Supply</string>
           </spacer>
          </item>
          <item row="6" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_57">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_57" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -18553,7 +18553,7 @@ Power Supply</string>
           </spacer>
          </item>
          <item row="8" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_56">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_56" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -18599,7 +18599,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="7" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_53">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_53" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -18645,7 +18645,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="5" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_52">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_52" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -18850,7 +18850,7 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </active>
+           </active>
            <inactive>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -18987,7 +18987,7 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </inactive>
+           </inactive>
            <disabled>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -19124,7 +19124,7 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </disabled>
+           </disabled>
           </palette>
          </property>
          <property name="font">
@@ -19182,7 +19182,7 @@ Power Supply</string>
        <item row="1" column="0">
         <layout class="QGridLayout" name="TS_Inj_Sept_G1">
          <item row="3" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_107">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_107" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -19407,7 +19407,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -19544,7 +19544,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -19681,7 +19681,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -19924,7 +19924,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -20061,7 +20061,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -20198,7 +20198,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -20335,7 +20335,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="8" column="1" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_108">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_108" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -20400,7 +20400,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="5" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_109">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_109" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -20531,7 +20531,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="7" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_110">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_110" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -20769,7 +20769,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -20906,7 +20906,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -21043,7 +21043,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -21067,7 +21067,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="9" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_111">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_111" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -21278,7 +21278,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="2" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_112">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_112" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -21349,7 +21349,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="8" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_113">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_113" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -21395,7 +21395,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="6" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_114">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_114" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -21441,7 +21441,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="4" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_115">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_115" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -21644,7 +21644,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -21781,7 +21781,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -21918,7 +21918,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -22143,7 +22143,7 @@ Power Supply</string>
        <item row="1" column="8">
         <layout class="QGridLayout" name="TS_Inj_Sept_F">
          <item row="3" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_157">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_157" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -22368,7 +22368,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -22505,7 +22505,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -22642,7 +22642,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -22885,7 +22885,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -23022,7 +23022,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -23159,7 +23159,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -23296,7 +23296,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="8" column="1" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_158">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_158" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -23361,7 +23361,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="5" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_159">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_159" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -23492,7 +23492,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="7" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_160">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_160" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -23730,7 +23730,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -23867,7 +23867,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -24004,7 +24004,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -24028,7 +24028,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="9" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_161">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_161" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -24239,7 +24239,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="2" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_162">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_162" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -24310,7 +24310,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="8" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_163">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_163" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -24356,7 +24356,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="6" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_164">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_164" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -24402,7 +24402,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="4" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_165">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_165" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -24605,7 +24605,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -24742,7 +24742,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -24879,7 +24879,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -25275,7 +25275,7 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </active>
+           </active>
            <inactive>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -25412,7 +25412,7 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </inactive>
+           </inactive>
            <disabled>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -25549,7 +25549,7 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </disabled>
+           </disabled>
           </palette>
          </property>
          <property name="font">
@@ -25593,7 +25593,7 @@ Power Supply</string>
        <item row="1" column="4">
         <layout class="QGridLayout" name="TS_Inj_Sept_G2">
          <item row="3" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_148">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_148" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -25818,7 +25818,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -25955,7 +25955,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -26092,7 +26092,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -26335,7 +26335,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -26472,7 +26472,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -26609,7 +26609,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -26746,7 +26746,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="8" column="1" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_149">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_149" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -26811,7 +26811,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="5" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_150">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_150" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -26942,7 +26942,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="7" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_151">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_151" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -27180,7 +27180,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -27317,7 +27317,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -27454,7 +27454,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -27478,7 +27478,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="9" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_152">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_152" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -27689,7 +27689,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="2" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_153">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_153" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -27760,7 +27760,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="8" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_154">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_154" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -27806,7 +27806,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="6" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_155">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_155" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -27852,7 +27852,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="4" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_156">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_156" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -28055,7 +28055,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -28192,7 +28192,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -28329,7 +28329,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -28709,7 +28709,7 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </active>
+           </active>
            <inactive>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -28846,7 +28846,7 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </inactive>
+           </inactive>
            <disabled>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -28983,7 +28983,7 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </disabled>
+           </disabled>
           </palette>
          </property>
          <property name="font">
@@ -29121,7 +29121,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="5" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_43">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_43" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -29167,7 +29167,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="3" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_41">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_41" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -29229,7 +29229,7 @@ Power Supply</string>
           </spacer>
          </item>
          <item row="7" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_44">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_44" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -29520,7 +29520,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -29657,7 +29657,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -29794,7 +29794,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -29818,7 +29818,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="9" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_45">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_45" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -30087,7 +30087,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -30224,7 +30224,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -30361,7 +30361,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -30401,7 +30401,7 @@ Power Supply</string>
           </spacer>
          </item>
          <item row="8" column="1" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_42">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_42" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -30726,7 +30726,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -30863,7 +30863,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -31000,7 +31000,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -31107,7 +31107,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="2" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_46">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_46" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -31178,7 +31178,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="8" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_47">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_47" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -31224,7 +31224,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="6" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_48">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_48" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -31270,7 +31270,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="4" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_49">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_49" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -31473,7 +31473,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -31610,7 +31610,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -31747,7 +31747,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -31976,7 +31976,7 @@ Power Supply</string>
           </spacer>
          </item>
          <item row="10" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_106">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_106" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -32317,7 +32317,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -32454,7 +32454,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -32591,7 +32591,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -32972,7 +32972,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -33109,7 +33109,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -33246,7 +33246,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -33462,7 +33462,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="3" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_123">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_123" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -33672,7 +33672,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -33809,7 +33809,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -33946,7 +33946,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -34109,7 +34109,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="2" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_122">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_122" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -34233,7 +34233,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="9" column="1" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_121">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_121" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -34430,7 +34430,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -34567,7 +34567,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -34704,7 +34704,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -34931,7 +34931,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -35068,7 +35068,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -35205,7 +35205,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -35229,7 +35229,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="4" column="8" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_124">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_124" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -35275,7 +35275,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="3" column="8" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_120">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_120" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -35321,7 +35321,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="5" column="8" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_125">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_125" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -35367,7 +35367,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="6" column="8" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_136">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_136" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -35413,7 +35413,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="7" column="8" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_137">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_137" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -35459,7 +35459,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="8" column="8" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_138">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_138" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -35505,7 +35505,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="9" column="8" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_139">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_139" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -35551,7 +35551,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="10" column="8" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_140">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_140" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -35597,7 +35597,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="11" column="8" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_141">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_141" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -35760,7 +35760,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="8" column="1" colspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_127">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_127" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -36115,7 +36115,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -36252,7 +36252,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -36389,7 +36389,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -36413,7 +36413,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="9" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_130">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_130" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -36638,7 +36638,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -36775,7 +36775,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -36912,7 +36912,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -36954,7 +36954,7 @@ Power Supply</string>
           </spacer>
          </item>
          <item row="3" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_126">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_126" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -37031,7 +37031,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="5" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_128">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_128" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -37096,7 +37096,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="7" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_129">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_129" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -37321,7 +37321,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -37458,7 +37458,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -37595,7 +37595,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -37825,7 +37825,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="2" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_131">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_131" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -37896,7 +37896,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="8" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_132">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_132" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -37942,7 +37942,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="6" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_133">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_133" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -37988,7 +37988,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="4" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_134">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_134" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -38191,7 +38191,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -38328,7 +38328,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -38465,7 +38465,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -38694,7 +38694,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="10" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_135">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_135" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -38970,7 +38970,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -39107,7 +39107,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -39244,7 +39244,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -39282,7 +39282,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="3" column="1">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_102">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_102" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -39365,7 +39365,7 @@ Power Supply</string>
           </spacer>
          </item>
          <item row="5" column="1">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_104">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_104" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -39464,7 +39464,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="5" column="11">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_65">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_65" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -39554,7 +39554,7 @@ Power Supply</string>
           </spacer>
          </item>
          <item row="4" column="1">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_103">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_103" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -39589,7 +39589,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="4" column="11">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_64">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_64" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -39640,7 +39640,7 @@ Power Supply</string>
           </spacer>
          </item>
          <item row="4" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_67">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_67" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -39689,7 +39689,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="5" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_100">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_100" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -39881,7 +39881,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -40018,7 +40018,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -40155,7 +40155,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -40241,7 +40241,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="3" column="11">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_63">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_63" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -40449,7 +40449,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -40586,7 +40586,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -40723,7 +40723,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -40902,7 +40902,7 @@ Power Supply</string>
           </spacer>
          </item>
          <item row="3" column="6">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_66">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_66" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -40937,7 +40937,7 @@ Power Supply</string>
           </widget>
          </item>
          <item row="3" column="16">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_142">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_142" native="true">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -41129,7 +41129,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -41266,7 +41266,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -41403,7 +41403,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -41590,7 +41590,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -41727,7 +41727,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -41864,7 +41864,7 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+             </disabled>
             </palette>
            </property>
            <property name="font">
