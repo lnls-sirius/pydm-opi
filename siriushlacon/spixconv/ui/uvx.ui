@@ -442,16 +442,7 @@
             </color>
            </brush>
           </colorrole>
-          <colorrole role="PlaceholderText">
-           <brush brushstyle="NoBrush">
-            <color alpha="128">
-             <red>0</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </active>
+                   </active>
          <inactive>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -588,16 +579,7 @@
             </color>
            </brush>
           </colorrole>
-          <colorrole role="PlaceholderText">
-           <brush brushstyle="NoBrush">
-            <color alpha="128">
-             <red>0</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </inactive>
+                   </inactive>
          <disabled>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -734,16 +716,7 @@
             </color>
            </brush>
           </colorrole>
-          <colorrole role="PlaceholderText">
-           <brush brushstyle="NoBrush">
-            <color alpha="128">
-             <red>0</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </disabled>
+                   </disabled>
         </palette>
        </property>
        <property name="font">
@@ -1182,16 +1155,7 @@
             </color>
            </brush>
           </colorrole>
-          <colorrole role="PlaceholderText">
-           <brush brushstyle="NoBrush">
-            <color alpha="128">
-             <red>0</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </active>
+                   </active>
          <inactive>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -1328,16 +1292,7 @@
             </color>
            </brush>
           </colorrole>
-          <colorrole role="PlaceholderText">
-           <brush brushstyle="NoBrush">
-            <color alpha="128">
-             <red>0</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </inactive>
+                   </inactive>
          <disabled>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -1474,16 +1429,7 @@
             </color>
            </brush>
           </colorrole>
-          <colorrole role="PlaceholderText">
-           <brush brushstyle="NoBrush">
-            <color alpha="128">
-             <red>0</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </disabled>
+                   </disabled>
         </palette>
        </property>
        <property name="font">
@@ -1686,16 +1632,7 @@
             </color>
            </brush>
           </colorrole>
-          <colorrole role="PlaceholderText">
-           <brush brushstyle="NoBrush">
-            <color alpha="128">
-             <red>0</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </active>
+                   </active>
          <inactive>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -1832,16 +1769,7 @@
             </color>
            </brush>
           </colorrole>
-          <colorrole role="PlaceholderText">
-           <brush brushstyle="NoBrush">
-            <color alpha="128">
-             <red>0</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </inactive>
+                   </inactive>
          <disabled>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -1978,16 +1906,7 @@
             </color>
            </brush>
           </colorrole>
-          <colorrole role="PlaceholderText">
-           <brush brushstyle="NoBrush">
-            <color alpha="128">
-             <red>0</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </disabled>
+                   </disabled>
         </palette>
        </property>
        <property name="font">
@@ -2097,7 +2016,7 @@
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://UVX:Valve:CtrlMode-Mon.DESC</string>
+        <string>ca://UVX:Valve:CtrlModeLabel-Cte</string>
        </property>
       </widget>
      </item>
@@ -2394,16 +2313,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
-          <colorrole role="PlaceholderText">
-           <brush brushstyle="NoBrush">
-            <color alpha="128">
-             <red>0</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </active>
+                   </active>
          <inactive>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -2540,16 +2450,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
-          <colorrole role="PlaceholderText">
-           <brush brushstyle="NoBrush">
-            <color alpha="128">
-             <red>0</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </inactive>
+                   </inactive>
          <disabled>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -2686,16 +2587,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
-          <colorrole role="PlaceholderText">
-           <brush brushstyle="NoBrush">
-            <color alpha="128">
-             <red>0</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </disabled>
+                   </disabled>
         </palette>
        </property>
        <property name="font">
@@ -2746,6 +2638,13 @@ Power Supply</string>
        <property name="channel" stdset="0">
         <string>ca://UVX:Valve:CtrlMode-Mon.RVAL</string>
        </property>
+       <property name="offColor" stdset="0">
+        <color>
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </property>
        <property name="showLabels" stdset="0">
         <bool>false</bool>
        </property>
@@ -2779,6 +2678,13 @@ Power Supply</string>
        </property>
        <property name="channel" stdset="0">
         <string>ca://UVX:Valve:Intlk1-Mon.RVAL</string>
+       </property>
+       <property name="offColor" stdset="0">
+        <color>
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
        </property>
        <property name="showLabels" stdset="0">
         <bool>false</bool>
@@ -2814,6 +2720,13 @@ Power Supply</string>
        <property name="channel" stdset="0">
         <string>ca://UVX:Valve:Intlk2-Mon.RVAL</string>
        </property>
+       <property name="offColor" stdset="0">
+        <color>
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </property>
        <property name="showLabels" stdset="0">
         <bool>false</bool>
        </property>
@@ -2847,6 +2760,13 @@ Power Supply</string>
        </property>
        <property name="channel" stdset="0">
         <string>ca://UVX:Valve:Intlk3-Mon.RVAL</string>
+       </property>
+       <property name="offColor" stdset="0">
+        <color>
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
        </property>
        <property name="showLabels" stdset="0">
         <bool>false</bool>
@@ -2882,6 +2802,13 @@ Power Supply</string>
        <property name="channel" stdset="0">
         <string>ca://UVX:Valve:Intlk4-Mon.RVAL</string>
        </property>
+       <property name="offColor" stdset="0">
+        <color>
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </property>
        <property name="showLabels" stdset="0">
         <bool>false</bool>
        </property>
@@ -2915,6 +2842,13 @@ Power Supply</string>
        </property>
        <property name="channel" stdset="0">
         <string>ca://UVX:Valve:Intlk5-Mon.RVAL</string>
+       </property>
+       <property name="offColor" stdset="0">
+        <color>
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
        </property>
        <property name="showLabels" stdset="0">
         <bool>false</bool>
@@ -2950,6 +2884,13 @@ Power Supply</string>
        <property name="channel" stdset="0">
         <string>ca://UVX:Valve:PwrState-Sts</string>
        </property>
+       <property name="offColor" stdset="0">
+        <color>
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </property>
        <property name="showLabels" stdset="0">
         <bool>false</bool>
        </property>
@@ -2983,6 +2924,13 @@ Power Supply</string>
        </property>
        <property name="channel" stdset="0">
         <string>ca://UVX:Valve:Intlk6-Mon.RVAL</string>
+       </property>
+       <property name="offColor" stdset="0">
+        <color>
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
        </property>
        <property name="showLabels" stdset="0">
         <bool>false</bool>
