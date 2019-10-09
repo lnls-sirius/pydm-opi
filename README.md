@@ -2,13 +2,17 @@
 This repo should contain every PyDM OPI developed by the CONS group currently in use.
 
 ## Requirements
-The lattest version of PyDM, Python3 and `Qt5WebKit`. Other dependencies are listed at `requerements.txt`.
+The lattest version of PyDM and Python>=3.6. Other dependencies are listed at `requerements.txt`.
 
 ## Install
 Clone from master or download the lattest release. Install using pip.
 ```
 cd pydm-opi
 pip3 install .
+```
+In order to install the `.desktop` launcher:
+```
+make install
 ```
 
 ## Run

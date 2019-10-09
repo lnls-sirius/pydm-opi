@@ -4,8 +4,10 @@ from os import path
 from pydm.tools import ExternalTool
 from pydm.utilities.iconfont import IconFont
 
-from siriushlacon.tools.consts import BROWSER_MAIN, VIEWER_URL,\
-    MGMT_URL, BBB_URL
+from qtpy.QtGui import QDesktopServices
+from qtpy.QtCore import QUrl
+
+from siriushlacon.tools.consts import VIEWER_URL, MGMT_URL, BBB_URL
 
 
 def get_abs_path(relative):
@@ -26,9 +28,7 @@ class ArchiverApplianceTool(ExternalTool):
                               use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
-        sender.window().new_window(
-            get_abs_path(BROWSER_MAIN),
-            macros={'url': MGMT_URL})
+        QDesktopServices.openUrl(QUrl(MGMT_URL))
 
     def to_json(self):
         return ""
@@ -53,9 +53,7 @@ class ArchiverViwerTool(ExternalTool):
                               use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
-        sender.window().new_window(
-            get_abs_path(BROWSER_MAIN),
-            macros={'url': VIEWER_URL})
+        QDesktopServices.openUrl(QUrl(VIEWER_URL))
 
     def to_json(self):
         return ""
@@ -80,9 +78,7 @@ class BeagleboneTool(ExternalTool):
                               use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
-        sender.window().new_window(
-            get_abs_path(BROWSER_MAIN),
-            macros={'url': BBB_URL})
+        QDesktopServices.openUrl(QUrl(BBB_URL))
 
     def to_json(self):
         return ""
