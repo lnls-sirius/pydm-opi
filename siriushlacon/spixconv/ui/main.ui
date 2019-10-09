@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1650</width>
-    <height>614</height>
+    <width>1660</width>
+    <height>621</height>
    </rect>
   </property>
   <property name="contextMenuPolicy">
@@ -20,7 +20,7 @@
    <item row="0" column="1">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>4</number>
+      <number>5</number>
      </property>
      <widget class="QWidget" name="Main">
       <attribute name="title">
@@ -6527,6 +6527,9 @@ Power Supply</string>
            </property>
            <property name="toolTip">
             <string/>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
            </property>
            <property name="text">
             <string>Intlk8Label-Cte</string>
@@ -16305,6 +16308,9 @@ Power Supply</string>
            </property>
            <property name="toolTip">
             <string/>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
            </property>
            <property name="text">
             <string>Intlk8Label-Cte</string>
@@ -33123,6 +33129,9 @@ Power Supply</string>
            <property name="toolTip">
             <string/>
            </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
            <property name="text">
             <string>Intlk8Label-Cte</string>
            </property>
@@ -33992,6 +34001,9 @@ Power Supply</string>
            <property name="toolTip">
             <string/>
            </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
            <property name="text">
             <string>Intlk8Label-Cte</string>
            </property>
@@ -34602,6 +34614,12 @@ Power Supply</string>
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>0</height>
+            </size>
            </property>
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
@@ -36976,6 +36994,18 @@ Power Supply</string>
          </item>
          <item row="2" column="7">
           <widget class="QLabel" name="label">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>37</height>
+            </size>
+           </property>
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
            </property>
@@ -36992,6 +37022,12 @@ Power Supply</string>
          </item>
          <item row="3" column="7">
           <widget class="QLabel" name="label_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
            </property>
@@ -40100,6 +40136,9 @@ Power Supply</string>
            </property>
            <property name="toolTip">
             <string/>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
            </property>
            <property name="text">
             <string>Intlk8Label-Cte</string>

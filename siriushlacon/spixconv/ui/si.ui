@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1630</width>
-    <height>567</height>
+    <width>1640</width>
+    <height>574</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -233,7 +233,7 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>500</width>
+           <width>50</width>
            <height>16777215</height>
           </size>
          </property>
@@ -265,6 +265,18 @@
        </item>
        <item row="2" column="7">
         <widget class="QLabel" name="label">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>37</height>
+          </size>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -295,7 +307,7 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>500</width>
+           <width>50</width>
            <height>16777215</height>
           </size>
          </property>
@@ -419,7 +431,7 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>500</width>
+           <width>50</width>
            <height>16777215</height>
           </size>
          </property>
@@ -465,7 +477,7 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>500</width>
+           <width>50</width>
            <height>16777215</height>
           </size>
          </property>
@@ -1058,7 +1070,7 @@
        <item row="2" column="0" rowspan="2" colspan="5">
         <widget class="QLabel" name="label_48">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -1106,7 +1118,7 @@ Power Supply</string>
          </property>
          <property name="maximumSize">
           <size>
-           <width>500</width>
+           <width>50</width>
            <height>16777215</height>
           </size>
          </property>
@@ -1152,7 +1164,7 @@ Power Supply</string>
          </property>
          <property name="maximumSize">
           <size>
-           <width>500</width>
+           <width>50</width>
            <height>16777215</height>
           </size>
          </property>
@@ -1774,6 +1786,9 @@ Power Supply</string>
          <property name="toolTip">
           <string/>
          </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
          <property name="text">
           <string>Intlk8Label-Cte</string>
          </property>
@@ -2315,7 +2330,7 @@ Power Supply</string>
          </property>
          <property name="maximumSize">
           <size>
-           <width>500</width>
+           <width>50</width>
            <height>16777215</height>
           </size>
          </property>
@@ -2411,7 +2426,7 @@ Power Supply</string>
          </property>
          <property name="maximumSize">
           <size>
-           <width>500</width>
+           <width>50</width>
            <height>16777215</height>
           </size>
          </property>
@@ -2452,7 +2467,7 @@ Power Supply</string>
          <property name="minimumSize">
           <size>
            <width>200</width>
-           <height>30</height>
+           <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -2958,7 +2973,7 @@ Power Supply</string>
          </property>
          <property name="maximumSize">
           <size>
-           <width>500</width>
+           <width>50</width>
            <height>16777215</height>
           </size>
          </property>
@@ -3615,7 +3630,7 @@ Power Supply</string>
        <item row="2" column="6">
         <widget class="PyDMByteIndicator" name="PyDMByteIndicator_122">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -3661,10 +3676,16 @@ Power Supply</string>
        <item row="2" column="5" rowspan="2">
         <widget class="QLabel" name="label_56">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -3779,6 +3800,12 @@ Power Supply</string>
        </item>
        <item row="3" column="7">
         <widget class="QLabel" name="label_2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>37</height>
+          </size>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -6848,6 +6875,9 @@ Power Supply</string>
          <property name="toolTip">
           <string/>
          </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
          <property name="text">
           <string>Intlk8Label-Cte</string>
          </property>
@@ -8013,6 +8043,9 @@ Power Supply</string>
          </property>
          <property name="toolTip">
           <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
          </property>
          <property name="text">
           <string>Intlk8Label-Cte</string>
