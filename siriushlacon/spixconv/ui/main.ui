@@ -20,7 +20,7 @@
    <item row="0" column="1">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="Main">
       <attribute name="title">
@@ -13794,7 +13794,7 @@ Power Supply</string>
             <set>Qt::AlignCenter</set>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://$BO-48D:PU-EjeKckr:PulseLabel-Cte</string>
+            <string>ca://BO-48D:PU-EjeKckr:PulseLabel-Cte</string>
            </property>
           </widget>
          </item>
