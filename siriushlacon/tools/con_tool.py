@@ -4,7 +4,8 @@ from os import path
 from pydm.tools import ExternalTool
 from pydm.utilities.iconfont import IconFont
 
-from siriushlacon.tools.consts import BROWSER_MAIN
+from siriushlacon.tools.consts import BROWSER_MAIN, VIEWER_URL,\
+    MGMT_URL, BBB_URL
 
 
 def get_abs_path(relative):
@@ -27,7 +28,7 @@ class ArchiverApplianceTool(ExternalTool):
     def call(self, channels, sender):
         sender.window().new_window(
             get_abs_path(BROWSER_MAIN),
-            macros={'url': 'https://10.0.38.42/mgmt'})
+            macros={'url': MGMT_URL})
 
     def to_json(self):
         return ""
@@ -52,10 +53,9 @@ class ArchiverViwerTool(ExternalTool):
                               use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
-        url = 'https://10.0.38.42/archiver-viewer/index.html'
         sender.window().new_window(
             get_abs_path(BROWSER_MAIN),
-            macros={'url': url})
+            macros={'url': VIEWER_URL})
 
     def to_json(self):
         return ""
@@ -80,8 +80,9 @@ class BeagleboneTool(ExternalTool):
                               use_with_widgets=use_with_widgets)
 
     def call(self, channels, sender):
-        sender.window().new_window(get_abs_path(BROWSER_MAIN),
-        macros={'url':'https://10.128.255.5/bbb-daemon/index.html'})
+        sender.window().new_window(
+            get_abs_path(BROWSER_MAIN),
+            macros={'url': BBB_URL})
 
     def to_json(self):
         return ""
