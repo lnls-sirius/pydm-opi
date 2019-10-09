@@ -7,7 +7,8 @@ from qtpy.QtCore import QUrl
 
 from pydm import Display
 
-from siriushlacon.utils.consts import ARCHIVER_URL, CNPEM_IMG, LNLS_IMG
+from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
+from siriushlacon.tools.consts import VIEWER_URL
 from siriushlacon.mks937b.consts import PRESSURE, SETTINGS, INFO_UI, \
     DEVICE_MENU_UI
 
@@ -38,7 +39,7 @@ class DeviceMenu(Display):
         self.label_lnls.setPixmap(QPixmap(LNLS_IMG))
 
     def open_archiver(self):
-        QDesktopServices.openUrl(QUrl(ARCHIVER_URL))
+        QDesktopServices.openUrl(QUrl(VIEWER_URL))
 
     def ui_filename(self):
         return DEVICE_MENU_UI

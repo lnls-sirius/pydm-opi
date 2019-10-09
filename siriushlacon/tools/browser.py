@@ -10,7 +10,8 @@ from siriushlacon.tools.consts import BROWSER_UI
 logger = logging.getLogger()
 
 def sslErrorHandler(reply, errorList):
-    """Handle SSL errors in the browser.
+    """
+    Handle SSL errors in the browser.
     Overridden from QWebView.
     Called whenever the browser encounters an SSL error.
     Checks the ssl_mode and responds accordingly.
