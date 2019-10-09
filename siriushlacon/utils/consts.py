@@ -9,23 +9,21 @@ logger = logging.getLogger()
 
 
 def get_abs_path(relative):
-    """
-    relative = relative path with base at python/
-    """
     return pkg_resources.resource_filename(__name__, relative)
 
 FILE = get_abs_path('Redes e Beaglebones.xlsx')
 
 url = 'http://10.0.38.42/streamdevice-ioc/Redes%20e%20Beaglebones.xlsx'
 try:
+    if not os.access(os.path.dirname(FILE), os.W_OK):
+        FILE = '/tmp/Redes e Beaglebones.xlsx'
+
     urllib.request.urlretrieve(url, FILE)
     logger.info('File {} updated.'.format(FILE))
 except:
     logger.exception('Failed to update the spreadsheet from http://10.0.38.42/streamdevice-ioc/Redes%20e%20Beaglebones.xlsx ! Using old data ...')
 
 IS_LINUX = (os.name == 'posix' or platform.system() == 'Linux')
-
-ARCHIVER_URL = 'https://10.0.6.57/mgmt/ui/index.html'
 
 ARGS_HIDE_ALL = ['--hide-nav-bar', '--hide-menu-bar', '--hide-status-bar']
 
