@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1660</width>
+    <width>1661</width>
     <height>626</height>
    </rect>
   </property>
@@ -39312,7 +39312,7 @@ Power Supply</string>
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://SeptSpare1:OnOff</string>
+            <string>ca://SpareSeptum1:OnOff</string>
            </property>
            <property name="offColor" stdset="0">
             <color>
@@ -39367,7 +39367,7 @@ Power Supply</string>
             <enum>Qt::Horizontal</enum>
            </property>
            <property name="sizeType">
-            <enum>QSizePolicy::Fixed</enum>
+            <enum>QSizePolicy::MinimumExpanding</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -39395,7 +39395,7 @@ Power Supply</string>
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://SeptSpare3:OnOff</string>
+            <string>ca://SpareSeptum1:OnOff</string>
            </property>
            <property name="offColor" stdset="0">
             <color>
@@ -39494,7 +39494,7 @@ Power Supply</string>
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://NLKSpare3:OnOff</string>
+            <string>ca://SpareNLK3:OnOff</string>
            </property>
            <property name="offColor" stdset="0">
             <color>
@@ -39556,7 +39556,7 @@ Power Supply</string>
             <enum>Qt::Horizontal</enum>
            </property>
            <property name="sizeType">
-            <enum>QSizePolicy::Fixed</enum>
+            <enum>QSizePolicy::MinimumExpanding</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -39584,7 +39584,7 @@ Power Supply</string>
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://SeptSpare2:OnOff</string>
+            <string>ca://SpareSeptum2:OnOff</string>
            </property>
            <property name="offColor" stdset="0">
             <color>
@@ -39598,6 +39598,13 @@ Power Supply</string>
            </property>
            <property name="circles" stdset="0">
             <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4" rowspan="4">
+          <widget class="Line" name="line_11">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
            </property>
           </widget>
          </item>
@@ -39619,7 +39626,7 @@ Power Supply</string>
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://NLKSpare2:OnOff</string>
+            <string>ca://SpareNLK2:OnOff</string>
            </property>
            <property name="offColor" stdset="0">
             <color>
@@ -39642,7 +39649,7 @@ Power Supply</string>
             <enum>Qt::Horizontal</enum>
            </property>
            <property name="sizeType">
-            <enum>QSizePolicy::Fixed</enum>
+            <enum>QSizePolicy::MinimumExpanding</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -39670,7 +39677,7 @@ Power Supply</string>
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://KckrSpare2:OnOff</string>
+            <string>ca://SpareKicker2:OnOff</string>
            </property>
            <property name="offColor" stdset="0">
             <color>
@@ -39684,13 +39691,6 @@ Power Supply</string>
            </property>
            <property name="circles" stdset="0">
             <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="4" rowspan="4">
-          <widget class="Line" name="line_11">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
            </property>
           </widget>
          </item>
@@ -39719,7 +39719,7 @@ Power Supply</string>
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://KckrSpare3:OnOff</string>
+            <string>ca://SpareKicker3:OnOff</string>
            </property>
            <property name="offColor" stdset="0">
             <color>
@@ -40211,7 +40211,7 @@ Power Supply</string>
             <enum>Qt::Horizontal</enum>
            </property>
            <property name="sizeType">
-            <enum>QSizePolicy::Fixed</enum>
+            <enum>QSizePolicy::MinimumExpanding</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -40271,7 +40271,7 @@ Power Supply</string>
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://NLKSpare1:OnOff</string>
+            <string>ca://SpareNLK1:OnOff</string>
            </property>
            <property name="offColor" stdset="0">
             <color>
@@ -40294,7 +40294,7 @@ Power Supply</string>
             <enum>Qt::Horizontal</enum>
            </property>
            <property name="sizeType">
-            <enum>QSizePolicy::Fixed</enum>
+            <enum>QSizePolicy::MinimumExpanding</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -40779,7 +40779,7 @@ Power Supply</string>
             <enum>Qt::Horizontal</enum>
            </property>
            <property name="sizeType">
-            <enum>QSizePolicy::Fixed</enum>
+            <enum>QSizePolicy::MinimumExpanding</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -40932,7 +40932,7 @@ Power Supply</string>
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://KckrSpare1:OnOff</string>
+            <string>ca://SpareKicker1:OnOff</string>
            </property>
            <property name="offColor" stdset="0">
             <color>
@@ -40967,7 +40967,7 @@ Power Supply</string>
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://SeptSpare1:OnOff</string>
+            <string>ca://UVX:Valve:OnOff</string>
            </property>
            <property name="offColor" stdset="0">
             <color>
@@ -41451,7 +41451,69 @@ Power Supply</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1" colspan="17">
+         <item row="3" column="17">
+          <widget class="PyDMRelatedDisplayButton" name="TSInjSeptG1_3">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Spare 1</string>
+           </property>
+           <property name="filenames" stdset="0">
+            <stringlist>
+             <string>uvx.ui</string>
+            </stringlist>
+           </property>
+           <property name="showIcon" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="macros" stdset="0">
+            <stringlist/>
+           </property>
+           <property name="openInNewWindow" stdset="0">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <spacer name="horizontalSpacer_85">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::MinimumExpanding</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>10</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="3" column="18">
+          <spacer name="horizontalSpacer_29">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::MinimumExpanding</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>10</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="0" colspan="19">
           <widget class="QLabel" name="label_332">
            <property name="minimumSize">
             <size>
@@ -41899,36 +41961,6 @@ Power Supply</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="17">
-          <widget class="PyDMRelatedDisplayButton" name="TSInjSeptG1_3">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>50</height>
-            </size>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Spare 1</string>
-           </property>
-           <property name="filenames" stdset="0">
-            <stringlist>
-             <string>uvx.ui</string>
-            </stringlist>
-           </property>
-           <property name="showIcon" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="macros" stdset="0">
-            <stringlist/>
-           </property>
-           <property name="openInNewWindow" stdset="0">
-            <bool>true</bool>
            </property>
           </widget>
          </item>
