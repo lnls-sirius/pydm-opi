@@ -185,6 +185,10 @@ class TableDataController(QObject):
         # TODO: Impplement ...
         raise NotImplementedError("Subclass must implement abstract method")
 
+    def disconnect_widget(self, row, col):
+        widget = self.table.cellWidget(row, col)
+        widget.channel = None
+
     def connect_widget(self, row, col, channel_name=None, macros=None):
         widget = self.table.cellWidget(row, col)
         if channel_name:

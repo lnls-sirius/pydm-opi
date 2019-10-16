@@ -8,7 +8,7 @@ from qtpy.QtWidgets import QLabel
 
 from pydm import Display
 from pydm.utilities import IconFont
-from pydm.widgets import PyDMRelatedDisplayButton
+from pydm.widgets import PyDMRelatedDisplayButton, PyDMLabel
 
 from siriushlacon.utils.widgets import get_label, TableDataController
 from siriushlacon.mks937b.consts import devices, data, MKS_MAIN_UI, DEVICE_MENU
@@ -32,18 +32,29 @@ class MKSTableDataController(TableDataController):
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
         for actual_row in range(self.table_batch):
-            self.table.setCellWidget(actual_row, 0, QLabel(''))
-            self.table.setCellWidget(actual_row, 1, QLabel(''))
-            self.table.setCellWidget(
-                actual_row, 2, get_label(self.table, '', ''))
-            self.table.setCellWidget(
-                actual_row, 3, get_label(self.table, '', ''))
-            self.table.setCellWidget(
-                actual_row, 4, get_label(self.table, '', ''))
+            row = 0
+            self.table.setCellWidget(actual_row, row, QLabel(''))
+            row += 1
+            self.table.setCellWidget(actual_row, row, QLabel(''))
+            row += 1
+            self.table.setCellWidget(actual_row, row, get_label(
+                self.table, '', ''))
+            row += 1
+            self.table.setCellWidget(actual_row, row, get_label(
+                self.table, '', ''))
+            row += 1
+            self.table.setCellWidget(actual_row, row, get_label(
+                self.table, '', ''))
+            row += 1
+            for i in range(13):
+                self.table.setCellWidget(actual_row, row, get_label(
+                    self.table, '', ''))
+                row += 1
             rel = PyDMRelatedDisplayButton(self.table)
             rel.filenames = [DEVICE_MENU]
             rel.openInNewWindow = True
-            self.table.setCellWidget(actual_row, 5, rel)
+            self.table.setCellWidget(actual_row, row, rel)
+            row += 1
 
     def filter(self, pattern):
         if pattern != self.filter_pattern:
@@ -72,13 +83,13 @@ class MKSTableDataController(TableDataController):
                 "A":"' + device[1] + '",\
                 "B":"' + device[2] + '", \
                 "C":"' + device[3] + '"}'
-
+            i = 0
             for item in device[4:]:
                 self.table_data.append({
                     'device': device[0],
-                    'gauge': item,
-                    'macro': macro,
-                    'render': True})
+                    'gauge': item, 'macro': macro,
+                    'render': True, 'num':i})
+                i += 1
         self.total_rows = len(self.table_data)
         self.update_content.emit()
 
@@ -102,18 +113,41 @@ class MKSTableDataController(TableDataController):
             # To render or not to render  ...
             if d['render'] and dataset_row >= self.batch_offset:
                 self.table.setRowHidden(actual_row, False)
+                row = 0
                 # Channel Access
-                device_ca = 'ca://' + d['device']
+                device_ca = 'ca://'  + d['device']
                 channel_ca = 'ca://' + d['gauge']
 
-                self.table.cellWidget(actual_row, 0).setText(d['gauge'])
-                self.table.cellWidget(actual_row, 1).setText(d['device'])
-                self.connect_widget(
-                    actual_row, 2, channel_ca + ':Pressure-Mon-s')
-                self.connect_widget(
-                    actual_row, 3, channel_ca + ':Pressure-Mon.STAT')
-                self.connect_widget(actual_row, 4, device_ca + ':Unit')
-                self.connect_widget(actual_row, 5, None, d['macro'])
+                self.table.cellWidget(actual_row, row).setText(d['gauge'])
+                row += 1
+                self.table.cellWidget(actual_row, row).setText(d['device'])
+                row += 1
+                self.connect_widget(actual_row, row, channel_ca + ':Pressure-Mon-s')
+                row += 1
+                self.connect_widget(actual_row, row, channel_ca + ':Pressure-Mon.STAT')
+                row += 1
+                self.connect_widget(actual_row, row, device_ca + ':Unit')
+                row += 1
+
+                # Setpoint
+                self.connect_widget(actual_row, row, channel_ca + ':ProtectionSetpoint-RB-s')
+                row += 1
+                for i in range(1, 13):
+                    if (d['num'] == 0 and (i >= 1 and i <= 4)) or \
+                        (d['num'] == 2 and (i >= 5 and i <= 8)) or \
+                        (d['num'] == 3 and (i >= 9 and i <= 10)) or \
+                        (d['num'] == 4 and (i >= 11 and i <= 12)):
+                        pv_ = device_ca + ':Relay{}:Setpoint-RB'.format(i)
+                        self.table.cellWidget(actual_row, row).displayFormat=PyDMLabel.DisplayFormat.Exponential
+                        self.connect_widget(actual_row, row, pv_)
+                    else:
+                        pv_ = ''
+                        self.connect_widget(actual_row, row, pv_)
+                        self.table.cellWidget(actual_row, row).displayFormat=0#PyDMLabel.DisplayFormat.String
+                        self.table.cellWidget(actual_row, row).value_changed('')#setText('')
+                    row += 1
+
+                self.connect_widget(actual_row, row, None, d['macro'])
                 actual_row += 1
 
             dataset_row += 1
@@ -137,6 +171,19 @@ class MKS(Display):
             'Pressure',
             'Alarm',
             'Unit',
+            'Protect  SP',
+            'Relay 1  SP',
+            'Relay 2  SP',
+            'Relay 3  SP',
+            'Relay 4  SP',
+            'Relay 5  SP',
+            'Relay 6  SP',
+            'Relay 7  SP',
+            'Relay 8  SP',
+            'Relay 9  SP',
+            'Relay 10 SP',
+            'Relay 11 SP',
+            'Relay 12 SP',
             'Details']
 
         self.tdc = MKSTableDataController(
