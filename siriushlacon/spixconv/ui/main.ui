@@ -2418,7 +2418,7 @@
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjNLKckr:OpMode-Sts</string>
+                <string>ca://SI-01SA:PU-InjOnAxis:OnOff</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -3715,7 +3715,7 @@
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjNLKckr:OpMode-Sts</string>
+                <string>ca://SI-01SA:PU-InjNLKckr:OnOff</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -46457,19 +46457,9 @@ Power Supply</string>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMByteIndicator</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.byte</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMLabel</class>
-   <extends>QLabel</extends>
-   <header>pydm.widgets.label</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>pydm.widgets.line_edit</header>
+   <class>PyDMCheckbox</class>
+   <extends>QCheckBox</extends>
+   <header>pydm.widgets.checkbox</header>
   </customwidget>
   <customwidget>
    <class>PyDMRelatedDisplayButton</class>
@@ -46482,9 +46472,19 @@ Power Supply</string>
    <header>pydm.widgets.pushbutton</header>
   </customwidget>
   <customwidget>
-   <class>PyDMCheckbox</class>
-   <extends>QCheckBox</extends>
-   <header>pydm.widgets.checkbox</header>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>pydm.widgets.line_edit</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
   </customwidget>
  </customwidgets>
  <resources/>
