@@ -59,12 +59,11 @@ class Launcher(Display):
         for e in self.data:
             if e['type'] == self.QUA:
                 self.quadrupole.append(e['pv'])
-            elif e['type'] == self.DIP: 
+            elif e['type'] == self.DIP:
                 self.dipole.append(e['pv'])
             elif e['type'] == self.SEX:
                 self.sextupole.append(e['pv'])
         self.render()
-
     def render(self):
         category_font = QFont()
         category_font.setBold(True)
