@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>419</width>
-    <height>539</height>
+    <width>447</width>
+    <height>614</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -501,13 +501,32 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>399</width>
-        <height>433</height>
+        <width>427</width>
+        <height>509</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
-        <widget class="QTabWidget" name="tabWidget"/>
+        <widget class="QTabWidget" name="tabWidget">
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="tabDipoles">
+          <attribute name="title">
+           <string>Dipoles</string>
+          </attribute>
+         </widget>
+         <widget class="QWidget" name="tabQuadrupoles">
+          <attribute name="title">
+           <string>Quadrupoles</string>
+          </attribute>
+         </widget>
+         <widget class="QWidget" name="tabSextupoles">
+          <attribute name="title">
+           <string>Sextupoles</string>
+          </attribute>
+         </widget>
+        </widget>
        </item>
       </layout>
      </widget>

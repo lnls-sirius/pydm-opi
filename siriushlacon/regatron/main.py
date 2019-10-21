@@ -44,13 +44,17 @@ class Launcher(Display):
 
     def __init__(self, parent=None, macros=None, **kwargs):
         super().__init__(parent=parent, ui_filename=REGATRON_UI)
-
         self.logo_cnpem.setPixmap(QPixmap(CNPEM_IMG))
         self.logo_lnls.setPixmap(QPixmap(LNLS_IMG))
 
         self.data = load_data()
-        self.grid_layout = QGridLayout()
-        self.scrollAreaWidgetContents.setLayout(self.grid_layout)
+        self.layoutDipoles = QGridLayout()
+        self.layoutQuadrupoles = QGridLayout()
+        self.layoutSextupoles = QGridLayout()
+
+        self.tabDipoles.setLayout(self.layoutDipoles)
+        self.tabQuadrupoles.setLayout(self.layoutQuadrupoles)
+        self.tabSextupoles.setLayout(self.layoutSextupoles)
 
         self.dipole = []
         self.quadrupole = []
@@ -63,45 +67,18 @@ class Launcher(Display):
                 self.dipole.append(e['pv'])
             elif e['type'] == self.SEX:
                 self.sextupole.append(e['pv'])
-        self.render()
-    def render(self):
-        category_font = QFont()
-        category_font.setBold(True)
 
+        self.render(self.layoutDipoles, self.dipole)
+        self.render(self.layoutQuadrupoles, self.quadrupole)
+        self.render(self.layoutSextupoles, self.sextupole)
+
+    def render(self, layout, data):
         i = 0
-        lbl = QLabel('Dipoles')
-        lbl.setFont(category_font)
-        self.grid_layout.addWidget(lbl, i, 0)
-        i += 1
-
-        for name in self.dipole:
-            overview, detail  = get_overview_detail(name)
-
-            self.grid_layout.addWidget(QLabel(name), i, 0)
-            self.grid_layout.addWidget(overview, i, 1)
-            self.grid_layout.addWidget(detail, i, 2)
+        for name in data:
+            overview, detail = get_overview_detail(name)
+            layout.addWidget(QLabel(name), i, 0)
+            layout.addWidget(overview, i, 1)
+            layout.addWidget(detail, i, 2)
             i += 1
+        layout.setRowStretch(len(data), 10)
 
-        lbl = QLabel('Quadrupoles')
-        lbl.setFont(category_font)
-        self.grid_layout.addWidget(lbl, i, 0)
-        i += 1
-        for name in self.quadrupole:
-            overview, detail  = get_overview_detail(name)
-
-            self.grid_layout.addWidget(QLabel(name), i, 0)
-            self.grid_layout.addWidget(overview, i, 1)
-            self.grid_layout.addWidget(detail, i, 2)
-            i += 1
-
-        lbl = QLabel('Sextupoles')
-        lbl.setFont(category_font)
-        self.grid_layout.addWidget(lbl, i, 0)
-        i += 1
-        for name in self.sextupole:
-            overview, detail  = get_overview_detail(name)
-
-            self.grid_layout.addWidget(QLabel(name), i, 0)
-            self.grid_layout.addWidget(overview, i, 1)
-            self.grid_layout.addWidget(detail, i, 2)
-            i += 1
