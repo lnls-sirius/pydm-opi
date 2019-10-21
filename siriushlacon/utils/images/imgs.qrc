@@ -1,0 +1,12 @@
+<RCC>
+  <qresource>
+    <file>ltb.png</file>
+    <file>btts.png</file>
+    <file>booster.png</file>
+    <file>CNPEM.jpg</file>
+    <file>LNLS.png</file>
+    <file>storage_ring.png</file>
+    <file>ringB1A.png</file>
+    <file>ringB2A.png</file>
+  </qresource>
+</RCC>
