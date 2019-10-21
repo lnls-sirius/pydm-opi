@@ -29530,7 +29530,7 @@ Power Supply</string>
             </widget>
            </item>
            <item row="1" column="4">
-            <layout class="QGridLayout" name="SI_PingH_2">
+            <layout class="QGridLayout" name="SI_ONAXIS">
              <item row="8" column="1" colspan="2">
               <widget class="PyDMByteIndicator" name="PyDMByteIndicator_94">
                <property name="sizePolicy">
@@ -32551,7 +32551,7 @@ Power Supply</string>
             </layout>
            </item>
            <item row="1" column="8">
-            <layout class="QGridLayout" name="SI_PingV">
+            <layout class="QGridLayout" name="SI_NLK">
              <item row="1" column="0" colspan="6">
               <widget class="QLabel" name="label_359">
                <property name="sizePolicy">
