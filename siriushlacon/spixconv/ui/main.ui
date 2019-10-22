@@ -42399,38 +42399,6 @@ Power Supply</string>
                </property>
               </widget>
              </item>
-             <item row="4" column="2">
-              <widget class="PyDMRelatedDisplayButton" name="Septum_Spare_2">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>50</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="text">
-                <string>Spare 2</string>
-               </property>
-               <property name="showIcon" stdset="0">
-                <bool>false</bool>
-               </property>
-               <property name="macros" stdset="0">
-                <stringlist>
-                 <string>{&quot;ps_voltage&quot;:&quot;1 kV&quot;, &quot;pv_prefix&quot;:&quot;SpareSeptum2&quot;, &quot;function&quot;:&quot;Spare Septum 2&quot;}</string>
-                </stringlist>
-               </property>
-               <property name="openInNewWindow" stdset="0">
-                <bool>true</bool>
-               </property>
-               <property name="filename" stdset="0">
-                <stringlist>
-                 <string>septum.ui</string>
-                </stringlist>
-               </property>
-              </widget>
-             </item>
              <item row="2" column="9" rowspan="4">
               <widget class="Line" name="line_14">
                <property name="orientation">
@@ -44257,7 +44225,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SpareSeptum1:OnOff</string>
+                <string>ca://SpareSeptum3:OnOff</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -44863,7 +44831,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="text">
-                <string>Spare 1</string>
+                <string>UVX 1</string>
                </property>
                <property name="filenames" stdset="0">
                 <stringlist>
@@ -45347,7 +45315,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="text">
-                <string>Spare 1</string>
+                <string>Prototype 1</string>
                </property>
                <property name="filenames" stdset="0">
                 <stringlist>
@@ -45866,6 +45834,38 @@ Power Supply</string>
                </property>
                <property name="macros" stdset="0">
                 <stringlist/>
+               </property>
+               <property name="openInNewWindow" stdset="0">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="2">
+              <widget class="PyDMRelatedDisplayButton" name="Septum_Spare_5">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="text">
+                <string>Spare 2</string>
+               </property>
+               <property name="filenames" stdset="0">
+                <stringlist>
+                 <string>septum.ui</string>
+                </stringlist>
+               </property>
+               <property name="showIcon" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="macros" stdset="0">
+                <stringlist>
+                 <string>{&quot;ps_voltage&quot;:&quot;1 kV&quot;, &quot;pv_prefix&quot;:&quot;SpareSeptum2&quot;, &quot;function&quot;:&quot;Spare Septum 2&quot;}</string>
+                </stringlist>
                </property>
                <property name="openInNewWindow" stdset="0">
                 <bool>true</bool>
