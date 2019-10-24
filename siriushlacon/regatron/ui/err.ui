@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1335</width>
-    <height>1041</height>
+    <width>1502</width>
+    <height>1071</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,8 +24,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1301</width>
-        <height>1042</height>
+        <width>1482</width>
+        <height>1051</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
@@ -345,7 +345,7 @@
               <string/>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${P}:Sys-StdErrGroup-Mon</string>
+              <string>ca://${P}:Sys-ExtErrGroup-Mon</string>
              </property>
              <property name="onColor" stdset="0">
               <color>
@@ -1711,7 +1711,7 @@
             <enum>Qt::Horizontal</enum>
            </property>
            <property name="showLabels" stdset="0">
-            <bool>false</bool>
+            <bool>true</bool>
            </property>
            <property name="numBits" stdset="0">
             <number>16</number>
@@ -1759,7 +1759,7 @@
               <string/>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${P}:Mod-StdErrGroup-Mon</string>
+              <string>ca://${P}:Mod-ExtErrGroup-Mon</string>
              </property>
              <property name="onColor" stdset="0">
               <color>

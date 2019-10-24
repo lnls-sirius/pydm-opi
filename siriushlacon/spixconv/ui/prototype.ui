@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>503</width>
-    <height>477</height>
+    <width>509</width>
+    <height>483</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -206,6 +206,7 @@
             </color>
            </brush>
           </colorrole>
+          
          </active>
          <inactive>
           <colorrole role="WindowText">
@@ -343,6 +344,7 @@
             </color>
            </brush>
           </colorrole>
+          
          </inactive>
          <disabled>
           <colorrole role="WindowText">
@@ -480,6 +482,7 @@
             </color>
            </brush>
           </colorrole>
+          
          </disabled>
         </palette>
        </property>
@@ -661,6 +664,7 @@
             </color>
            </brush>
           </colorrole>
+          
          </active>
          <inactive>
           <colorrole role="WindowText">
@@ -798,6 +802,7 @@
             </color>
            </brush>
           </colorrole>
+          
          </inactive>
          <disabled>
           <colorrole role="WindowText">
@@ -935,6 +940,7 @@
             </color>
            </brush>
           </colorrole>
+          
          </disabled>
         </palette>
        </property>
@@ -1265,6 +1271,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
+          
          </active>
          <inactive>
           <colorrole role="WindowText">
@@ -1402,6 +1409,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
+          
          </inactive>
          <disabled>
           <colorrole role="WindowText">
@@ -1539,6 +1547,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
+          
          </disabled>
         </palette>
        </property>
@@ -1720,6 +1729,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
+          
          </active>
          <inactive>
           <colorrole role="WindowText">
@@ -1857,6 +1867,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
+          
          </inactive>
          <disabled>
           <colorrole role="WindowText">
@@ -1994,6 +2005,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
+          
          </disabled>
         </palette>
        </property>
@@ -2012,7 +2024,7 @@ Power Supply</string>
         <enum>QFrame::StyledPanel</enum>
        </property>
        <property name="text">
-        <string>${pv_prefix}</string>
+        <string>Prototype</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -2043,7 +2055,7 @@ Power Supply</string>
         <string/>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:CtrlMode-Mon.RVAL</string>
+        <string>ca://Prototype:CtrlMode-Mon.RVAL</string>
        </property>
        <property name="offColor" stdset="0">
         <color>
@@ -2089,7 +2101,7 @@ Power Supply</string>
         <string/>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk1-Mon.RVAL</string>
+        <string>ca://Prototype:Intlk1-Mon.RVAL</string>
        </property>
        <property name="offColor" stdset="0">
         <color>
@@ -2135,7 +2147,7 @@ Power Supply</string>
         <string/>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk2-Mon.RVAL</string>
+        <string>ca://Prototype:Intlk2-Mon.RVAL</string>
        </property>
        <property name="offColor" stdset="0">
         <color>
@@ -2181,7 +2193,7 @@ Power Supply</string>
         <string/>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk3-Mon.RVAL</string>
+        <string>ca://Prototype:Intlk3-Mon.RVAL</string>
        </property>
        <property name="offColor" stdset="0">
         <color>
@@ -2227,7 +2239,7 @@ Power Supply</string>
         <string/>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk4-Mon.RVAL</string>
+        <string>ca://Prototype:Intlk4-Mon.RVAL</string>
        </property>
        <property name="offColor" stdset="0">
         <color>
@@ -2273,7 +2285,7 @@ Power Supply</string>
         <string/>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk5-Mon.RVAL</string>
+        <string>ca://Prototype:Intlk5-Mon.RVAL</string>
        </property>
        <property name="offColor" stdset="0">
         <color>
@@ -2319,7 +2331,7 @@ Power Supply</string>
         <string/>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk6-Mon.RVAL</string>
+        <string>ca://Prototype:Intlk6-Mon.RVAL</string>
        </property>
        <property name="offColor" stdset="0">
         <color>
@@ -2365,7 +2377,7 @@ Power Supply</string>
         <string/>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk7-Mon.RVAL</string>
+        <string>ca://Prototype:Intlk7-Mon.RVAL</string>
        </property>
        <property name="offColor" stdset="0">
         <color>
@@ -2411,7 +2423,7 @@ Power Supply</string>
         <string/>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk8-Mon.RVAL</string>
+        <string>ca://Prototype:Intlk8-Mon.RVAL</string>
        </property>
        <property name="offColor" stdset="0">
         <color>
@@ -2460,7 +2472,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk8Label-Cte</string>
+        <string>ca://Prototype:Intlk8Label-Cte</string>
        </property>
       </widget>
      </item>
@@ -2488,7 +2500,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:CtrlMode-Mon.DESC</string>
+        <string>ca://Prototype:CtrlMode-Mon.DESC</string>
        </property>
       </widget>
      </item>
@@ -2519,7 +2531,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk1Label-Cte</string>
+        <string>ca://Prototype:Intlk1Label-Cte</string>
        </property>
       </widget>
      </item>
@@ -2550,7 +2562,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk2Label-Cte</string>
+        <string>ca://Prototype:Intlk2Label-Cte</string>
        </property>
       </widget>
      </item>
@@ -2581,7 +2593,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk3Label-Cte</string>
+        <string>ca://Prototype:Intlk3Label-Cte</string>
        </property>
       </widget>
      </item>
@@ -2612,7 +2624,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk4Label-Cte</string>
+        <string>ca://Prototype:Intlk4Label-Cte</string>
        </property>
       </widget>
      </item>
@@ -2643,7 +2655,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk5Label-Cte</string>
+        <string>ca://Prototype:Intlk5Label-Cte</string>
        </property>
       </widget>
      </item>
@@ -2674,7 +2686,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk6Label-Cte</string>
+        <string>ca://Prototype:Intlk6Label-Cte</string>
        </property>
       </widget>
      </item>
@@ -2705,7 +2717,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Intlk7Label-Cte</string>
+        <string>ca://Prototype:Intlk7Label-Cte</string>
        </property>
       </widget>
      </item>
@@ -2721,7 +2733,7 @@ Power Supply</string>
         <enum>QFrame::StyledPanel</enum>
        </property>
        <property name="text">
-        <string>${ps_voltage}</string>
+        <string>15 kV</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -2749,7 +2761,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Voltage-Mon</string>
+        <string>ca://Prototype:Voltage-Mon</string>
        </property>
       </widget>
      </item>
@@ -2768,7 +2780,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Voltage-SP</string>
+        <string>ca://Prototype:Voltage-SP</string>
        </property>
       </widget>
      </item>
@@ -2793,7 +2805,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Voltage-RB</string>
+        <string>ca://Prototype:Voltage-RB</string>
        </property>
       </widget>
      </item>
@@ -2815,7 +2827,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:PulseLabel-Cte</string>
+        <string>ca://Prototype:PulseLabel-Cte</string>
        </property>
       </widget>
      </item>
@@ -2837,7 +2849,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:ResetLabel-Cte</string>
+        <string>ca://Prototype:ResetLabel-Cte</string>
        </property>
       </widget>
      </item>
@@ -2862,7 +2874,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:PwrState-Sts.DESC</string>
+        <string>ca://Prototype:PwrState-Sts.DESC</string>
        </property>
       </widget>
      </item>
@@ -2887,7 +2899,7 @@ Power Supply</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:PwrStateLabel1-Cte</string>
+        <string>ca://Prototype:PwrStateLabel1-Cte</string>
        </property>
       </widget>
      </item>
@@ -2909,7 +2921,7 @@ Power Supply</string>
         <string/>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:PwrState-Sts</string>
+        <string>ca://Prototype:PwrState-Sts</string>
        </property>
        <property name="offColor" stdset="0">
         <color>
@@ -2973,7 +2985,7 @@ Power Supply</string>
         <bool>false</bool>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:PwrState-Sel</string>
+        <string>ca://Prototype:PwrState-Sel</string>
        </property>
       </widget>
      </item>
@@ -2995,7 +3007,7 @@ Power Supply</string>
         <string/>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Pulse-Sel</string>
+        <string>ca://Prototype:Pulse-Sel</string>
        </property>
       </widget>
      </item>
@@ -3020,7 +3032,7 @@ Power Supply</string>
         <enum>Qt::LeftToRight</enum>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Reset-Cmd</string>
+        <string>ca://Prototype:Reset-Cmd</string>
        </property>
        <property name="pressValue" stdset="0">
         <string>1</string>
@@ -3033,19 +3045,19 @@ Power Supply</string>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMCheckbox</class>
-   <extends>QCheckBox</extends>
-   <header>pydm.widgets.checkbox</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMPushButton</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.pushbutton</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMLabel</class>
    <extends>QLabel</extends>
    <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMCheckbox</class>
+   <extends>QCheckBox</extends>
+   <header>pydm.widgets.checkbox</header>
   </customwidget>
   <customwidget>
    <class>PyDMLineEdit</class>
@@ -3053,9 +3065,9 @@ Power Supply</string>
    <header>pydm.widgets.line_edit</header>
   </customwidget>
   <customwidget>
-   <class>PyDMByteIndicator</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.byte</header>
+   <class>PyDMPushButton</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.pushbutton</header>
   </customwidget>
  </customwidgets>
  <resources/>

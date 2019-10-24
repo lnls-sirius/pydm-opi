@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 import json
 import pkg_resources
+import logging
 
 from pydm import Display
+from pydm.widgets.channel import PyDMChannel
 from pydm.widgets.related_display_button import PyDMRelatedDisplayButton
 from pydm.widgets.label import PyDMLabel
 
@@ -11,9 +13,10 @@ from qtpy.QtWidgets import QWidget, QGridLayout, QPushButton, QLabel, QSpacerIte
 from qtpy.QtGui import QFont
 
 from siriushlacon.regatron.consts import REGATRON_UI, DETAILS_MAIN, SIMPLE_MAIN, DETAILS_MAIN,\
-    DATA_JSON
+    DATA_JSON, COMPLETE_MAIN
 from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
 
+logger = logging.getLogger()
 
 def load_data():
     data = None
@@ -22,20 +25,15 @@ def load_data():
     return data
 
 def get_overview_detail(name):
-    overview = PyDMRelatedDisplayButton('Overview')
+    overview = PyDMRelatedDisplayButton(name)
     overview.macros = ['{"P":"' + name + '"}']
-    overview.filenames = [SIMPLE_MAIN]
+    overview.filenames = [COMPLETE_MAIN]
     overview.openInNewWindow = True
     overview.showIcon = False
+    return overview
 
-    detail = PyDMRelatedDisplayButton('Details')
-    detail.macros = ['{"P":"' + name + '"}']
-    detail.filenames = [DETAILS_MAIN]
-    detail.openInNewWindow = True
-    detail.showIcon = False
-
-    return overview, detail
-
+# def log(x):
+    # logger.info(x)
 
 class Launcher(Display):
     DIP = 'DIP'
@@ -75,10 +73,8 @@ class Launcher(Display):
     def render(self, layout, data):
         i = 0
         for name in data:
-            overview, detail = get_overview_detail(name)
-            layout.addWidget(QLabel(name), i, 0)
-            layout.addWidget(overview, i, 1)
-            layout.addWidget(detail, i, 2)
+            overview  = get_overview_detail(name)
+            layout.addWidget(overview, i, 0)
             i += 1
         layout.setRowStretch(len(data), 10)
 

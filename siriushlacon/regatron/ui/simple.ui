@@ -93,6 +93,9 @@
            <property name="toolTip">
             <string/>
            </property>
+           <property name="icon">
+            <iconset theme="sync"/>
+           </property>
            <property name="channel" stdset="0">
             <string>ca://${P}:Sys-MaxVolt-Mon.PROC</string>
            </property>
