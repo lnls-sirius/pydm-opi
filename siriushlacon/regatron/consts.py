@@ -13,12 +13,29 @@ DETAILS_MAIN = get_abs_path('details.py')
 SIMPLE_MAIN = get_abs_path('simple.py')
 ERR_MAIN = get_abs_path('err.py')
 WARN_MAIN = get_abs_path('warn.py')
+COMPLETE_MAIN = get_abs_path('regatron.py')
 
 REGATRON_UI = get_abs_path('ui/main.ui')
 DETAILS_UI = get_abs_path('ui/details.ui')
 SIMPLE_UI = get_abs_path('ui/simple.ui')
 ERR_UI = get_abs_path('ui/err.ui')
 WARN_UI = get_abs_path('ui/warning.ui')
+COMPLETE_UI = get_abs_path('ui/regatron.ui')
+
+EXTENDED_MAP = {
+    0: 'IBC System',    1: 'IBC Supply',        2: 'IBC Communication', 3: 'IBC Power',
+    4: 'IBC Inverter',  5: 'IBC Miscellaneous', 6: 'IBC Inverter 2',    7: 'not used',
+    8: 'not used',      9: 'not used',          10: 'Supply 2',         11:'Login 2',
+    12: 'Configuration 3',   13: 'Communication 3',
+    14: 'Internal 2', 15:'Communication 2'
+}
+STANDARD_MAP = {
+    0: 'Internal', 1: 'Internal (PDSP)',  2: 'Output Current',   3: 'Output Voltage',
+    4: 'Supply',   5: 'Temperature',      6: 'Communication',    7: 'Internal (Modulator)',
+    8: 'Internal (AD overrange 1)',      9: 'Internal (AD overrange 2)',
+    10: 'Internal (AD underrange 1)',    11: 'Internal (AD underrange 2)',
+    12: 'Login',   13: 'Configuration',   14: 'Configuration 2', 15: 'Miscellaneous'
+}
 
 STD_READINGS = [
     "Intrn-Mon",
@@ -44,9 +61,9 @@ EXT_READINGS = [
     "IBCSuppply-Mon",
     "IBCComm-Mon",
     "IBCPwr-Mon1",
-    "IBCInverter-Mon",
+    "IBCInv-Mon",
     "IBCMisc-Mon",
-    "IBCInverter2-Mon",
+    "IBCInv2-Mon",
     "Supply2-Mon",
     "Login2-Mon",
     "Conf3-Mon",

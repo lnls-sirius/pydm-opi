@@ -2634,7 +2634,7 @@
               <string/>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${P}:Mod-StdWarnGroup-Mon</string>
+              <string>ca://${P}:Mod-ExtWarnGroup-Mon</string>
              </property>
              <property name="onColor" stdset="0">
               <color>
@@ -4482,7 +4482,7 @@
               <string/>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${P}:Sys-StdWarnGroup-Mon</string>
+              <string>ca://${P}:Sys-ExtWarnGroup-Mon</string>
              </property>
              <property name="onColor" stdset="0">
               <color>
