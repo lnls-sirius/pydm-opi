@@ -9,4 +9,4 @@ clean :
 	find . -name '__pycache__'  -exec rm -rd --force {} +
 install:
 	cp siriushlacon/utils/images/LNLS.png ~/.local/share/icons
-	cp extras/$(NAME).desktop $(DESKTOP)/$(NAME).desktop
+	cp miscellaneous/$(NAME).desktop $(DESKTOP)/$(NAME).desktop
