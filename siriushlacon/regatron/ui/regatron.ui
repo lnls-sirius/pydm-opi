@@ -4698,7 +4698,7 @@
               </font>
              </property>
              <property name="text">
-              <string>Module General Erros</string>
+              <string>Module General Errors</string>
              </property>
             </widget>
            </item>
@@ -4781,7 +4781,7 @@
               </font>
              </property>
              <property name="text">
-              <string>System General Erros</string>
+              <string>System General Errors</string>
              </property>
             </widget>
            </item>

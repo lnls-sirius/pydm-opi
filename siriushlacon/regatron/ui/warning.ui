@@ -2875,7 +2875,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-ExtWarnIBCInverter-Mon</string>
+            <string>ca://${P}:Mod-ExtWarnIBCInv-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -2924,7 +2924,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-ExtWarnIBCInverter-Mon.DESC</string>
+            <string>ca://${P}:Mod-ExtWarnIBCInv-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -2993,7 +2993,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-ExtWarnIBCInverter2-Mon</string>
+            <string>ca://${P}:Mod-ExtWarnIBCInv2-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -3682,7 +3682,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-ExtWarnIBCInverter-Mon.PROC</string>
+            <string>ca://${P}:Mod-ExtWarnIBCInv-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -3949,7 +3949,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-ExtWarnIBCInverter2-Mon</string>
+            <string>ca://${P}:Sys-ExtWarnIBCInv2-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -4044,7 +4044,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-ExtWarnIBCInverter-Mon.DESC</string>
+            <string>ca://${P}:Sys-ExtWarnIBCInv-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -4612,7 +4612,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-ExtWarnIBCInverter-Mon</string>
+            <string>ca://${P}:Sys-ExtWarnIBCInv-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -4782,7 +4782,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-ExtWarnIBCInverter-Mon.PROC</string>
+            <string>ca://${P}:Sys-ExtWarnIBCInv-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
