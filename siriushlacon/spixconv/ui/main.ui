@@ -257,7 +257,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -395,7 +403,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -533,7 +549,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -570,7 +594,7 @@
               </widget>
              </item>
              <item row="3" column="24">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_16">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_16" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -605,7 +629,7 @@
               </widget>
              </item>
              <item row="4" column="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_13">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_13" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -640,7 +664,7 @@
               </widget>
              </item>
              <item row="4" column="24">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_17">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_17" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -820,7 +844,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -958,7 +990,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -1096,7 +1136,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -1134,7 +1182,7 @@
               </widget>
              </item>
              <item row="4" column="13">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_30">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_30" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -1176,7 +1224,7 @@
               </widget>
              </item>
              <item row="3" column="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_14">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_14" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -1243,7 +1291,7 @@
               </widget>
              </item>
              <item row="5" column="8">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_29">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_29" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -1507,7 +1555,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -1645,7 +1701,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -1783,7 +1847,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -2100,7 +2172,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -2238,7 +2318,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -2376,7 +2464,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -2413,7 +2509,7 @@
               </widget>
              </item>
              <item row="3" column="18">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_15">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_15" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -2480,7 +2576,7 @@
               </widget>
              </item>
              <item row="5" column="13">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_19">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_19" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -2547,7 +2643,7 @@
               </widget>
              </item>
              <item row="3" column="8">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_22">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_22" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -2855,7 +2951,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -2993,7 +3097,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -3131,7 +3243,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -3158,7 +3278,7 @@
               </widget>
              </item>
              <item row="3" column="13">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_23">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_23" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -3209,7 +3329,7 @@
               </spacer>
              </item>
              <item row="4" column="8">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_27">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_27" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -3402,7 +3522,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -3540,7 +3668,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -3678,7 +3814,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -3716,7 +3860,7 @@
               </widget>
              </item>
              <item row="4" column="18">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_18">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_18" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -3775,7 +3919,7 @@
            <item row="1" column="4">
             <layout class="QGridLayout" name="BO_Inj_Kckr">
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_77">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_77" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -4000,7 +4144,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -4138,7 +4290,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -4276,7 +4436,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -4520,7 +4688,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -4658,7 +4834,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -4796,7 +4980,15 @@
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -4952,7 +5144,7 @@
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_78">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_78" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -5017,7 +5209,7 @@
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_79">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_79" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -5154,7 +5346,7 @@
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_80">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_80" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -5392,7 +5584,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -5530,7 +5730,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -5668,7 +5876,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -5693,7 +5909,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_81">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_81" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -5904,7 +6120,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_82">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_82" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -5975,7 +6191,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_83">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_83" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -6021,7 +6237,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_84">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_84" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -6067,7 +6283,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_85">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_85" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -6270,7 +6486,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -6408,7 +6632,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -6546,7 +6778,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -6751,7 +6991,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="10" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_86">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_86" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -6834,7 +7074,7 @@ Power Supply</string>
              <item row="0" column="0">
               <layout class="QGridLayout" name="gridLayout_13">
                <item row="3" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_20">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_20" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -7059,7 +7299,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
-                    
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </active>
                    <inactive>
                     <colorrole role="WindowText">
@@ -7197,7 +7445,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
-                    
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </inactive>
                    <disabled>
                     <colorrole role="WindowText">
@@ -7335,7 +7591,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
-                    
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </disabled>
                   </palette>
                  </property>
@@ -7579,7 +7843,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
-                    
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </active>
                    <inactive>
                     <colorrole role="WindowText">
@@ -7717,7 +7989,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
-                    
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </inactive>
                    <disabled>
                     <colorrole role="WindowText">
@@ -7855,7 +8135,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
-                    
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </disabled>
                   </palette>
                  </property>
@@ -7993,7 +8281,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="8" column="1" colspan="2">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_11">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_11" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -8058,7 +8346,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="5" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_21">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_21" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -8189,7 +8477,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="7" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_24">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_24" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -8427,7 +8715,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
-                    
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </active>
                    <inactive>
                     <colorrole role="WindowText">
@@ -8565,7 +8861,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
-                    
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </inactive>
                    <disabled>
                     <colorrole role="WindowText">
@@ -8703,7 +9007,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
-                    
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </disabled>
                   </palette>
                  </property>
@@ -8728,7 +9040,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="9" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_25">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_25" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -8939,7 +9251,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="2" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_26">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_26" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -9010,7 +9322,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="8" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_28">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_28" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -9056,7 +9368,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="6" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_12">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_12" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -9102,7 +9414,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="4" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_31">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_31" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -9305,7 +9617,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
-                    
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </active>
                    <inactive>
                     <colorrole role="WindowText">
@@ -9443,7 +9763,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
-                    
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </inactive>
                    <disabled>
                     <colorrole role="WindowText">
@@ -9581,7 +9909,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
-                    
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </disabled>
                   </palette>
                  </property>
@@ -9980,7 +10316,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -10118,7 +10462,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -10256,7 +10608,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </disabled>
               </palette>
              </property>
@@ -10568,7 +10928,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -10706,7 +11074,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -10844,7 +11220,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -11028,7 +11412,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -11166,7 +11558,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -11304,7 +11704,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -11329,7 +11737,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_68">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_68" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -11400,7 +11808,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_69">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_69" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -11650,7 +12058,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -11788,7 +12204,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -11926,7 +12350,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -12177,7 +12609,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -12315,7 +12755,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -12453,7 +12901,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -12478,7 +12934,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_70">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_70" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -12765,7 +13221,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_71">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_71" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -12811,7 +13267,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_72">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_72" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -13054,7 +13510,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_73">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_73" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -13116,7 +13572,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_74">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_74" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -13162,7 +13618,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_75">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_75" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -13208,7 +13664,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_76">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_76" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -13274,7 +13730,7 @@ Power Supply</string>
            <item row="1" column="0">
             <layout class="QGridLayout" name="BO_Eje_Kckr">
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_32">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_32" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -13499,7 +13955,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -13637,7 +14101,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -13775,7 +14247,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -14019,7 +14499,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -14157,7 +14645,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -14295,7 +14791,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -14433,7 +14937,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_33">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_33" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -14498,7 +15002,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_34">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_34" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -14629,7 +15133,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_35">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_35" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -14867,7 +15371,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -15005,7 +15517,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -15143,7 +15663,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -15168,7 +15696,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_36">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_36" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -15379,7 +15907,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_37">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_37" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -15450,7 +15978,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_38">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_38" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -15496,7 +16024,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_39">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_39" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -15542,7 +16070,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_40">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_40" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -15745,7 +16273,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -15883,7 +16419,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -16021,7 +16565,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -16220,7 +16772,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="10" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_87">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_87" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -16584,7 +17136,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -16722,7 +17282,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -16860,7 +17428,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -17044,7 +17620,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -17182,7 +17766,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -17320,7 +17912,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -17345,7 +17945,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_50">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_50" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -17416,7 +18016,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_55">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_55" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -17666,7 +18266,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -17804,7 +18412,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -17942,7 +18558,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -18193,7 +18817,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -18331,7 +18963,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -18469,7 +19109,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -18494,7 +19142,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_54">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_54" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -18781,7 +19429,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_58">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_58" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -18827,7 +19475,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_51">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_51" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -19070,7 +19718,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_57">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_57" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -19132,7 +19780,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_56">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_56" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -19178,7 +19826,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_53">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_53" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -19224,7 +19872,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_52">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_52" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -19429,7 +20077,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -19567,7 +20223,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -19705,7 +20369,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </disabled>
               </palette>
              </property>
@@ -19764,7 +20436,7 @@ Power Supply</string>
            <item row="1" column="0">
             <layout class="QGridLayout" name="TS_Inj_Sept_G1">
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_107">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_107" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -19989,7 +20661,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -20127,7 +20807,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -20265,7 +20953,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -20509,7 +21205,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -20647,7 +21351,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -20785,7 +21497,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -20923,7 +21643,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_108">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_108" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -20988,7 +21708,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_109">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_109" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -21119,7 +21839,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_110">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_110" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -21357,7 +22077,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -21495,7 +22223,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -21633,7 +22369,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -21658,7 +22402,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_111">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_111" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -21869,7 +22613,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_112">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_112" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -21940,7 +22684,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_113">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_113" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -21986,7 +22730,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_114">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_114" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -22032,7 +22776,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_115">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_115" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -22235,7 +22979,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -22373,7 +23125,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -22511,7 +23271,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -22737,7 +23505,7 @@ Power Supply</string>
            <item row="1" column="8">
             <layout class="QGridLayout" name="TS_Inj_Sept_F">
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_157">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_157" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -22962,7 +23730,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -23100,7 +23876,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -23238,7 +24022,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -23482,7 +24274,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -23620,7 +24420,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -23758,7 +24566,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -23896,7 +24712,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_158">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_158" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -23961,7 +24777,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_159">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_159" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -24092,7 +24908,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_160">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_160" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -24330,7 +25146,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -24468,7 +25292,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -24606,7 +25438,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -24631,7 +25471,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_161">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_161" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -24842,7 +25682,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_162">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_162" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -24913,7 +25753,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_163">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_163" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -24959,7 +25799,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_164">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_164" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -25005,7 +25845,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_165">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_165" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -25208,7 +26048,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -25346,7 +26194,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -25484,7 +26340,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -25881,7 +26745,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -26019,7 +26891,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -26157,7 +27037,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </disabled>
               </palette>
              </property>
@@ -26202,7 +27090,7 @@ Power Supply</string>
            <item row="1" column="4">
             <layout class="QGridLayout" name="TS_Inj_Sept_G2">
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_148">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_148" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -26427,7 +27315,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -26565,7 +27461,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -26703,7 +27607,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -26947,7 +27859,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -27085,7 +28005,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -27223,7 +28151,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -27361,7 +28297,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_149">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_149" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -27426,7 +28362,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_150">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_150" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -27557,7 +28493,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_151">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_151" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -27795,7 +28731,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -27933,7 +28877,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -28071,7 +29023,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -28096,7 +29056,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_152">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_152" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -28307,7 +29267,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_153">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_153" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -28378,7 +29338,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_154">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_154" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -28424,7 +29384,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_155">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_155" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -28470,7 +29430,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_156">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_156" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -28673,7 +29633,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -28811,7 +29779,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -28949,7 +29925,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -29353,7 +30337,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -29491,7 +30483,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -29629,7 +30629,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </disabled>
               </palette>
              </property>
@@ -29658,7 +30666,7 @@ Power Supply</string>
            <item row="1" column="4">
             <layout class="QGridLayout" name="SI_ONAXIS">
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_94">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_94" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -29729,7 +30737,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_98">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_98" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -30045,7 +31053,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -30183,7 +31199,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -30321,7 +31345,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -30346,7 +31378,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_101">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_101" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -30392,7 +31424,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_99">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_99" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -30595,7 +31627,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -30733,7 +31773,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -30871,7 +31919,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -30927,7 +31983,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_97">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_97" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -30973,7 +32029,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_118">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_118" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -31185,7 +32241,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_117">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_117" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -31278,7 +32334,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_96">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_96" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -31362,7 +32418,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="10" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_119">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_119" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -31479,7 +32535,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_105">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_105" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -31773,7 +32829,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -31911,7 +32975,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -32049,7 +33121,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -32231,7 +33311,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -32369,7 +33457,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -32507,7 +33603,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -32848,7 +33952,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -32986,7 +34098,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -33124,7 +34244,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -33395,7 +34523,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -33533,7 +34669,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -33671,7 +34815,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -33853,7 +35005,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -33991,7 +35151,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -34129,7 +35297,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -34365,7 +35541,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -34503,7 +35687,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -34641,7 +35833,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -34706,7 +35906,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_120">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_120" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -34752,7 +35952,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_124">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_124" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -34798,7 +35998,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_125">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_125" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -34844,7 +36044,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_136">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_136" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -34890,7 +36090,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_137">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_137" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -34936,7 +36136,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_138">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_138" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -34982,7 +36182,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_139">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_139" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -35028,7 +36228,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_140">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_140" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -35074,7 +36274,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="10" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_141">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_141" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -35625,7 +36825,7 @@ Power Supply</string>
                 <bool>false</bool>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjOnAxis:PwrState-Sel</string>
+                <string>ca://SI-01SA:PU-InjNLKckr:PwrState-Sel</string>
                </property>
               </widget>
              </item>
@@ -35647,12 +36847,12 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjOnAxis:Pulse-Sel</string>
+                <string>ca://SI-01SA:PU-InjNLKckr:Pulse-Sel</string>
                </property>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_95">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_95" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -35669,7 +36869,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjOnAxis:PwrState-Sts</string>
+                <string>ca://SI-01SA:PU-InjNLKckr:PwrState-Sts</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -35763,7 +36963,7 @@ Power Supply</string>
            <item row="1" column="0">
             <layout class="QGridLayout" name="SI_PingH">
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_44">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_44" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -35855,7 +37055,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_42">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_42" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -35895,7 +37095,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_41">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_41" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -36142,7 +37342,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -36280,7 +37488,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -36418,7 +37634,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -36443,7 +37667,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="10" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_106">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_106" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -36733,7 +37957,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_45">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_45" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -36779,7 +38003,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_43">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_43" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -36825,7 +38049,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_46">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_46" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -37050,7 +38274,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -37188,7 +38420,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -37326,7 +38566,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -37539,7 +38787,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -37677,7 +38933,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -37815,7 +39079,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -37842,7 +39114,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_49">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_49" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -38085,7 +39357,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_47">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_47" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -38335,7 +39607,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -38473,7 +39753,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -38611,7 +39899,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -38705,7 +40001,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_48">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_48" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -38813,7 +40109,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="10" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_180">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_180" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -39047,7 +40343,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -39185,7 +40489,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -39323,7 +40635,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -39505,7 +40825,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -39643,7 +40971,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -39781,7 +41117,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -39808,7 +41152,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_177">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_177" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -39854,7 +41198,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_175">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_175" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -39972,7 +41316,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_178">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_178" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -40241,7 +41585,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -40379,7 +41731,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -40517,7 +41877,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -40567,7 +41935,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_174">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_174" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -40744,7 +42112,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_176">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_176" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -40897,7 +42265,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_173">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_173" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -40943,7 +42311,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_171">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_171" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -41058,7 +42426,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_172">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_172" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -41280,7 +42648,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -41418,7 +42794,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -41556,7 +42940,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -41612,7 +43004,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_179">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_179" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -41979,7 +43371,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -42117,7 +43517,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -42255,7 +43663,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
-                
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </disabled>
               </palette>
              </property>
@@ -42323,7 +43739,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="7">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_63">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_63" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -42365,7 +43781,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="4">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_67">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_67" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -42564,7 +43980,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -42702,7 +44126,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -42840,7 +44272,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -42989,7 +44429,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="3" column="10">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_142">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_142" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -43181,7 +44621,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -43319,7 +44767,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -43457,7 +44913,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -43496,7 +44960,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="1">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_102">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_102" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -43688,7 +45152,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -43826,7 +45298,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -43964,7 +45444,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -44035,7 +45523,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="7">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_65">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_65" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -44109,7 +45597,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="4">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_100">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_100" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -44208,7 +45696,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="1">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_104">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_104" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -44400,7 +45888,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -44538,7 +46034,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -44676,7 +46180,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -44715,7 +46227,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="1">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_103">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_103" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -44750,7 +46262,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="4">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_66">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_66" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -44785,7 +46297,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="7">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_64">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_64" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -45001,7 +46513,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -45139,7 +46659,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -45277,7 +46805,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -45336,7 +46872,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="10">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_143">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_143" native="true">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -45528,7 +47064,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -45666,7 +47210,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -45804,7 +47356,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
-                  
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -45886,19 +47446,14 @@ Power Supply</string>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMLabel</class>
-   <extends>QLabel</extends>
-   <header>pydm.widgets.label</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMByteIndicator</class>
    <extends>QWidget</extends>
    <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
-   <class>PyDMCheckbox</class>
-   <extends>QCheckBox</extends>
-   <header>pydm.widgets.checkbox</header>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
   </customwidget>
   <customwidget>
    <class>PyDMLineEdit</class>
@@ -45909,6 +47464,11 @@ Power Supply</string>
    <class>PyDMPushButton</class>
    <extends>QPushButton</extends>
    <header>pydm.widgets.pushbutton</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMCheckbox</class>
+   <extends>QCheckBox</extends>
+   <header>pydm.widgets.checkbox</header>
   </customwidget>
   <customwidget>
    <class>PyDMRelatedDisplayButton</class>
