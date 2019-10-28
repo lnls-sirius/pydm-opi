@@ -594,7 +594,7 @@
               </widget>
              </item>
              <item row="3" column="24">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_16" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_16">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -629,7 +629,7 @@
               </widget>
              </item>
              <item row="4" column="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_13" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_13">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -664,7 +664,7 @@
               </widget>
              </item>
              <item row="4" column="24">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_17" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_17">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -1182,7 +1182,7 @@
               </widget>
              </item>
              <item row="4" column="13">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_30" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_30">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -1224,7 +1224,7 @@
               </widget>
              </item>
              <item row="3" column="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_14" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_14">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -1291,7 +1291,7 @@
               </widget>
              </item>
              <item row="5" column="8">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_29" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_29">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -2509,7 +2509,7 @@
               </widget>
              </item>
              <item row="3" column="18">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_15" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_15">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -2576,7 +2576,7 @@
               </widget>
              </item>
              <item row="5" column="13">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_19" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_19">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -2643,7 +2643,7 @@
               </widget>
              </item>
              <item row="3" column="8">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_22" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_22">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -3278,7 +3278,7 @@
               </widget>
              </item>
              <item row="3" column="13">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_23" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_23">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -3329,7 +3329,7 @@
               </spacer>
              </item>
              <item row="4" column="8">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_27" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_27">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -3860,7 +3860,7 @@
               </widget>
              </item>
              <item row="4" column="18">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_18" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_18">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -3919,7 +3919,7 @@
            <item row="1" column="4">
             <layout class="QGridLayout" name="BO_Inj_Kckr">
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_77" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_77">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -5144,7 +5144,7 @@
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_78" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_78">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -5209,7 +5209,7 @@
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_79" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_79">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -5346,7 +5346,7 @@
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_80" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_80">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -5909,7 +5909,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_81" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_81">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -6120,7 +6120,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_82" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_82">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -6191,7 +6191,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_83" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_83">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -6237,7 +6237,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_84" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_84">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -6283,7 +6283,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_85" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_85">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -6991,7 +6991,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="10" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_86" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_86">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                  <horstretch>0</horstretch>
@@ -7074,7 +7074,7 @@ Power Supply</string>
              <item row="0" column="0">
               <layout class="QGridLayout" name="gridLayout_13">
                <item row="3" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_20" native="true">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_20">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -8281,7 +8281,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="8" column="1" colspan="2">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_11" native="true">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_11">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -8346,7 +8346,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="5" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_21" native="true">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_21">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -8477,7 +8477,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="7" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_24" native="true">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_24">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -9040,7 +9040,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="9" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_25" native="true">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_25">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -9251,7 +9251,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="2" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_26" native="true">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_26">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -9322,7 +9322,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="8" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_28" native="true">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_28">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -9368,7 +9368,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="6" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_12" native="true">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_12">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -9414,7 +9414,7 @@ Power Supply</string>
                 </widget>
                </item>
                <item row="4" column="6">
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_31" native="true">
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_31">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                    <horstretch>0</horstretch>
@@ -11737,7 +11737,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_68" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_68">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -11808,7 +11808,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_69" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_69">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -12934,7 +12934,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_70" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_70">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -13221,7 +13221,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_71" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_71">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -13267,7 +13267,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_72" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_72">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -13510,7 +13510,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_73" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_73">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -13572,7 +13572,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_74" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_74">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -13618,7 +13618,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_75" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_75">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -13664,7 +13664,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_76" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_76">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -13730,7 +13730,7 @@ Power Supply</string>
            <item row="1" column="0">
             <layout class="QGridLayout" name="BO_Eje_Kckr">
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_32" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_32">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -14937,7 +14937,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_33" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_33">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -15002,7 +15002,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_34" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_34">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -15133,7 +15133,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_35" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_35">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -15696,7 +15696,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_36" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_36">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -15907,7 +15907,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_37" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_37">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -15978,7 +15978,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_38" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_38">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -16024,7 +16024,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_39" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_39">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -16070,7 +16070,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_40" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_40">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -16772,7 +16772,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="10" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_87" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_87">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -17945,7 +17945,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_50" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_50">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -18016,7 +18016,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_55" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_55">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -19142,7 +19142,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_54" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_54">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -19429,7 +19429,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_58" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_58">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -19475,7 +19475,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_51" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_51">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -19718,7 +19718,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_57" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_57">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -19780,7 +19780,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_56" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_56">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -19826,7 +19826,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_53" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_53">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -19872,7 +19872,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_52" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_52">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -20436,7 +20436,7 @@ Power Supply</string>
            <item row="1" column="0">
             <layout class="QGridLayout" name="TS_Inj_Sept_G1">
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_107" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_107">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -21643,7 +21643,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_108" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_108">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -21708,7 +21708,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_109" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_109">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -21839,7 +21839,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_110" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_110">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -22402,7 +22402,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_111" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_111">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -22613,7 +22613,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_112" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_112">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -22684,7 +22684,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_113" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_113">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -22730,7 +22730,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_114" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_114">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -22776,7 +22776,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_115" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_115">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -23505,7 +23505,7 @@ Power Supply</string>
            <item row="1" column="8">
             <layout class="QGridLayout" name="TS_Inj_Sept_F">
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_157" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_157">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -24712,7 +24712,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_158" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_158">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -24777,7 +24777,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_159" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_159">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -24908,7 +24908,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_160" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_160">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -25471,7 +25471,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_161" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_161">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -25682,7 +25682,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_162" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_162">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -25753,7 +25753,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_163" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_163">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -25799,7 +25799,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_164" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_164">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -25845,7 +25845,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_165" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_165">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -27090,7 +27090,7 @@ Power Supply</string>
            <item row="1" column="4">
             <layout class="QGridLayout" name="TS_Inj_Sept_G2">
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_148" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_148">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -28297,7 +28297,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_149" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_149">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -28362,7 +28362,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_150" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_150">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -28493,7 +28493,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_151" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_151">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -29056,7 +29056,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_152" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_152">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -29267,7 +29267,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_153" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_153">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -29338,7 +29338,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_154" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_154">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -29384,7 +29384,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_155" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_155">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -29430,7 +29430,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_156" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_156">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -30666,7 +30666,7 @@ Power Supply</string>
            <item row="1" column="4">
             <layout class="QGridLayout" name="SI_ONAXIS">
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_94" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_94">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -30737,7 +30737,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_98" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_98">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -31378,7 +31378,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_101" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_101">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -31424,7 +31424,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_99" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_99">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -31983,7 +31983,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_97" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_97">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -32029,7 +32029,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_118" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_118">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -32241,7 +32241,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_117" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_117">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -32334,7 +32334,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_96" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_96">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -32418,7 +32418,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="10" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_119" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_119">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -32535,7 +32535,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_105" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_105">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -35906,7 +35906,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_120" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_120">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -35952,7 +35952,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_124" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_124">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -35998,7 +35998,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_125" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_125">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -36044,7 +36044,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_136" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_136">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -36090,7 +36090,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_137" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_137">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -36136,7 +36136,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_138" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_138">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -36182,7 +36182,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_139" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_139">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -36228,7 +36228,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_140" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_140">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -36274,7 +36274,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="10" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_141" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_141">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -36852,7 +36852,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_95" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_95">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -36912,7 +36912,7 @@ Power Supply</string>
                 <enum>Qt::LeftToRight</enum>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjOnAxis:Reset-Cmd</string>
+                <string>ca://SI-01SA:PU-InjNLKckr:Reset-Cmd</string>
                </property>
                <property name="pressValue" stdset="0">
                 <string>1</string>
@@ -36963,7 +36963,7 @@ Power Supply</string>
            <item row="1" column="0">
             <layout class="QGridLayout" name="SI_PingH">
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_44" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_44">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -37055,7 +37055,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_42" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_42">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -37095,7 +37095,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_41" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_41">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -37667,7 +37667,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="10" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_106" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_106">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -37957,7 +37957,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_45" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_45">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -38003,7 +38003,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_43" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_43">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -38049,7 +38049,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_46" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_46">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -39114,7 +39114,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_49" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_49">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -39357,7 +39357,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_47" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_47">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -40001,7 +40001,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_48" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_48">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -40109,7 +40109,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="10" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_180" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_180">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -41152,7 +41152,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_177" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_177">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -41198,7 +41198,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="7" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_175" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_175">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -41316,7 +41316,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="6" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_178" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_178">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -41935,7 +41935,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_174" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_174">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -42112,7 +42112,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="2" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_176" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_176">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -42265,7 +42265,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="3" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_173" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_173">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -42311,7 +42311,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="8" column="1" colspan="2">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_171" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_171">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -42426,7 +42426,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="9" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_172" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_172">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -43004,7 +43004,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="6">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_179" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_179">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -43739,7 +43739,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="7">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_63" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_63">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -43781,7 +43781,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="4">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_67" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_67">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -44429,7 +44429,7 @@ Power Supply</string>
               </spacer>
              </item>
              <item row="3" column="10">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_142" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_142">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -44960,7 +44960,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="1">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_102" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_102">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -45523,7 +45523,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="7">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_65" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_65">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -45597,7 +45597,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="4">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_100" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_100">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -45696,7 +45696,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="1">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_104" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_104">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -46227,7 +46227,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="1">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_103" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_103">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -46262,7 +46262,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="3" column="4">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_66" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_66">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -46297,7 +46297,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="4" column="7">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_64" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_64">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -46872,7 +46872,7 @@ Power Supply</string>
               </widget>
              </item>
              <item row="5" column="10">
-              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_143" native="true">
+              <widget class="PyDMByteIndicator" name="PyDMByteIndicator_143">
                <property name="minimumSize">
                 <size>
                  <width>30</width>
@@ -47446,14 +47446,19 @@ Power Supply</string>
  </widget>
  <customwidgets>
   <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
    <class>PyDMByteIndicator</class>
    <extends>QWidget</extends>
    <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
-   <class>PyDMLabel</class>
-   <extends>QLabel</extends>
-   <header>pydm.widgets.label</header>
+   <class>PyDMCheckbox</class>
+   <extends>QCheckBox</extends>
+   <header>pydm.widgets.checkbox</header>
   </customwidget>
   <customwidget>
    <class>PyDMLineEdit</class>
@@ -47464,11 +47469,6 @@ Power Supply</string>
    <class>PyDMPushButton</class>
    <extends>QPushButton</extends>
    <header>pydm.widgets.pushbutton</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMCheckbox</class>
-   <extends>QCheckBox</extends>
-   <header>pydm.widgets.checkbox</header>
   </customwidget>
   <customwidget>
    <class>PyDMRelatedDisplayButton</class>
