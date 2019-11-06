@@ -442,7 +442,7 @@
             </color>
            </brush>
           </colorrole>
-                   </active>
+         </active>
          <inactive>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -579,7 +579,7 @@
             </color>
            </brush>
           </colorrole>
-                   </inactive>
+         </inactive>
          <disabled>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -716,7 +716,7 @@
             </color>
            </brush>
           </colorrole>
-                   </disabled>
+         </disabled>
         </palette>
        </property>
        <property name="font">
@@ -933,7 +933,7 @@
         <enum>QFrame::StyledPanel</enum>
        </property>
        <property name="text">
-        <string>1 kV</string>
+        <string>15 kV</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -1155,7 +1155,7 @@
             </color>
            </brush>
           </colorrole>
-                   </active>
+         </active>
          <inactive>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -1292,7 +1292,7 @@
             </color>
            </brush>
           </colorrole>
-                   </inactive>
+         </inactive>
          <disabled>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -1429,7 +1429,7 @@
             </color>
            </brush>
           </colorrole>
-                   </disabled>
+         </disabled>
         </palette>
        </property>
        <property name="font">
@@ -1632,7 +1632,7 @@
             </color>
            </brush>
           </colorrole>
-                   </active>
+         </active>
          <inactive>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -1769,7 +1769,7 @@
             </color>
            </brush>
           </colorrole>
-                   </inactive>
+         </inactive>
          <disabled>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -1906,7 +1906,7 @@
             </color>
            </brush>
           </colorrole>
-                   </disabled>
+         </disabled>
         </palette>
        </property>
        <property name="font">
@@ -2313,7 +2313,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
-                   </active>
+         </active>
          <inactive>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -2450,7 +2450,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
-                   </inactive>
+         </inactive>
          <disabled>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -2587,7 +2587,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
-                   </disabled>
+         </disabled>
         </palette>
        </property>
        <property name="font">

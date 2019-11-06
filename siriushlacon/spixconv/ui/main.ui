@@ -35625,7 +35625,7 @@ Power Supply</string>
                 <bool>false</bool>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjOnAxis:PwrState-Sel</string>
+                <string>ca://SI-01SA:PU-InjNLKckr:PwrState-Sel</string>
                </property>
               </widget>
              </item>
@@ -35647,7 +35647,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjOnAxis:Pulse-Sel</string>
+                <string>ca://SI-01SA:PU-InjNLKckr:Pulse-Sel</string>
                </property>
               </widget>
              </item>
@@ -35669,7 +35669,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjOnAxis:PwrState-Sts</string>
+                <string>ca://SI-01SA:PU-InjNLKckr:PwrState-Sts</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -35712,7 +35712,7 @@ Power Supply</string>
                 <enum>Qt::LeftToRight</enum>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjOnAxis:Reset-Cmd</string>
+                <string>ca://SI-01SA:PU-InjNLKckr:Reset-Cmd</string>
                </property>
                <property name="pressValue" stdset="0">
                 <string>1</string>
