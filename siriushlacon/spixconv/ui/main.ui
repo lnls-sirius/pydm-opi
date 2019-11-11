@@ -89,7 +89,7 @@
                </property>
                <property name="filenames" stdset="0">
                 <stringlist>
-                 <string>septum.ui</string>
+                 <string>kicker.ui</string>
                 </stringlist>
                </property>
                <property name="showIcon" stdset="0">
@@ -1226,7 +1226,7 @@
                </property>
                <property name="filenames" stdset="0">
                 <stringlist>
-                 <string>septum.ui</string>
+                 <string>kicker.ui</string>
                 </stringlist>
                </property>
                <property name="showIcon" stdset="0">
@@ -2530,7 +2530,7 @@
                </property>
                <property name="filenames" stdset="0">
                 <stringlist>
-                 <string>kicker.ui</string>
+                 <string>septum.ui</string>
                 </stringlist>
                </property>
                <property name="showIcon" stdset="0">
