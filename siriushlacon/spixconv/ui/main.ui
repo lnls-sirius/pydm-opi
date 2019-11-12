@@ -587,7 +587,7 @@
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:OnOff</string>
+                <string>ca://SI-01SA:PU-PingH:OnOff</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -2430,7 +2430,7 @@
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjOnAxis:OnOff</string>
+                <string>ca://SI-01SA:PU-InjDpKckr:OnOff</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
