@@ -248,7 +248,8 @@
             </color>
            </brush>
           </colorrole>
-                   </active>
+          
+         </active>
          <inactive>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -385,7 +386,8 @@
             </color>
            </brush>
           </colorrole>
-                   </inactive>
+          
+         </inactive>
          <disabled>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -522,7 +524,8 @@
             </color>
            </brush>
           </colorrole>
-                   </disabled>
+          
+         </disabled>
         </palette>
        </property>
        <property name="font">
@@ -765,7 +768,8 @@
             </color>
            </brush>
           </colorrole>
-                   </active>
+          
+         </active>
          <inactive>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -902,7 +906,8 @@
             </color>
            </brush>
           </colorrole>
-                   </inactive>
+          
+         </inactive>
          <disabled>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -1039,7 +1044,8 @@
             </color>
            </brush>
           </colorrole>
-                   </disabled>
+          
+         </disabled>
         </palette>
        </property>
        <property name="font">
@@ -1117,7 +1123,7 @@
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:Voltage-SP</string>
+        <string>ca://${pv_prefix}:SoftVoltage-SP</string>
        </property>
       </widget>
      </item>
@@ -1610,7 +1616,8 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
-                   </active>
+          
+         </active>
          <inactive>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -1747,7 +1754,8 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
-                   </inactive>
+          
+         </inactive>
          <disabled>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -1884,7 +1892,8 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
-                   </disabled>
+          
+         </disabled>
         </palette>
        </property>
        <property name="font">
@@ -2485,7 +2494,8 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
-                   </active>
+          
+         </active>
          <inactive>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -2622,7 +2632,8 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
-                   </inactive>
+          
+         </inactive>
          <disabled>
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
@@ -2759,7 +2770,8 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
-                   </disabled>
+          
+         </disabled>
         </palette>
        </property>
        <property name="font">
