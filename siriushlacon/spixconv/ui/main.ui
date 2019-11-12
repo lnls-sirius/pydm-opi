@@ -36986,7 +36986,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk5-Mon.RVAL</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk5-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -37050,7 +37050,7 @@ Power Supply</string>
                 <bool>false</bool>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:PwrState-Sel</string>
+                <string>ca://SI-01SA:PU-PingH:PwrState-Sel</string>
                </property>
               </widget>
              </item>
@@ -37072,7 +37072,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:PwrState-Sts</string>
+                <string>ca://SI-01SA:PU-PingH:PwrState-Sts</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -37118,7 +37118,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk1-Mon.RVAL</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk1-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -37161,7 +37161,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:PwrStateLabel1-Cte</string>
+                <string>ca://SI-01SA:PU-PingH:PwrStateLabel1-Cte</string>
                </property>
               </widget>
              </item>
@@ -37180,7 +37180,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Voltage-SP</string>
+                <string>ca://SI-01SA:PU-PingH:Voltage-SP</string>
                </property>
               </widget>
              </item>
@@ -37690,7 +37690,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk8-Mon.RVAL</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk8-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -37733,7 +37733,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:PwrState-Sts.DESC</string>
+                <string>ca://SI-01SA:PU-PingH:PwrState-Sts.DESC</string>
                </property>
               </widget>
              </item>
@@ -37761,7 +37761,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:CtrlMode-Mon.DESC</string>
+                <string>ca://SI-01SA:PU-PingH:CtrlMode-Mon.DESC</string>
                </property>
               </widget>
              </item>
@@ -37808,7 +37808,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Voltage-RB</string>
+                <string>ca://SI-01SA:PU-PingH:Voltage-RB</string>
                </property>
               </widget>
              </item>
@@ -37855,7 +37855,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk3Label-Cte</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk3Label-Cte</string>
                </property>
               </widget>
              </item>
@@ -37886,7 +37886,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk7Label-Cte</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk7Label-Cte</string>
                </property>
               </widget>
              </item>
@@ -37911,7 +37911,7 @@ Power Supply</string>
                 <enum>Qt::LeftToRight</enum>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Reset-Cmd</string>
+                <string>ca://SI-01SA:PU-PingH:Reset-Cmd</string>
                </property>
                <property name="pressValue" stdset="0">
                 <string>1</string>
@@ -37936,7 +37936,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Pulse-Sel</string>
+                <string>ca://SI-01SA:PU-PingH:Pulse-Sel</string>
                </property>
               </widget>
              </item>
@@ -37980,7 +37980,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk7-Mon.RVAL</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk7-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -38026,7 +38026,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk3-Mon.RVAL</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk3-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -38072,7 +38072,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:CtrlMode-Mon.RVAL</string>
+                <string>ca://SI-01SA:PU-PingH:CtrlMode-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -38112,7 +38112,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:PulseLabel-Cte</string>
+                <string>ca://SI-01SA:PU-PingH:PulseLabel-Cte</string>
                </property>
               </widget>
              </item>
@@ -38625,7 +38625,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk5Label-Cte</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk5Label-Cte</string>
                </property>
               </widget>
              </item>
@@ -39106,7 +39106,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>SI-01SA:PU-InjDpKckr</string>
+                <string>SI-01SA:PU-PingH</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -39137,7 +39137,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk2-Mon.RVAL</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk2-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -39202,7 +39202,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk6Label-Cte</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk6Label-Cte</string>
                </property>
               </widget>
              </item>
@@ -39233,7 +39233,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk1Label-Cte</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk1Label-Cte</string>
                </property>
               </widget>
              </item>
@@ -39299,7 +39299,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Voltage-Mon</string>
+                <string>ca://SI-01SA:PU-PingH:Voltage-Mon</string>
                </property>
               </widget>
              </item>
@@ -39321,7 +39321,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:ResetLabel-Cte</string>
+                <string>ca://SI-01SA:PU-PingH:ResetLabel-Cte</string>
                </property>
               </widget>
              </item>
@@ -39352,7 +39352,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk8Label-Cte</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk8Label-Cte</string>
                </property>
               </widget>
              </item>
@@ -39380,7 +39380,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk6-Mon.RVAL</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk6-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -39429,7 +39429,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk2Label-Cte</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk2Label-Cte</string>
                </property>
               </widget>
              </item>
@@ -39958,7 +39958,7 @@ Power Supply</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk4Label-Cte</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk4Label-Cte</string>
                </property>
               </widget>
              </item>
@@ -40024,7 +40024,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:Intlk4-Mon.RVAL</string>
+                <string>ca://SI-01SA:PU-PingH:Intlk4-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
