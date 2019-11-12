@@ -85,7 +85,7 @@
                 <string/>
                </property>
                <property name="text">
-                <string>SI-01SA:PU-InjDpKckr</string>
+                <string>SI-01SA:PU-PingH</string>
                </property>
                <property name="filenames" stdset="0">
                 <stringlist>
@@ -97,7 +97,7 @@
                </property>
                <property name="macros" stdset="0">
                 <stringlist>
-                 <string>{&quot;ps_voltage&quot;:&quot;30 kV&quot;, &quot;pv_prefix&quot;:&quot;SI-01SA:PU-InjDpKckr&quot;, &quot;function&quot;:&quot;Horizontal Pinger&quot;}</string>
+                 <string>{&quot;ps_voltage&quot;:&quot;30 kV&quot;, &quot;pv_prefix&quot;:&quot;SI-01SA:PU-PingH&quot;, &quot;function&quot;:&quot;Horizontal Pinger&quot;}</string>
                 </stringlist>
                </property>
                <property name="openInNewWindow" stdset="0">
@@ -1993,7 +1993,7 @@
                 <string/>
                </property>
                <property name="text">
-                <string>SI-01SA:PU-InjOnAxis</string>
+                <string>SI-01SA:PU-InjDpKckr</string>
                </property>
                <property name="filenames" stdset="0">
                 <stringlist>
@@ -2005,7 +2005,7 @@
                </property>
                <property name="macros" stdset="0">
                 <stringlist>
-                 <string>{&quot;ps_voltage&quot;:&quot;15 kV&quot;, &quot;pv_prefix&quot;:&quot;SI-01SA:PU-InjOnAxis&quot;, &quot;function&quot;:&quot;On Axis Kicker&quot;}</string>
+                 <string>{&quot;ps_voltage&quot;:&quot;15 kV&quot;, &quot;pv_prefix&quot;:&quot;SI-01SA:PU-InjDpKckr&quot;, &quot;function&quot;:&quot;On Axis Kicker&quot;}</string>
                 </stringlist>
                </property>
                <property name="openInNewWindow" stdset="0">
