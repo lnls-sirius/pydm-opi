@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>717</width>
-    <height>900</height>
+    <width>781</width>
+    <height>859</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,15 +38,15 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>697</width>
-        <height>851</height>
+        <width>761</width>
+        <height>810</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="1">
         <widget class="QTabWidget" name="tabWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -4727,6 +4727,22 @@
             </widget>
            </item>
            <item>
+            <widget class="PyDMRelatedDisplayButton" name="btnModHistory">
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="text">
+              <string>Open History</string>
+             </property>
+             <property name="showIcon" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="openInNewWindow" stdset="0">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="Line" name="line">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -4821,6 +4837,22 @@
               </size>
              </property>
             </spacer>
+           </item>
+           <item>
+            <widget class="PyDMRelatedDisplayButton" name="btnSysHistory">
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="text">
+              <string>Open History</string>
+             </property>
+             <property name="showIcon" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="openInNewWindow" stdset="0">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>

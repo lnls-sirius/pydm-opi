@@ -1,2 +1,5 @@
+pydm
+pytz
+requests
 pandas
 xlrd
