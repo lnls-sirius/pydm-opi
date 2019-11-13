@@ -73,7 +73,7 @@ class AlarmDisplay(Display):
     def do_search(self, alarm_tree, time_to, time_from, std, error):
         alarm_tree.clear()
         # For each PV
-        for signal in STD_READINGS if std else EXT_READINGS:
+        for signal in ['Group-Mon', *(STD_READINGS if std else EXT_READINGS)]:
             pv = self.get_PV(signal, std=std, error=error)
             response = get_data_from_archiver(pv=pv, to=time_to, from_=time_from, fetch_latest_metadata=False)
             pv_node = QTreeWidgetItem(['{}'.format(pv)])
