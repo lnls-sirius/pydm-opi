@@ -1,8 +1,8 @@
 import datetime
 import logging
 
-from PyQt5.QtCore import QDateTime
-from PyQt5.QtWidgets import QTreeWidgetItem
+from qtpy.QtCore import QDateTime
+from qtpy.QtWidgets import QTreeWidgetItem
 from pydm import Display
 
 from siriushlacon.regatron.consts import ALARM_UI, STD_READINGS, EXT_READINGS, EXTENDED_MAP, STANDARD_MAP
@@ -15,7 +15,14 @@ logger = logging.getLogger()
 
 class AlarmDisplay(Display):
     @staticmethod
-    def reading_tree_item(reading, mapping=None):
+    def reading_tree_item(reading, mapping: dict = None):
+        """
+
+        :param reading: A data item from the archiver request
+        :param mapping: Mapping for each bit on the integer where the key is an integer from
+        representing the bit position starting from zero and the key is a string with it's meaning
+        :return: A QTreeWidgetItem
+        """
         # Timestamp
         if mapping is None:
             mapping = {0: 'Zero', 1: 'One', 2: 'Two'}
@@ -58,6 +65,7 @@ class AlarmDisplay(Display):
 
     def get_PV(self, signal, std=False, error=False):
         """
+        Build a PV name
         :param signal: Signal name, the last component of the PV
         :param std: True for 'Std' else 'Ext'
         :param error: True for 'Err' else 'Warn'
@@ -71,6 +79,14 @@ class AlarmDisplay(Display):
         self.dtTo.setDateTime(QDateTime.currentDateTime())
 
     def do_search(self, alarm_tree, time_to, time_from, std, error):
+        """
+        Query and build the alarm tree
+        :param alarm_tree: QTreeWidget to append the alarms
+        :param time_to: final time
+        :param time_from: initial time
+        :param std: True for 'Std' else 'Ext', defines if it's a standard or extended alarm
+        :param error: True for 'Err' else 'Warn', defines if it's an error or a warning
+        """
         alarm_tree.clear()
         # For each PV
         for signal in ['Group-Mon', *(STD_READINGS if std else EXT_READINGS)]:
