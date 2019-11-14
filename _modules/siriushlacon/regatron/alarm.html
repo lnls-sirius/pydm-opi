@@ -78,8 +78,24 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"></div>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/index.html">PyDM OPI Operator User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/lnls-sirius/pydm-opi">PyDM OPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/lnls-sirius/pydm-opi">LNLS GitHub</a></li>
+</ul>
+
             
           
         </div>
@@ -158,12 +174,12 @@
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
 
 
-<div class="viewcode-block" id="AlarmDisplay"><a class="viewcode-back" href="../../../index.html#siriushlacon.regatron.alarm.AlarmDisplay">[docs]</a><span class="k">class</span> <span class="nc">AlarmDisplay</span><span class="p">(</span><span class="n">Display</span><span class="p">):</span>
+<div class="viewcode-block" id="AlarmDisplay"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.alarm.AlarmDisplay">[docs]</a><span class="k">class</span> <span class="nc">AlarmDisplay</span><span class="p">(</span><span class="n">Display</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Query alarms from the archiver appliance and display in a human readable format</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="AlarmDisplay.reading_tree_item"><a class="viewcode-back" href="../../../index.html#siriushlacon.regatron.alarm.AlarmDisplay.reading_tree_item">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="AlarmDisplay.reading_tree_item"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.alarm.AlarmDisplay.reading_tree_item">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">reading_tree_item</span><span class="p">(</span><span class="n">reading</span><span class="p">,</span> <span class="n">mapping</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get data from archiver and transform into a node with branches according to the bit value defined by the mapping.</span>
@@ -213,7 +229,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">set_time_now</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">search_alarms</span><span class="p">()</span>
 
-<div class="viewcode-block" id="AlarmDisplay.get_PV"><a class="viewcode-back" href="../../../index.html#siriushlacon.regatron.alarm.AlarmDisplay.get_PV">[docs]</a>    <span class="k">def</span> <span class="nf">get_PV</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">signal</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="AlarmDisplay.get_PV"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.alarm.AlarmDisplay.get_PV">[docs]</a>    <span class="k">def</span> <span class="nf">get_PV</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">signal</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Build a PV name</span>
 
@@ -225,11 +241,11 @@
         <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">:</span><span class="si">{}</span><span class="s1">-</span><span class="si">{}{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">macros</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">macros</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span>
                                      <span class="s1">&#39;Std&#39;</span> <span class="k">if</span> <span class="n">std</span> <span class="k">else</span> <span class="s1">&#39;Ext&#39;</span><span class="p">,</span> <span class="s1">&#39;Err&#39;</span> <span class="k">if</span> <span class="n">error</span> <span class="k">else</span> <span class="s1">&#39;Warn&#39;</span><span class="p">,</span> <span class="n">signal</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="AlarmDisplay.set_time_now"><a class="viewcode-back" href="../../../index.html#siriushlacon.regatron.alarm.AlarmDisplay.set_time_now">[docs]</a>    <span class="k">def</span> <span class="nf">set_time_now</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="AlarmDisplay.set_time_now"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.alarm.AlarmDisplay.set_time_now">[docs]</a>    <span class="k">def</span> <span class="nf">set_time_now</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Set current date and time to the &quot;dfTo&quot; widget &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dtTo</span><span class="o">.</span><span class="n">setDateTime</span><span class="p">(</span><span class="n">QDateTime</span><span class="o">.</span><span class="n">currentDateTime</span><span class="p">())</span></div>
 
-<div class="viewcode-block" id="AlarmDisplay.do_search"><a class="viewcode-back" href="../../../index.html#siriushlacon.regatron.alarm.AlarmDisplay.do_search">[docs]</a>    <span class="k">def</span> <span class="nf">do_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alarm_tree</span><span class="p">,</span> <span class="n">time_to</span><span class="p">,</span> <span class="n">time_from</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">error</span><span class="p">):</span>
+<div class="viewcode-block" id="AlarmDisplay.do_search"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.alarm.AlarmDisplay.do_search">[docs]</a>    <span class="k">def</span> <span class="nf">do_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alarm_tree</span><span class="p">,</span> <span class="n">time_to</span><span class="p">,</span> <span class="n">time_from</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">error</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Query and build the alarm tree</span>
 
@@ -258,7 +274,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;invalid status code for request </span><span class="si">{}</span><span class="s1"> from </span><span class="si">{}</span><span class="s1"> to </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pv</span><span class="p">,</span> <span class="n">time_from</span><span class="p">,</span> <span class="n">time_to</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="AlarmDisplay.search_alarms"><a class="viewcode-back" href="../../../index.html#siriushlacon.regatron.alarm.AlarmDisplay.search_alarms">[docs]</a>    <span class="k">def</span> <span class="nf">search_alarms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="AlarmDisplay.search_alarms"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.alarm.AlarmDisplay.search_alarms">[docs]</a>    <span class="k">def</span> <span class="nf">search_alarms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Update all tree widgets &quot;&quot;&quot;</span>
 
         <span class="n">time_to</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtTo</span><span class="o">.</span><span class="n">dateTime</span><span class="p">()</span><span class="o">.</span><span class="n">toPyDateTime</span><span class="p">()</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">SP_TZ</span><span class="p">)</span>

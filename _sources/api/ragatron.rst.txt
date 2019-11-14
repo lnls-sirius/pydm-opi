@@ -1,0 +1,38 @@
+#######################
+Regatron
+#######################
+
+.. automodule:: siriushlacon.regatron
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: siriushlacon.regatron.main
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: siriushlacon.regatron.regatron
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: siriushlacon.regatron.consts
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: siriushlacon.regatron.alarm
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: siriushlacon.regatron.err
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: siriushlacon.regatron.warn
+    :members:
+    :undoc-members:
+    :show-inheritance:

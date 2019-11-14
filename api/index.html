@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Applications &mdash; CONS PyDM OPI  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="agilent4uhv.html" />
+    <link rel="prev" title="PyDM OPI Operator User Guide" href="../userguide/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> CONS PyDM OPI
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">PyDM OPI Operator User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#agilent-4uhv">Agilent 4UHV</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#launcher">Launcher</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mbtemp">MBTemp</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pctrl">PCtrl</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#regatron">Regatron</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="regatron.html">__init__.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regatron.html#module-siriushlacon.regatron.main">main.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regatron.html#module-siriushlacon.regatron.regatron">regatron.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regatron.html#module-siriushlacon.regatron.consts">consts.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regatron.html#module-siriushlacon.regatron.alarm">alarm.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regatron.html#module-siriushlacon.regatron.err">err.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regatron.html#module-siriushlacon.regatron.warn">warn.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#spixconv">SPIxCONV</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/lnls-sirius/pydm-opi">PyDM OPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/lnls-sirius/pydm-opi">LNLS GitHub</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CONS PyDM OPI</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Applications</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="applications">
+<h1>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h1>
+<p>Each category is a standalone module.</p>
+<div class="section" id="agilent-4uhv">
+<h2>Agilent 4UHV<a class="headerlink" href="#agilent-4uhv" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="launcher">
+<h2>Launcher<a class="headerlink" href="#launcher" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="mbtemp">
+<h2>MBTemp<a class="headerlink" href="#mbtemp" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="pctrl">
+<h2>PCtrl<a class="headerlink" href="#pctrl" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="regatron">
+<h2>Regatron<a class="headerlink" href="#regatron" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="regatron.html">__init__.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regatron.html#module-siriushlacon.regatron.main">main.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regatron.html#module-siriushlacon.regatron.regatron">regatron.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regatron.html#module-siriushlacon.regatron.consts">consts.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regatron.html#module-siriushlacon.regatron.alarm">alarm.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regatron.html#module-siriushlacon.regatron.err">err.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regatron.html#module-siriushlacon.regatron.warn">warn.py</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="spixconv">
+<h2>SPIxCONV<a class="headerlink" href="#spixconv" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="agilent4uhv.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../userguide/index.html" class="btn btn-neutral float-left" title="PyDM OPI Operator User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright carneirofc
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
