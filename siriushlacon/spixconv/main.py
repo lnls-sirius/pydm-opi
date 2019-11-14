@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import sys
-import json
 
-from os import path
 from pydm import Display
+
 from siriushlacon.spixconv.consts import SPIXCONV_MAIN
+
 
 class DeviceMenu(Display):
     def __init__(self, parent=None, args=[], macros=None):

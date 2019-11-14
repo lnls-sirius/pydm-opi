@@ -1,16 +1,14 @@
-import subprocess
-
 from qtpy.QtGui import QPixmap
-
 from pydm import Display
 
 from siriushlacon.agilent4uhv.consts import AGILENT_MAIN, AGILENT_OVERVIEW
+from siriushlacon.launcher.consts import LAUNCH_WINDOW_UI, PCTRL_MAIN
 from siriushlacon.mbtemp.consts import MBTEMP_MAIN
 from siriushlacon.mks937b.consts import MKS_MAIN, MKS_OVERVIEW
 from siriushlacon.regatron.consts import REGATRON_MAIN
-from siriushlacon.launcher.consts import LAUNCH_WINDOW_UI, PCTRL_MAIN
 from siriushlacon.spixconv.consts import SPIXCONV_MAIN
 from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
+
 
 class Launcher(Display):
     """

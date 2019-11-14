@@ -1,6 +1,5 @@
-from qtpy.QtGui import QPixmap
-
 from pydm import Display
+from qtpy.QtGui import QPixmap
 
 from siriushlacon.mks937b.consts import MKS_LAUNCH_UI, \
     MKS_OVERVIEW, LTB_UI, BOOSTER_UI, BTS_UI, STORAGE_RING_UI

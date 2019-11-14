@@ -3,8 +3,8 @@
 
 from pydm import Display
 
-from siriushlacon.utils.consts import IS_LINUX
 from siriushlacon.mks937b.consts import COLD_CATHODE, PRESSURE_UI
+from siriushlacon.utils.consts import IS_LINUX
 
 
 class Pressure(Display):

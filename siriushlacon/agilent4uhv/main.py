@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from qtpy.QtWidgets import QLabel
-
 from pydm import Display
 from pydm.utilities import IconFont
 from pydm.widgets import PyDMRelatedDisplayButton, PyDMLabel
+from qtpy.QtWidgets import QLabel
 
-from siriushlacon.utils.widgets import get_label, get_byte_indicator, \
-    TableDataController
 from siriushlacon.agilent4uhv.consts import devices, AGILENT_MAIN_UI, \
     AGILENT_DEVICE_MAIN
+from siriushlacon.utils.widgets import get_label, get_byte_indicator, \
+    TableDataController
 
 ALARM, CURRENT, PRESSURE, VOLTAGE, FAN_TEMPERATURE, TEMPERATURE, \
     DEVICE_NAME, CH_CONFIG, AUTOSTART = range(9)

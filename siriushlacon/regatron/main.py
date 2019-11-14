@@ -1,28 +1,24 @@
 #!/usr/bin/python3
 import json
-import pkg_resources
 import logging
 
 from pydm import Display
-from pydm.widgets.channel import PyDMChannel
 from pydm.widgets.related_display_button import PyDMRelatedDisplayButton
-from pydm.widgets.label import PyDMLabel
-
 from qtpy.QtGui import QPixmap
-from qtpy.QtWidgets import QWidget, QGridLayout, QPushButton, QLabel, QSpacerItem, QSizePolicy
-from qtpy.QtGui import QFont
+from qtpy.QtWidgets import QGridLayout
 
-from siriushlacon.regatron.consts import REGATRON_UI, DETAILS_MAIN, SIMPLE_MAIN, DETAILS_MAIN,\
-    DATA_JSON, COMPLETE_MAIN
+from siriushlacon.regatron.consts import REGATRON_UI, DATA_JSON, COMPLETE_MAIN
 from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
 
 logger = logging.getLogger()
+
 
 def load_data():
     data = None
     with open(DATA_JSON, 'rb') as f:
         data = json.load(f)
     return data
+
 
 def get_overview_detail(name):
     overview = PyDMRelatedDisplayButton(name)
@@ -32,8 +28,6 @@ def get_overview_detail(name):
     overview.showIcon = False
     return overview
 
-# def log(x):
-    # logger.info(x)
 
 class Launcher(Display):
     DIP = 'DIP'
@@ -73,8 +67,7 @@ class Launcher(Display):
     def render(self, layout, data):
         i = 0
         for name in data:
-            overview  = get_overview_detail(name)
+            overview = get_overview_detail(name)
             layout.addWidget(overview, i, 0)
             i += 1
         layout.setRowStretch(len(data), 10)
-

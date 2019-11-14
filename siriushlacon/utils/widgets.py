@@ -1,9 +1,8 @@
 
-from qtpy.QtWidgets import QLayout, QSizePolicy, QStyle
-from qtpy.QtGui import QColor
-from qtpy.QtCore import Qt, QObject, Signal, QRect, QSize, QPoint
-
 from pydm.widgets import PyDMLabel, PyDMByteIndicator
+from qtpy.QtCore import Qt, QObject, Signal, QRect, QSize, QPoint
+from qtpy.QtGui import QColor
+from qtpy.QtWidgets import QLayout, QSizePolicy, QStyle
 
 from siriushlacon.utils.consts import TABLE_ALARMS_QSS
 
