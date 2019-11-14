@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=CONS PyDM OPIs
-Icon=LNLS.png
+Icon=sirius-hla-as-cons-lnls.png
 Exec=/bin/bash -l -c 'PATH=$PATH:~/.local/bin sirius-hla-as-ap-conlauncher.py'
 StartupNotify=true
 Terminal=false
