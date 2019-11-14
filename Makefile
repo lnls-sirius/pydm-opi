@@ -9,7 +9,7 @@ clean :
 	find . -name '__pycache__'  -exec rm -rd --force {} +
 
 install-files:
-	cp siriushlacon/utils/images/LNLS.png /home/sirius/.local/share/icons
+	cp siriushlacon/utils/images/sirius-hla-as-cons-lnls.png /usr/share/icons
 	cp miscellaneous/$(NAME).desktop /home/sirius/Desktop/$(NAME).desktop
 
 install: install-files clean-git
