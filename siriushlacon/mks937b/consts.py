@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import os
 import pandas
 import pkg_resources
 
 from siriushlacon.utils.consts import FILE
+
 
 def get_abs_path(filename):
     return pkg_resources.resource_filename(__name__, filename)

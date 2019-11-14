@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import logging
-import epics
 import threading
 
-from qtpy.QtWidgets import QLabel
-
+import epics
 from pydm import Display
 from pydm.utilities import IconFont
 from pydm.widgets import PyDMRelatedDisplayButton, PyDMLabel
+from qtpy.QtWidgets import QLabel
 
-from siriushlacon.utils.widgets import get_label, TableDataController
 from siriushlacon.mks937b.consts import devices, data, MKS_MAIN_UI, DEVICE_MENU
+from siriushlacon.utils.widgets import get_label, TableDataController
 
 logger = logging.getLogger('MKS_Logger')
 
