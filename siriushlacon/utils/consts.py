@@ -1,10 +1,11 @@
 #!/bin/bash
+import datetime
+import logging
 import os
 import platform
-import logging
-import pkg_resources
 import urllib.request
-import datetime
+
+import pkg_resources
 import pytz
 
 logger = logging.getLogger()
