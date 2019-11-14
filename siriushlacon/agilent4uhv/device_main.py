@@ -1,9 +1,8 @@
 
 import json
 
-from qtpy.QtGui import QPixmap
-
 from pydm import Display
+from qtpy.QtGui import QPixmap
 
 from siriushlacon.agilent4uhv.consts import AGILENT_DEVICE_MAIN_UI, \
     AGILENT_DEVICE_UI, AGILENT_CHANNEL_UI
