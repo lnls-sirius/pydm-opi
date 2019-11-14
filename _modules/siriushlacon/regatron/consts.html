@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>siriushlacon.regatron.consts &mdash; CONS PyDM OPI  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> CONS PyDM OPI
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">CONS PyDM OPI</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../regatron.html">siriushlacon.regatron</a> &raquo;</li>
+        
+      <li>siriushlacon.regatron.consts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for siriushlacon.regatron.consts</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">pkg_resources</span>
+
+<div class="viewcode-block" id="get_abs_path"><a class="viewcode-back" href="../../../index.html#siriushlacon.regatron.consts.get_abs_path">[docs]</a><span class="k">def</span> <span class="nf">get_abs_path</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span></div>
+
+
+<span class="n">DATA_JSON</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;data.json&#39;</span><span class="p">)</span>
+<span class="n">REGATRON_MAIN</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;main.py&#39;</span><span class="p">)</span>
+<span class="n">ERR_MAIN</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;err.py&#39;</span><span class="p">)</span>
+<span class="n">WARN_MAIN</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;warn.py&#39;</span><span class="p">)</span>
+<span class="n">COMPLETE_MAIN</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;regatron.py&#39;</span><span class="p">)</span>
+<span class="n">ALARM_MAIN</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;alarm.py&#39;</span><span class="p">)</span>
+
+<span class="n">REGATRON_UI</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;ui/main.ui&#39;</span><span class="p">)</span>
+<span class="n">ERR_UI</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;ui/err.ui&#39;</span><span class="p">)</span>
+<span class="n">WARN_UI</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;ui/warning.ui&#39;</span><span class="p">)</span>
+<span class="n">COMPLETE_UI</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;ui/regatron.ui&#39;</span><span class="p">)</span>
+<span class="n">ALARM_UI</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;ui/alarm.ui&#39;</span><span class="p">)</span>
+
+<span class="n">EXTENDED_MAP</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;IBC System&#39;</span><span class="p">,</span>    <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;IBC Supply&#39;</span><span class="p">,</span>        <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;IBC Communication&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;IBC Power&#39;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;IBC Inverter&#39;</span><span class="p">,</span>  <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;IBC Miscellaneous&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="s1">&#39;IBC Inverter 2&#39;</span><span class="p">,</span>    <span class="mi">7</span><span class="p">:</span> <span class="s1">&#39;not used&#39;</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">:</span> <span class="s1">&#39;not used&#39;</span><span class="p">,</span>      <span class="mi">9</span><span class="p">:</span> <span class="s1">&#39;not used&#39;</span><span class="p">,</span>          <span class="mi">10</span><span class="p">:</span> <span class="s1">&#39;Supply 2&#39;</span><span class="p">,</span>         <span class="mi">11</span><span class="p">:</span><span class="s1">&#39;Login 2&#39;</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">:</span> <span class="s1">&#39;Configuration 3&#39;</span><span class="p">,</span>   <span class="mi">13</span><span class="p">:</span> <span class="s1">&#39;Communication 3&#39;</span><span class="p">,</span>
+    <span class="mi">14</span><span class="p">:</span> <span class="s1">&#39;Internal 2&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">:</span><span class="s1">&#39;Communication 2&#39;</span>
+<span class="p">}</span>
+<span class="n">STANDARD_MAP</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Internal&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Internal (PDSP)&#39;</span><span class="p">,</span>  <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;Output Current&#39;</span><span class="p">,</span>   <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;Output Voltage&#39;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;Supply&#39;</span><span class="p">,</span>   <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;Temperature&#39;</span><span class="p">,</span>      <span class="mi">6</span><span class="p">:</span> <span class="s1">&#39;Communication&#39;</span><span class="p">,</span>    <span class="mi">7</span><span class="p">:</span> <span class="s1">&#39;Internal (Modulator)&#39;</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">:</span> <span class="s1">&#39;Internal (AD overrange 1)&#39;</span><span class="p">,</span>      <span class="mi">9</span><span class="p">:</span> <span class="s1">&#39;Internal (AD overrange 2)&#39;</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">:</span> <span class="s1">&#39;Internal (AD underrange 1)&#39;</span><span class="p">,</span>    <span class="mi">11</span><span class="p">:</span> <span class="s1">&#39;Internal (AD underrange 2)&#39;</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">:</span> <span class="s1">&#39;Login&#39;</span><span class="p">,</span>   <span class="mi">13</span><span class="p">:</span> <span class="s1">&#39;Configuration&#39;</span><span class="p">,</span>   <span class="mi">14</span><span class="p">:</span> <span class="s1">&#39;Configuration 2&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">:</span> <span class="s1">&#39;Miscellaneous&#39;</span>
+<span class="p">}</span>
+
+<span class="n">STD_READINGS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Intrn-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IntrnPDSP-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;OutCurrent-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;OutVolt-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Supply-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;T-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Comm-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IntrnMod-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AD1Ovr-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AD2Ovr-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AD1Undr-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AD2Undr-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Login-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Conf-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Conf2-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Misc-Mon&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">EXT_READINGS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;IBCSystem-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IBCSuppply-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IBCComm-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IBCPwr-Mon1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IBCInv-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IBCMisc-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IBCInv2-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Supply2-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Login2-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Conf3-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Comm3-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Intrn2-Mon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Comm2-Mon&quot;</span>
+<span class="p">]</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright carneirofc
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
