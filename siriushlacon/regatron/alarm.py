@@ -1,9 +1,9 @@
 import datetime
 import logging
 
+from pydm import Display
 from qtpy.QtCore import QDateTime
 from qtpy.QtWidgets import QTreeWidgetItem
-from pydm import Display
 
 from siriushlacon.regatron.consts import ALARM_UI, STD_READINGS, EXT_READINGS, EXTENDED_MAP, STANDARD_MAP
 from siriushlacon.utils.alarm import Alarm, Severity
@@ -14,9 +14,14 @@ logger = logging.getLogger()
 
 
 class AlarmDisplay(Display):
+    """
+    Query alarms from the archiver appliance and display in a human readable format
+    """
+
     @staticmethod
     def reading_tree_item(reading, mapping: dict = None):
         """
+        Get data from archiver and transform into a node with branches according to the bit value defined by the mapping.
 
         :param reading: A data item from the archiver request
         :param mapping: Mapping for each bit on the integer where the key is an integer from
@@ -66,6 +71,7 @@ class AlarmDisplay(Display):
     def get_PV(self, signal, std=False, error=False):
         """
         Build a PV name
+
         :param signal: Signal name, the last component of the PV
         :param std: True for 'Std' else 'Ext'
         :param error: True for 'Err' else 'Warn'
@@ -75,12 +81,13 @@ class AlarmDisplay(Display):
                                      'Std' if std else 'Ext', 'Err' if error else 'Warn', signal)
 
     def set_time_now(self):
-        # set current date and time to the object
+        """ Set current date and time to the "dfTo" widget """
         self.dtTo.setDateTime(QDateTime.currentDateTime())
 
     def do_search(self, alarm_tree, time_to, time_from, std, error):
         """
         Query and build the alarm tree
+
         :param alarm_tree: QTreeWidget to append the alarms
         :param time_to: final time
         :param time_from: initial time
@@ -107,6 +114,8 @@ class AlarmDisplay(Display):
                 logger.warning('invalid status code for request {} from {} to {}'.format(pv, time_from, time_to))
 
     def search_alarms(self):
+        """ Update all tree widgets """
+
         time_to = self.dtTo.dateTime().toPyDateTime().astimezone(SP_TZ)
         time_from = self.dtFrom.dateTime().toPyDateTime().astimezone(SP_TZ)
 
