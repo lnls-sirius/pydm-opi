@@ -1,12 +1,11 @@
 import logging
-import json
 
 from pydm import Display
 from pydm.utilities import IconFont
 from pydm.widgets.channel import PyDMChannel
 
 from siriushlacon.regatron.consts import COMPLETE_UI, ERR_MAIN, WARN_MAIN, \
-    ERR_UI, EXTENDED_MAP, STANDARD_MAP, STD_READINGS, EXT_READINGS
+    EXTENDED_MAP, STANDARD_MAP, ALARM_MAIN
 
 logger = logging.getLogger()
 
@@ -25,6 +24,11 @@ class Regatron(Display):
 
         self.btnErr.filenames = [ERR_MAIN]
         self.btnWarn.filenames = [WARN_MAIN]
+
+        self.btnSysHistory.filenames = [ALARM_MAIN]
+        self.btnSysHistory.base_macros = {'P': macros['P'], 'T': 'Sys'}
+        self.btnModHistory.filenames = [ALARM_MAIN]
+        self.btnModHistory.base_macros = {'P': macros['P'], 'T': 'Mod'}
 
         # Warning Groups
         self.ch_mod_std_warn_report = PyDMChannel(

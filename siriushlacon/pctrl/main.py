@@ -1,14 +1,13 @@
 #!/usr/local/env python3
 import json
 import logging
-import pkg_resources
 
 from pydm import Display
 from pydm.widgets.related_display_button import PyDMRelatedDisplayButton
+from qtpy.QtWidgets import QWidget, QVBoxLayout
 
-from qtpy.QtWidgets import QWidget, QVBoxLayout, QPushButton, QLabel, QSpacerItem, QSizePolicy
-from qtpy.QtGui import QFont
-from siriushlacon.pctrl.consts import IOCS_JSON, PCTRL_UI, PCTRL_DET_UI
+from siriushlacon.pctrl.consts import IOCS_JSON, PCTRL_UI
+
 
 def load_iocs():
     with open(IOCS_JSON, 'rb') as f:

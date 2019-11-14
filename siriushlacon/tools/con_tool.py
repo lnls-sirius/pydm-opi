@@ -3,9 +3,8 @@ from os import path
 
 from pydm.tools import ExternalTool
 from pydm.utilities.iconfont import IconFont
-
-from qtpy.QtGui import QDesktopServices
 from qtpy.QtCore import QUrl
+from qtpy.QtGui import QDesktopServices
 
 from siriushlacon.tools.consts import VIEWER_URL, MGMT_URL, BBB_URL
 

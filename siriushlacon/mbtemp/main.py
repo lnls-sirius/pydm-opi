@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 import logging
-from qtpy.QtWidgets import QLabel
 
 from pydm import Display, PyDMApplication
 from pydm.utilities import IconFont
+from qtpy.QtWidgets import QLabel
 
-from siriushlacon.utils.widgets import get_label, TableDataController
 from siriushlacon.mbtemp.consts import devices, MBTEMP_MAIN_UI
+from siriushlacon.utils.widgets import get_label, TableDataController
 
 logger = logging.getLogger()
 

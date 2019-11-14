@@ -1,13 +1,9 @@
 import logging
 
-from epics import caput
 from pydm import Display
-from pydm.utilities import IconFont
-from pydm.widgets.channel import PyDMChannel
 
 from siriushlacon.regatron import proc_alarm
-from siriushlacon.regatron.consts import ERR_UI, EXTENDED_MAP,\
-    STANDARD_MAP, STD_READINGS, EXT_READINGS
+from siriushlacon.regatron.consts import ERR_UI
 
 logger = logging.getLogger()
 

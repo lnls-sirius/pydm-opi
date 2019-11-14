@@ -1,26 +1,23 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import os
 import pkg_resources
 
 def get_abs_path(filename):
     return pkg_resources.resource_filename(__name__, filename)
 
-DATA_JSON = get_abs_path('data.json')
 
+DATA_JSON = get_abs_path('data.json')
 REGATRON_MAIN = get_abs_path('main.py')
-DETAILS_MAIN = get_abs_path('details.py')
-SIMPLE_MAIN = get_abs_path('simple.py')
 ERR_MAIN = get_abs_path('err.py')
 WARN_MAIN = get_abs_path('warn.py')
 COMPLETE_MAIN = get_abs_path('regatron.py')
+ALARM_MAIN = get_abs_path('alarm.py')
 
 REGATRON_UI = get_abs_path('ui/main.ui')
-DETAILS_UI = get_abs_path('ui/details.ui')
-SIMPLE_UI = get_abs_path('ui/simple.ui')
 ERR_UI = get_abs_path('ui/err.ui')
 WARN_UI = get_abs_path('ui/warning.ui')
 COMPLETE_UI = get_abs_path('ui/regatron.ui')
+ALARM_UI = get_abs_path('ui/alarm.ui')
 
 EXTENDED_MAP = {
     0: 'IBC System',    1: 'IBC Supply',        2: 'IBC Communication', 3: 'IBC Power',

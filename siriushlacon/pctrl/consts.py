@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import os
 import pkg_resources
 
 def get_abs_path(filename):
@@ -9,5 +8,4 @@ def get_abs_path(filename):
 PCTRL_MAIN = get_abs_path('main.py')
 PCTRL_UI = get_abs_path('ui/main.ui')
 PCTRL_DET_UI = get_abs_path('ui/procServControl.ui')
-
 IOCS_JSON =  get_abs_path('iocs.json')
