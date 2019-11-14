@@ -1,24 +1,8 @@
 # CONS OPIs
+
 This repo should contain every PyDM OPI developed by the CONS group currently in use.
 
-### directory structure
-```
-.
-├── miscellaneous
-│   └── windows
-├── scripts
-└── siriushlacon
-    ├── agilent4uhv
-    │   └── ui
-    .
-    .
-    .
-    ├── tools
-    └── utils
-        ├── css
-        ├── images
-        └── ui
-```
+## [Read the docs !](https://lnls-sirius.github.io/pydm-opi/)
 
 ## Requirements
 The lattest version of PyDM and Python>=3.6. Other dependencies are listed at `requerements.txt`.
