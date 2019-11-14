@@ -1,4 +1,3 @@
-import os
 import pkg_resources
 
 def get_abs_path(filename):

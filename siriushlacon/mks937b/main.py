@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import logging
-import epics
 import threading
 
-from qtpy.QtWidgets import QLabel
-
+import epics
 from pydm import Display
 from pydm.utilities import IconFont
 from pydm.widgets import PyDMRelatedDisplayButton, PyDMLabel
+from qtpy.QtWidgets import QLabel
 
-from siriushlacon.utils.widgets import get_label, TableDataController
 from siriushlacon.mks937b.consts import devices, data, MKS_MAIN_UI, DEVICE_MENU
+from siriushlacon.utils.widgets import get_label, TableDataController
 
 logger = logging.getLogger('MKS_Logger')
 
@@ -64,7 +63,7 @@ class MKSTableDataController(TableDataController):
 
             for d in self.table_data:
                 d['render'] = self.filter_pattern in d['device'] or \
-                    self.filter_pattern in d['gauge']
+                              self.filter_pattern in d['gauge']
             self.update_content.emit()
 
     def load_table_data(self):
@@ -88,7 +87,7 @@ class MKSTableDataController(TableDataController):
                 self.table_data.append({
                     'device': device[0],
                     'gauge': item, 'macro': macro,
-                    'render': True, 'num':i})
+                    'render': True, 'num': i})
                 i += 1
         self.total_rows = len(self.table_data)
         self.update_content.emit()
@@ -115,7 +114,7 @@ class MKSTableDataController(TableDataController):
                 self.table.setRowHidden(actual_row, False)
                 row = 0
                 # Channel Access
-                device_ca = 'ca://'  + d['device']
+                device_ca = 'ca://' + d['device']
                 channel_ca = 'ca://' + d['gauge']
 
                 self.table.cellWidget(actual_row, row).setText(d['gauge'])
@@ -133,18 +132,18 @@ class MKSTableDataController(TableDataController):
                 self.connect_widget(actual_row, row, channel_ca + ':ProtectionSetpoint-RB-s')
                 row += 1
                 for i in range(1, 13):
-                    if (d['num'] == 0 and (i >= 1 and i <= 4)) or \
-                        (d['num'] == 2 and (i >= 5 and i <= 8)) or \
-                        (d['num'] == 3 and (i >= 9 and i <= 10)) or \
-                        (d['num'] == 4 and (i >= 11 and i <= 12)):
+                    if (d['num'] == 0 and (1 <= i <= 4)) or \
+                            (d['num'] == 2 and (5 <= i <= 8)) or \
+                            (d['num'] == 3 and (9 <= i <= 10)) or \
+                            (d['num'] == 4 and (11 <= i <= 12)):
                         pv_ = device_ca + ':Relay{}:Setpoint-RB'.format(i)
-                        self.table.cellWidget(actual_row, row).displayFormat=PyDMLabel.DisplayFormat.Exponential
+                        self.table.cellWidget(actual_row, row).displayFormat = PyDMLabel.DisplayFormat.Exponential
                         self.connect_widget(actual_row, row, pv_)
                     else:
                         pv_ = ''
                         self.connect_widget(actual_row, row, pv_)
-                        self.table.cellWidget(actual_row, row).displayFormat=0#PyDMLabel.DisplayFormat.String
-                        self.table.cellWidget(actual_row, row).value_changed('')#setText('')
+                        self.table.cellWidget(actual_row, row).displayFormat = 0  # PyDMLabel.DisplayFormat.String
+                        self.table.cellWidget(actual_row, row).value_changed('')  # setText('')
                     row += 1
 
                 self.connect_widget(actual_row, row, None, d['macro'])

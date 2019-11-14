@@ -1,6 +1,8 @@
 #!/usr/local/env python3
 import os
+
 import pkg_resources
+
 
 def get_abs_path(filename):
     return pkg_resources.resource_filename(__name__, filename)

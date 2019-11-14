@@ -2,17 +2,16 @@
 import logging
 import re
 
+from pydm import Display
+from pydm.widgets.drawing import PyDMDrawingRectangle
+from pydm.widgets.label import PyDMLabel
 from qtpy.QtCore import Qt, QRect
 from qtpy.QtGui import QBrush, QColor, QFont
 from qtpy.QtWidgets import QFrame, QLabel
 
-from pydm import Display
-from pydm.widgets.label import PyDMLabel
-from pydm.widgets.drawing import PyDMDrawingRectangle
-
+from siriushlacon.mks937b.consts import data
 from siriushlacon.utils.consts import OVERVIEW_UI
 from siriushlacon.utils.widgets import FlowLayout
-from siriushlacon.mks937b.consts import data
 
 logger = logging.getLogger()
 

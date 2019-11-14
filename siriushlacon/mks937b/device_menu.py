@@ -2,15 +2,14 @@
 # -*- coding: utf-8 -*-
 import json
 
-from qtpy.QtGui import QDesktopServices, QPixmap
-from qtpy.QtCore import QUrl
-
 from pydm import Display
+from qtpy.QtCore import QUrl
+from qtpy.QtGui import QDesktopServices, QPixmap
 
-from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
-from siriushlacon.tools.consts import VIEWER_URL
 from siriushlacon.mks937b.consts import PRESSURE, SETTINGS, INFO_UI, \
     DEVICE_MENU_UI
+from siriushlacon.tools.consts import VIEWER_URL
+from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
 
 
 def get_json_macro(macros):
