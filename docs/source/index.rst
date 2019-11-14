@@ -7,45 +7,37 @@ Various PyDM OPIs made and maintained by the Sirius Control Group.
    :maxdepth: 2
    :caption: Contents:
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started
+
+   installation.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: User Guide
+
+   userguide/index.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: API Documentation
+
+   api/index.rst
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Links
+   :hidden:
+
+   PyDM OPI <https://github.com/lnls-sirius/pydm-opi>
+   LNLS GitHub <https://github.com/lnls-sirius/pydm-opi>
+
+
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-.. automodule:: siriushlacon.regatron
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: siriushlacon.regatron.main
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: siriushlacon.regatron.regatron
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: siriushlacon.regatron.consts
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: siriushlacon.regatron.alarm
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: siriushlacon.regatron.err
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: siriushlacon.regatron.warn
-    :members:
-    :undoc-members:
-    :show-inheritance:
 
