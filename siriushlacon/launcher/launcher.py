@@ -1,6 +1,7 @@
 from qtpy.QtGui import QPixmap
 from pydm import Display
 
+from siriushlacon import VERSION
 from siriushlacon.agilent4uhv.consts import AGILENT_MAIN, AGILENT_OVERVIEW
 from siriushlacon.launcher.consts import LAUNCH_WINDOW_UI, PCTRL_MAIN
 from siriushlacon.mbtemp.consts import MBTEMP_MAIN
@@ -16,6 +17,9 @@ class Launcher(Display):
     """
     def __init__(self, parent=None, args=[], macros=None, **kwargs):
         super(Launcher, self).__init__(parent=parent, args=args, macros=macros)
+
+        self.lblVersion.setText('v'+VERSION)
+
         self.btnAgilent.filenames = [AGILENT_MAIN]
         self.btnAgilent.openInNewWindow = True
 
