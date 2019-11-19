@@ -1,10 +1,12 @@
 import logging
+import pkg_resources
 
 logger = logging.getLogger()
 
 try:
-    with open('VERSION') as _f:
+    f_name = pkg_resources.resource_filename(__name__, 'VERSION')
+    with open(f_name) as _f:
         VERSION = _f.readline().strip('\n')
-except:
-    logger.exception('Unable fo locate the VERSION file')
+except FileNotFoundError:
+    logger.exception('Unable fo locate {}'.format(f_name))
     VERSION = 'Undefined'
