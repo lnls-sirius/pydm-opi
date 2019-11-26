@@ -244,7 +244,8 @@
               </color>
              </brush>
             </colorrole>
-                       </active>
+            
+           </active>
            <inactive>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -381,7 +382,8 @@
               </color>
              </brush>
             </colorrole>
-                       </inactive>
+            
+           </inactive>
            <disabled>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -518,7 +520,8 @@
               </color>
              </brush>
             </colorrole>
-                       </disabled>
+            
+           </disabled>
           </palette>
          </property>
          <property name="font">
@@ -761,7 +764,8 @@
               </color>
              </brush>
             </colorrole>
-                       </active>
+            
+           </active>
            <inactive>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -898,7 +902,8 @@
               </color>
              </brush>
             </colorrole>
-                       </inactive>
+            
+           </inactive>
            <disabled>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -1035,7 +1040,8 @@
               </color>
              </brush>
             </colorrole>
-                       </disabled>
+            
+           </disabled>
           </palette>
          </property>
          <property name="font">
@@ -1606,7 +1612,8 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </active>
+            
+           </active>
            <inactive>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -1743,7 +1750,8 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </inactive>
+            
+           </inactive>
            <disabled>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -1880,7 +1888,8 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </disabled>
+            
+           </disabled>
           </palette>
          </property>
          <property name="font">
@@ -2138,7 +2147,7 @@ Power Supply</string>
           <string/>
          </property>
          <property name="channel" stdset="0">
-          <string>ca://BO-01D:PU-InjKckr:CtrlMode-Mon.RVAL</string>
+          <string>ca://BO-01D:PU-InjKckr:RawCtrlMode-Mon.RVAL</string>
          </property>
          <property name="offColor" stdset="0">
           <color>
@@ -2481,7 +2490,8 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </active>
+            
+           </active>
            <inactive>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -2618,7 +2628,8 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </inactive>
+            
+           </inactive>
            <disabled>
             <colorrole role="WindowText">
              <brush brushstyle="SolidPattern">
@@ -2755,7 +2766,8 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-                       </disabled>
+            
+           </disabled>
           </palette>
          </property>
          <property name="font">
@@ -3297,7 +3309,8 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+              
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -3434,7 +3447,8 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+              
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -3571,7 +3585,8 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+              
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -3814,7 +3829,8 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+              
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -3951,7 +3967,8 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+              
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -4088,7 +4105,8 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+              
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -4659,7 +4677,8 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+              
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -4796,7 +4815,8 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+              
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -4933,7 +4953,8 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+              
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -5191,7 +5212,7 @@ Power Supply</string>
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://TB-04:PU-InjSept:CtrlMode-Mon.RVAL</string>
+            <string>ca://TB-04:PU-InjSept:RawCtrlMode-Mon.RVAL</string>
            </property>
            <property name="offColor" stdset="0">
             <color>
@@ -5534,7 +5555,8 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </active>
+              
+             </active>
              <inactive>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -5671,7 +5693,8 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </inactive>
+              
+             </inactive>
              <disabled>
               <colorrole role="WindowText">
                <brush brushstyle="SolidPattern">
@@ -5808,7 +5831,8 @@ Power Supply</string>
                 </color>
                </brush>
               </colorrole>
-                           </disabled>
+              
+             </disabled>
             </palette>
            </property>
            <property name="font">
@@ -6169,7 +6193,8 @@ Power Supply</string>
           </color>
          </brush>
         </colorrole>
-               </active>
+        
+       </active>
        <inactive>
         <colorrole role="WindowText">
          <brush brushstyle="SolidPattern">
@@ -6306,7 +6331,8 @@ Power Supply</string>
           </color>
          </brush>
         </colorrole>
-               </inactive>
+        
+       </inactive>
        <disabled>
         <colorrole role="WindowText">
          <brush brushstyle="SolidPattern">
@@ -6443,7 +6469,8 @@ Power Supply</string>
           </color>
          </brush>
         </colorrole>
-               </disabled>
+        
+       </disabled>
       </palette>
      </property>
      <property name="font">
