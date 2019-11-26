@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>503</width>
-    <height>477</height>
+    <height>483</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -206,6 +206,7 @@
             </color>
            </brush>
           </colorrole>
+          
          </active>
          <inactive>
           <colorrole role="WindowText">
@@ -343,6 +344,7 @@
             </color>
            </brush>
           </colorrole>
+          
          </inactive>
          <disabled>
           <colorrole role="WindowText">
@@ -480,6 +482,7 @@
             </color>
            </brush>
           </colorrole>
+          
          </disabled>
         </palette>
        </property>
@@ -661,6 +664,7 @@
             </color>
            </brush>
           </colorrole>
+          
          </active>
          <inactive>
           <colorrole role="WindowText">
@@ -798,6 +802,7 @@
             </color>
            </brush>
           </colorrole>
+          
          </inactive>
          <disabled>
           <colorrole role="WindowText">
@@ -935,6 +940,7 @@
             </color>
            </brush>
           </colorrole>
+          
          </disabled>
         </palette>
        </property>
@@ -1265,6 +1271,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
+          
          </active>
          <inactive>
           <colorrole role="WindowText">
@@ -1402,6 +1409,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
+          
          </inactive>
          <disabled>
           <colorrole role="WindowText">
@@ -1539,6 +1547,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
+          
          </disabled>
         </palette>
        </property>
@@ -1720,6 +1729,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
+          
          </active>
          <inactive>
           <colorrole role="WindowText">
@@ -1857,6 +1867,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
+          
          </inactive>
          <disabled>
           <colorrole role="WindowText">
@@ -1994,6 +2005,7 @@ Power Supply</string>
             </color>
            </brush>
           </colorrole>
+          
          </disabled>
         </palette>
        </property>
@@ -2043,7 +2055,7 @@ Power Supply</string>
         <string/>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:CtrlMode-Mon.RVAL</string>
+        <string>ca://${pv_prefix}:RawCtrlMode-Mon.RVAL</string>
        </property>
        <property name="offColor" stdset="0">
         <color>
@@ -3033,19 +3045,19 @@ Power Supply</string>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMCheckbox</class>
-   <extends>QCheckBox</extends>
-   <header>pydm.widgets.checkbox</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMPushButton</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.pushbutton</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMLabel</class>
    <extends>QLabel</extends>
    <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMCheckbox</class>
+   <extends>QCheckBox</extends>
+   <header>pydm.widgets.checkbox</header>
   </customwidget>
   <customwidget>
    <class>PyDMLineEdit</class>
@@ -3053,9 +3065,9 @@ Power Supply</string>
    <header>pydm.widgets.line_edit</header>
   </customwidget>
   <customwidget>
-   <class>PyDMByteIndicator</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.byte</header>
+   <class>PyDMPushButton</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.pushbutton</header>
   </customwidget>
  </customwidgets>
  <resources/>

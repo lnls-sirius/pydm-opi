@@ -1315,7 +1315,7 @@
      </property>
      <property name="curves">
       <stringlist>
-       <string>{&quot;channel&quot;: &quot;ca://${pv_prefix}:Voltage-SP&quot;, &quot;name&quot;: &quot;${pv_prefix}:Voltage-SP&quot;, &quot;color&quot;: &quot;yellow&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
+       <string>{&quot;channel&quot;: &quot;ca://${pv_prefix}:RawVoltage-SP&quot;, &quot;name&quot;: &quot;${pv_prefix}:Voltage-SP&quot;, &quot;color&quot;: &quot;yellow&quot;, &quot;lineStyle&quot;: 1, &quot;lineWidth&quot;: 1, &quot;symbol&quot;: null, &quot;symbolSize&quot;: 10}</string>
       </stringlist>
      </property>
      <property name="updatesAsynchronously">
