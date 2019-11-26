@@ -1,12 +1,10 @@
-
 import json
 
+from pydm import Display
 from qtpy.QtGui import QPixmap
 
-from pydm import Display
-
 from siriushlacon.agilent4uhv.consts import AGILENT_DEVICE_MAIN_UI, \
-    AGILENT_DEVICE_UI, AGILENT_CHANNEL_UI
+    AGILENT_CHANNEL_UI, AGILENT_DEVICE
 from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
 
 
@@ -16,8 +14,8 @@ class DeviceMain(Display):
         super(DeviceMain, self).__init__(parent=parent, args=args,
                                          macros=macros)
 
-        self.btn_device.filenames = [AGILENT_DEVICE_UI]
-        self.btn_device.macros = json.dumps({"PREFIX": macros["DEVICE"]})
+        self.btn_device.filenames = [AGILENT_DEVICE]
+        self.btn_device.base_macros = {"PREFIX": macros["DEVICE"]}
         self.btn_device.openInNewWindow = True
 
         self.btn_ch1.filenames = [AGILENT_CHANNEL_UI]

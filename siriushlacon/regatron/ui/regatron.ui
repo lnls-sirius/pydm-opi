@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>717</width>
-    <height>900</height>
+    <width>852</width>
+    <height>883</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,8 +38,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>697</width>
-        <height>851</height>
+        <width>832</width>
+        <height>834</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
@@ -4652,6 +4652,12 @@
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <item>
             <widget class="QLabel" name="label_32">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="font">
               <font>
                <pointsize>14</pointsize>
@@ -4690,6 +4696,12 @@
            </item>
            <item>
             <widget class="QLabel" name="label_31">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="font">
               <font>
                <pointsize>14</pointsize>
@@ -4727,6 +4739,22 @@
             </widget>
            </item>
            <item>
+            <widget class="PyDMRelatedDisplayButton" name="btnModHistory">
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="text">
+              <string>Open History</string>
+             </property>
+             <property name="showIcon" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="openInNewWindow" stdset="0">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="Line" name="line">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -4735,6 +4763,12 @@
            </item>
            <item>
             <widget class="QLabel" name="label_22">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="font">
               <font>
                <pointsize>14</pointsize>
@@ -4773,6 +4807,12 @@
            </item>
            <item>
             <widget class="QLabel" name="label_21">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="font">
               <font>
                <pointsize>14</pointsize>
@@ -4810,17 +4850,20 @@
             </widget>
            </item>
            <item>
-            <spacer name="verticalSpacer_7">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
+            <widget class="PyDMRelatedDisplayButton" name="btnSysHistory">
+             <property name="toolTip">
+              <string/>
              </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
+             <property name="text">
+              <string>Open History</string>
              </property>
-            </spacer>
+             <property name="showIcon" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="openInNewWindow" stdset="0">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>

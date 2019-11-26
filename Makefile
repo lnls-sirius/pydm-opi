@@ -7,6 +7,16 @@ clean :
 	find . -name '*.pyo' -exec rm --force {} +
 	find . -name '*~'    -exec rm --force {} +
 	find . -name '__pycache__'  -exec rm -rd --force {} +
-install:
-	cp siriushlacon/utils/images/LNLS.png ~/.local/share/icons
-	cp miscellaneous/$(NAME).desktop $(DESKTOP)/$(NAME).desktop
+
+install-files:
+	cp siriushlacon/utils/images/sirius-hla-as-cons-lnls.png /usr/share/icons
+	cp miscellaneous/$(NAME).desktop /home/sirius/Desktop/$(NAME).desktop
+
+install: install-files clean-git
+	sudo ./setup.py install --single-version-externally-managed --compile --force --record /dev/null
+
+develop: clean
+	sudo ./setup.py develop
+
+clean-git:
+	git clean -fdX

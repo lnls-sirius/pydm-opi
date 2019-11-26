@@ -1,6 +1,5 @@
-from qtpy.QtGui import QPixmap
-
 from pydm import Display
+from qtpy.QtGui import QPixmap
 
 from siriushlacon.mks937b.consts import BOOSTER_UI
 from siriushlacon.utils.consts import BOOSTER_IMG

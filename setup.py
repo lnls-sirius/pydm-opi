@@ -24,7 +24,7 @@ setup(
         'Topic :: Scientific/Engineering'
     ],
     install_requires=_requirements,
-    packages=find_namespace_packages(include=['siriushlacon.*']),
+    packages=find_namespace_packages(include=['siriushlacon','siriushlacon.*']),
     include_package_data=True,
     scripts=[
         'scripts/sirius-hla-as-ap-agilent4uhv.py',

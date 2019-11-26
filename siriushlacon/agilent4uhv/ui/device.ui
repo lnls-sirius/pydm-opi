@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>217</width>
-    <height>323</height>
+    <width>655</width>
+    <height>705</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -49,7 +49,20 @@
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QGridLayout" name="gridLayout">
-         <item row="12" column="3">
+         <item row="22" column="2">
+          <widget class="PyDMLabel" name="lbl_serial_num_2">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:SerialNumber-Cte.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="21" column="2">
           <widget class="PyDMLabel" name="lbl_model_2">
            <property name="toolTip">
             <string/>
@@ -62,7 +75,130 @@
            </property>
           </widget>
          </item>
-         <item row="6" column="0">
+         <item row="7" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_9">
+           <property name="maximumSize">
+            <size>
+             <width>90</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:Protect-RB</string>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>1</number>
+           </property>
+           <property name="shift" stdset="0">
+            <number>2</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Channel 3</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="PyDMEnumComboBox" name="PyDMEnumComboBox">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:Autostart-SP</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="2">
+          <spacer name="verticalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="3" column="1">
+          <widget class="PyDMLabel" name="PyDMLabel_4">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <italic>true</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:Protect-RB</string>
+           </property>
+           <property name="displayFormat" stdset="0">
+            <enum>PyDMLabel::Binary</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="14" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_4">
+           <property name="maximumSize">
+            <size>
+             <width>90</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:Step-RB</string>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>1</number>
+           </property>
+           <property name="shift" stdset="0">
+            <number>1</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Channel 1</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="14" column="2">
+          <widget class="QCheckBox" name="chStep2">
+           <property name="text">
+            <string>Channel 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="0">
           <widget class="PyDMLabel" name="lbl_fan_temp_4">
            <property name="toolTip">
             <string/>
@@ -78,87 +214,7 @@
            </property>
           </widget>
          </item>
-         <item row="13" column="3">
-          <widget class="PyDMLabel" name="lbl_serial_num_2">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:SerialNumber-Cte.DESC</string>
-           </property>
-          </widget>
-         </item>
-         <item row="11" column="3">
-          <widget class="PyDMLabel" name="lbl_fan_temp_2">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="showUnits" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:FanTemperature-Mon.DESC</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="2" colspan="2">
-          <widget class="PyDMLabel" name="lbl_fan_temp_3">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="showUnits" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:Step-SP.DESC</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="3">
-          <widget class="PyDMPushButton" name="PyDMPushButton_3">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="text">
-            <string>All On</string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:AllProtectOn-Sel.PROC</string>
-           </property>
-           <property name="showConfirmDialog" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="pressValue" stdset="0">
-            <string>1</string>
-           </property>
-          </widget>
-         </item>
-         <item row="14" column="3">
-          <spacer name="verticalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::Expanding</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>0</width>
-             <height>0</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="13" column="0">
+         <item row="22" column="0">
           <widget class="QLabel" name="label_7">
            <property name="maximumSize">
             <size>
@@ -175,53 +231,7 @@ Window 323</string>
            </property>
           </widget>
          </item>
-         <item row="9" column="3">
-          <widget class="PyDMPushButton" name="PyDMPushButton">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="text">
-            <string>All Fixed</string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:AllFixed-Sel.PROC</string>
-           </property>
-           <property name="showConfirmDialog" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="pressValue" stdset="0">
-            <string>1</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="2" rowspan="3">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_3">
-           <property name="maximumSize">
-            <size>
-             <width>90</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:Step-RB</string>
-           </property>
-           <property name="numBits" stdset="0">
-            <number>4</number>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist>
-             <string>Channel 1</string>
-             <string>Channel 2</string>
-             <string>Channel 3</string>
-             <string>Channel 4</string>
-            </stringlist>
-           </property>
-          </widget>
-         </item>
-         <item row="12" column="2">
+         <item row="21" column="1">
           <widget class="PyDMLabel" name="lbl_model">
            <property name="toolTip">
             <string/>
@@ -234,7 +244,7 @@ Window 323</string>
            </property>
           </widget>
          </item>
-         <item row="13" column="2">
+         <item row="22" column="1">
           <widget class="PyDMLabel" name="lbl_serial_num">
            <property name="toolTip">
             <string/>
@@ -247,7 +257,7 @@ Window 323</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="2">
+         <item row="0" column="1">
           <widget class="PyDMLabel" name="PyDMLabel">
            <property name="toolTip">
             <string/>
@@ -260,7 +270,7 @@ Window 323</string>
            </property>
           </widget>
          </item>
-         <item row="12" column="0">
+         <item row="21" column="0">
           <widget class="QLabel" name="label_6">
            <property name="maximumSize">
             <size>
@@ -277,26 +287,379 @@ Window 319</string>
            </property>
           </widget>
          </item>
-         <item row="7" column="3">
-          <widget class="PyDMPushButton" name="PyDMPushButton_2">
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="maximumSize">
+            <size>
+             <width>120</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="toolTip">
-            <string/>
+            <string>Autostart ON/OFF
+Window 601</string>
            </property>
            <property name="text">
-            <string>All Step</string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:AllStep-Sel.PROC</string>
-           </property>
-           <property name="showConfirmDialog" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="pressValue" stdset="0">
-            <string>1</string>
+            <string>Autostart ON/OFF</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="3">
+         <item row="4" column="1" rowspan="2">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_2">
+           <property name="maximumSize">
+            <size>
+             <width>90</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:Protect-RB</string>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>1</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Channel 1</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label">
+           <property name="maximumSize">
+            <size>
+             <width>120</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Unit Pressure 
+Window 600</string>
+           </property>
+           <property name="text">
+            <string>Measurement Unit</string>
+           </property>
+          </widget>
+         </item>
+         <item row="20" column="0">
+          <widget class="QLabel" name="label_5">
+           <property name="maximumSize">
+            <size>
+             <width>120</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Fan Temperature
+Window 800</string>
+           </property>
+           <property name="text">
+            <string>Temperature Fan</string>
+           </property>
+          </widget>
+         </item>
+         <item row="20" column="1">
+          <widget class="PyDMLabel" name="lbl_fan_temp">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="showUnits" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:FanTemperature-Mon</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="PyDMLabel" name="PyDMLabel_2">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:Autostart-RB</string>
+           </property>
+           <property name="displayFormat" stdset="0">
+            <enum>PyDMLabel::String</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="PyDMLabel" name="lbl_fan_temp_5">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="showUnits" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:Protect-RB.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="17" column="1" colspan="2">
+          <widget class="QPushButton" name="btnWriteStep">
+           <property name="text">
+            <string>Write</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1" colspan="2">
+          <widget class="QPushButton" name="btnWriteProtect">
+           <property name="text">
+            <string>Write</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="PyDMLabel" name="lbl_fan_temp_6">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="showUnits" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:Protect-SP.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="15" column="2">
+          <widget class="QCheckBox" name="chStep3">
+           <property name="text">
+            <string>Channel 3</string>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="2">
+          <widget class="QCheckBox" name="chStep4">
+           <property name="text">
+            <string>Channel 4</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="2">
+          <widget class="QCheckBox" name="chProtect2">
+           <property name="text">
+            <string>Channel 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="2">
+          <widget class="PyDMLabel" name="lbl_fan_temp_3">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="showUnits" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:Step-SP.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="15" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_5">
+           <property name="maximumSize">
+            <size>
+             <width>90</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:Step-RB</string>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>1</number>
+           </property>
+           <property name="shift" stdset="0">
+            <number>2</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Channel 1</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_10">
+           <property name="maximumSize">
+            <size>
+             <width>90</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:Protect-RB</string>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>1</number>
+           </property>
+           <property name="shift" stdset="0">
+            <number>1</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Channel 2</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_8">
+           <property name="maximumSize">
+            <size>
+             <width>90</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="rules" stdset="0">
+            <string>[]</string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:Protect-RB</string>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>1</number>
+           </property>
+           <property name="shift" stdset="0">
+            <number>3</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Channel 4</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_6">
+           <property name="maximumSize">
+            <size>
+             <width>90</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:Step-RB</string>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>1</number>
+           </property>
+           <property name="shift" stdset="0">
+            <number>3</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Channel 1</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="20" column="2">
+          <widget class="PyDMLabel" name="lbl_fan_temp_2">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="showUnits" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:FanTemperature-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="2">
+          <widget class="QCheckBox" name="chProtect4">
+           <property name="text">
+            <string>Channel 4</string>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="1">
+          <widget class="PyDMLabel" name="PyDMLabel_3">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <italic>true</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:Step-RB</string>
+           </property>
+           <property name="displayFormat" stdset="0">
+            <enum>PyDMLabel::Binary</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="13" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_3">
+           <property name="maximumSize">
+            <size>
+             <width>90</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${PREFIX}:Step-RB</string>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>1</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Channel 1</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="2">
+          <widget class="QCheckBox" name="chProtect3">
+           <property name="text">
+            <string>Channel 3</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
           <widget class="PyDMEnumComboBox" name="cb_mesurement_unit">
            <property name="toolTip">
             <string/>
@@ -333,253 +696,51 @@ Window 319</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="label_2">
-           <property name="maximumSize">
+         <item row="13" column="2">
+          <widget class="QCheckBox" name="chStep1">
+           <property name="text">
+            <string>Channel 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2">
+          <widget class="QCheckBox" name="chProtect1">
+           <property name="text">
+            <string>Channel 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="23" column="2">
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Expanding</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
             <size>
-             <width>120</width>
-             <height>16777215</height>
+             <width>0</width>
+             <height>0</height>
             </size>
            </property>
-           <property name="toolTip">
-            <string>Autostart ON/OFF
-Window 601</string>
-           </property>
-           <property name="text">
-            <string>Autostart ON/OFF</string>
-           </property>
-          </widget>
+          </spacer>
          </item>
-         <item row="3" column="2" rowspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_2">
-           <property name="maximumSize">
+         <item row="19" column="2">
+          <spacer name="verticalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
             <size>
-             <width>90</width>
-             <height>16777215</height>
+             <width>20</width>
+             <height>40</height>
             </size>
            </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:Protect-RB</string>
-           </property>
-           <property name="numBits" stdset="0">
-            <number>4</number>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist>
-             <string>Channel 1</string>
-             <string>Channel 2</string>
-             <string>Channel 3</string>
-             <string>Channel 4</string>
-            </stringlist>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label">
-           <property name="maximumSize">
-            <size>
-             <width>120</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="toolTip">
-            <string>Unit Pressure 
-Window 600</string>
-           </property>
-           <property name="text">
-            <string>Measurement Unit</string>
-           </property>
-          </widget>
-         </item>
-         <item row="11" column="0">
-          <widget class="QLabel" name="label_5">
-           <property name="maximumSize">
-            <size>
-             <width>120</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="toolTip">
-            <string>Fan Temperature
-Window 800</string>
-           </property>
-           <property name="text">
-            <string>Temperature Fan</string>
-           </property>
-          </widget>
-         </item>
-         <item row="11" column="2">
-          <widget class="PyDMLabel" name="lbl_fan_temp">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="showUnits" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:FanTemperature-Mon</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="3">
-          <widget class="PyDMPushButton" name="PyDMPushButton_4">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="text">
-            <string>All Off</string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:AllProtectOff-Sel.PROC</string>
-           </property>
-           <property name="showConfirmDialog" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="pressValue" stdset="0">
-            <string>1</string>
-           </property>
-          </widget>
-         </item>
-         <item row="10" column="3">
-          <widget class="PyDMLineEdit" name="PyDMLineEdit">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <italic>true</italic>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:Step-SP</string>
-           </property>
-           <property name="displayFormat" stdset="0">
-            <enum>PyDMLineEdit::Binary</enum>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2">
-          <widget class="PyDMLabel" name="PyDMLabel_2">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:Autostart-RB</string>
-           </property>
-           <property name="displayFormat" stdset="0">
-            <enum>PyDMLabel::String</enum>
-           </property>
-          </widget>
-         </item>
-         <item row="10" column="2">
-          <widget class="PyDMLabel" name="PyDMLabel_3">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <italic>true</italic>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:Step-RB</string>
-           </property>
-           <property name="displayFormat" stdset="0">
-            <enum>PyDMLabel::Binary</enum>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="3">
-          <widget class="PyDMEnumComboBox" name="PyDMEnumComboBox">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:Autostart-SP</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="2">
-          <widget class="PyDMLabel" name="PyDMLabel_4">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <italic>true</italic>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:Protect-RB</string>
-           </property>
-           <property name="displayFormat" stdset="0">
-            <enum>PyDMLabel::Binary</enum>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="3">
-          <widget class="PyDMLineEdit" name="PyDMLineEdit_2">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <italic>true</italic>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:Protect-SP</string>
-           </property>
-           <property name="displayFormat" stdset="0">
-            <enum>PyDMLineEdit::Binary</enum>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="PyDMLabel" name="lbl_fan_temp_5">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="showUnits" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:Protect-RB.DESC</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="2" colspan="2">
-          <widget class="PyDMLabel" name="lbl_fan_temp_6">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="showUnits" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${PREFIX}:Protect-SP.DESC</string>
-           </property>
-          </widget>
+          </spacer>
          </item>
         </layout>
        </widget>
@@ -604,16 +765,6 @@ Window 800</string>
    <class>PyDMEnumComboBox</class>
    <extends>QComboBox</extends>
    <header>pydm.widgets.enum_combo_box</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>pydm.widgets.line_edit</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMPushButton</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.pushbutton</header>
   </customwidget>
  </customwidgets>
  <resources/>

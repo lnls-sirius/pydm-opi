@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import os
 import pandas
 import pkg_resources
 
 from siriushlacon.utils.consts import FILE
+
 
 def get_abs_path(filename):
     return pkg_resources.resource_filename(__name__, filename)
@@ -17,7 +17,7 @@ AGILENT_MAIN_UI = get_abs_path('ui/main.ui')
 AGILENT_DEVICE_MAIN = get_abs_path('device_main.py')
 AGILENT_DEVICE_MAIN_UI = get_abs_path('ui/device_main.ui')
 
-# AGILENT_DEVICE = get_abs_path('device.py')
+AGILENT_DEVICE = get_abs_path('device.py')
 AGILENT_DEVICE_UI = get_abs_path('ui/device.ui')
 
 # AGILENT_CHANNEL = get_abs_path('channel.py')
