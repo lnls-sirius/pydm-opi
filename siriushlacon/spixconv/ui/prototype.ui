@@ -2055,7 +2055,7 @@ Power Supply</string>
         <string/>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://Prototype:CtrlMode-Mon.RVAL</string>
+        <string>ca://Prototype:RawCtrlMode-Mon.RVAL</string>
        </property>
        <property name="offColor" stdset="0">
         <color>

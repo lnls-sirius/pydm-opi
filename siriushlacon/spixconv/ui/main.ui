@@ -5927,7 +5927,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://BO-01D:PU-InjKckr:CtrlMode-Mon.RVAL</string>
+                <string>ca://BO-01D:PU-InjKckr:RawCtrlMode-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -8962,7 +8962,7 @@ Power Supply</string>
                   <string/>
                  </property>
                  <property name="channel" stdset="0">
-                  <string>ca://TB-04:PU-InjSept:CtrlMode-Mon.RVAL</string>
+                  <string>ca://TB-04:PU-InjSept:RawCtrlMode-Mon.RVAL</string>
                  </property>
                  <property name="offColor" stdset="0">
                   <color>
@@ -11423,7 +11423,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://TS-01:PU-EjeSeptG:CtrlMode-Mon.RVAL</string>
+                <string>ca://TS-01:PU-EjeSeptG:RawCtrlMode-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -15402,7 +15402,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://BO-48D:PU-EjeKckr:CtrlMode-Mon.RVAL</string>
+                <string>ca://BO-48D:PU-EjeKckr:RawCtrlMode-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -17439,7 +17439,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://TS-01:PU-EjeSeptF:CtrlMode-Mon.RVAL</string>
+                <string>ca://TS-01:PU-EjeSeptF:RawCtrlMode-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -21892,7 +21892,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://TS-04:PU-InjSeptG-1:CtrlMode-Mon.RVAL</string>
+                <string>ca://TS-04:PU-InjSeptG-1:RawCtrlMode-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -24865,7 +24865,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://TS-04:PU-InjSeptF:CtrlMode-Mon.RVAL</string>
+                <string>ca://TS-04:PU-InjSeptF:RawCtrlMode-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -28330,7 +28330,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://TS-04:PU-InjSeptG-2:CtrlMode-Mon.RVAL</string>
+                <string>ca://TS-04:PU-InjSeptG-2:RawCtrlMode-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -31301,7 +31301,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjDpKckr:CtrlMode-Mon.RVAL</string>
+                <string>ca://SI-01SA:PU-InjDpKckr:RawCtrlMode-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -34729,7 +34729,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-InjNLKckr:CtrlMode-Mon.RVAL</string>
+                <string>ca://SI-01SA:PU-InjNLKckr:RawCtrlMode-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -36848,7 +36848,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-01SA:PU-PingH:CtrlMode-Mon.RVAL</string>
+                <string>ca://SI-01SA:PU-PingH:RawCtrlMode-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -40767,7 +40767,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://SI-19C4:PU-PingV:CtrlMode-Mon.RVAL</string>
+                <string>ca://SI-19C4:PU-PingV:RawCtrlMode-Mon.RVAL</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
