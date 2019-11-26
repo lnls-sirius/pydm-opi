@@ -20,7 +20,7 @@ AGILENT_DEVICE_MAIN_UI = get_abs_path('ui/device_main.ui')
 AGILENT_DEVICE = get_abs_path('device.py')
 AGILENT_DEVICE_UI = get_abs_path('ui/device.ui')
 
-# AGILENT_CHANNEL = get_abs_path('channel.py')
+AGILENT_CHANNEL = get_abs_path('channel.py')
 AGILENT_CHANNEL_UI = get_abs_path('ui/channel.ui')
 
 
