@@ -8,7 +8,7 @@ from siriushlacon.mbtemp.consts import MBTEMP_MAIN
 from siriushlacon.mks937b.consts import MKS_MAIN, MKS_OVERVIEW
 from siriushlacon.regatron.consts import REGATRON_MAIN
 from siriushlacon.spixconv.consts import SPIXCONV_MAIN
-from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
+from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG, BO, SI, TB, TS
 
 
 class Launcher(Display):
@@ -26,18 +26,34 @@ class Launcher(Display):
         self.btnAgilentSROverview.filenames = [AGILENT_OVERVIEW]
         self.btnAgilentSROverview.base_macros = {
             "device": "UHV",
-            "TYPE": "SR",
-            "TITLE": "ION Pump Agilent 4UHV - SI and TS",
+            "TYPE": SI,
+            "TITLE": "ION Pump Agilent 4UHV - SI",
             "FORMAT": "EXP"}
         self.btnAgilentSROverview.openInNewWindow = True
 
         self.btnAgilentBOOverview.filenames = [AGILENT_OVERVIEW]
         self.btnAgilentBOOverview.base_macros = {
             "device": "UHV",
-            "TYPE": "BO",
-            "TITLE": "ION Pump Agilent 4UHV - BO and TB",
+            "TYPE": BO,
+            "TITLE": "ION Pump Agilent 4UHV - BO",
             "FORMAT": "EXP"}
         self.btnAgilentBOOverview.openInNewWindow = True
+
+        self.btnAgilentTBOverview.filenames = [AGILENT_OVERVIEW]
+        self.btnAgilentTBOverview.base_macros = {
+            "device": "UHV",
+            "TYPE": TB,
+            "TITLE": "ION Pump Agilent 4UHV - TB",
+            "FORMAT": "EXP"}
+        self.btnAgilentTBOverview.openInNewWindow = True
+
+        self.btnAgilentTSOverview.filenames = [AGILENT_OVERVIEW]
+        self.btnAgilentTSOverview.base_macros = {
+            "device": "UHV",
+            "TYPE": TS,
+            "TITLE": "ION Pump Agilent 4UHV - TS",
+            "FORMAT": "EXP"}
+        self.btnAgilentTSOverview.openInNewWindow = True
 
         self.btnMks.filenames = [MKS_MAIN]
         self.btnMks.openInNewWindow = True
@@ -45,15 +61,29 @@ class Launcher(Display):
         self.btnMksSROverview.filenames = [MKS_OVERVIEW]
         self.btnMksSROverview.base_macros = {
             "device": "MKS",
-            "TYPE": "SR",
-            "TITLE": "MKS 937b - SI and TS"}
+            "TYPE": SI,
+            "TITLE": "MKS 937b - SI"}
         self.btnMksSROverview.openInNewWindow = True
+
+        self.btnMksTBOverview.filenames = [MKS_OVERVIEW]
+        self.btnMksTBOverview.base_macros = {
+            "device": "MKS",
+            "TYPE": TB,
+            "TITLE": "MKS 937b - TB"}
+        self.btnMksTBOverview.openInNewWindow = True
+
+        self.btnMksTSOverview.filenames = [MKS_OVERVIEW]
+        self.btnMksTSOverview.base_macros = {
+            "device": "MKS",
+            "TYPE": TS,
+            "TITLE": "MKS 937b - TS"}
+        self.btnMksTSOverview.openInNewWindow = True
 
         self.btnMksBOOverview.filenames = [MKS_OVERVIEW]
         self.btnMksBOOverview.base_macros = {
             "device": "MKS",
-            "TYPE": "BO",
-            "TITLE": "MKS 937b - BO and TB"}
+            "TYPE": BO,
+            "TITLE": "MKS 937b - BO"}
         self.btnMksBOOverview.openInNewWindow = True
 
         self.btnMBTemp.filenames = [MBTEMP_MAIN]
