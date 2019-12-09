@@ -1123,7 +1123,7 @@
         <set>Qt::AlignCenter</set>
        </property>
        <property name="channel" stdset="0">
-        <string>ca://${pv_prefix}:SoftVoltage-SP</string>
+        <string>ca://${pv_prefix}:Voltage-SP</string>
        </property>
       </widget>
      </item>
