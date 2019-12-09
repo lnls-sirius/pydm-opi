@@ -23777,7 +23777,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>TS-04:PU-InjSeptG-1</string>
+                <string>TS-04:PU-InjSeptF</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
