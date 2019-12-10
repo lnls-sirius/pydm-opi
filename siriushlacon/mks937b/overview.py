@@ -10,7 +10,7 @@ from qtpy.QtGui import QBrush, QColor, QFont
 from qtpy.QtWidgets import QFrame, QLabel
 
 from siriushlacon.mks937b.consts import data
-from siriushlacon.utils.consts import OVERVIEW_UI
+from siriushlacon.utils.consts import OVERVIEW_UI, BO, SI, TB, TS
 from siriushlacon.utils.widgets import FlowLayout
 
 logger = logging.getLogger()
@@ -41,18 +41,24 @@ class Overview(Display):
                         # Filter out unnused channels by it's name
                         continue
 
-                    if self.macros.get('TYPE') == 'BO':
-                        if not ch_prefix.startswith('BO') and \
-                                not ch_prefix.startswith('TB'):
+                    if self.macros.get('TYPE') == BO:
+                        if not ch_prefix.startswith(BO):
                             logger.info('Ignored {}'.format(ch_prefix))
                             continue
-                    elif self.macros.get('TYPE') == 'SR':
-                        if not ch_prefix.startswith('SI') and \
-                                not ch_prefix.startswith('TS'):
+                    elif self.macros.get('TYPE') == TB:
+                        if not ch_prefix.startswith(TB):
+                            logger.info('Ignored {}'.format(ch_prefix))
+                            continue
+                    elif self.macros.get('TYPE') == SI:
+                        if not ch_prefix.startswith(SI):
+                            logger.info('Ignored {}'.format(ch_prefix))
+                            continue
+                    elif self.macros.get('TYPE') == TS:
+                        if not ch_prefix.startswith(TS):
                             logger.info('Ignored {}'.format(ch_prefix))
                             continue
                     else:
-                        logger.warning('TYPE != BO and TYPE != SR')
+                        logger.warning('Type {} not supported !'.format(self.macros.get('TYPE')))
                         logger.info('Ignored {}'.format(ch_prefix))
                         continue
 

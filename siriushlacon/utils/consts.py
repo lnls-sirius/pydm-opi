@@ -45,6 +45,7 @@ with open(get_abs_path('css/table-alarm.qss')) as f:
     TABLE_ALARMS_QSS = ''.join(f.readlines())
 
 OVERVIEW_UI = get_abs_path('ui/overview.ui')
+
 # Images
 CNPEM_IMG = get_abs_path('images/CNPEM.jpg')
 LNLS_IMG = get_abs_path('images/sirius-hla-as-cons-lnls.png')
@@ -54,3 +55,5 @@ BTS_IMG = get_abs_path('images/btts.png')
 STORAGE_RING_IMG = get_abs_path('images/storage_ring.png')
 RINGB1A_IMG = get_abs_path('images/ringB1A.png')
 RINGB2A_IMG = get_abs_path('images/ringB2A.png')
+
+BO , SI, TB, TS = 'BO', 'SI', 'TB', 'TS'

@@ -10,7 +10,7 @@ from qtpy.QtGui import QBrush, QColor, QFont
 from qtpy.QtWidgets import QFrame, QLabel
 
 from siriushlacon.agilent4uhv.consts import data
-from siriushlacon.utils.consts import OVERVIEW_UI
+from siriushlacon.utils.consts import OVERVIEW_UI, BO, TB, TS, SI
 from siriushlacon.utils.widgets import FlowLayout
 
 logger = logging.getLogger()
@@ -39,22 +39,32 @@ class Overview(Display):
                         # Filter out readings that aren't -ED
                         continue
 
-                    if self.macros.get('TYPE') == 'BO':
-                        if not ch_prefix.startswith('BO') and \
-                                not ch_prefix.startswith('TB'):
+                    if self.macros.get('TYPE') == BO:
+                        if  not ch_prefix.startswith(BO):
                             logger.info('Ignored {}'.format(ch_prefix))
                             continue
 
-                    elif self.macros.get('TYPE') == 'SR':
-                        if not ch_prefix.startswith('SI') and \
-                                not ch_prefix.startswith('TS'):
+                    elif self.macros.get('TYPE') == SI:
+                        if not ch_prefix.startswith(SI):
+                            logger.info('Ignored {}'.format(ch_prefix))
+                            continue
+                        pass
+
+                    elif self.macros.get('TYPE') == TS:
+                        if not ch_prefix.startswith(TS):
+                            logger.info('Ignored {}'.format(ch_prefix))
+                            continue
+                        pass
+
+                    elif self.macros.get('TYPE') == TB:
+                        if not ch_prefix.startswith(TB):
                             logger.info('Ignored {}'.format(ch_prefix))
                             continue
                         pass
 
                     else:
                         logger.info('Ignored {}'.format(ch_prefix))
-                        logger.warning('TYPE != BO and TYPE != SR')
+                        logger.warning('Invalid type {}.'.format(self.macros.get('TYPE')))
                         continue
 
                     if ch_reg.match(ch_prefix[-3:]):
