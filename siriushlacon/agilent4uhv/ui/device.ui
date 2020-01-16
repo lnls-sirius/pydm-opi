@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>655</width>
-    <height>705</height>
+    <height>857</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -742,6 +742,16 @@ Window 800</string>
            </property>
           </spacer>
          </item>
+         <item row="24" column="0" colspan="3">
+          <widget class="PyDMLogDisplay" name="PyDMLogDisplay">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="logLevel" stdset="0">
+            <enum>PyDMLogDisplay::INFO</enum>
+           </property>
+          </widget>
+         </item>
         </layout>
        </widget>
       </item>
@@ -765,6 +775,11 @@ Window 800</string>
    <class>PyDMEnumComboBox</class>
    <extends>QComboBox</extends>
    <header>pydm.widgets.enum_combo_box</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMLogDisplay</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.logdisplay</header>
   </customwidget>
  </customwidgets>
  <resources/>
