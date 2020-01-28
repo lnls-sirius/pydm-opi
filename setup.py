@@ -37,6 +37,7 @@ setup(
         'scripts/sirius-hla-bo-ap-mks937b-overview.py',
         'scripts/sirius-hla-si-ap-mks937b-overview.py',
         'scripts/sirius-hla-as-ap-regatron.py',
+        'scripts/sirius-hla-as-ap-regatron-individual.py',
         'scripts/sirius-hla-as-ap-spixconv.py',
     ],
     zip_safe=False
