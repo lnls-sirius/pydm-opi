@@ -38,6 +38,7 @@ setup(
         'scripts/sirius-hla-si-ap-mks937b-overview.py',
         'scripts/sirius-hla-as-ap-regatron.py',
         'scripts/sirius-hla-as-ap-spixconv.py',
+        'scripts/sirius-hla-as-ap-countingpru.py',
     ],
     zip_safe=False
 )

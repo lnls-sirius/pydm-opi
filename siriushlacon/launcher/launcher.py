@@ -8,6 +8,7 @@ from siriushlacon.mbtemp.consts import MBTEMP_MAIN
 from siriushlacon.mks937b.consts import MKS_MAIN, MKS_OVERVIEW
 from siriushlacon.regatron.consts import REGATRON_MAIN
 from siriushlacon.spixconv.consts import SPIXCONV_MAIN
+from siriushlacon.countingpru.consts import GAMMA_COUNTING_MAIN
 from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG, BO, SI, TB, TS
 
 
@@ -97,6 +98,9 @@ class Launcher(Display):
 
         self.btnEpp.filenames = [SPIXCONV_MAIN]
         self.btnEpp.openInNewWindow = True
+
+        self.btnGamma.filenames = [GAMMA_COUNTING_MAIN]
+        self.btnGamma.openInNewWindow = True
 
         self.btnExit.clicked.connect(self.exitApp)
 
