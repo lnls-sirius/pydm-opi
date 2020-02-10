@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 import subprocess
 import os
 from siriushlacon.agilent4uhv.consts import AGILENT_OVERVIEW
