@@ -202,6 +202,7 @@ class Overview(Display):
         plt.subplots_adjust(left=0.1)
         self.fig.text(0.03,0.25,'Control of\n Graphic', ha = 'center')
         self.ani = FuncAnimation(fig = self.fig, func = self.animate, interval = 10000)
+        self.animate()
         self.t1 = threading.Thread(target = self.k, args = [], daemon = True)
         plt.show()
 
@@ -252,7 +253,7 @@ class Overview(Display):
         plt.draw()
         self.animate(i)
 
-    def animate(self,i):
+    def animate(self, *args):
         self.ax.clear()
         self.rects1 = self.ax.bar(self.x - self.width*2, self.gamma_1, self.width, label='M2', alpha = self.alpha[0])
         self.rects2 = self.ax.bar(self.x - self.width  , self.gamma_2, self.width, label='C1', alpha = self.alpha[1])
