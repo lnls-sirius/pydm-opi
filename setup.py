@@ -28,17 +28,17 @@ setup(
     include_package_data=True,
     scripts=[
         'scripts/sirius-hla-as-ap-agilent4uhv.py',
-        'scripts/sirius-hla-bo-ap-agilent4uhv-overview.py',
-        'scripts/sirius-hla-si-ap-agilent4uhv-overview.py',
         'scripts/sirius-hla-as-ap-conlauncher.py',
-        'scripts/sirius-hla-as-ap-pctrl.py',
+        'scripts/sirius-hla-as-ap-countingpru.py',
         'scripts/sirius-hla-as-ap-mbtemp.py',
         'scripts/sirius-hla-as-ap-mks937b.py',
-        'scripts/sirius-hla-bo-ap-mks937b-overview.py',
-        'scripts/sirius-hla-si-ap-mks937b-overview.py',
+        'scripts/sirius-hla-as-ap-pctrl.py',
         'scripts/sirius-hla-as-ap-regatron.py',
         'scripts/sirius-hla-as-ap-spixconv.py',
-        'scripts/sirius-hla-as-ap-countingpru.py',
+        'scripts/sirius-hla-bo-ap-agilent4uhv-overview.py',
+        'scripts/sirius-hla-bo-ap-mks937b-overview.py',
+        'scripts/sirius-hla-si-ap-agilent4uhv-overview.py',
+        'scripts/sirius-hla-si-ap-mks937b-overview.py',
     ],
     zip_safe=False
 )
