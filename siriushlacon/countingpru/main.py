@@ -2,17 +2,20 @@
 #           Author: Robert Willian Polli
 #           Last version: 05th February, 2020
 #*****************************************************************
-from epics import caget, caput
-from pydm.widgets.channel import PyDMChannel
-from pydm.widgets import PyDMEmbeddedDisplay
-from PyQt5 import QtGui, QtWidgets, uic, QtCore
-from functools import partial
-from pydm import Display, PyDMApplication
-import sys, json, webbrowser,datetime, threading, numpy, matplotlib, time
 import matplotlib.pyplot as plt
+import sys, json, webbrowser, datetime, threading, numpy, matplotlib, time
+
+from epics import caget, caput
+from functools import partial
 from matplotlib.animation import FuncAnimation
 from matplotlib.widgets import CheckButtons
+
+from pydm import Display, PyDMApplication
+from pydm.widgets import PyDMEmbeddedDisplay
+from pydm.widgets.channel import PyDMChannel
+
 from qtpy.QtGui import QPixmap
+from qtpy import QtGui, QtWidgets, uic, QtCore
 
 from siriushlacon.countingpru.consts import OVERVIEW_UI, LAYOUT_OVERVIEW_UI, BEFORE_BC_IMAGE, AFTER_BC_IMAGE, LNLS_IMAGE, CNPEM_IMAGE
 
