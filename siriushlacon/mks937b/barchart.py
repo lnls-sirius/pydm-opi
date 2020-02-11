@@ -10,7 +10,6 @@ import time
 from epics import PV
 
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 from matplotlib.ticker import StrMethodFormatter
@@ -48,7 +47,7 @@ class WorkingThread(QThread):
 
     def run(self):
         while self.running:
-            time.sleep(1)
+            time.sleep(5)
             data = []
             labels = []
 
@@ -60,7 +59,7 @@ class WorkingThread(QThread):
                 self.window.data = data
                 self.window.labels = labels
 
-            # self.comm.doRefresh.emit()
+            self.comm.doRefresh.emit()
 
 class Gauge:
     def __init__(self, channel:str, d_row):
@@ -77,7 +76,6 @@ class Window(Display):
     def __init__(self, parent=None, macros=None, **kwargs):
         super().__init__(parent=parent, ui_filename=MKS_GRAPH_UI)
         self.macros = macros
-        # self.macros = {'TYPE':BO}
         self.type = self.macros['TYPE']
 
         self.comm = Comm()
@@ -105,7 +103,6 @@ class Window(Display):
         self.txtHigh.setText(str(self.high))
         self.txtHihi.setText(str(self.hihi))
 
-        # self.comm.doRefresh.connect(self.plot)
 
         # a figure instance to plot on
         self.figure = plt.figure()
@@ -113,8 +110,6 @@ class Window(Display):
         # this is the Canvas Widget that displays the `figure`
         # it takes the `figure` instance as a parameter to __init__
         self.canvas = FigureCanvas(self.figure)
-
-        # self.toolbar = NavigationToolbar(self.canvas, self)
 
         # set the layout
         self.gridLayout.addWidget(self.canvas)
@@ -125,9 +120,8 @@ class Window(Display):
         self.load_pvs()
 
         self.bars = []
-        self.animation = FuncAnimation(fig=self.figure, func=self.plot, interval=10000)
         self.init_plot()
-        self.plot()
+        self.comm.doRefresh.connect(self.plot)
 
         # Init worker thread
         self.workerThread = WorkingThread(comm=self.comm, window=self)
@@ -190,7 +184,7 @@ class Window(Display):
 
                     self.gauges.append(Gauge(channel=ch_prefix, d_row=d_row))
                     i += 1
-        self.gauges.sort(key=lambda x: x.channel, reverse=True)
+        self.gauges.sort(key=lambda x: x.channel)
 
     def cleanup(self):
         self.comm.stopRefresh.emit()
