@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import atexit
 import logging
-import matplotlib.pyplot as plt
 import numpy as np
 import random
 import re
@@ -10,6 +9,7 @@ import time
 
 from epics import PV
 
+import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
@@ -17,8 +17,11 @@ from matplotlib.ticker import StrMethodFormatter
 
 from qtpy.QtCore import QObject, QThread, Signal
 from qtpy.QtWidgets import QDialog, QApplication, QPushButton, QVBoxLayout
+from qtpy.QtGui import QDoubleValidator
 
-from siriushlacon.mks937b.consts import data
+from pydm import Display
+
+from siriushlacon.mks937b.consts import data, MKS_GRAPH_UI
 from siriushlacon.utils.consts import BO, SI, TB, TS
 
 from threading import RLock
@@ -70,9 +73,9 @@ class Gauge:
         self.ip = d_row.ip
         self.pressurePV = PV(self.channel + ":Pressure-Mon")
 
-class Window(QDialog):
-    def __init__(self, parent=None, macros=None):
-        super(Window, self).__init__(parent)
+class Window(Display):
+    def __init__(self, parent=None, macros=None, **kwargs):
+        super().__init__(parent=parent, ui_filename=MKS_GRAPH_UI)
         self.macros = macros
         # self.macros = {'TYPE':BO}
         self.type = self.macros['TYPE']
@@ -82,8 +85,26 @@ class Window(QDialog):
         self.labels = []
         self.data = []
 
+        validator = QDoubleValidator()
+        validator.setBottom(1e-11)
+        validator.setDecimals(2)
+
+        self.txtHihi.setValidator(validator)
+
+        validator2 = QDoubleValidator()
+        validator2.setBottom(1e-11)
+        validator2.setDecimals(2)
+        self.txtHigh.setValidator(validator2)
+        
+        self.btnHihi.clicked.connect(self.update_hihi)
+        self.btnHigh.clicked.connect(self.update_high)
+
         self.hihi = 1e-07
         self.high = 1e-08
+
+        self.txtHigh.setText(str(self.high))
+        self.txtHihi.setText(str(self.hihi))
+
         # self.comm.doRefresh.connect(self.plot)
 
         # a figure instance to plot on
@@ -96,23 +117,45 @@ class Window(QDialog):
         # self.toolbar = NavigationToolbar(self.canvas, self)
 
         # set the layout
-        layout = QVBoxLayout()
-        layout.addWidget(self.canvas)
+        self.gridLayout.addWidget(self.canvas)
 
-        self.setLayout(layout)
         self.bar_width = 0.25
         
         self.title = "{} Pressure".format(self.type)
         self.load_pvs()
 
         self.bars = []
-        self.animation = FuncAnimation(fig=self.figure, func=self.plot, init_func=self.init_plot, repeat_delay=5000)
+        self.animation = FuncAnimation(fig=self.figure, func=self.plot, interval=10000)
+        self.init_plot()
+        self.plot()
 
         # Init worker thread
         self.workerThread = WorkingThread(comm=self.comm, window=self)
         self.workerThread.start()
 
         atexit.register(self.cleanup)
+
+    def update_high(self):
+        try:
+            aux = float(self.txtHigh.text())
+            if aux > self.hihi:
+                self.txtHigh.setText(str(self.high))
+            else:
+                self.high = aux
+                self.plot()
+        except:
+            logger.exception("Failed to parse {} to float.".format(self.txtHigh.text()))
+
+    def update_hihi(self):
+        try:
+            aux = float(self.txtHihi.text())
+            if aux < self.high:
+                self.txtHihi.setText(str(self.hihi))
+            else:
+                self.hihi = aux 
+                self.plot()
+        except:
+            logger.exception("Failed to parse {} to float.".format(self.txtHihi.text()))
 
     def load_pvs(self):
         ch_reg = re.compile(r':[A-C][0-9]')
