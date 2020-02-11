@@ -1,11 +1,12 @@
 from qtpy.QtGui import QPixmap
 from pydm import Display
+from pydm.utilities import IconFont
 
 from siriushlacon import VERSION
 from siriushlacon.agilent4uhv.consts import AGILENT_MAIN, AGILENT_OVERVIEW
 from siriushlacon.launcher.consts import LAUNCH_WINDOW_UI, PCTRL_MAIN
 from siriushlacon.mbtemp.consts import MBTEMP_MAIN
-from siriushlacon.mks937b.consts import MKS_MAIN, MKS_OVERVIEW
+from siriushlacon.mks937b.consts import MKS_MAIN, MKS_OVERVIEW, MKS_GRAPH
 from siriushlacon.regatron.consts import REGATRON_MAIN
 from siriushlacon.spixconv.consts import SPIXCONV_MAIN
 from siriushlacon.countingpru.consts import GAMMA_COUNTING_MAIN
@@ -86,6 +87,27 @@ class Launcher(Display):
             "TYPE": BO,
             "TITLE": "MKS 937b - BO"}
         self.btnMksBOOverview.openInNewWindow = True
+
+        GRAPH_ICON = IconFont().icon('bar-chart')
+        self.btnMksBo.setIcon(GRAPH_ICON)
+        self.btnMksBo.filenames = [MKS_GRAPH]
+        self.btnMksBo.base_macros = { "TYPE":BO }
+        self.btnMksBo.openInNewWindow = True
+
+        self.btnMksTb.setIcon(GRAPH_ICON)
+        self.btnMksTb.filenames = [MKS_GRAPH]
+        self.btnMksTb.base_macros = { "TYPE":TB }
+        self.btnMksTb.openInNewWindow = True
+
+        self.btnMksSi.setIcon(GRAPH_ICON)
+        self.btnMksSi.filenames = [MKS_GRAPH]
+        self.btnMksSi.base_macros = { "TYPE":SI }
+        self.btnMksSi.openInNewWindow = True
+
+        self.btnMksTs.setIcon(GRAPH_ICON)
+        self.btnMksTs.filenames = [MKS_GRAPH]
+        self.btnMksTs.base_macros = { "TYPE":TS}
+        self.btnMksTs.openInNewWindow = True
 
         self.btnMBTemp.filenames = [MBTEMP_MAIN]
         self.btnMBTemp.openInNewWindow = True
