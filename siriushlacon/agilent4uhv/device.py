@@ -28,9 +28,10 @@ class AgilentDevice(Display):
             data |= 1 << 2
         if self.chProtect4.isChecked():
             data |= 1 << 3
-        data = float(data)
-        caput(pvname=self.pv_protect_sp, wait=False, timeout=0.5, value=data)
-        logger.info('Write protect {0:4b} to {1}'.format(data, self.pv_protect_sp))
+        pv = self.pv_protect_sp.replace('ca://', '')
+        data = int(data)
+        caput(pvname=pv, wait=False, timeout=0.5, value=data)
+        logger.info('Write protect {0}({0:4b}) to {1}'.format(data, pv))
 
     def write_step(self):
         data = 0
@@ -42,5 +43,7 @@ class AgilentDevice(Display):
             data |= 1 << 2
         if self.chStep4.isChecked():
             data |= 1 << 3
-        caput(pvname=self.pv_step_sp, wait=False, timeout=0.5, value=data)
-        logger.info('Write step {0:4b} to {1}'.format(int(data), self.pv_step_sp))
+        data = int(data)
+        pv = self.pv_step_sp.replace('ca://', '')
+        caput(pvname=pv, wait=False, timeout=0.5, value=data)
+        logger.info('Write step {0}({0:4b}) to {1}'.format(data, pv))
