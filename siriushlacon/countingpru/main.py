@@ -1,6 +1,6 @@
 #****************Control's Group - MonitoringPRU*******************
 #           Author: Robert Willian Polli
-#           Last version: 05th February, 2020
+#           Last version: 11th February, 2020
 #*****************************************************************
 import matplotlib.pyplot as plt
 import sys, json, webbrowser, datetime, threading, numpy, matplotlib, time
@@ -32,10 +32,8 @@ class MonitoringCountingPRU(Display):
         super().__init__(parent=parent, args=args, macros=macros, ui_filename=qtMainFile)
 
         self.gamma_measurement = {"M2":'M1', "C1":"M2", "C2":"C1", "C3":"C2", "C4":"C3", "M1":"C4", "":""}      #{position of sensor:measurement}
-
-        self.Archiver_Button.clicked.connect(self.openArchiver)                                                 #Set function of button
-
         self.Sector_number.valueChanged.connect(partial(self.set_box,'counter'))                                #If value of QComboBox change, call set_box
+        self.Archiver_Button.clicked.connect(self.openArchiver)                                                 #Set function of button
         self.set_box('counter')                                                                                 #Function to add items to QComboBox
 
         self.beforeBC_image.setPixmap(QPixmap(BEFORE_BC_IMAGE))
@@ -49,23 +47,27 @@ class MonitoringCountingPRU(Display):
         self.Gamma_name.editingFinished.connect(self.new_detector)
 
         self.Plot_Button.clicked.connect(self.plot_info)                                                        #
-        self.BT_Button.clicked.connect(self.Set_TimeBase)                                                       #Set functions to Plot, Base Time and Overview botton
-        self.OverviewButton.clicked.connect(self.overview)                                                      #
-        self.pulsesAverageButton.clicked.connect(self.plot_average)
+        self.BT_Button.clicked.connect(self.Set_TimeBase)                                                       #
+        self.OverviewButton.clicked.connect(self.overview)                                                      #Set functions to bottons
+        self.pulsesAverageButton.clicked.connect(self.plot_average)                                             #
+        self.OverviewAverage.clicked.connect(partial(self.plot_average, True))                                  #
 
-    def plot_average(self):
+    def plot_average(self, overview = False):
         self.checkBox_list = []
         self.Pulse_channel_Label.setText('Channel = ' + self.PV_name_label.text())
-        self.LastDayAverage.channel   = 'ca://{}:DayAverage-Mon'.format(self.PV_name_label.text())
-        self.LastWeekAverage.channel  = 'ca://{}:WeekAverage-Mon'.format(self.PV_name_label.text())
-        self.TwoWeeksAverage.channel  = 'ca://{}:2WeeksAverage-Mon'.format(self.PV_name_label.text())
-        self.LastMonthAverage.channel = 'ca://{}:MonthAverage-Mon'.format(self.PV_name_label.text())
+        self.LastDayAverage.channel   = 'ca://{}:DayAverage-Mon'.format(self.PV_name_label.text())              #
+        self.LastWeekAverage.channel  = 'ca://{}:WeekAverage-Mon'.format(self.PV_name_label.text())             #Connects PVs of Averages
+        self.TwoWeeksAverage.channel  = 'ca://{}:2WeeksAverage-Mon'.format(self.PV_name_label.text())           #
+        self.LastMonthAverage.channel = 'ca://{}:MonthAverage-Mon'.format(self.PV_name_label.text())            #
 
         pvs = ''
-        measurement = ['DayAverage-Mon', 'WeekAverage-Mon', '2WeeksAverage-Mon', 'MonthAverage-Mon']
+        measurement = ['DayAverage', 'WeekAverage', '2WeeksAverage', 'MonthAverage']
         for checkBox in range(4):
             if eval('self.checkBox_{}'.format(checkBox)).isChecked():
-                pvs += 'pv={}%3A{}&'.format((self.Detector_name).replace(':','%3A'),measurement[checkBox])
+                if overview:
+                    Overview(average = measurement[checkBox])                                                   #Opens Average Graphic
+                else:
+                    pvs += 'pv={}%3A{}-Mon&'.format((self.Detector_name).replace(':','%3A'),measurement[checkBox])#Creates the link to archiever
         if pvs != '': self.openArchiver(pvs)
 
     def overview(self):
@@ -73,7 +75,8 @@ class MonitoringCountingPRU(Display):
         overwiew_Window.show()
 
     def openArchiver(self, pv_link= ''):
-        now = datetime.datetime.now() + datetime.timedelta(hours = 3)
+        a = time.gmtime()
+        now = datetime.datetime(a.tm_year, a.tm_mon, a.tm_mday, a.tm_hour, a.tm_min, a.tm_sec)                 #Date and time of Greenwich
         new = now - datetime.timedelta(minutes = 10)
 
         if not(pv_link): pv = 'pv={}%3ACount-Mon&'.format((self.Detector_name).replace(':','%3A'))
@@ -82,7 +85,7 @@ class MonitoringCountingPRU(Display):
         link = ('http://10.0.38.42/archiver-viewer/?{}from={}-{:0>2d}-{:0>2d}T\
 {:0>2d}%3A{:0>2d}%3A01.010Z&to={}-{:0>2d}-{:0>2d}T{:0>2d}%3A{:0>2d}%3A01.010Z'.format(pv,new.year,int(new.month),int(new.day),\
         int(new.hour),int(new.minute),now.year,int(now.month),int(now.day),int(now.hour),int(now.minute)))
-        webbrowser.open(link)
+        webbrowser.open(link)                                                   #Opens the link
 
     def set_box(self, typ):                                                     #Same function to edit QComboBox of Counters and Gamma detectors
         if typ == 'counter':
@@ -155,7 +158,7 @@ class MonitoringCountingPRU(Display):
         self.TB.channel = 'ca://{}:TimeBase-SP'.format(self.Counter_name.text())       #Connect to PVs of Counting and Time Base
         self.LC.channel = 'ca://{}:Count-Mon'.format(self.Detector_name)
 
-        for sensors in range(1,7):
+        for sensors in range(1,7):                                                     #Finds which channels are being used
             ins = QtWidgets.QListWidgetItem()
             ins.setText(caget(self.Counter_name.text()+':Ch{}-Cte'.format(sensors)))
             if ins.text() == self.Gamma_name.text():
@@ -169,7 +172,7 @@ class MonitoringCountingPRU(Display):
             self.list_Channels.addItem(ins)
         self.image_setting()
 
-    def image_setting(self):
+    def image_setting(self):                                                         #Changes the images to show which counter and detector are being used
         for gammaclear in ('C1', 'C2', 'C3', 'C4', 'M1'):
             eval('self.bit_Gamma{}'.format(gammaclear)).brush = QtCore.Qt.lightGray
         for counterclear in counters:
@@ -181,9 +184,11 @@ class MonitoringCountingPRU(Display):
 class Overview(Display):
     global counters, Det_Location,qtOverViewFile
 
-    def __init__(self, parent=None, macros=None, args=None):
+    def __init__(self, parent=None, macros=None, args=None, average = 'Gamma Detectors'):
         super().__init__(parent=parent, args=args, macros=macros, ui_filename=OVERVIEW_UI)
-        self.alpha = [0,0,0,0,0]
+        self.setWindowTitle('Overview of Time Bases')
+        self.alpha = [0,0,0,0,0]                                                    #Initially doesn't show none graph
+        self.average = average
         self.groups = ['{:0>2d}'.format(sec) for sec in range(1,21)]
         self.x = numpy.arange(len(self.groups))
         self.width = 0.185
@@ -197,49 +202,55 @@ class Overview(Display):
         self.gamma_4 = [0]*20
         self.gamma_5 = [0]*20
 
-        self.fig, self.ax = plt.subplots(figsize=(12, 8))
-        self.fig.subplots_adjust(left=0.05, bottom=0.08, right=0.95, top=0.95)
-        plt.subplots_adjust(left=0.1)
+        self.fig, self.ax = plt.subplots(figsize=(12, 8))                       #
+        self.fig.canvas.set_window_title('Overview')                            #
+        self.fig.subplots_adjust(left=0.05, bottom=0.08, right=0.95, top=0.95)  #Adjustments of graphics
+        plt.subplots_adjust(left=0.1)                                           #
+
         self.fig.text(0.03,0.25,'Control of\n Graphic', ha = 'center')
         self.ani = FuncAnimation(fig = self.fig, func = self.animate, interval = 10000)
         self.animate()
-        self.t1 = threading.Thread(target = self.k, args = [], daemon = True)
+        self.checkButtons_setting()
         plt.show()
 
-        for PV in range(1,21):
-            for s_sec in range(3):
-                self.dict_pvs_tb['valueTB{}{}'.format(PV,counters[s_sec])] = 'ca://SI-{:0>2d}{}:CO-Counter:TimeBase-SP'.format(PV,counters[s_sec])
+        if self.average == 'Gamma Detectors':                                   #If user chose 'Counting - Overview'
+            for PV in range(1,21):
+                for s_sec in range(3):
+                    self.dict_pvs_tb['valueTB{}{}'.format(PV,counters[s_sec])] = 'ca://SI-{:0>2d}{}:CO-Counter:TimeBase-SP'.format(PV,counters[s_sec])
 
-        for location in range(1,21):
-            for s_sec in range(len(Det_Location)):
-                self.dict_macro_gamma['DET{}'.format(s_sec)] = "SI-{:0>2d}{}:CO-Gamma".format(location, Det_Location[s_sec])
-                if s_sec < 3: self.dict_macro_gamma['TimeBase{}'.format(s_sec)] = '{}'.format(self.dict_pvs_tb['valueTB{}{}'.format(location,counters[s_sec])])
+            for location in range(1,21):
+                for s_sec in range(len(Det_Location)):
+                    self.dict_macro_gamma['DET{}'.format(s_sec)] = "SI-{:0>2d}{}:CO-Gamma".format(location, Det_Location[s_sec])
+                    if s_sec < 3: self.dict_macro_gamma['TimeBase{}'.format(s_sec)] = '{}'.format(self.dict_pvs_tb['valueTB{}{}'.format(location,counters[s_sec])])
 
-                a = PyDMChannel(address = 'ca://SI-{:0>2d}{}:CO-Gamma:Count-Mon'.format(location,\
-                Det_Location[s_sec]),value_slot=partial(self.plot, location = location, det = s_sec))
-                a.connect()
+                    a = PyDMChannel(address = 'ca://SI-{:0>2d}{}:CO-Gamma:Count-Mon'.format(location,\
+                    Det_Location[s_sec]),value_slot=partial(self.plot, location = location, det = s_sec)) #Connect to Counting PVs
+                    a.connect()
 
-            self.disp = PyDMEmbeddedDisplay(parent=self)
-            PyDMApplication.instance().close_widget_connections(self.disp)
-            self.disp.macros = json.dumps(self.dict_macro_gamma)
-            self.disp.filename = LAYOUT_OVERVIEW_UI
-            self.disp.setMinimumWidth(300)
-            self.disp.setMinimumHeight(140)
-            self.verticalLayout.addWidget(self.disp)
+                self.disp = PyDMEmbeddedDisplay(parent=self)                    #Creates the window of Time Bases
+                PyDMApplication.instance().close_widget_connections(self.disp)
+                self.disp.macros = json.dumps(self.dict_macro_gamma)
+                self.disp.filename = LAYOUT_OVERVIEW_UI
+                self.disp.setMinimumWidth(300)
+                self.disp.setMinimumHeight(140)
+                self.verticalLayout.addWidget(self.disp)
 
-            PyDMApplication.instance().establish_widget_connections(self.disp)
+                PyDMApplication.instance().establish_widget_connections(self.disp)
+        else:                                                                   #If user chose some Average
+            for location in range(1,21):
+                for s_sec in range(len(Det_Location)):
+                    a = PyDMChannel(address = 'ca://SI-{:0>2d}{}:CO-Gamma:{}-Mon'.format(location,\
+                    Det_Location[s_sec], self.average),value_slot=partial(self.plot, location = location, det = s_sec)) #Connect to Averages PVs
+                    a.connect()
 
-    def k(self):
+    def checkButtons_setting(self):                                             #Configures of check button
         visibility = [line.patches[0].get_alpha() == 1 for line in self.graph]
-
         self.rax = plt.axes(position = [0.005, 0.08, 0.05, 0.15])
         self.labels = ['     '+str(line.get_label()) for line in self.graph]
         self.check = CheckButtons(self.rax, self.labels, visibility)
         self.check.on_clicked(self.hide_show)
-        while(True):
-            time.sleep(1)
 
-    def hide_show(self,label):
+    def hide_show(self,label):                                                  #Set graph Visibilities
         index = self.labels.index(label)
         if self.graph[index].patches[index].get_alpha() == 1:
             for i in range(20):
@@ -253,7 +264,7 @@ class Overview(Display):
         plt.draw()
         self.animate(i)
 
-    def animate(self, *args):
+    def animate(self, *args):                                                   #Function to update the graph
         self.ax.clear()
         self.rects1 = self.ax.bar(self.x - self.width*2, self.gamma_1, self.width, label='M2', alpha = self.alpha[0])
         self.rects2 = self.ax.bar(self.x - self.width  , self.gamma_2, self.width, label='C1', alpha = self.alpha[1])
@@ -261,9 +272,9 @@ class Overview(Display):
         self.rects4 = self.ax.bar(self.x + self.width  , self.gamma_4, self.width, label='C3', alpha = self.alpha[3])
         self.rects5 = self.ax.bar(self.x + self.width*2, self.gamma_5, self.width, label='C4', alpha = self.alpha[4])
 
-        self.ax.set_ylabel('Counting - Pulses per second')
+        self.ax.set_title('Overview of {}'.format(self.average))
         self.ax.set_xlabel('Sectors of Storage Ring')
-        self.ax.set_title('Overview of Counters')
+        self.ax.set_ylabel('Pulses per second')
         self.ax.set_xticklabels(self.groups)
         self.ax.set_xticks(self.x)
         self.ax.set_yscale('log')
@@ -277,7 +288,7 @@ class Overview(Display):
 
         self.graph = [self.rects1, self.rects2, self.rects3, self.rects4, self.rects5]
 
-    def autolabel(self,rects, vis):
+    def autolabel(self,rects, vis):                                             #Sets the visualization of counting above of bars
         for rect in rects:
             height = rect.get_height()
             self.ax.annotate('{}'.format(height),
@@ -286,12 +297,9 @@ class Overview(Display):
             textcoords="offset points",
             ha='center', va='bottom', fontsize = 8, rotation = 90, visible = vis)
 
-    def plot(self, value='', location='', det=''):
+    def plot(self, value='', location='', det=''):                              #Updates the list of last counts
         eval('self.gamma_{}'.format(det+1)).insert(location-1,round(value,5))
         del(eval('self.gamma_{}'.format(det+1))[location])
-
-        if not(self.t1.is_alive()):
-            self.t1.start()
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
