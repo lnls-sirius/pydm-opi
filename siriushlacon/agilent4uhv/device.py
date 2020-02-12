@@ -12,8 +12,8 @@ class AgilentDevice(Display):
     def __init__(self, parent=None, args=[], macros=None):
         super(AgilentDevice, self).__init__(parent=parent, args=args, macros=macros, ui_filename=AGILENT_DEVICE_UI)
         self.macros = macros
-        self.pv_protect_sp = 'ca://{}:Protect-SP_Backend'.format(self.macros['PREFIX'])
-        self.pv_step_sp = 'ca://{}:Step-SP_Backend'.format(self.macros['PREFIX'])
+        self.pv_protect_sp = 'ca://{}:Protect-SP'.format(self.macros['PREFIX'])
+        self.pv_step_sp = 'ca://{}:Step-SP'.format(self.macros['PREFIX'])
 
         self.btnWriteProtect.clicked.connect(self.write_protect)
         self.btnWriteStep.clicked.connect(self.write_step)
