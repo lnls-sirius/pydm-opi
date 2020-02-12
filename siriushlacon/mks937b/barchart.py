@@ -203,7 +203,7 @@ class Window(Display):
             elif bar.get_height() >= self.hihi:
                 bar.set_facecolor("r")
             else:
-                pass
+                bar.set_facecolor("g")
 
             height = bar.get_height()
             ax.annotate('{:.1e}'.format(height),
