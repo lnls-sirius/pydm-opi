@@ -10,7 +10,8 @@ from siriushlacon.mks937b.consts import MKS_MAIN, MKS_OVERVIEW, MKS_GRAPH
 from siriushlacon.regatron.consts import REGATRON_MAIN
 from siriushlacon.spixconv.consts import SPIXCONV_MAIN
 from siriushlacon.countingpru.consts import GAMMA_COUNTING_MAIN
-from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG, BO, SI, TB, TS
+from siriushlacon.beaglebones.consts import BEAGLEBONES_MAIN
+from siriushlacon.utils.consts import CNPEM_INVISIBLE_IMG, LNLS_INVISIBLE_IMG, BO, SI, TB, TS
 
 
 class Launcher(Display):
@@ -124,10 +125,14 @@ class Launcher(Display):
         self.btnGamma.filenames = [GAMMA_COUNTING_MAIN]
         self.btnGamma.openInNewWindow = True
 
+        self.btnBBB.filenames = [BEAGLEBONES_MAIN]
+        self.btnBBB.openInNewWindow = True
+
+
         self.btnExit.clicked.connect(self.exitApp)
 
-        self.label_cnpem.setPixmap(QPixmap(CNPEM_IMG))
-        self.label_lnls.setPixmap(QPixmap(LNLS_IMG))
+        self.label_cnpem.setPixmap(QPixmap(CNPEM_INVISIBLE_IMG))
+        self.label_lnls.setPixmap(QPixmap(LNLS_INVISIBLE_IMG))
 
     def exitApp(self):
         exit()
