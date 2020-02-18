@@ -1,11 +1,11 @@
 #****************Control's Group - MonitoringPRU*******************
 #           Author: Robert Willian Polli
-#           Last version: 11th February, 2020
+#           Last version: 18th February, 2020
 #*****************************************************************
 import matplotlib.pyplot as plt
 import sys, json, webbrowser, datetime, threading, numpy, matplotlib, time
 
-from epics import caget, caput
+from epics import caget, caput, PV
 from functools import partial
 from matplotlib.animation import FuncAnimation
 from matplotlib.widgets import CheckButtons
@@ -114,19 +114,25 @@ class MonitoringCountingPRU(Display):
         else: self.Counter_name.clear()
 
     def Set_TimeBase(self):
-        if self.Counter_name.text() != '':
+        if self.checkBox_TB.isChecked():                                #Set all time bases
+            confirmation= QtWidgets.QMessageBox.question(self, 'Warning',"Do you want set all of Time Bases?",QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
+            if confirmation == QtWidgets.QMessageBox.Yes:
+                for sector in range(1,21):
+                    for counter in counters:
+                        caput("SI-{:0>2d}{}:CO-Counter:TimeBase-SP".format(sector, counter), self.BT_SpinBox.value())
+
+        elif self.Counter_name.text() != '':
             confirmation= QtWidgets.QMessageBox.question(self, 'Warning',"Are you sure?",QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
             if confirmation == QtWidgets.QMessageBox.Yes:
-                if self.checkBox_TB.isChecked():                                #Set all time bases
-                    for sector in range(1,21):
-                        for counter in counters:
-                            caput("SI-{:0>2d}{}:CO-Counter:TimeBase-SP".format(sector, counter), self.BT_SpinBox.value())
-                else: caput(self.Counter_name.text()+":TimeBase-SP", self.BT_SpinBox.value())
+                caput(self.Counter_name.text()+":TimeBase-SP", self.BT_SpinBox.value())
                 self.plot_info()
+        else:
+            text = QtWidgets.QMessageBox.warning(self, 'Attention','Please, select a counter')
 
     def plot_info(self, value=''):
-
-        if (self.Counter_name.text() == '' and self.Gamma_name.text() == ''): return()
+        if (self.Counter_name.text() == '' and self.Gamma_name.text() == ''):
+            text = QtWidgets.QMessageBox.warning(self, 'Attention','Please, select a counter')
+            return()
         self.pulsesAverageButton.setEnabled(True)
 
         if self.Counter_name.text() == '':
@@ -140,12 +146,10 @@ class MonitoringCountingPRU(Display):
                 if self.Gamma_name.text()[5:7] == 'M1':
                     self.Detector_name = 'SI-{:0>2d}{}{}'.format(int(self.Gamma_name.text()[3:5])-1,\
                     self.gamma_measurement[self.Gamma_name.text()[5:7]],self.Gamma_name.text()[7:16])
-                    print(self.Detector_name)
                 else:
                     self.Detector_name = self.Gamma_name.text()[:5]+self.gamma_measurement[self.Gamma_name.text()[5:7]]+self.Gamma_name.text()[7:16]
                 self.Sector_number.setValue(int(self.Detector_name[3:5]))
                 self.Counter_name.setText(caget(self.Detector_name+":Counter-Cte")[:-4])
-
             else: return()
         else:
             self.Detector_name = 'SI-{:0>2d}{}:CO-Gamma'.format(self.Sector_number.value(),self.gamma_measurement[self.Gamma_name.text()[5:7]])
@@ -160,17 +164,21 @@ class MonitoringCountingPRU(Display):
 
         for sensors in range(1,7):                                                     #Finds which channels are being used
             ins = QtWidgets.QListWidgetItem()
-            ins.setText(caget(self.Counter_name.text()+':Ch{}-Cte'.format(sensors)))
-            if ins.text() == self.Gamma_name.text():
-                self.gamaselected = ins.text()
-                ins.setBackground(QtCore.Qt.cyan)
-
-            elif self.Gamma_name.text()[-13:] != 'GammaDetector':
-                if ins.text() == caget(self.Gamma_name.text()+':Sensor-Cte'):
+            pv = PV(self.Counter_name.text()+':Ch{}-Cte'.format(sensors))
+            if not(pv.connected):
+                text = QtWidgets.QMessageBox.warning(self, 'Warning','PV {} is not connected'.format(self.Counter_name.text()+':Ch{}-Cte'.format(sensors)))
+            else:
+                ins.setText(caget(self.Counter_name.text()+':Ch{}-Cte'.format(sensors)))
+                if ins.text() == self.Gamma_name.text():
                     self.gamaselected = ins.text()
                     ins.setBackground(QtCore.Qt.cyan)
-            self.list_Channels.addItem(ins)
-        self.image_setting()
+
+                elif self.Gamma_name.text()[-13:] != 'GammaDetector':
+                    if ins.text() == caget(self.Gamma_name.text()+':Sensor-Cte'):
+                        self.gamaselected = ins.text()
+                        ins.setBackground(QtCore.Qt.cyan)
+                self.list_Channels.addItem(ins)
+                self.image_setting()
 
     def image_setting(self):                                                         #Changes the images to show which counter and detector are being used
         for gammaclear in ('C1', 'C2', 'C3', 'C4', 'M1'):
@@ -179,7 +187,6 @@ class MonitoringCountingPRU(Display):
             eval('self.bit_Counter{}'.format(counterclear)).brush = QtCore.Qt.lightGray
         eval('self.bit_Gamma{}'.format(self.gamaselected[5:7])).brush = QtCore.Qt.green
         eval('self.bit_Counter{}'.format(self.Counter_name.text()[5:7])).brush = QtCore.Qt.red
-
 
 class Overview(Display):
     global counters, Det_Location,qtOverViewFile
