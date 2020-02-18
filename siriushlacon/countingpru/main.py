@@ -1,6 +1,6 @@
 #****************Control's Group - MonitoringPRU*******************
 #           Author: Robert Willian Polli
-#           Last version: 14th February, 2020
+#           Last version: 18th February, 2020
 #*****************************************************************
 import matplotlib.pyplot as plt
 import sys, json, webbrowser, datetime, threading, numpy, matplotlib, time
@@ -167,7 +167,6 @@ class MonitoringCountingPRU(Display):
             pv = PV(self.Counter_name.text()+':Ch{}-Cte'.format(sensors))
             if not(pv.connected):
                 text = QtWidgets.QMessageBox.warning(self, 'Warning','PV {} is not connected'.format(self.Counter_name.text()+':Ch{}-Cte'.format(sensors)))
-                continue
             else:
                 ins.setText(caget(self.Counter_name.text()+':Ch{}-Cte'.format(sensors)))
                 if ins.text() == self.Gamma_name.text():
