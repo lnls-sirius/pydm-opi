@@ -32,6 +32,7 @@ setup(
         'scripts/sirius-hla-bo-va-agilent4uhv-overview.py',
         'scripts/sirius-hla-ts-va-agilent4uhv-overview.py',
         'scripts/sirius-hla-si-va-agilent4uhv-overview.py',
+        'scripts/sirius-hla-as-ap-bbb-monitor.py',
         'scripts/sirius-hla-as-ap-conlauncher.py',
         'scripts/sirius-hla-as-ap-countingpru.py',
         'scripts/sirius-hla-as-ap-mbtemp.py',
