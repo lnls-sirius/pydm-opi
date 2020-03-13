@@ -48,7 +48,9 @@ OVERVIEW_UI = get_abs_path('ui/overview.ui')
 
 # Images
 CNPEM_IMG = get_abs_path('images/CNPEM.jpg')
+CNPEM_INVISIBLE_IMG = get_abs_path('images/CNPEM-invisible.png')
 LNLS_IMG = get_abs_path('images/sirius-hla-as-cons-lnls.png')
+LNLS_INVISIBLE_IMG = get_abs_path('images/lnls-invisible.png')
 LTB_IMG = get_abs_path('images/ltb.png')
 BOOSTER_IMG = get_abs_path('images/booster.png')
 BTS_IMG = get_abs_path('images/btts.png')
