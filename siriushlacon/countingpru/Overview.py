@@ -48,8 +48,12 @@ class Overview(Display):
 
         if self.average == 'Gamma Detectors':                                   #If user chose 'Counting - Overview'
             for PV in range(1,21):
-                for s_sec in range(3):
+                for s_sec in range(2):
                     self.dict_pvs_tb['valueTB{}{}'.format(PV,counters[s_sec])] = 'ca://SI-{:0>2d}{}:CO-Counter:TimeBase-SP'.format(PV,counters[s_sec])
+                if PV != 20:
+                    self.dict_pvs_tb['valueTB{}M1'.format(PV)] = 'ca://SI-{:0>2d}M1:CO-Counter:TimeBase-SP'.format(PV+1)
+                else:
+                    self.dict_pvs_tb['valueTB{}M1'.format(PV)] = 'ca://SI-01M1:CO-Counter:TimeBase-SP'
 
             for location in range(1,21):
                 for s_sec in range(len(Det_Location)):
