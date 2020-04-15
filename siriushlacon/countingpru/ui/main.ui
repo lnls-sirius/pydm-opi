@@ -198,7 +198,7 @@
    <widget class="QPushButton" name="BT_Button">
     <property name="geometry">
      <rect>
-      <x>38</x>
+      <x>120</x>
       <y>490</y>
       <width>111</width>
       <height>25</height>
@@ -206,19 +206,6 @@
     </property>
     <property name="text">
      <string>Set Time Base</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Plot_Button">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>490</y>
-      <width>111</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Plot!</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_12">
@@ -356,7 +343,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="PyDMDrawingCircle" name="bit_CounterM2">
+   <widget class="PyDMDrawingCircle" name="bit_CounterM2" native="true">
     <property name="geometry">
      <rect>
       <x>27</x>
@@ -391,7 +378,7 @@
      </brush>
     </property>
    </widget>
-   <widget class="PyDMDrawingCircle" name="bit_GammaC1">
+   <widget class="PyDMDrawingCircle" name="bit_GammaC1" native="true">
     <property name="geometry">
      <rect>
       <x>135</x>
@@ -426,7 +413,7 @@
      </brush>
     </property>
    </widget>
-   <widget class="PyDMDrawingCircle" name="bit_CounterC2">
+   <widget class="PyDMDrawingCircle" name="bit_CounterC2" native="true">
     <property name="geometry">
      <rect>
       <x>214</x>
@@ -461,7 +448,7 @@
      </brush>
     </property>
    </widget>
-   <widget class="PyDMDrawingCircle" name="bit_GammaC2">
+   <widget class="PyDMDrawingCircle" name="bit_GammaC2" native="true">
     <property name="enabled">
      <bool>true</bool>
     </property>
@@ -499,7 +486,7 @@
      </brush>
     </property>
    </widget>
-   <widget class="PyDMDrawingCircle" name="bit_GammaC3">
+   <widget class="PyDMDrawingCircle" name="bit_GammaC3" native="true">
     <property name="geometry">
      <rect>
       <x>83</x>
@@ -534,7 +521,7 @@
      </brush>
     </property>
    </widget>
-   <widget class="PyDMDrawingCircle" name="bit_CounterC3">
+   <widget class="PyDMDrawingCircle" name="bit_CounterC3" native="true">
     <property name="geometry">
      <rect>
       <x>128</x>
@@ -569,7 +556,7 @@
      </brush>
     </property>
    </widget>
-   <widget class="PyDMDrawingCircle" name="bit_GammaC4">
+   <widget class="PyDMDrawingCircle" name="bit_GammaC4" native="true">
     <property name="geometry">
      <rect>
       <x>174</x>
@@ -604,7 +591,7 @@
      </brush>
     </property>
    </widget>
-   <widget class="PyDMDrawingCircle" name="bit_CounterM1">
+   <widget class="PyDMDrawingCircle" name="bit_CounterM1" native="true">
     <property name="geometry">
      <rect>
       <x>264</x>
@@ -639,7 +626,7 @@
      </brush>
     </property>
    </widget>
-   <widget class="PyDMDrawingCircle" name="bit_GammaM1">
+   <widget class="PyDMDrawingCircle" name="bit_GammaM1" native="true">
     <property name="geometry">
      <rect>
       <x>309</x>
@@ -765,7 +752,7 @@
    <widget class="QCheckBox" name="checkBox_TB">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>110</x>
       <y>460</y>
       <width>161</width>
       <height>23</height>
@@ -775,7 +762,7 @@
      <string>Set all time bases</string>
     </property>
    </widget>
-   <widget class="PyDMDrawingCircle" name="Legenda1">
+   <widget class="PyDMDrawingCircle" name="Legenda1" native="true">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -810,7 +797,7 @@
      </brush>
     </property>
    </widget>
-   <widget class="PyDMDrawingCircle" name="Legenda2">
+   <widget class="PyDMDrawingCircle" name="Legenda2" native="true">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -884,7 +871,10 @@
      </rect>
     </property>
     <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Archiver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Opens Archiver View of Counting&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
@@ -895,6 +885,9 @@
     <property name="text">
      <string>Counting -  Archiver View</string>
     </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="OverviewButton">
     <property name="geometry">
@@ -904,6 +897,9 @@
       <width>331</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Opens Overview graphs of Counting&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(138, 226, 52);</string>
@@ -1030,7 +1026,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic; color:#888a85;&quot;&gt;Control's Group V1.7 - Feb/2020 - controle@CNPEMCAMP.onmicrosoft.com&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic; color:#888a85;&quot;&gt;Control's Group V1.8 - Mar/2020 - controle@CNPEMCAMP.onmicrosoft.com&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="textInteractionFlags">
     <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -1054,9 +1050,6 @@
    <property name="channel" stdset="0">
     <string>ca://${LC}.VAL</string>
    </property>
-   <property name="displayFormat" stdset="0">
-    <enum>PyDMLabel::String</enum>
-   </property>
   </widget>
   <widget class="PyDMLabel" name="TB">
    <property name="geometry">
@@ -1075,9 +1068,6 @@
    </property>
    <property name="channel" stdset="0">
     <string>ca://${TB}.VAL</string>
-   </property>
-   <property name="displayFormat" stdset="0">
-    <enum>PyDMLabel::String</enum>
    </property>
   </widget>
   <widget class="QLabel" name="label_23">
@@ -1182,6 +1172,9 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Opens Archiver View of Pulses Averages selected&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(239, 41, 41);</string>
    </property>
@@ -1216,9 +1209,6 @@
       </property>
       <property name="channel" stdset="0">
        <string>ca://${LastMonthAverage}.VAL</string>
-      </property>
-      <property name="displayFormat" stdset="0">
-       <enum>PyDMLabel::String</enum>
       </property>
      </widget>
     </item>
@@ -1263,9 +1253,6 @@
       <property name="channel" stdset="0">
        <string>ca://${TwoWeeksAverage}.VAL</string>
       </property>
-      <property name="displayFormat" stdset="0">
-       <enum>PyDMLabel::String</enum>
-      </property>
      </widget>
     </item>
     <item row="0" column="1">
@@ -1279,9 +1266,6 @@
       <property name="channel" stdset="0">
        <string>ca://${LastDayAverage}.VAL</string>
       </property>
-      <property name="displayFormat" stdset="0">
-       <enum>PyDMLabel::String</enum>
-      </property>
      </widget>
     </item>
     <item row="1" column="1">
@@ -1294,9 +1278,6 @@
       </property>
       <property name="channel" stdset="0">
        <string>ca://${LastWeekAverage}.VAL</string>
-      </property>
-      <property name="displayFormat" stdset="0">
-       <enum>PyDMLabel::String</enum>
       </property>
      </widget>
     </item>
@@ -1327,6 +1308,9 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Opens Overview graphs of Pulses Averages selected&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 127, 00);</string>
    </property>
@@ -1335,6 +1319,32 @@
    </property>
    <property name="checked">
     <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>310</y>
+     <width>67</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>SN:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="SN">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>310</y>
+     <width>51</width>
+     <height>25</height>
+    </rect>
    </property>
   </widget>
  </widget>
