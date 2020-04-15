@@ -15,6 +15,9 @@ MKS_OVERVIEW = get_abs_path('overview.py')
 MKS_MAIN = get_abs_path('main.py')
 MKS_MAIN_UI = get_abs_path('ui/table.ui')
 
+MKS_GRAPH = get_abs_path('barchart.py')
+MKS_GRAPH_UI = get_abs_path('ui/graph.ui')
+
 MKS_LAUNCH = get_abs_path('launcher.py')
 MKS_LAUNCH_UI = get_abs_path('ui/main.ui')
 
