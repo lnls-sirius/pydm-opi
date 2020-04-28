@@ -5,3 +5,4 @@ requests
 pandas
 xlrd
 matplotlib
+siriushlacommon==0.0.3
