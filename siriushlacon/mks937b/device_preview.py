@@ -3,7 +3,7 @@
 from pydm import Display
 from pydm.utilities import IconFont
 
-from siriushlacommon.data_model.mks import MKS_SENSOR_COLD_CATHODE
+from conscommon.data_model.mks import MKS_SENSOR_COLD_CATHODE
 from siriushlacon.mks937b.consts import DEVICE_PREVIEW_UI, DEVICE_MENU
 
 

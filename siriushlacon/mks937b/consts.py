@@ -3,8 +3,8 @@
 import pkg_resources
 from typing import List
 
-import siriushlacommon.data
-import siriushlacommon.data_model
+import conscommon.data
+import conscommon.data_model
 
 
 def get_abs_path(filename):
@@ -54,7 +54,7 @@ DEVICE_MENU_UI = get_abs_path("ui/device_menu.ui")
 IOC_MAN_UI = get_abs_path("ui/ioc_man.ui")
 
 DEVICES: List[
-    siriushlacommon.data_model.Device
-] = siriushlacommon.data_model.getDevicesFromBeagles(
-    siriushlacommon.data_model.getBeaglesFromList(siriushlacommon.data.getMKS())
+    conscommon.data_model.Device
+] = conscommon.data_model.getDevicesFromBeagles(
+    conscommon.data_model.getBeaglesFromList(conscommon.data.getMKS())
 )

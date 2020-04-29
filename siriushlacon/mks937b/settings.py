@@ -3,7 +3,7 @@
 import json
 
 from pydm import Display
-from siriushlacommon.data_model.mks import MKS_SENSOR_COLD_CATHODE, MKS_SENSOR_PIRANI
+from conscommon.data_model.mks import MKS_SENSOR_COLD_CATHODE, MKS_SENSOR_PIRANI
 from siriushlacon.mks937b.consts import CC_UI, PR_UI, SETTINGS_UI
 from siriushlacon.mks937b.macros import get_macro
 

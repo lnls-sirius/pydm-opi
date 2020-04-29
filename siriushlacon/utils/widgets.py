@@ -1,15 +1,21 @@
+from typing import List
 
 from pydm.widgets import PyDMLabel, PyDMByteIndicator
 from qtpy.QtCore import Qt, QObject, Signal, QRect, QSize, QPoint
 from qtpy.QtGui import QColor
 from qtpy.QtWidgets import QLayout, QSizePolicy, QStyle
+import conscommon.data_model
 
 from siriushlacon.utils.consts import TABLE_ALARMS_QSS
 
 
-def get_label(parent, content, tooltip,
-              displayFormat=PyDMLabel.DisplayFormat.Default,
-              precision=None):
+def get_label(
+    parent,
+    content,
+    tooltip,
+    displayFormat=PyDMLabel.DisplayFormat.Default,
+    precision=None,
+):
     lbl = PyDMLabel(parent=parent, init_channel=content)
     lbl.precisionFromPV = False
     lbl.precision = 2
@@ -34,7 +40,6 @@ def get_byte_indicator(parent, content, tooltip, **kwargs):
 
 
 class FlowLayout(QLayout):
-
     def __init__(self, parent=None, margin=-1, hspacing=-1, vspacing=-1):
         super(FlowLayout, self).__init__(parent)
         self._hspacing = hspacing
@@ -106,13 +111,13 @@ class FlowLayout(QLayout):
             hspace = self.horizontalSpacing()
             if hspace == -1:
                 hspace = widget.style().layoutSpacing(
-                    QSizePolicy.PushButton,
-                    QSizePolicy.PushButton, Qt.Horizontal)
+                    QSizePolicy.PushButton, QSizePolicy.PushButton, Qt.Horizontal
+                )
             vspace = self.verticalSpacing()
             if vspace == -1:
                 vspace = widget.style().layoutSpacing(
-                    QSizePolicy.PushButton,
-                    QSizePolicy.PushButton, Qt.Vertical)
+                    QSizePolicy.PushButton, QSizePolicy.PushButton, Qt.Vertical
+                )
             nextX = x + item.sizeHint().width() + hspace
             if nextX - hspace > effective.right() and lineheight > 0:
                 x = effective.x()
@@ -120,8 +125,7 @@ class FlowLayout(QLayout):
                 nextX = x + item.sizeHint().width() + hspace
                 lineheight = 0
             if not testonly:
-                item.setGeometry(
-                    QRect(QPoint(x, y), item.sizeHint()))
+                item.setGeometry(QRect(QPoint(x, y), item.sizeHint()))
             x = nextX
             lineheight = max(lineheight, item.sizeHint().height())
         return y + lineheight - rect.y() + bottom
@@ -136,6 +140,18 @@ class FlowLayout(QLayout):
             return parent.spacing()
 
 
+class TableDataRow:
+    def __init__(
+        self,
+        device: conscommon.data_model.Device,
+        channel: conscommon.data_model.Channel,
+        render: bool,
+    ):
+        self.device = device
+        self.channel = channel
+        self.render = render
+
+
 class TableDataController(QObject):
 
     update_content = Signal()
@@ -143,16 +159,24 @@ class TableDataController(QObject):
     table_batch = 24
     filter_pattern = None
 
-    def __init__(self, table, devices=[], table_batch=24,
-                 horizontal_header_labels=[], *args, **kwargs):
+    def __init__(
+        self,
+        table,
+        devices=[],
+        table_batch=24,
+        horizontal_header_labels=[],
+        *args,
+        **kwargs
+    ):
         super().__init__()
-        self.table_data = []
-        self.devices = devices
+        self.devices: List[conscommon.data_model.Device] = devices
+        self.table_data: List[TableDataRow] = []
         self.table = table
         self.table_batch = table_batch
         self.horizontalHeaderLabels = horizontal_header_labels
 
-        self.batch_offset = 0
+        self.batch_offset: int = 0
+        self.total_rows: int = 0
 
         self.init_table()
         self.update_content.connect(self.update_table_content)

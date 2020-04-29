@@ -11,7 +11,7 @@ from pydm import Display
 from pydm.utilities import IconFont
 from pydm.widgets import PyDMRelatedDisplayButton, PyDMLabel
 from qtpy.QtWidgets import QLabel
-import siriushlacommon.data_model
+import conscommon.data_model
 
 from siriushlacon.mks937b.consts import MKS_MAIN_UI, DEVICE_MENU, DEVICES
 from siriushlacon.utils.widgets import get_label, TableDataController, TableDataRow
@@ -23,7 +23,7 @@ class MKSTableDataController(TableDataController):
     def __init__(
         self,
         table,
-        devices: List[siriushlacommon.data_model.Device] = [],
+        devices: List[conscommon.data_model.Device] = [],
         table_batch: int = 24,
         horizontal_header_labels: List[str] = [],
         *args,

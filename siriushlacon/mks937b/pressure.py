@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from pydm import Display
-from siriushlacommon.data_model.mks import MKS_SENSOR_COLD_CATHODE
+from conscommon.data_model.mks import MKS_SENSOR_COLD_CATHODE
 from siriushlacon.mks937b.consts import PRESSURE_UI
 from siriushlacon.utils.consts import IS_LINUX
 

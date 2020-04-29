@@ -5,4 +5,4 @@ requests
 pandas
 xlrd
 matplotlib
-siriushlacommon==0.0.3
+conscommon==0.0.4
