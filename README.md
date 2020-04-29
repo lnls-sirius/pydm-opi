@@ -15,12 +15,8 @@ pip3 install .
 ```
 In order to install the `.desktop` launcher:
 ```
-make install
+make install-files
 ```
-### Windows
-The user should use miniconda and install everything there !
-[Miniconda](https://gitlab.cnpem.br/con/pydm-installer)
-
 
 ## Run
 All scripts used to start the applications should be at the `bin` folder relative to the installation environment.
