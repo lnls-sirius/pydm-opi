@@ -1,0 +1,3 @@
+[submodule "cons-common"]
+	path = cons-common
+	url = https://github.com/carneirofc/cons-common
