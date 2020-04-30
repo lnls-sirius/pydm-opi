@@ -1,22 +1,48 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import logging
-import threading
+import enum
 import json
-
+import logging
+import re
+import threading
 from typing import List
 
-import epics
+from qtpy.QtWidgets import QLabel, QCheckBox
+from qtpy.QtCore import Qt
 from pydm import Display
 from pydm.utilities import IconFont
 from pydm.widgets import PyDMRelatedDisplayButton, PyDMLabel
-from qtpy.QtWidgets import QLabel
 import conscommon.data_model
 
 from siriushlacon.mks937b.consts import MKS_MAIN_UI, DEVICE_MENU, DEVICES
 from siriushlacon.utils.widgets import get_label, TableDataController, TableDataRow
 
-logger = logging.getLogger("MKS_Logger")
+CH_REG = re.compile(r":[ABC][0-9]")
+
+logger = logging.getLogger()
+
+
+@enum.unique
+class TableColumn(enum.Enum):
+    # fmt: off
+    Channel       = "Channel"
+    Device        = "Device"
+    Pressure      = "Pressure"
+    Alarm         = "Alarm"
+    Unit          = "Unit"
+    Protect       = "Protect"
+    Relay_1_SP    = "Relay 1 SP"
+    Relay_1_Hyst  = "Relay 1 Hyst"
+    Relay_5_SP    = "Relay 5 SP"
+    Relay_5_Hyst  = "Relay 5 Hyst"
+    Relay_7_SP    = "Relay 7 SP"
+    Relay_7_Hyst  = "Relay 7 Hyst"
+    Relay_11_SP   = "Relay 11 SP"
+    Relay_11_Hyst = "Relay 11 Hyst"
+    Relay_12_SP   = "Relay 12 SP"
+    Relay_12_Hyst = "Relay 12 Hyst"
+    Details       = "Details"
+    # fmt: on
 
 
 class MKSTableDataController(TableDataController):
@@ -42,26 +68,24 @@ class MKSTableDataController(TableDataController):
         self.table.setRowCount(self.table_batch)
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
+
         for actual_row in range(self.table_batch):
-            row = 0
-            self.table.setCellWidget(actual_row, row, QLabel(""))
-            row += 1
-            self.table.setCellWidget(actual_row, row, QLabel(""))
-            row += 1
-            self.table.setCellWidget(actual_row, row, get_label(self.table, "", ""))
-            row += 1
-            self.table.setCellWidget(actual_row, row, get_label(self.table, "", ""))
-            row += 1
-            self.table.setCellWidget(actual_row, row, get_label(self.table, "", ""))
-            row += 1
-            for i in range(13):
-                self.table.setCellWidget(actual_row, row, get_label(self.table, "", ""))
-                row += 1
-            rel = PyDMRelatedDisplayButton(self.table)
-            rel.filenames = [DEVICE_MENU]
-            rel.openInNewWindow = True
-            self.table.setCellWidget(actual_row, row, rel)
-            row += 1
+            col = 0
+            for col_name in TableColumn:
+                if col_name in [TableColumn.Device, TableColumn.Channel]:
+                    self.table.setCellWidget(actual_row, col, QLabel(""))
+
+                elif col_name == TableColumn.Details:
+                    rel = PyDMRelatedDisplayButton(self.table)
+                    rel.filenames = [DEVICE_MENU]
+                    rel.openInNewWindow = True
+                    self.table.setCellWidget(actual_row, col, rel)
+                    rel.show()
+                else:
+                    self.table.setCellWidget(
+                        actual_row, col, get_label(self.table, "", "")
+                    )
+                col += 1
 
     def filter(self, pattern):
         if pattern != self.filter_pattern:
@@ -81,12 +105,11 @@ class MKSTableDataController(TableDataController):
             if not device.enable:
                 continue
             for channel in device.channels:
-                if not channel.enable:
+                if not channel.enable or CH_REG.match(channel.prefix[-3:]):
                     continue
                 self.table_data.append(TableDataRow(device, channel, True))
 
         self.total_rows = self.table_data.__len__()
-
         self.update_content.emit()
 
     def generate_macros(self, dataRow: TableDataRow) -> str:
@@ -104,49 +127,61 @@ class MKSTableDataController(TableDataController):
 
         return json.dumps(macros)
 
+    def getRelayPV(self, col_name, channel: conscommon.data_model.Channel):
+        if "Relay" not in col_name:
+            return ""
+
+        _data = col_name.split(" ")
+        _relay_num = _data[1]
+        _t = _data[2]
+        sufix = "Hyst-RB" if _t == "Hyst" else "Setpoint-RB"
+        if (
+            (channel.num == 0 and _relay_num == "1")
+            or (channel.num == 2 and _relay_num in ["5", "7"])
+            or (channel.num in [4, 5] and _relay_num in ["11", "12"])
+        ):
+            return ":Relay{}:{}".format(_relay_num, sufix)
+        else:
+            return ""
+
     def update_table_row(self, actual_row, dataRow: TableDataRow):
         self.table.setRowHidden(actual_row, False)
         col = 0
-
         # Channel Access
         device_ca = "ca://" + dataRow.device.prefix
         channel_ca = "ca://" + dataRow.channel.prefix
-
-        self.table.cellWidget(actual_row, col).setText(dataRow.channel.prefix)
-        col += 1
-        self.table.cellWidget(actual_row, col).setText(dataRow.device.prefix)
-        col += 1
-        self.connect_widget(actual_row, col, channel_ca + ":Pressure-Mon-s")
-        col += 1
-        self.connect_widget(actual_row, col, channel_ca + ":Pressure-Mon.STAT")
-        col += 1
-        self.connect_widget(actual_row, col, device_ca + ":Unit")
-        col += 1
-
-        # Setpoint
-        self.connect_widget(actual_row, col, channel_ca + ":ProtectionSetpoint-RB-s")
-        col += 1
-        for i in range(1, 13):
-            _pv = ""
-            if (
-                (dataRow.channel.num == 0 and (1 <= i <= 4))
-                or (dataRow.channel.num == 2 and (5 <= i <= 8))
-                or (dataRow.channel.num == 3 and (9 <= i <= 10))
-                or (dataRow.channel.num == 4 and (11 <= i <= 12))
-            ):
-                _pv = device_ca + ":Relay{}:Setpoint-RB".format(i)
-                self.table.cellWidget(
-                    actual_row, col
-                ).displayFormat = PyDMLabel.DisplayFormat.Exponential
-                self.connect_widget(actual_row, col, _pv)
+        for tc in TableColumn:
+            if tc == TableColumn.Device:
+                self.table.cellWidget(actual_row, col).setText(dataRow.device.prefix)
+            elif tc == TableColumn.Channel:
+                self.table.cellWidget(actual_row, col).setText(dataRow.channel.prefix)
+            elif tc == TableColumn.Pressure:
+                self.connect_widget(actual_row, col, channel_ca + ":Pressure-Mon-s")
+            elif tc == TableColumn.Alarm:
+                self.connect_widget(actual_row, col, channel_ca + ":Pressure-Mon.STAT")
+            elif tc == TableColumn.Unit:
+                self.connect_widget(actual_row, col, device_ca + ":Unit")
+            elif tc == TableColumn.Protect:
+                self.connect_widget(
+                    actual_row, col, channel_ca + ":ProtectionSetpoint-RB-s"
+                )
+            elif tc == TableColumn.Details:
+                self.connect_widget(
+                    actual_row, col, None, self.generate_macros(dataRow)
+                )
             else:
-                self.connect_widget(actual_row, col, _pv)
-                self.table.cellWidget(actual_row, col).displayFormat = 0
-                self.table.cellWidget(actual_row, col).value_changed("")
+                _pv = self.getRelayPV(tc.value, dataRow.channel)
+                if _pv != "":
+                    self.table.cellWidget(
+                        actual_row, col
+                    ).displayFormat = PyDMLabel.DisplayFormat.Exponential
+                    self.connect_widget(actual_row, col, device_ca + _pv)
+                else:
+                    self.connect_widget(actual_row, col, _pv)
+                    self.table.cellWidget(actual_row, col).displayFormat = 0
+                    self.table.cellWidget(actual_row, col).value_changed("")
 
             col += 1
-
-        self.connect_widget(actual_row, col, None, self.generate_macros(dataRow))
 
     def update_table_content(self):
 
@@ -172,7 +207,6 @@ class MKSTableDataController(TableDataController):
             if d.render and dataset_row >= self.batch_offset:
                 self.update_table_row(actual_row, d)
                 actual_row += 1
-
             dataset_row += 1
 
         for row in range(actual_row, self.table_batch):
@@ -188,28 +222,7 @@ class MKS(Display):
         self.caput_enable = True
 
         table_batch = len(DEVICES) * 6
-        horizontal_header_labels = [
-            "Gauge",
-            "Device",
-            "Pressure",
-            "Alarm",
-            "Unit",
-            "Protect",
-            "Relay 1",
-            "Relay 2",
-            "Relay 3",
-            "Relay 4",
-            "Relay 5",
-            "Relay 6",
-            "Relay 7",
-            "Relay 8",
-            "Relay 9",
-            "Relay 10",
-            "Relay 11",
-            "Relay 12",
-            "Details",
-        ]
-
+        horizontal_header_labels = [tc.value for tc in TableColumn]
         self.tdc = MKSTableDataController(
             self.table,
             devices=DEVICES,
@@ -224,35 +237,52 @@ class MKS(Display):
         self.btnNavRight.clicked.connect(lambda: self.update_navbar(True))
         self.btnNavRight.setIcon(IconFont().icon("arrow-right"))
 
-        self.btnAllHvOn.clicked.connect(lambda: self.turn_on_channels())
+        self.checkBoxAlarm: QCheckBox
+        self.checkBoxUnit: QCheckBox
+        self.checkBoxProtect: QCheckBox
+        self.checkBoxRelay1: QCheckBox
+        self.checkBoxRelay5: QCheckBox
+        self.checkBoxRelay7: QCheckBox
+        self.checkBoxRelayPirani: QCheckBox
 
-    def turn_on_channels(self):
-        with self.caput_lock:
-            if self.caput_enable:
-                logger.info("Turning all channels ON")
-                thread = threading.Thread(target=self.turn_on, daemon=True)
-                thread.start()
-                self.caput_enable = False
-            else:
-                logger.info("Wait the previous command completion")
+        self.checkBoxAlarm.stateChanged.connect(self.displayColumns)
+        self.checkBoxUnit.stateChanged.connect(self.displayColumns)
+        self.checkBoxProtect.stateChanged.connect(self.displayColumns)
+        self.checkBoxRelay1.stateChanged.connect(self.displayColumns)
+        self.checkBoxRelay5.stateChanged.connect(self.displayColumns)
+        self.checkBoxRelay7.stateChanged.connect(self.displayColumns)
+        self.checkBoxRelayPirani.stateChanged.connect(self.displayColumns)
 
-    def turn_on(self):
-        for d in DEVICES:
-            if not d.enable:
-                continue
-            for channel in d.channels:
-                if not channel.enable:
-                    continue
+        self.checkBoxAlarm.setCheckState(2)
+        self.checkBoxUnit.setCheckState(2)
+        self.checkBoxProtect.setCheckState(2)
+        self.checkBoxRelay1.setCheckState(0)
+        self.checkBoxRelay5.setCheckState(0)
+        self.checkBoxRelay7.setCheckState(0)
+        self.checkBoxRelayPirani.setCheckState(0)
 
-                command = channel.prefix + ":Enable-SP"
-                res = epics.caput(command, "On", timeout=0.2)
-                logger.info(
-                    "Caput command: {} 'On' {}".format(
-                        command, "OK" if res == 1 else "FAIL"
-                    )
-                )
-        with self.caput_lock:
-            self.caput_enable = True
+        for i in range(6, 16):
+            self.table.setColumnHidden(i, True)
+
+    def displayColumns(self, *args, **kwargs):
+        # fmt: off
+        self.table.setColumnHidden(3, self.checkBoxAlarm.checkState() != Qt.Checked)
+        self.table.setColumnHidden(4, self.checkBoxUnit.checkState() != Qt.Checked)
+        self.table.setColumnHidden(5, self.checkBoxProtect.checkState() != Qt.Checked)
+
+        self.table.setColumnHidden(6, self.checkBoxRelay1.checkState() != Qt.Checked)
+        self.table.setColumnHidden(7, self.checkBoxRelay1.checkState() != Qt.Checked)
+
+        self.table.setColumnHidden(8, self.checkBoxRelay5.checkState() != Qt.Checked)
+        self.table.setColumnHidden(9, self.checkBoxRelay5.checkState() != Qt.Checked)
+        self.table.setColumnHidden(10, self.checkBoxRelay7.checkState() != Qt.Checked)
+        self.table.setColumnHidden(11, self.checkBoxRelay7.checkState() != Qt.Checked)
+
+        self.table.setColumnHidden(12, self.checkBoxRelayPirani.checkState() != Qt.Checked)
+        self.table.setColumnHidden(13, self.checkBoxRelayPirani.checkState() != Qt.Checked)
+        self.table.setColumnHidden(14, self.checkBoxRelayPirani.checkState() != Qt.Checked)
+        self.table.setColumnHidden(15, self.checkBoxRelayPirani.checkState() != Qt.Checked)
+        # fmt: on
 
     def filter(self, pattern):
         self.tdc.filter(pattern)
