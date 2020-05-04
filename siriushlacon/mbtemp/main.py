@@ -14,35 +14,32 @@ logger = logging.getLogger()
 
 
 class MBTempTableDataController(TableDataController):
-
     def init_table(self):
         self.table.setRowCount(self.table_batch)
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
         for actual_row in range(self.table_batch):
             # Channel Name
-            self.table.setCellWidget(actual_row, 0, QLabel(''))
+            self.table.setCellWidget(actual_row, 0, QLabel(""))
             # Device Name
-            self.table.setCellWidget(actual_row, 1, QLabel(''))
+            self.table.setCellWidget(actual_row, 1, QLabel(""))
             # Device Alpha
-            self.table.setCellWidget(
-                actual_row, 2, get_label(self.table, '', ''))
+            self.table.setCellWidget(actual_row, 2, get_label(self.table, "", ""))
             # Temperature
-            self.table.setCellWidget(
-                actual_row, 3, get_label(self.table, '', ''))
+            self.table.setCellWidget(actual_row, 3, get_label(self.table, "", ""))
             # Temperature Raw
-            self.table.setCellWidget(
-                actual_row, 4, get_label(self.table, '', ''))
+            self.table.setCellWidget(actual_row, 4, get_label(self.table, "", ""))
 
     def filter(self, pattern):
         if pattern != self.filter_pattern:
-            self.filter_pattern = pattern if pattern is not None else ''
+            self.filter_pattern = pattern if pattern is not None else ""
             self.batch_offset = 0
             self.filter_pattern = pattern
 
             for data in self.table_data:
-                data[2] = self.filter_pattern in data[0] or \
-                    self.filter_pattern in data[1]
+                data[2] = (
+                    self.filter_pattern in data[0] or self.filter_pattern in data[1]
+                )
             self.update_content.emit()
 
     def load_table_data(self):
@@ -62,8 +59,12 @@ class MBTempTableDataController(TableDataController):
         # Adding New Content
         actual_row = 0
         dataset_row = 0
-        self.table.setVerticalHeaderLabels([str(i) for i in range(
-            self.batch_offset, self.table_batch + self.batch_offset)])
+        self.table.setVerticalHeaderLabels(
+            [
+                str(i)
+                for i in range(self.batch_offset, self.table_batch + self.batch_offset)
+            ]
+        )
 
         for dev, channel, render in self.table_data:
             if actual_row == self.table_batch:
@@ -73,18 +74,18 @@ class MBTempTableDataController(TableDataController):
             if render and dataset_row >= self.batch_offset:
                 self.table.setRowHidden(actual_row, False)
                 # Channel Access
-                device_ca = 'ca://' + dev
-                channel_ca = 'ca://' + channel
+                device_ca = "ca://" + dev
+                channel_ca = "ca://" + channel
 
                 # Channel
                 self.table.cellWidget(actual_row, 0).setText(channel)
                 # Device
                 self.table.cellWidget(actual_row, 1).setText(dev)
                 # Alpha
-                self.connect_widget(actual_row, 2, device_ca + ':Alpha')
+                self.connect_widget(actual_row, 2, device_ca + ":Alpha")
                 # Temp
                 self.connect_widget(actual_row, 3, channel_ca)
-                self.connect_widget(actual_row, 4, channel_ca + '-Raw')
+                self.connect_widget(actual_row, 4, channel_ca + "-Raw")
 
                 actual_row += 1
 
@@ -95,33 +96,32 @@ class MBTempTableDataController(TableDataController):
 
 
 class TableDisplay(Display):
-
     def __init__(self, parent=None, args=[], macros=None):
-        super(TableDisplay, self).__init__(
-            parent=parent, args=args, macros=macros)
+        super(TableDisplay, self).__init__(parent=parent, args=args, macros=macros)
 
-        table_batch = len(devices) * 8  # if len(devices) * 8 < 30 else 30
+        table_batch = len(devices.get()) * 8  # if len(devices.get()) * 8 < 30 else 30
 
         horizontal_header_labels = [
-            'Channel Name',
-            'Device Name',
-            'Device Alpha',
-            'Temperature',
-            'Temperature Raw']
+            "Channel Name",
+            "Device Name",
+            "Device Alpha",
+            "Temperature",
+            "Temperature Raw",
+        ]
 
         self.tdc = MBTempTableDataController(
             self.table,
-            devices=devices,
+            devices=devices.get(),
             table_batch=table_batch,
-            horizontal_header_labels=horizontal_header_labels)
+            horizontal_header_labels=horizontal_header_labels,
+        )
 
-        self.tfFilter.editingFinished.connect(
-            lambda: self.filter(self.tfFilter.text()))
+        self.tfFilter.editingFinished.connect(lambda: self.filter(self.tfFilter.text()))
 
         self.btnNavLeft.clicked.connect(lambda: self.update_navbar(False))
-        self.btnNavLeft.setIcon(IconFont().icon('arrow-left'))
+        self.btnNavLeft.setIcon(IconFont().icon("arrow-left"))
         self.btnNavRight.clicked.connect(lambda: self.update_navbar(True))
-        self.btnNavRight.setIcon(IconFont().icon('arrow-right'))
+        self.btnNavRight.setIcon(IconFont().icon("arrow-right"))
         PyDMApplication.instance().hide_nav_bar = True
 
     def update_navbar(self, increase=True):
