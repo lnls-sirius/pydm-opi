@@ -221,7 +221,15 @@ class MKS(Display):
         self.caput_lock = threading.RLock()
         self.caput_enable = True
 
-        table_batch = len(DEVICES) * 6
+        table_batch = 0
+        for device in DEVICES:
+            if not device.enable:
+                continue
+            for channel in device.channels:
+                if not channel.enable or CH_REG.match(channel.prefix[-3:]):
+                    continue
+                table_batch += 1
+        # table_batch = len(DEVICES) * 6
         horizontal_header_labels = [tc.value for tc in TableColumn]
         self.tdc = MKSTableDataController(
             self.table,
