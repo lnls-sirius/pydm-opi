@@ -83,7 +83,7 @@ class MKSTableDataController(TableDataController):
                     rel.show()
                 else:
                     self.table.setCellWidget(
-                        actual_row, col, get_label(self.table, "", "")
+                        actual_row, col, get_label(self.table, showUnits=False)
                     )
                 col += 1
 

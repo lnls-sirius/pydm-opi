@@ -11,17 +11,18 @@ from siriushlacon.utils.consts import TABLE_ALARMS_QSS
 
 
 def get_label(
-    parent,
-    content,
-    tooltip,
-    displayFormat=PyDMLabel.DisplayFormat.Default,
-    precision=None,
+    parent=None,
+    content: str = "",
+    tooltip: str = "",
+    displayFormat: PyDMLabel.DisplayFormat = PyDMLabel.DisplayFormat.Default,
+    precision: int = 2,
+    showUnits: bool = True,
 ):
     lbl = PyDMLabel(parent=parent, init_channel=content)
     lbl.precisionFromPV = False
-    lbl.precision = 2
+    lbl.precision = precision
     lbl.displayFormat = displayFormat
-    lbl.showUnits = True
+    lbl.showUnits = showUnits
     lbl.alarmSensitiveBorder = True
     lbl.alarmSensitiveContent = True
     lbl.setStyleSheet(TABLE_ALARMS_QSS)
