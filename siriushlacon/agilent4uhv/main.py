@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import json
+import re
 from pydm import Display
 from pydm.utilities import IconFont
 from pydm.widgets import PyDMRelatedDisplayButton, PyDMLabel
 from qtpy.QtWidgets import QLabel
+
+import conscommon.data_model
 
 from siriushlacon.agilent4uhv.consts import (
     DEVICES,
@@ -30,6 +33,7 @@ from siriushlacon.utils.widgets import (
     AUTOSTART,
 ) = range(9)
 BOOSTER, RING, BTS, LTB = range(4)
+CH_REG = re.compile(r":[C][0-9]")
 
 
 class UHVDataController(TableDataController):
@@ -141,7 +145,7 @@ class UHVDataController(TableDataController):
             if not device.enable:
                 continue
             for channel in device.channels:
-                if not channel.enable:
+                if not channel.enable or CH_REG.match(channel.prefix[-3:]):
                     continue
                 self.table_data.append(TableDataRow(device, channel, True))
         self.update_content.emit()
@@ -229,8 +233,6 @@ class UHV(Display):
         super(UHV, self).__init__(
             parent=parent, args=args, macros=macros, ui_filename=AGILENT_MAIN_UI
         )
-
-        table_batch = 600
         # fmt: off
         horizontal_header_labels = [
                 'Channel Name',             # 0
@@ -254,7 +256,14 @@ class UHV(Display):
 
                 'Details']
         # fmt: on
-
+        table_batch = 0
+        for device in DEVICES:
+            if not device.enable:
+                continue
+            for channel in device.channels:
+                if not channel.enable or CH_REG.match(channel.prefix[-3:]):
+                    continue
+                table_batch += 1
         self.tdc = UHVDataController(
             self.table,
             devices=DEVICES,
