@@ -229,7 +229,7 @@ class MKS(Display):
                 if not channel.enable or CH_REG.match(channel.prefix[-3:]):
                     continue
                 table_batch += 1
-        # table_batch = len(DEVICES) * 6
+
         horizontal_header_labels = [tc.value for tc in TableColumn]
         self.tdc = MKSTableDataController(
             self.table,

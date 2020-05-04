@@ -124,21 +124,12 @@ class UHVDataController(TableDataController):
                 self.table.setColumnHidden(index, HIDE)
 
     def filter(self, pattern):
-        if not pattern:
-            pattern = ""
-        if pattern != self.filter_pattern:
-            self.batch_offset = 0
-            self.filter_pattern = pattern
-            try:
-                for data in self.table_data:
-                    self.data.render = (
-                        self.filter_pattern in data.device.prefix
-                        or self.filter_pattern in data.channel.prefix
-                    )
+        for data in self.table_data:
+            data.render = (
+                pattern in data.device.prefix or pattern in data.channel.prefix
+            )
 
-                self.update_content.emit()
-            except Exception:
-                pass
+        self.update_content.emit()
 
     def load_table_data(self):
         for device in self.devices:
