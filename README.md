@@ -22,7 +22,7 @@ Optionally the user may clone recursive in order to pull the module `conscommon`
 cd pydm-opi
 pip3 install .
 ```
-### Using conda
+### Using [Conda](https://docs.conda.io/en/latest/miniconda.html)
 ```
 conda create --name pydm python=3.8
 conda activate pydm
