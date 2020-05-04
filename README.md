@@ -14,15 +14,14 @@ Other dependencies are listed at `requerements.txt`.<br>
 
 Install
 -------
-Clone from master or download the lattest release.<br>
-Optionally the user may clone recursive in order to pull the module `conscommon`., if so `cd cons-common && pip install .`.<br>
+This repositpry depends on [PyDM](https://github.com/slaclab/pydm),
+[PyEPICS](https://github.com/pyepics/pyepics), [CONS Common](https://github.com/carneirofc/cons-common/tree/master/siriushlacommon) and Python>=3.6 .
 
-### Install using pip.
-```
-cd pydm-opi
-pip3 install .
-```
+Clone from master or download the lattest release.<br>
+Optionally the user may clone recursive in order to pull the module `conscommon`. If so, install the module using `cd cons-common && pip install .`.<br>
+
 ### Using [Conda](https://docs.conda.io/en/latest/miniconda.html)
+This is the recommended way to install. 
 ```
 conda create --name pydm python=3.8
 conda activate pydm
