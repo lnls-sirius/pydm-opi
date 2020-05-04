@@ -3,8 +3,6 @@ import datetime
 import logging
 import os
 import platform
-import urllib.request
-
 import pkg_resources
 import pytz
 
@@ -15,23 +13,9 @@ def get_abs_path(relative):
     return pkg_resources.resource_filename(__name__, relative)
 
 
-FILE = get_abs_path("Redes e Beaglebones.xlsx")
-
 SP_TZ = pytz.timezone("America/Sao_Paulo")
 TIME_ZERO = datetime.timedelta(0)
 ARCHIVER_URL = "http://10.0.38.42/retrieval/data/getData.json"
-
-url = "http://10.0.38.42/streamdevice-ioc/Redes%20e%20Beaglebones.xlsx"
-try:
-    if not os.access(os.path.dirname(FILE), os.W_OK):
-        FILE = "/tmp/Redes e Beaglebones.xlsx"
-
-    # urllib.request.urlretrieve(url, FILE)
-    logger.info("File {} updated.".format(FILE))
-except:
-    logger.exception(
-        "Failed to update the spreadsheet from http://10.0.38.42/streamdevice-ioc/Redes%20e%20Beaglebones.xlsx ! Using old data ..."
-    )
 
 IS_LINUX = os.name == "posix" or platform.system() == "Linux"
 

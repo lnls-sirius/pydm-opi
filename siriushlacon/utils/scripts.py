@@ -1,22 +1,19 @@
 #!/usr/bin/env python3
 import epics
-import pandas
 
-from siriushlacon.utils.consts import FILE
+from conscommon.data import getMKS
+from conscommon.data_model import getBeaglesFromList, getDevicesFromBeagles
 
 
 def set_mks_channel_on():
-    sheet = pandas.read_excel(FILE, sheet_name='PVs MKS937b', dtype=str)
-    sheet = sheet.replace('nan', '')
-
-    for index, row in sheet.iterrows():
-        epics.caput(row['A1'] + ':Enable-SP', 1)
-        epics.caput(row['A2'] + ':Enable-SP', 1)
-        epics.caput(row['B1'] + ':Enable-SP', 1)
-        epics.caput(row['B2'] + ':Enable-SP', 1)
-        epics.caput(row['C1'] + ':Enable-SP', 1)
-        epics.caput(row['C2'] + ':Enable-SP', 1)
+    for device in getDevicesFromBeagles(getBeaglesFromList(getMKS())):
+        if not device.enable:
+            continue
+        for channel in device.channels:
+            if not channel.enable:
+                continue
+        epics.caput(channel.prefix + ":Enable-SP", 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     set_mks_channel_on()

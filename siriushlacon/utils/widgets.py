@@ -4,6 +4,7 @@ from pydm.widgets import PyDMLabel, PyDMByteIndicator
 from qtpy.QtCore import Qt, QObject, Signal, QRect, QSize, QPoint
 from qtpy.QtGui import QColor
 from qtpy.QtWidgets import QLayout, QSizePolicy, QStyle
+
 import conscommon.data_model
 
 from siriushlacon.utils.consts import TABLE_ALARMS_QSS
@@ -162,7 +163,7 @@ class TableDataController(QObject):
     def __init__(
         self,
         table,
-        devices=[],
+        devices: List[conscommon.data_model.Device] = [],
         table_batch=24,
         horizontal_header_labels=[],
         *args,
