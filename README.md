@@ -43,12 +43,12 @@ pip install \
 	urllib3==1.25.9\
 	xlrd==1.2.0
 
-wget https://github.com/slaclab/pydm/archive/v1.10.0.tar.gz
-tar -zxvf v1.10.0.tar.gz && rm -f v1.10.0.tar.gz
-cd pydm-v1.10.0 && pip install . && cd ..
+cd ~/ && git clone --recursive https://github.com/lnls-sirius/pydm-opi && cd pydm-opi
 
-git clone --recursive https://github.com/lnls-sirius/pydm-opi
-cd pydm-opi/cons-common && pip install . && cd ../ && pip install .
+wget https://github.com/slaclab/pydm/archive/v1.10.0.tar.gz
+tar -zxvf v1.10.0.tar.gz && rm -f v1.10.0.tar.gz && cd pydm-1.10.0 && pip install . && cd ..
+
+cd ~/pydm-opi/cons-common && pip install . && cd ../ && pip install .
 ```
 
 ### Desktop
