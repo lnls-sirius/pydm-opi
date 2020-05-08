@@ -17,14 +17,14 @@ def get_abs_path(relative):
 
 
 class ArchiverApplianceTool(ExternalTool):
-
     def __init__(self):
         icon = IconFont().icon("archive")
-        name = 'Archiver Appliance'
-        group = 'CON'
+        name = "Archiver Appliance"
+        group = "CON"
         use_with_widgets = False
-        ExternalTool.__init__(self, icon=icon, name=name, group=group,
-                              use_with_widgets=use_with_widgets)
+        ExternalTool.__init__(
+            self, icon=icon, name=name, group=group, use_with_widgets=use_with_widgets
+        )
 
     def call(self, channels, sender):
         QDesktopServices.openUrl(QUrl(MGMT_URL))
@@ -37,19 +37,19 @@ class ArchiverApplianceTool(ExternalTool):
 
     def get_info(self):
         ret = ExternalTool.get_info(self)
-        ret.update({'file': __file__})
+        ret.update({"file": __file__})
         return ret
 
 
 class ArchiverViwerTool(ExternalTool):
-
     def __init__(self):
-        icon = IconFont().icon('desktop')
-        name = 'Archiver Viwer'
-        group = 'CON'
+        icon = IconFont().icon("desktop")
+        name = "Archiver Viwer"
+        group = "CON"
         use_with_widgets = False
-        ExternalTool.__init__(self, icon=icon, name=name, group=group,
-                              use_with_widgets=use_with_widgets)
+        ExternalTool.__init__(
+            self, icon=icon, name=name, group=group, use_with_widgets=use_with_widgets
+        )
 
     def call(self, channels, sender):
         QDesktopServices.openUrl(QUrl(VIEWER_URL))
@@ -62,19 +62,19 @@ class ArchiverViwerTool(ExternalTool):
 
     def get_info(self):
         ret = ExternalTool.get_info(self)
-        ret.update({'file': __file__})
+        ret.update({"file": __file__})
         return ret
 
 
 class BeagleboneTool(ExternalTool):
-
     def __init__(self):
-        icon = IconFont().icon('paw')
-        name = 'Beaglebone Daemon'
-        group = 'CON'
+        icon = IconFont().icon("paw")
+        name = "Beaglebone Daemon"
+        group = "CON"
         use_with_widgets = False
-        ExternalTool.__init__(self, icon=icon, name=name, group=group,
-                              use_with_widgets=use_with_widgets)
+        ExternalTool.__init__(
+            self, icon=icon, name=name, group=group, use_with_widgets=use_with_widgets
+        )
 
     def call(self, channels, sender):
         QDesktopServices.openUrl(QUrl(BBB_URL))
@@ -87,5 +87,5 @@ class BeagleboneTool(ExternalTool):
 
     def get_info(self):
         ret = ExternalTool.get_info(self)
-        ret.update({'file': __file__})
+        ret.update({"file": __file__})
         return ret
