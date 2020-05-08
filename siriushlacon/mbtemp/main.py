@@ -7,7 +7,7 @@ from pydm import Display, PyDMApplication
 from pydm.utilities import IconFont
 from qtpy.QtWidgets import QLabel
 
-from siriushlacon.mbtemp.consts import devices, MBTEMP_MAIN_UI
+from siriushlacon.mbtemp.consts import DEVICES, MBTEMP_MAIN_UI
 from siriushlacon.utils.widgets import get_label, TableDataController
 
 logger = logging.getLogger()
@@ -45,8 +45,12 @@ class MBTempTableDataController(TableDataController):
     def load_table_data(self):
         self.table_data = []
         for device in self.devices:
-            for item in device[1:]:
-                self.table_data.append([device[0], item, True])
+            if not device.enable:
+                continue
+            for channel in device.channels:
+                if not channel.enable:
+                    continue
+                self.table_data.append([channel.prefix, device.prefix, True])
         self.update_content.emit()
 
     def update_table_content(self):
@@ -99,7 +103,14 @@ class TableDisplay(Display):
     def __init__(self, parent=None, args=[], macros=None):
         super(TableDisplay, self).__init__(parent=parent, args=args, macros=macros)
 
-        table_batch = len(devices.get()) * 8  # if len(devices.get()) * 8 < 30 else 30
+        table_batch = 0
+        for device in DEVICES:
+            if not device.enable:
+                continue
+            for channel in device.channels:
+                if not channel.enable:
+                    continue
+                table_batch += 1
 
         horizontal_header_labels = [
             "Channel Name",
@@ -111,7 +122,7 @@ class TableDisplay(Display):
 
         self.tdc = MBTempTableDataController(
             self.table,
-            devices=devices.get(),
+            devices=DEVICES,
             table_batch=table_batch,
             horizontal_header_labels=horizontal_header_labels,
         )
