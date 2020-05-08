@@ -1,0 +1,7 @@
+qtpy
+pydm
+pytz
+requests
+numpy
+matplotlib
+conscommon

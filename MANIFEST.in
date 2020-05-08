@@ -1,4 +1,3 @@
 include siriushlacon/VERSION
 include pydm-opi.desktop.template
-include Redes e Beaglebones.xlsx
 recursive-include siriushlacon *.sh *.ui *.png *.jpg *.xcf *.qrc *.json *.qss

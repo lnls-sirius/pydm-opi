@@ -15,7 +15,7 @@ logger = logging.getLogger()
 
 def load_data():
     data = None
-    with open(DATA_JSON, 'rb') as f:
+    with open(DATA_JSON, "rb") as f:
         data = json.load(f)
     return data
 
@@ -30,9 +30,9 @@ def get_overview_detail(name):
 
 
 class Launcher(Display):
-    DIP = 'DIP'
-    QUA = 'QUA'
-    SEX = 'SEX'
+    DIP = "DIP"
+    QUA = "QUA"
+    SEX = "SEX"
 
     def __init__(self, parent=None, macros=None, **kwargs):
         super().__init__(parent=parent, ui_filename=REGATRON_UI)
@@ -53,12 +53,12 @@ class Launcher(Display):
         self.sextupole = []
 
         for e in self.data:
-            if e['type'] == self.QUA:
-                self.quadrupole.append(e['pv'])
-            elif e['type'] == self.DIP:
-                self.dipole.append(e['pv'])
-            elif e['type'] == self.SEX:
-                self.sextupole.append(e['pv'])
+            if e["type"] == self.QUA:
+                self.quadrupole.append(e["pv"])
+            elif e["type"] == self.DIP:
+                self.dipole.append(e["pv"])
+            elif e["type"] == self.SEX:
+                self.sextupole.append(e["pv"])
 
         self.render(self.layoutDipoles, self.dipole)
         self.render(self.layoutQuadrupoles, self.quadrupole)

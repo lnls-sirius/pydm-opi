@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1288</width>
-    <height>858</height>
+    <width>1143</width>
+    <height>784</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,22 +26,57 @@
       <number>1</number>
      </property>
      <layout class="QGridLayout" name="gridLayout_11">
-      <item row="0" column="17">
-       <widget class="QLineEdit" name="tfFilter"/>
+      <item row="0" column="21">
+       <widget class="QCheckBox" name="checkBoxRelayPirani">
+        <property name="text">
+         <string>Relay Pirani</string>
+        </property>
+       </widget>
       </item>
-      <item row="0" column="15">
-       <widget class="QPushButton" name="btnAllHvOn">
-        <property name="minimumSize">
+      <item row="0" column="20">
+       <widget class="QCheckBox" name="checkBoxRelay7">
+        <property name="text">
+         <string>Relay 7</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="22">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
          <size>
-          <width>120</width>
-          <height>60</height>
+          <width>40</width>
+          <height>20</height>
          </size>
         </property>
-        <property name="toolTip">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Turn &lt;/span&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#aa0000;&quot;&gt;ON&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; all channels&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </spacer>
+      </item>
+      <item row="0" column="23">
+       <widget class="QLineEdit" name="tfFilter"/>
+      </item>
+      <item row="0" column="18">
+       <widget class="QCheckBox" name="checkBoxRelay1">
+        <property name="text">
+         <string>Relay 1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="lbl_title">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
         </property>
         <property name="text">
-         <string>All Channels ON</string>
+         <string>MKS937b</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -90,6 +125,32 @@
         </property>
        </widget>
       </item>
+      <item row="0" column="19">
+       <widget class="QCheckBox" name="checkBoxRelay5">
+        <property name="text">
+         <string>Relay 5</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="9">
+       <widget class="QWidget" name="widget" native="true"/>
+      </item>
+      <item row="0" column="14">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
       <item row="0" column="13">
        <widget class="PyDMPushButton" name="btnNavRight">
         <property name="toolTip">
@@ -97,51 +158,26 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="9">
-       <widget class="QWidget" name="widget" native="true"/>
-      </item>
       <item row="0" column="16">
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="lbl_title">
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
+       <widget class="QCheckBox" name="checkBoxUnit">
         <property name="text">
-         <string>MKS937b</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
+         <string>Unit</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="14">
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+      <item row="0" column="15">
+       <widget class="QCheckBox" name="checkBoxAlarm">
+        <property name="text">
+         <string>Alarm</string>
         </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
+       </widget>
+      </item>
+      <item row="0" column="17">
+       <widget class="QCheckBox" name="checkBoxProtect">
+        <property name="text">
+         <string>Protect</string>
         </property>
-       </spacer>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -159,8 +195,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>1246</width>
-           <height>726</height>
+           <width>1101</width>
+           <height>678</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
@@ -179,25 +215,6 @@
           <item row="0" column="0">
            <widget class="QTableWidget" name="table"/>
           </item>
-          <item row="1" column="0">
-           <widget class="PyDMLogDisplay" name="PyDMLogDisplay">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>250</height>
-             </size>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="logLevel" stdset="0">
-             <enum>PyDMLogDisplay::INFO</enum>
-            </property>
-            <property name="logName" stdset="0">
-             <string>MKS_Logger</string>
-            </property>
-           </widget>
-          </item>
          </layout>
         </widget>
        </widget>
@@ -208,11 +225,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>PyDMLogDisplay</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.logdisplay</header>
-  </customwidget>
   <customwidget>
    <class>PyDMPushButton</class>
    <extends>QPushButton</extends>
