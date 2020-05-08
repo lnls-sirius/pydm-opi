@@ -14,23 +14,56 @@ Other dependencies are listed at `requerements.txt`.<br>
 
 Install
 -------
+This repositpry depends on [PyDM](https://github.com/slaclab/pydm),
+[PyEPICS](https://github.com/pyepics/pyepics), [CONS Common](https://github.com/carneirofc/cons-common/tree/master/siriushlacommon) and Python>=3.6 .
+
 Clone from master or download the lattest release.<br>
-Optionally the user may clone recursive in order to pull the module `conscommon`, if so `cd cons-common && pip install .`.<br>
+Optionally the user may clone recursive in order to pull the module `conscommon`. If so, install the module using `cd cons-common && pip install .`.<br>
 
-Install using pip.
+### Using [Conda](https://docs.conda.io/en/latest/miniconda.html)
+This is the recommended way to install. 
 ```
-cd pydm-opi
-pip3 install .
+conda create --name pydm python=3.8
+conda activate pydm
+pip install \
+	PyQt5==5.14.2\
+	numpy==1.18.4\
+	pandas==1.0.3\
+	pydm==1.10.0\
+	pyepics==3.4.1\
+	PyQt5==5.14.2\
+	PyQt5-sip==12.7.2\
+	pyqtgraph==0.10.0\
+	python-dateutil==2.8.1\
+	pytz==2020.1\
+	QtPy==1.9.0\
+	requests==2.23.0\
+	scipy==1.4.1\
+	urllib3==1.25.9\
+	xlrd==1.2.0
+
+cd ~/ && git clone --recursive https://github.com/lnls-sirius/pydm-opi && cd pydm-opi
+
+wget https://github.com/slaclab/pydm/archive/v1.10.0.tar.gz
+tar -zxvf v1.10.0.tar.gz && rm -f v1.10.0.tar.gz && cd pydm-1.10.0 && pip install . && cd ..
+
+cd ~/pydm-opi/cons-common && pip install . && cd ../ && pip install .
 ```
 
+### Desktop
 In order to install the `.desktop` launcher:
 ```
 make install-files
 ```
+If using conda, remember to fix the Exec entry at the `.desktop' file accordingly:
+``` 
+/bin/bash -c 'source ~/miniconda3/etc/profile.d/conda.sh && conda activate pydm && sirius-hla-as-ap-conlauncher.py'
+``` 
+
 
 Run
 ---
-All scripts used to start the applications should be at the `bin` folder relative to the installation environment, for example:
+All scripts used to start the applications should be at the `bin` folder relative to the python installation environment, for example:
 ```
 ~/.local/bin
 /usr/local/bin
