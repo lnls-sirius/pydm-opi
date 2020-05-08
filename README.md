@@ -45,7 +45,6 @@ If using conda, remember to fix the Exec entry at the `.desktop' file accordingl
 /bin/bash -c 'source ~/miniconda3/etc/profile.d/conda.sh && conda activate pydm && sirius-hla-as-ap-conlauncher.py'
 ``` 
 
-
 Run
 ---
 All scripts used to start the applications should be at the `bin` folder relative to the python installation environment, for example:
