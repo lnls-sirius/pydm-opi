@@ -1,0 +1,7 @@
+qtpy
+pydm
+pytz
+requests
+numpy
+matplotlib
+conscommon==0.0.8

@@ -23,7 +23,7 @@ setup(
         "Programming Language :: Python",
         "Topic :: Scientific/Engineering",
     ],
-    install_requires=_requirements,
+    #    install_requires=_requirements,
     packages=find_namespace_packages(include=["siriushlacon", "siriushlacon.*"]),
     include_package_data=True,
     scripts=[

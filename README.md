@@ -25,21 +25,7 @@ This is the recommended way to install.
 ```
 conda create --name pydm python=3.8
 conda activate pydm
-pip install \
-    PyQt5==5.14.2\
-    numpy==1.18.4\
-    pydm==1.10.0\
-    pyepics==3.4.1\
-    PyQt5==5.14.2\
-    PyQt5-sip==12.7.2\
-    pyqtgraph==0.10.0\
-    python-dateutil==2.8.1\
-    pytz==2020.1\
-    QtPy==1.9.0\
-    requests==2.23.0\
-    scipy==1.4.1\
-    urllib3==1.25.9\
-    xlrd==1.2.0
+pip install -r requirements.txt .
 
 cd ~/ && git clone --recursive https://github.com/lnls-sirius/pydm-opi && cd pydm-opi
 
