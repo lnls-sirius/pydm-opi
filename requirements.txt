@@ -2,7 +2,6 @@ qtpy
 pydm
 pytz
 requests
-pandas
-xlrd
+numpy
 matplotlib
 conscommon==0.0.8
