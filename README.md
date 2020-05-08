@@ -14,7 +14,7 @@ Other dependencies are listed at `requerements.txt`.<br>
 
 Install
 -------
-This repositpry depends on [PyDM](https://github.com/slaclab/pydm),
+This repository depends on [PyDM](https://github.com/slaclab/pydm),
 [PyEPICS](https://github.com/pyepics/pyepics), [CONS Common](https://github.com/lnls-sirius/cons-common) and Python>=3.6 .
 
 Clone from master or download the lattest release.<br>
