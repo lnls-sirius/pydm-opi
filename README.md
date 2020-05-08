@@ -9,13 +9,13 @@ This repo should contain every PyDM OPI developed by the CONS group currently in
 Requirements
 ------------
 The lattest version of PyDM and Python>=3.6.<br>
-[CONS commons](https://github.com/carneirofc/cons-common) module.<br>
+[CONS commons](https://github.com/lnls-sirius/cons-common) module.<br>
 Other dependencies are listed at `requerements.txt`.<br>
 
 Install
 -------
 This repositpry depends on [PyDM](https://github.com/slaclab/pydm),
-[PyEPICS](https://github.com/pyepics/pyepics), [CONS Common](https://github.com/carneirofc/cons-common/tree/master/siriushlacommon) and Python>=3.6 .
+[PyEPICS](https://github.com/pyepics/pyepics), [CONS Common](https://github.com/lnls-sirius/cons-common) and Python>=3.6 .
 
 Clone from master or download the lattest release.<br>
 Optionally the user may clone recursive in order to pull the module `conscommon`. If so, install the module using `cd cons-common && pip install .`.<br>
