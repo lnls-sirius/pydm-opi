@@ -6,7 +6,7 @@ with open("VERSION", "r") as _f:
     __version__ = _f.read().strip()
 
 
-with open("requirements.txt", "r") as _f:
+with open("requirements_sirius.txt", "r") as _f:
     _requirements = _f.read().strip().split("\n")
 
 
@@ -23,7 +23,7 @@ setup(
         "Programming Language :: Python",
         "Topic :: Scientific/Engineering",
     ],
-    #    install_requires=_requirements,
+    install_requires=_requirements,
     packages=find_namespace_packages(include=["siriushlacon", "siriushlacon.*"]),
     include_package_data=True,
     scripts=[
