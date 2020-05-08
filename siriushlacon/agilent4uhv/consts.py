@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 import pkg_resources
-from typing import List
 
 import conscommon.data
-import conscommon.data_model
+
+from siriushlacon.utils import LazyDevices
 
 
 def get_abs_path(filename):
@@ -25,8 +24,5 @@ AGILENT_DEVICE_UI = get_abs_path("ui/device.ui")
 AGILENT_CHANNEL = get_abs_path("channel.py")
 AGILENT_CHANNEL_UI = get_abs_path("ui/channel.ui")
 
-DEVICES: List[
-    conscommon.data_model.Device
-] = conscommon.data_model.getDevicesFromBeagles(
-    conscommon.data_model.getBeaglesFromList(conscommon.data.getAgilent())
-)
+
+lazy_devices = LazyDevices(conscommon.data.getAgilent)

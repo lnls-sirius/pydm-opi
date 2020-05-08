@@ -12,11 +12,12 @@ from qtpy.QtWidgets import QFrame, QLabel
 
 import conscommon.data_model
 
-from siriushlacon.agilent4uhv.consts import DEVICES
+from siriushlacon.agilent4uhv.consts import lazy_devices
 from siriushlacon.utils.consts import OVERVIEW_UI, BO, TB, TS, SI
 from siriushlacon.utils.widgets import FlowLayout
 
 logger = logging.getLogger()
+DEVICES = lazy_devices.get()
 
 
 class Overview(Display):

@@ -14,10 +14,11 @@ from pydm.utilities import IconFont
 from pydm.widgets import PyDMRelatedDisplayButton, PyDMLabel
 import conscommon.data_model
 
-from siriushlacon.mks937b.consts import MKS_MAIN_UI, DEVICE_MENU, DEVICES
+from siriushlacon.mks937b.consts import MKS_MAIN_UI, DEVICE_MENU, lazy_devices
 from siriushlacon.utils.widgets import get_label, TableDataController, TableDataRow
 
 CH_REG = re.compile(r":[ABC][0-9]")
+DEVICES = lazy_devices.get()
 
 logger = logging.getLogger()
 

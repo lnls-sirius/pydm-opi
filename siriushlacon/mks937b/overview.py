@@ -9,10 +9,11 @@ from qtpy.QtGui import QBrush, QColor, QFont
 from qtpy.QtWidgets import QFrame, QLabel
 
 from conscommon.data_model.mks import MKS_SENSOR_COLD_CATHODE
-from siriushlacon.mks937b.consts import DEVICES
+from siriushlacon.mks937b.consts import lazy_devices
 from siriushlacon.utils.consts import OVERVIEW_UI, BO, SI, TB, TS
 from siriushlacon.utils.widgets import FlowLayout
 
+DEVICES = lazy_devices.get()
 logger = logging.getLogger()
 
 

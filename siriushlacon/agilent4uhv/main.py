@@ -7,10 +7,8 @@ from pydm.utilities import IconFont
 from pydm.widgets import PyDMRelatedDisplayButton, PyDMLabel
 from qtpy.QtWidgets import QLabel
 
-import conscommon.data_model
-
 from siriushlacon.agilent4uhv.consts import (
-    DEVICES,
+    lazy_devices,
     AGILENT_MAIN_UI,
     AGILENT_DEVICE_MAIN,
 )
@@ -21,6 +19,7 @@ from siriushlacon.utils.widgets import (
     TableDataRow,
 )
 
+DEVICES = lazy_devices.get()
 (
     ALARM,
     CURRENT,

@@ -7,10 +7,11 @@ from pydm import Display, PyDMApplication
 from pydm.utilities import IconFont
 from qtpy.QtWidgets import QLabel
 
-from siriushlacon.mbtemp.consts import DEVICES, MBTEMP_MAIN_UI
+from siriushlacon.mbtemp.consts import lazy_devices, MBTEMP_MAIN_UI
 from siriushlacon.utils.widgets import get_label, TableDataController
 
 logger = logging.getLogger()
+DEVICES = lazy_devices.get()
 
 
 class MBTempTableDataController(TableDataController):
