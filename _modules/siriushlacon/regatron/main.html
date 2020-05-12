@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -159,24 +159,24 @@
            <div itemprop="articleBody">
             
   <h1>Source code for siriushlacon.regatron.main</h1><div class="highlight"><pre>
-<span></span><span class="ch">#!/usr/bin/python3</span>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 
-<span class="kn">from</span> <span class="nn">pydm</span> <span class="k">import</span> <span class="n">Display</span>
-<span class="kn">from</span> <span class="nn">pydm.widgets.related_display_button</span> <span class="k">import</span> <span class="n">PyDMRelatedDisplayButton</span>
-<span class="kn">from</span> <span class="nn">qtpy.QtGui</span> <span class="k">import</span> <span class="n">QPixmap</span>
-<span class="kn">from</span> <span class="nn">qtpy.QtWidgets</span> <span class="k">import</span> <span class="n">QGridLayout</span>
+<span class="kn">from</span> <span class="nn">pydm</span> <span class="kn">import</span> <span class="n">Display</span>
+<span class="kn">from</span> <span class="nn">pydm.widgets.related_display_button</span> <span class="kn">import</span> <span class="n">PyDMRelatedDisplayButton</span>
+<span class="kn">from</span> <span class="nn">qtpy.QtGui</span> <span class="kn">import</span> <span class="n">QPixmap</span>
+<span class="kn">from</span> <span class="nn">qtpy.QtWidgets</span> <span class="kn">import</span> <span class="n">QGridLayout</span>
 
-<span class="kn">from</span> <span class="nn">siriushlacon.regatron.consts</span> <span class="k">import</span> <span class="n">REGATRON_UI</span><span class="p">,</span> <span class="n">DATA_JSON</span><span class="p">,</span> <span class="n">COMPLETE_MAIN</span>
-<span class="kn">from</span> <span class="nn">siriushlacon.utils.consts</span> <span class="k">import</span> <span class="n">CNPEM_IMG</span><span class="p">,</span> <span class="n">LNLS_IMG</span>
+<span class="kn">from</span> <span class="nn">siriushlacon.regatron.consts</span> <span class="kn">import</span> <span class="n">REGATRON_UI</span><span class="p">,</span> <span class="n">DATA_JSON</span><span class="p">,</span> <span class="n">COMPLETE_MAIN</span>
+<span class="kn">from</span> <span class="nn">siriushlacon.utils.consts</span> <span class="kn">import</span> <span class="n">CNPEM_IMG</span><span class="p">,</span> <span class="n">LNLS_IMG</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
 
 
 <div class="viewcode-block" id="load_data"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.main.load_data">[docs]</a><span class="k">def</span> <span class="nf">load_data</span><span class="p">():</span>
     <span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">DATA_JSON</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">DATA_JSON</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">data</span></div>
 
@@ -191,11 +191,11 @@
 
 
 <div class="viewcode-block" id="Launcher"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.main.Launcher">[docs]</a><span class="k">class</span> <span class="nc">Launcher</span><span class="p">(</span><span class="n">Display</span><span class="p">):</span>
-    <span class="n">DIP</span> <span class="o">=</span> <span class="s1">&#39;DIP&#39;</span>
-    <span class="n">QUA</span> <span class="o">=</span> <span class="s1">&#39;QUA&#39;</span>
-    <span class="n">SEX</span> <span class="o">=</span> <span class="s1">&#39;SEX&#39;</span>
+    <span class="n">DIP</span> <span class="o">=</span> <span class="s2">&quot;DIP&quot;</span>
+    <span class="n">QUA</span> <span class="o">=</span> <span class="s2">&quot;QUA&quot;</span>
+    <span class="n">SEX</span> <span class="o">=</span> <span class="s2">&quot;SEX&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">ui_filename</span><span class="o">=</span><span class="n">REGATRON_UI</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logo_cnpem</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">QPixmap</span><span class="p">(</span><span class="n">CNPEM_IMG</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logo_lnls</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">QPixmap</span><span class="p">(</span><span class="n">LNLS_IMG</span><span class="p">))</span>
@@ -214,12 +214,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">sextupole</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">e</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">QUA</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">quadrupole</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="s1">&#39;pv&#39;</span><span class="p">])</span>
-            <span class="k">elif</span> <span class="n">e</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIP</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">dipole</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="s1">&#39;pv&#39;</span><span class="p">])</span>
-            <span class="k">elif</span> <span class="n">e</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">SEX</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">sextupole</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="s1">&#39;pv&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">e</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">QUA</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">quadrupole</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="s2">&quot;pv&quot;</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">e</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIP</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dipole</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="s2">&quot;pv&quot;</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">e</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">SEX</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sextupole</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="s2">&quot;pv&quot;</span><span class="p">])</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layoutDipoles</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dipole</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layoutQuadrupoles</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">quadrupole</span><span class="p">)</span>

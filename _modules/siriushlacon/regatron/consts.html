@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -163,36 +163,59 @@
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="kn">import</span> <span class="nn">pkg_resources</span>
 
+
 <div class="viewcode-block" id="get_abs_path"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.consts.get_abs_path">[docs]</a><span class="k">def</span> <span class="nf">get_abs_path</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span></div>
 
 
-<span class="n">DATA_JSON</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;data.json&#39;</span><span class="p">)</span>
-<span class="n">REGATRON_MAIN</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;main.py&#39;</span><span class="p">)</span>
-<span class="n">ERR_MAIN</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;err.py&#39;</span><span class="p">)</span>
-<span class="n">WARN_MAIN</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;warn.py&#39;</span><span class="p">)</span>
-<span class="n">COMPLETE_MAIN</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;regatron.py&#39;</span><span class="p">)</span>
-<span class="n">ALARM_MAIN</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;alarm.py&#39;</span><span class="p">)</span>
+<span class="n">DATA_JSON</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s2">&quot;data.json&quot;</span><span class="p">)</span>
+<span class="n">REGATRON_MAIN</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s2">&quot;main.py&quot;</span><span class="p">)</span>
+<span class="n">ERR_MAIN</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s2">&quot;err.py&quot;</span><span class="p">)</span>
+<span class="n">WARN_MAIN</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s2">&quot;warn.py&quot;</span><span class="p">)</span>
+<span class="n">COMPLETE_MAIN</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s2">&quot;regatron.py&quot;</span><span class="p">)</span>
+<span class="n">ALARM_MAIN</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s2">&quot;alarm.py&quot;</span><span class="p">)</span>
 
-<span class="n">REGATRON_UI</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;ui/main.ui&#39;</span><span class="p">)</span>
-<span class="n">ERR_UI</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;ui/err.ui&#39;</span><span class="p">)</span>
-<span class="n">WARN_UI</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;ui/warning.ui&#39;</span><span class="p">)</span>
-<span class="n">COMPLETE_UI</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;ui/regatron.ui&#39;</span><span class="p">)</span>
-<span class="n">ALARM_UI</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;ui/alarm.ui&#39;</span><span class="p">)</span>
+<span class="n">REGATRON_UI</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s2">&quot;ui/main.ui&quot;</span><span class="p">)</span>
+<span class="n">ERR_UI</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s2">&quot;ui/err.ui&quot;</span><span class="p">)</span>
+<span class="n">WARN_UI</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s2">&quot;ui/warning.ui&quot;</span><span class="p">)</span>
+<span class="n">COMPLETE_UI</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s2">&quot;ui/regatron.ui&quot;</span><span class="p">)</span>
+<span class="n">ALARM_UI</span> <span class="o">=</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s2">&quot;ui/alarm.ui&quot;</span><span class="p">)</span>
 
 <span class="n">EXTENDED_MAP</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;IBC System&#39;</span><span class="p">,</span>    <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;IBC Supply&#39;</span><span class="p">,</span>        <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;IBC Communication&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;IBC Power&#39;</span><span class="p">,</span>
-    <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;IBC Inverter&#39;</span><span class="p">,</span>  <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;IBC Miscellaneous&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="s1">&#39;IBC Inverter 2&#39;</span><span class="p">,</span>    <span class="mi">7</span><span class="p">:</span> <span class="s1">&#39;not used&#39;</span><span class="p">,</span>
-    <span class="mi">8</span><span class="p">:</span> <span class="s1">&#39;not used&#39;</span><span class="p">,</span>      <span class="mi">9</span><span class="p">:</span> <span class="s1">&#39;not used&#39;</span><span class="p">,</span>          <span class="mi">10</span><span class="p">:</span> <span class="s1">&#39;Supply 2&#39;</span><span class="p">,</span>         <span class="mi">11</span><span class="p">:</span><span class="s1">&#39;Login 2&#39;</span><span class="p">,</span>
-    <span class="mi">12</span><span class="p">:</span> <span class="s1">&#39;Configuration 3&#39;</span><span class="p">,</span>   <span class="mi">13</span><span class="p">:</span> <span class="s1">&#39;Communication 3&#39;</span><span class="p">,</span>
-    <span class="mi">14</span><span class="p">:</span> <span class="s1">&#39;Internal 2&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">:</span><span class="s1">&#39;Communication 2&#39;</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;IBC System&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;IBC Supply&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;IBC Communication&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;IBC Power&quot;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;IBC Inverter&quot;</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;IBC Miscellaneous&quot;</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;IBC Inverter 2&quot;</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;not used&quot;</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;not used&quot;</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">:</span> <span class="s2">&quot;not used&quot;</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">:</span> <span class="s2">&quot;Supply 2&quot;</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">:</span> <span class="s2">&quot;Login 2&quot;</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">:</span> <span class="s2">&quot;Configuration 3&quot;</span><span class="p">,</span>
+    <span class="mi">13</span><span class="p">:</span> <span class="s2">&quot;Communication 3&quot;</span><span class="p">,</span>
+    <span class="mi">14</span><span class="p">:</span> <span class="s2">&quot;Internal 2&quot;</span><span class="p">,</span>
+    <span class="mi">15</span><span class="p">:</span> <span class="s2">&quot;Communication 2&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="n">STANDARD_MAP</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Internal&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Internal (PDSP)&#39;</span><span class="p">,</span>  <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;Output Current&#39;</span><span class="p">,</span>   <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;Output Voltage&#39;</span><span class="p">,</span>
-    <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;Supply&#39;</span><span class="p">,</span>   <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;Temperature&#39;</span><span class="p">,</span>      <span class="mi">6</span><span class="p">:</span> <span class="s1">&#39;Communication&#39;</span><span class="p">,</span>    <span class="mi">7</span><span class="p">:</span> <span class="s1">&#39;Internal (Modulator)&#39;</span><span class="p">,</span>
-    <span class="mi">8</span><span class="p">:</span> <span class="s1">&#39;Internal (AD overrange 1)&#39;</span><span class="p">,</span>      <span class="mi">9</span><span class="p">:</span> <span class="s1">&#39;Internal (AD overrange 2)&#39;</span><span class="p">,</span>
-    <span class="mi">10</span><span class="p">:</span> <span class="s1">&#39;Internal (AD underrange 1)&#39;</span><span class="p">,</span>    <span class="mi">11</span><span class="p">:</span> <span class="s1">&#39;Internal (AD underrange 2)&#39;</span><span class="p">,</span>
-    <span class="mi">12</span><span class="p">:</span> <span class="s1">&#39;Login&#39;</span><span class="p">,</span>   <span class="mi">13</span><span class="p">:</span> <span class="s1">&#39;Configuration&#39;</span><span class="p">,</span>   <span class="mi">14</span><span class="p">:</span> <span class="s1">&#39;Configuration 2&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">:</span> <span class="s1">&#39;Miscellaneous&#39;</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;Internal&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Internal (PDSP)&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Output Current&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Output Voltage&quot;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;Supply&quot;</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;Temperature&quot;</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;Communication&quot;</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;Internal (Modulator)&quot;</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;Internal (AD overrange 1)&quot;</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">:</span> <span class="s2">&quot;Internal (AD overrange 2)&quot;</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">:</span> <span class="s2">&quot;Internal (AD underrange 1)&quot;</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">:</span> <span class="s2">&quot;Internal (AD underrange 2)&quot;</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">:</span> <span class="s2">&quot;Login&quot;</span><span class="p">,</span>
+    <span class="mi">13</span><span class="p">:</span> <span class="s2">&quot;Configuration&quot;</span><span class="p">,</span>
+    <span class="mi">14</span><span class="p">:</span> <span class="s2">&quot;Configuration 2&quot;</span><span class="p">,</span>
+    <span class="mi">15</span><span class="p">:</span> <span class="s2">&quot;Miscellaneous&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">STD_READINGS</span> <span class="o">=</span> <span class="p">[</span>
@@ -227,7 +250,7 @@
     <span class="s2">&quot;Conf3-Mon&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Comm3-Mon&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Intrn2-Mon&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Comm2-Mon&quot;</span>
+    <span class="s2">&quot;Comm2-Mon&quot;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 

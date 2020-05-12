@@ -2,3 +2,5 @@
 docs/
 venv/
 siriushlacon
+cons-common
+test.sh

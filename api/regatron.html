@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -84,7 +84,11 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User &amp; API Documentation</span></p>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">PyDM OPI Operator User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Applications</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="index.html#agilent-4uhv">Agilent 4UHV</a></li>
@@ -177,20 +181,20 @@
             
   <div class="section" id="module-siriushlacon.regatron">
 <span id="init-py"></span><h1>__init__.py<a class="headerlink" href="#module-siriushlacon.regatron" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="siriushlacon.regatron.do_work">
-<code class="sig-prename descclassname">siriushlacon.regatron.</code><code class="sig-name descname">do_work</code><span class="sig-paren">(</span><em class="sig-param">pvs</em>, <em class="sig-param">timeout</em>, <em class="sig-param">_lock</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron.html#do_work"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.do_work" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">siriushlacon.regatron.</code><code class="sig-name descname">do_work</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pvs</span></em>, <em class="sig-param"><span class="n">timeout</span></em>, <em class="sig-param"><span class="n">_lock</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron.html#do_work"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.do_work" title="Permalink to this definition">¶</a></dt>
 <dd><p>Worker function</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="siriushlacon.regatron.lock">
-<code class="sig-prename descclassname">siriushlacon.regatron.</code><code class="sig-name descname">lock</code><span class="sig-paren">(</span><em class="sig-param">error</em>, <em class="sig-param">std</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron.html#lock"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.lock" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">siriushlacon.regatron.</code><code class="sig-name descname">lock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">error</span></em>, <em class="sig-param"><span class="n">std</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron.html#lock"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.lock" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="siriushlacon.regatron.proc_alarm">
-<code class="sig-prename descclassname">siriushlacon.regatron.</code><code class="sig-name descname">proc_alarm</code><span class="sig-paren">(</span><em class="sig-param">mod=True</em>, <em class="sig-param">std=False</em>, <em class="sig-param">timeout=1.0</em>, <em class="sig-param">error=True</em>, <em class="sig-param">prefix=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron.html#proc_alarm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.proc_alarm" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">siriushlacon.regatron.</code><code class="sig-name descname">proc_alarm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mod</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">std</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">timeout</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">error</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron.html#proc_alarm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.proc_alarm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start a worker that will PROC every PV in the selected category.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -208,39 +212,39 @@
 </div>
 <div class="section" id="module-siriushlacon.regatron.main">
 <span id="main-py"></span><h1>main.py<a class="headerlink" href="#module-siriushlacon.regatron.main" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="siriushlacon.regatron.main.Launcher">
-<em class="property">class </em><code class="sig-prename descclassname">siriushlacon.regatron.main.</code><code class="sig-name descname">Launcher</code><span class="sig-paren">(</span><em class="sig-param">parent=None</em>, <em class="sig-param">macros=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/main.html#Launcher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.main.Launcher" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydm.display_module.Display</span></code></p>
-<dl class="attribute">
+<em class="property">class </em><code class="sig-prename descclassname">siriushlacon.regatron.main.</code><code class="sig-name descname">Launcher</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">macros</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/main.html#Launcher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.main.Launcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydm.display.Display</span></code></p>
+<dl class="py attribute">
 <dt id="siriushlacon.regatron.main.Launcher.DIP">
 <code class="sig-name descname">DIP</code><em class="property"> = 'DIP'</em><a class="headerlink" href="#siriushlacon.regatron.main.Launcher.DIP" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="siriushlacon.regatron.main.Launcher.QUA">
 <code class="sig-name descname">QUA</code><em class="property"> = 'QUA'</em><a class="headerlink" href="#siriushlacon.regatron.main.Launcher.QUA" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="siriushlacon.regatron.main.Launcher.SEX">
 <code class="sig-name descname">SEX</code><em class="property"> = 'SEX'</em><a class="headerlink" href="#siriushlacon.regatron.main.Launcher.SEX" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="siriushlacon.regatron.main.Launcher.render">
-<code class="sig-name descname">render</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">QPaintDevice</em>, <em class="sig-param">targetOffset: QPoint = QPoint()</em>, <em class="sig-param">sourceRegion: QRegion = QRegion()</em>, <em class="sig-param">flags: Union[QWidget.RenderFlags</em>, <em class="sig-param">QWidget.RenderFlag] = QWidget.RenderFlags(QWidget.DrawWindowBackground|QWidget.DrawChildren)</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/main.html#Launcher.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.main.Launcher.render" title="Permalink to this definition">¶</a></dt>
-<dd><p>render(self, QPainter, targetOffset: QPoint = QPoint(), sourceRegion: QRegion = QRegion(), flags: Union[QWidget.RenderFlags, QWidget.RenderFlag] = QWidget.RenderFlags(QWidget.DrawWindowBackground|QWidget.DrawChildren))</p>
+<code class="sig-name descname">render</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">QPaintDevice</span></em>, <em class="sig-param"><span class="n">targetOffset</span><span class="p">:</span> <span class="n">QPoint</span> <span class="o">=</span> <span class="default_value">QPoint()</span></em>, <em class="sig-param"><span class="n">sourceRegion</span><span class="p">:</span> <span class="n">QRegion</span> <span class="o">=</span> <span class="default_value">QRegion()</span></em>, <em class="sig-param"><span class="n">flags</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>QWidget.RenderFlags<span class="p">, </span>QWidget.RenderFlag<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">QWidget.RenderFlags(QWidget.RenderFlag.DrawWindowBackground | QWidget.RenderFlag.DrawChildren)</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/main.html#Launcher.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.main.Launcher.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>render(self, QPainter, targetOffset: QPoint = QPoint(), sourceRegion: QRegion = QRegion(), flags: Union[QWidget.RenderFlags, QWidget.RenderFlag] = QWidget.RenderFlags(QWidget.RenderFlag.DrawWindowBackground|QWidget.RenderFlag.DrawChildren))</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="siriushlacon.regatron.main.get_overview_detail">
-<code class="sig-prename descclassname">siriushlacon.regatron.main.</code><code class="sig-name descname">get_overview_detail</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/main.html#get_overview_detail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.main.get_overview_detail" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">siriushlacon.regatron.main.</code><code class="sig-name descname">get_overview_detail</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/main.html#get_overview_detail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.main.get_overview_detail" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="siriushlacon.regatron.main.load_data">
 <code class="sig-prename descclassname">siriushlacon.regatron.main.</code><code class="sig-name descname">load_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/main.html#load_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.main.load_data" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -248,81 +252,81 @@
 </div>
 <div class="section" id="module-siriushlacon.regatron.regatron">
 <span id="regatron-py"></span><h1>regatron.py<a class="headerlink" href="#module-siriushlacon.regatron.regatron" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="siriushlacon.regatron.regatron.Regatron">
-<em class="property">class </em><code class="sig-prename descclassname">siriushlacon.regatron.regatron.</code><code class="sig-name descname">Regatron</code><span class="sig-paren">(</span><em class="sig-param">parent=None</em>, <em class="sig-param">macros=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydm.display_module.Display</span></code></p>
-<dl class="method">
+<em class="property">class </em><code class="sig-prename descclassname">siriushlacon.regatron.regatron.</code><code class="sig-name descname">Regatron</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">macros</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydm.display.Display</span></code></p>
+<dl class="py method">
 <dt id="siriushlacon.regatron.regatron.Regatron.get_mod_ext_error_report">
-<code class="sig-name descname">get_mod_ext_error_report</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_mod_ext_error_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_mod_ext_error_report" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_mod_ext_error_report</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_mod_ext_error_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_mod_ext_error_report" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="siriushlacon.regatron.regatron.Regatron.get_mod_ext_warn_report">
-<code class="sig-name descname">get_mod_ext_warn_report</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_mod_ext_warn_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_mod_ext_warn_report" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_mod_ext_warn_report</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_mod_ext_warn_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_mod_ext_warn_report" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="siriushlacon.regatron.regatron.Regatron.get_mod_std_error_report">
-<code class="sig-name descname">get_mod_std_error_report</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_mod_std_error_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_mod_std_error_report" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_mod_std_error_report</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_mod_std_error_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_mod_std_error_report" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="siriushlacon.regatron.regatron.Regatron.get_mod_std_warn_report">
-<code class="sig-name descname">get_mod_std_warn_report</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_mod_std_warn_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_mod_std_warn_report" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_mod_std_warn_report</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_mod_std_warn_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_mod_std_warn_report" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="siriushlacon.regatron.regatron.Regatron.get_sys_ext_error_report">
-<code class="sig-name descname">get_sys_ext_error_report</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_sys_ext_error_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_sys_ext_error_report" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_sys_ext_error_report</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_sys_ext_error_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_sys_ext_error_report" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="siriushlacon.regatron.regatron.Regatron.get_sys_ext_warn_report">
-<code class="sig-name descname">get_sys_ext_warn_report</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_sys_ext_warn_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_sys_ext_warn_report" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_sys_ext_warn_report</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_sys_ext_warn_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_sys_ext_warn_report" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="siriushlacon.regatron.regatron.Regatron.get_sys_std_error_report">
-<code class="sig-name descname">get_sys_std_error_report</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_sys_std_error_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_sys_std_error_report" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_sys_std_error_report</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_sys_std_error_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_sys_std_error_report" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="siriushlacon.regatron.regatron.Regatron.get_sys_std_warn_report">
-<code class="sig-name descname">get_sys_std_warn_report</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_sys_std_warn_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_sys_std_warn_report" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_sys_std_warn_report</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.get_sys_std_warn_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.get_sys_std_warn_report" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="siriushlacon.regatron.regatron.Regatron.setup_icons">
 <code class="sig-name descname">setup_icons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#Regatron.setup_icons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.Regatron.setup_icons" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="siriushlacon.regatron.regatron.get_report">
-<code class="sig-prename descclassname">siriushlacon.regatron.regatron.</code><code class="sig-name descname">get_report</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">map_</em>, <em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#get_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.get_report" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">siriushlacon.regatron.regatron.</code><code class="sig-name descname">get_report</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">map_</span></em>, <em class="sig-param"><span class="n">msg</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/regatron.html#get_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.regatron.get_report" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-siriushlacon.regatron.consts">
 <span id="consts-py"></span><h1>consts.py<a class="headerlink" href="#module-siriushlacon.regatron.consts" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="siriushlacon.regatron.consts.get_abs_path">
-<code class="sig-prename descclassname">siriushlacon.regatron.consts.</code><code class="sig-name descname">get_abs_path</code><span class="sig-paren">(</span><em class="sig-param">filename</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/consts.html#get_abs_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.consts.get_abs_path" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">siriushlacon.regatron.consts.</code><code class="sig-name descname">get_abs_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/consts.html#get_abs_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.consts.get_abs_path" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-siriushlacon.regatron.alarm">
 <span id="alarm-py"></span><h1>alarm.py<a class="headerlink" href="#module-siriushlacon.regatron.alarm" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="siriushlacon.regatron.alarm.AlarmDisplay">
-<em class="property">class </em><code class="sig-prename descclassname">siriushlacon.regatron.alarm.</code><code class="sig-name descname">AlarmDisplay</code><span class="sig-paren">(</span><em class="sig-param">parent=None</em>, <em class="sig-param">macros=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/alarm.html#AlarmDisplay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.alarm.AlarmDisplay" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydm.display_module.Display</span></code></p>
+<em class="property">class </em><code class="sig-prename descclassname">siriushlacon.regatron.alarm.</code><code class="sig-name descname">AlarmDisplay</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">macros</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/alarm.html#AlarmDisplay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.alarm.AlarmDisplay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydm.display.Display</span></code></p>
 <p>Query alarms from the archiver appliance and display in a human readable format</p>
-<dl class="method">
+<dl class="py method">
 <dt id="siriushlacon.regatron.alarm.AlarmDisplay.do_search">
-<code class="sig-name descname">do_search</code><span class="sig-paren">(</span><em class="sig-param">alarm_tree</em>, <em class="sig-param">time_to</em>, <em class="sig-param">time_from</em>, <em class="sig-param">std</em>, <em class="sig-param">error</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/alarm.html#AlarmDisplay.do_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.alarm.AlarmDisplay.do_search" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">do_search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">alarm_tree</span></em>, <em class="sig-param"><span class="n">time_to</span></em>, <em class="sig-param"><span class="n">time_from</span></em>, <em class="sig-param"><span class="n">std</span></em>, <em class="sig-param"><span class="n">error</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/alarm.html#AlarmDisplay.do_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.alarm.AlarmDisplay.do_search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query and build the alarm tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -337,9 +341,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="siriushlacon.regatron.alarm.AlarmDisplay.get_PV">
-<code class="sig-name descname">get_PV</code><span class="sig-paren">(</span><em class="sig-param">signal</em>, <em class="sig-param">std=False</em>, <em class="sig-param">error=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/alarm.html#AlarmDisplay.get_PV"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.alarm.AlarmDisplay.get_PV" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_PV</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">signal</span></em>, <em class="sig-param"><span class="n">std</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">error</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/alarm.html#AlarmDisplay.get_PV"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.alarm.AlarmDisplay.get_PV" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build a PV name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -355,9 +359,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="siriushlacon.regatron.alarm.AlarmDisplay.reading_tree_item">
-<em class="property">static </em><code class="sig-name descname">reading_tree_item</code><span class="sig-paren">(</span><em class="sig-param">reading</em>, <em class="sig-param">mapping: dict = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/alarm.html#AlarmDisplay.reading_tree_item"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.alarm.AlarmDisplay.reading_tree_item" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">reading_tree_item</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reading</span></em>, <em class="sig-param"><span class="n">mapping</span><span class="p">:</span> <span class="n">dict</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/alarm.html#AlarmDisplay.reading_tree_item"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.alarm.AlarmDisplay.reading_tree_item" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get data from archiver and transform into a node with branches according to the bit value defined by the mapping.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -371,13 +375,13 @@
 :return: A QTreeWidgetItem</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="siriushlacon.regatron.alarm.AlarmDisplay.search_alarms">
 <code class="sig-name descname">search_alarms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/alarm.html#AlarmDisplay.search_alarms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.alarm.AlarmDisplay.search_alarms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update all tree widgets</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="siriushlacon.regatron.alarm.AlarmDisplay.set_time_now">
 <code class="sig-name descname">set_time_now</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/alarm.html#AlarmDisplay.set_time_now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.alarm.AlarmDisplay.set_time_now" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set current date and time to the “dfTo” widget</p>
@@ -388,19 +392,19 @@
 </div>
 <div class="section" id="module-siriushlacon.regatron.err">
 <span id="err-py"></span><h1>err.py<a class="headerlink" href="#module-siriushlacon.regatron.err" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="siriushlacon.regatron.err.Err">
-<em class="property">class </em><code class="sig-prename descclassname">siriushlacon.regatron.err.</code><code class="sig-name descname">Err</code><span class="sig-paren">(</span><em class="sig-param">parent=None</em>, <em class="sig-param">macros=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/err.html#Err"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.err.Err" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydm.display_module.Display</span></code></p>
+<em class="property">class </em><code class="sig-prename descclassname">siriushlacon.regatron.err.</code><code class="sig-name descname">Err</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">macros</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/err.html#Err"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.err.Err" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydm.display.Display</span></code></p>
 </dd></dl>
 
 </div>
 <div class="section" id="module-siriushlacon.regatron.warn">
 <span id="warn-py"></span><h1>warn.py<a class="headerlink" href="#module-siriushlacon.regatron.warn" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="siriushlacon.regatron.warn.Warn">
-<em class="property">class </em><code class="sig-prename descclassname">siriushlacon.regatron.warn.</code><code class="sig-name descname">Warn</code><span class="sig-paren">(</span><em class="sig-param">parent=None</em>, <em class="sig-param">macros=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/warn.html#Warn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.warn.Warn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydm.display_module.Display</span></code></p>
+<em class="property">class </em><code class="sig-prename descclassname">siriushlacon.regatron.warn.</code><code class="sig-name descname">Warn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">macros</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/siriushlacon/regatron/warn.html#Warn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#siriushlacon.regatron.warn.Warn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydm.display.Display</span></code></p>
 </dd></dl>
 
 </div>

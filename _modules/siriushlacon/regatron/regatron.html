@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -160,26 +160,35 @@
             
   <h1>Source code for siriushlacon.regatron.regatron</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">json</span>
 
-<span class="kn">from</span> <span class="nn">pydm</span> <span class="k">import</span> <span class="n">Display</span>
-<span class="kn">from</span> <span class="nn">pydm.utilities</span> <span class="k">import</span> <span class="n">IconFont</span>
-<span class="kn">from</span> <span class="nn">pydm.widgets.channel</span> <span class="k">import</span> <span class="n">PyDMChannel</span>
+<span class="kn">from</span> <span class="nn">pydm</span> <span class="kn">import</span> <span class="n">Display</span>
+<span class="kn">from</span> <span class="nn">pydm.utilities</span> <span class="kn">import</span> <span class="n">IconFont</span>
+<span class="kn">from</span> <span class="nn">pydm.widgets.channel</span> <span class="kn">import</span> <span class="n">PyDMChannel</span>
 
-<span class="kn">from</span> <span class="nn">siriushlacon.regatron.consts</span> <span class="k">import</span> <span class="n">COMPLETE_UI</span><span class="p">,</span> <span class="n">ERR_MAIN</span><span class="p">,</span> <span class="n">WARN_MAIN</span><span class="p">,</span> \
-    <span class="n">EXTENDED_MAP</span><span class="p">,</span> <span class="n">STANDARD_MAP</span><span class="p">,</span> <span class="n">ALARM_MAIN</span>
+<span class="kn">from</span> <span class="nn">siriushlacon.regatron.consts</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">COMPLETE_UI</span><span class="p">,</span>
+    <span class="n">ERR_MAIN</span><span class="p">,</span>
+    <span class="n">WARN_MAIN</span><span class="p">,</span>
+    <span class="n">EXTENDED_MAP</span><span class="p">,</span>
+    <span class="n">STANDARD_MAP</span><span class="p">,</span>
+    <span class="n">ALARM_MAIN</span><span class="p">,</span>
+<span class="p">)</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
+
 
 <div class="viewcode-block" id="get_report"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.regatron.get_report">[docs]</a><span class="k">def</span> <span class="nf">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">map_</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
     <span class="n">erros</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">map_</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">value</span> <span class="o">&amp;</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">k</span><span class="p">:</span>
             <span class="n">erros</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">erros</span><span class="p">))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">erros</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">erros</span></div>
 
+
 <div class="viewcode-block" id="Regatron"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.regatron.Regatron">[docs]</a><span class="k">class</span> <span class="nc">Regatron</span><span class="p">(</span><span class="n">Display</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="n">macros</span><span class="p">,</span> <span class="n">ui_filename</span><span class="o">=</span><span class="n">COMPLETE_UI</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setup_icons</span><span class="p">()</span>
 
@@ -187,91 +196,113 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">btnWarn</span><span class="o">.</span><span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="n">WARN_MAIN</span><span class="p">]</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">btnSysHistory</span><span class="o">.</span><span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="n">ALARM_MAIN</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">btnSysHistory</span><span class="o">.</span><span class="n">base_macros</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;P&#39;</span><span class="p">:</span> <span class="n">macros</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">],</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="s1">&#39;Sys&#39;</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">btnSysHistory</span><span class="o">.</span><span class="n">macros</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;P&quot;</span><span class="p">:</span> <span class="n">macros</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">],</span> <span class="s2">&quot;T&quot;</span><span class="p">:</span> <span class="s2">&quot;Sys&quot;</span><span class="p">})</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">btnModHistory</span><span class="o">.</span><span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="n">ALARM_MAIN</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">btnModHistory</span><span class="o">.</span><span class="n">base_macros</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;P&#39;</span><span class="p">:</span> <span class="n">macros</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">],</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="s1">&#39;Mod&#39;</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">btnModHistory</span><span class="o">.</span><span class="n">macros</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;P&quot;</span><span class="p">:</span> <span class="n">macros</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">],</span> <span class="s2">&quot;T&quot;</span><span class="p">:</span> <span class="s2">&quot;Mod&quot;</span><span class="p">})</span>
 
         <span class="c1"># Warning Groups</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_mod_std_warn_report</span> <span class="o">=</span> <span class="n">PyDMChannel</span><span class="p">(</span>
-            <span class="n">address</span><span class="o">=</span><span class="s1">&#39;ca://&#39;</span><span class="o">+</span><span class="n">macros</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;:Mod-StdWarnGroup-Mon&#39;</span><span class="p">,</span>
-            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_mod_std_warn_report</span><span class="p">)</span>
+            <span class="n">address</span><span class="o">=</span><span class="s2">&quot;ca://&quot;</span> <span class="o">+</span> <span class="n">macros</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:Mod-StdWarnGroup-Mon&quot;</span><span class="p">,</span>
+            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_mod_std_warn_report</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_mod_std_warn_report</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_sys_std_warn_report</span> <span class="o">=</span> <span class="n">PyDMChannel</span><span class="p">(</span>
-            <span class="n">address</span><span class="o">=</span><span class="s1">&#39;ca://&#39;</span><span class="o">+</span><span class="n">macros</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;:Sys-StdWarnGroup-Mon&#39;</span><span class="p">,</span>
-            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_sys_std_warn_report</span><span class="p">)</span>
+            <span class="n">address</span><span class="o">=</span><span class="s2">&quot;ca://&quot;</span> <span class="o">+</span> <span class="n">macros</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:Sys-StdWarnGroup-Mon&quot;</span><span class="p">,</span>
+            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_sys_std_warn_report</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_sys_std_warn_report</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_mod_ext_warn_report</span> <span class="o">=</span> <span class="n">PyDMChannel</span><span class="p">(</span>
-            <span class="n">address</span><span class="o">=</span><span class="s1">&#39;ca://&#39;</span><span class="o">+</span><span class="n">macros</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;:Mod-ExtWarnGroup-Mon&#39;</span><span class="p">,</span>
-            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_mod_ext_warn_report</span><span class="p">)</span>
+            <span class="n">address</span><span class="o">=</span><span class="s2">&quot;ca://&quot;</span> <span class="o">+</span> <span class="n">macros</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:Mod-ExtWarnGroup-Mon&quot;</span><span class="p">,</span>
+            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_mod_ext_warn_report</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_mod_ext_warn_report</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_sys_ext_warn_report</span> <span class="o">=</span> <span class="n">PyDMChannel</span><span class="p">(</span>
-            <span class="n">address</span><span class="o">=</span><span class="s1">&#39;ca://&#39;</span><span class="o">+</span><span class="n">macros</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;:Sys-ExtWarnGroup-Mon&#39;</span><span class="p">,</span>
-            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_sys_ext_warn_report</span><span class="p">)</span>
+            <span class="n">address</span><span class="o">=</span><span class="s2">&quot;ca://&quot;</span> <span class="o">+</span> <span class="n">macros</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:Sys-ExtWarnGroup-Mon&quot;</span><span class="p">,</span>
+            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_sys_ext_warn_report</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_sys_ext_warn_report</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 
-        
         <span class="c1"># Error Groups</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_mod_std_error_report</span> <span class="o">=</span> <span class="n">PyDMChannel</span><span class="p">(</span>
-            <span class="n">address</span><span class="o">=</span><span class="s1">&#39;ca://&#39;</span><span class="o">+</span><span class="n">macros</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;:Mod-StdErrGroup-Mon&#39;</span><span class="p">,</span>
-            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_mod_std_error_report</span><span class="p">)</span>
+            <span class="n">address</span><span class="o">=</span><span class="s2">&quot;ca://&quot;</span> <span class="o">+</span> <span class="n">macros</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:Mod-StdErrGroup-Mon&quot;</span><span class="p">,</span>
+            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_mod_std_error_report</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_mod_std_error_report</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_sys_std_error_report</span> <span class="o">=</span> <span class="n">PyDMChannel</span><span class="p">(</span>
-            <span class="n">address</span><span class="o">=</span><span class="s1">&#39;ca://&#39;</span><span class="o">+</span><span class="n">macros</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;:Sys-StdErrGroup-Mon&#39;</span><span class="p">,</span>
-            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_sys_std_error_report</span><span class="p">)</span>
+            <span class="n">address</span><span class="o">=</span><span class="s2">&quot;ca://&quot;</span> <span class="o">+</span> <span class="n">macros</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:Sys-StdErrGroup-Mon&quot;</span><span class="p">,</span>
+            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_sys_std_error_report</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_sys_std_error_report</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_mod_ext_error_report</span> <span class="o">=</span> <span class="n">PyDMChannel</span><span class="p">(</span>
-            <span class="n">address</span><span class="o">=</span><span class="s1">&#39;ca://&#39;</span><span class="o">+</span><span class="n">macros</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;:Mod-ExtErrGroup-Mon&#39;</span><span class="p">,</span>
-            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_mod_ext_error_report</span><span class="p">)</span>
+            <span class="n">address</span><span class="o">=</span><span class="s2">&quot;ca://&quot;</span> <span class="o">+</span> <span class="n">macros</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:Mod-ExtErrGroup-Mon&quot;</span><span class="p">,</span>
+            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_mod_ext_error_report</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_mod_std_error_report</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_sys_ext_error_report</span> <span class="o">=</span> <span class="n">PyDMChannel</span><span class="p">(</span>
-            <span class="n">address</span><span class="o">=</span><span class="s1">&#39;ca://&#39;</span><span class="o">+</span><span class="n">macros</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;:Sys-ExtErrGroup-Mon&#39;</span><span class="p">,</span>
-            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_sys_ext_error_report</span><span class="p">)</span>
+            <span class="n">address</span><span class="o">=</span><span class="s2">&quot;ca://&quot;</span> <span class="o">+</span> <span class="n">macros</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:Sys-ExtErrGroup-Mon&quot;</span><span class="p">,</span>
+            <span class="n">value_slot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_sys_ext_error_report</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_sys_ext_error_report</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
-
 
     <span class="c1"># Warning</span>
 <div class="viewcode-block" id="Regatron.get_mod_ext_warn_report"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.regatron.Regatron.get_mod_ext_warn_report">[docs]</a>    <span class="k">def</span> <span class="nf">get_mod_ext_warn_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lblModGenWarnExt</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">EXTENDED_MAP</span><span class="p">,</span> <span class="s2">&quot;Module extended&quot;</span><span class="p">)))</span></div>
-    
+        <span class="bp">self</span><span class="o">.</span><span class="n">lblModGenWarnExt</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">EXTENDED_MAP</span><span class="p">,</span> <span class="s2">&quot;Module extended&quot;</span><span class="p">))</span>
+        <span class="p">)</span></div>
+
 <div class="viewcode-block" id="Regatron.get_sys_ext_warn_report"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.regatron.Regatron.get_sys_ext_warn_report">[docs]</a>    <span class="k">def</span> <span class="nf">get_sys_ext_warn_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lblSysGenWarnExt</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">EXTENDED_MAP</span><span class="p">,</span> <span class="s2">&quot;System extended&quot;</span><span class="p">)))</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lblSysGenWarnExt</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">EXTENDED_MAP</span><span class="p">,</span> <span class="s2">&quot;System extended&quot;</span><span class="p">))</span>
+        <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Regatron.get_mod_std_warn_report"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.regatron.Regatron.get_mod_std_warn_report">[docs]</a>    <span class="k">def</span> <span class="nf">get_mod_std_warn_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lblModGenWarnStd</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">STANDARD_MAP</span><span class="p">,</span> <span class="s2">&quot;Module standard&quot;</span><span class="p">)))</span></div>
-    
-<div class="viewcode-block" id="Regatron.get_sys_std_warn_report"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.regatron.Regatron.get_sys_std_warn_report">[docs]</a>    <span class="k">def</span> <span class="nf">get_sys_std_warn_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lblSysGenWarnStd</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">STANDARD_MAP</span><span class="p">,</span> <span class="s2">&quot;System standard&quot;</span><span class="p">)))</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lblModGenWarnStd</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">STANDARD_MAP</span><span class="p">,</span> <span class="s2">&quot;Module standard&quot;</span><span class="p">))</span>
+        <span class="p">)</span></div>
 
-    <span class="c1"># Error </span>
+<div class="viewcode-block" id="Regatron.get_sys_std_warn_report"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.regatron.Regatron.get_sys_std_warn_report">[docs]</a>    <span class="k">def</span> <span class="nf">get_sys_std_warn_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lblSysGenWarnStd</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">STANDARD_MAP</span><span class="p">,</span> <span class="s2">&quot;System standard&quot;</span><span class="p">))</span>
+        <span class="p">)</span></div>
+
+    <span class="c1"># Error</span>
 <div class="viewcode-block" id="Regatron.get_mod_std_error_report"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.regatron.Regatron.get_mod_std_error_report">[docs]</a>    <span class="k">def</span> <span class="nf">get_mod_std_error_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lblModGenErrStd</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">STANDARD_MAP</span><span class="p">,</span> <span class="s2">&quot;Module standard&quot;</span><span class="p">)))</span></div>
-    
+        <span class="bp">self</span><span class="o">.</span><span class="n">lblModGenErrStd</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">STANDARD_MAP</span><span class="p">,</span> <span class="s2">&quot;Module standard&quot;</span><span class="p">))</span>
+        <span class="p">)</span></div>
+
 <div class="viewcode-block" id="Regatron.get_mod_ext_error_report"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.regatron.Regatron.get_mod_ext_error_report">[docs]</a>    <span class="k">def</span> <span class="nf">get_mod_ext_error_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lblModGenErrExt</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">EXTENDED_MAP</span><span class="p">,</span> <span class="s2">&quot;Module extended&quot;</span><span class="p">)))</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lblModGenErrExt</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">EXTENDED_MAP</span><span class="p">,</span> <span class="s2">&quot;Module extended&quot;</span><span class="p">))</span>
+        <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Regatron.get_sys_std_error_report"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.regatron.Regatron.get_sys_std_error_report">[docs]</a>    <span class="k">def</span> <span class="nf">get_sys_std_error_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lblSysGenErrStd</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">STANDARD_MAP</span><span class="p">,</span> <span class="s2">&quot;System standard&quot;</span><span class="p">)))</span></div>
-    
+        <span class="bp">self</span><span class="o">.</span><span class="n">lblSysGenErrStd</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">STANDARD_MAP</span><span class="p">,</span> <span class="s2">&quot;System standard&quot;</span><span class="p">))</span>
+        <span class="p">)</span></div>
+
 <div class="viewcode-block" id="Regatron.get_sys_ext_error_report"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.regatron.Regatron.get_sys_ext_error_report">[docs]</a>    <span class="k">def</span> <span class="nf">get_sys_ext_error_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lblSysGenErrExt</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">EXTENDED_MAP</span><span class="p">,</span> <span class="s2">&quot;System extended&quot;</span><span class="p">)))</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lblSysGenErrExt</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_report</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">EXTENDED_MAP</span><span class="p">,</span> <span class="s2">&quot;System extended&quot;</span><span class="p">))</span>
+        <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Regatron.setup_icons"><a class="viewcode-back" href="../../../api/regatron.html#siriushlacon.regatron.regatron.Regatron.setup_icons">[docs]</a>    <span class="k">def</span> <span class="nf">setup_icons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">REFRESH_ICON</span> <span class="o">=</span> <span class="n">IconFont</span><span class="p">()</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s1">&#39;refresh&#39;</span><span class="p">)</span>
-        <span class="c1"># Overview </span>
+        <span class="n">REFRESH_ICON</span> <span class="o">=</span> <span class="n">IconFont</span><span class="p">()</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">&quot;refresh&quot;</span><span class="p">)</span>
+        <span class="c1"># Overview</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">btnSstate</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">REFRESH_ICON</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">btnSCtrlMode</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">REFRESH_ICON</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">btnMState</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">REFRESH_ICON</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">btnMCtrlMode</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">REFRESH_ICON</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">btnActIFace</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">REFRESH_ICON</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">btnSave</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">IconFont</span><span class="p">()</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s1">&#39;download&#39;</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">btnClear</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">IconFont</span><span class="p">()</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s1">&#39;eraser&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">btnSave</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">IconFont</span><span class="p">()</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">&quot;download&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">btnClear</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">IconFont</span><span class="p">()</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">&quot;eraser&quot;</span><span class="p">))</span>
 
         <span class="c1"># Module</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">btnMMV</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">REFRESH_ICON</span><span class="p">)</span>
@@ -313,7 +344,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">PyDMPushButton_57</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">REFRESH_ICON</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">PyDMPushButton_71</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">REFRESH_ICON</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">PyDMPushButton_73</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">REFRESH_ICON</span><span class="p">)</span>
-        
+
         <span class="c1"># Advanced</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">PyDMPushButton_41</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">REFRESH_ICON</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">PyDMPushButton_50</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">REFRESH_ICON</span><span class="p">)</span>
