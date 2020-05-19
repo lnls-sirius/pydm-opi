@@ -7,11 +7,9 @@ from pydm.widgets.channel import PyDMChannel
 
 from siriushlacon.regatron.consts import (
     COMPLETE_UI,
-    ERR_MAIN,
-    WARN_MAIN,
+    TREE_32_UI,
     EXTENDED_MAP,
     STANDARD_MAP,
-    ALARM_MAIN,
 )
 
 logger = logging.getLogger()
@@ -31,13 +29,23 @@ class Regatron(Display):
         super().__init__(parent=parent, macros=macros, ui_filename=COMPLETE_UI)
         self.setup_icons()
 
-        self.btnErr.filenames = [ERR_MAIN]
-        self.btnWarn.filenames = [WARN_MAIN]
+        self.btnModWarn.filenames = [TREE_32_UI]
+        self.btnSysWarn.filenames = [TREE_32_UI]
+        self.btnModErr.filenames = [TREE_32_UI]
+        self.btnSysErr.filenames = [TREE_32_UI]
 
-        self.btnSysHistory.filenames = [ALARM_MAIN]
-        self.btnSysHistory.macros = json.dumps({"P": macros["P"], "T": "Sys"})
-        self.btnModHistory.filenames = [ALARM_MAIN]
-        self.btnModHistory.macros = json.dumps({"P": macros["P"], "T": "Mod"})
+        self.btnModWarn.macros = json.dumps(
+            {"Title": "Module Warnings", "P": macros["P"], "D": "Mod", "T": "Warn"}
+        )
+        self.btnSysWarn.macros = json.dumps(
+            {"Title": "System Warnings", "P": macros["P"], "D": "Sys", "T": "Warn"}
+        )
+        self.btnModErr.macros = json.dumps(
+            {"Title": "Module Error", "P": macros["P"], "D": "Mod", "T": "Err"}
+        )
+        self.btnSysErr.macros = json.dumps(
+            {"Title": "System Error", "P": macros["P"], "D": "Sys", "T": "Err"}
+        )
 
         # Warning Groups
         self.ch_mod_std_warn_report = PyDMChannel(
@@ -144,48 +152,5 @@ class Regatron(Display):
         self.btnClear.setIcon(IconFont().icon("eraser"))
 
         # Module
-        self.btnMMV.setIcon(REFRESH_ICON)
-        self.btnMMC.setIcon(REFRESH_ICON)
-        self.btnMMinC.setIcon(REFRESH_ICON)
-        self.btnMMP.setIcon(REFRESH_ICON)
-        self.btnMMinV.setIcon(REFRESH_ICON)
-        self.btnMMinP.setIcon(REFRESH_ICON)
-        self.btnMRes.setIcon(REFRESH_ICON)
-        self.btnNomDCV.setIcon(REFRESH_ICON)
-        self.btnDCV.setIcon(REFRESH_ICON)
-        self.btnMOV.setIcon(REFRESH_ICON)
-        self.btnMOC.setIcon(REFRESH_ICON)
-        self.btnMOP.setIcon(REFRESH_ICON)
-
-        self.btnMVPRb.setIcon(REFRESH_ICON)
-        self.btnMVLQ4Rb.setIcon(REFRESH_ICON)
-        self.btnMCPRb.setIcon(REFRESH_ICON)
-        self.btnMCQLRb.setIcon(REFRESH_ICON)
-        self.btnMPPRb.setIcon(REFRESH_ICON)
-        self.btnMPLQRb.setIcon(REFRESH_ICON)
-        self.btnMRPRb.setIcon(REFRESH_ICON)
-
         # System
-        self.PyDMPushButton_17.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_18.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_19.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_20.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_21.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_22.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_23.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_28.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_29.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_45.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_46.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_47.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_48.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_49.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_57.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_71.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_73.setIcon(REFRESH_ICON)
-
         # Advanced
-        self.PyDMPushButton_41.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_50.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_51.setIcon(REFRESH_ICON)
-        self.PyDMPushButton_52.setIcon(REFRESH_ICON)

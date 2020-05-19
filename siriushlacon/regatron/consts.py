@@ -9,14 +9,12 @@ def get_abs_path(filename):
 
 DATA_JSON = get_abs_path("data.json")
 REGATRON_MAIN = get_abs_path("main.py")
-ERR_MAIN = get_abs_path("err.py")
-WARN_MAIN = get_abs_path("warn.py")
+TREE_32 = get_abs_path("tree32.py")
 COMPLETE_MAIN = get_abs_path("regatron.py")
 ALARM_MAIN = get_abs_path("alarm.py")
 
 REGATRON_UI = get_abs_path("ui/main.ui")
-ERR_UI = get_abs_path("ui/err.ui")
-WARN_UI = get_abs_path("ui/warning.ui")
+TREE_32_UI = get_abs_path("ui/tree32.ui")
 COMPLETE_UI = get_abs_path("ui/regatron.ui")
 ALARM_UI = get_abs_path("ui/alarm.ui")
 
