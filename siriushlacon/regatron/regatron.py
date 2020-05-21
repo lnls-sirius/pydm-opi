@@ -153,4 +153,11 @@ class Regatron(Display):
 
         # Module
         # System
+        self.btnSysVoltRef.setIcon(REFRESH_ICON)
+        self.btnSysCurrRef.setIcon(REFRESH_ICON)
+        self.btnSysResRef.setIcon(REFRESH_ICON)
+        self.btnSysPwrRef.setIcon(REFRESH_ICON)
+        self.btnVoltSlope.setIcon(REFRESH_ICON)
+        self.btnCurrSlope.setIcon(REFRESH_ICON)
+
         # Advanced
