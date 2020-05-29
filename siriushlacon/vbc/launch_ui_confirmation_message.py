@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
 import sys
+
+from qtpy.QtGui import QPixmap
 from pydm import Display
-from siriushlacon.vbc.consts import CONFIRMATION_MESSAGE, COMMUTE_VALVE_SCRIPT
+from siriushlacon.vbc.consts import (
+    CONFIRMATION_MESSAGE_UI,
+    COMMUTE_VALVE_SCRIPT,
+    WARNING_IMG,
+)
 
 
 class DeviceMenu(Display):
     def __init__(self, parent=None, args=[], macros=None):
         super(DeviceMenu, self).__init__(
-            parent=parent, args=args, macros=macros, ui_filename=CONFIRMATION_MESSAGE
+            parent=parent, args=args, macros=macros, ui_filename=CONFIRMATION_MESSAGE_UI
         )
+        self.label_2.setPixmap(QPixmap(WARNING_IMG))
 
         # updating VALVE name
         if sys.argv[6] == "1":
@@ -23,9 +30,9 @@ class DeviceMenu(Display):
             self.VALVE.setText("Venting Valve?")
 
         # select which relay should commute
-        self.PyDMShellCommand_no.command = "python {} {} {} no".format(
-            COMMUTE_VALVE_SCRIPT, sys.argv[5], sys.argv[6]
-        )
-        self.PyDMShellCommand_yes.command = "python {} {} {} yes".format(
-            COMMUTE_VALVE_SCRIPT, sys.argv[5], sys.argv[6]
-        )
+        self.PyDMShellCommand_no.commands = [
+            "python {} {} {} no".format(COMMUTE_VALVE_SCRIPT, sys.argv[5], sys.argv[6])
+        ]
+        self.PyDMShellCommand_yes.commands = [
+            "python {} {} {} yes".format(COMMUTE_VALVE_SCRIPT, sys.argv[5], sys.argv[6])
+        ]

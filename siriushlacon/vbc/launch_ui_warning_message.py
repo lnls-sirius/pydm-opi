@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 from pydm import Display
-from siriushlacon.vbc.consts import WARNING_WINDOW_UI
+from siriushlacon.vbc.consts import (
+    WARNING_WINDOW_UI,
+    OK_MESSAGE_PY,
+    PROCESS_RECOVERYY_SCRIPT,
+)
 
 import sys
 
@@ -22,3 +26,12 @@ class DeviceMenu(Display):
         self.Stage_5.channel = "ca://" + IOC + ":ProcessRecovery:Status5"
         self.pressure_base.channel = "ca://" + IOC + ":BBB:TorrBaseMsg"
         self.pressure_exp.channel = "ca://" + IOC + ":BBB:TorrExpMsg"
+
+        self.pop_up_OK_message.commands = [
+            "pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {}".format(
+                OK_MESSAGE_PY
+            )
+        ]
+        self.Shell.commands = [
+            "python {} {}".format(PROCESS_RECOVERYY_SCRIPT, macros["IOC"])
+        ]

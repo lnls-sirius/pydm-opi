@@ -119,9 +119,6 @@
           <height>1</height>
          </size>
         </property>
-        <property name="command" stdset="0">
-         <string>python ../scripts/clean_status_PV.py ${IOC}</string>
-        </property>
        </widget>
       </item>
      </layout>

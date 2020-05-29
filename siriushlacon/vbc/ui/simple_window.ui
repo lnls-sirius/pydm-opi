@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>313</width>
-    <height>408</height>
+    <width>308</width>
+    <height>406</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>299</width>
+     <width>291</width>
      <height>385</height>
     </rect>
    </property>
@@ -1327,6 +1327,7 @@
                 </color>
                </brush>
               </colorrole>
+              
              </active>
              <inactive>
               <colorrole role="WindowText">
@@ -1464,6 +1465,7 @@
                 </color>
                </brush>
               </colorrole>
+              
              </inactive>
              <disabled>
               <colorrole role="WindowText">
@@ -1601,6 +1603,7 @@
                 </color>
                </brush>
               </colorrole>
+              
              </disabled>
             </palette>
            </property>
@@ -2026,6 +2029,7 @@
                 </color>
                </brush>
               </colorrole>
+              
              </active>
              <inactive>
               <colorrole role="WindowText">
@@ -2163,6 +2167,7 @@
                 </color>
                </brush>
               </colorrole>
+              
              </inactive>
              <disabled>
               <colorrole role="WindowText">
@@ -2300,6 +2305,7 @@
                 </color>
                </brush>
               </colorrole>
+              
              </disabled>
             </palette>
            </property>
@@ -2369,9 +2375,6 @@
              <width>1</width>
              <height>1</height>
             </size>
-           </property>
-           <property name="command" stdset="0">
-            <string>python ../scripts/commute_valve.py $IOC 2 yes</string>
            </property>
           </widget>
          </item>
@@ -2463,9 +2466,6 @@
              <width>0</width>
              <height>0</height>
             </size>
-           </property>
-           <property name="command" stdset="0">
-            <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar launch_ui_confirmation_message.py ${IOC} 5</string>
            </property>
           </widget>
          </item>
@@ -2669,6 +2669,7 @@
                 </color>
                </brush>
               </colorrole>
+              
              </active>
              <inactive>
               <colorrole role="WindowText">
@@ -2806,6 +2807,7 @@
                 </color>
                </brush>
               </colorrole>
+              
              </inactive>
              <disabled>
               <colorrole role="WindowText">
@@ -2943,6 +2945,7 @@
                 </color>
                </brush>
               </colorrole>
+              
              </disabled>
             </palette>
            </property>
@@ -2984,9 +2987,6 @@
              <width>1</width>
              <height>1</height>
             </size>
-           </property>
-           <property name="command" stdset="0">
-            <string>python ../scripts/commute_valve.py $IOC 1 yes</string>
            </property>
           </widget>
          </item>
@@ -3114,7 +3114,8 @@
    <header>pydm.widgets.shell_command</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+ </resources>
  <connections>
   <connection>
    <sender>PyDMCheckbox_48</sender>

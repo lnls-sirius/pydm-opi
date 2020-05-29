@@ -17,11 +17,19 @@ WARNING_IMG = get_abs_path("images/warning.png")
 
 # UI
 ADVANCED_WINDOW_UI = get_abs_path("ui/advanced_window.ui")
-CONFIRMATION_MESSAGE = get_abs_path("ui/confirmation_message.ui")
+CONFIRMATION_MESSAGE_UI = get_abs_path("ui/confirmation_message.ui")
 MAIN_WINDOW_UI = get_abs_path("ui/main_window.ui")
-OK_MESSAE_UI = get_abs_path("ui/OK_message.ui")
+OK_MESSAGE_UI = get_abs_path("ui/OK_message.ui")
 SYSTEM_WINDOW_UI = get_abs_path("ui/system_window.ui")
 WARNING_WINDOW_UI = get_abs_path("ui/warning_message.ui")
+
+# PY
+ADVANCED_WINDOW_PY = get_abs_path("launch_ui_advanced_window.py")
+CONFIRMATION_MESSAGE_PY = get_abs_path("launch_ui_confirmation_message.py")
+MAIN_WINDOW_PY = get_abs_path("launch_ui_main_window.py")
+OK_MESSAGE_PY = get_abs_path("launch_ui_OK_message.py")
+SYSTEM_WINDOW_PY = get_abs_path("launch_ui_system_window.py")
+WARNING_WINDOW_PY = get_abs_path("launch_ui_warning_message.py")
 
 # Scripts
 CHECK_PRESSURE_SCRIPT = get_abs_path("scripts/check_pressure.py")

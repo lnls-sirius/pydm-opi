@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 import json
 from pydm import Display
-from siriushlacon.vbc.consts import MAIN_WINDOW_UI, SYSTEM_WINDOW_UI
+from siriushlacon.vbc.consts import MAIN_WINDOW_UI, SYSTEM_WINDOW_PY
+from siriushlacon.utils.consts import LNLS_IMG, CNPEM_IMG
 
-from qtpy.QtGui import QColor
+from qtpy.QtGui import QColor, QPixmap
 
 
 class DeviceMenu(Display):
@@ -12,16 +13,19 @@ class DeviceMenu(Display):
         super(DeviceMenu, self).__init__(
             parent=parent, args=args, macros=macros, ui_filename=MAIN_WINDOW_UI
         )
-        self.VBC_car_1.filenames = [SYSTEM_WINDOW_UI]
-        self.VBC_car_2.filenames = [SYSTEM_WINDOW_UI]
-        self.VBC_car_3.filenames = [SYSTEM_WINDOW_UI]
-        self.VBC_car_4.filenames = [SYSTEM_WINDOW_UI]
-        self.VBC_car_5.filenames = [SYSTEM_WINDOW_UI]
-        self.VBC_car_6.filenames = [SYSTEM_WINDOW_UI]
-        self.VBC_car_7.filenames = [SYSTEM_WINDOW_UI]
-        self.VBC_car_8.filenames = [SYSTEM_WINDOW_UI]
-        self.VBC_car_9.filenames = [SYSTEM_WINDOW_UI]
-        self.VBC_car_10.filenames = [SYSTEM_WINDOW_UI]
+        self.lnlsLabel.setPixmap(QPixmap(LNLS_IMG))
+        self.cnpemLabel.setPixmap(QPixmap(CNPEM_IMG))
+
+        self.VBC_car_1.filenames = [SYSTEM_WINDOW_PY]
+        self.VBC_car_2.filenames = [SYSTEM_WINDOW_PY]
+        self.VBC_car_3.filenames = [SYSTEM_WINDOW_PY]
+        self.VBC_car_4.filenames = [SYSTEM_WINDOW_PY]
+        self.VBC_car_5.filenames = [SYSTEM_WINDOW_PY]
+        self.VBC_car_6.filenames = [SYSTEM_WINDOW_PY]
+        self.VBC_car_7.filenames = [SYSTEM_WINDOW_PY]
+        self.VBC_car_8.filenames = [SYSTEM_WINDOW_PY]
+        self.VBC_car_9.filenames = [SYSTEM_WINDOW_PY]
+        self.VBC_car_10.filenames = [SYSTEM_WINDOW_PY]
 
         self.VBC_car_1.macros = json.dumps({"IOC": "VBC1", "CAR": "1"})
         self.VBC_car_2.macros = json.dumps({"IOC": "VBC2", "CAR": "2"})
