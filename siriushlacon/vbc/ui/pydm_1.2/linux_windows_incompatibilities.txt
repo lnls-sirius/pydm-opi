@@ -1,0 +1,44 @@
+===========================================================================
+	LINUX
+===========================================================================
+
+PyDM 1.2.0
+Python v3.5.3
+Numpy v1.14.5
+PyQt v5.7
+Qt v5.7.1
+PyQtGraph v0.10.0
+
+--------------------------------------
+	Macros
+--------------------------------------
+
+OK	pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{"IOC": "$IOC"}' system_pressurized.ui
+X	pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m IOC="$IOC" system_pressurized.ui
+X	pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m "IOC = $IOC" system_pressurized.ui
+
+===========================================================================
+	WINDOWS
+===========================================================================
+
+PyDM Version 1.2.0+16.g5f8c751
+Python v3.6.5
+Numpy v1.14.5
+PyQt v5.10.1
+Qt v5.10.1
+PyQtGraph v0.10.0
+
+--------------------------------------
+	Macros
+--------------------------------------
+
+X	pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m '{"IOC": "$IOC"}' system_pressurized.ui
+OK	pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m IOC="$IOC" system_pressurized.ui
+OK	pydm --hide-nav-bar --hide-menu-bar --hide-status-bar -m "IOC = $IOC" system_pressurized.ui
+
+
+===========================================================================
+	OTHER SUBJECTS
+===========================================================================
+
+Font: choose one common to both systems
