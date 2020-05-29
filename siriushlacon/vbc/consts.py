@@ -22,6 +22,7 @@ MAIN_WINDOW_UI = get_abs_path("ui/main_window.ui")
 OK_MESSAGE_UI = get_abs_path("ui/OK_message.ui")
 SYSTEM_WINDOW_UI = get_abs_path("ui/system_window.ui")
 WARNING_WINDOW_UI = get_abs_path("ui/warning_message.ui")
+SIMPLE_WINDOW_UI = get_abs_path("ui/simple_window.ui")
 
 # PY
 ADVANCED_WINDOW_PY = get_abs_path("launch_ui_advanced_window.py")
@@ -30,6 +31,7 @@ MAIN_WINDOW_PY = get_abs_path("launch_ui_main_window.py")
 OK_MESSAGE_PY = get_abs_path("launch_ui_OK_message.py")
 SYSTEM_WINDOW_PY = get_abs_path("launch_ui_system_window.py")
 WARNING_WINDOW_PY = get_abs_path("launch_ui_warning_message.py")
+SIMPLE_WINDOW_PY = get_abs_path("ui/simple_ui_window.ui")
 
 # Scripts
 CHECK_PRESSURE_SCRIPT = get_abs_path("scripts/check_pressure.py")

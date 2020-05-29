@@ -26,19 +26,6 @@ class DeviceMenu(Display):
         self.label_40.setPixmap(QPixmap(STOP_IMG))
         self.Advanced_tab.macros = json.dumps({"IOC": "$IOC"})
         self.Advanced_tab.filenames = [ADVANCED_WINDOW_PY]
-        """
-        self.Relay1.commands = [
-            "python {} {} 1 yes".format(COMMUTE_VALVE_SCRIPT, macros["IOC"])
-        ]
-        self.Relay5.commands = [
-            "pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {} {} 5".format(
-                CONFIRMATION_MESSAGE_PY, macros["IOC"]
-            )
-        ]
-        self.Relay1_2.commands = [
-            "python {} {} 2 yes".format(COMMUTE_VALVE_SCRIPT, macros["IOC"])
-        ]
-        """
         self.Shell6.commands = [
             "python {} {} 0".format(CHECK_PRESSURE_SCRIPT, macros["IOC"])
         ]
