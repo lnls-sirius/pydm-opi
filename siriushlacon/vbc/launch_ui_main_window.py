@@ -1,16 +1,28 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from os import path
-from pydm import Display
-
 import json
-from PyQt5.QtGui import QColor
+from pydm import Display
+from siriushlacon.vbc.consts import MAIN_WINDOW_UI, SYSTEM_WINDOW_UI
+
+from qtpy.QtGui import QColor
+
 
 class DeviceMenu(Display):
     def __init__(self, parent=None, args=[], macros=None):
-        super(DeviceMenu, self).__init__(parent=parent, args=args, macros=macros)
+        super(DeviceMenu, self).__init__(
+            parent=parent, args=args, macros=macros, ui_filename=MAIN_WINDOW_UI
+        )
+        self.VBC_car_1.filenames = [SYSTEM_WINDOW_UI]
+        self.VBC_car_2.filenames = [SYSTEM_WINDOW_UI]
+        self.VBC_car_3.filenames = [SYSTEM_WINDOW_UI]
+        self.VBC_car_4.filenames = [SYSTEM_WINDOW_UI]
+        self.VBC_car_5.filenames = [SYSTEM_WINDOW_UI]
+        self.VBC_car_6.filenames = [SYSTEM_WINDOW_UI]
+        self.VBC_car_7.filenames = [SYSTEM_WINDOW_UI]
+        self.VBC_car_8.filenames = [SYSTEM_WINDOW_UI]
+        self.VBC_car_9.filenames = [SYSTEM_WINDOW_UI]
+        self.VBC_car_10.filenames = [SYSTEM_WINDOW_UI]
 
-        # defining macros for PyDMRelatedDisplayButton (for opening "system_window.ui")
         self.VBC_car_1.macros = json.dumps({"IOC": "VBC1", "CAR": "1"})
         self.VBC_car_2.macros = json.dumps({"IOC": "VBC2", "CAR": "2"})
         self.VBC_car_3.macros = json.dumps({"IOC": "VBC3", "CAR": "3"})
@@ -32,9 +44,3 @@ class DeviceMenu(Display):
         self.LED_8._disconnected_color = QColor(255, 0, 0)
         self.LED_9._disconnected_color = QColor(255, 0, 0)
         self.LED_10._disconnected_color = QColor(255, 0, 0)
-
-    def ui_filename(self):
-        return '../ui/latest/main_window.ui'
-
-    def ui_filepath(self):
-        return path.join(path.dirname(path.realpath(__file__)), self.ui_filename())

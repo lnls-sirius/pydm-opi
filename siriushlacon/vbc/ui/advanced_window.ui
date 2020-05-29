@@ -11709,9 +11709,6 @@
    <header>pydm.widgets.byte</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../../images/logo.qrc"/>
- </resources>
  <connections>
   <connection>
    <sender>PyDMCheckbox_48</sender>

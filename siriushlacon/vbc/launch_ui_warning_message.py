@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from os import path
 from pydm import Display
+from siriushlacon.vbc.consts import WARNING_WINDOW_UI
 
 import sys
+
 IOC = str(sys.argv[5])
+
 
 class DeviceMenu(Display):
     def __init__(self, parent=None, args=[], macros=None):
-        super(DeviceMenu, self).__init__(parent=parent, args=args, macros=macros)
+        super(DeviceMenu, self).__init__(
+            parent=parent, args=args, macros=macros, ui_filename=WARNING_WINDOW_UI
+        )
 
         # defining macro for PyDMShellCommand (for launching "warning_message.ui")
         self.Stage_1.channel = "ca://" + IOC + ":ProcessRecovery:Status1"
@@ -18,9 +22,3 @@ class DeviceMenu(Display):
         self.Stage_5.channel = "ca://" + IOC + ":ProcessRecovery:Status5"
         self.pressure_base.channel = "ca://" + IOC + ":BBB:TorrBaseMsg"
         self.pressure_exp.channel = "ca://" + IOC + ":BBB:TorrExpMsg"
-
-    def ui_filename(self):
-        return '../ui/latest/warning_message.ui'
-
-    def ui_filepath(self):
-        return path.join(path.dirname(path.realpath(__file__)), self.ui_filename())

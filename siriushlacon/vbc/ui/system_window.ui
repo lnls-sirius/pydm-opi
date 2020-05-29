@@ -18,7 +18,7 @@
     <rect>
      <x>10</x>
      <y>15</y>
-     <width>781</width>
+     <width>782</width>
      <height>676</height>
     </rect>
    </property>
@@ -29,8 +29,8 @@
     </font>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="8" column="0">
-     <spacer name="verticalSpacer_6">
+    <item row="3" column="1">
+     <spacer name="horizontalSpacer_5">
       <property name="font">
        <font>
         <family>Cantarell</family>
@@ -38,18 +38,2253 @@
        </font>
       </property>
       <property name="orientation">
-       <enum>Qt::Vertical</enum>
+       <enum>Qt::Horizontal</enum>
       </property>
       <property name="sizeType">
-       <enum>QSizePolicy::Expanding</enum>
+       <enum>QSizePolicy::Fixed</enum>
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>0</width>
+        <width>10</width>
         <height>5</height>
        </size>
       </property>
      </spacer>
+    </item>
+    <item row="6" column="0" rowspan="2">
+     <widget class="QFrame" name="frame_7">
+      <property name="font">
+       <font>
+        <family>Cantarell</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_34">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <layout class="QGridLayout" name="gridLayout_35">
+         <property name="leftMargin">
+          <number>6</number>
+         </property>
+         <property name="topMargin">
+          <number>6</number>
+         </property>
+         <property name="rightMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>6</number>
+         </property>
+         <item row="3" column="9">
+          <widget class="PyDMLabel" name="PyDMLabel_83">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Hz</string>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:SYSTEM:OffFrequency.EGU</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3" colspan="8">
+          <widget class="QLabel" name="label_95">
+           <property name="palette">
+            <palette>
+             <active>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>255</green>
+                 <blue>255</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="Window">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>167</green>
+                 <blue>167</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </active>
+             <inactive>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>255</green>
+                 <blue>255</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="Window">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>167</green>
+                 <blue>167</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </inactive>
+             <disabled>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>167</green>
+                 <blue>167</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="Window">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>167</green>
+                 <blue>167</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </disabled>
+            </palette>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
+           <property name="text">
+            <string>Turning the system OFF</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="3">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_48" native="true">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:ProcessOffFV:Status4</string>
+           </property>
+           <property name="offColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="circles" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_51" native="true">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:ProcessOffFV:Status2</string>
+           </property>
+           <property name="offColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="circles" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist/>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="3">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_52" native="true">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:ProcessOffFV:Status6</string>
+           </property>
+           <property name="offColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="circles" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist/>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="4" colspan="6">
+          <widget class="PyDMLabel" name="PyDMLabel_74">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Open X203 (TURBOVAC venting valve)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="8">
+          <widget class="PyDMLabel" name="PyDMLabel_82">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>freq</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:SYSTEM:OffFrequency</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_53" native="true">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:ProcessOffFV:Status1</string>
+           </property>
+           <property name="offColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="circles" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist/>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3" rowspan="2">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_50" native="true">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:ProcessOffFV:Status5</string>
+           </property>
+           <property name="offColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="circles" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4" colspan="6">
+          <widget class="PyDMLabel" name="PyDMLabel_76">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Turn TURBOVAC and ACP15 pump off</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="PyDMCheckbox" name="PV_Trigger_OK_MESSAGE">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    A QCheckbox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    </string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="precisionFromPV" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:Process:Bool</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="4" colspan="6">
+          <widget class="PyDMLabel" name="PyDMLabel_80">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Close X203 and gate valves</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="PyDMShellCommand" name="Shell3">
+           <property name="maximumSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="command" stdset="0">
+            <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar ../python/launch_ui_OK_message.py ${IOC}</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_49" native="true">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:ProcessOffFV:Status3</string>
+           </property>
+           <property name="offColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="circles" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_40">
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/stop_button.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="PyDMShellCommand" name="Shell5">
+           <property name="minimumSize">
+            <size>
+             <width>45</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="palette">
+            <palette>
+             <active>
+              <colorrole role="Button">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>239</red>
+                 <green>235</green>
+                 <blue>231</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </active>
+             <inactive>
+              <colorrole role="Button">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>239</red>
+                 <green>235</green>
+                 <blue>231</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </inactive>
+             <disabled>
+              <colorrole role="Button">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>239</red>
+                 <green>235</green>
+                 <blue>231</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </disabled>
+            </palette>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+           </property>
+           <property name="text">
+            <string>OFF</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>../../images/stop_button.png</normaloff>../../images/stop_button.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="allowMultipleExecutions" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="command" stdset="0">
+            <string>python ../scripts/process_off.py ${IOC}</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" rowspan="7" colspan="2">
+          <widget class="QFrame" name="frame_11">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="palette">
+            <palette>
+             <active>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>255</green>
+                 <blue>255</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="Window">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>211</red>
+                 <green>211</green>
+                 <blue>211</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </active>
+             <inactive>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>255</green>
+                 <blue>255</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="Window">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>211</red>
+                 <green>211</green>
+                 <blue>211</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </inactive>
+             <disabled>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>211</red>
+                 <green>211</green>
+                 <blue>211</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="Window">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>211</red>
+                 <green>211</green>
+                 <blue>211</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </disabled>
+            </palette>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_97">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 1</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_98">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 2</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_99">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 3</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_100">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 4</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_101">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 5</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_102">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 6</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="1" column="4" colspan="6">
+          <widget class="PyDMLabel" name="PyDMLabel_73">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Close pre-vacuum valve</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="4" rowspan="2">
+          <widget class="PyDMLabel" name="PyDMLabel_79">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Wait pressure increase up to  </string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="4" colspan="4">
+          <widget class="PyDMLabel" name="PyDMLabel_81">
+           <property name="minimumSize">
+            <size>
+             <width>300</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Wait TURBOVAC frequency decreases under</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="5" rowspan="2">
+          <widget class="PyDMLabel" name="PyDMLabel_78">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>base</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:SYSTEM:OffPressureBase</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="6" rowspan="2">
+          <widget class="QLabel" name="label_96">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>* 10</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="7">
+          <widget class="PyDMLabel" name="PyDMLabel_75">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>12</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>7</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>exp</string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:SYSTEM:OffPressureExp</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="8" rowspan="2" colspan="2">
+          <widget class="PyDMLabel" name="PyDMLabel_77">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Torr</string>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:SYSTEM:OffPressureBase.EGU</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="3" column="0" rowspan="2">
+     <widget class="QFrame" name="frame_3">
+      <property name="font">
+       <font>
+        <family>Cantarell</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_45">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <layout class="QGridLayout" name="gridLayout_46">
+         <property name="leftMargin">
+          <number>6</number>
+         </property>
+         <property name="topMargin">
+          <number>6</number>
+         </property>
+         <property name="rightMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>6</number>
+         </property>
+         <item row="5" column="4" rowspan="2">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_66" native="true">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:ProcessOn:Status4</string>
+           </property>
+           <property name="offColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="circles" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="PyDMCheckbox" name="Shell_PV_trigger_ON">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    A QCheckbox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    </string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="precisionFromPV" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:Process:TriggerOn</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="5" colspan="5">
+          <widget class="PyDMLabel" name="PyDMLabel_101">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Wait TURBOVAC pump stops completely</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="5" colspan="5">
+          <widget class="PyDMLabel" name="PyDMLabel_105">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Turn ACP15 pump on</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="4">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_65" native="true">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:ProcessOn:Status5</string>
+           </property>
+           <property name="offColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="circles" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist/>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="9" rowspan="2">
+          <widget class="PyDMLabel" name="PyDMLabel_103">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Torr</string>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:SYSTEM:OnPressureBase.EGU</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2" rowspan="6" colspan="2">
+          <widget class="QFrame" name="frame_12">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="palette">
+            <palette>
+             <active>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>255</green>
+                 <blue>255</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="Window">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>211</red>
+                 <green>211</green>
+                 <blue>211</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </active>
+             <inactive>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>255</green>
+                 <blue>255</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="Window">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>211</red>
+                 <green>211</green>
+                 <blue>211</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </inactive>
+             <disabled>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>211</red>
+                 <green>211</green>
+                 <blue>211</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="Window">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>211</red>
+                 <green>211</green>
+                 <blue>211</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </disabled>
+            </palette>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_130">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 1</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_131">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 2</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_132">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 3</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_133">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 4</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_134">
+              <property name="font">
+               <font>
+                <family>Cantarell</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stage 5</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="3" column="5" colspan="5">
+          <widget class="PyDMLabel" name="PyDMLabel_107">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Open gate valve and pre-vacuum valve</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_68" native="true">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:ProcessOn:Status1</string>
+           </property>
+           <property name="offColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="circles" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2" rowspan="2">
+          <widget class="QLabel" name="label_38">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/play_button.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="PyDMShellCommand" name="Shell_PV_trigger_ON_2">
+           <property name="maximumSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="command" stdset="0">
+            <string>python ../scripts/process_on.py ${IOC}</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="6" rowspan="2">
+          <widget class="PyDMLabel" name="PyDMLabel_104">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>base</string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:SYSTEM:OnPressureBase</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="5" rowspan="2">
+          <widget class="PyDMLabel" name="PyDMLabel_108">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Wait pressure decrease under</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3" rowspan="2">
+          <widget class="PyDMShellCommand" name="Shell6">
+           <property name="minimumSize">
+            <size>
+             <width>45</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="palette">
+            <palette>
+             <active>
+              <colorrole role="Button">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>239</red>
+                 <green>235</green>
+                 <blue>231</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </active>
+             <inactive>
+              <colorrole role="Button">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>239</red>
+                 <green>235</green>
+                 <blue>231</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </inactive>
+             <disabled>
+              <colorrole role="Button">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>239</red>
+                 <green>235</green>
+                 <blue>231</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </disabled>
+            </palette>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+             <underline>false</underline>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+           </property>
+           <property name="text">
+            <string>ON</string>
+           </property>
+           <property name="icon">
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="allowMultipleExecutions" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="command" stdset="0">
+            <string>python ../scripts/check_pressure.py ${IOC} 0</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="4">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_67" native="true">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:ProcessOn:Status2</string>
+           </property>
+           <property name="offColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="circles" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist/>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="PyDMCheckbox" name="Shell_PV_trigger_PRESSURIZED">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    A QCheckbox with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    </string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="precisionFromPV" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:Process:TriggerPressurized</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="4">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_69" native="true">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:ProcessOn:Status3</string>
+           </property>
+           <property name="offColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="circles" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist/>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="7" rowspan="2">
+          <widget class="QLabel" name="label_143">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>* 10</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="5" colspan="5">
+          <widget class="PyDMLabel" name="PyDMLabel_106">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Turn TURBOVAC pump on</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="8">
+          <widget class="PyDMLabel" name="PyDMLabel_102">
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>7</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="text">
+            <string>exp</string>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${IOC}:SYSTEM:OnPressureExp</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4" rowspan="2" colspan="6">
+          <widget class="QLabel" name="label_129">
+           <property name="palette">
+            <palette>
+             <active>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>255</green>
+                 <blue>255</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="Window">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>182</red>
+                 <green>230</green>
+                 <blue>176</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </active>
+             <inactive>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>255</green>
+                 <blue>255</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="Window">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>182</red>
+                 <green>230</green>
+                 <blue>176</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </inactive>
+             <disabled>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>182</red>
+                 <green>230</green>
+                 <blue>176</blue>
+                </color>
+               </brush>
+              </colorrole>
+              <colorrole role="Window">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>182</red>
+                 <green>230</green>
+                 <blue>176</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </disabled>
+            </palette>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
+           <property name="text">
+            <string>Turning the system ON</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="PyDMShellCommand" name="Shell_PV_trigger_PRESSURIZED_2">
+           <property name="maximumSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string>
+    A QPushButton capable of execute shell commands.
+    </string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="command" stdset="0">
+            <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar launch_ui_warning_message.py ${IOC}</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
     </item>
     <item row="0" column="0" rowspan="2">
      <layout class="QGridLayout" name="gridLayout_42">
@@ -615,8 +2850,148 @@
       </item>
      </layout>
     </item>
-    <item row="2" column="0">
-     <spacer name="verticalSpacer_4">
+    <item row="9" column="0">
+     <widget class="PyDMRelatedDisplayButton" name="Advanced_tab">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>211</red>
+            <green>211</green>
+            <blue>211</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>211</red>
+            <green>211</green>
+            <blue>211</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>211</red>
+            <green>211</green>
+            <blue>211</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>211</red>
+            <green>211</green>
+            <blue>211</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>211</red>
+            <green>211</green>
+            <blue>211</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>211</red>
+            <green>211</green>
+            <blue>211</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>211</red>
+            <green>211</green>
+            <blue>211</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="whatsThis">
+       <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="text">
+       <string>Advanced tab...</string>
+      </property>
+      <property name="showIcon" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="macros" stdset="0">
+       <string>{&quot;IOC&quot;:&quot;$IOC&quot;, &quot;CAR&quot;:&quot;$CAR&quot;}</string>
+      </property>
+      <property name="openInNewWindow" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <spacer name="verticalSpacer_6">
       <property name="font">
        <font>
         <family>Cantarell</family>
@@ -636,1171 +3011,6 @@
        </size>
       </property>
      </spacer>
-    </item>
-    <item row="3" column="0" rowspan="2">
-     <widget class="QFrame" name="frame_3">
-      <property name="font">
-       <font>
-        <family>Cantarell</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::Box</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_45">
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item row="0" column="0">
-        <layout class="QGridLayout" name="gridLayout_46">
-         <property name="leftMargin">
-          <number>6</number>
-         </property>
-         <property name="topMargin">
-          <number>6</number>
-         </property>
-         <property name="rightMargin">
-          <number>6</number>
-         </property>
-         <property name="bottomMargin">
-          <number>6</number>
-         </property>
-         <item row="5" column="4" rowspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_66">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOn:Status4</string>
-           </property>
-           <property name="offColor" stdset="0">
-            <color>
-             <red>255</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </property>
-           <property name="circles" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist/>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="PyDMCheckbox" name="Shell_PV_trigger_ON">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    A QCheckbox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    </string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="alarmSensitiveBorder" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="precisionFromPV" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:Process:TriggerOn</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="5" colspan="5">
-          <widget class="PyDMLabel" name="PyDMLabel_101">
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Wait TURBOVAC pump stops completely</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="5" colspan="5">
-          <widget class="PyDMLabel" name="PyDMLabel_105">
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Turn ACP15 pump on</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="4">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_65">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOn:Status5</string>
-           </property>
-           <property name="offColor" stdset="0">
-            <color>
-             <red>255</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </property>
-           <property name="circles" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist/>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="9" rowspan="2">
-          <widget class="PyDMLabel" name="PyDMLabel_103">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Torr</string>
-           </property>
-           <property name="alarmSensitiveBorder" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:SYSTEM:OnPressureBase.EGU</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="2" rowspan="6" colspan="2">
-          <widget class="QFrame" name="frame_12">
-           <property name="minimumSize">
-            <size>
-             <width>70</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>70</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="palette">
-            <palette>
-             <active>
-              <colorrole role="Base">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>255</green>
-                 <blue>255</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="Window">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>211</red>
-                 <green>211</green>
-                 <blue>211</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </active>
-             <inactive>
-              <colorrole role="Base">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>255</green>
-                 <blue>255</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="Window">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>211</red>
-                 <green>211</green>
-                 <blue>211</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </inactive>
-             <disabled>
-              <colorrole role="Base">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>211</red>
-                 <green>211</green>
-                 <blue>211</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="Window">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>211</red>
-                 <green>211</green>
-                 <blue>211</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </disabled>
-            </palette>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_5">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <property name="leftMargin">
-             <number>0</number>
-            </property>
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_130">
-              <property name="font">
-               <font>
-                <family>Cantarell</family>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 1</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_131">
-              <property name="font">
-               <font>
-                <family>Cantarell</family>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 2</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_132">
-              <property name="font">
-               <font>
-                <family>Cantarell</family>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 3</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_133">
-              <property name="font">
-               <font>
-                <family>Cantarell</family>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 4</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_134">
-              <property name="font">
-               <font>
-                <family>Cantarell</family>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 5</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="3" column="5" colspan="5">
-          <widget class="PyDMLabel" name="PyDMLabel_107">
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Open gate valve and pre-vacuum valve</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="4">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_68">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOn:Status1</string>
-           </property>
-           <property name="offColor" stdset="0">
-            <color>
-             <red>255</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </property>
-           <property name="circles" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist/>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2" rowspan="2">
-          <widget class="QLabel" name="label_38">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/play_button.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="PyDMShellCommand" name="Shell_PV_trigger_ON_2">
-           <property name="maximumSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    A QPushButton capable of execute shell commands.
-    </string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="command" stdset="0">
-            <string>python ../scripts/process_on.py ${IOC}</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="6" rowspan="2">
-          <widget class="PyDMLabel" name="PyDMLabel_104">
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>base</string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:SYSTEM:OnPressureBase</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="5" rowspan="2">
-          <widget class="PyDMLabel" name="PyDMLabel_108">
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Wait pressure decrease under</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3" rowspan="2">
-          <widget class="PyDMShellCommand" name="Shell_ON_button">
-           <property name="minimumSize">
-            <size>
-             <width>45</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="palette">
-            <palette>
-             <active>
-              <colorrole role="Button">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>239</red>
-                 <green>235</green>
-                 <blue>231</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </active>
-             <inactive>
-              <colorrole role="Button">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>239</red>
-                 <green>235</green>
-                 <blue>231</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </inactive>
-             <disabled>
-              <colorrole role="Button">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>239</red>
-                 <green>235</green>
-                 <blue>231</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </disabled>
-            </palette>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-             <underline>false</underline>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    A QPushButton capable of execute shell commands.
-    </string>
-           </property>
-           <property name="text">
-            <string>ON</string>
-           </property>
-           <property name="icon">
-            <iconset resource="../../images/logo.qrc">
-             <normaloff>:/play_button.jpg</normaloff>:/play_button.jpg</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="allowMultipleExecutions" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="command" stdset="0">
-            <string>python ../scripts/check_pressure.py ${IOC} 0</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="4">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_67">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOn:Status2</string>
-           </property>
-           <property name="offColor" stdset="0">
-            <color>
-             <red>255</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </property>
-           <property name="circles" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist/>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="7" rowspan="2">
-          <widget class="QLabel" name="label_143">
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>* 10</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="0">
-          <widget class="PyDMCheckbox" name="Shell_PV_trigger_PRESSURIZED">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    A QCheckbox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    </string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="alarmSensitiveBorder" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="precisionFromPV" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:Process:TriggerPressurized</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="4">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_69">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOn:Status3</string>
-           </property>
-           <property name="offColor" stdset="0">
-            <color>
-             <red>255</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </property>
-           <property name="circles" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist/>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="5" colspan="5">
-          <widget class="PyDMLabel" name="PyDMLabel_106">
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Turn TURBOVAC pump on</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="8">
-          <widget class="PyDMLabel" name="PyDMLabel_102">
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>7</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>exp</string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:SYSTEM:OnPressureExp</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="4" rowspan="2" colspan="6">
-          <widget class="QLabel" name="label_129">
-           <property name="palette">
-            <palette>
-             <active>
-              <colorrole role="Base">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>255</green>
-                 <blue>255</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="Window">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>182</red>
-                 <green>230</green>
-                 <blue>176</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </active>
-             <inactive>
-              <colorrole role="Base">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>255</green>
-                 <blue>255</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="Window">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>182</red>
-                 <green>230</green>
-                 <blue>176</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </inactive>
-             <disabled>
-              <colorrole role="Base">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>182</red>
-                 <green>230</green>
-                 <blue>176</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="Window">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>182</red>
-                 <green>230</green>
-                 <blue>176</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </disabled>
-            </palette>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="text">
-            <string>Turning the system ON</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="0">
-          <widget class="PyDMShellCommand" name="Shell_PV_trigger_PRESSURIZED_2">
-           <property name="maximumSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    A QPushButton capable of execute shell commands.
-    </string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="command" stdset="0">
-            <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar launch_ui_warning_message.py ${IOC}</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="0">
-          <widget class="PyDMCheckbox" name="Shell_PV_Trigger_OK_MESSAGE_ON">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    A QCheckbox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    </string>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="alarmSensitiveBorder" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="precisionFromPV" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOn:Bool</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="0">
-          <widget class="PyDMShellCommand" name="Shell_launch_OK_message_ON">
-           <property name="maximumSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    A QPushButton capable of execute shell commands.
-    </string>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="command" stdset="0">
-            <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar ../python/launch_ui_OK_message.py ${IOC} ON</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
     </item>
     <item row="5" column="0">
      <spacer name="verticalSpacer_5">
@@ -1823,1183 +3033,6 @@
        </size>
       </property>
      </spacer>
-    </item>
-    <item row="3" column="1">
-     <spacer name="horizontalSpacer_5">
-      <property name="font">
-       <font>
-        <family>Cantarell</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Fixed</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>10</width>
-        <height>5</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="6" column="0" rowspan="2">
-     <widget class="QFrame" name="frame_7">
-      <property name="font">
-       <font>
-        <family>Cantarell</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::Box</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_34">
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item row="0" column="0">
-        <layout class="QGridLayout" name="gridLayout_35">
-         <property name="leftMargin">
-          <number>6</number>
-         </property>
-         <property name="topMargin">
-          <number>6</number>
-         </property>
-         <property name="rightMargin">
-          <number>6</number>
-         </property>
-         <property name="bottomMargin">
-          <number>6</number>
-         </property>
-         <item row="2" column="3">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_51">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOffFV:Status2</string>
-           </property>
-           <property name="offColor" stdset="0">
-            <color>
-             <red>255</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </property>
-           <property name="circles" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist/>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="9">
-          <widget class="PyDMLabel" name="PyDMLabel_83">
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Hz</string>
-           </property>
-           <property name="alarmSensitiveBorder" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:SYSTEM:OffFrequency.EGU</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3" colspan="8">
-          <widget class="QLabel" name="label_95">
-           <property name="palette">
-            <palette>
-             <active>
-              <colorrole role="Base">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>255</green>
-                 <blue>255</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="Window">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>167</green>
-                 <blue>167</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </active>
-             <inactive>
-              <colorrole role="Base">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>255</green>
-                 <blue>255</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="Window">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>167</green>
-                 <blue>167</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </inactive>
-             <disabled>
-              <colorrole role="Base">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>167</green>
-                 <blue>167</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="Window">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>167</green>
-                 <blue>167</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </disabled>
-            </palette>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="text">
-            <string>Turning the system OFF</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="3">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_48">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOffFV:Status4</string>
-           </property>
-           <property name="offColor" stdset="0">
-            <color>
-             <red>255</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </property>
-           <property name="circles" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist/>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="3">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_52">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOffFV:Status6</string>
-           </property>
-           <property name="offColor" stdset="0">
-            <color>
-             <red>255</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </property>
-           <property name="circles" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist/>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="4" colspan="6">
-          <widget class="PyDMLabel" name="PyDMLabel_74">
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Open X203 (TURBOVAC venting valve)</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="8">
-          <widget class="PyDMLabel" name="PyDMLabel_82">
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>freq</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:SYSTEM:OffFrequency</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="3">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_53">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOffFV:Status1</string>
-           </property>
-           <property name="offColor" stdset="0">
-            <color>
-             <red>255</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </property>
-           <property name="circles" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist/>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="3" rowspan="2">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_50">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOffFV:Status5</string>
-           </property>
-           <property name="offColor" stdset="0">
-            <color>
-             <red>255</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </property>
-           <property name="circles" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist/>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="4" colspan="6">
-          <widget class="PyDMLabel" name="PyDMLabel_76">
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Turn TURBOVAC and ACP15 pump off</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="PyDMCheckbox" name="Shell_PV_Trigger_OK_MESSAGE_OFF">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    A QCheckbox with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    </string>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="alarmSensitiveBorder" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="precisionFromPV" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOff:Bool</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="4" colspan="6">
-          <widget class="PyDMLabel" name="PyDMLabel_80">
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Close X203 and gate valves</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="PyDMShellCommand" name="Shell_launch_OK_message_OFF">
-           <property name="maximumSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    A QPushButton capable of execute shell commands.
-    </string>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="command" stdset="0">
-            <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar ../python/launch_ui_OK_message.py ${IOC} OFF</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="3">
-          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_49">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    Widget for graphical representation of bits from an integer number
-    with support for Channels and more from PyDM
-
-    Parameters
-    ----------
-    parent : QWidget
-        The parent widget for the Label
-    init_channel : str, optional
-        The channel to be used by the widget.
-    </string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:ProcessOffFV:Status3</string>
-           </property>
-           <property name="offColor" stdset="0">
-            <color>
-             <red>255</red>
-             <green>0</green>
-             <blue>0</blue>
-            </color>
-           </property>
-           <property name="circles" stdset="0">
-            <bool>true</bool>
-           </property>
-           <property name="labels" stdset="0">
-            <stringlist/>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLabel" name="label_40">
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;../images/stop_button.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="PyDMShellCommand" name="Shell_OFF_button">
-           <property name="minimumSize">
-            <size>
-             <width>45</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="palette">
-            <palette>
-             <active>
-              <colorrole role="Button">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>239</red>
-                 <green>235</green>
-                 <blue>231</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </active>
-             <inactive>
-              <colorrole role="Button">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>239</red>
-                 <green>235</green>
-                 <blue>231</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </inactive>
-             <disabled>
-              <colorrole role="Button">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>239</red>
-                 <green>235</green>
-                 <blue>231</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </disabled>
-            </palette>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string>
-    A QPushButton capable of execute shell commands.
-    </string>
-           </property>
-           <property name="text">
-            <string>OFF</string>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>../../images/stop_button.png</normaloff>../../images/stop_button.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="allowMultipleExecutions" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="command" stdset="0">
-            <string>python ../scripts/process_off.py ${IOC}</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1" rowspan="7" colspan="2">
-          <widget class="QFrame" name="frame_11">
-           <property name="minimumSize">
-            <size>
-             <width>70</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>70</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="palette">
-            <palette>
-             <active>
-              <colorrole role="Base">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>255</green>
-                 <blue>255</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="Window">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>211</red>
-                 <green>211</green>
-                 <blue>211</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </active>
-             <inactive>
-              <colorrole role="Base">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>255</green>
-                 <blue>255</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="Window">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>211</red>
-                 <green>211</green>
-                 <blue>211</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </inactive>
-             <disabled>
-              <colorrole role="Base">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>211</red>
-                 <green>211</green>
-                 <blue>211</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="Window">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>211</red>
-                 <green>211</green>
-                 <blue>211</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </disabled>
-            </palette>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_4">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <property name="leftMargin">
-             <number>0</number>
-            </property>
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_97">
-              <property name="font">
-               <font>
-                <family>Cantarell</family>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 1</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_98">
-              <property name="font">
-               <font>
-                <family>Cantarell</family>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 2</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_99">
-              <property name="font">
-               <font>
-                <family>Cantarell</family>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 3</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_100">
-              <property name="font">
-               <font>
-                <family>Cantarell</family>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 4</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_101">
-              <property name="font">
-               <font>
-                <family>Cantarell</family>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 5</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_102">
-              <property name="font">
-               <font>
-                <family>Cantarell</family>
-                <pointsize>11</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Stage 6</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="1" column="4" colspan="6">
-          <widget class="PyDMLabel" name="PyDMLabel_73">
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Close pre-vacuum valve</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="4" rowspan="2">
-          <widget class="PyDMLabel" name="PyDMLabel_79">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Wait pressure increase up to  </string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="4" colspan="4">
-          <widget class="PyDMLabel" name="PyDMLabel_81">
-           <property name="minimumSize">
-            <size>
-             <width>300</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Wait TURBOVAC frequency decreases under</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="5" rowspan="2">
-          <widget class="PyDMLabel" name="PyDMLabel_78">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>base</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:SYSTEM:OffPressureBase</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="6" rowspan="2">
-          <widget class="QLabel" name="label_96">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>* 10</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="7">
-          <widget class="PyDMLabel" name="PyDMLabel_75">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>12</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>7</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>exp</string>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:SYSTEM:OffPressureExp</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="8" rowspan="2" colspan="2">
-          <widget class="PyDMLabel" name="PyDMLabel_77">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Cantarell</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Torr</string>
-           </property>
-           <property name="alarmSensitiveBorder" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="channel" stdset="0">
-            <string>ca://${IOC}:SYSTEM:OffPressureBase.EGU</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
     </item>
     <item row="0" column="2" rowspan="10">
      <layout class="QGridLayout" name="gridLayout_2">
@@ -3525,7 +3558,7 @@
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_54">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_54" native="true">
              <property name="minimumSize">
               <size>
                <width>12</width>
@@ -3758,7 +3791,7 @@
             </widget>
            </item>
            <item row="3" column="1">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_56">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_56" native="true">
              <property name="minimumSize">
               <size>
                <width>12</width>
@@ -3885,7 +3918,7 @@
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_55">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_55" native="true">
              <property name="minimumSize">
               <size>
                <width>12</width>
@@ -3942,7 +3975,7 @@
             </widget>
            </item>
            <item row="4" column="1">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_57">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_57" native="true">
              <property name="minimumSize">
               <size>
                <width>12</width>
@@ -4053,7 +4086,7 @@
             </widget>
            </item>
            <item row="0" column="0">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_58">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_58" native="true">
              <property name="minimumSize">
               <size>
                <width>20</width>
@@ -5635,7 +5668,7 @@
             </widget>
            </item>
            <item row="2" column="5">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_64">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_64" native="true">
              <property name="minimumSize">
               <size>
                <width>20</width>
@@ -6237,7 +6270,7 @@
               <bool>false</bool>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${IOC}:BBB:Relay2-SW</string>
+              <string>ca://${IOC}:BBB:Relay4-SW</string>
              </property>
             </widget>
            </item>
@@ -6264,7 +6297,7 @@
             </spacer>
            </item>
            <item row="5" column="1">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_62">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_62" native="true">
              <property name="enabled">
               <bool>false</bool>
              </property>
@@ -6372,7 +6405,7 @@
               <bool>false</bool>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${IOC}:BBB:Relay1-SW</string>
+              <string>ca://${IOC}:BBB:Relay2-SW</string>
              </property>
             </widget>
            </item>
@@ -6805,7 +6838,7 @@
             </widget>
            </item>
            <item row="3" column="5">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_61">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_61" native="true">
              <property name="minimumSize">
               <size>
                <width>20</width>
@@ -6841,7 +6874,7 @@
     </string>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${IOC}:BBB:Relay2-SW</string>
+              <string>ca://${IOC}:BBB:Relay4-SW</string>
              </property>
              <property name="offColor" stdset="0">
               <color>
@@ -6859,7 +6892,7 @@
             </widget>
            </item>
            <item row="6" column="1">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_60">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_60" native="true">
              <property name="minimumSize">
               <size>
                <width>20</width>
@@ -6913,7 +6946,7 @@
             </widget>
            </item>
            <item row="1" column="5">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_63">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_63" native="true">
              <property name="minimumSize">
               <size>
                <width>20</width>
@@ -6949,7 +6982,7 @@
     </string>
              </property>
              <property name="channel" stdset="0">
-              <string>ca://${IOC}:BBB:Relay1-SW</string>
+              <string>ca://${IOC}:BBB:Relay2-SW</string>
              </property>
              <property name="offColor" stdset="0">
               <color>
@@ -7157,7 +7190,7 @@
             </widget>
            </item>
            <item row="0" column="0">
-            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_59">
+            <widget class="PyDMByteIndicator" name="PyDMByteIndicator_59" native="true">
              <property name="minimumSize">
               <size>
                <width>20</width>
@@ -7242,325 +7275,46 @@
       </item>
      </layout>
     </item>
-    <item row="9" column="0">
-     <layout class="QGridLayout" name="gridLayout_4">
-      <item row="0" column="1">
-       <spacer name="horizontalSpacer_7">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="0" column="2">
-       <widget class="PyDMRelatedDisplayButton" name="Advanced_tab">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="palette">
-         <palette>
-          <active>
-           <colorrole role="Button">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>211</red>
-              <green>211</green>
-              <blue>211</blue>
-             </color>
-            </brush>
-           </colorrole>
-           <colorrole role="Base">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </brush>
-           </colorrole>
-           <colorrole role="Window">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>211</red>
-              <green>211</green>
-              <blue>211</blue>
-             </color>
-            </brush>
-           </colorrole>
-          </active>
-          <inactive>
-           <colorrole role="Button">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>211</red>
-              <green>211</green>
-              <blue>211</blue>
-             </color>
-            </brush>
-           </colorrole>
-           <colorrole role="Base">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </brush>
-           </colorrole>
-           <colorrole role="Window">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>211</red>
-              <green>211</green>
-              <blue>211</blue>
-             </color>
-            </brush>
-           </colorrole>
-          </inactive>
-          <disabled>
-           <colorrole role="Button">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>211</red>
-              <green>211</green>
-              <blue>211</blue>
-             </color>
-            </brush>
-           </colorrole>
-           <colorrole role="Base">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>211</red>
-              <green>211</green>
-              <blue>211</blue>
-             </color>
-            </brush>
-           </colorrole>
-           <colorrole role="Window">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>211</red>
-              <green>211</green>
-              <blue>211</blue>
-             </color>
-            </brush>
-           </colorrole>
-          </disabled>
-         </palette>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>11</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="toolTip">
-         <string/>
-        </property>
-        <property name="whatsThis">
-         <string>
-    A QPushButton capable of opening a new Display at the same of at a
-    new window.
-
-    Parameters
-    ----------
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    filename : str, optional
-        The file to be opened
-    </string>
-        </property>
-        <property name="autoFillBackground">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string>Advanced tab...</string>
-        </property>
-        <property name="showIcon" stdset="0">
-         <bool>false</bool>
-        </property>
-        <property name="displayFilename" stdset="0">
-         <string>./advanced_window.ui</string>
-        </property>
-        <property name="macros" stdset="0">
-         <string>{&quot;IOC&quot;:&quot;$IOC&quot;, &quot;CAR&quot;:&quot;$CAR&quot;}</string>
-        </property>
-        <property name="openInNewWindow" stdset="0">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="PyDMRelatedDisplayButton" name="Simple_tab">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="palette">
-         <palette>
-          <active>
-           <colorrole role="Button">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>211</red>
-              <green>211</green>
-              <blue>211</blue>
-             </color>
-            </brush>
-           </colorrole>
-           <colorrole role="Base">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </brush>
-           </colorrole>
-           <colorrole role="Window">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>211</red>
-              <green>211</green>
-              <blue>211</blue>
-             </color>
-            </brush>
-           </colorrole>
-          </active>
-          <inactive>
-           <colorrole role="Button">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>211</red>
-              <green>211</green>
-              <blue>211</blue>
-             </color>
-            </brush>
-           </colorrole>
-           <colorrole role="Base">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </brush>
-           </colorrole>
-           <colorrole role="Window">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>211</red>
-              <green>211</green>
-              <blue>211</blue>
-             </color>
-            </brush>
-           </colorrole>
-          </inactive>
-          <disabled>
-           <colorrole role="Button">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>211</red>
-              <green>211</green>
-              <blue>211</blue>
-             </color>
-            </brush>
-           </colorrole>
-           <colorrole role="Base">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>211</red>
-              <green>211</green>
-              <blue>211</blue>
-             </color>
-            </brush>
-           </colorrole>
-           <colorrole role="Window">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>211</red>
-              <green>211</green>
-              <blue>211</blue>
-             </color>
-            </brush>
-           </colorrole>
-          </disabled>
-         </palette>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>11</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="toolTip">
-         <string/>
-        </property>
-        <property name="whatsThis">
-         <string>
-    A QPushButton capable of opening a new Display at the same of at a
-    new window.
-
-    Parameters
-    ----------
-    init_channel : str, optional
-        The channel to be used by the widget.
-
-    filename : str, optional
-        The file to be opened
-    </string>
-        </property>
-        <property name="autoFillBackground">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string>Simple tab...</string>
-        </property>
-        <property name="showIcon" stdset="0">
-         <bool>false</bool>
-        </property>
-        <property name="displayFilename" stdset="0">
-         <string>./simple_window.ui</string>
-        </property>
-        <property name="macros" stdset="0">
-         <string>{&quot;IOC&quot;:&quot;$IOC&quot;, &quot;CAR&quot;:&quot;$CAR&quot;}</string>
-        </property>
-        <property name="openInNewWindow" stdset="0">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
+    <item row="2" column="0">
+     <spacer name="verticalSpacer_4">
+      <property name="font">
+       <font>
+        <family>Cantarell</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Expanding</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>0</width>
+        <height>5</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>
  </widget>
  <customwidgets>
   <customwidget>
+   <class>PyDMShellCommand</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.shell_command</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
    <class>PyDMCheckbox</class>
    <extends>QCheckBox</extends>
    <header>pydm.widgets.checkbox</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMRelatedDisplayButton</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.related_display_button</header>
   </customwidget>
   <customwidget>
    <class>PyDMLineEdit</class>
@@ -7573,19 +7327,11 @@
    <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
-   <class>PyDMLabel</class>
-   <extends>QLabel</extends>
-   <header>pydm.widgets.label</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMShellCommand</class>
+   <class>PyDMRelatedDisplayButton</class>
    <extends>QPushButton</extends>
-   <header>pydm.widgets.shell_command</header>
+   <header>pydm.widgets.related_display_button</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../../images/logo.qrc"/>
- </resources>
  <connections>
   <connection>
    <sender>Shell_PV_trigger_ON</sender>
@@ -7595,27 +7341,27 @@
    <hints>
     <hint type="sourcelabel">
      <x>19</x>
-     <y>245</y>
+     <y>244</y>
     </hint>
     <hint type="destinationlabel">
      <x>19</x>
-     <y>261</y>
+     <y>260</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>Shell_PV_Trigger_OK_MESSAGE_OFF</sender>
+   <sender>PV_Trigger_OK_MESSAGE</sender>
    <signal>toggled(bool)</signal>
-   <receiver>Shell_launch_OK_message_OFF</receiver>
+   <receiver>Shell3</receiver>
    <slot>execute_command()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>19</x>
-     <y>469</y>
+     <y>471</y>
     </hint>
     <hint type="destinationlabel">
      <x>19</x>
-     <y>495</y>
+     <y>497</y>
     </hint>
    </hints>
   </connection>
@@ -7627,27 +7373,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>19</x>
-     <y>313</y>
+     <y>312</y>
     </hint>
     <hint type="destinationlabel">
      <x>19</x>
-     <y>335</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Shell_PV_Trigger_OK_MESSAGE_ON</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>Shell_launch_OK_message_ON</receiver>
-   <slot>execute_command()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>19</x>
-     <y>348</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>19</x>
-     <y>365</y>
+     <y>334</y>
     </hint>
    </hints>
   </connection>
