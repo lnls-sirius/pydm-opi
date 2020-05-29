@@ -21,17 +21,28 @@ Clone from master or download the lattest release.<br>
 Optionally the user may clone recursive in order to pull the module `conscommon`. If so, install the module using `cd cons-common && pip install .`.<br>
 
 ### Using [Conda](https://docs.conda.io/en/latest/miniconda.html)
-This is the recommended way to install. 
+This is the recommended way to install ...
+
+Install EPICS and add it to PATH(Windows only)
 ```
-conda create --name pydm python=3.8
+https://epics.anl.gov/download/distributions/EPICSWindowsTools1.44-x64.msi
+```
+
+Create and activate the conda environment:
+```
+conda init <shell name> # Restart shell after ... (bash, powershell, etc...)
+conda create --name pydm python=3.7 # pyqtgraph==0.1.0 does not work with python 3.8
 conda activate pydm
-pip install -r requirements.txt .
+```
 
+Install dependencies and OPIs (Will use ~/ as the default path but feel free to change):
+```
+# Install PyDM (If on Windows `wget` and `tar` may not be available, just download the file using a browser and extract it)
+wget https://github.com/slaclab/pydm/archive/v1.10.1.tar.gz
+tar -zxvf v1.10.1.tar.gz && rm -f v1.10.1.tar.gz && cd pydm-1.10.1 && pip install . && cd ..
+
+# Install pydm-opi and cons-common
 cd ~/ && git clone --recursive https://github.com/lnls-sirius/pydm-opi && cd pydm-opi
-
-wget https://github.com/slaclab/pydm/archive/v1.10.0.tar.gz
-tar -zxvf v1.10.0.tar.gz && rm -f v1.10.0.tar.gz && cd pydm-1.10.0 && pip install . && cd ..
-
 cd ~/pydm-opi/cons-common && pip install . && cd ../ && pip install .
 ```
 
@@ -43,7 +54,7 @@ make install-files
 If using conda, remember to fix the Exec entry at the `.desktop' file accordingly:
 ``` 
 /bin/bash -c 'source ~/miniconda3/etc/profile.d/conda.sh && conda activate pydm && sirius-hla-as-ap-conlauncher.py'
-``` 
+```
 
 Run
 ---
