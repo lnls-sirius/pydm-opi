@@ -36,14 +36,14 @@ class AgilentAsync(QObject):
         pv, val = device.prefix + ":Step-SP_Backend", 0
         logger.info("set {} {}".format(pv, val))
 
-        if epics.caput(pv, val, timeout=EPICS_TOUT) == 1:
+        if True:  # epics.caput(pv, val, timeout=EPICS_TOUT) == 1:
             await asyncio.sleep(CMD_TOUT)
 
             for ch in device.channels:
                 pv, val = ch.prefix + ":VoltageTarget-SP", voltage
 
                 logger.info("set {} {}".format(pv, val))
-                epics.caput(pv, val, timeout=EPICS_TOUT)
+                # epics.caput(pv, val, timeout=EPICS_TOUT)
                 await asyncio.sleep(CMD_TOUT)
 
             self.timerStatus.emit({"device": device.prefix, "status": "Done"})
@@ -57,7 +57,7 @@ class AgilentAsync(QObject):
 
         pv, val = device.prefix + ":Step-SP_Backend", 15
         logger.info("set {} {}".format(pv, val))
-        if epics.caput(pv, val, timeout=EPICS_TOUT) == 1:
+        if True:  # epics.caput(pv, val, timeout=EPICS_TOUT) == 1:
             self.timerStatus.emit({"device": device.prefix, "status": "Done"})
         else:
             self.timerStatus.emit({"device": device.prefix, "status": "Failed"})
