@@ -23,14 +23,14 @@ Optionally the user may clone recursive in order to pull the module `conscommon`
 ### Using [Conda](https://docs.conda.io/en/latest/miniconda.html)
 This is the recommended way to install. 
 ```
-conda create --name pydm python=3.8
+conda create --name pydm python=3.7
 conda activate pydm
 pip install -r requirements.txt .
 
 cd ~/ && git clone --recursive https://github.com/lnls-sirius/pydm-opi && cd pydm-opi
 
-wget https://github.com/slaclab/pydm/archive/v1.10.0.tar.gz
-tar -zxvf v1.10.0.tar.gz && rm -f v1.10.0.tar.gz && cd pydm-1.10.0 && pip install . && cd ..
+wget https://github.com/slaclab/pydm/archive/v1.10.1.tar.gz
+tar -zxvf v1.10.1.tar.gz && rm -f v1.10.1.tar.gz && cd pydm-1.10.1 && pip install . && cd ..
 
 cd ~/pydm-opi/cons-common && pip install . && cd ../ && pip install .
 ```
