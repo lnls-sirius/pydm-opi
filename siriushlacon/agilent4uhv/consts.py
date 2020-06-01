@@ -24,5 +24,7 @@ AGILENT_DEVICE_UI = get_abs_path("ui/device.ui")
 AGILENT_CHANNEL = get_abs_path("channel.py")
 AGILENT_CHANNEL_UI = get_abs_path("ui/channel.ui")
 
+AGILENT_EXTENDED = get_abs_path("extended.py")
+
 
 lazy_devices = LazyDevices(conscommon.data.getAgilent)
