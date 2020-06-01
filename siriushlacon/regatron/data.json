@@ -1,4 +1,5 @@
 [
+    {"type":"TEST","pv":"RegTest"},
     {"type":"DIP","pv":"PA-RaPSD01:PS-DCLink-1A"},
     {"type":"DIP","pv":"PA-RaPSD01:PS-DCLink-1B"},
     {"type":"DIP","pv":"PA-RaPSD03:PS-DCLink-2A"},
