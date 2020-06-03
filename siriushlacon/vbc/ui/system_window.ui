@@ -5455,7 +5455,7 @@
       </layout>
      </item>
      <item row="6" column="0">
-      <widget class="PyDMRelatedDisplayButton" name="Advanced_tab_2">
+      <widget class="PyDMRelatedDisplayButton" name="btnSimpleTab">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -6916,14 +6916,14 @@
    <header>pydm.widgets.line_edit</header>
   </customwidget>
   <customwidget>
-   <class>PyDMRelatedDisplayButton</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.related_display_button</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMShellCommand</class>
    <extends>QPushButton</extends>
    <header>pydm.widgets.shell_command</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMRelatedDisplayButton</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.related_display_button</header>
   </customwidget>
  </customwidgets>
  <resources/>

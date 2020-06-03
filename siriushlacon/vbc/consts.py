@@ -31,7 +31,7 @@ MAIN_WINDOW_PY = get_abs_path("launch_ui_main_window.py")
 OK_MESSAGE_PY = get_abs_path("launch_ui_OK_message.py")
 SYSTEM_WINDOW_PY = get_abs_path("launch_ui_system_window.py")
 WARNING_WINDOW_PY = get_abs_path("launch_ui_warning_message.py")
-SIMPLE_WINDOW_PY = get_abs_path("ui/simple_ui_window.ui")
+SIMPLE_WINDOW_PY = get_abs_path("launch_ui_simple_window.py")
 
 # Scripts
 CHECK_PRESSURE_SCRIPT = get_abs_path("scripts/check_pressure.py")

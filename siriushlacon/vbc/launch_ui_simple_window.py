@@ -19,14 +19,14 @@ class DeviceMenu(Display):
             parent=parent, args=args, macros=macros, ui_filename=SIMPLE_WINDOW_UI
         )
         self.lnlsLabel.setPixmap(QPixmap(LNLS_IMG))
-        #self.Relay1.commands = [
+        # self.Relay1.commands = [
         #    "python {} {} 1 yes".format(COMMUTE_VALVE_SCRIPT, macros["IOC"])
-        #]
-        #self.Relay5.commands = [
+        # ]
+        # self.Relay5.commands = [
         #    "pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {} {} 5".format(
         #        CONFIRMATION_MESSAGE_PY, macros["IOC"]
         #    )
-        #]
-        #self.Relay1_2.commands = [
+        # ]
+        # self.Relay1_2.commands = [
         #    "python {} {} 2 yes".format(COMMUTE_VALVE_SCRIPT, macros["IOC"])
-        #]
+        # ]

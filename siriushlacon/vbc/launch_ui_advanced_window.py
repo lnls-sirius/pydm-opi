@@ -24,17 +24,17 @@ class DeviceMenu(Display):
         self.Relay5.commands = [RELAY_SH_STR]
 
         self.Relay1.macros = json.dumps(
-            {"IOC": "$IOC", "RELAY": "1", "VALVE": "Valve 1?"}
+            {"IOC": macros["IOC"], "RELAY": "1", "VALVE": "Valve 1?"}
         )
         self.Relay2.macros = json.dumps(
             {"IOC": sys.argv[2], "RELAY": "2", "VALVE": "Pre-vacuum Valve?"}
         )
         self.Relay3.macros = json.dumps(
-            {"IOC": "$IOC", "RELAY": "3", "VALVE": "Valve 3?"}
+            {"IOC": macros["IOC"], "RELAY": "3", "VALVE": "Valve 3?"}
         )
         self.Relay4.macros = json.dumps(
-            {"IOC": "$IOC", "RELAY": "4", "VALVE": "Gate Valve?"}
+            {"IOC": macros["IOC"], "RELAY": "4", "VALVE": "Gate Valve?"}
         )
         self.Relay5.macros = json.dumps(
-            {"IOC": "$IOC", "RELAY": "venting_valve", "VALVE": "Venting Valve?"}
+            {"IOC": macros["IOC"], "RELAY": "venting_valve", "VALVE": "Venting Valve?"}
         )

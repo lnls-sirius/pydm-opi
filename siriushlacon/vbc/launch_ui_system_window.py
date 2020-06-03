@@ -15,6 +15,7 @@ from siriushlacon.vbc.consts import (
     WARNING_WINDOW_PY,
     CONFIRMATION_MESSAGE_PY,
     STOP_IMG,
+    SIMPLE_WINDOW_PY,
 )
 
 
@@ -23,8 +24,11 @@ class DeviceMenu(Display):
         super(DeviceMenu, self).__init__(
             parent=parent, args=args, macros=macros, ui_filename=SYSTEM_WINDOW_UI
         )
+        self.btnSimpleTab.macros = json.dumps({"IOC": macros["IOC"]})
+        self.btnSimpleTab.filenames = [SIMPLE_WINDOW_PY]
+
         self.label_40.setPixmap(QPixmap(STOP_IMG))
-        self.Advanced_tab.macros = json.dumps({"IOC": "$IOC"})
+        self.Advanced_tab.macros = json.dumps({"IOC": macros["IOC"]})
         self.Advanced_tab.filenames = [ADVANCED_WINDOW_PY]
         self.Shell6.commands = [
             "python {} {} 0".format(CHECK_PRESSURE_SCRIPT, macros["IOC"])
