@@ -16,6 +16,7 @@ from siriushlacon.regatron.consts import REGATRON_MAIN
 from siriushlacon.spixconv.consts import SPIXCONV_MAIN
 from siriushlacon.countingpru.consts import GAMMA_COUNTING_MAIN
 from siriushlacon.beaglebones.consts import BEAGLEBONES_MAIN
+from siriushlacon.vbc.consts import MAIN_WINDOW_PY as VBC_MAIN_WINDOW_PY
 from siriushlacon.utils.consts import (
     CNPEM_INVISIBLE_IMG,
     LNLS_INVISIBLE_IMG,
@@ -35,6 +36,8 @@ class Launcher(Display):
         super(Launcher, self).__init__(parent=parent, args=args, macros=macros)
 
         self.lblVersion.setText("v" + VERSION)
+        self.btnVbc.filenames = [VBC_MAIN_WINDOW_PY]
+        self.btnVbc.openInNewWindow = True
 
         self.btnAgilentExtended.clicked.connect(self.launchAgilentExtended)
 
