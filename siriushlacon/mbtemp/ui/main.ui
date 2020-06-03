@@ -1380,7 +1380,7 @@
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap>../../../.designer/pic/SR/SR_pic6.png</pixmap>
+                 <pixmap>../../../.designer/images/SR/SR_pic6.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>
@@ -1522,7 +1522,7 @@
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap>../../../.designer/pic/SR/SR_pic2.png</pixmap>
+                 <pixmap>../../../.designer/images/SR/SR_pic2.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>
@@ -1712,7 +1712,7 @@
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap>../pic/SR/SR_pic3.png</pixmap>
+                 <pixmap>../images/SR/SR_pic3.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>
@@ -2100,7 +2100,7 @@
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap>../../../.designer/pic/SR/SR_pic4.png</pixmap>
+                 <pixmap>../../../.designer/images/SR/SR_pic4.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>
@@ -2248,7 +2248,7 @@
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap>../../../.designer/pic/SR/SR_pic5.png</pixmap>
+                 <pixmap>../../../.designer/images/SR/SR_pic5.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>
@@ -2421,7 +2421,7 @@
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap>../../../.designer/pic/SR/SR_pic7.png</pixmap>
+                 <pixmap>../../../.designer/images/SR/SR_pic7.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>
@@ -2535,7 +2535,7 @@
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap>../../../.designer/pic/SR/SR_pic1.png</pixmap>
+                 <pixmap>../../../.designer/images/SR/SR_pic1.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>

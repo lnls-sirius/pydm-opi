@@ -1,7 +1,8 @@
 conscommon==0.0.8
 PyQt5==5.14.2
 numpy==1.18.4
-pydm==1.10.0
+openpyxl==3.0.3
+pydm==1.10.1
 pyepics==3.4.1
 PyQt5==5.14.2
 PyQt5-sip==12.7.2
