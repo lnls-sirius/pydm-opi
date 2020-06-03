@@ -8,7 +8,8 @@ This repo should contain every PyDM OPI developed by the CONS group currently in
 
 Requirements
 ------------
-The lattest version of PyDM and Python>=3.6.<br>
+**Python>=3.6** .<br>
+[PyDM](https://github.com/slaclab/pydm)==**1.10.1**<br>
 [CONS commons](https://github.com/lnls-sirius/cons-common) module.<br>
 Other dependencies are listed at `requerements.txt`.<br>
 

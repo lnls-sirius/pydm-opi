@@ -1,9 +1,14 @@
 import json
+import subprocess
 from qtpy.QtGui import QPixmap
 from pydm import Display
 
 from siriushlacon import VERSION
-from siriushlacon.agilent4uhv.consts import AGILENT_MAIN, AGILENT_OVERVIEW
+from siriushlacon.agilent4uhv.consts import (
+    AGILENT_MAIN,
+    AGILENT_OVERVIEW,
+    AGILENT_EXTENDED,
+)
 from siriushlacon.launcher.consts import LAUNCH_WINDOW_UI, PCTRL_MAIN
 from siriushlacon.mbtemp.consts import MBTEMP_MAIN
 from siriushlacon.mks937b.consts import MKS_MAIN, MKS_OVERVIEW
@@ -34,9 +39,10 @@ class Launcher(Display):
         self.btnVbc.filenames = [VBC_MAIN_WINDOW_PY]
         self.btnVbc.openInNewWindow = True
 
+        self.btnAgilentExtended.clicked.connect(self.launchAgilentExtended)
+
         self.btnAgilent.filenames = [AGILENT_MAIN]
         self.btnAgilent.openInNewWindow = True
-
         self.btnAgilentSROverview.filenames = [AGILENT_OVERVIEW]
         self.btnAgilentSROverview.macros = json.dumps(
             {
@@ -130,6 +136,9 @@ class Launcher(Display):
 
         self.label_cnpem.setPixmap(QPixmap(CNPEM_INVISIBLE_IMG))
         self.label_lnls.setPixmap(QPixmap(LNLS_INVISIBLE_IMG))
+
+    def launchAgilentExtended(self):
+        subprocess.Popen("/usr/bin/env python3 {}".format(AGILENT_EXTENDED), shell=True)
 
     def exitApp(self):
         exit()
