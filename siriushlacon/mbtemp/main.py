@@ -1,149 +1,376 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from pydm import Display
+from pydm.widgets.channel import PyDMChannel
+from qtpy import QtWidgets, QtCore
+from qtpy.QtGui import QPixmap
 
-import logging
+from openpyxl import load_workbook
 
-from pydm import Display, PyDMApplication
-from pydm.utilities import IconFont
-from qtpy.QtWidgets import QLabel
+from functools import partial
 
-from siriushlacon.mbtemp.consts import lazy_devices, MBTEMP_MAIN_UI
-from siriushlacon.utils.widgets import get_label, TableDataController
+from siriushlacon.mbtemp.overview.main import TableDisplay
+from siriushlacon.mbtemp.consts import *
 
-logger = logging.getLogger()
-DEVICES = lazy_devices.get()
+# ----Global Variables---
+global tab
+tab = {0: "TB", 1: "TS", 2: "BO", 3: "SR", 4: "LA", 5: "PA"}
 
 
-class MBTempTableDataController(TableDataController):
-    def init_table(self):
-        self.table.setRowCount(self.table_batch)
-        self.table.setColumnCount(len(self.horizontalHeaderLabels))
-        self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
-        for actual_row in range(self.table_batch):
-            # Channel Name
-            self.table.setCellWidget(actual_row, 0, QLabel(""))
-            # Device Name
-            self.table.setCellWidget(actual_row, 1, QLabel(""))
-            # Device Alpha
-            self.table.setCellWidget(actual_row, 2, get_label(self.table, "", ""))
-            # Temperature
-            self.table.setCellWidget(actual_row, 3, get_label(self.table, "", ""))
-            # Temperature Raw
-            self.table.setCellWidget(actual_row, 4, get_label(self.table, "", ""))
+class MBTempMonitoring(Display):
+    def __init__(self, parent=None, macros=None, args=None):
+        super().__init__(
+            parent=parent, args=args, macros=macros, ui_filename=MBTEMP_MAIN_UI
+        )
+        self.tab = ""
+        self.addr = []
+        self.mbtempID = {}
 
-    def filter(self, pattern):
-        if pattern != self.filter_pattern:
-            self.filter_pattern = pattern if pattern is not None else ""
-            self.batch_offset = 0
-            self.filter_pattern = pattern
+        self.BOInj.setPixmap(QPixmap(BOINJ_PIC))
+        self.SRInj.setPixmap(QPixmap(SRINJ_PIC))
+        self.LinacArea.setPixmap(QPixmap(PIC_LA))
+        self.PowerArea.setPixmap(QPixmap(PIC_PA))
+        self.LogoLNLS.setPixmap(QPixmap(LNLS_LOGO))
+        self.LogoCNPEM.setPixmap(QPixmap(CNPEM_LOGO))
+        self.BOExtraction.setPixmap(QPixmap(BOEXTRACTION_PIC))
 
-            for data in self.table_data:
-                data[2] = (
-                    self.filter_pattern in data[0] or self.filter_pattern in data[1]
+        for SRimg in range(1, 8):
+            eval("self.SR_Pic{}".format(SRimg)).setPixmap(
+                QPixmap(eval("SR_PIC{}".format(SRimg)))
+            )
+
+        self.tabWidget.currentChanged.connect(self.connect)
+        self.OverviewButton.clicked.connect(self.overview)
+        self.sector.valueChanged.connect(self.connect)
+
+        self.connect()
+
+    def overview(self):
+        overview = TableDisplay()
+        overview.show()
+
+    def connect(self):
+        self.tab = tab[self.tabWidget.currentIndex()]
+        self.disconnect()
+
+        if self.tab == "TB":
+            self.sector.setEnabled(False)
+            self.mbtemp = ["TB-MBTemp"]
+            self.sensor = ["TB-04:VA-PT100-ED1:Temp-Mon", "TB-04:VA-PT100-ED2:Temp-Mon"]
+
+        elif self.tab == "LA":
+            self.sector.setEnabled(False)
+            self.mbtemp = ["LA-MBTemp-01", "LA-MBTemp-02", "LA-MBTemp-03"]
+            self.sensor = list(
+                "LA-{:0>2d}PT100-Top:Temp-Mon".format(i) for i in range(1, 5)
+            )
+            self.sensor.extend(
+                list("LA-{:0>2d}PT100-Down:Temp-Mon".format(i) for i in range(1, 5))
+            )
+
+        elif self.tab == "TS":
+            self.sector.setEnabled(False)
+            self.mbtemp = ["TS-MBTemp-01", "TS-MBTemp-02"]
+            self.sensor = list(
+                "TS-01:VA-PT100-BG{}:Temp-Mon".format(str(i)) for i in range(1, 5)
+            )
+            self.sensor.extend(
+                list("TS-04:VA-PT100-ED{}:Temp-Mon".format(str(i)) for i in range(1, 7))
+            )
+
+        elif self.tab == "PA":
+            self.sector.setEnabled(False)
+            self.mbtemp = ["PA-MBTemp-01", "PA-MBTemp-02", "PA-MBTemp-03"]
+            self.sensor = list(
+                "PA-MBTemp-01:CO-PT100-Ch{}:Temp-Mon".format(str(i))
+                for i in range(1, 4)
+            )
+            self.sensor.extend(
+                list(
+                    "PA-MBTemp-02:CO-PT100-Ch{}:Temp-Mon".format(str(i))
+                    for i in range(1, 4)
                 )
-            self.update_content.emit()
+            )
+            self.sensor.extend(
+                list(
+                    "PA-MBTemp-03:CO-PT100-Ch{}:Temp-Mon".format(str(i))
+                    for i in range(1, 4)
+                )
+            )
 
-    def load_table_data(self):
-        self.table_data = []
-        for device in self.devices:
-            if not device.enable:
-                continue
-            for channel in device.channels:
-                if not channel.enable:
-                    continue
-                self.table_data.append([channel.prefix, device.prefix, True])
-        self.update_content.emit()
+        elif self.tab == "BO":
+            self.sector.setSingleStep(2)
+            self.sector.setEnabled(True)
+            self.sector.setMaximum(19)
 
-    def update_table_content(self):
-        total_rows = len(self.table_data) * 4
+            if self.sector.value() % 2 == 0:
+                self.sector.setValue(1)
 
-        # Maximum Allowed
-        if self.batch_offset >= total_rows:
-            return
+            sectorFrom = 2 + (self.sector.value() // 2) * 5
+            sectorTo = 7 + (self.sector.value() // 2) * 5
 
-        # Adding New Content
-        actual_row = 0
-        dataset_row = 0
-        self.table.setVerticalHeaderLabels(
-            [
-                str(i)
-                for i in range(self.batch_offset, self.table_batch + self.batch_offset)
+            self.setImage(sectorFrom)
+            self.mbtemp = [
+                "BO-MBTemp-{:0>2d}".format(i)
+                for i in range(sectorFrom - 1, sectorTo - 1)
             ]
+
+            for x, y in enumerate(range(sectorFrom, sectorTo)):
+                if y != 51:
+                    eval("self.BO_Sec_{}".format(x + 1)).setText(
+                        "Booster Sector: {}".format(y)
+                    )
+                else:
+                    self.BO_Sec_5.setText("Booster Sector: 1")
+
+            if self.sector.value() != 19:
+                self.sensor = list(
+                    "BO-{:0>2d}U:VA-PT100-BG:Temp-Mon".format(i)
+                    for i in range(sectorFrom, sectorTo)
+                )
+                self.sensor.extend(
+                    list(
+                        "BO-{:0>2d}U:VA-PT100-MD:Temp-Mon".format(i)
+                        for i in range(sectorFrom, sectorTo)
+                    )
+                )
+                self.sensor.extend(
+                    list(
+                        "BO-{:0>2d}U:VA-PT100-ED:Temp-Mon".format(i)
+                        for i in range(sectorFrom, sectorTo)
+                    )
+                )
+            else:
+                self.sensor = list(
+                    "BO-{:0>2d}U:VA-PT100-BG:Temp-Mon".format(i)
+                    for i in range(sectorFrom, sectorTo - 1)
+                )
+                self.sensor.extend(
+                    list(
+                        "BO-{:0>2d}U:VA-PT100-MD:Temp-Mon".format(i)
+                        for i in range(sectorFrom, sectorTo - 1)
+                    )
+                )
+                self.sensor.extend(
+                    list(
+                        "BO-{:0>2d}U:VA-PT100-ED:Temp-Mon".format(i)
+                        for i in range(sectorFrom, sectorTo - 1)
+                    )
+                )
+                self.sensor.extend(
+                    [
+                        "BO-01U:VA-PT100-BG:Temp-Mon",
+                        "BO-01U:VA-PT100-MD:Temp-Mon",
+                        "BO-01U:VA-PT100-ED:Temp-Mon",
+                    ]
+                )
+
+        elif self.tab == "SR":
+            self.sector.setSingleStep(1)
+            self.sector.setEnabled(True)
+            self.sector.setMaximum(20)
+
+            self.readTable()
+
+        for channel in self.sensor:
+            slot = partial(
+                self.update_channel, pydmbyte=channel, sector=self.sector.value()
+            )
+            temp = PyDMChannel(
+                address="ca://" + channel, value_slot=slot, connection_slot=slot
+            )
+            self.addr.append(temp)
+            temp.connect()
+
+        for mbtemp in self.mbtemp:
+            for coef in ["Alpha", "LinearCoef-Mon", "AngularCoef-Mon"]:
+                slot = partial(
+                    self.update_mbtemp,
+                    pydmbyte=mbtemp,
+                    coef=coef,
+                    sector=self.sector.value(),
+                )
+                mb = PyDMChannel(
+                    address="ca://{}:{}".format(mbtemp, coef),
+                    value_slot=slot,
+                    connection_slot=slot,
+                )
+                self.addr.append(mb)
+                mb.connect()
+
+    def update_channel(self, value, pydmbyte, sector):
+        # aux = [AddressMBTempBO/SectorOfSR, Pt100PositionOnVaccumChamber, SectorBO/AddressMBTempSR, sectorNumber]
+        #                                            [BG, MD, ED, ...]
+        if self.tab in ["TS", "TB"]:
+            aux = [pydmbyte[3:5], pydmbyte[-10:-9], pydmbyte[3:5], ""]
+        elif self.tab == "PA":
+            aux = [pydmbyte[10:12], pydmbyte[-10:-9], pydmbyte[10:12], ""]
+        elif self.tab == "LA":
+            aux = [
+                pydmbyte[3:5],
+                pydmbyte[11 : pydmbyte.find(":")],
+                "{:0>2d}".format(1 + int(pydmbyte[3:5]) // 2),
+                "",
+            ]
+
+        elif self.tab == "BO":
+            if pydmbyte[3:5] != "01":
+                aux = [
+                    str(int(pydmbyte[3:5]) - (sector // 2) * 5 - 1),
+                    pydmbyte[-11:-9],
+                    int(pydmbyte[3:5]) - 1,
+                    "",
+                ]
+            else:
+                aux = ["5", pydmbyte[-11:-9], "50", ""]
+
+        elif self.tab == "SR":
+            id = self.mbtempID[pydmbyte]
+            # print(pydmbyte)
+            if not (pydmbyte[5 : pydmbyte.find(":")] in ["SBFE", "SAFE", "SPFE"]):
+                if pydmbyte[5 : pydmbyte.find(":")] != "SA":
+                    aux = [
+                        pydmbyte[5 : pydmbyte.find(":")],
+                        pydmbyte[pydmbyte.find("-", 15) + 1 : pydmbyte.find(":", 12)],
+                        id,
+                        "-{:0>2d}".format(self.sector.value()),
+                    ]
+                else:
+                    aux = [
+                        "SP",
+                        pydmbyte[
+                            pydmbyte.find("-", 14) + 1 : pydmbyte.find("-", 14) + 3
+                        ],
+                        id,
+                        "-{:0>2d}".format(self.sector.value()),
+                    ]
+            else:
+                aux = [
+                    "FE",
+                    pydmbyte[pydmbyte.find("-", 14) + 1 : pydmbyte.find(":", 10)],
+                    id,
+                    "-{:0>2d}".format(self.sector.value()),
+                ]
+
+        channel = eval("self.{}{}_Ch{}".format(self.tab, aux[0], aux[1]))
+
+        # ----------- Update color and toolTip ----------
+        if value == False or value < 1:
+            channel.brush = QtCore.Qt.red
+            return ()
+        elif value == True:
+            channel.brush = QtCore.Qt.green
+            return ()
+        elif value > self.tempMax.value():
+            channel.brush = QtCore.Qt.yellow
+        else:
+            channel.brush = QtCore.Qt.green
+
+        channel.setToolTip(
+            ("Temperature: {} ºC\n" + "MBTemp: {}\n" + "PV: {}").format(
+                value, "{}{}-MBTemp-{}".format(self.tab, aux[3], aux[2]), pydmbyte
+            )
         )
 
-        for dev, channel, render in self.table_data:
-            if actual_row == self.table_batch:
-                continue
+    def update_mbtemp(self, value, pydmbyte, coef, sector):
+        last_Value = []
+        new_val = {"Alpha": 0, "Linear Coefficient": "", "Angular Coefficient": ""}
+        coefficients = {
+            "Alpha": "Alpha",
+            "LinearCoef-Mon": "Linear Coefficient",
+            "AngularCoef-Mon": "Angular Coefficient",
+        }
 
-            # To render or not to render  ...
-            if render and dataset_row >= self.batch_offset:
-                self.table.setRowHidden(actual_row, False)
-                # Channel Access
-                device_ca = "ca://" + dev
-                channel_ca = "ca://" + channel
+        if self.tab == "BO":
+            mb = int(pydmbyte[-2:]) - (sector // 2) * 5
+        elif self.tab == "TB":
+            mb = 1
+        elif self.tab in ["TS", "SR", "PA", "LA"]:
+            mb = int(pydmbyte[-2:])
 
-                # Channel
-                self.table.cellWidget(actual_row, 0).setText(channel)
-                # Device
-                self.table.cellWidget(actual_row, 1).setText(dev)
-                # Alpha
-                self.connect_widget(actual_row, 2, device_ca + ":Alpha")
-                # Temp
-                self.connect_widget(actual_row, 3, channel_ca)
-                self.connect_widget(actual_row, 4, channel_ca + "-Raw")
+        mbtemp = eval("self.{}_MBTemp{:0>2d}".format(self.tab, mb))
+        if value == False:
+            mbtemp.brush = QtCore.Qt.red
+            return ()
+        elif value == True:
+            mbtemp.brush = QtCore.Qt.blue
+            return ()
+        mbtemp.brush = QtCore.Qt.blue
 
-                actual_row += 1
+        last_Value = mbtemp.toolTip().split("\n")
+        for val in last_Value[1:]:
+            new_val[val.split(": ")[0]] = val.split(": ")[1]
 
-            dataset_row += 1
+        new_val[coefficients[coef]] = value
 
-        for row in range(actual_row, self.table_batch):
-            self.table.setRowHidden(row, True)
+        mbtemp.setToolTip(
+            (
+                "MBTemp:{}\n"
+                + "Alpha: {}\n"
+                + "Linear Coefficient: {}\n"
+                + "Angular Coefficient: {}"
+            ).format(
+                pydmbyte,
+                new_val["Alpha"],
+                new_val["Linear Coefficient"],
+                new_val["Angular Coefficient"],
+            )
+        )
 
+    def disconnect(self):
+        for channel in self.addr:
+            channel.disconnect()
+        if self.tab != "SR":
+            return ()
 
-class TableDisplay(Display):
-    def __init__(self, parent=None, args=[], macros=None):
-        super(TableDisplay, self).__init__(parent=parent, args=args, macros=macros)
+        for disc in [
+            "B2FE_ChBG1",
+            "B2FE_ChBG2",
+            "B2FE_ChED",
+            "B2FE_ChED2",
+            "C2_ChBG",
+            "BC_ChMD",
+            "VPSB1B_ChBG",
+        ]:
+            eval("self.SR{}".format(disc)).brush = QtCore.Qt.gray
+            eval("self.SR{}".format(disc)).setToolTip("")
 
-        table_batch = 0
-        for device in DEVICES:
-            if not device.enable:
-                continue
-            for channel in device.channels:
-                if not channel.enable:
-                    continue
-                table_batch += 1
+    def setImage(self, secFrom):
+        if secFrom % 2 == 0:
+            self.BO_Img1.setPixmap(QPixmap(BO_PIC3))
+            self.BO_Img2.setPixmap(QPixmap(BO_PIC2))
+            self.BO_Img3.setPixmap(QPixmap(BO_PIC3))
+            self.BO_Img4.setPixmap(QPixmap(BO_PIC1))
+            self.BO_Img5.setPixmap(QPixmap(BO_PIC3))
+        else:
+            self.BO_Img1.setPixmap(QPixmap(BO_PIC1))
+            self.BO_Img2.setPixmap(QPixmap(BO_PIC4))
+            self.BO_Img3.setPixmap(QPixmap(BO_PIC1))
+            self.BO_Img4.setPixmap(QPixmap(BO_PIC3))
+            self.BO_Img5.setPixmap(QPixmap(BO_PIC1))
 
-        horizontal_header_labels = [
-            "Channel Name",
-            "Device Name",
-            "Device Alpha",
-            "Temperature",
-            "Temperature Raw",
+    def readTable(self):
+        self.sensor = []
+        self.mbtempID = {}
+        self.mbtemp = [
+            "SI-{:0>2d}-MBTemp-{}".format(self.sector.value(), k)
+            for k in [11, 12, 13, 21, 22, 23]
         ]
 
-        self.tdc = MBTempTableDataController(
-            self.table,
-            devices=DEVICES,
-            table_batch=table_batch,
-            horizontal_header_labels=horizontal_header_labels,
-        )
+        wb = load_workbook(filename=CHS_MBTEMP)
+        sheet_ranges = wb["Sector{}".format(self.sector.value())]
 
-        self.tfFilter.editingFinished.connect(lambda: self.filter(self.tfFilter.text()))
+        for column in ["A", "B", "C", "D", "E", "F"]:
+            for line in range(1, 9):
+                if (sheet_ranges[column + str(line)].value) != None:
+                    self.sensor.append(sheet_ranges[column + str(line)].value)
+                    self.mbtempID[
+                        sheet_ranges[column + str(line)].value
+                    ] = sheet_ranges[column + "10"].value
 
-        self.btnNavLeft.clicked.connect(lambda: self.update_navbar(False))
-        self.btnNavLeft.setIcon(IconFont().icon("arrow-left"))
-        self.btnNavRight.clicked.connect(lambda: self.update_navbar(True))
-        self.btnNavRight.setIcon(IconFont().icon("arrow-right"))
-        PyDMApplication.instance().hide_nav_bar = True
 
-    def update_navbar(self, increase=True):
-        self.tdc.changeBatch(increase)
-
-    def filter(self, pattern):
-        self.tdc.filter(pattern)
-
-    def ui_filename(self):
-        return MBTEMP_MAIN_UI
-
-    def ui_filepath(self):
-        return MBTEMP_MAIN_UI
+if __name__ == "__main__":
+    app = QtWidgets.QApplication(sys.argv)
+    window = MBTempMonitoring()
+    window.show()
+    sys.exit(app.exec_())

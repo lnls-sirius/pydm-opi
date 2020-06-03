@@ -1,11 +1,12 @@
 from typing import List
 
-from pydm.widgets import PyDMLabel, PyDMByteIndicator
+from pydm.widgets import PyDMLabel, PyDMByteIndicator, channel
 from qtpy.QtCore import Qt, QObject, Signal, QRect, QSize, QPoint
 from qtpy.QtGui import QColor
 from qtpy.QtWidgets import QLayout, QSizePolicy, QStyle
 
 import conscommon.data_model
+import re
 
 from siriushlacon.utils.consts import TABLE_ALARMS_QSS
 
@@ -177,6 +178,9 @@ class TableDataController(QObject):
         self.table_batch = table_batch
         self.horizontalHeaderLabels = horizontal_header_labels
 
+        self.MaxValue = 50
+        self.MinValue = 1
+
         self.batch_offset: int = 0
         self.total_rows: int = 0
 
@@ -214,12 +218,37 @@ class TableDataController(QObject):
         widget = self.table.cellWidget(row, col)
         widget.channel = None
 
-    def connect_widget(self, row, col, channel_name=None, macros=None):
+    def connect_widget(self, row, col, channel_name=None, macros=None, connect_color = None):
         widget = self.table.cellWidget(row, col)
         if channel_name:
             widget.channel = channel_name
         if macros:
             widget.macros = macros
+        if connect_color:
+            cell_color = channel.PyDMChannel(address = 'ca://'+channel_name, value_slot = lambda: self.setColor(row))
+            cell_color.connect()
+
+    def setColor(self, row, col=3): #Function to define cell color according to the value
+        vmax = self.MaxValue
+        vmin = self.MinValue
+        range = vmax - vmin
+        cell = self.table.cellWidget(row,col)
+
+        if cell.text() != '':
+            ActualValue = float(re.match(r"(\d+)\.(\d+)", cell.text()).group())
+
+            if ActualValue < vmin: ActualValue = vmin
+            if (ActualValue-vmin)/range <= 0.5:
+                R = int((510/range)*(ActualValue-vmin))
+                G = 255
+
+            elif ActualValue < 200:
+                if  (ActualValue > vmax): ActualValue = vmax
+                R = 255
+                G = int(-(510/range)*(ActualValue-vmax))
+
+            else: return()
+            cell.setStyleSheet("background-color: rgb{}".format((R,G,00)))
 
     def changeBatch(self, increase):
         if increase:
