@@ -116,9 +116,15 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="OverviewButton">
+        <widget class="PyDMRelatedDisplayButton" name="OverviewButton">
+         <property name="toolTip">
+          <string/>
+         </property>
          <property name="text">
           <string>Temperature Overview</string>
+         </property>
+         <property name="showIcon" stdset="0">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -3347,6 +3353,11 @@
    <class>PyDMDrawingRectangle</class>
    <extends>QWidget</extends>
    <header>pydm.widgets.drawing</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMRelatedDisplayButton</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.related_display_button</header>
   </customwidget>
  </customwidgets>
  <resources/>
