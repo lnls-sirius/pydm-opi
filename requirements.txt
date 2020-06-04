@@ -13,4 +13,3 @@ QtPy==1.9.0
 requests==2.23.0
 scipy==1.4.1
 urllib3==1.25.9
-xlrd==1.2.0
