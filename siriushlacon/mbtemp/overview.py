@@ -71,7 +71,7 @@ class MBTempTableDataController(TableDataController):
             ]
         )
 
-        for dev, channel, render in self.table_data:
+        for channel, dev, render in self.table_data:
             if channel[-3:-1] == "CH" or actual_row == self.table_batch:
                 continue
 
