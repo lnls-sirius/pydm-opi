@@ -39,6 +39,8 @@ class Launcher(Display):
         self.btnVbc.filenames = [VBC_MAIN_WINDOW_PY]
         self.btnVbc.openInNewWindow = True
 
+        self.btnAgilentExtended.passwordProtected = True
+        self.btnAgilentExtended.password = "VACS"
         self.btnAgilentExtended.clicked.connect(self.launchAgilentExtended)
 
         self.btnAgilent.filenames = [AGILENT_MAIN]
@@ -138,7 +140,10 @@ class Launcher(Display):
         self.label_lnls.setPixmap(QPixmap(LNLS_INVISIBLE_IMG))
 
     def launchAgilentExtended(self):
-        subprocess.Popen("/usr/bin/env python3 {}".format(AGILENT_EXTENDED), shell=True)
+        if self.btnAgilentExtended.validate_password():
+            subprocess.Popen(
+                "/usr/bin/env python3 {}".format(AGILENT_EXTENDED), shell=True
+            )
 
     def exitApp(self):
         exit()
