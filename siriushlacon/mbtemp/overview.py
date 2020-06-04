@@ -29,7 +29,7 @@ class MBTempTableDataController(TableDataController):
             # Temperature
             self.table.setCellWidget(actual_row, 3, get_label(self.table, "", ""))
             # Temperature Raw
-            #self.table.setCellWidget(actual_row, 4, get_label(self.table, "", ""))
+            # self.table.setCellWidget(actual_row, 4, get_label(self.table, "", ""))
 
     def filter(self, pattern):
         if pattern != self.filter_pattern:
@@ -72,7 +72,7 @@ class MBTempTableDataController(TableDataController):
         )
 
         for dev, channel, render in self.table_data:
-            if channel[-3:-1] == 'CH' or actual_row == self.table_batch:
+            if channel[-3:-1] == "CH" or actual_row == self.table_batch:
                 continue
 
             # To render or not to render  ...
@@ -87,10 +87,12 @@ class MBTempTableDataController(TableDataController):
                 # Device
                 self.table.cellWidget(actual_row, 1).setText(dev)
                 # Alpha
-                self.connect_widget(actual_row, 2, device_ca + ":Alpha", connect_color = True)
+                self.connect_widget(
+                    actual_row, 2, device_ca + ":Alpha", connect_color=True
+                )
                 # Temp
-                self.connect_widget(actual_row, 3, channel_ca, connect_color = True)
-                #self.connect_widget(actual_row, 4, channel_ca + "-Raw")
+                self.connect_widget(actual_row, 3, channel_ca, connect_color=True)
+                # self.connect_widget(actual_row, 4, channel_ca + "-Raw")
 
                 actual_row += 1
 
@@ -99,9 +101,12 @@ class MBTempTableDataController(TableDataController):
         for row in range(actual_row, self.table_batch):
             self.table.setRowHidden(row, True)
 
-    def update_TempMaxMin(self,Maximum = '', Minimum = ''):
-        if Maximum != '': self.MaxValue = Maximum
-        if Minimum != '': self.MinValue = Minimum
+    def update_TempMaxMin(self, Maximum="", Minimum=""):
+        if Maximum != "":
+            self.MaxValue = Maximum
+        if Minimum != "":
+            self.MinValue = Minimum
+
 
 class TableDisplay(Display):
     def __init__(self, parent=None, args=[], macros=None):
@@ -120,8 +125,9 @@ class TableDisplay(Display):
             "Channel Name",
             "Device Name",
             "Device Alpha",
-            "Temperature"]
-            #"Temperature Raw",]
+            "Temperature",
+        ]
+        # "Temperature Raw",]
 
         self.tdc = MBTempTableDataController(
             self.table,
@@ -133,10 +139,12 @@ class TableDisplay(Display):
         self.tfFilter.editingFinished.connect(lambda: self.filter(self.tfFilter.text()))
 
         self.TempMax.valueChanged.connect(
-            lambda: self.tdc.update_TempMaxMin(Maximum = self.TempMax.value()))
+            lambda: self.tdc.update_TempMaxMin(Maximum=self.TempMax.value())
+        )
 
         self.TempMin.valueChanged.connect(
-            lambda: self.tdc.update_TempMaxMin(Minimum = self.TempMin.value()))
+            lambda: self.tdc.update_TempMaxMin(Minimum=self.TempMin.value())
+        )
 
         self.btnNavLeft.clicked.connect(lambda: self.update_navbar(False))
         self.btnNavLeft.setIcon(IconFont().icon("arrow-left"))

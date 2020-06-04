@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import logging
 from pydm import Display
 from pydm.widgets.channel import PyDMChannel
 from qtpy import QtWidgets, QtCore
@@ -9,12 +10,30 @@ from openpyxl import load_workbook
 
 from functools import partial
 
-from siriushlacon.mbtemp.overview.main import TableDisplay
-from siriushlacon.mbtemp.consts import *
+from siriushlacon.mbtemp.consts import (
+    CHS_MBTEMP,
+    MBTEMP_MAIN,
+    MBTEMP_MAIN_UI,
+    OVERVIEW_MAIN,
+    BOEXTRACTION_PIC,
+    OVERVIEW_MAIN,
+    BOINJ_PIC,
+    BO_PIC1,
+    BO_PIC2,
+    BO_PIC3,
+    BO_PIC4,
+    SR_PICS,
+    CNPEM_LOGO,
+    LNLS_LOGO,
+    SRINJ_PIC,
+    SR_PICS,
+    PIC_PA,
+    PIC_LA,
+)
 
-# ----Global Variables---
-global tab
-tab = {0: "TB", 1: "TS", 2: "BO", 3: "SR", 4: "LA", 5: "PA"}
+logger = logging.getLogger()
+
+TAB = {0: "TB", 1: "TS", 2: "BO", 3: "SR", 4: "LA", 5: "PA"}
 
 
 class MBTempMonitoring(Display):
@@ -22,6 +41,9 @@ class MBTempMonitoring(Display):
         super().__init__(
             parent=parent, args=args, macros=macros, ui_filename=MBTEMP_MAIN_UI
         )
+        self.OverviewButton.filenames = [OVERVIEW_MAIN]
+        self.OverviewButton.openInNewWindow = True
+
         self.tab = ""
         self.addr = []
         self.mbtempID = {}
@@ -35,23 +57,18 @@ class MBTempMonitoring(Display):
         self.BOExtraction.setPixmap(QPixmap(BOEXTRACTION_PIC))
 
         for SRimg in range(1, 8):
-            eval("self.SR_Pic{}".format(SRimg)).setPixmap(
-                QPixmap(eval("SR_PIC{}".format(SRimg)))
-            )
+            getattr(self, "SR_Pic{}".format(SRimg)).setPixmap(QPixmap(SR_PICS[SRimg]))
 
-        self.tabWidget.currentChanged.connect(self.connect)
-        self.OverviewButton.clicked.connect(self.overview)
-        self.sector.valueChanged.connect(self.connect)
+        self.tabWidget.currentChanged.connect(self.sector_change_connect)
+        self.sector.valueChanged.connect(self.sector_change_connect)
 
-        self.connect()
+        self.sector_change_connect()
 
-    def overview(self):
-        overview = TableDisplay()
-        overview.show()
+    def sector_change_connect(self):
+        self.tab = TAB[self.tabWidget.currentIndex()]
+        self.sector_change_disconnect()
 
-    def connect(self):
-        self.tab = tab[self.tabWidget.currentIndex()]
-        self.disconnect()
+        logger.info("Area {}; Sector {}".format(self.tab, self.sector.value()))
 
         if self.tab == "TB":
             self.sector.setEnabled(False)
@@ -61,41 +78,41 @@ class MBTempMonitoring(Display):
         elif self.tab == "LA":
             self.sector.setEnabled(False)
             self.mbtemp = ["LA-MBTemp-01", "LA-MBTemp-02", "LA-MBTemp-03"]
-            self.sensor = list(
+            self.sensor = [
                 "LA-{:0>2d}PT100-Top:Temp-Mon".format(i) for i in range(1, 5)
-            )
+            ]
             self.sensor.extend(
-                list("LA-{:0>2d}PT100-Down:Temp-Mon".format(i) for i in range(1, 5))
+                ["LA-{:0>2d}PT100-Down:Temp-Mon".format(i) for i in range(1, 5)]
             )
 
         elif self.tab == "TS":
             self.sector.setEnabled(False)
             self.mbtemp = ["TS-MBTemp-01", "TS-MBTemp-02"]
-            self.sensor = list(
+            self.sensor = [
                 "TS-01:VA-PT100-BG{}:Temp-Mon".format(str(i)) for i in range(1, 5)
-            )
+            ]
             self.sensor.extend(
-                list("TS-04:VA-PT100-ED{}:Temp-Mon".format(str(i)) for i in range(1, 7))
+                ["TS-04:VA-PT100-ED{}:Temp-Mon".format(str(i)) for i in range(1, 7)]
             )
 
         elif self.tab == "PA":
             self.sector.setEnabled(False)
             self.mbtemp = ["PA-MBTemp-01", "PA-MBTemp-02", "PA-MBTemp-03"]
-            self.sensor = list(
+            self.sensor = [
                 "PA-MBTemp-01:CO-PT100-Ch{}:Temp-Mon".format(str(i))
                 for i in range(1, 4)
-            )
+            ]
             self.sensor.extend(
-                list(
+                [
                     "PA-MBTemp-02:CO-PT100-Ch{}:Temp-Mon".format(str(i))
                     for i in range(1, 4)
-                )
+                ]
             )
             self.sensor.extend(
-                list(
+                [
                     "PA-MBTemp-03:CO-PT100-Ch{}:Temp-Mon".format(str(i))
                     for i in range(1, 4)
-                )
+                ]
             )
 
         elif self.tab == "BO":
@@ -117,45 +134,45 @@ class MBTempMonitoring(Display):
 
             for x, y in enumerate(range(sectorFrom, sectorTo)):
                 if y != 51:
-                    eval("self.BO_Sec_{}".format(x + 1)).setText(
+                    getattr(self, "BO_Sec_{}".format(x + 1)).setText(
                         "Booster Sector: {}".format(y)
                     )
                 else:
                     self.BO_Sec_5.setText("Booster Sector: 1")
 
             if self.sector.value() != 19:
-                self.sensor = list(
+                self.sensor = [
                     "BO-{:0>2d}U:VA-PT100-BG:Temp-Mon".format(i)
                     for i in range(sectorFrom, sectorTo)
-                )
+                ]
                 self.sensor.extend(
-                    list(
+                    [
                         "BO-{:0>2d}U:VA-PT100-MD:Temp-Mon".format(i)
                         for i in range(sectorFrom, sectorTo)
-                    )
+                    ]
                 )
                 self.sensor.extend(
-                    list(
+                    [
                         "BO-{:0>2d}U:VA-PT100-ED:Temp-Mon".format(i)
                         for i in range(sectorFrom, sectorTo)
-                    )
+                    ]
                 )
             else:
-                self.sensor = list(
+                self.sensor = [
                     "BO-{:0>2d}U:VA-PT100-BG:Temp-Mon".format(i)
                     for i in range(sectorFrom, sectorTo - 1)
-                )
+                ]
                 self.sensor.extend(
-                    list(
+                    [
                         "BO-{:0>2d}U:VA-PT100-MD:Temp-Mon".format(i)
                         for i in range(sectorFrom, sectorTo - 1)
-                    )
+                    ]
                 )
                 self.sensor.extend(
-                    list(
+                    [
                         "BO-{:0>2d}U:VA-PT100-ED:Temp-Mon".format(i)
                         for i in range(sectorFrom, sectorTo - 1)
-                    )
+                    ]
                 )
                 self.sensor.extend(
                     [
@@ -201,6 +218,7 @@ class MBTempMonitoring(Display):
     def update_channel(self, value, pydmbyte, sector):
         # aux = [AddressMBTempBO/SectorOfSR, Pt100PositionOnVaccumChamber, SectorBO/AddressMBTempSR, sectorNumber]
         #                                            [BG, MD, ED, ...]
+
         if self.tab in ["TS", "TB"]:
             aux = [pydmbyte[3:5], pydmbyte[-10:-9], pydmbyte[3:5], ""]
         elif self.tab == "PA":
@@ -225,14 +243,14 @@ class MBTempMonitoring(Display):
                 aux = ["5", pydmbyte[-11:-9], "50", ""]
 
         elif self.tab == "SR":
-            id = self.mbtempID[pydmbyte]
+            _id = self.mbtempID[pydmbyte]
             # print(pydmbyte)
             if not (pydmbyte[5 : pydmbyte.find(":")] in ["SBFE", "SAFE", "SPFE"]):
                 if pydmbyte[5 : pydmbyte.find(":")] != "SA":
                     aux = [
                         pydmbyte[5 : pydmbyte.find(":")],
                         pydmbyte[pydmbyte.find("-", 15) + 1 : pydmbyte.find(":", 12)],
-                        id,
+                        _id,
                         "-{:0>2d}".format(self.sector.value()),
                     ]
                 else:
@@ -241,18 +259,18 @@ class MBTempMonitoring(Display):
                         pydmbyte[
                             pydmbyte.find("-", 14) + 1 : pydmbyte.find("-", 14) + 3
                         ],
-                        id,
+                        _id,
                         "-{:0>2d}".format(self.sector.value()),
                     ]
             else:
                 aux = [
                     "FE",
                     pydmbyte[pydmbyte.find("-", 14) + 1 : pydmbyte.find(":", 10)],
-                    id,
+                    _id,
                     "-{:0>2d}".format(self.sector.value()),
                 ]
 
-        channel = eval("self.{}{}_Ch{}".format(self.tab, aux[0], aux[1]))
+        channel = getattr(self, "{}{}_Ch{}".format(self.tab, aux[0], aux[1]))
 
         # ----------- Update color and toolTip ----------
         if value == False or value < 1:
@@ -288,7 +306,7 @@ class MBTempMonitoring(Display):
         elif self.tab in ["TS", "SR", "PA", "LA"]:
             mb = int(pydmbyte[-2:])
 
-        mbtemp = eval("self.{}_MBTemp{:0>2d}".format(self.tab, mb))
+        mbtemp = getattr(self, "{}_MBTemp{:0>2d}".format(self.tab, mb))
         if value == False:
             mbtemp.brush = QtCore.Qt.red
             return ()
@@ -317,7 +335,7 @@ class MBTempMonitoring(Display):
             )
         )
 
-    def disconnect(self):
+    def sector_change_disconnect(self):
         for channel in self.addr:
             channel.disconnect()
         if self.tab != "SR":
@@ -332,8 +350,8 @@ class MBTempMonitoring(Display):
             "BC_ChMD",
             "VPSB1B_ChBG",
         ]:
-            eval("self.SR{}".format(disc)).brush = QtCore.Qt.gray
-            eval("self.SR{}".format(disc)).setToolTip("")
+            getattr(self, "SR{}".format(disc)).brush = QtCore.Qt.gray
+            getattr(self, "SR{}".format(disc)).setToolTip("")
 
     def setImage(self, secFrom):
         if secFrom % 2 == 0:
