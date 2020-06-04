@@ -12,7 +12,7 @@ CHECK_IMG = get_abs_path("images/check.png")
 CNPEM_IMG = get_abs_path("images/CNPEM.jpg")
 LNLS_IMG = get_abs_path("images/LNLS.png")
 PLAY_IMG = get_abs_path("images/play_button.jpg")
-STOP_IMG = get_abs_path("images/stop_button.jpg")
+STOP_IMG = get_abs_path("images/stop_button.png")
 WARNING_IMG = get_abs_path("images/warning.png")
 
 # UI
