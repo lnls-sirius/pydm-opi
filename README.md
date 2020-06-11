@@ -11,7 +11,7 @@ Requirements
 **Python>=3.6** .<br>
 [PyDM](https://github.com/slaclab/pydm)==**1.10.1**<br>
 [CONS commons](https://github.com/lnls-sirius/cons-common) module.<br>
-Other dependencies are listed at `requerements.txt`.<br>
+Other dependencies are listed at `requirements.txt`.<br>
 
 Install
 -------
@@ -44,7 +44,7 @@ tar -zxvf v1.10.1.tar.gz && rm -f v1.10.1.tar.gz && cd pydm-1.10.1 && pip instal
 
 # Install pydm-opi and cons-common
 cd ~/ && git clone --recursive https://github.com/lnls-sirius/pydm-opi && cd pydm-opi
-cd ~/pydm-opi/cons-common && pip install . && cd ../ && pip install .
+cd ~/pydm-opi/cons-common && pip install . && cd ../ && pip install . -r requirements.txt
 ```
 
 ### Desktop
