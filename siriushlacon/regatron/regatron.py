@@ -24,9 +24,16 @@ def get_report(value, map_, msg):
     return erros
 
 
+class ProtectionLevel(object):
+    OPERATION = 0
+    ADVANCED = 1
+
+
 class Regatron(Display):
     def __init__(self, parent=None, macros=None, **kwargs):
         super().__init__(parent=parent, macros=macros, ui_filename=COMPLETE_UI)
+
+        self.protectionLevel: ProtectionLevel = ProtectionLevel.OPERATION
         self.setup_icons()
 
         self.btnModWarn.filenames = [TREE_32_UI]
@@ -96,6 +103,51 @@ class Regatron(Display):
             value_slot=self.get_sys_ext_error_report,
         )
         self.ch_sys_ext_error_report.connect()
+
+        self.btnProtectionLevel.passwordProtected = True
+        self.btnProtectionLevel.password = "ELPS"
+        self.btnProtectionLevel.clicked.connect(self.changeProtectionLevel)
+        self.btnProtectionLevel.setText(
+            "OPERATION"
+            if self.protectionLevel == ProtectionLevel.OPERATION
+            else "ADVANCED"
+        )
+        self.changeItemProtection(
+            unlock=True if self.protectionLevel == ProtectionLevel.ADVANCED else False
+        )
+
+    def changeProtectionLevel(self):
+
+        if (
+            self.protectionLevel == ProtectionLevel.OPERATION
+            and self.btnProtectionLevel.validate_password()
+        ):
+            self.protectionLevel = ProtectionLevel.ADVANCED
+
+        elif self.protectionLevel == ProtectionLevel.ADVANCED:
+            # Lock things up ! No need for password prompt
+            self.protectionLevel = ProtectionLevel.OPERATION
+
+        self.btnProtectionLevel.setText(
+            "OPERATION"
+            if self.protectionLevel == ProtectionLevel.OPERATION
+            else "ADVANCED"
+        )
+        self.changeItemProtection(
+            unlock=True if self.protectionLevel == ProtectionLevel.ADVANCED else False
+        )
+
+    def changeItemProtection(self, unlock):
+        self.tabWidget.setTabEnabled(1, unlock)
+        self.tabWidget.setTabEnabled(2, unlock)
+        self.tabWidget.setTabEnabled(3, unlock)
+        self.tabWidget.setTabEnabled(4, unlock)
+
+        self.btnSave.setEnabled(unlock)
+        self.leSysVoltRefSp.setEnabled(unlock)
+        self.leSysCurrRefSp.setEnabled(unlock)
+        self.leSysPwrRefSp.setEnabled(unlock)
+        self.leSysResRefSp.setEnabled(unlock)
 
     # Warning
     def get_mod_ext_warn_report(self, value):

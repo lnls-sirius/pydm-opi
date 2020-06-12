@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>837</width>
-    <height>800</height>
+    <width>836</width>
+    <height>697</height>
    </rect>
   </property>
   <property name="font">
@@ -19,7 +19,34 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_17">
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>${P}</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="PyDMPushButton" name="btnProtectionLevel">
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="passwordProtected" stdset="0">
+      <bool>true</bool>
+     </property>
+     <property name="password" stdset="0">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
     <widget class="QScrollArea" name="scrollArea">
      <property name="widgetResizable">
       <bool>true</bool>
@@ -28,8 +55,8 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-180</y>
-        <width>813</width>
+        <y>0</y>
+        <width>812</width>
         <height>1192</height>
        </rect>
       </property>
@@ -941,7 +968,7 @@
                </widget>
               </item>
               <item row="6" column="2">
-               <widget class="PyDMLineEdit" name="PyDMLineEdit_10">
+               <widget class="PyDMLineEdit" name="leSysVoltRefSp">
                 <property name="maximumSize">
                  <size>
                   <width>220</width>
@@ -989,7 +1016,7 @@
                </widget>
               </item>
               <item row="9" column="2">
-               <widget class="PyDMLineEdit" name="PyDMLineEdit_23">
+               <widget class="PyDMLineEdit" name="leSysResRefSp">
                 <property name="maximumSize">
                  <size>
                   <width>220</width>
@@ -1096,7 +1123,7 @@
                </widget>
               </item>
               <item row="7" column="2">
-               <widget class="PyDMLineEdit" name="PyDMLineEdit_15">
+               <widget class="PyDMLineEdit" name="leSysCurrRefSp">
                 <property name="maximumSize">
                  <size>
                   <width>220</width>
@@ -1184,7 +1211,7 @@
                </widget>
               </item>
               <item row="8" column="2">
-               <widget class="PyDMLineEdit" name="PyDMLineEdit_5">
+               <widget class="PyDMLineEdit" name="leSysPwrRefSp">
                 <property name="maximumSize">
                  <size>
                   <width>220</width>
@@ -3610,20 +3637,6 @@ p, li { white-space: pre-wrap; }
        </item>
       </layout>
      </widget>
-    </widget>
-   </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="label_17">
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>${P}</string>
-     </property>
     </widget>
    </item>
   </layout>
