@@ -969,6 +969,9 @@
               </item>
               <item row="6" column="2">
                <widget class="PyDMLineEdit" name="leSysVoltRefSp">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>220</width>
@@ -1017,6 +1020,9 @@
               </item>
               <item row="9" column="2">
                <widget class="PyDMLineEdit" name="leSysResRefSp">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>220</width>
@@ -1124,6 +1130,9 @@
               </item>
               <item row="7" column="2">
                <widget class="PyDMLineEdit" name="leSysCurrRefSp">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>220</width>
@@ -1212,6 +1221,9 @@
               </item>
               <item row="8" column="2">
                <widget class="PyDMLineEdit" name="leSysPwrRefSp">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>220</width>

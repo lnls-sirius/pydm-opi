@@ -149,6 +149,12 @@ class Regatron(Display):
         self.leSysPwrRefSp.setEnabled(unlock)
         self.leSysResRefSp.setEnabled(unlock)
 
+        self.btnSave.setVisible(unlock)
+        self.leSysVoltRefSp.setVisible(unlock)
+        self.leSysCurrRefSp.setVisible(unlock)
+        self.leSysPwrRefSp.setVisible(unlock)
+        self.leSysResRefSp.setVisible(unlock)
+
     # Warning
     def get_mod_ext_warn_report(self, value):
         self.lblModGenWarnExt.setText(
