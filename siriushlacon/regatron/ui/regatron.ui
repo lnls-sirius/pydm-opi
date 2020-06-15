@@ -55,7 +55,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
+        <y>-540</y>
         <width>812</width>
         <height>1192</height>
        </rect>
@@ -1526,6 +1526,23 @@
               </size>
              </property>
             </spacer>
+           </item>
+           <item row="6" column="2">
+            <widget class="PyDMLabel" name="PyDMLabel_13">
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="channel" stdset="0">
+              <string notr="true">ca://${P}:ModuleID-Mon</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_36">
+             <property name="text">
+              <string>Module ID</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
