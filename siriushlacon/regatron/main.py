@@ -20,9 +20,10 @@ def load_data():
     return data
 
 
-def get_overview_detail(name):
+def get_overview_detail(data):
+    name = data["P"]
     overview = PyDMRelatedDisplayButton(name)
-    overview.macros = ['{"P":"' + name + '"}']
+    overview.macros = [json.dumps(data)]
     overview.filenames = [COMPLETE_MAIN]
     overview.openInNewWindow = True
     overview.showIcon = False
@@ -54,11 +55,11 @@ class Launcher(Display):
 
         for e in self.data:
             if e["type"] == self.QUA:
-                self.quadrupole.append(e["pv"])
+                self.quadrupole.append(e)
             elif e["type"] == self.DIP:
-                self.dipole.append(e["pv"])
+                self.dipole.append(e)
             elif e["type"] == self.SEX:
-                self.sextupole.append(e["pv"])
+                self.sextupole.append(e)
 
         self.render(self.layoutDipoles, self.dipole)
         self.render(self.layoutQuadrupoles, self.quadrupole)

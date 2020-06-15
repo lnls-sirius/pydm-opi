@@ -32,6 +32,7 @@ class ProtectionLevel(object):
 class Regatron(Display):
     def __init__(self, parent=None, macros=None, **kwargs):
         super().__init__(parent=parent, macros=macros, ui_filename=COMPLETE_UI)
+        self.macros = macros
 
         self.protectionLevel: ProtectionLevel = ProtectionLevel.OPERATION
         self.setup_icons()
@@ -114,6 +115,26 @@ class Regatron(Display):
         )
         self.changeItemProtection(
             unlock=True if self.protectionLevel == ProtectionLevel.ADVANCED else False
+        )
+
+        self.lblTitle.setText(
+            "{} - {}".format(
+                macros["P"], "Master" if macros["master"] == "1" else "slave"
+            )
+        )
+        self.configWidget(isMaster=macros["master"] == "1")
+
+    def configWidget(self, isMaster):
+        self.sysFrame.setVisible(isMaster)
+        self.btnSysErr.setVisible(isMaster)
+        self.btnSysWarn.setVisible(isMaster)
+        self.btnClear.setVisible(isMaster)
+
+        self.warnByte.channel = "ca://{}{}".format(
+            self.macros["P"], ":GenWarn-Mon" if isMaster else ":Mod-WarnGroup-Mon",
+        )
+        self.errorByte.channel = "ca://{}{}".format(
+            self.macros["P"], ":GenError-Mon" if isMaster else ":Mod-ErrGroup-Mon",
         )
 
     def changeProtectionLevel(self):
@@ -215,6 +236,11 @@ class Regatron(Display):
         self.btnSysCurrRef.setIcon(REFRESH_ICON)
         self.btnSysResRef.setIcon(REFRESH_ICON)
         self.btnSysPwrRef.setIcon(REFRESH_ICON)
+        self.btnSysVoltRef_2.setIcon(REFRESH_ICON)
+        self.btnSysCurrRef_2.setIcon(REFRESH_ICON)
+        self.btnSysResRef_2.setIcon(REFRESH_ICON)
+        self.btnSysPwrRef_2.setIcon(REFRESH_ICON)
+
         self.btnVoltSlope.setIcon(REFRESH_ICON)
         self.btnCurrSlope.setIcon(REFRESH_ICON)
 

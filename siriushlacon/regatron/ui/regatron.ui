@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>836</width>
-    <height>697</height>
+    <width>827</width>
+    <height>754</height>
    </rect>
   </property>
   <property name="font">
@@ -20,7 +20,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QLabel" name="label_17">
+    <widget class="QLabel" name="lblTitle">
      <property name="font">
       <font>
        <pointsize>14</pointsize>
@@ -55,8 +55,8 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-540</y>
-        <width>812</width>
+        <y>0</y>
+        <width>807</width>
         <height>1192</height>
        </rect>
       </property>
@@ -399,22 +399,50 @@
               <enum>QFrame::Sunken</enum>
              </property>
              <layout class="QGridLayout" name="gridLayout_4">
-              <item row="7" column="5">
-               <widget class="PyDMPushButton" name="btnSysCurrRef_2">
+              <item row="19" column="0">
+               <widget class="PyDMPushButton" name="btnSave">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="maximumSize">
                  <size>
-                  <width>60</width>
+                  <width>16777215</width>
                   <height>16777215</height>
                  </size>
                 </property>
                 <property name="toolTip">
                  <string/>
                 </property>
+                <property name="text">
+                 <string>Save Settings</string>
+                </property>
                 <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-CurrentRef-RB.PROC</string>
+                 <string>ca://${P}:Save-Cmd.PROC</string>
+                </property>
+                <property name="showConfirmDialog" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="confirmMessage" stdset="0">
+                 <string>Are you sure you want to save the current settings?</string>
                 </property>
                 <property name="pressValue" stdset="0">
                  <string>1</string>
+                </property>
+               </widget>
+              </item>
+              <item row="17" column="0">
+               <widget class="PyDMLabel" name="dcLnkNomDesc_25">
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="alarmSensitiveBorder" stdset="0">
+                 <bool>false</bool>
+                </property>
+                <property name="channel" stdset="0">
+                 <string>ca://${P}:RectifierT-Mon.DESC</string>
                 </property>
                </widget>
               </item>
@@ -440,7 +468,7 @@
                   <number>6</number>
                  </property>
                  <item row="2" column="0" colspan="2">
-                  <widget class="PyDMByteIndicator" name="PyDMByteIndicator_2">
+                  <widget class="PyDMByteIndicator" name="warnByte">
                    <property name="toolTip">
                     <string/>
                    </property>
@@ -523,7 +551,7 @@
                   </widget>
                  </item>
                  <item row="1" column="0" colspan="2">
-                  <widget class="PyDMByteIndicator" name="PyDMByteIndicator">
+                  <widget class="PyDMByteIndicator" name="errorByte">
                    <property name="toolTip">
                     <string/>
                    </property>
@@ -739,124 +767,7 @@
                 </layout>
                </widget>
               </item>
-              <item row="9" column="1">
-               <widget class="PyDMLabel" name="dcLnkNomDesc_90">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="showUnits" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-ResistanceRef-RB</string>
-                </property>
-               </widget>
-              </item>
-              <item row="17" column="0">
-               <widget class="PyDMLabel" name="dcLnkNomDesc_24">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="alarmSensitiveBorder" stdset="0">
-                 <bool>false</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:IGBTT-Mon.DESC</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="4">
-               <widget class="PyDMLabel" name="PyDMLabel_2">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-ControlMode-Mon</string>
-                </property>
-               </widget>
-              </item>
-              <item row="18" column="4">
-               <widget class="PyDMLabel" name="dcLnkNom_25">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="showUnits" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:RectifierT-Mon</string>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="0">
-               <widget class="PyDMLabel" name="dcLnkNomDesc_40">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="alarmSensitiveBorder" stdset="0">
-                 <bool>false</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-CurrentRef-SP.DESC</string>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="0">
-               <widget class="PyDMLabel" name="dcLnkNomDesc_83">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="alarmSensitiveBorder" stdset="0">
-                 <bool>false</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-ResistanceRef-SP.DESC</string>
-                </property>
-               </widget>
-              </item>
-              <item row="13" column="4">
-               <widget class="PyDMLabel" name="PyDMLabel_4">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Mod-ControlMode-Mon</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="1">
-               <widget class="PyDMLabel" name="dcLnkNomDesc_73">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="showUnits" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-VoltageRef-RB</string>
-                </property>
-               </widget>
-              </item>
-              <item row="14" column="5">
-               <widget class="PyDMPushButton" name="btnActIFace">
-                <property name="maximumSize">
-                 <size>
-                  <width>60</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:ActiveInterface-Mon.PROC</string>
-                </property>
-                <property name="pressValue" stdset="0">
-                 <string>1</string>
-                </property>
-               </widget>
-              </item>
-              <item row="16" column="0">
+              <item row="15" column="0">
                <widget class="QLabel" name="label_3">
                 <property name="font">
                  <font>
@@ -870,381 +781,7 @@
                 </property>
                </widget>
               </item>
-              <item row="14" column="0">
-               <widget class="PyDMLabel" name="dcLnkNom_38">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="showUnits" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="alarmSensitiveBorder" stdset="0">
-                 <bool>false</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:ActiveInterface-Mon.DESC</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="PyDMLabel" name="dcLnkNom_31">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="showUnits" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="alarmSensitiveBorder" stdset="0">
-                 <bool>false</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-State-Mon.DESC</string>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="5">
-               <widget class="PyDMPushButton" name="btnSysResRef_2">
-                <property name="maximumSize">
-                 <size>
-                  <width>60</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-ResistanceRef-RB.PROC</string>
-                </property>
-                <property name="pressValue" stdset="0">
-                 <string>1</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="5">
-               <widget class="PyDMPushButton" name="btnSCtrlMode">
-                <property name="maximumSize">
-                 <size>
-                  <width>60</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-ControlMode-Mon.PROC</string>
-                </property>
-                <property name="pressValue" stdset="0">
-                 <string>1</string>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="1">
-               <widget class="PyDMLabel" name="dcLnkNomDesc_75">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="showUnits" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-PwrRef-RB</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="QLabel" name="label_35">
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>System Configuration</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="2">
-               <widget class="PyDMLineEdit" name="leSysVoltRefSp">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>220</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="frame">
-                 <bool>true</bool>
-                </property>
-                <property name="showUnits" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-VoltageRef-SP</string>
-                </property>
-               </widget>
-              </item>
-              <item row="19" column="4">
-               <widget class="PyDMLabel" name="dcLnkNom_109">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="showUnits" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:PCBT-Mon</string>
-                </property>
-               </widget>
-              </item>
-              <item row="18" column="0">
-               <widget class="PyDMLabel" name="dcLnkNomDesc_25">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="alarmSensitiveBorder" stdset="0">
-                 <bool>false</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:RectifierT-Mon.DESC</string>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="2">
-               <widget class="PyDMLineEdit" name="leSysResRefSp">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>220</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="frame">
-                 <bool>true</bool>
-                </property>
-                <property name="showUnits" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-ResistanceRef-SP</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0">
-               <widget class="PyDMLabel" name="dcLnkNom_32">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="showUnits" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="alarmSensitiveBorder" stdset="0">
-                 <bool>false</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-ControlMode-Mon.DESC</string>
-                </property>
-               </widget>
-              </item>
-              <item row="12" column="4">
-               <widget class="PyDMLabel" name="PyDMLabel_3">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Mod-State-Mon</string>
-                </property>
-               </widget>
-              </item>
-              <item row="10" column="0" colspan="6">
-               <widget class="Line" name="line_2">
-                <property name="lineWidth">
-                 <number>2</number>
-                </property>
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="11" column="0">
-               <widget class="QLabel" name="label_19">
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Module Control</string>
-                </property>
-               </widget>
-              </item>
-              <item row="13" column="5">
-               <widget class="PyDMPushButton" name="btnMCtrlMode">
-                <property name="maximumSize">
-                 <size>
-                  <width>60</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Mod-ControlMode-Mon.PROC</string>
-                </property>
-                <property name="pressValue" stdset="0">
-                 <string>1</string>
-                </property>
-               </widget>
-              </item>
-              <item row="12" column="0">
-               <widget class="PyDMLabel" name="dcLnkNom_33">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="showUnits" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="alarmSensitiveBorder" stdset="0">
-                 <bool>false</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Mod-State-Mon.DESC</string>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="2">
-               <widget class="PyDMLineEdit" name="leSysCurrRefSp">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>220</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="frame">
-                 <bool>true</bool>
-                </property>
-                <property name="showUnits" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-CurrentRef-SP</string>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="5">
-               <widget class="PyDMPushButton" name="btnSysPwrRef_2">
-                <property name="maximumSize">
-                 <size>
-                  <width>60</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-PwrRef-RB.PROC</string>
-                </property>
-                <property name="pressValue" stdset="0">
-                 <string>1</string>
-                </property>
-               </widget>
-              </item>
-              <item row="20" column="0">
-               <widget class="PyDMPushButton" name="btnSave">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="text">
-                 <string>Save Settings</string>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Save-Cmd.PROC</string>
-                </property>
-                <property name="showConfirmDialog" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="confirmMessage" stdset="0">
-                 <string>Are you sure you want to save the current settings?</string>
-                </property>
-                <property name="pressValue" stdset="0">
-                 <string>1</string>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="0">
-               <widget class="PyDMLabel" name="dcLnkNomDesc_41">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="alarmSensitiveBorder" stdset="0">
-                 <bool>false</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-PwrRef-SP.DESC</string>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="2">
-               <widget class="PyDMLineEdit" name="leSysPwrRefSp">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>220</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="frame">
-                 <bool>true</bool>
-                </property>
-                <property name="showUnits" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-PwrRef-SP</string>
-                </property>
-               </widget>
-              </item>
-              <item row="17" column="4">
+              <item row="16" column="4">
                <widget class="PyDMLabel" name="dcLnkNom_24">
                 <property name="toolTip">
                  <string/>
@@ -1257,37 +794,8 @@
                 </property>
                </widget>
               </item>
-              <item row="6" column="0">
-               <widget class="PyDMLabel" name="dcLnkNomDesc_39">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="alarmSensitiveBorder" stdset="0">
-                 <bool>false</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-VoltageRef-SP.DESC</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0">
-               <widget class="PyDMLabel" name="dcLnkNom_36">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="showUnits" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="alarmSensitiveBorder" stdset="0">
-                 <bool>false</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-OutVoltEnbl-RB.DESC</string>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="1">
-               <widget class="PyDMLabel" name="dcLnkNomDesc_74">
+              <item row="18" column="4">
+               <widget class="PyDMLabel" name="dcLnkNom_109">
                 <property name="toolTip">
                  <string/>
                 </property>
@@ -1295,118 +803,473 @@
                  <bool>true</bool>
                 </property>
                 <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-CurrentRef-RB</string>
+                 <string>ca://${P}:PCBT-Mon</string>
                 </property>
                </widget>
               </item>
-              <item row="12" column="5">
-               <widget class="PyDMPushButton" name="btnMState">
-                <property name="maximumSize">
-                 <size>
-                  <width>60</width>
-                  <height>16777215</height>
-                 </size>
+              <item row="1" column="0" colspan="6">
+               <widget class="QFrame" name="sysFrame">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
                 </property>
-                <property name="toolTip">
-                 <string/>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
                 </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Mod-State-Mon.PROC</string>
+                <layout class="QGridLayout" name="gridLayout_13">
+                 <item row="3" column="2" colspan="2">
+                  <widget class="PyDMEnumComboBox" name="PyDMEnumComboBox">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-OutVoltEnbl-SP</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="3">
+                  <widget class="PyDMPushButton" name="btnSstate">
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-State-Mon.PROC</string>
+                   </property>
+                   <property name="pressValue" stdset="0">
+                    <string>1</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
+                  <widget class="PyDMLabel" name="PyDMLabel_12">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-OutVoltEnbl-RB</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="3">
+                  <widget class="PyDMPushButton" name="btnSCtrlMode">
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-ControlMode-Mon.PROC</string>
+                   </property>
+                   <property name="pressValue" stdset="0">
+                    <string>1</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="PyDMLabel" name="dcLnkNom_31">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="showUnits" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                   <property name="alarmSensitiveBorder" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-State-Mon.DESC</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="PyDMLabel" name="PyDMLabel">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-State-Mon</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="PyDMLabel" name="dcLnkNom_36">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="showUnits" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                   <property name="alarmSensitiveBorder" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-OutVoltEnbl-RB.DESC</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="PyDMLabel" name="PyDMLabel_2">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-ControlMode-Mon</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="0">
+                  <widget class="PyDMLabel" name="dcLnkNomDesc_39">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="alarmSensitiveBorder" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-VoltageRef-SP.DESC</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0">
+                  <widget class="QLabel" name="label_35">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>System Configuration</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="0">
+                  <widget class="PyDMLabel" name="dcLnkNomDesc_41">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="alarmSensitiveBorder" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-PwrRef-SP.DESC</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="0">
+                  <widget class="PyDMLabel" name="dcLnkNomDesc_40">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="alarmSensitiveBorder" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-CurrentRef-SP.DESC</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="2">
+                  <widget class="PyDMLineEdit" name="leSysVoltRefSp">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>220</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="frame">
+                    <bool>true</bool>
+                   </property>
+                   <property name="showUnits" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-VoltageRef-SP</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="1">
+                  <widget class="PyDMLabel" name="dcLnkNomDesc_73">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="showUnits" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-VoltageRef-RB</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="PyDMLabel" name="dcLnkNom_32">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="showUnits" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                   <property name="alarmSensitiveBorder" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-ControlMode-Mon.DESC</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="3">
+                  <widget class="PyDMPushButton" name="btnSysVoltRef_2">
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-VoltageRef-RB.PROC</string>
+                   </property>
+                   <property name="pressValue" stdset="0">
+                    <string>1</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_20">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>System Control</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="0">
+                  <widget class="PyDMLabel" name="dcLnkNomDesc_83">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="alarmSensitiveBorder" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-ResistanceRef-SP.DESC</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="1">
+                  <widget class="PyDMLabel" name="dcLnkNomDesc_74">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="showUnits" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-CurrentRef-RB</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="1">
+                  <widget class="PyDMLabel" name="dcLnkNomDesc_75">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="showUnits" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-PwrRef-RB</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="1">
+                  <widget class="PyDMLabel" name="dcLnkNomDesc_90">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="showUnits" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-ResistanceRef-RB</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="2">
+                  <widget class="PyDMLineEdit" name="leSysCurrRefSp">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>220</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="frame">
+                    <bool>true</bool>
+                   </property>
+                   <property name="showUnits" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-CurrentRef-SP</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="2">
+                  <widget class="PyDMLineEdit" name="leSysPwrRefSp">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>220</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="frame">
+                    <bool>true</bool>
+                   </property>
+                   <property name="showUnits" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-PwrRef-SP</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="2">
+                  <widget class="PyDMLineEdit" name="leSysResRefSp">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>220</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="frame">
+                    <bool>true</bool>
+                   </property>
+                   <property name="showUnits" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-ResistanceRef-SP</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="3">
+                  <widget class="PyDMPushButton" name="btnSysCurrRef_2">
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-CurrentRef-RB.PROC</string>
+                   </property>
+                   <property name="pressValue" stdset="0">
+                    <string>1</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="3">
+                  <widget class="PyDMPushButton" name="btnSysPwrRef_2">
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-PwrRef-RB.PROC</string>
+                   </property>
+                   <property name="pressValue" stdset="0">
+                    <string>1</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="3">
+                  <widget class="PyDMPushButton" name="btnSysResRef_2">
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Sys-ResistanceRef-RB.PROC</string>
+                   </property>
+                   <property name="pressValue" stdset="0">
+                    <string>1</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="10" column="0" colspan="6">
+               <widget class="Line" name="line_2">
+                <property name="lineWidth">
+                 <number>2</number>
                 </property>
-                <property name="pressValue" stdset="0">
-                 <string>1</string>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
                 </property>
                </widget>
               </item>
-              <item row="2" column="4">
-               <widget class="PyDMLabel" name="PyDMLabel">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-State-Mon</string>
-                </property>
-               </widget>
-              </item>
-              <item row="14" column="4">
-               <widget class="PyDMLabel" name="PyDMLabel_5">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:ActiveInterface-Mon</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_20">
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>System Control</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="5">
-               <widget class="PyDMPushButton" name="btnSstate">
-                <property name="maximumSize">
-                 <size>
-                  <width>60</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-State-Mon.PROC</string>
-                </property>
-                <property name="pressValue" stdset="0">
-                 <string>1</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="5">
-               <widget class="PyDMPushButton" name="btnSysVoltRef_2">
-                <property name="maximumSize">
-                 <size>
-                  <width>60</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-VoltageRef-RB.PROC</string>
-                </property>
-                <property name="pressValue" stdset="0">
-                 <string>1</string>
-                </property>
-               </widget>
-              </item>
-              <item row="13" column="0">
-               <widget class="PyDMLabel" name="dcLnkNom_34">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="showUnits" stdset="0">
-                 <bool>true</bool>
-                </property>
-                <property name="alarmSensitiveBorder" stdset="0">
-                 <bool>false</bool>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Mod-ControlMode-Mon.DESC</string>
-                </property>
-               </widget>
-              </item>
-              <item row="19" column="0">
+              <item row="18" column="0">
                <widget class="PyDMLabel" name="dcLnkNomDesc_110">
                 <property name="toolTip">
                  <string/>
@@ -1419,7 +1282,33 @@
                 </property>
                </widget>
               </item>
-              <item row="15" column="0" colspan="6">
+              <item row="17" column="4">
+               <widget class="PyDMLabel" name="dcLnkNom_25">
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="showUnits" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="channel" stdset="0">
+                 <string>ca://${P}:RectifierT-Mon</string>
+                </property>
+               </widget>
+              </item>
+              <item row="16" column="0">
+               <widget class="PyDMLabel" name="dcLnkNomDesc_24">
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="alarmSensitiveBorder" stdset="0">
+                 <bool>false</bool>
+                </property>
+                <property name="channel" stdset="0">
+                 <string>ca://${P}:IGBTT-Mon.DESC</string>
+                </property>
+               </widget>
+              </item>
+              <item row="14" column="0" colspan="6">
                <widget class="Line" name="line_4">
                 <property name="lineWidth">
                  <number>2</number>
@@ -1429,30 +1318,165 @@
                 </property>
                </widget>
               </item>
-              <item row="4" column="1" colspan="2">
-               <widget class="PyDMLabel" name="PyDMLabel_12">
-                <property name="toolTip">
-                 <string/>
+              <item row="2" column="0" colspan="6">
+               <widget class="QFrame" name="modFrame">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
                 </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-OutVoltEnbl-RB</string>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
                 </property>
-               </widget>
-              </item>
-              <item row="4" column="4" colspan="2">
-               <widget class="PyDMEnumComboBox" name="PyDMEnumComboBox">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="channel" stdset="0">
-                 <string>ca://${P}:Sys-OutVoltEnbl-SP</string>
-                </property>
+                <layout class="QGridLayout" name="gridLayout_14">
+                 <item row="2" column="1">
+                  <widget class="PyDMLabel" name="PyDMLabel_4">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Mod-ControlMode-Mon</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="PyDMLabel" name="dcLnkNom_33">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="showUnits" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                   <property name="alarmSensitiveBorder" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Mod-State-Mon.DESC</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="PyDMLabel" name="dcLnkNom_34">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="showUnits" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                   <property name="alarmSensitiveBorder" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Mod-ControlMode-Mon.DESC</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="PyDMLabel" name="PyDMLabel_3">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Mod-State-Mon</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
+                  <widget class="PyDMLabel" name="PyDMLabel_5">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:ActiveInterface-Mon</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="PyDMLabel" name="dcLnkNom_38">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="showUnits" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                   <property name="alarmSensitiveBorder" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:ActiveInterface-Mon.DESC</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="2">
+                  <widget class="PyDMPushButton" name="btnMState">
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Mod-State-Mon.PROC</string>
+                   </property>
+                   <property name="pressValue" stdset="0">
+                    <string>1</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="2">
+                  <widget class="PyDMPushButton" name="btnMCtrlMode">
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:Mod-ControlMode-Mon.PROC</string>
+                   </property>
+                   <property name="pressValue" stdset="0">
+                    <string>1</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="2">
+                  <widget class="PyDMPushButton" name="btnActIFace">
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="channel" stdset="0">
+                    <string>ca://${P}:ActiveInterface-Mon.PROC</string>
+                   </property>
+                   <property name="pressValue" stdset="0">
+                    <string>1</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0" colspan="3">
+                  <widget class="QLabel" name="label_19">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Module Control</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>
