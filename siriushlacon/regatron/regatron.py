@@ -134,7 +134,7 @@ class Regatron(Display):
             self.macros["P"], ":GenWarn-Mon" if isMaster else ":Mod-WarnGroup-Mon",
         )
         self.errorByte.channel = "ca://{}{}".format(
-            self.macros["P"], ":GenError-Mon" if isMaster else ":Mod-ErrGroup-Mon",
+            self.macros["P"], ":GenErr-Mon" if isMaster else ":Mod-ErrGroup-Mon",
         )
 
     def changeProtectionLevel(self):
