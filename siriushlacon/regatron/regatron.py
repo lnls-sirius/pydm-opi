@@ -8,16 +8,17 @@ from pydm.widgets.channel import PyDMChannel
 from siriushlacon.regatron.consts import (
     COMPLETE_UI,
     TREE_32_UI,
-    EXTENDED_MAP,
-    STANDARD_MAP,
+    READINGS_MAP,
+    READINGS,
+    ALARM_MAIN,
 )
 
 logger = logging.getLogger()
 
 
-def get_report(value, map_, msg):
+def get_report(value, msg):
     erros = []
-    for k, v in map_.items():
+    for k, v in READINGS_MAP.items():
         if value & 1 << k:
             erros.append(v)
     logger.info("{} {}".format(msg, erros))
@@ -56,54 +57,31 @@ class Regatron(Display):
         )
 
         # Warning Groups
-        self.ch_mod_std_warn_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Mod-StdWarnGroup-Mon",
-            value_slot=self.get_mod_std_warn_report,
+        self.ch_mod_warn_report = PyDMChannel(
+            address="ca://" + macros["P"] + ":Mod-WarnGroup-Mon",
+            value_slot=self.get_mod_warn_report,
         )
-        self.ch_mod_std_warn_report.connect()
+        self.ch_mod_warn_report.connect()
 
-        self.ch_sys_std_warn_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Sys-StdWarnGroup-Mon",
-            value_slot=self.get_sys_std_warn_report,
+        self.ch_sys_warn_report = PyDMChannel(
+            address="ca://" + macros["P"] + ":Sys-WarnGroup-Mon",
+            value_slot=self.get_sys_warn_report,
         )
-        self.ch_sys_std_warn_report.connect()
-
-        self.ch_mod_ext_warn_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Mod-ExtWarnGroup-Mon",
-            value_slot=self.get_mod_ext_warn_report,
-        )
-        self.ch_mod_ext_warn_report.connect()
-
-        self.ch_sys_ext_warn_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Sys-ExtWarnGroup-Mon",
-            value_slot=self.get_sys_ext_warn_report,
-        )
-        self.ch_sys_ext_warn_report.connect()
+        self.ch_sys_warn_report.connect()
 
         # Error Groups
-        self.ch_mod_std_error_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Mod-StdErrGroup-Mon",
-            value_slot=self.get_mod_std_error_report,
+        self.ch_mod_error_report = PyDMChannel(
+            address="ca://" + macros["P"] + ":Mod-ErrGroup-Mon",
+            value_slot=self.get_mod_error_report,
         )
-        self.ch_mod_std_error_report.connect()
+        self.ch_mod_error_report.connect()
 
-        self.ch_sys_std_error_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Sys-StdErrGroup-Mon",
-            value_slot=self.get_sys_std_error_report,
+        self.ch_sys_error_report = PyDMChannel(
+            address="ca://" + macros["P"] + ":Sys-ErrGroup-Mon",
+            value_slot=self.get_sys_error_report,
         )
-        self.ch_sys_std_error_report.connect()
-
-        self.ch_mod_ext_error_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Mod-ExtErrGroup-Mon",
-            value_slot=self.get_mod_ext_error_report,
-        )
-        self.ch_mod_std_error_report.connect()
-
-        self.ch_sys_ext_error_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Sys-ExtErrGroup-Mon",
-            value_slot=self.get_sys_ext_error_report,
-        )
-        self.ch_sys_ext_error_report.connect()
+        self.ch_sys_error_report.connect()
+        # ----------------------------------------------
 
         self.btnProtectionLevel.passwordProtected = True
         self.btnProtectionLevel.password = "ELPS"
@@ -119,10 +97,54 @@ class Regatron(Display):
 
         self.lblTitle.setText(
             "{} - {}".format(
-                macros["P"], "Master" if macros["master"] == "1" else "slave"
+                macros["P"], "Master" if macros.get("master", "1") == "1" else "slave"
             )
         )
-        self.configWidget(isMaster=macros["master"] == "1")
+        self.configWidget(isMaster=macros.get("master", "1") == "1")
+
+        self.slopeVoltageMax = PyDMChannel(
+            address="ca://" + macros["P"] + ":Sys-SlopeVoltMax-Mon",
+            value_slot=self.voltageSlopeMaxChanged,
+        )
+        self.slopeVoltageMin = PyDMChannel(
+            address="ca://" + macros["P"] + ":Sys-SlopeVoltMin-Mon",
+            value_slot=self.voltageSlopeMinChanged,
+        )
+        self.slopeVoltageMax.connect()
+        self.slopeVoltageMin.connect()
+
+        self.slopeCurrentMax = PyDMChannel(
+            address="ca://" + macros["P"] + ":Sys-SlopeCurrMax-Mon",
+            value_slot=self.currentSlopeMaxChanged,
+        )
+        self.slopeCurrentMin = PyDMChannel(
+            address="ca://" + macros["P"] + ":Sys-SlopeCurrMin-Mon",
+            value_slot=self.currentSlopeMinChanged,
+        )
+        self.slopeCurrentMax.connect()
+        self.slopeCurrentMin.connect()
+
+    def voltageSlopeMaxChanged(self, value):
+        self.spbxSlopeVoltSp.setMaximum(value)
+        self.spbxSlopeStartupVoltSp.setMaximum(value)
+
+    def voltageSlopeMinChanged(self, value):
+        self.spbxSlopeVoltSp.setMinimum(value)
+        self.spbxSlopeVoltSp.setSingleStep(value)
+
+        self.spbxSlopeStartupVoltSp.setMinimum(value)
+        self.spbxSlopeStartupVoltSp.setSingleStep(value)
+
+    def currentSlopeMaxChanged(self, value):
+        self.spbxSlopeCurrSp.setMaximum(value)
+        self.spbxSlopeStartupCurrSp.setMaximum(value)
+
+    def currentSlopeMinChanged(self, value):
+        self.spbxSlopeCurrSp.setMinimum(value)
+        self.spbxSlopeCurrSp.setSingleStep(value)
+
+        self.spbxSlopeStartupCurrSp.setMinimum(value)
+        self.spbxSlopeStartupCurrSp.setSingleStep(value)
 
     def configWidget(self, isMaster):
         self.sysFrame.setVisible(isMaster)
@@ -177,46 +199,18 @@ class Regatron(Display):
         self.leSysResRefSp.setVisible(unlock)
 
     # Warning
-    def get_mod_ext_warn_report(self, value):
-        self.lblModGenWarnExt.setText(
-            "\n".join(get_report(value, EXTENDED_MAP, "Module extended"))
-        )
+    def get_mod_warn_report(self, value):
+        self.lblModGenWarnStd.setText("\n".join(get_report(value, "Module")))
 
-    def get_sys_ext_warn_report(self, value):
-        self.lblSysGenWarnExt.setText(
-            "\n".join(get_report(value, EXTENDED_MAP, "System extended"))
-        )
-
-    def get_mod_std_warn_report(self, value):
-        self.lblModGenWarnStd.setText(
-            "\n".join(get_report(value, STANDARD_MAP, "Module standard"))
-        )
-
-    def get_sys_std_warn_report(self, value):
-        self.lblSysGenWarnStd.setText(
-            "\n".join(get_report(value, STANDARD_MAP, "System standard"))
-        )
+    def get_sys_warn_report(self, value):
+        self.lblSysGenWarnStd.setText("\n".join(get_report(value, "System")))
 
     # Error
-    def get_mod_std_error_report(self, value):
-        self.lblModGenErrStd.setText(
-            "\n".join(get_report(value, STANDARD_MAP, "Module standard"))
-        )
+    def get_mod_error_report(self, value):
+        self.lblModGenErrStd.setText("\n".join(get_report(value, "Module")))
 
-    def get_mod_ext_error_report(self, value):
-        self.lblModGenErrExt.setText(
-            "\n".join(get_report(value, EXTENDED_MAP, "Module extended"))
-        )
-
-    def get_sys_std_error_report(self, value):
-        self.lblSysGenErrStd.setText(
-            "\n".join(get_report(value, STANDARD_MAP, "System standard"))
-        )
-
-    def get_sys_ext_error_report(self, value):
-        self.lblSysGenErrExt.setText(
-            "\n".join(get_report(value, EXTENDED_MAP, "System extended"))
-        )
+    def get_sys_error_report(self, value):
+        self.lblSysGenErrStd.setText("\n".join(get_report(value, "System")))
 
     def setup_icons(self):
         REFRESH_ICON = IconFont().icon("refresh")

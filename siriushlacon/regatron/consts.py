@@ -18,25 +18,8 @@ TREE_32_UI = get_abs_path("ui/tree32.ui")
 COMPLETE_UI = get_abs_path("ui/regatron.ui")
 ALARM_UI = get_abs_path("ui/alarm.ui")
 
-EXTENDED_MAP = {
-    0: "IBC System",
-    1: "IBC Supply",
-    2: "IBC Communication",
-    3: "IBC Power",
-    4: "IBC Inverter",
-    5: "IBC Miscellaneous",
-    6: "IBC Inverter 2",
-    7: "not used",
-    8: "not used",
-    9: "not used",
-    10: "Supply 2",
-    11: "Login 2",
-    12: "Configuration 3",
-    13: "Communication 3",
-    14: "Internal 2",
-    15: "Communication 2",
-}
-STANDARD_MAP = {
+READINGS_MAP = {
+    # STANDARD_MAP
     0: "Internal",
     1: "Internal (PDSP)",
     2: "Output Current",
@@ -53,9 +36,27 @@ STANDARD_MAP = {
     13: "Configuration",
     14: "Configuration 2",
     15: "Miscellaneous",
+    # EXTENDED_MAP = {
+    16: "IBC System",
+    17: "IBC Supply",
+    18: "IBC Communication",
+    19: "IBC Power",
+    20: "IBC Inverter",
+    21: "IBC Miscellaneous",
+    22: "IBC Inverter 2",
+    23: "not used",
+    24: "not used",
+    25: "not used",
+    26: "Supply 2",
+    27: "Login 2",
+    28: "Configuration 3",
+    29: "Communication 3",
+    30: "Internal 2",
+    31: "Communication 2",
 }
 
-STD_READINGS = [
+READINGS = [
+    # STD_READINGS
     "Intrn-Mon",
     "IntrnPDSP-Mon",
     "OutCurrent-Mon",
@@ -72,9 +73,7 @@ STD_READINGS = [
     "Conf-Mon",
     "Conf2-Mon",
     "Misc-Mon",
-]
-
-EXT_READINGS = [
+    # EXT_READINGS
     "IBCSystem-Mon",
     "IBCSuppply-Mon",
     "IBCComm-Mon",
