@@ -70,10 +70,6 @@ class Regatron(Display):
             pvname="{}{}".format(macros["P"], ":ErrorHistory-Mon"),
             callback=self.flash_error_history,
         )
-        try:
-            self.flash_error_history(self.errorHistoryPV.value)
-        except:
-            pass
         # ----------------------------------------------
 
         self.btnProtectionLevel.passwordProtected = True
@@ -116,6 +112,67 @@ class Regatron(Display):
         )
         self.slopeCurrentMax.connect()
         self.slopeCurrentMin.connect()
+
+        self.modStatusPV = PyDMChannel(
+            address="ca://{}{}".format(macros["P"], ":Mod-State-Mon"),
+            value_slot=self.update_mod_state_label,
+        )
+        self.sysStatusPV = PyDMChannel(
+            address="ca://{}{}".format(macros["P"], ":Sys-State-Mon"),
+            value_slot=self.update_sys_state_label,
+        )
+        self.modStatusPV.connect()
+        self.sysStatusPV.connect()
+
+        # Initial reading from epics.PV
+        try:
+            self.flash_error_history(self.errorHistoryPV.value)
+            # self.update_sys_state_labels(self.sysStatusPV.char_value)
+            # self.update_mod_state_labels(self.modStatusPV.value)
+        except:
+            pass
+
+    def get_char_val(self, val):
+        char_value = ""
+        if val == 2:
+            char_value = "POWERUP"
+        elif val == 4:
+            char_value = "READY"
+        elif val == 8:
+            char_value = "RUN"
+        elif val == 10:
+            char_value = "WARN"
+        elif val == 12:
+            char_value = "ERROR"
+        elif val == 15:
+            char_value = "STOP"
+        return char_value
+
+    def get_style_from_state(self, state):
+
+        color = "white"
+        bgColor = "gray"
+
+        if state in ["POWERUP", "READY"]:
+            bgColor = "darkGreen"
+        elif state == "RUN":
+            bgColor = "green"
+        elif state == "WARN":
+            bgColor = "yellow"
+        elif bgColor == "ERROR":
+            bgColor = "RED"
+
+        return """color: {}; background-color: {};""".format(color, bgColor)
+
+    def update_mod_state_label(self, val):
+        char_value = self.get_char_val(val)
+        self.modStatus.setText(char_value)
+        self.modStatus.setStyleSheet(self.get_style_from_state(char_value))
+
+    def update_sys_state_label(self, val):
+        char_value = self.get_char_val(val)
+        self.sysStatus.setText(char_value)
+        self.sysStatus.setStyleSheet(self.get_style_from_state(char_value))
 
     def get_group_string(self, group_):
         group = int(group_)
@@ -186,6 +243,11 @@ class Regatron(Display):
         self.btnSysErr.setVisible(isMaster)
         self.btnSysWarn.setVisible(isMaster)
         self.btnClear.setVisible(isMaster)
+
+        self.sysOutVolt.setVisible(isMaster)
+        self.sysOutCurr.setVisible(isMaster)
+        self.sysOutPwr.setVisible(isMaster)
+        self.sysStatus.setVisible(isMaster)
 
         self.warnByte.channel = "ca://{}{}".format(
             self.macros["P"], ":GenWarn-Mon" if isMaster else ":Mod-WarnGroup-Mon",
