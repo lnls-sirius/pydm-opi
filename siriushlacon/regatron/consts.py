@@ -18,7 +18,7 @@ TREE_32_UI = get_abs_path("ui/tree32.ui")
 COMPLETE_UI = get_abs_path("ui/regatron.ui")
 ALARM_UI = get_abs_path("ui/alarm.ui")
 CODES = [
-    *[i in range(10)],
+    *[i for i in range(10)],
     "A",
     "B",
     "C",
