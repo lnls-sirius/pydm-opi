@@ -10,21 +10,12 @@ from qtpy.QtWidgets import QTableWidgetItem
 
 from siriushlacon.regatron.consts import (
     COMPLETE_UI,
-    TREE_32_UI,
+    TREE_32,
     READINGS_MAP,
     ALARM_MAIN,
 )
 
 logger = logging.getLogger()
-
-
-def get_report(value, msg):
-    erros = []
-    for k, v in READINGS_MAP.items():
-        if value & 1 << k:
-            erros.append(v)
-    logger.info("{} {}".format(msg, erros))
-    return erros
 
 
 class ProtectionLevel(object):
@@ -48,10 +39,10 @@ class Regatron(Display):
         self.btnSysHistory.macros = [json.dumps({"T": "Sys", "P": macros["P"]})]
         self.btnSysHistory.openInNewWindow = True
 
-        self.btnModWarn.filenames = [TREE_32_UI]
-        self.btnSysWarn.filenames = [TREE_32_UI]
-        self.btnModErr.filenames = [TREE_32_UI]
-        self.btnSysErr.filenames = [TREE_32_UI]
+        self.btnModWarn.filenames = [TREE_32]
+        self.btnSysWarn.filenames = [TREE_32]
+        self.btnModErr.filenames = [TREE_32]
+        self.btnSysErr.filenames = [TREE_32]
 
         self.btnModWarn.macros = json.dumps(
             {"Title": "Module Warnings", "P": macros["P"], "D": "Mod", "T": "Warn"}
@@ -66,38 +57,14 @@ class Regatron(Display):
             {"Title": "System Error", "P": macros["P"], "D": "Sys", "T": "Err"}
         )
 
-        #   # Warning Groups
-        #   self.ch_mod_warn_report = PyDMChannel(
-        #       address="ca://" + macros["P"] + ":Mod-WarnGroup-Mon",
-        #       value_slot=self.get_mod_warn_report,
-        #   )
-        #   self.ch_mod_warn_report.connect()
-
-        #   self.ch_sys_warn_report = PyDMChannel(
-        #       address="ca://" + macros["P"] + ":Sys-WarnGroup-Mon",
-        #       value_slot=self.get_sys_warn_report,
-        #   )
-        #   self.ch_sys_warn_report.connect()
-
-        #   # Error Groups
-        #   self.ch_mod_error_report = PyDMChannel(
-        #       address="ca://" + macros["P"] + ":Mod-ErrGroup-Mon",
-        #       value_slot=self.get_mod_error_report,
-        #   )
-        #   self.ch_mod_error_report.connect()
-
-        #   self.ch_sys_error_report = PyDMChannel(
-        #       address="ca://" + macros["P"] + ":Sys-ErrGroup-Mon",
-        #       value_slot=self.get_sys_error_report,
-        #   )
-        #   self.ch_sys_error_report.connect()
-
         # Flash Error History
         # self.ch_flash_error_history = PyDMChannel(
         #    address="ca://" + macros["P"] + ":ErrorHistory-Mon",
         #    value_slot=self.flash_error_history,
         # )
         # @todo: do this better !
+        self.flashHistoryTable.verticalHeader().setVisible(False)
+
         self.errorHistoryPV = epics.PV(
             pvname="{}{}".format(macros["P"], ":ErrorHistory-Mon"),
             callback=self.flash_error_history,
@@ -106,11 +73,6 @@ class Regatron(Display):
             self.flash_error_history(self.errorHistoryPV.value)
         except:
             pass
-        # epics.camonitor(
-        #    pvname="{}{}".format(macros["P"], ":ErrorHistory-Mon"),
-        #    callback=self.flash_error_history,
-        # )
-        # self.ch_flash_error_history.connect()
         # ----------------------------------------------
 
         self.btnProtectionLevel.passwordProtected = True
@@ -269,20 +231,6 @@ class Regatron(Display):
         self.leSysCurrRefSp.setVisible(unlock)
         self.leSysPwrRefSp.setVisible(unlock)
         self.leSysResRefSp.setVisible(unlock)
-
-    # Warning
-    #   def get_mod_warn_report(self, value):
-    #       self.lblModGenWarnStd.setText("\n".join(get_report(value, "Module")))
-
-    #   def get_sys_warn_report(self, value):
-    #       self.lblSysGenWarnStd.setText("\n".join(get_report(value, "System")))
-
-    #   # Error
-    #   def get_mod_error_report(self, value):
-    #       self.lblModGenErrStd.setText("\n".join(get_report(value, "Module")))
-
-    #   def get_sys_error_report(self, value):
-    #       self.lblSysGenErrStd.setText("\n".join(get_report(value, "System")))
 
     def setup_icons(self):
         REFRESH_ICON = IconFont().icon("refresh")

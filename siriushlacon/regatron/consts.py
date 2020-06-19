@@ -9,7 +9,7 @@ def get_abs_path(filename):
 
 DATA_JSON = get_abs_path("data.json")
 REGATRON_MAIN = get_abs_path("main.py")
-TREE_32 = get_abs_path("tree32.py")
+TREE_32 = get_abs_path("tree.py")
 COMPLETE_MAIN = get_abs_path("regatron.py")
 ALARM_MAIN = get_abs_path("alarm.py")
 
@@ -17,7 +17,31 @@ REGATRON_UI = get_abs_path("ui/main.ui")
 TREE_32_UI = get_abs_path("ui/tree32.ui")
 COMPLETE_UI = get_abs_path("ui/regatron.ui")
 ALARM_UI = get_abs_path("ui/alarm.ui")
-
+CODES = [
+    *[i in range(10)],
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+]
 READINGS_MAP = {
     # STANDARD_MAP
     0: "Internal",
@@ -45,8 +69,8 @@ READINGS_MAP = {
     21: "IBC Miscellaneous",
     22: "IBC Inverter 2",
     23: "not used",
-    24: "not used",
-    25: "not used",
+    24: "Configuration 4",
+    25: "Miscellaneous 2",
     26: "Supply 2",
     27: "Login 2",
     28: "Configuration 3",
@@ -82,6 +106,9 @@ EXT_READINGS = [
     "IBCInv-Mon",
     "IBCMisc-Mon",
     "IBCInv2-Mon",
+    "P-Mon",
+    "Conf4-Mon",
+    "Misc2-Mon",
     "Supply2-Mon",
     "Login2-Mon",
     "Conf3-Mon",

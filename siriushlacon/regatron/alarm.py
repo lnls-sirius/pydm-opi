@@ -82,12 +82,8 @@ class AlarmDisplay(Display):
         :param error: True for 'Err' else 'Warn'
         :return: the PV name
         """
-        return "{}:{}-{}{}{}".format(
-            self.macros["P"],
-            self.macros["T"],
-            "Std" if std else "Ext",
-            "Err" if error else "Warn",
-            signal,
+        return "{}:{}-{}{}".format(
+            self.macros["P"], self.macros["T"], "Err" if error else "Warn", signal,
         )
 
     def set_time_now(self):
