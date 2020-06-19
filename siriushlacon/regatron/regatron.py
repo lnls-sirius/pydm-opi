@@ -13,6 +13,7 @@ from siriushlacon.regatron.consts import (
     TREE_32,
     READINGS_MAP,
     ALARM_MAIN,
+    CODES,
 )
 
 logger = logging.getLogger()
@@ -121,7 +122,7 @@ class Regatron(Display):
 
         for k, v in READINGS_MAP.items():
             if (group >> k) == 1:
-                return "{}) {}".format(k, v)
+                return "{}) {}".format(CODES[k], v)
         return "{:X}) ?".format(group)
 
     def get_code_string(self, code_):
@@ -129,7 +130,7 @@ class Regatron(Display):
 
         for k in range(32):
             if (code >> k) == 1:
-                return "{:X}".format(k)
+                return "{}".format(CODES[k])
         return "{}?".format(code)
 
     def flash_error_history(self, *args, **kwargs):
