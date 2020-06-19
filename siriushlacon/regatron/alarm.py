@@ -9,8 +9,7 @@ from siriushlacon.regatron.consts import (
     ALARM_UI,
     STD_READINGS,
     EXT_READINGS,
-    EXTENDED_MAP,
-    STANDARD_MAP,
+    READINGS_MAP,
 )
 from siriushlacon.utils.alarm import Alarm, Severity
 from siriushlacon.utils.archiver import get_data_from_archiver
@@ -25,18 +24,15 @@ class AlarmDisplay(Display):
     """
 
     @staticmethod
-    def reading_tree_item(reading, mapping: dict = None):
+    def reading_tree_item(reading):
         """
         Get data from archiver and transform into a node with branches according to the bit value defined by the mapping.
 
         :param reading: A data item from the archiver request
-        :param mapping: Mapping for each bit on the integer where the key is an integer from
         representing the bit position starting from zero and the key is a string with it's meaning
         :return: A QTreeWidgetItem
         """
         # Timestamp
-        if mapping is None:
-            mapping = {0: "Zero", 1: "One", 2: "Two"}
         timestamp = str(
             datetime.datetime.fromtimestamp(reading["secs"]).astimezone(SP_TZ)
         )
@@ -48,10 +44,9 @@ class AlarmDisplay(Display):
             ["{} {} {} {}".format(timestamp, value, severity, alarm_status)]
         )
 
-        # A meaning per bit defined at the "mapping"
-        for k, v in mapping.items():
-            if value & 1 << k:
-                node_child = QTreeWidgetItem(["{}: {}".format(k, v)])
+        for i in range(32):
+            if value & 1 << i:
+                node_child = QTreeWidgetItem(["{:X}".format(i)])
                 node.addChild(node_child)
 
         return node
@@ -111,7 +106,7 @@ class AlarmDisplay(Display):
         """
         alarm_tree.clear()
         # For each PV
-        for signal in ["Group-Mon", *(STD_READINGS if std else EXT_READINGS)]:
+        for signal in [*(STD_READINGS if std else EXT_READINGS)]:
             pv = self.get_PV(signal, std=std, error=error)
             response = get_data_from_archiver(
                 pv=pv, to=time_to, from_=time_from, fetch_latest_metadata=False
@@ -119,26 +114,30 @@ class AlarmDisplay(Display):
             pv_node = QTreeWidgetItem(["{}".format(pv)])
             alarm_tree.addTopLevelItem(pv_node)
 
-            if response.status_code == 200:
-                logger.debug(response.text)
-                if len(response.json()) > 0:
-                    for data in response.json()[0]["data"]:
-                        pv_node_child = self.reading_tree_item(
-                            data, mapping=STANDARD_MAP if std else EXTENDED_MAP
-                        )
-                        pv_node.addChild(pv_node_child)
-                else:
-                    logger.info(
-                        "empty response for request {} from {} to {}".format(
-                            pv, time_from, time_to
-                        )
-                    )
-            else:
+            if response.status_code != 200:
                 logger.warning(
                     "invalid status code for request {} from {} to {}".format(
                         pv, time_from, time_to
                     )
                 )
+                logger.debug(response.text)
+                continue
+
+            if len(response.json()) < 0:
+                logger.info(
+                    "empty response for request {} from {} to {}".format(
+                        pv, time_from, time_to
+                    )
+                )
+                continue
+
+            for data in response.json()[0]["data"]:
+                if data["val"] == 0:
+                    # Will not display alarms, only actual value changes
+                    continue
+
+                pv_node_child = self.reading_tree_item(data)
+                pv_node.addChild(pv_node_child)
 
     def search_alarms(self):
         """ Update all tree widgets """

@@ -55,8 +55,8 @@ READINGS_MAP = {
     31: "Communication 2",
 }
 
-READINGS = [
-    # STD_READINGS
+# READINGS = [
+STD_READINGS = [
     "Intrn-Mon",
     "IntrnPDSP-Mon",
     "OutCurrent-Mon",
@@ -73,7 +73,8 @@ READINGS = [
     "Conf-Mon",
     "Conf2-Mon",
     "Misc-Mon",
-    # EXT_READINGS
+]
+EXT_READINGS = [
     "IBCSystem-Mon",
     "IBCSuppply-Mon",
     "IBCComm-Mon",

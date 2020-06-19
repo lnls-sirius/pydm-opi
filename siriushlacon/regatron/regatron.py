@@ -1,15 +1,17 @@
 import logging
 import json
 
+import epics
+
 from pydm import Display
 from pydm.utilities import IconFont
 from pydm.widgets.channel import PyDMChannel
+from qtpy.QtWidgets import QTableWidgetItem
 
 from siriushlacon.regatron.consts import (
     COMPLETE_UI,
     TREE_32_UI,
     READINGS_MAP,
-    READINGS,
     ALARM_MAIN,
 )
 
@@ -38,6 +40,14 @@ class Regatron(Display):
         self.protectionLevel: ProtectionLevel = ProtectionLevel.OPERATION
         self.setup_icons()
 
+        self.btnModHistory.filenames = [ALARM_MAIN]
+        self.btnModHistory.macros = [json.dumps({"T": "Mod", "P": macros["P"]})]
+        self.btnModHistory.openInNewWindow = True
+
+        self.btnSysHistory.filenames = [ALARM_MAIN]
+        self.btnSysHistory.macros = [json.dumps({"T": "Sys", "P": macros["P"]})]
+        self.btnSysHistory.openInNewWindow = True
+
         self.btnModWarn.filenames = [TREE_32_UI]
         self.btnSysWarn.filenames = [TREE_32_UI]
         self.btnModErr.filenames = [TREE_32_UI]
@@ -56,31 +66,51 @@ class Regatron(Display):
             {"Title": "System Error", "P": macros["P"], "D": "Sys", "T": "Err"}
         )
 
-        # Warning Groups
-        self.ch_mod_warn_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Mod-WarnGroup-Mon",
-            value_slot=self.get_mod_warn_report,
-        )
-        self.ch_mod_warn_report.connect()
+        #   # Warning Groups
+        #   self.ch_mod_warn_report = PyDMChannel(
+        #       address="ca://" + macros["P"] + ":Mod-WarnGroup-Mon",
+        #       value_slot=self.get_mod_warn_report,
+        #   )
+        #   self.ch_mod_warn_report.connect()
 
-        self.ch_sys_warn_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Sys-WarnGroup-Mon",
-            value_slot=self.get_sys_warn_report,
-        )
-        self.ch_sys_warn_report.connect()
+        #   self.ch_sys_warn_report = PyDMChannel(
+        #       address="ca://" + macros["P"] + ":Sys-WarnGroup-Mon",
+        #       value_slot=self.get_sys_warn_report,
+        #   )
+        #   self.ch_sys_warn_report.connect()
 
-        # Error Groups
-        self.ch_mod_error_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Mod-ErrGroup-Mon",
-            value_slot=self.get_mod_error_report,
-        )
-        self.ch_mod_error_report.connect()
+        #   # Error Groups
+        #   self.ch_mod_error_report = PyDMChannel(
+        #       address="ca://" + macros["P"] + ":Mod-ErrGroup-Mon",
+        #       value_slot=self.get_mod_error_report,
+        #   )
+        #   self.ch_mod_error_report.connect()
 
-        self.ch_sys_error_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Sys-ErrGroup-Mon",
-            value_slot=self.get_sys_error_report,
+        #   self.ch_sys_error_report = PyDMChannel(
+        #       address="ca://" + macros["P"] + ":Sys-ErrGroup-Mon",
+        #       value_slot=self.get_sys_error_report,
+        #   )
+        #   self.ch_sys_error_report.connect()
+
+        # Flash Error History
+        # self.ch_flash_error_history = PyDMChannel(
+        #    address="ca://" + macros["P"] + ":ErrorHistory-Mon",
+        #    value_slot=self.flash_error_history,
+        # )
+        # @todo: do this better !
+        self.errorHistoryPV = epics.PV(
+            pvname="{}{}".format(macros["P"], ":ErrorHistory-Mon"),
+            callback=self.flash_error_history,
         )
-        self.ch_sys_error_report.connect()
+        try:
+            self.flash_error_history(self.errorHistoryPV.value)
+        except:
+            pass
+        # epics.camonitor(
+        #    pvname="{}{}".format(macros["P"], ":ErrorHistory-Mon"),
+        #    callback=self.flash_error_history,
+        # )
+        # self.ch_flash_error_history.connect()
         # ----------------------------------------------
 
         self.btnProtectionLevel.passwordProtected = True
@@ -123,6 +153,48 @@ class Regatron(Display):
         )
         self.slopeCurrentMax.connect()
         self.slopeCurrentMin.connect()
+
+    def get_group_string(self, group_):
+        group = int(group_)
+
+        for k, v in READINGS_MAP.items():
+            if (group >> k) == 1:
+                return "{}) {}".format(k, v)
+        return "{:X}) ?".format(group)
+
+    def get_code_string(self, code_):
+        code = int(code_)
+
+        for k in range(32):
+            if (code >> k) == 1:
+                return "{:X}".format(k)
+        return "{}?".format(code)
+
+    def flash_error_history(self, *args, **kwargs):
+        if not kwargs["value"]:
+            return
+
+        self.flashHistoryTable.clearContents()
+        values = kwargs["value"][:-1]
+        data = []
+
+        self.flashHistoryTable.setRowCount(len(values))
+        i = 0
+        for value in values:
+            n, day, hour, minute, second, milli, group, code = value.split(",")
+
+            self.flashHistoryTable.setItem(i, 0, QTableWidgetItem(n))
+            self.flashHistoryTable.setItem(i, 1, QTableWidgetItem(day))
+            self.flashHistoryTable.setItem(i, 2, QTableWidgetItem(hour))
+            self.flashHistoryTable.setItem(i, 3, QTableWidgetItem(minute))
+            self.flashHistoryTable.setItem(i, 4, QTableWidgetItem(milli))
+            self.flashHistoryTable.setItem(
+                i, 5, QTableWidgetItem(self.get_group_string(group))
+            )
+            self.flashHistoryTable.setItem(
+                i, 6, QTableWidgetItem(self.get_code_string(code))
+            )
+            i += 1
 
     def voltageSlopeMaxChanged(self, value):
         self.spbxSlopeVoltSp.setMaximum(value)
@@ -199,18 +271,18 @@ class Regatron(Display):
         self.leSysResRefSp.setVisible(unlock)
 
     # Warning
-    def get_mod_warn_report(self, value):
-        self.lblModGenWarnStd.setText("\n".join(get_report(value, "Module")))
+    #   def get_mod_warn_report(self, value):
+    #       self.lblModGenWarnStd.setText("\n".join(get_report(value, "Module")))
 
-    def get_sys_warn_report(self, value):
-        self.lblSysGenWarnStd.setText("\n".join(get_report(value, "System")))
+    #   def get_sys_warn_report(self, value):
+    #       self.lblSysGenWarnStd.setText("\n".join(get_report(value, "System")))
 
-    # Error
-    def get_mod_error_report(self, value):
-        self.lblModGenErrStd.setText("\n".join(get_report(value, "Module")))
+    #   # Error
+    #   def get_mod_error_report(self, value):
+    #       self.lblModGenErrStd.setText("\n".join(get_report(value, "Module")))
 
-    def get_sys_error_report(self, value):
-        self.lblSysGenErrStd.setText("\n".join(get_report(value, "System")))
+    #   def get_sys_error_report(self, value):
+    #       self.lblSysGenErrStd.setText("\n".join(get_report(value, "System")))
 
     def setup_icons(self):
         REFRESH_ICON = IconFont().icon("refresh")
