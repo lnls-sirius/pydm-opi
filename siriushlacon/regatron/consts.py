@@ -17,6 +17,8 @@ REGATRON_UI = get_abs_path("ui/main.ui")
 TREE_32_UI = get_abs_path("ui/tree32.ui")
 COMPLETE_UI = get_abs_path("ui/regatron.ui")
 ALARM_UI = get_abs_path("ui/alarm.ui")
+
+ERROR_LIST_PDF = get_abs_path("ui/error-list-en.pdf")
 CODES = [
     *[str(i) for i in range(10)],
     "A",

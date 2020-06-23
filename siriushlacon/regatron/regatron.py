@@ -1,5 +1,6 @@
 import logging
 import json
+import datetime
 
 import epics
 
@@ -7,6 +8,8 @@ from pydm import Display
 from pydm.utilities import IconFont
 from pydm.widgets.channel import PyDMChannel
 from qtpy.QtWidgets import QTableWidgetItem
+from qtpy.QtGui import QDesktopServices
+from qtpy.QtCore import QUrl
 
 from siriushlacon.regatron.consts import (
     COMPLETE_UI,
@@ -14,6 +17,7 @@ from siriushlacon.regatron.consts import (
     READINGS_MAP,
     ALARM_MAIN,
     CODES,
+    ERROR_LIST_PDF,
 )
 
 logger = logging.getLogger()
@@ -58,18 +62,6 @@ class Regatron(Display):
             {"Title": "System Error", "P": macros["P"], "D": "Sys", "T": "Err"}
         )
 
-        # Flash Error History
-        # self.ch_flash_error_history = PyDMChannel(
-        #    address="ca://" + macros["P"] + ":ErrorHistory-Mon",
-        #    value_slot=self.flash_error_history,
-        # )
-        # @todo: do this better !
-        self.flashHistoryTable.verticalHeader().setVisible(False)
-
-        self.errorHistoryPV = epics.PV(
-            pvname="{}{}".format(macros["P"], ":ErrorHistory-Mon"),
-            callback=self.flash_error_history,
-        )
         # ----------------------------------------------
 
         self.btnProtectionLevel.passwordProtected = True
@@ -132,6 +124,58 @@ class Regatron(Display):
         except:
             pass
 
+        # --------- Power Up and Operating time ------------
+        self.oprTimeChannel = PyDMChannel(
+            address="ca://{}{}".format(macros["P"], ":OperatingTime-Mon"),
+            value_slot=self.opr_time_update,
+        )
+        self.pwrupTimeChannel = PyDMChannel(
+            address="ca://{}{}".format(macros["P"], ":PowerUpTime-Mon"),
+            value_slot=self.prwup_time_update,
+        )
+        self.operatingTimeDatetime = None
+
+        self.oprTimeChannel.connect()
+        self.pwrupTimeChannel.connect()
+
+        # ------------ Flash Error History
+        # @todo: do this better !
+        self.flashHistoryTable.verticalHeader().setVisible(False)
+
+        self.errorHistoryPV = epics.PV(
+            pvname="{}{}".format(macros["P"], ":ErrorHistory-Mon"),
+            callback=self.flash_error_history,
+        )
+        # ------------- DOCS ------------
+        self.btnErrorsDocs.clicked.connect(
+            lambda self: QDesktopServices.openUrl(QUrl.fromLocalFile(ERROR_LIST_PDF))
+        )
+
+    def opr_time_update(self, value):
+        self.lblOperatingTime.setText(str(datetime.timedelta(seconds=value)))
+        self.flash_error_history(value=self.errorHistoryPV.value)
+
+    def prwup_time_update(self, value):
+        self.operatingTimeDatetime = datetime.timedelta(seconds=value)
+        self.lblPowerupTime.setText(str(self.operatingTimeDatetime))
+        self.flash_error_history(value=self.errorHistoryPV.value)
+
+    ###     self.oprTimeChannel = epics.PV(
+    ###         pvname="{}{}".format(macros["P"], ":OperatingTime-Mon"),
+    ###         callback=self.opr_time_update,
+    ###     )
+    ###     self.pwrupTimeChannel = epics.PV(
+    ###         pvname="{}{}".format(macros["P"], ":PowerUpTime-Mon"),
+    ###         callback=self.prwup_time_update,
+    ###     )
+
+    ### def opr_time_update(self, *args, **kwargs):
+    ###     value = kwargs["value"]
+    ###     self.lblOperatingTime.setText(str(datetime.timedelta(seconds=value)))
+
+    ### def prwup_time_update(self, *args, **kwargs):
+    ###     value = kwargs["value"]
+    ###     self.lblPowerupTime.setText(str(datetime.timedelta(seconds=value)))
     def get_char_val(self, val):
         char_value = ""
         if val == 2:
@@ -202,17 +246,33 @@ class Regatron(Display):
         i = 0
         for value in values:
             n, day, hour, minute, second, milli, group, code = value.split(",")
-
+            eventTimedelta = datetime.timedelta(
+                days=float(day),
+                hours=float(hour),
+                seconds=float(second),
+                milliseconds=float(milli),
+            )
             self.flashHistoryTable.setItem(i, 0, QTableWidgetItem(n))
-            self.flashHistoryTable.setItem(i, 1, QTableWidgetItem(day))
-            self.flashHistoryTable.setItem(i, 2, QTableWidgetItem(hour))
-            self.flashHistoryTable.setItem(i, 3, QTableWidgetItem(minute))
-            self.flashHistoryTable.setItem(i, 4, QTableWidgetItem(milli))
             self.flashHistoryTable.setItem(
-                i, 5, QTableWidgetItem(self.get_group_string(group))
+                i, 1, QTableWidgetItem(str(eventTimedelta)),
+            )
+            if self.operatingTimeDatetime:
+                self.flashHistoryTable.setItem(
+                    i,
+                    2,
+                    QTableWidgetItem(
+                        str(
+                            datetime.datetime.now()
+                            - (self.operatingTimeDatetime - eventTimedelta)
+                        )
+                    ),
+                )
+
+            self.flashHistoryTable.setItem(
+                i, 3, QTableWidgetItem(self.get_group_string(group))
             )
             self.flashHistoryTable.setItem(
-                i, 6, QTableWidgetItem(self.get_code_string(code))
+                i, 4, QTableWidgetItem(self.get_code_string(code))
             )
             i += 1
 
