@@ -28,6 +28,7 @@ setup(
     include_package_data=True,
     scripts=[
         "scripts/sirius-hla-as-va-agilent4uhv.py",
+        "scripts/sirius-hla-as-va-agilent4uhv-device.py",
         "scripts/sirius-hla-tb-va-agilent4uhv-overview.py",
         "scripts/sirius-hla-bo-va-agilent4uhv-overview.py",
         "scripts/sirius-hla-ts-va-agilent4uhv-overview.py",
