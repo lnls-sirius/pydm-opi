@@ -134,6 +134,7 @@ class Regatron(Display):
             value_slot=self.prwup_time_update,
         )
         self.operatingTimeDatetime = None
+        self.pwrupTimeDatetime = None
 
         self.oprTimeChannel.connect()
         self.pwrupTimeChannel.connect()
@@ -152,11 +153,12 @@ class Regatron(Display):
         )
 
     def opr_time_update(self, value):
-        self.lblOperatingTime.setText(str(datetime.timedelta(seconds=value)))
+        self.operatingTimeDatetime = datetime.timedelta(seconds=value)
+        self.lblOperatingTime.setText(str(self.operatingTimeDatetime))
         self.flash_error_history(value=self.errorHistoryPV.value)
 
     def prwup_time_update(self, value):
-        self.operatingTimeDatetime = datetime.timedelta(seconds=value)
+        self.pwrupTimeDatetime = datetime.timedelta(seconds=value)
         self.lblPowerupTime.setText(str(self.operatingTimeDatetime))
         self.flash_error_history(value=self.errorHistoryPV.value)
 
@@ -256,7 +258,8 @@ class Regatron(Display):
             self.flashHistoryTable.setItem(
                 i, 1, QTableWidgetItem(str(eventTimedelta)),
             )
-            if self.operatingTimeDatetime:
+
+            if self.operatingTimeDatetime and self.pwrupTimeDatetime:
                 self.flashHistoryTable.setItem(
                     i,
                     2,
@@ -265,6 +268,7 @@ class Regatron(Display):
                             datetime.datetime.now()
                             - (self.operatingTimeDatetime - eventTimedelta)
                         )
+                        + " + timeoffset"
                     ),
                 )
 

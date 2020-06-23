@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>822</width>
-    <height>796</height>
+    <width>912</width>
+    <height>899</height>
    </rect>
   </property>
   <property name="font">
@@ -32,8 +32,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>807</width>
-        <height>1178</height>
+        <width>888</width>
+        <height>1300</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
@@ -1855,6 +1855,33 @@
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QGridLayout" name="gridLayout_20">
+              <item row="4" column="1">
+               <widget class="PyDMLabel" name="PyDMLabel_8">
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="channel" stdset="0">
+                 <string notr="true">ca://${P}:ModulatorVer-Mon</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="PyDMLabel" name="PyDMLabel_10">
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="channel" stdset="0">
+                 <string notr="true">ca://${P}:BootloaderVer-Mon</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_7">
+                <property name="text">
+                 <string>DLL Version</string>
+                </property>
+               </widget>
+              </item>
               <item row="0" column="0" colspan="2">
                <widget class="QLabel" name="label_36">
                 <property name="font">
@@ -1868,14 +1895,14 @@
                 </property>
                </widget>
               </item>
-              <item row="1" column="2">
-               <widget class="QLabel" name="label_11">
+              <item row="8" column="0">
+               <widget class="QLabel" name="label_55">
                 <property name="text">
-                 <string>Pheripherie</string>
+                 <string>Firmware version of the PLD</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="1">
+              <item row="1" column="1">
                <widget class="PyDMLabel" name="PyDMLabel_7">
                 <property name="toolTip">
                  <string/>
@@ -1885,17 +1912,38 @@
                 </property>
                </widget>
               </item>
-              <item row="1" column="5">
-               <widget class="PyDMLabel" name="PyDMLabel_8">
+              <item row="6" column="0">
+               <widget class="QLabel" name="label_18">
+                <property name="text">
+                 <string>Bootloader version for the Main DSP</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="PyDMLabel" name="PyDMLabel_9">
                 <property name="toolTip">
                  <string/>
                 </property>
                 <property name="channel" stdset="0">
-                 <string notr="true">ca://${P}:ModulatorVer-Mon</string>
+                 <string notr="true">ca://${P}:PheripherieVer-Mon</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="1">
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>Firmware version of the MainDSP</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>Software version of modulator-DSP</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
                <widget class="PyDMLabel" name="PyDMLabel_6">
                 <property name="toolTip">
                  <string/>
@@ -1905,51 +1953,17 @@
                 </property>
                </widget>
               </item>
-              <item row="1" column="6">
-               <widget class="QLabel" name="label_18">
-                <property name="text">
-                 <string>Bootloader</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="7">
-               <widget class="PyDMLabel" name="PyDMLabel_10">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="channel" stdset="0">
-                 <string notr="true">ca://${P}:BootloaderVer-Mon</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_7">
-                <property name="text">
-                 <string>DLL</string>
-                </property>
-               </widget>
-              </item>
               <item row="3" column="0">
-               <widget class="QLabel" name="label_8">
+               <widget class="QLabel" name="label_11">
                 <property name="text">
-                 <string>DSP</string>
+                 <string>Software version of peripherie-DSP</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="4">
-               <widget class="QLabel" name="label_9">
+              <item row="7" column="0">
+               <widget class="QLabel" name="label_56">
                 <property name="text">
-                 <string>Modulator</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="3">
-               <widget class="PyDMLabel" name="PyDMLabel_9">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="channel" stdset="0">
-                 <string notr="true">ca://${P}:PheripherieVer-Mon</string>
+                 <string>Firmware version of the IBC</string>
                 </property>
                </widget>
               </item>
@@ -4058,7 +4072,7 @@ color: rgb(255, 255, 255);</string>
                    <string/>
                   </property>
                   <property name="channel" stdset="0">
-                   <string>ca://${P}:ErrorHistory-Mon_stat</string>
+                   <string>ca://${P}:ErrorHistory-Mon_pact</string>
                   </property>
                   <property name="showLabels" stdset="0">
                    <bool>false</bool>
