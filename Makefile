@@ -24,7 +24,7 @@ endif
 
 uninstall:
 	make -C ./cons-common uninstall
-	sudo pip uninstall $(PACKAGE_NAME) -y
+	sudo /usr/bin/env python3 -m pip uninstall $(PACKAGE_NAME) -y
 ifneq (,$(wildcard /usr/share/icons/sirius-hla-as-cons-lnls.png))
 	sudo rm /usr/share/icons/sirius-hla-as-cons-lnls.png
 endif
@@ -34,5 +34,5 @@ endif
 
 install: clean clean-git install-files
 	make -C ./cons-common install
-	sudo pip install .
+	sudo /usr/bin/env python3 -m pip install .
 
