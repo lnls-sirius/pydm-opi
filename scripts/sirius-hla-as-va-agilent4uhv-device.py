@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import subprocess
 import os
-from siriushlacon.agilent4uhv.consts import AGILENT_MAIN, AGILENT_DEVICE_MAIN
+from siriushlacon.agilent4uhv.consts import AGILENT_DEVICE_MAIN
 
 os.environ["PYDM_DEFAULT_PROTOCOL"] = "ca://"
 
