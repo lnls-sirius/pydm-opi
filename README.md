@@ -19,15 +19,24 @@ This repository depends on [PyDM](https://github.com/slaclab/pydm),
 [PyEPICS](https://github.com/pyepics/pyepics), [CONS Common](https://github.com/lnls-sirius/cons-common) and Python>=3.6 .
 
 Clone from master or download the lattest release.<br>
-Optionally the user may clone recursive in order to pull the module `conscommon`. If so, install the module using `cd cons-common && pip install .`.<br>
+Optionally the user may clone recursive in order to pull the module `conscommon`. If so, install the submodule using `cd cons-common && pip install .`.<br>
 
-### Using [Conda](https://docs.conda.io/en/latest/miniconda.html)
-This is the recommended way to install ...
-
+### EPICS Base
 Install EPICS and add it to PATH(Windows only)
 ```
 https://epics.anl.gov/download/distributions/EPICSWindowsTools1.44-x64.msi
 ```
+For linux users the recommended way is to compile the lattest LTS release of the [EPICS Base (R3.15.8)](https://github.com/epics-base/epics-base/tree/3.15).
+After the compilation is completed, the `bin` folder must be added to the environment `PATH` and the `lib` folder to `LD_LIBRARY_PATH`.
+
+### Sirius Environment
+To install in a machine managed by [lnls-sirius/lnls-ansible](https://github.com/lnls-sirius/lnls-ansible) clone the repo recursively and make install as sudo.
+```
+cd ~/ && git clone --recursive https://github.com/lnls-sirius/pydm-opi && cd pydm-opi && sudo make install
+```
+
+### Using [Conda](https://docs.conda.io/en/latest/miniconda.html)
+This is the recommended way to install ! If you're a Windows user, using `git bash` may simplify the steps as the syntax will be similar.
 
 Create and activate the conda environment:
 ```
