@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1627</width>
-    <height>533</height>
+    <width>1678</width>
+    <height>574</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -172,7 +172,6 @@
           </color>
          </brush>
         </colorrole>
-        
        </active>
        <inactive>
         <colorrole role="WindowText">
@@ -310,7 +309,6 @@
           </color>
          </brush>
         </colorrole>
-        
        </inactive>
        <disabled>
         <colorrole role="WindowText">
@@ -448,7 +446,6 @@
           </color>
          </brush>
         </colorrole>
-        
        </disabled>
       </palette>
      </property>
@@ -478,7 +475,7 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <layout class="QGridLayout" name="BO_Eje_Kckr">
-       <item row="10" column="4" colspan="2">
+       <item row="11" column="4" colspan="2">
         <widget class="PyDMLabel" name="PyDMLabel_16">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -658,7 +655,6 @@
               </color>
              </brush>
             </colorrole>
-            
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -796,7 +792,6 @@
               </color>
              </brush>
             </colorrole>
-            
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -934,7 +929,6 @@
               </color>
              </brush>
             </colorrole>
-            
            </disabled>
           </palette>
          </property>
@@ -1178,7 +1172,6 @@
               </color>
              </brush>
             </colorrole>
-            
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -1316,7 +1309,6 @@
               </color>
              </brush>
             </colorrole>
-            
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -1454,7 +1446,6 @@
               </color>
              </brush>
             </colorrole>
-            
            </disabled>
           </palette>
          </property>
@@ -1480,7 +1471,7 @@
          </property>
         </widget>
        </item>
-       <item row="7" column="3" rowspan="4">
+       <item row="7" column="3" rowspan="5">
         <spacer name="horizontalSpacer_5">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -1553,7 +1544,7 @@
          </property>
         </spacer>
        </item>
-       <item row="10" column="0">
+       <item row="11" column="0">
         <spacer name="horizontalSpacer_11">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -1934,7 +1925,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -2072,7 +2062,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -2210,7 +2199,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </disabled>
           </palette>
          </property>
@@ -2582,7 +2570,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -2720,7 +2707,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -2858,7 +2844,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </disabled>
           </palette>
          </property>
@@ -2935,13 +2920,19 @@ Power Supply</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="1" colspan="2">
+       <item row="11" column="1" colspan="2">
         <widget class="PyDMPushButton" name="PyDMPushButton_3">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>37</height>
+          </size>
          </property>
          <property name="maximumSize">
           <size>
@@ -3055,37 +3046,6 @@ Power Supply</string>
           </size>
          </property>
         </spacer>
-       </item>
-       <item row="10" column="7">
-        <widget class="PyDMLabel" name="PyDMLabel_106">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>37</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string>Intlk8Label-Cte</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://BO-48D:PU-EjeKckr:Intlk8Label-Cte</string>
-         </property>
-        </widget>
        </item>
        <item row="2" column="6">
         <widget class="PyDMByteIndicator" name="PyDMByteIndicator_18">
@@ -3415,6 +3375,71 @@ Power Supply</string>
          </property>
         </widget>
        </item>
+       <item row="10" column="1" colspan="2">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_34">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://BO-48D:PU-EjeKckr:Pulse-Sts</string>
+         </property>
+         <property name="offColor" stdset="0">
+          <color>
+           <red>239</red>
+           <green>41</green>
+           <blue>41</blue>
+          </color>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="labels" stdset="0">
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="4" colspan="2">
+        <widget class="PyDMLabel" name="PyDMLabel_35">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>Pulse-Sts</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://BO-48D:PU-EjeKckr:Pulse-Sts.DESC</string>
+         </property>
+        </widget>
+       </item>
        <item row="10" column="6">
         <widget class="PyDMByteIndicator" name="PyDMByteIndicator_15">
          <property name="sizePolicy">
@@ -3453,6 +3478,37 @@ Power Supply</string>
          </property>
          <property name="circles" stdset="0">
           <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="7">
+        <widget class="PyDMLabel" name="PyDMLabel_106">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>37</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>Intlk8Label-Cte</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://BO-48D:PU-EjeKckr:Intlk8Label-Cte</string>
          </property>
         </widget>
        </item>
@@ -3866,7 +3922,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -4004,7 +4059,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -4142,7 +4196,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </disabled>
           </palette>
          </property>
@@ -4324,7 +4377,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -4462,7 +4514,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -4600,7 +4651,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </disabled>
           </palette>
          </property>
@@ -4806,7 +4856,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -4944,7 +4993,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -5082,7 +5130,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </disabled>
           </palette>
          </property>
@@ -5254,7 +5301,7 @@ Power Supply</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="4" colspan="2">
+       <item row="11" column="4" colspan="2">
         <widget class="PyDMLabel" name="PyDMLabel_78">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -5440,7 +5487,7 @@ Power Supply</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="0">
+       <item row="11" column="0">
         <spacer name="horizontalSpacer_32">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -5456,13 +5503,19 @@ Power Supply</string>
          </property>
         </spacer>
        </item>
-       <item row="10" column="1" colspan="2">
+       <item row="11" column="1" colspan="2">
         <widget class="PyDMPushButton" name="PyDMPushButton_7">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>37</height>
+          </size>
          </property>
          <property name="maximumSize">
           <size>
@@ -5853,7 +5906,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -5991,7 +6043,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -6129,7 +6180,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </disabled>
           </palette>
          </property>
@@ -6181,7 +6231,7 @@ Power Supply</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="3" rowspan="4">
+       <item row="7" column="3" rowspan="5">
         <spacer name="horizontalSpacer_31">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -6445,6 +6495,71 @@ Power Supply</string>
          </property>
         </spacer>
        </item>
+       <item row="10" column="1" colspan="2">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_77">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:Pulse-Sts</string>
+         </property>
+         <property name="offColor" stdset="0">
+          <color>
+           <red>239</red>
+           <green>41</green>
+           <blue>41</blue>
+          </color>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="labels" stdset="0">
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="4" colspan="2">
+        <widget class="PyDMLabel" name="PyDMLabel_91">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>Pulse-Sts</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptG:Pulse-Sts.DESC</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
      <item>
@@ -6488,6 +6603,154 @@ Power Supply</string>
      </item>
      <item>
       <layout class="QGridLayout" name="TS_Eje_Sept_F">
+       <item row="9" column="6">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_54">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptF:Intlk7-Mon.RVAL</string>
+         </property>
+         <property name="offColor" stdset="0">
+          <color>
+           <red>239</red>
+           <green>41</green>
+           <blue>41</blue>
+          </color>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="labels" stdset="0">
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="7">
+        <widget class="PyDMLabel" name="PyDMLabel_61">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>37</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>Intlk6Label-Cte</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptF:Intlk6Label-Cte</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="7">
+        <widget class="PyDMLabel" name="PyDMLabel_59">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>37</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>Intlk5Label-Cte</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptF:Intlk5Label-Cte</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1" colspan="2">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_51">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptF:PwrState-Sts</string>
+         </property>
+         <property name="offColor" stdset="0">
+          <color>
+           <red>239</red>
+           <green>41</green>
+           <blue>41</blue>
+          </color>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="labels" stdset="0">
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
+         </property>
+        </widget>
+       </item>
        <item row="4" column="7">
         <widget class="PyDMLabel" name="PyDMLabel_50">
          <property name="sizePolicy">
@@ -6538,7 +6801,7 @@ Power Supply</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="4" colspan="2">
+       <item row="11" column="4" colspan="2">
         <widget class="PyDMLabel" name="PyDMLabel_49">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -6749,7 +7012,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -6887,7 +7149,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -7025,7 +7286,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </disabled>
           </palette>
          </property>
@@ -7209,7 +7469,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -7347,7 +7606,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -7485,7 +7743,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </disabled>
           </palette>
          </property>
@@ -7831,7 +8088,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -7969,7 +8225,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -8107,7 +8362,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </disabled>
           </palette>
          </property>
@@ -8358,7 +8612,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -8496,7 +8749,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -8634,7 +8886,6 @@ Power Supply</string>
               </color>
              </brush>
             </colorrole>
-            
            </disabled>
           </palette>
          </property>
@@ -8655,83 +8906,6 @@ Power Supply</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="6">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_54">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptF:Intlk7-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist>
-           <string>Bit 0</string>
-          </stringlist>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="7">
-        <widget class="PyDMLabel" name="PyDMLabel_61">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>37</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string>Intlk6Label-Cte</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptF:Intlk6Label-Cte</string>
          </property>
         </widget>
        </item>
@@ -8776,7 +8950,7 @@ Power Supply</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="3" rowspan="4">
+       <item row="7" column="3" rowspan="5">
         <spacer name="horizontalSpacer_21">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -8792,7 +8966,7 @@ Power Supply</string>
          </property>
         </spacer>
        </item>
-       <item row="10" column="0">
+       <item row="11" column="0">
         <spacer name="horizontalSpacer_23">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -8914,37 +9088,6 @@ Power Supply</string>
          </property>
         </spacer>
        </item>
-       <item row="7" column="7">
-        <widget class="PyDMLabel" name="PyDMLabel_59">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>37</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string>Intlk5Label-Cte</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptF:Intlk5Label-Cte</string>
-         </property>
-        </widget>
-       </item>
        <item row="4" column="6">
         <widget class="PyDMByteIndicator" name="PyDMByteIndicator_58">
          <property name="sizePolicy">
@@ -8970,46 +9113,6 @@ Power Supply</string>
          </property>
          <property name="channel" stdset="0">
           <string>ca://TS-01:PU-EjeSeptF:Intlk2-Mon.RVAL</string>
-         </property>
-         <property name="offColor" stdset="0">
-          <color>
-           <red>239</red>
-           <green>41</green>
-           <blue>41</blue>
-          </color>
-         </property>
-         <property name="showLabels" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="circles" stdset="0">
-          <bool>true</bool>
-         </property>
-         <property name="labels" stdset="0">
-          <stringlist>
-           <string>Bit 0</string>
-          </stringlist>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="1" colspan="2">
-        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_51">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="channel" stdset="0">
-          <string>ca://TS-01:PU-EjeSeptF:PwrState-Sts</string>
          </property>
          <property name="offColor" stdset="0">
           <color>
@@ -9190,13 +9293,19 @@ Power Supply</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="1" colspan="2">
+       <item row="11" column="1" colspan="2">
         <widget class="PyDMPushButton" name="PyDMPushButton_5">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>37</height>
+          </size>
          </property>
          <property name="maximumSize">
           <size>
@@ -9431,6 +9540,71 @@ Power Supply</string>
           <stringlist>
            <string>Bit 0</string>
           </stringlist>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1" colspan="2">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_59">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptF:Pulse-Sts</string>
+         </property>
+         <property name="offColor" stdset="0">
+          <color>
+           <red>239</red>
+           <green>41</green>
+           <blue>41</blue>
+          </color>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="circles" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="labels" stdset="0">
+          <stringlist>
+           <string>Bit 0</string>
+          </stringlist>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="4" colspan="2">
+        <widget class="PyDMLabel" name="PyDMLabel_63">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>Pulse-Sts</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://TS-01:PU-EjeSeptF:Pulse-Sts.DESC</string>
          </property>
         </widget>
        </item>
