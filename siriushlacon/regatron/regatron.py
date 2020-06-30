@@ -28,10 +28,19 @@ class ProtectionLevel(object):
     ADVANCED = 1
 
 
+class TabId(object):
+    Overview = 0
+    System = 1
+    Module = 2
+    ErrWarn = 3
+    Advanced = 4
+
+
 class Regatron(Display):
     def __init__(self, parent=None, macros=None, **kwargs):
         super().__init__(parent=parent, macros=macros, ui_filename=COMPLETE_UI)
         self.macros = macros
+        self.isMaster = macros.get("master", "1") == "1"
 
         self.protectionLevel: ProtectionLevel = ProtectionLevel.OPERATION
         self.setup_icons()
@@ -81,7 +90,7 @@ class Regatron(Display):
                 macros["P"], "Master" if macros.get("master", "1") == "1" else "slave"
             )
         )
-        self.configWidget(isMaster=macros.get("master", "1") == "1")
+        self.configWidget()
 
         self.slopeVoltageMax = PyDMChannel(
             address="ca://" + macros["P"] + ":Sys-SlopeVoltMax-Mon",
@@ -302,22 +311,30 @@ class Regatron(Display):
         self.spbxSlopeStartupCurrSp.setMinimum(value)
         self.spbxSlopeStartupCurrSp.setSingleStep(value)
 
-    def configWidget(self, isMaster):
-        self.sysFrame.setVisible(isMaster)
-        self.btnSysErr.setVisible(isMaster)
-        self.btnSysWarn.setVisible(isMaster)
-        self.btnClear.setVisible(isMaster)
+    def configWidget(self):
+        self.tabWidget.setTabEnabled(TabId.System, False)
+        self.sysFrame.setVisible(self.isMaster)
+        self.btnSysErr.setVisible(self.isMaster)
+        self.btnSysWarn.setVisible(self.isMaster)
+        self.btnClear.setVisible(self.isMaster)
+        self.btnSave.setVisible(self.isMaster)
 
-        self.sysOutVolt.setVisible(isMaster)
-        self.sysOutCurr.setVisible(isMaster)
-        self.sysOutPwr.setVisible(isMaster)
-        self.sysStatus.setVisible(isMaster)
+        try:
+            # This function was introduced in Qt 5.15.
+            self.tabWidget.setTabVisible(TabId.System, self.isMaster)
+        except:
+            pass
+
+        self.sysOutVolt.setVisible(self.isMaster)
+        self.sysOutCurr.setVisible(self.isMaster)
+        self.sysOutPwr.setVisible(self.isMaster)
+        self.sysStatus.setVisible(self.isMaster)
 
         self.warnByte.channel = "ca://{}{}".format(
-            self.macros["P"], ":GenWarn-Mon" if isMaster else ":Mod-WarnGroup-Mon",
+            self.macros["P"], ":GenWarn-Mon" if self.isMaster else ":Mod-WarnGroup-Mon",
         )
         self.errorByte.channel = "ca://{}{}".format(
-            self.macros["P"], ":GenErr-Mon" if isMaster else ":Mod-ErrGroup-Mon",
+            self.macros["P"], ":GenErr-Mon" if self.isMaster else ":Mod-ErrGroup-Mon",
         )
 
     def changeProtectionLevel(self):
@@ -342,22 +359,24 @@ class Regatron(Display):
         )
 
     def changeItemProtection(self, unlock):
-        self.tabWidget.setTabEnabled(1, unlock)
-        self.tabWidget.setTabEnabled(2, unlock)
-        self.tabWidget.setTabEnabled(3, unlock)
-        self.tabWidget.setTabEnabled(4, unlock)
+        if self.isMaster:
+            self.btnSave.setEnabled(unlock)
 
-        self.btnSave.setEnabled(unlock)
-        self.leSysVoltRefSp.setEnabled(unlock)
-        self.leSysCurrRefSp.setEnabled(unlock)
-        self.leSysPwrRefSp.setEnabled(unlock)
-        self.leSysResRefSp.setEnabled(unlock)
+            self.leSysVoltRefSp.setEnabled(unlock)
+            self.leSysCurrRefSp.setEnabled(unlock)
+            self.leSysPwrRefSp.setEnabled(unlock)
+            self.leSysResRefSp.setEnabled(unlock)
 
-        self.btnSave.setVisible(unlock)
-        self.leSysVoltRefSp.setVisible(unlock)
-        self.leSysCurrRefSp.setVisible(unlock)
-        self.leSysPwrRefSp.setVisible(unlock)
-        self.leSysResRefSp.setVisible(unlock)
+            self.btnSave.setVisible(unlock)
+            self.leSysVoltRefSp.setVisible(unlock)
+            self.leSysCurrRefSp.setVisible(unlock)
+            self.leSysPwrRefSp.setVisible(unlock)
+            self.leSysResRefSp.setVisible(unlock)
+            self.tabWidget.setTabEnabled(TabId.System, unlock)
+
+        self.tabWidget.setTabEnabled(TabId.Module, unlock)
+        self.tabWidget.setTabEnabled(TabId.ErrWarn, unlock)
+        self.tabWidget.setTabEnabled(TabId.Advanced, unlock)
 
     def setup_icons(self):
         REFRESH_ICON = IconFont().icon("refresh")
