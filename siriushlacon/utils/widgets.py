@@ -263,6 +263,7 @@ class TableDataController(QObject):
                     return ()
                 cell.setStyleSheet("background-color: rgb{}".format((R, G, 00)))
         except:
+            print("Problema com setColor")
             logger.exception('Problema com "setColor"')
 
     def changeBatch(self, increase):
