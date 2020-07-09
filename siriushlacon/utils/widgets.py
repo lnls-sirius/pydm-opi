@@ -7,8 +7,11 @@ from qtpy.QtWidgets import QLayout, QSizePolicy, QStyle
 
 import conscommon.data_model
 import re
+import logging
 
 from siriushlacon.utils.consts import TABLE_ALARMS_QSS
+
+logger = logging.getLogger()
 
 
 def get_label(
@@ -218,37 +221,49 @@ class TableDataController(QObject):
         widget = self.table.cellWidget(row, col)
         widget.channel = None
 
-    def connect_widget(self, row, col, channel_name=None, macros=None, connect_color = None):
+    def connect_widget(
+        self, row, col, channel_name=None, macros=None, connect_color=None
+    ):
         widget = self.table.cellWidget(row, col)
         if channel_name:
             widget.channel = channel_name
         if macros:
             widget.macros = macros
         if connect_color:
-            cell_color = channel.PyDMChannel(address = 'ca://'+channel_name, value_slot = lambda: self.setColor(row))
+            cell_color = channel.PyDMChannel(
+                address="ca://" + channel_name, value_slot=lambda: self.setColor(row)
+            )
             cell_color.connect()
 
-    def setColor(self, row, col=3): #Function to define cell color according to the value
-        vmax = self.MaxValue
-        vmin = self.MinValue
-        range = vmax - vmin
-        cell = self.table.cellWidget(row,col)
+    def setColor(
+        self, row, col=3
+    ):  # Function to define cell color according to the value
+        try:
+            vmax = self.MaxValue
+            vmin = self.MinValue
+            range = vmax - vmin
+            cell = self.table.cellWidget(row, col)
 
-        if cell.text() != '':
-            ActualValue = float(re.match(r"(\d+)\.(\d+)", cell.text()).group())
+            if cell.text() != "":
+                ActualValue = float(re.match(r"(\d+)\.(\d+)", cell.text()).group())
 
-            if ActualValue < vmin: ActualValue = vmin
-            if (ActualValue-vmin)/range <= 0.5:
-                R = int((510/range)*(ActualValue-vmin))
-                G = 255
+                if ActualValue < vmin:
+                    ActualValue = vmin
+                if (ActualValue - vmin) / range <= 0.5:
+                    R = int((510 / range) * (ActualValue - vmin))
+                    G = 255
 
-            elif ActualValue < 200:
-                if  (ActualValue > vmax): ActualValue = vmax
-                R = 255
-                G = int(-(510/range)*(ActualValue-vmax))
+                elif ActualValue < 200:
+                    if ActualValue > vmax:
+                        ActualValue = vmax
+                    R = 255
+                    G = int(-(510 / range) * (ActualValue - vmax))
 
-            else: return()
-            cell.setStyleSheet("background-color: rgb{}".format((R,G,00)))
+                else:
+                    return ()
+                cell.setStyleSheet("background-color: rgb{}".format((R, G, 00)))
+        except:
+            logger.exception('Problema com "setColor"')
 
     def changeBatch(self, increase):
         if increase:
