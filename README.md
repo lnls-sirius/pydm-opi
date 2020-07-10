@@ -31,7 +31,7 @@ After the compilation is completed, the `bin` folder must be added to the enviro
 
 ### Sirius Environment
 To install in a machine managed by [lnls-sirius/lnls-ansible](https://github.com/lnls-sirius/lnls-ansible) clone the repo recursively and make install as sudo.
-```
+```bash
 cd ~/ && git clone --recursive https://github.com/lnls-sirius/pydm-opi && cd pydm-opi && sudo make install
 ```
 
@@ -39,14 +39,14 @@ cd ~/ && git clone --recursive https://github.com/lnls-sirius/pydm-opi && cd pyd
 This is the recommended way to install ! If you're a Windows user, using `git bash` may simplify the steps as the syntax will be similar.
 
 Create and activate the conda environment:
-```
+```bash
 conda init <shell name> # Restart shell after ... (bash, powershell, etc...)
 conda create --name pydm python=3.7 # pyqtgraph==0.1.0 does not work with python 3.8
 conda activate pydm
 ```
 
 Install dependencies and OPIs (Will use ~/ as the default path but feel free to change):
-```
+```bash
 # Install PyDM (If on Windows `wget` and `tar` may not be available, just download the file using a browser and extract it)
 wget https://github.com/slaclab/pydm/archive/v1.10.1.tar.gz
 tar -zxvf v1.10.1.tar.gz && rm -f v1.10.1.tar.gz && cd pydm-1.10.1 && pip install . && cd ..
@@ -58,18 +58,18 @@ cd ~/pydm-opi/cons-common && pip install . && cd ../ && pip install . -r require
 
 ### Desktop
 In order to install the `.desktop` launcher:
-```
+```bash
 make install-files
 ```
 If using conda, remember to fix the Exec entry at the `.desktop' file accordingly:
-``` 
+```bash
 /bin/bash -c 'source ~/miniconda3/etc/profile.d/conda.sh && conda activate pydm && sirius-hla-as-ap-conlauncher.py'
 ```
 
 Run
 ---
 All scripts used to start the applications should be at the `bin` folder relative to the python installation environment, for example:
-```
+```bash
 ~/.local/bin
 /usr/local/bin
 ...
