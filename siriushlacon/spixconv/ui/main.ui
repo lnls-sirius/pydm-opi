@@ -22,17 +22,17 @@
      <widget class="QWidget" name="scrollAreaWidgetContents">
       <property name="geometry">
        <rect>
-        <x>-55</x>
+        <x>-369</x>
         <y>0</y>
-        <width>1487</width>
-        <height>628</height>
+        <width>1889</width>
+        <height>630</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
         <widget class="QTabWidget" name="tabWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="Main">
           <attribute name="title">
@@ -257,6 +257,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -394,6 +403,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -525,6 +543,15 @@
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -817,6 +844,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -954,6 +990,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -1085,6 +1130,15 @@
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -1501,6 +1555,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -1638,6 +1701,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -1769,6 +1841,15 @@
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -2091,6 +2172,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -2228,6 +2318,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -2359,6 +2458,15 @@
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -2843,6 +2951,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -2980,6 +3097,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -3111,6 +3237,15 @@
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -3387,6 +3522,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -3524,6 +3668,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -3655,6 +3808,15 @@
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -4075,6 +4237,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -4212,6 +4383,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -4343,6 +4523,15 @@
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -4501,7 +4690,7 @@
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk7Label-Cte</string>
+                <string>External</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -4669,6 +4858,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -4806,6 +5004,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -4937,6 +5144,15 @@
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -5129,7 +5345,7 @@
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk3Label-Cte</string>
+                <string>Temperature</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -5160,7 +5376,7 @@
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk2Label-Cte</string>
+                <string>AC CPFL OFF</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -5389,7 +5605,7 @@
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrState-Sel</string>
+                <string>Turn ON/OFF HVPS</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -5526,7 +5742,7 @@
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-Mon</string>
+                <string>-34.5</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -5694,6 +5910,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -5825,6 +6050,15 @@
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -5968,6 +6202,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -6053,7 +6296,7 @@
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk5Label-Cte</string>
+                <string>HVPS Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -6106,7 +6349,7 @@
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk6Label-Cte</string>
+                <string>HVPS Overvoltage</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -6131,7 +6374,7 @@
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrStateLabel1</string>
+                <string>Read power supply status</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -6156,7 +6399,7 @@
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-RB</string>
+                <string>0.0</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -6324,6 +6567,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -6455,6 +6707,15 @@
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -6598,6 +6859,15 @@
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -6644,7 +6914,7 @@
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk4Label-Cte</string>
+                <string>Personnel protection</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -6710,7 +6980,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk1Label-Cte</string>
+                <string>Switch module</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -6781,7 +7051,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Pulse-Sts</string>
+                <string>Read if trigger pulse is enabled or not</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -6858,7 +7128,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk8Label-Cte</string>
+                <string>Switch Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -7027,7 +7297,7 @@ Power Supply</string>
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="text">
-                  <string>Intlk2Label-Cte</string>
+                  <string>AC CPFL OFF</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -7096,7 +7366,7 @@ Power Supply</string>
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="text">
-                  <string>Intlk3Label-Cte</string>
+                  <string>Temperature</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -7347,7 +7617,7 @@ Power Supply</string>
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="text">
-                  <string>PwrState-Sel</string>
+                  <string>Turn ON/OFF HVPS</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -7378,7 +7648,7 @@ Power Supply</string>
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="text">
-                  <string>Intlk6Label-Cte</string>
+                  <string>HVPS Overvoltage</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -7546,6 +7816,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </active>
                    <inactive>
                     <colorrole role="WindowText">
@@ -7683,6 +7962,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </inactive>
                    <disabled>
                     <colorrole role="WindowText">
@@ -7814,6 +8102,15 @@ Power Supply</string>
                     <colorrole role="ToolTipText">
                      <brush brushstyle="SolidPattern">
                       <color alpha="255">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
                        <red>0</red>
                        <green>0</green>
                        <blue>0</blue>
@@ -8018,7 +8315,7 @@ Power Supply</string>
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="text">
-                  <string>Intlk4Label-Cte</string>
+                  <string>Personnel protection</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -8224,6 +8521,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </active>
                    <inactive>
                     <colorrole role="WindowText">
@@ -8355,6 +8661,15 @@ Power Supply</string>
                     <colorrole role="ToolTipText">
                      <brush brushstyle="SolidPattern">
                       <color alpha="255">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
                        <red>0</red>
                        <green>0</green>
                        <blue>0</blue>
@@ -8498,6 +8813,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </disabled>
                   </palette>
                  </property>
@@ -8536,7 +8860,7 @@ Power Supply</string>
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="text">
-                  <string>PwrStateLabel1</string>
+                  <string>Read power supply status</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -8704,6 +9028,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </active>
                    <inactive>
                     <colorrole role="WindowText">
@@ -8835,6 +9168,15 @@ Power Supply</string>
                     <colorrole role="ToolTipText">
                      <brush brushstyle="SolidPattern">
                       <color alpha="255">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
                        <red>0</red>
                        <green>0</green>
                        <blue>0</blue>
@@ -8978,6 +9320,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </disabled>
                   </palette>
                  </property>
@@ -9046,7 +9397,7 @@ Power Supply</string>
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="text">
-                  <string>Voltage-RB</string>
+                  <string>0.0</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -9236,6 +9587,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </active>
                    <inactive>
                     <colorrole role="WindowText">
@@ -9367,6 +9727,15 @@ Power Supply</string>
                     <colorrole role="ToolTipText">
                      <brush brushstyle="SolidPattern">
                       <color alpha="255">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
                        <red>0</red>
                        <green>0</green>
                        <blue>0</blue>
@@ -9510,6 +9879,15 @@ Power Supply</string>
                       </color>
                      </brush>
                     </colorrole>
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="NoBrush">
+                      <color alpha="128">
+                       <red>0</red>
+                       <green>0</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
                    </disabled>
                   </palette>
                  </property>
@@ -9548,7 +9926,7 @@ Power Supply</string>
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="text">
-                  <string>Voltage-Mon</string>
+                  <string>-2.0</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -9617,7 +9995,7 @@ Power Supply</string>
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="text">
-                  <string>Intlk5Label-Cte</string>
+                  <string>HVPS Overcurrent</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -9648,7 +10026,7 @@ Power Supply</string>
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="text">
-                  <string>Intlk7Label-Cte</string>
+                  <string>External</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -9701,7 +10079,7 @@ Power Supply</string>
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="text">
-                  <string>Intlk1Label-Cte</string>
+                  <string>Switch module</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -9823,7 +10201,7 @@ Power Supply</string>
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="text">
-                  <string>Pulse-Sts</string>
+                  <string>Read if trigger pulse is enabled or not</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -10074,6 +10452,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -10205,6 +10592,15 @@ Power Supply</string>
                 <colorrole role="ToolTipText">
                  <brush brushstyle="SolidPattern">
                   <color alpha="255">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
                    <red>0</red>
                    <green>0</green>
                    <blue>0</blue>
@@ -10348,6 +10744,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </disabled>
               </palette>
              </property>
@@ -10457,7 +10862,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk4Label-Cte</string>
+                <string>Personnel protection</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -10671,6 +11076,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -10802,6 +11216,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -10945,6 +11368,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -10991,7 +11423,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk6Label-Cte</string>
+                <string>HVPS Overvoltage</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -11198,7 +11630,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk7Label-Cte</string>
+                <string>External</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -11366,6 +11798,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -11497,6 +11938,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -11640,6 +12090,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -11678,7 +12137,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrStateLabel1</string>
+                <string>Read power supply status</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -11749,7 +12208,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-Mon</string>
+                <string>-3.2</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -11917,6 +12376,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -12048,6 +12516,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -12191,6 +12668,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -12235,7 +12721,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk2Label-Cte</string>
+                <string>AC CPFL OFF</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -12546,6 +13032,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -12683,6 +13178,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -12814,6 +13318,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -12992,7 +13505,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk3Label-Cte</string>
+                <string>Temperature</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -13033,7 +13546,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrState-Sel</string>
+                <string>Turn ON/OFF HVPS</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -13064,7 +13577,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk5Label-Cte</string>
+                <string>HVPS Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -13089,7 +13602,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-RB</string>
+                <string>0.0</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -13185,7 +13698,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk1Label-Cte</string>
+                <string>Switch module</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -13347,7 +13860,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Pulse-Sts</string>
+                <string>Read if trigger pulse is enabled or not</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -13375,7 +13888,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://TS-01:PU-EjeSeptF:Pulse-Sts</string>
+                <string>ca://TS-01:PU-EjeSeptG:Pulse-Sts</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -13598,6 +14111,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -13729,6 +14251,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -13872,6 +14403,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -13913,7 +14453,7 @@ Power Supply</string>
                 <string/>
                </property>
                <property name="channel" stdset="0">
-                <string>ca://TS-01:PU-EjeSeptG:Pulse-Sts</string>
+                <string>ca://TS-01:PU-EjeSeptF:Pulse-Sts</string>
                </property>
                <property name="offColor" stdset="0">
                 <color>
@@ -13956,7 +14496,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk3Label-Cte</string>
+                <string>Temperature</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -14046,7 +14586,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Pulse-Sts</string>
+                <string>Read if trigger pulse is enabled or not</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -14121,7 +14661,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk2Label-Cte</string>
+                <string>AC CPFL OFF</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -14305,6 +14845,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -14442,6 +14991,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -14573,6 +15131,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -14760,6 +15327,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -14897,6 +15473,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -15028,6 +15613,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -15215,6 +15809,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -15346,6 +15949,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -15489,6 +16101,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -15529,7 +16150,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrState-Sel</string>
+                <string>Turn ON/OFF HVPS</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -15554,7 +16175,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-RB</string>
+                <string>0.0</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -15585,7 +16206,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk5Label-Cte</string>
+                <string>HVPS Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -15770,7 +16391,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrStateLabel1</string>
+                <string>Read power supply status</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -15801,7 +16422,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk4Label-Cte</string>
+                <string>Personnel protection</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -16149,7 +16770,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk6Label-Cte</string>
+                <string>HVPS Overvoltage</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -16180,7 +16801,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk1Label-Cte</string>
+                <string>Switch module</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -16233,7 +16854,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk7Label-Cte</string>
+                <string>External</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -16429,7 +17050,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-Mon</string>
+                <string>-2.3</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -16599,6 +17220,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -16730,6 +17360,15 @@ Power Supply</string>
                 <colorrole role="ToolTipText">
                  <brush brushstyle="SolidPattern">
                   <color alpha="255">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
                    <red>0</red>
                    <green>0</green>
                    <blue>0</blue>
@@ -16873,6 +17512,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </disabled>
               </palette>
              </property>
@@ -16938,7 +17586,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrStateLabel1</string>
+                <string>Read power supply status</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -17122,6 +17770,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -17253,6 +17910,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -17396,6 +18062,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -17480,7 +18155,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-RB</string>
+                <string>0.0</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -17567,7 +18242,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-Mon</string>
+                <string>-26.8</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -17598,7 +18273,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk3Label-Cte</string>
+                <string>Temperature</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -17766,6 +18441,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -17903,6 +18587,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -18034,6 +18727,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -18365,6 +19067,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -18496,6 +19207,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -18639,6 +19359,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -18711,7 +19440,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk2Label-Cte</string>
+                <string>AC CPFL OFF</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -18834,7 +19563,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk5Label-Cte</string>
+                <string>HVPS Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -18899,7 +19628,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrState-Sel</string>
+                <string>Turn ON/OFF HVPS</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -19192,6 +19921,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -19323,6 +20061,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -19466,6 +20213,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -19532,7 +20288,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk6Label-Cte</string>
+                <string>HVPS Overvoltage</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -19704,7 +20460,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk4Label-Cte</string>
+                <string>Personnel protection</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -19816,7 +20572,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk7Label-Cte</string>
+                <string>External</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -19847,7 +20603,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk1Label-Cte</string>
+                <string>Switch module</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -19872,7 +20628,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Pulse-Sts</string>
+                <string>Read if trigger pulse is enabled or not</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -19989,7 +20745,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk8Label-Cte</string>
+                <string>Switch Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -20159,7 +20915,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk5Label-Cte</string>
+                <string>HVPS Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -20236,7 +20992,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk3Label-Cte</string>
+                <string>Temperature</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -20286,7 +21042,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk7Label-Cte</string>
+                <string>External</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -20470,6 +21226,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -20601,6 +21366,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -20744,6 +21518,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -20823,7 +21606,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk2Label-Cte</string>
+                <string>AC CPFL OFF</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -21109,6 +21892,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -21240,6 +22032,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -21383,6 +22184,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -21467,7 +22277,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-Mon</string>
+                <string>-3.9</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -21498,7 +22308,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk4Label-Cte</string>
+                <string>Personnel protection</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -21523,7 +22333,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrStateLabel1</string>
+                <string>Read power supply status</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -21554,7 +22364,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk6Label-Cte</string>
+                <string>HVPS Overvoltage</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -21585,7 +22395,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk1Label-Cte</string>
+                <string>Switch module</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -21610,7 +22420,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrState-Sel</string>
+                <string>Turn ON/OFF HVPS</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -21892,6 +22702,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -22029,6 +22848,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -22160,6 +22988,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -22388,6 +23225,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -22525,6 +23371,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -22656,6 +23511,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -22934,7 +23798,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-RB</string>
+                <string>0.0</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -22965,7 +23829,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Pulse-Sts</string>
+                <string>Read if trigger pulse is enabled or not</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -23318,7 +24182,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk2Label-Cte</string>
+                <string>AC CPFL OFF</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -23478,7 +24342,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk5Label-Cte</string>
+                <string>HVPS Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -23555,7 +24419,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk7Label-Cte</string>
+                <string>External</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -23672,7 +24536,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-Mon</string>
+                <string>-3.5</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -23732,7 +24596,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrState-Sel</string>
+                <string>Turn ON/OFF HVPS</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -23900,6 +24764,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -24031,6 +24904,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -24174,6 +25056,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -24220,7 +25111,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk3Label-Cte</string>
+                <string>Temperature</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -24388,6 +25279,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -24525,6 +25425,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -24656,6 +25565,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -24843,6 +25761,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -24974,6 +25901,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -25117,6 +26053,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -25171,7 +26116,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrStateLabel1</string>
+                <string>Read power supply status</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -25339,6 +26284,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -25470,6 +26424,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -25613,6 +26576,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -25703,7 +26675,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk6Label-Cte</string>
+                <string>HVPS Overvoltage</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -25780,7 +26752,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk4Label-Cte</string>
+                <string>Personnel protection</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -25889,7 +26861,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-RB</string>
+                <string>0.0</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -25920,7 +26892,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk1Label-Cte</string>
+                <string>Switch module</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -26031,7 +27003,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Pulse-Sts</string>
+                <string>Read if trigger pulse is enabled or not</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -26240,6 +27212,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -26371,6 +27352,15 @@ Power Supply</string>
                 <colorrole role="ToolTipText">
                  <brush brushstyle="SolidPattern">
                   <color alpha="255">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
                    <red>0</red>
                    <green>0</green>
                    <blue>0</blue>
@@ -26514,6 +27504,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </disabled>
               </palette>
              </property>
@@ -26578,7 +27577,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk6Label-Cte</string>
+                <string>HVPS Overvoltage</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -26746,6 +27745,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -26883,6 +27891,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -27014,6 +28031,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -27230,7 +28256,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk2Label-Cte</string>
+                <string>AC CPFL OFF</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -27420,6 +28446,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -27557,6 +28592,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -27688,6 +28732,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -28116,6 +29169,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -28247,6 +29309,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -28390,6 +29461,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -28493,7 +29573,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-Mon</string>
+                <string>-4.7</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -28559,7 +29639,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk1Label-Cte</string>
+                <string>Switch module</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -28584,7 +29664,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-RB</string>
+                <string>0.0</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -28675,7 +29755,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrState-Sel</string>
+                <string>Turn ON/OFF HVPS</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -28722,7 +29802,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk4Label-Cte</string>
+                <string>Personnel protection</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -28839,7 +29919,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrStateLabel1</string>
+                <string>Read power supply status</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -29007,6 +30087,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -29138,6 +30227,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -29281,6 +30379,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -29327,7 +30434,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk3Label-Cte</string>
+                <string>Temperature</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -29358,7 +30465,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk5Label-Cte</string>
+                <string>HVPS Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -29481,7 +30588,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk7Label-Cte</string>
+                <string>External</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -29546,7 +30653,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Pulse-Sts</string>
+                <string>Read if trigger pulse is enabled or not</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -29762,6 +30869,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -29893,6 +31009,15 @@ Power Supply</string>
                 <colorrole role="ToolTipText">
                  <brush brushstyle="SolidPattern">
                   <color alpha="255">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
                    <red>0</red>
                    <green>0</green>
                    <blue>0</blue>
@@ -30036,6 +31161,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </disabled>
               </palette>
              </property>
@@ -30078,7 +31212,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-Mon</string>
+                <string>-12.1</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -30246,6 +31380,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -30377,6 +31520,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -30520,6 +31672,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -30656,7 +31817,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk3Label-Cte</string>
+                <string>Temperature</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -30824,6 +31985,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -30961,6 +32131,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -31092,6 +32271,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -31279,6 +32467,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -31410,6 +32607,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -31553,6 +32759,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -31597,7 +32812,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk7Label-Cte</string>
+                <string>External</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -31622,7 +32837,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-RB</string>
+                <string>0.1</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -31778,7 +32993,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk4Label-Cte</string>
+                <string>Personnel protection</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -31915,7 +33130,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk1Label-Cte</string>
+                <string>Switch module</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -31946,7 +33161,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk5Label-Cte</string>
+                <string>HVPS Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -31971,7 +33186,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrState-Sel</string>
+                <string>Turn ON/OFF HVPS</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -32064,7 +33279,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk2Label-Cte</string>
+                <string>AC CPFL OFF</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -32167,7 +33382,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrStateLabel1</string>
+                <string>Read power supply status</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -32377,7 +33592,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk6Label-Cte</string>
+                <string>HVPS Overvoltage</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -32613,6 +33828,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -32750,6 +33974,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -32881,6 +34114,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -33064,7 +34306,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Pulse-Sts</string>
+                <string>Read if trigger pulse is enabled or not</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -33141,7 +34383,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk8Label-Cte</string>
+                <string>Switch Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -33341,6 +34583,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -33472,6 +34723,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -33615,6 +34875,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -33653,7 +34922,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrStateLabel1</string>
+                <string>Read power supply status</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -33752,7 +35021,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk7Label-Cte</string>
+                <string>External</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -33966,6 +35235,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -34103,6 +35381,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -34234,6 +35521,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -34511,7 +35807,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk6Label-Cte</string>
+                <string>HVPS Overvoltage</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -34763,6 +36059,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -34894,6 +36199,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -35037,6 +36351,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -35075,7 +36398,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-RB</string>
+                <string>0.1</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -35128,7 +36451,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk3Label-Cte</string>
+                <string>Temperature</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -35159,7 +36482,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk4Label-Cte</string>
+                <string>Personnel protection</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -35365,6 +36688,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -35502,6 +36834,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -35633,6 +36974,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -35886,7 +37236,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk1Label-Cte</string>
+                <string>Switch module</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -35911,7 +37261,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-Mon</string>
+                <string>-46.4</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -35942,7 +37292,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk2Label-Cte</string>
+                <string>AC CPFL OFF</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -35967,7 +37317,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrState-Sel</string>
+                <string>Turn ON/OFF HVPS</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -36085,7 +37435,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk5Label-Cte</string>
+                <string>HVPS Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -36110,7 +37460,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Pulse-Sts</string>
+                <string>Read if trigger pulse is enabled or not</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -36227,7 +37577,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk8Label-Cte</string>
+                <string>Switch Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -36301,7 +37651,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Pulse-Sts</string>
+                <string>Read if trigger pulse is enabled or not</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -36547,6 +37897,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -36684,6 +38043,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -36815,6 +38183,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -37004,6 +38381,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -37135,6 +38521,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -37278,6 +38673,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -37357,7 +38761,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk4Label-Cte</string>
+                <string>Personnel protection</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -37388,7 +38792,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk6Label-Cte</string>
+                <string>HVPS Overvoltage</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -37413,7 +38817,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrStateLabel1</string>
+                <string>Read power supply status</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -37643,6 +39047,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -37774,6 +39187,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -37917,6 +39339,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -38021,7 +39452,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk5Label-Cte</string>
+                <string>HVPS Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -38068,7 +39499,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-Mon</string>
+                <string>0.0</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -38205,7 +39636,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk2Label-Cte</string>
+                <string>AC CPFL OFF</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -38295,7 +39726,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrState-Sel</string>
+                <string>Turn ON/OFF HVPS</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -38412,7 +39843,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk3Label-Cte</string>
+                <string>Temperature</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -38493,7 +39924,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk7Label-Cte</string>
+                <string>External</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -38721,7 +40152,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-RB</string>
+                <string>0.0</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -38889,6 +40320,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -39020,6 +40460,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -39163,6 +40612,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -39207,7 +40665,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk1Label-Cte</string>
+                <string>Switch module</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -39352,7 +40810,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk8Label-Cte</string>
+                <string>Switch Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -39503,7 +40961,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk6Label-Cte</string>
+                <string>HVPS Overvoltage</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -39699,6 +41157,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -39830,6 +41297,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -39973,6 +41449,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -40051,7 +41536,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrStateLabel1</string>
+                <string>Read power supply status</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -40212,7 +41697,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk5Label-Cte</string>
+                <string>HVPS Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -40283,7 +41768,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>PwrState-Sel</string>
+                <string>Turn ON/OFF HVPS</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -40392,7 +41877,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-Mon</string>
+                <string>0.0</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -40423,7 +41908,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk7Label-Cte</string>
+                <string>External</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -40751,6 +42236,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -40882,6 +42376,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -41025,6 +42528,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </disabled>
                 </palette>
                </property>
@@ -41093,7 +42605,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk1Label-Cte</string>
+                <string>Switch module</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -41124,7 +42636,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk2Label-Cte</string>
+                <string>AC CPFL OFF</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -41171,7 +42683,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk3Label-Cte</string>
+                <string>Temperature</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -41196,7 +42708,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Voltage-RB</string>
+                <string>0.0</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -41364,6 +42876,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -41501,6 +43022,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -41632,6 +43162,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -41884,6 +43423,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -42021,6 +43569,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -42152,6 +43709,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -42297,7 +43863,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk4Label-Cte</string>
+                <string>Personnel protection</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -42362,7 +43928,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Pulse-Sts</string>
+                <string>Read if trigger pulse is enabled or not</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -42439,7 +44005,7 @@ Power Supply</string>
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="text">
-                <string>Intlk8Label-Cte</string>
+                <string>Switch Overcurrent</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -42609,6 +44175,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -42746,6 +44321,15 @@ Power Supply</string>
                   </color>
                  </brush>
                 </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -42877,6 +44461,15 @@ Power Supply</string>
                 <colorrole role="ToolTipText">
                  <brush brushstyle="SolidPattern">
                   <color alpha="255">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
                    <red>0</red>
                    <green>0</green>
                    <blue>0</blue>
@@ -43191,6 +44784,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -43328,6 +44930,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -43459,6 +45070,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -43805,6 +45425,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -43942,6 +45571,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -44073,6 +45711,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -44309,6 +45956,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -44446,6 +46102,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -44577,6 +46242,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -45018,6 +46692,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -45155,6 +46838,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -45286,6 +46978,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -45616,6 +47317,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -45753,6 +47463,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -45884,6 +47603,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
@@ -46140,6 +47868,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </active>
                  <inactive>
                   <colorrole role="WindowText">
@@ -46277,6 +48014,15 @@ Power Supply</string>
                     </color>
                    </brush>
                   </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
                  </inactive>
                  <disabled>
                   <colorrole role="WindowText">
@@ -46408,6 +48154,15 @@ Power Supply</string>
                   <colorrole role="ToolTipText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
+                     <red>0</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="NoBrush">
+                    <color alpha="128">
                      <red>0</red>
                      <green>0</green>
                      <blue>0</blue>
