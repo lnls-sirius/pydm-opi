@@ -52,7 +52,6 @@ class MBTempMonitoring(Display):
 
         self.tab = ""
         self.addr = []
-        self.board_sensors = []
         self.url = "http://10.0.38.42:26001/devices"
 
         self.P7RF.setPixmap(QPixmap(PIC_P7RF))
