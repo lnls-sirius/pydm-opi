@@ -13,9 +13,6 @@ logger = logging.getLogger()
 def get_abs_path(filename):
     return pkg_resources.resource_filename(__name__, filename)
 
-
-CHS_MBTEMP = get_abs_path("channels.xlsx")
-
 MBTEMP_MAIN = get_abs_path("main.py")
 MBTEMP_MAIN_UI = get_abs_path("ui/main.ui")
 
@@ -53,5 +50,7 @@ SR_PICS = {
 
 PIC_PA = get_abs_path("images/Area/PA.jpg")
 PIC_LA = get_abs_path("images/Area/LA.png")
+
+PIC_P7RF = get_abs_path("images/Area/Petra7.png")
 
 lazy_devices = LazyDevices(conscommon.data.getMBTemp)
