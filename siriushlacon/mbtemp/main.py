@@ -30,7 +30,7 @@ from siriushlacon.mbtemp.consts import (
 
 logger = logging.getLogger()
 
-TAB = {0: "RF", 1: "TB", 2: "TS", 3: "BO", 4: "SR", 5: "LA", 6: "PA"}
+TAB = {0: "RF", 1: "TB", 2: "TS", 3: "BO", 4: "SI", 5: "LA", 6: "PA"}
 
 DEVICES_IP = {#{Area IPs:[ip, devices]}
 "RF":[["10.128.102.119", [None, None]], ["10.128.101.118", [None, None]]],
@@ -39,7 +39,7 @@ DEVICES_IP = {#{Area IPs:[ip, devices]}
 "LA":[["10.128.122.102", [None, None]]],
 "PA":[["10.128.123.131", [None, None]], ["10.128.123.132", [None, None]]],
 "BO":[["10.128.1{:0>2d}.106", [None, None]]],
-"SR":[["10.128.1{:0>2d}.117", [None, None]], ["10.128.1{:0>2d}.118", [None, None]]]
+"SI":[["10.128.1{:0>2d}.117", [None, None]], ["10.128.1{:0>2d}.118", [None, None]]]
 }
 
 class MBTempMonitoring(Display):
@@ -163,7 +163,7 @@ class MBTempMonitoring(Display):
                 location = int(_id) % 5
                 aux = (location if location != 0 else 5)
 
-            elif chosenArea in ["SR", "PA", "LA"]:
+            elif chosenArea in ["SI", "PA", "LA"]:
                 aux = _id
 
             elif chosenArea == "RF":
@@ -223,7 +223,7 @@ class MBTempMonitoring(Display):
             location = id_addr % 5
             mb = (location if location != 0 else 5)
 
-        elif self.tab in ["TS", "SR", "PA", "LA", "RF"]:
+        elif self.tab in ["TS", "SI", "PA", "LA", "RF"]:
             mb = id_addr
         try:
             mbtemp = getattr(self, "{}_MBTemp{:0>2d}".format(self.tab, mb))
@@ -262,7 +262,7 @@ class MBTempMonitoring(Display):
     def sector_change_disconnect(self):
         for channel in self.addr:
             channel.disconnect()
-        if self.tab != "SR":
+        if self.tab != "SI":
             return ()
 
         for disc in [
@@ -282,8 +282,8 @@ class MBTempMonitoring(Display):
             "22_Ch4",
             "_MBTemp10",
         ]:
-            getattr(self, "SR{}".format(disc)).brush = QtCore.Qt.gray
-            getattr(self, "SR{}".format(disc)).setToolTip("")
+            getattr(self, "SI{}".format(disc)).brush = QtCore.Qt.gray
+            getattr(self, "SI{}".format(disc)).setToolTip("")
 
     def setBOImage(self, secFrom):
         if secFrom % 2 == 0:

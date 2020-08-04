@@ -1673,7 +1673,7 @@
             <property name="geometry">
              <rect>
               <x>0</x>
-              <y>-92</y>
+              <y>0</y>
               <width>628</width>
               <height>1244</height>
              </rect>
@@ -1693,7 +1693,7 @@
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <widget class="PyDMDrawingRectangle" name="SR_MBTemp23">
+               <widget class="PyDMDrawingRectangle" name="SI_MBTemp23">
                 <property name="geometry">
                  <rect>
                   <x>462</x>
@@ -1715,7 +1715,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR22_Ch3">
+               <widget class="PyDMDrawingRectangle" name="SI22_Ch3">
                 <property name="geometry">
                  <rect>
                   <x>188</x>
@@ -1737,7 +1737,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR22_Ch4">
+               <widget class="PyDMDrawingRectangle" name="SI22_Ch4">
                 <property name="geometry">
                  <rect>
                   <x>214</x>
@@ -1791,7 +1791,7 @@
                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Trecho Matching&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR23_Ch1">
+               <widget class="PyDMDrawingRectangle" name="SI23_Ch1">
                 <property name="geometry">
                  <rect>
                   <x>472</x>
@@ -1813,7 +1813,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR23_Ch8">
+               <widget class="PyDMDrawingRectangle" name="SI23_Ch8">
                 <property name="geometry">
                  <rect>
                   <x>584</x>
@@ -1850,11 +1850,11 @@
                </widget>
                <zorder>SR_Pic6</zorder>
                <zorder>label_41</zorder>
-               <zorder>SR22_Ch3</zorder>
-               <zorder>SR22_Ch4</zorder>
-               <zorder>SR_MBTemp23</zorder>
-               <zorder>SR23_Ch1</zorder>
-               <zorder>SR23_Ch8</zorder>
+               <zorder>SI22_Ch3</zorder>
+               <zorder>SI22_Ch4</zorder>
+               <zorder>SI_MBTemp23</zorder>
+               <zorder>SI23_Ch1</zorder>
+               <zorder>SI23_Ch8</zorder>
                <zorder>label_16</zorder>
               </widget>
              </item>
@@ -1872,7 +1872,7 @@
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <widget class="PyDMDrawingRectangle" name="SR12_Ch4">
+               <widget class="PyDMDrawingRectangle" name="SI12_Ch4">
                 <property name="geometry">
                  <rect>
                   <x>398</x>
@@ -1894,7 +1894,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR12_Ch1">
+               <widget class="PyDMDrawingRectangle" name="SI12_Ch1">
                 <property name="geometry">
                  <rect>
                   <x>6</x>
@@ -1916,7 +1916,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR12_Ch5">
+               <widget class="PyDMDrawingRectangle" name="SI12_Ch5">
                 <property name="geometry">
                  <rect>
                   <x>46</x>
@@ -1957,7 +1957,7 @@
                  <bool>true</bool>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR12_Ch2">
+               <widget class="PyDMDrawingRectangle" name="SI12_Ch2">
                 <property name="geometry">
                  <rect>
                   <x>94</x>
@@ -1979,7 +1979,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR12_Ch7">
+               <widget class="PyDMDrawingRectangle" name="SI12_Ch7">
                 <property name="geometry">
                  <rect>
                   <x>124</x>
@@ -2001,7 +2001,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR_MBTemp12">
+               <widget class="PyDMDrawingRectangle" name="SI_MBTemp12">
                 <property name="geometry">
                  <rect>
                   <x>178</x>
@@ -2023,7 +2023,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR12_Ch3">
+               <widget class="PyDMDrawingRectangle" name="SI12_Ch3">
                 <property name="geometry">
                  <rect>
                   <x>234</x>
@@ -2058,7 +2058,7 @@
                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Trecho C1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR12_Ch6">
+               <widget class="PyDMDrawingRectangle" name="SI12_Ch6">
                 <property name="geometry">
                  <rect>
                   <x>86</x>
@@ -2081,15 +2081,15 @@
                 </property>
                </widget>
                <zorder>SR_Pic2</zorder>
-               <zorder>SR12_Ch2</zorder>
-               <zorder>SR12_Ch7</zorder>
-               <zorder>SR_MBTemp12</zorder>
-               <zorder>SR12_Ch3</zorder>
+               <zorder>SI12_Ch2</zorder>
+               <zorder>SI12_Ch7</zorder>
+               <zorder>SI_MBTemp12</zorder>
+               <zorder>SI12_Ch3</zorder>
                <zorder>label_31</zorder>
-               <zorder>SR12_Ch6</zorder>
-               <zorder>SR12_Ch4</zorder>
-               <zorder>SR12_Ch1</zorder>
-               <zorder>SR12_Ch5</zorder>
+               <zorder>SI12_Ch6</zorder>
+               <zorder>SI12_Ch4</zorder>
+               <zorder>SI12_Ch1</zorder>
+               <zorder>SI12_Ch5</zorder>
               </widget>
              </item>
              <item row="3" column="0">
@@ -2106,7 +2106,7 @@
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <widget class="PyDMDrawingRectangle" name="SR21_Ch8">
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch8">
                 <property name="geometry">
                  <rect>
                   <x>502</x>
@@ -2128,7 +2128,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR21_Ch6">
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch6">
                 <property name="geometry">
                  <rect>
                   <x>196</x>
@@ -2150,7 +2150,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR21_Ch1">
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch1">
                 <property name="geometry">
                  <rect>
                   <x>104</x>
@@ -2172,7 +2172,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR21_Ch7">
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch7">
                 <property name="geometry">
                  <rect>
                   <x>258</x>
@@ -2194,7 +2194,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR_MBTemp21">
+               <widget class="PyDMDrawingRectangle" name="SI_MBTemp21">
                 <property name="geometry">
                  <rect>
                   <x>296</x>
@@ -2216,7 +2216,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR21_Ch5">
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch5">
                 <property name="geometry">
                  <rect>
                   <x>396</x>
@@ -2238,7 +2238,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR21_Ch2">
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch2">
                 <property name="geometry">
                  <rect>
                   <x>148</x>
@@ -2260,7 +2260,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR21_Ch4">
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch4">
                 <property name="geometry">
                  <rect>
                   <x>342</x>
@@ -2314,7 +2314,7 @@
                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Trecho C3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR21XX">
+               <widget class="PyDMDrawingRectangle" name="SI21XX">
                 <property name="geometry">
                  <rect>
                   <x>28</x>
@@ -2336,7 +2336,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR21_Ch3">
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch3">
                 <property name="geometry">
                  <rect>
                   <x>198</x>
@@ -2360,16 +2360,16 @@
                </widget>
                <zorder>SR_Pic4</zorder>
                <zorder>label_38</zorder>
-               <zorder>SR_MBTemp21</zorder>
-               <zorder>SR21_Ch4</zorder>
-               <zorder>SR21_Ch5</zorder>
-               <zorder>SR21_Ch1</zorder>
-               <zorder>SR21_Ch8</zorder>
-               <zorder>SR21_Ch6</zorder>
-               <zorder>SR21_Ch7</zorder>
-               <zorder>SR21_Ch2</zorder>
-               <zorder>SR21XX</zorder>
-               <zorder>SR21_Ch3</zorder>
+               <zorder>SI_MBTemp21</zorder>
+               <zorder>SI21_Ch4</zorder>
+               <zorder>SI21_Ch5</zorder>
+               <zorder>SI21_Ch1</zorder>
+               <zorder>SI21_Ch8</zorder>
+               <zorder>SI21_Ch6</zorder>
+               <zorder>SI21_Ch7</zorder>
+               <zorder>SI21_Ch2</zorder>
+               <zorder>SI21XX</zorder>
+               <zorder>SI21_Ch3</zorder>
               </widget>
              </item>
              <item row="4" column="0">
@@ -2386,7 +2386,7 @@
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <widget class="PyDMDrawingRectangle" name="SR_MBTemp22">
+               <widget class="PyDMDrawingRectangle" name="SI_MBTemp22">
                 <property name="geometry">
                  <rect>
                   <x>430</x>
@@ -2408,7 +2408,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR22_Ch2">
+               <widget class="PyDMDrawingRectangle" name="SI22_Ch2">
                 <property name="geometry">
                  <rect>
                   <x>422</x>
@@ -2462,7 +2462,7 @@
                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Trecho C4&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR22_Ch1">
+               <widget class="PyDMDrawingRectangle" name="SI22_Ch1">
                 <property name="geometry">
                  <rect>
                   <x>224</x>
@@ -2484,7 +2484,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SRBCFE_ChED2">
+               <widget class="PyDMDrawingRectangle" name="SIBCFE_ChED2">
                 <property name="geometry">
                  <rect>
                   <x>108</x>
@@ -2506,7 +2506,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR22_Ch6">
+               <widget class="PyDMDrawingRectangle" name="SI22_Ch6">
                 <property name="geometry">
                  <rect>
                   <x>534</x>
@@ -2543,11 +2543,11 @@
                </widget>
                <zorder>SR_Pic5</zorder>
                <zorder>label_39</zorder>
-               <zorder>SR_MBTemp22</zorder>
-               <zorder>SR22_Ch1</zorder>
-               <zorder>SR22_Ch2</zorder>
-               <zorder>SRBCFE_ChED2</zorder>
-               <zorder>SR22_Ch6</zorder>
+               <zorder>SI_MBTemp22</zorder>
+               <zorder>SI22_Ch1</zorder>
+               <zorder>SI22_Ch2</zorder>
+               <zorder>SIBCFE_ChED2</zorder>
+               <zorder>SI22_Ch6</zorder>
                <zorder>label_18</zorder>
               </widget>
              </item>
@@ -2571,7 +2571,7 @@
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <widget class="PyDMDrawingRectangle" name="SR23_Ch2">
+               <widget class="PyDMDrawingRectangle" name="SI23_Ch2">
                 <property name="geometry">
                  <rect>
                   <x>20</x>
@@ -2612,7 +2612,7 @@
                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Trecho Reto&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR23_Ch3">
+               <widget class="PyDMDrawingRectangle" name="SI23_Ch3">
                 <property name="geometry">
                  <rect>
                   <x>224</x>
@@ -2661,8 +2661,8 @@
                </widget>
                <zorder>label_45</zorder>
                <zorder>SR_Pic7</zorder>
-               <zorder>SR23_Ch2</zorder>
-               <zorder>SR23_Ch3</zorder>
+               <zorder>SI23_Ch2</zorder>
+               <zorder>SI23_Ch3</zorder>
               </widget>
              </item>
              <item row="0" column="0">
@@ -2685,7 +2685,7 @@
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <widget class="PyDMDrawingRectangle" name="SR13_Ch1">
+               <widget class="PyDMDrawingRectangle" name="SI13_Ch1">
                 <property name="geometry">
                  <rect>
                   <x>78</x>
@@ -2773,7 +2773,7 @@
                  <bool>true</bool>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR13_Ch2">
+               <widget class="PyDMDrawingRectangle" name="SI13_Ch2">
                 <property name="geometry">
                  <rect>
                   <x>186</x>
@@ -2829,7 +2829,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR_MBTemp13">
+               <widget class="PyDMDrawingRectangle" name="SI_MBTemp13">
                 <property name="geometry">
                  <rect>
                   <x>268</x>
@@ -2882,7 +2882,7 @@
                  <double>6.000000000000000</double>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR13_Ch3">
+               <widget class="PyDMDrawingRectangle" name="SI13_Ch3">
                 <property name="geometry">
                  <rect>
                   <x>32</x>
@@ -2910,7 +2910,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR13_Ch8">
+               <widget class="PyDMDrawingRectangle" name="SI13_Ch8">
                 <property name="geometry">
                  <rect>
                   <x>68</x>
@@ -2953,14 +2953,14 @@
                </widget>
                <zorder>label_46</zorder>
                <zorder>SR_Pic1</zorder>
-               <zorder>SR13_Ch2</zorder>
+               <zorder>SI13_Ch2</zorder>
                <zorder>PyDMDrawingRectangle_45</zorder>
-               <zorder>SR_MBTemp13</zorder>
+               <zorder>SI_MBTemp13</zorder>
                <zorder>PyDMDrawingRectangle_43</zorder>
-               <zorder>SR13_Ch1</zorder>
+               <zorder>SI13_Ch1</zorder>
                <zorder>PyDMDrawingRectangle_2</zorder>
-               <zorder>SR13_Ch3</zorder>
-               <zorder>SR13_Ch8</zorder>
+               <zorder>SI13_Ch3</zorder>
+               <zorder>SI13_Ch8</zorder>
                <zorder>label_17</zorder>
               </widget>
              </item>
@@ -2978,7 +2978,7 @@
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <widget class="PyDMDrawingRectangle" name="SR11_Ch3">
+               <widget class="PyDMDrawingRectangle" name="SI11_Ch3">
                 <property name="geometry">
                  <rect>
                   <x>534</x>
@@ -3019,7 +3019,7 @@
                  <bool>true</bool>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR_MBTemp11">
+               <widget class="PyDMDrawingRectangle" name="SI_MBTemp11">
                 <property name="geometry">
                  <rect>
                   <x>260</x>
@@ -3041,7 +3041,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR11_Ch5">
+               <widget class="PyDMDrawingRectangle" name="SI11_Ch5">
                 <property name="geometry">
                  <rect>
                   <x>100</x>
@@ -3063,7 +3063,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR11_Ch6">
+               <widget class="PyDMDrawingRectangle" name="SI11_Ch6">
                 <property name="geometry">
                  <rect>
                   <x>390</x>
@@ -3085,7 +3085,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR11_Ch4">
+               <widget class="PyDMDrawingRectangle" name="SI11_Ch4">
                 <property name="geometry">
                  <rect>
                   <x>66</x>
@@ -3107,7 +3107,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR11_Ch2">
+               <widget class="PyDMDrawingRectangle" name="SI11_Ch2">
                 <property name="geometry">
                  <rect>
                   <x>94</x>
@@ -3142,7 +3142,7 @@
                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Trecho C2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR11_Ch1">
+               <widget class="PyDMDrawingRectangle" name="SI11_Ch1">
                 <property name="geometry">
                  <rect>
                   <x>24</x>
@@ -3164,7 +3164,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR22_Ch5">
+               <widget class="PyDMDrawingRectangle" name="SI22_Ch5">
                 <property name="geometry">
                  <rect>
                   <x>4</x>
@@ -3186,7 +3186,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR_MBTemp10">
+               <widget class="PyDMDrawingRectangle" name="SI_MBTemp10">
                 <property name="geometry">
                  <rect>
                   <x>42</x>
@@ -3208,7 +3208,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR10_Ch2">
+               <widget class="PyDMDrawingRectangle" name="SI10_Ch2">
                 <property name="geometry">
                  <rect>
                   <x>240</x>
@@ -3230,7 +3230,7 @@
                  </brush>
                 </property>
                </widget>
-               <widget class="PyDMDrawingRectangle" name="SR10_Ch1">
+               <widget class="PyDMDrawingRectangle" name="SI10_Ch1">
                 <property name="geometry">
                  <rect>
                   <x>218</x>
@@ -3306,20 +3306,20 @@
                 </property>
                </widget>
                <zorder>SR_Pic3</zorder>
-               <zorder>SR_MBTemp11</zorder>
-               <zorder>SR11_Ch6</zorder>
-               <zorder>SR11_Ch4</zorder>
-               <zorder>SR11_Ch2</zorder>
+               <zorder>SI_MBTemp11</zorder>
+               <zorder>SI11_Ch6</zorder>
+               <zorder>SI11_Ch4</zorder>
+               <zorder>SI11_Ch2</zorder>
                <zorder>label_43</zorder>
-               <zorder>SR11_Ch3</zorder>
-               <zorder>SR11_Ch1</zorder>
-               <zorder>SR22_Ch5</zorder>
-               <zorder>SR_MBTemp10</zorder>
-               <zorder>SR10_Ch2</zorder>
-               <zorder>SR10_Ch1</zorder>
+               <zorder>SI11_Ch3</zorder>
+               <zorder>SI11_Ch1</zorder>
+               <zorder>SI22_Ch5</zorder>
+               <zorder>SI_MBTemp10</zorder>
+               <zorder>SI10_Ch2</zorder>
+               <zorder>SI10_Ch1</zorder>
                <zorder>label_15</zorder>
                <zorder>PyDMDrawingRectangle_3</zorder>
-               <zorder>SR11_Ch5</zorder>
+               <zorder>SI11_Ch5</zorder>
                <zorder>label_21</zorder>
               </widget>
              </item>
@@ -4028,12 +4028,12 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMDrawingRectangle</class>
+   <class>PyDMDrawingCircle</class>
    <extends>QWidget</extends>
    <header>pydm.widgets.drawing</header>
   </customwidget>
   <customwidget>
-   <class>PyDMDrawingCircle</class>
+   <class>PyDMDrawingRectangle</class>
    <extends>QWidget</extends>
    <header>pydm.widgets.drawing</header>
   </customwidget>
