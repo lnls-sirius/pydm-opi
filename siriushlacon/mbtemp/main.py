@@ -165,10 +165,13 @@ class MBTempMonitoring(Display):
 
             elif chosenArea in ["SI", "PA", "LA"]:
                 aux = _id
+                if (mbtemp_ch == 3) and (mbtemp_name in ["SI-01-MBTemp-13", "SI-20-MBTemp-23"]):
+                    aux += "_2"
 
             elif chosenArea == "RF":
                 aux = _id
                 if _id == "23":
+                    aux += "_2"
                     chosenArea = "SI"
 
             elif chosenArea == "TB":
@@ -269,17 +272,19 @@ class MBTempMonitoring(Display):
             "11_Ch4",
             "11_Ch5",
             "11_Ch6",
-            "21XX",
             "13_Ch8",
             "22_Ch6",
             "13_Ch3",
             "10_Ch1",
             "10_Ch2",
             "23_Ch8",
-            "BCFE_ChED2",
             "11_Ch2",
             "21_Ch1",
             "22_Ch4",
+            "23_Ch3",
+            "23_2_Ch3",
+            "23_Ch4",
+            "13_2_Ch3",
             "_MBTemp10",
         ]:
             getattr(self, "SI{}".format(disc)).brush = QtCore.Qt.gray
