@@ -169,7 +169,7 @@ class UHVDataController(TableDataController):
 
                 # Datails Button Macro
                 macros = {}
-                macros["DEVICE"] = tableRow.channel.prefix
+                macros["DEVICE"] = tableRow.device.prefix
                 for channel in tableRow.device.channels:
                     macros["PREFIX_{}".format(channel.name)] = channel.prefix
 
