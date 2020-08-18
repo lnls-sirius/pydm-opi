@@ -39,7 +39,7 @@ class TabId(object):
 class Regatron(Display):
     def __init__(self, parent=None, macros=None, **kwargs):
         super().__init__(parent=parent, macros=macros, ui_filename=COMPLETE_UI)
-        self.macros = macros
+        self.macros_dict = macros
         self.isMaster = macros.get("master", "1") == "1"
 
         self.protectionLevel: ProtectionLevel = ProtectionLevel.OPERATION
@@ -331,10 +331,10 @@ class Regatron(Display):
         self.sysStatus.setVisible(self.isMaster)
 
         self.warnByte.channel = "ca://{}{}".format(
-            self.macros["P"], ":GenWarn-Mon" if self.isMaster else ":Mod-WarnGroup-Mon",
+            self.macros_dict["P"], ":GenWarn-Mon" if self.isMaster else ":Mod-WarnGroup-Mon",
         )
         self.errorByte.channel = "ca://{}{}".format(
-            self.macros["P"], ":GenErr-Mon" if self.isMaster else ":Mod-ErrGroup-Mon",
+            self.macros_dict["P"], ":GenErr-Mon" if self.isMaster else ":Mod-ErrGroup-Mon",
         )
 
     def changeProtectionLevel(self):
