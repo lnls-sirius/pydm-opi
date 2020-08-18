@@ -5,7 +5,7 @@ from typing import List
 from qtpy import QtGui, QtWidgets
 
 from conscommon.data import getAgilent
-from data_model import (
+from conscommon.data_model import (
     getDevicesFromList,
     getBeaglesFromList,
     getDevicesFromBeagles,

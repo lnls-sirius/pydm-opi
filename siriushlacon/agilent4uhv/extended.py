@@ -8,7 +8,7 @@ from qtpy.QtWidgets import (
     QPushButton,
 )
 from qtpy.QtCore import QThreadPool
-from agilent import (
+from siriushlacon.agilent4uhv.agilent import (
     AgilentAsync,
     AgilentAsyncRunnable,
     FIXED as MODE_FIXED,
@@ -16,8 +16,8 @@ from agilent import (
     STEP_TO_FIXED as MODE_STEP_TO_FIXED,
 )
 
-from parameters import ParametersFrame
-from devices import DevicesFrame
+from siriushlacon.agilent4uhv.parameters import ParametersFrame
+from siriushlacon.agilent4uhv.devices import DevicesFrame
 
 logger = logging.getLogger()
 
@@ -118,19 +118,16 @@ class MainWindow(QMainWindow):
 
 
 def launch():
+    app = QApplication([])
     logging.basicConfig(
         level=logging.DEBUG,
         format="%(asctime)s.%(msecs)03d [%(levelname)s] %(message)s",
         datefmt="%Y-%m-%d,%H:%M:%S",
     )
 
-    app = QApplication([])
-
     window = MainWindow()
     window.show()
-
     app.exec_()
-
 
 if __name__ == "__main__":
     launch()

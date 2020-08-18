@@ -16,7 +16,7 @@ from qtpy.QtCore import Qt
 
 from conscommon.data import getAgilent
 from conscommon.data_model import getDevicesFromBeagles, getBeaglesFromList, Device
-from tree import DeviceTreeView
+from siriushlacon.agilent4uhv.tree import DeviceTreeView
 
 logger = logging.getLogger()
 
