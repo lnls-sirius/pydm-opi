@@ -1,5 +1,6 @@
 import json
 import subprocess
+import os
 from qtpy.QtGui import QPixmap
 from pydm import Display
 
@@ -141,9 +142,14 @@ class Launcher(Display):
 
     def launchAgilentExtended(self):
         if self.btnAgilentExtended.validate_password():
-            subprocess.Popen(
-                "/usr/bin/env python3 {}".format(AGILENT_EXTENDED), shell=True
-            )
+            if os.name == 'nt':
+                subprocess.Popen(
+                    "python {}".format(AGILENT_EXTENDED), shell=True
+                )
+            else:
+                subprocess.Popen(
+                    "/usr/bin/env python3 {}".format(AGILENT_EXTENDED), shell=True
+                )
 
     def exitApp(self):
         exit()
