@@ -1,5 +1,8 @@
 import datetime
 import logging
+import typing
+import asyncio
+import requests
 
 from pydm import Display
 from qtpy.QtCore import QDateTime
@@ -90,50 +93,64 @@ class AlarmDisplay(Display):
         """ Set current date and time to the "dfTo" widget """
         self.dtTo.setDateTime(QDateTime.currentDateTime())
 
-    def do_search(self, alarm_tree, time_to, time_from, std, error):
+    async def do_search(self, alarm_tree, time_to, time_from, std, error):
         """
         Query and build the alarm tree
 
-        :param alarm_tree: QTreeWidget to append the alarms
         :param time_to: final time
         :param time_from: initial time
         :param std: True for 'Std' else 'Ext', defines if it's a standard or extended alarm
         :param error: True for 'Err' else 'Warn', defines if it's an error or a warning
         """
-        alarm_tree.clear()
+        loop = asyncio.get_event_loop()
+        futures = []
         # For each PV
         for signal in [*(STD_READINGS if std else EXT_READINGS)]:
             pv = self.get_PV(signal, std=std, error=error)
-            response = get_data_from_archiver(
-                pv=pv, to=time_to, from_=time_from, fetch_latest_metadata=False
+            futures.append(
+                loop.run_in_executor(
+                    None, get_data_from_archiver, pv, time_from, time_to, False
+                )
             )
-            pv_node = QTreeWidgetItem(["{}".format(pv)])
-            alarm_tree.addTopLevelItem(pv_node)
 
-            if response.status_code != 200:
-                logger.warning(
-                    "invalid status code for request {} from {} to {}".format(
-                        pv, time_from, time_to
-                    )
-                )
-                logger.debug(response.text)
-                continue
+        alarm_tree.clear()
+        for response in await asyncio.gather(*futures):
+            self.update_alarm_tree(alarm_tree, response)
 
+    # def update_alarm_tree(self, alarm_tree, responses: typing.List[requests.Response]):
+    def update_alarm_tree(self, alarm_tree, response: requests.Response):
+        """
+        Build the alarm tree
+        :param alarm_tree: QTreeWidget to append the alarms
+        :param responses: typing.List[requests.Response]
+        """
+
+        # For each PV
+        # for response in responses:
+        if response.status_code != 200:
+            logger.warning(
+                "Invalid status code for request. Response {}".format(response)
+            )
+            logger.debug(response.text)
+            return
+        try:
             if len(response.json()) < 0:
-                logger.info(
-                    "empty response for request {} from {} to {}".format(
-                        pv, time_from, time_to
-                    )
-                )
-                continue
+                logger.info("empty response")
+                return
 
+            json_data = response.json()[0]
+
+            pv_node = QTreeWidgetItem(["{}".format(json_data["meta"]["name"])])
+            alarm_tree.addTopLevelItem(pv_node)
             for data in response.json()[0]["data"]:
                 if data["val"] == 0:
-                    # Will not display alarms, only actual value changes
-                    continue
+                   # Will not display alarms, only actual value changes
+                   continue
 
                 pv_node_child = self.reading_tree_item(data)
                 pv_node.addChild(pv_node_child)
+        except:
+            logger.exception("Failed to add node")
 
     def search_alarms(self):
         """ Update all tree widgets """
@@ -141,31 +158,40 @@ class AlarmDisplay(Display):
         time_to = self.dtTo.dateTime().toPyDateTime().astimezone(SP_TZ)
         time_from = self.dtFrom.dateTime().toPyDateTime().astimezone(SP_TZ)
 
-        self.do_search(
-            alarm_tree=self.treeStdWarn,
-            time_to=time_to,
-            time_from=time_from,
-            std=True,
-            error=False,
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(
+            self.do_search(
+                alarm_tree=self.treeStdWarn,
+                time_to=time_to,
+                time_from=time_from,
+                std=True,
+                error=False,
+            )
         )
-        self.do_search(
-            alarm_tree=self.treeStdErr,
-            time_to=time_to,
-            time_from=time_from,
-            std=True,
-            error=True,
+        loop.run_until_complete(
+            self.do_search(
+                alarm_tree=self.treeStdErr,
+                time_to=time_to,
+                time_from=time_from,
+                std=True,
+                error=True,
+            )
         )
-        self.do_search(
-            alarm_tree=self.treeExtWarn,
-            time_to=time_to,
-            time_from=time_from,
-            std=False,
-            error=False,
+        loop.run_until_complete(
+            self.do_search(
+                alarm_tree=self.treeExtWarn,
+                time_to=time_to,
+                time_from=time_from,
+                std=False,
+                error=False,
+            )
         )
-        self.do_search(
-            alarm_tree=self.treeExtErr,
-            time_to=time_to,
-            time_from=time_from,
-            std=False,
-            error=True,
+        loop.run_until_complete(
+            self.do_search(
+                alarm_tree=self.treeExtErr,
+                time_to=time_to,
+                time_from=time_from,
+                std=False,
+                error=True,
+            )
         )
