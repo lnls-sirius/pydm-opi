@@ -93,7 +93,7 @@ class AlarmDisplay(Display):
         """ Set current date and time to the "dfTo" widget """
         self.dtTo.setDateTime(QDateTime.currentDateTime())
 
-    async def do_search(self, alarm_tree, time_to, time_from, std, error):
+    def do_search(self, time_to, time_from, std, error):
         """
         Query and build the alarm tree
 
@@ -112,12 +112,8 @@ class AlarmDisplay(Display):
                     None, get_data_from_archiver, pv, time_from, time_to, False
                 )
             )
+        return futures
 
-        alarm_tree.clear()
-        for response in await asyncio.gather(*futures):
-            self.update_alarm_tree(alarm_tree, response)
-
-    # def update_alarm_tree(self, alarm_tree, responses: typing.List[requests.Response]):
     def update_alarm_tree(self, alarm_tree, response: requests.Response):
         """
         Build the alarm tree
@@ -144,54 +140,59 @@ class AlarmDisplay(Display):
             alarm_tree.addTopLevelItem(pv_node)
             for data in response.json()[0]["data"]:
                 if data["val"] == 0:
-                   # Will not display alarms, only actual value changes
-                   continue
+                    # Will not display alarms, only actual value changes
+                    continue
 
                 pv_node_child = self.reading_tree_item(data)
                 pv_node.addChild(pv_node_child)
         except:
             logger.exception("Failed to add node")
 
-    def search_alarms(self):
-        """ Update all tree widgets """
-
+    async def search(self):
         time_to = self.dtTo.dateTime().toPyDateTime().astimezone(SP_TZ)
         time_from = self.dtFrom.dateTime().toPyDateTime().astimezone(SP_TZ)
+        async_responses = []
 
+        async_responses.append(
+            (
+                self.treeStdWarn,
+                self.do_search(
+                    time_to=time_to, time_from=time_from, std=True, error=False,
+                ),
+            )
+        )
+        async_responses.append(
+            (
+                self.treeStdErr,
+                self.do_search(
+                    time_to=time_to, time_from=time_from, std=True, error=True,
+                ),
+            )
+        )
+        async_responses.append(
+            (
+                self.treeExtWarn,
+                self.do_search(
+                    time_to=time_to, time_from=time_from, std=False, error=False,
+                ),
+            )
+        )
+        async_responses.append(
+            (
+                self.treeExtErr,
+                self.do_search(
+                    time_to=time_to, time_from=time_from, std=False, error=True,
+                ),
+            )
+        )
+        for widget, futures in async_responses:
+            widget.clear()
+            for response in await asyncio.gather(*futures):
+                self.update_alarm_tree(widget, response)
+
+
+    def search_alarms(self):
+        """ Update all tree widgets """
         loop = asyncio.get_event_loop()
-        loop.run_until_complete(
-            self.do_search(
-                alarm_tree=self.treeStdWarn,
-                time_to=time_to,
-                time_from=time_from,
-                std=True,
-                error=False,
-            )
-        )
-        loop.run_until_complete(
-            self.do_search(
-                alarm_tree=self.treeStdErr,
-                time_to=time_to,
-                time_from=time_from,
-                std=True,
-                error=True,
-            )
-        )
-        loop.run_until_complete(
-            self.do_search(
-                alarm_tree=self.treeExtWarn,
-                time_to=time_to,
-                time_from=time_from,
-                std=False,
-                error=False,
-            )
-        )
-        loop.run_until_complete(
-            self.do_search(
-                alarm_tree=self.treeExtErr,
-                time_to=time_to,
-                time_from=time_from,
-                std=False,
-                error=True,
-            )
-        )
+        loop.run_until_complete(self.search())
+
