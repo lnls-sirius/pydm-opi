@@ -161,11 +161,15 @@ class AgilentAsync(QObject):
                 self.toStep.__name__, device, _delay
             )
         )
-        await self.toFixed(device, voltageIni, channels_selected=channels_selected)
+        await self.toFixed(device, 7000, channels_selected=channels_selected)
 
         await self.doWait(device=device, _delay=_delay)
 
-        await self.toFixed(device, voltage, channels_selected=channels_selected)
+        await self.toFixed(device, 5000, channels_selected=channels_selected)
+
+        await self.doWait(device=device, _delay=_delay)
+
+        await self.toFixed(device, 3000, channels_selected=channels_selected)
 
     async def handle(
         self,
