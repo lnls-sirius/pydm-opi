@@ -5,6 +5,7 @@ import math
 import asyncio
 import sys
 import typing
+import time
 from typing import List
 
 from datetime import timedelta, datetime
@@ -17,7 +18,8 @@ from qtpy.QtCore import QObject, Signal, QRunnable
 logger = logging.getLogger()
 
 EPICS_TOUT = 1
-CMD_TOUT = 0.500
+CMD_TOUT = 1.
+TIMER_BETWEEN_DEVICES = 0.5
 
 FIXED, STEP, STEP_TO_FIXED = "fixed", "step", "step_to_fixed"
 
@@ -71,7 +73,9 @@ class AgilentAsync(QObject):
         if epics.caput(pv, val, timeout=EPICS_TOUT) == 1:
             await asyncio.sleep(CMD_TOUT)
 
-            for ch in device.channels:
+            for ch, selected in zip(device.channels, channels_selected):
+                if not selected:
+                    continue
                 pv, val = ch.prefix + ":VoltageTarget-SP", voltage
 
                 self.timerStatus.emit(
@@ -83,6 +87,9 @@ class AgilentAsync(QObject):
 
                 logger.info("set {} {}".format(pv, val))
                 epics.caput(pv, val, timeout=EPICS_TOUT)
+
+                # @fixme: Two devices at the same serial network should have an actual delay!
+                time.sleep(TIMER_BETWEEN_DEVICES)
                 await asyncio.sleep(CMD_TOUT)
 
             self.timerStatus.emit({"device": device.prefix, "status": "Done"})
@@ -150,8 +157,6 @@ class AgilentAsync(QObject):
     async def toStepToFix(
         self,
         device: Device,
-        voltageIni: int,
-        voltage: int,
         _delay: float,
         channels_selected,
     ):
@@ -176,7 +181,6 @@ class AgilentAsync(QObject):
         mode,
         step_to_fixed_delay: float,
         voltage: int,
-        voltageIni: int,
         devices_selection: List[DeviceTreeSelection],
     ):
         if sys.version_info >= (3, 7):
@@ -211,17 +215,16 @@ class AgilentAsync(QObject):
                         self.toStepToFix(
                             _delay=step_to_fixed_delay,
                             device=sel.device,
-                            voltage=voltage,
-                            voltageIni=voltageIni,
                             channels_selected=sel.channels_selected,
                         )
                     )
                 )
+            time.sleep(TIMER_BETWEEN_DEVICES)
 
         await asyncio.gather(*tasks)
 
     def asyncStart(
-        self, mode, step_to_fixed_delay, voltage, voltageIni, devices_selection,
+        self, mode, step_to_fixed_delay, voltage, devices_selection,
     ):
         if sys.version_info >= (3, 7):
             from asyncio import run as asyncio_run
@@ -235,7 +238,6 @@ class AgilentAsync(QObject):
                 mode=mode,
                 step_to_fixed_delay=step_to_fixed_delay,
                 voltage=voltage,
-                voltageIni=voltageIni,
                 devices_selection=devices_selection,
             )
         )
@@ -252,14 +254,12 @@ class AgilentAsyncRunnable(QRunnable):
         mode,
         step_to_fixed_delay: float,
         voltage: int,
-        voltageIni: int,
     ):
         super(AgilentAsyncRunnable, self).__init__()
         self.agilentAsync = agilentAsync
         self.mode = mode
         self.step_to_fixed_delay = step_to_fixed_delay
         self.voltage = voltage
-        self.voltageIni = voltageIni
         self.devices_selection = devices_selection
 
     def run(self):
@@ -269,7 +269,6 @@ class AgilentAsyncRunnable(QRunnable):
                 mode=self.mode,
                 step_to_fixed_delay=self.step_to_fixed_delay,
                 voltage=self.voltage,
-                voltageIni=self.voltageIni,
                 devices_selection=self.devices_selection,
             )
         except Exception:

@@ -23,31 +23,16 @@ class ParametersFrame(QFrame):
         self.setFrameStyle(QFrame.Panel | QFrame.Raised)
         self.contentLayout = QGridLayout()
 
-        self.setpointVoltageLabelIni = QLabel(
-            "Fixed voltage [3000 to 7000] V (Initial)"
-        )
-        self.setpointVoltageSettingLabelIni = QLabel()
-        self.setpointVoltageInpIni = QLineEdit()
-        self.setpointVoltageInpIni.setMaximumWidth(100)
-        self.setpointVoltageInpIni.setValidator(QIntValidator(3000, 7000))
-        self.setpointVoltageInpIni.setToolTip(
-            'Initial voltage setpoint, used at "Step + initial voltage -> delay(s) -> Step + final voltage"'
-        )
-        self.setpointVoltageInpIni.setText("7000")
-        self.contentLayout.addWidget(self.setpointVoltageLabelIni, 0, 0, 1, 1)
-        self.contentLayout.addWidget(self.setpointVoltageInpIni, 0, 1, 1, 1)
-        self.contentLayout.addWidget(self.setpointVoltageSettingLabelIni, 0, 2, 1, 1)
-
-        self.setpointVoltageLabel = QLabel("Fixed voltage [3000 to 7000] V (Final)")
+        self.setpointVoltageLabel = QLabel("Fixed voltage [3000 to 7000] V")
         self.setpointVoltageSettingLabel = QLabel()
         self.setpointVoltageInp = QLineEdit()
         self.setpointVoltageInp.setMaximumWidth(100)
         self.setpointVoltageInp.setValidator(QIntValidator(3000, 7000))
         self.setpointVoltageInp.setToolTip("Final voltage setpoint.")
         self.setpointVoltageInp.setText("3000")
-        self.contentLayout.addWidget(self.setpointVoltageLabel, 1, 0, 1, 1)
-        self.contentLayout.addWidget(self.setpointVoltageInp, 1, 1, 1, 1)
-        self.contentLayout.addWidget(self.setpointVoltageSettingLabel, 1, 2, 1, 1)
+        self.contentLayout.addWidget(self.setpointVoltageLabel, 0, 0, 1, 1)
+        self.contentLayout.addWidget(self.setpointVoltageInp, 0, 1, 1, 1)
+        self.contentLayout.addWidget(self.setpointVoltageSettingLabel, 0, 2, 1, 1)
 
         self.stepToFixDelayLabel = QLabel("Step to Fixed delay (mm:ss)")
         self.stepToFixDelaySettingLabel = QLabel()
@@ -57,27 +42,19 @@ class ParametersFrame(QFrame):
         self.stepToFixDelayInp.setToolTip("Delay between toStep and toFixed calls.")
         self.stepToFixDelayInp.setText("05:00")
 
-        self.contentLayout.addWidget(self.stepToFixDelayLabel, 2, 0, 1, 1)
-        self.contentLayout.addWidget(self.stepToFixDelayInp, 2, 1, 1, 1)
-        self.contentLayout.addWidget(self.stepToFixDelaySettingLabel, 2, 2, 1, 1)
+        self.contentLayout.addWidget(self.stepToFixDelayLabel, 1, 0, 1, 1)
+        self.contentLayout.addWidget(self.stepToFixDelayInp, 1, 1, 1, 1)
+        self.contentLayout.addWidget(self.stepToFixDelaySettingLabel, 1, 2, 1, 1)
 
         self.setButton = QPushButton("Confirm")
         self.setButton.clicked.connect(self.confirm)
         self.setButton.setToolTip("Apply settings")
-        self.contentLayout.addWidget(self.setButton, 4, 1, 1, 1)
+        self.contentLayout.addWidget(self.setButton, 3, 1, 1, 1)
 
         self.setLayout(self.contentLayout)
         self.confirm()
 
     def confirm(self):
-        try:
-            voltageString = self.setpointVoltageInpIni.text()
-            tmp = int(voltageString)
-            self.voltageIni = 3000 if tmp < 3000 else (7000 if tmp > 7000 else tmp)
-            self.setpointVoltageSettingLabelIni.setText("{} V".format(self.voltageIni))
-        except ValueError:
-            pass
-
         try:
             voltageString = self.setpointVoltageInp.text()
             tmp = int(voltageString)

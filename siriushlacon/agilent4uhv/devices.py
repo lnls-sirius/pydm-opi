@@ -51,7 +51,7 @@ class DevicesFrame(QFrame):
 
         self.deviceStatus = QTableWidget()
         self.deviceStatus.setColumnCount(2)
-        self.deviceStatus.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        #self.deviceStatus.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.deviceStatus.setHorizontalHeaderLabels(["Device", "Status"])
         self.deviceStatusLabel = QLabel("Status")
 

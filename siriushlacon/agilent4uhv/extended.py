@@ -111,7 +111,6 @@ class MainWindow(QMainWindow):
                 agilentAsync,
                 mode=mode,
                 voltage=self.parameters.voltage,
-                voltageIni=self.parameters.voltageIni,
                 step_to_fixed_delay=self.parameters.delay,
                 devices_selection=self.devices.getSelectedDevices(),
             )
