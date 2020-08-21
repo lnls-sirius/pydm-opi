@@ -12,6 +12,10 @@ from conscommon.data_model import (
     Device,
 )
 
+class DeviceTreeSelection(object):
+    def __init__(self, device: Device, channels_selected: List[bool]):
+        self.device = device
+        self.channels_selected = channels_selected
 
 class DeviceTreeView(QtWidgets.QWidget):
     def __init__(self):
@@ -80,23 +84,30 @@ class DeviceTreeView(QtWidgets.QWidget):
         else:
             return 1
 
-    def getData(self) -> List[Device]:
+    def getData(self) -> List[DeviceTreeSelection]:
         root = self.model.invisibleRootItem()
-        selected = []
+        selected: List[DeviceTreeSelection] = []
 
+        # Loop through devices
         for i in range(root.rowCount()):
             row = root.child(i, 0)
 
             if row.isCheckable() and row.checkState() != 0:
                 channels = {}
+                channels_selected = []
                 for j in range(row.rowCount()):
-                    if row.child(j, 0).checkState() != 0:
-                        channels[row.child(j, 0).text()] = {
-                            "prefix": row.child(j, 1).text()
-                        }
+                    channels_selected.append(row.child(j, 0).checkState() != 0)
+                    channels[row.child(j, 0).text()] = {
+                        "prefix": row.child(j, 1).text()
+                    }
 
-                selected.append({"prefix": row.text(), "channels": channels})
-        return getDevicesFromList(selected)
+                selected.append(
+                    DeviceTreeSelection(
+                        Device(prefix=row.text(), channels=channels),
+                        channels_selected
+                    )
+                )
+        return selected
 
     def paintItem(self, item, state):
         if state == 0:

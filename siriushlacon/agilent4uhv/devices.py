@@ -16,7 +16,7 @@ from qtpy.QtCore import Qt
 
 from conscommon.data import getAgilent
 from conscommon.data_model import getDevicesFromBeagles, getBeaglesFromList, Device
-from siriushlacon.agilent4uhv.tree import DeviceTreeView
+from siriushlacon.agilent4uhv.tree import DeviceTreeView, DeviceTreeSelection
 
 logger = logging.getLogger()
 
@@ -76,7 +76,7 @@ class DevicesFrame(QFrame):
             self.deviceStatus.setItem(idx, 1, QTableWidgetItem(v))
             idx += 1
 
-    def getSelectedDevices(self) -> List[Device]:
+    def getSelectedDevices(self) -> List[DeviceTreeSelection]:
         return self.deviceList.getData()
 
     def highlightChecked(self, item):

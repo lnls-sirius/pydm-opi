@@ -34,13 +34,13 @@ class MainWindow(QMainWindow):
         self.content.setLayout(self.contentLayout)
 
         # to Step Mode
-        self.toStepButton = QPushButton("to Step")
+        self.toStepButton = QPushButton(" to Step ")
         self.toStepButton.setToolTip("Set the voltage behaviour to Step mode.")
         self.toStepButton.clicked.connect(self.toStepAction)
         self.contentLayout.addWidget(self.toStepButton, 0, 0, 1, 1)
 
         # to Fixed
-        self.toFixedButton = QPushButton("to Fixed")
+        self.toFixedButton = QPushButton(" to Fixed ")
         self.toFixedButton.setToolTip(
             "Set the voltage behaviour to Fixed mode and apply a new voltage setpoint."
         )
@@ -48,10 +48,10 @@ class MainWindow(QMainWindow):
         self.contentLayout.addWidget(self.toFixedButton, 1, 0, 1, 1)
 
         # to Step to Fixed
-        self.toStepToFixedButton = QPushButton("to Step delay to Fixed")
+        self.toStepToFixedButton = QPushButton(" to Fixed -> delay -> to Fixed ")
         self.toStepToFixedButton.clicked.connect(self.toStepToFixAction)
         self.toStepToFixedButton.setToolTip(
-            "Set the behaviour to Step, wait n seconds, set the voltage to Fixed applying a new voltage setpoint."
+            "Set the behaviour to Fixed ajusting the channel voltage setpoint, wait n seconds, set the voltage to Fixed applying a new voltage setpoint."
         )
         self.contentLayout.addWidget(self.toStepToFixedButton, 2, 0, 1, 1)
 
@@ -111,8 +111,9 @@ class MainWindow(QMainWindow):
                 agilentAsync,
                 mode=mode,
                 voltage=self.parameters.voltage,
+                voltageIni=self.parameters.voltageIni,
                 step_to_fixed_delay=self.parameters.delay,
-                devices=self.devices.getSelectedDevices(),
+                devices_selection=self.devices.getSelectedDevices(),
             )
             QThreadPool.globalInstance().start(runnable)
 

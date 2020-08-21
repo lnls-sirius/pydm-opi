@@ -4,11 +4,13 @@ import logging
 import math
 import asyncio
 import sys
+import typing
 from typing import List
 
 from datetime import timedelta, datetime
 from conscommon.data import TIMEFMT
 from conscommon.data_model import Device
+from siriushlacon.agilent4uhv.tree import DeviceTreeSelection
 
 from qtpy.QtCore import QObject, Signal, QRunnable
 
@@ -29,56 +31,105 @@ class AgilentAsync(QObject):
         super(AgilentAsync, self).__init__(*args, **kwargs)
 
     async def toFixed(
-        self, device: Device, voltage: int,
+        self, device: Device, voltage: int, channels_selected: List[bool]
     ):
         self.timerStatus.emit({"device": device.prefix, "status": "to Fixed"})
 
-        pv, val = device.prefix + ":Step-SP_Backend", 0
-        logger.info("set {} {}".format(pv, val))
+        pv = device.prefix + ":Step-SP"
+        actual_value = epics.caget(device.prefix + ":Step-RB", timeout=EPICS_TOUT)
+        if actual_value == None:
+            logger.fatal(
+                "Failed to get {} value, aborting operation.".format(
+                    device.prefix + ":Step-RB"
+                )
+            )
+            self.timerStatus.emit(
+                {"device": device.prefix, "status": "failed to get readback"}
+            )
+            return
 
-        if True:  # epics.caput(pv, val, timeout=EPICS_TOUT) == 1:
+        val = actual_value
+        for ch, selected, shift in zip(
+            device.channels, channels_selected, range(len(channels_selected))
+        ):
+            if selected:
+                val &= ~(1 << shift)
+
+        logger.info(
+            "Channel {}  {:04b} -> {:04b} {}".format(
+                pv, actual_value, val, channels_selected
+            )
+        )
+
+        self.timerStatus.emit(
+            {
+                "device": device.prefix,
+                "status": 'to Fixed "{:04b}"->"{:04b}"'.format(actual_value, val),
+            }
+        )
+
+        if epics.caput(pv, val, timeout=EPICS_TOUT) == 1:
             await asyncio.sleep(CMD_TOUT)
 
             for ch in device.channels:
                 pv, val = ch.prefix + ":VoltageTarget-SP", voltage
 
+                self.timerStatus.emit(
+                    {
+                        "device": device.prefix,
+                        "status": "{} Voltage -> {}V".format(pv, val),
+                    }
+                )
+
                 logger.info("set {} {}".format(pv, val))
-                # epics.caput(pv, val, timeout=EPICS_TOUT)
+                epics.caput(pv, val, timeout=EPICS_TOUT)
                 await asyncio.sleep(CMD_TOUT)
 
             self.timerStatus.emit({"device": device.prefix, "status": "Done"})
         else:
             self.timerStatus.emit({"device": device.prefix, "status": "Failed"})
 
-    async def toStep(
-        self, device: Device,
-    ):
+    async def toStep(self, device: Device, channels_selected: List[bool]):
         self.timerStatus.emit({"device": device.prefix, "status": "to Step"})
 
-        pv, val = device.prefix + ":Step-SP_Backend", 15
-        logger.info("set {} {}".format(pv, val))
-        if True:  # epics.caput(pv, val, timeout=EPICS_TOUT) == 1:
+        pv = device.prefix + ":Step-SP"
+        actual_value = epics.caget(device.prefix + ":Step-RB", timeout=EPICS_TOUT)
+        if actual_value == None:
+            logger.fatal(
+                "Failed to get {} value, aborting operation.".format(
+                    device.prefix + ":Step-RB"
+                )
+            )
+            self.timerStatus.emit(
+                {"device": device.prefix, "status": "failed to get readback"}
+            )
+            return
+
+        val = actual_value
+        n = 0
+        for ch, selected in zip(device.channels, channels_selected):
+            if selected:
+                val |= 1 << n
+            n += 1
+
+        self.timerStatus.emit(
+            {
+                "device": device.prefix,
+                "status": "to Step {:04b} -> {:04b}".format(actual_value, val),
+            }
+        )
+        logger.info("Channel {}  {:04b} -> {:04b}".format(pv, actual_value, val))
+        if epics.caput(pv, val, timeout=EPICS_TOUT) == 1:
             self.timerStatus.emit({"device": device.prefix, "status": "Done"})
         else:
             self.timerStatus.emit({"device": device.prefix, "status": "Failed"})
         await asyncio.sleep(CMD_TOUT)
 
-    async def toStepToFix(
-        self, device: Device, voltage: int, _delay: float,
-    ):
-        """ Run a function then another ..."""
-        delay = timedelta(seconds=_delay)
+    async def doWait(self, device, _delay):
         t_ini = datetime.now()
+        delay = timedelta(seconds=_delay)
 
         tick = math.ceil(_delay / 100)
-
-        logger.info(
-            'Running initial function "{}" at {} for device "{}". Next method in {} seconds.'.format(
-                self.toStep.__name__, t_ini.strftime(TIMEFMT), device, _delay
-            )
-        )
-        await self.toStep(device)
-
         t_now = datetime.now()
         t_elapsed = t_now - t_ini
         while t_elapsed < delay:
@@ -96,10 +147,33 @@ class AgilentAsync(QObject):
             )
         )
 
-        await self.toFixed(device, voltage)
+    async def toStepToFix(
+        self,
+        device: Device,
+        voltageIni: int,
+        voltage: int,
+        _delay: float,
+        channels_selected,
+    ):
+        """ Run a function then another ..."""
+        logger.info(
+            'Running initial function "{}" for device "{}". Next method in {} seconds.'.format(
+                self.toStep.__name__, device, _delay
+            )
+        )
+        await self.toFixed(device, voltageIni, channels_selected=channels_selected)
+
+        await self.doWait(device=device, _delay=_delay)
+
+        await self.toFixed(device, voltage, channels_selected=channels_selected)
 
     async def handle(
-        self, mode, step_to_fixed_delay: float, voltage: int, devices: List[Device]
+        self,
+        mode,
+        step_to_fixed_delay: float,
+        voltage: int,
+        voltageIni: int,
+        devices_selection: List[DeviceTreeSelection],
     ):
         if sys.version_info >= (3, 7):
             from asyncio import create_task
@@ -108,18 +182,34 @@ class AgilentAsync(QObject):
             create_task = loop.create_task
 
         tasks = []
-        for device in devices:
+        for sel in devices_selection:
             if mode == FIXED:
-                tasks.append(create_task(self.toFixed(device, voltage=voltage,)))
+                tasks.append(
+                    create_task(
+                        self.toFixed(
+                            sel.device,
+                            voltage=voltage,
+                            channels_selected=sel.channels_selected,
+                        )
+                    )
+                )
 
             elif mode == STEP:
-                tasks.append(create_task(self.toStep(device)))
+                tasks.append(
+                    create_task(
+                        self.toStep(sel.device, channels_selected=sel.channels_selected)
+                    )
+                )
 
             elif mode == STEP_TO_FIXED:
                 tasks.append(
                     create_task(
                         self.toStepToFix(
-                            _delay=step_to_fixed_delay, device=device, voltage=voltage,
+                            _delay=step_to_fixed_delay,
+                            device=sel.device,
+                            voltage=voltage,
+                            voltageIni=voltageIni,
+                            channels_selected=sel.channels_selected,
                         )
                     )
                 )
@@ -127,7 +217,7 @@ class AgilentAsync(QObject):
         await asyncio.gather(*tasks)
 
     def asyncStart(
-        self, mode, step_to_fixed_delay, voltage, devices,
+        self, mode, step_to_fixed_delay, voltage, voltageIni, devices_selection,
     ):
         if sys.version_info >= (3, 7):
             from asyncio import run as asyncio_run
@@ -141,7 +231,8 @@ class AgilentAsync(QObject):
                 mode=mode,
                 step_to_fixed_delay=step_to_fixed_delay,
                 voltage=voltage,
-                devices=devices,
+                voltageIni=voltageIni,
+                devices_selection=devices_selection,
             )
         )
 
@@ -153,17 +244,19 @@ class AgilentAsyncRunnable(QRunnable):
     def __init__(
         self,
         agilentAsync: AgilentAsync,
-        devices: List[Device],
+        devices_selection: List[DeviceTreeSelection],
         mode,
         step_to_fixed_delay: float,
         voltage: int,
+        voltageIni: int,
     ):
         super(AgilentAsyncRunnable, self).__init__()
         self.agilentAsync = agilentAsync
         self.mode = mode
         self.step_to_fixed_delay = step_to_fixed_delay
         self.voltage = voltage
-        self.devices = devices
+        self.voltageIni = voltageIni
+        self.devices_selection = devices_selection
 
     def run(self):
         self.agilentAsync.started.emit()
@@ -172,7 +265,8 @@ class AgilentAsyncRunnable(QRunnable):
                 mode=self.mode,
                 step_to_fixed_delay=self.step_to_fixed_delay,
                 voltage=self.voltage,
-                devices=self.devices,
+                voltageIni=self.voltageIni,
+                devices_selection=self.devices_selection,
             )
         except Exception:
             logger.exception("Unexpected Error")
