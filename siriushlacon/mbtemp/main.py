@@ -32,10 +32,10 @@ logger = logging.getLogger()
 
 TAB = {0: "RF", 1: "TB", 2: "TS", 3: "BO", 4: "SI", 5: "LA", 6: "PA"}
 
-DEVICES_IP = {#{Area IPs:[ip, devices]}
+DEVICES_IP = {#{Area IPs:[ip, devices (To specific devices only)]}
 "RF":[["10.128.102.119", [None, None]], ["10.128.101.118", [None, None]]],
 "TB":[["10.128.119.106", [5, 6]]],
-"TS":[["10.128.120.106", [0,2]], ["10.128.101.117", [3,4]]],
+"TS":[["10.128.120.106", [0,4]], ["10.128.101.117", [3,4]]],
 "LA":[["10.128.122.102", [None, None]]],
 "PA":[["10.128.123.131", [None, None]], ["10.128.123.132", [None, None]]],
 "BO":[["10.128.1{:0>2d}.106", [None, None]]],
@@ -159,16 +159,19 @@ class MBTempMonitoring(Display):
                     chosenArea = "SI"
                 aux = _id
 
-            elif chosenArea == "BO" and mbtemp_ch < 4:
+            elif chosenArea == "BO" and mbtemp_ch < 4 and mbtemp_name != "TB-MBTemp":
                 location = int(_id) % 5
                 aux = (location if location != 0 else 5)
 
             elif chosenArea in ["SI", "PA", "LA"]:
                 aux = _id
+                if (mbtemp_ch == 3) and (mbtemp_name in ["SI-01-MBTemp-13", "SI-20-MBTemp-23"]):
+                    aux += "_2"
 
             elif chosenArea == "RF":
                 aux = _id
                 if _id == "23":
+                    aux += "_2"
                     chosenArea = "SI"
 
             elif chosenArea == "TB":
@@ -186,19 +189,24 @@ class MBTempMonitoring(Display):
         # ----------- Update color and toolTip ----------
         if value == False or value < 1:
             channel.brush = QtCore.Qt.red
-            channel.setToolTip("{} - Disconnected" .format(name_pv))
+            channel.setToolTip(("PV: {}\n" + "Channel: {}\n" + "Process Variable Disconnected").format(name_pv, mbtemp_ch))
             return ()
         elif value == True:
             channel.brush = QtCore.Qt.green
             return ()
         elif value > self.tempMax.value():
-            channel.brush = QtCore.Qt.yellow
+            if (value > 410) and (value < 425):
+                channel.brush = QtCore.Qt.cyan
+                channel.setToolTip(('PV: {}\n' + 'The Channel {} of MBTemp {} is open!').format(name_pv, mbtemp_ch, mbtemp_name ))
+                return()
+            else:
+                channel.brush = QtCore.Qt.yellow
         else:
             channel.brush = QtCore.Qt.green
 
         channel.setToolTip(
-            ("Temperature: {} °C\n" + "MBTemp: {}\n" + "PV: {}").format(
-                value, mbtemp_name, name_pv
+            ("Temperature: {} °C\n" + "MBTemp: {}\n" + "Channel: {}\n"+"PV: {}").format(
+                value, mbtemp_name, mbtemp_ch, name_pv
             )
         )
 
@@ -232,7 +240,7 @@ class MBTempMonitoring(Display):
 
         if value == False:
             mbtemp.brush = QtCore.Qt.red
-            mbtemp.setToolTip("{} - Disconnected" .format(pvname))
+            mbtemp.setToolTip(("{} - MBTemp Board is disconnected").format(pvname))
             return ()
         elif value == True:
             mbtemp.brush = QtCore.Qt.blue
@@ -240,6 +248,7 @@ class MBTempMonitoring(Display):
         mbtemp.brush = QtCore.Qt.blue
 
         last_Value = mbtemp.toolTip().split("\n")
+        
         for val in last_Value[1:]:
             new_val[val.split(": ")[0]] = val.split(": ")[1]
 
@@ -269,17 +278,19 @@ class MBTempMonitoring(Display):
             "11_Ch4",
             "11_Ch5",
             "11_Ch6",
-            "21XX",
             "13_Ch8",
             "22_Ch6",
             "13_Ch3",
             "10_Ch1",
             "10_Ch2",
             "23_Ch8",
-            "BCFE_ChED2",
             "11_Ch2",
             "21_Ch1",
             "22_Ch4",
+            "23_Ch3",
+            "23_2_Ch3",
+            "23_Ch4",
+            "13_2_Ch3",
             "_MBTemp10",
         ]:
             getattr(self, "SI{}".format(disc)).brush = QtCore.Qt.gray
