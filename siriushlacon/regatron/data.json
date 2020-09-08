@@ -35,11 +35,11 @@
     {"type":"SEX","P":"PA-RaPSB03:PS-DCLink-SFB0", "master":"1"},
     {"type":"SEX","P":"PA-RaPSB08:PS-DCLink-SFB1", "master":"1"},
     {"type":"SEX","P":"PA-RaPSB10:PS-DCLink-SFB2", "master":"1"},
-    {"type":"SEX","P":"PA-RaPSB04:SI-DCLink-SDA12", "master":"1"},
-    {"type":"SEX","P":"PA-RaPSB01:SI-DCLink-SDAP0", "master":"1"},
-    {"type":"SEX","P":"PA-RaPSB03:SI-DCLink-SFAP0", "master":"1"},
-    {"type":"SEX","P":"PA-RaPSB10:SI-DCLink-SFP12", "master":"1"},
-    {"type":"SEX","P":"PA-RaPSB08:SI-DCLink-SDP23", "master":"1"},
-    {"type":"SEX","P":"PA-RaPSB05:SI-DCLink-SDA3SFA1", "master":"1"},
-    {"type":"SEX","P":"PA-RaPSB07:SI-DCLink-SFA2SDP1", "master":"1"}
+    {"type":"SEX","P":"PA-RaPSB04:PS-DCLink-SDA12", "master":"1"},
+    {"type":"SEX","P":"PA-RaPSB01:PS-DCLink-SDAP0", "master":"1"},
+    {"type":"SEX","P":"PA-RaPSB03:PS-DCLink-SFAP0", "master":"1"},
+    {"type":"SEX","P":"PA-RaPSB10:PS-DCLink-SFP12", "master":"1"},
+    {"type":"SEX","P":"PA-RaPSB08:PS-DCLink-SDP23", "master":"1"},
+    {"type":"SEX","P":"PA-RaPSB05:PS-DCLink-SDA3SFA1", "master":"1"},
+    {"type":"SEX","P":"PA-RaPSB07:PS-DCLink-SFA2SDP1", "master":"1"}
 ]
