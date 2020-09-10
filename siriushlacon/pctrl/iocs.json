@@ -26,9 +26,5 @@
     {"pv":"ProcCtrl:BO-48D:PU-EjeKckr"          ,"ip":"10.128.255.4:21011", "desc":"Booster - Ejection Kicker",                     "area":"EPP"},
     {"pv":"ProcCtrl:TS-01:PU-EjeSeptF"          ,"ip":"10.128.255.4:21012", "desc":"Booster - Ejection Septum Thin",                "area":"EPP"},
     {"pv":"ProcCtrl:TS-01:PU-EjeSeptG"          ,"ip":"10.128.255.4:21013", "desc":"Booster - Ejection Septum Thick",               "area":"EPP"},
-    {"pv":"ProcCtrl:SI-19C4:PU-PingV"           ,"ip":"10.128.255.4:21014", "desc":"Storage Ring - Vertical Pinger",                "area":"EPP"},
-    
-    {"pv":"ProcCtrl:Reg-Dip"                   ,"ip":"10.128.255.58:20200", "desc":"Regatron Dipoles",                              "area":"ELP"},
-    {"pv":"ProcCtrl:Reg-Qua"                   ,"ip":"10.128.255.59:20200", "desc":"Regatron Quadrupoles",                          "area":"ELP"},
-    {"pv":"ProcCtrl:Reg-Sex"                   ,"ip":"10.128.255.60:20200", "desc":"Regatron Sextupoles",                           "area":"ELP"}
+    {"pv":"ProcCtrl:SI-19C4:PU-PingV"           ,"ip":"10.128.255.4:21014", "desc":"Storage Ring - Vertical Pinger",                "area":"EPP"}
 ]
