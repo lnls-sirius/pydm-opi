@@ -6,6 +6,10 @@ arch: amd64
 os: linux
 dist: focal
 
+git:
+  submodules: false
+  depth: false
+
 script:
     # Update repository version
   - sed -i -e "s/__version__ =.*/__version__ = \"$(git describe --tags)\"/" siriushlacon/__init__.py
