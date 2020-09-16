@@ -1,31 +1,33 @@
 #!/usr/bin/env python3
 from setuptools import setup, find_namespace_packages
+from siriushlacon import __author__, __version__
 
+with open("README.md", "r") as _f:
+    long_description = _f.read().strip()
 
-with open("VERSION", "r") as _f:
-    __version__ = _f.read().strip()
-
-
-with open("requirements_sirius.txt", "r") as _f:
+with open("requirements.txt", "r") as _f:
     _requirements = _f.read().strip().split("\n")
 
-
 setup(
-    name="siriushlacon",
-    version=__version__,
-    author="lnls-sirius",
-    description="Client Applications for Sirius developed in PyDM by CONS",
-    url="https://github.com/lnls-sirius/pydm-opi/",
-    download_url="https://github.com/lnls-sirius/pydm-opi",
-    license="GNU GPLv3",
+    author=__author__,
     classifiers=[
         "Intended Audience :: Science/Research",
-        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
         "Topic :: Scientific/Engineering",
+        "Operating System :: OS Independent",
     ],
+    description="Client Applications for Sirius developed in PyDM by CONS",
+    download_url="https://github.com/lnls-sirius/pydm-opi",
+    license="GNU GPLv3",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    name="siriushlacon",
+    url="https://github.com/lnls-sirius/pydm-opi/",
+    version=__version__,
     install_requires=_requirements,
-    packages=find_namespace_packages(include=["siriushlacon", "siriushlacon.*"]),
     include_package_data=True,
+    packages=find_namespace_packages(include=["siriushlacon", "siriushlacon.*"]),
+    python_requires=">=3.6",
     scripts=[
         "scripts/sirius-hla-as-va-agilent4uhv.py",
         "scripts/sirius-hla-as-va-agilent4uhv-device.py",

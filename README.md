@@ -3,6 +3,10 @@ CONS OPIs
 
 This repo should contain every PyDM OPI developed by the CONS group currently in use.
 
+[![Build Status](https://api.travis-ci.org/lnls-sirius/pydm-opi.svg)](https://travis-ci.org/lnls-sirius/pydm-opi)
+
+Available at **PyPi** https://pypi.org/project/siriushlacon/
+
 [Read the docs !](https://lnls-sirius.github.io/pydm-opi/)
 ----------------------------------------------------------
 

@@ -4,7 +4,7 @@ import os
 from qtpy.QtGui import QPixmap
 from pydm import Display
 
-from siriushlacon import VERSION
+from siriushlacon import __version__
 from siriushlacon.agilent4uhv.consts import (
     AGILENT_MAIN,
     AGILENT_OVERVIEW,
@@ -36,7 +36,7 @@ class Launcher(Display):
     def __init__(self, parent=None, args=[], macros=None, **kwargs):
         super(Launcher, self).__init__(parent=parent, args=args, macros=macros)
 
-        self.lblVersion.setText("v" + VERSION)
+        self.lblVersion.setText("v" + __version__)
         self.btnVbc.filenames = [VBC_MAIN_WINDOW_PY]
         self.btnVbc.openInNewWindow = True
 
@@ -142,10 +142,8 @@ class Launcher(Display):
 
     def launchAgilentExtended(self):
         if self.btnAgilentExtended.validate_password():
-            if os.name == 'nt':
-                subprocess.Popen(
-                    "python {}".format(AGILENT_EXTENDED), shell=True
-                )
+            if os.name == "nt":
+                subprocess.Popen("python {}".format(AGILENT_EXTENDED), shell=True)
             else:
                 subprocess.Popen(
                     "/usr/bin/env python3 {}".format(AGILENT_EXTENDED), shell=True
