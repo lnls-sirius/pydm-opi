@@ -1,0 +1,32 @@
+language: python
+python:
+    - "3.8"
+arch: amd64          # optional, this is default, routes to a full VM
+os: linux            # optional, this is default
+dist: focal          # Ubuntu Focal 20.04
+
+services:
+  - docker
+
+before_install:
+  - cd test
+  - cat docker-compose.yml
+  - docker-compose up -d
+  - cd ..
+
+script:
+  - echo "$(git describe --tags)" > siriushlacon/VERSION
+  - cat conscommon/__init__.py | grep 'version\|author'
+  - python -m pip install pandas xlrd
+  - python -m pip install .
+  - python test/test.py
+  - python test/test_spreadsheet.py
+
+deploy:
+  provider: pypi
+  username: "__token__"
+  password:
+    secure: "LzmiNSC8ExlToV3GdXzlJNtArnA29S0cp1MqVlrCEa2ZDDrhhEiY8DrnCLy8MLRkVQ362sxiShsZ9NLfZsRJwDRZUzDJhDIktsNIMDiHqJMiERphaHJS2u4sGmua8pPwiOoyMZ5e3ucuqzeEaI7f6xGBEpKK+VkhCqectsauAY+bgFRzdiSgwziFIvl7TxIn43X0lDrtVuedfQd3Xllrd7ruZHRZS1isegEfGfkc/L84lyM+CBPQhsJlVnsJVxdMsXmjS/vFJ+ZTfpklgoo8GGTHi85cUYU6EyaZKm46dMaQCX0WDzXmQetIe095AUHKTW4PCKHvslZFXIZeVDqbjx2x9a1Awz6NNXp5HQK1KmnAVIxliRTgRD6WOwgLJrLQbczFn3qH4b9v8PqMvZCSBojLWEVhGmMIQk7PA3YljywUvOrTD9BWqSxll+GAq8kpFiBrkNPm/8Ic6MYFOwyRdHUVcCN5JxQ3ApRJX07JNgn3RUji7NeNmNmnAu46kzVmPt+kwdSY8rZjARgP52N5TcoB9fFizhrnxszAn5a8U3IK9OGqy8t9wsm9Mo4calda/jcVQ9ze1wI5lQbA6QD4jMtThfZQCSUIrAigHfW4agZDF44rmJt/E3q+D/gOuIMyZHCHwsBWBAmjHsrmuuDLr+xIQj3nmwXCIIMETH7+UEM="
+  on:
+    tags: true
+    branch: master
