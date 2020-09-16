@@ -1,16 +1,18 @@
 language: python
 
 python:
-  - '3.6'
+  - "3.6"
 arch: amd64
 os: linux
 dist: focal
 
 script:
+    # Update repository version
   - sed -i -e "s/__version__ =.*/__version__ = \"$(git describe --tags)\"/" siriushlacon/__init__.py
   - cat siriushlacon/__init__.py | grep 'version\|author'
 
 deploy:
+  skip_cleanup: true
   provider: pypi
   username: __token__
   password:
@@ -18,3 +20,7 @@ deploy:
   on:
     tags: true
     branch: master
+
+after_deploy:
+  - sleep 30
+  - python -m pip search siriushlacon

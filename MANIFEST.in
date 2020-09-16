@@ -1,2 +1,5 @@
 include pydm-opi.desktop.template
+include LICENSE
+include README.md
+include requirements.txt
 recursive-include siriushlacon *.xlsx *.sh *.ui *.png *.jpg *.xcf *.qrc *.json *.qss *.pdf

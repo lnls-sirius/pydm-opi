@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 from setuptools import setup, find_namespace_packages
 from siriushlacon import __author__, __version__
+import pkg_resources
 
-with open("README.md", "r") as _f:
+
+def get_abs_path(relative):
+    return pkg_resources.resource_filename(__name__, relative)
+
+
+with open(get_abs_path("README.md"), "r") as _f:
     long_description = _f.read().strip()
 
-with open("requirements.txt", "r") as _f:
+with open(get_abs_path("requirements.txt"), "r") as _f:
     _requirements = _f.read().strip().split("\n")
 
 setup(
