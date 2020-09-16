@@ -1,4 +1,4 @@
-conscommon>=0.0.8
+conscommon==0.1.3
 pydm>=1.10.1,<=1.10.3
 pyepics>=3.4.1
 PyQt5>=5.13.0
