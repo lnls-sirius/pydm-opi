@@ -19,15 +19,9 @@ pip install siriushlacon
 
 #### Manually
 
-##### Requirements
-**Python>=3.6** .<br>
-[PyDM](https://github.com/slaclab/pydm)==**1.10.1**<br>
-[CONS commons](https://github.com/lnls-sirius/cons-common) module.<br>
-Other dependencies are listed at `requirements.txt`.<br>
-
-
 This repository depends on [PyDM](https://github.com/slaclab/pydm),
-[PyEPICS](https://github.com/pyepics/pyepics), [CONS Common](https://github.com/lnls-sirius/cons-common) and Python>=3.6 .
+[PyEPICS](https://github.com/pyepics/pyepics), [CONS Common](https://github.com/lnls-sirius/cons-common) and python>=3.6.
+Dependencies listed at `requirements.txt`.
 
 Clone from master or download the latest release.<br>
 Optionally the user may clone recursive in order to pull the module `conscommon`. If so, install the submodule using `cd cons-common && pip install .`.<br>
