@@ -1,4 +1,4 @@
-CONS OPIs
+Sirius HLA CONS - GUI
 ===========
 
 This repo should contain every PyDM OPI developed by the CONS group currently in use.
