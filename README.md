@@ -4,21 +4,28 @@ CONS OPIs
 This repo should contain every PyDM OPI developed by the CONS group currently in use.
 
 [![Build Status](https://api.travis-ci.org/lnls-sirius/pydm-opi.svg)](https://travis-ci.org/lnls-sirius/pydm-opi)
-
+![Latest tag](https://img.shields.io/github/tag/lnls-sirius/pydm-opi.svg?style=flat)
+[![Latest release](https://img.shields.io/github/release/lnls-sirius/pydm-opi.svg?style=flat)](https://github.com/lnls-sirius/pydm-opi/releases)
+[![PyPI version fury.io](https://badge.fury.io/py/siriushlacon.svg)](https://pypi.python.org/pypi/siriushlacon/)
+[![Read the Docs](https://readthedocs.org/projects/spack/badge/?version=latest)](https://lnls-sirius.github.io/pydm-opi/)
+ 
+Install
+-------
 Available at **PyPi** https://pypi.org/project/siriushlacon/
 
-[Read the docs !](https://lnls-sirius.github.io/pydm-opi/)
-----------------------------------------------------------
+```
+pip install siriushlacon
+```
 
-Requirements
-------------
+#### Manually
+
+##### Requirements
 **Python>=3.6** .<br>
 [PyDM](https://github.com/slaclab/pydm)==**1.10.1**<br>
 [CONS commons](https://github.com/lnls-sirius/cons-common) module.<br>
 Other dependencies are listed at `requirements.txt`.<br>
 
-Install
--------
+
 This repository depends on [PyDM](https://github.com/slaclab/pydm),
 [PyEPICS](https://github.com/pyepics/pyepics), [CONS Common](https://github.com/lnls-sirius/cons-common) and Python>=3.6 .
 
