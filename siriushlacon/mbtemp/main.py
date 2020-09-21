@@ -248,7 +248,7 @@ class MBTempMonitoring(Display):
         mbtemp.brush = QtCore.Qt.blue
 
         last_Value = mbtemp.toolTip().split("\n")
-        
+
         for val in last_Value[1:]:
             new_val[val.split(": ")[0]] = val.split(": ")[1]
 
