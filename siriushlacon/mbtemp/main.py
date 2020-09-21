@@ -32,15 +32,19 @@ logger = logging.getLogger()
 
 TAB = {0: "RF", 1: "TB", 2: "TS", 3: "BO", 4: "SI", 5: "LA", 6: "PA"}
 
-DEVICES_IP = {#{Area IPs:[ip, devices (To specific devices only)]}
-"RF":[["10.128.102.119", [None, None]], ["10.128.101.118", [None, None]]],
-"TB":[["10.128.119.106", [5, 6]]],
-"TS":[["10.128.120.106", [0,4]], ["10.128.101.117", [3,4]]],
-"LA":[["10.128.122.102", [None, None]]],
-"PA":[["10.128.123.131", [None, None]], ["10.128.123.132", [None, None]]],
-"BO":[["10.128.1{:0>2d}.106", [None, None]]],
-"SI":[["10.128.1{:0>2d}.117", [None, None]], ["10.128.1{:0>2d}.118", [None, None]]]
+DEVICES_IP = {  # {Area IPs:[ip, devices (To specific devices only)]}
+    "RF": [["10.128.102.119", [None, None]], ["10.128.101.118", [None, None]]],
+    "TB": [["10.128.119.106", [5, 6]]],
+    "TS": [["10.128.120.106", [0, 4]], ["10.128.101.117", [3, 4]]],
+    "LA": [["10.128.122.102", [None, None]]],
+    "PA": [["10.128.123.131", [None, None]], ["10.128.123.132", [None, None]]],
+    "BO": [["10.128.1{:0>2d}.106", [None, None]]],
+    "SI": [
+        ["10.128.1{:0>2d}.117", [None, None]],
+        ["10.128.1{:0>2d}.118", [None, None]],
+    ],
 }
+
 
 class MBTempMonitoring(Display):
     def __init__(self, parent=None, macros=None, args=None):
@@ -81,9 +85,13 @@ class MBTempMonitoring(Display):
         logger.info("Area {}; Sector {}".format(self.tab, self.sector.value()))
 
         try:
-            info_request = requests.get(self.url, verify=False, params={"type": "mbtemp"}, timeout=5)
+            info_request = requests.get(
+                self.url, verify=False, params={"type": "mbtemp"}, timeout=5
+            )
         except:
-            QtWidgets.QMessageBox.warning(self,"Warning", "Impossible connect to {}".format(self.url))
+            QtWidgets.QMessageBox.warning(
+                self, "Warning", "Impossible connect to {}".format(self.url)
+            )
             logger.warning("Impossible connect to {}".format(self.url))
             sys.exit()
         dev = info_request.json()
@@ -115,9 +123,9 @@ class MBTempMonitoring(Display):
             self.sector.setEnabled(True)
             self.sector.setMaximum(20)
 
-        for ip in DEVICES_IP[self.tab]: #dict -> {MBTemp:[CH1,CH2...]}
-            for board in dev[ip[0].format(self.sector.value())][ip[1][0]:ip[1][1]]:
-                for enabled in range(1,9):
+        for ip in DEVICES_IP[self.tab]:  # dict -> {MBTemp:[CH1,CH2...]}
+            for board in dev[ip[0].format(self.sector.value())][ip[1][0] : ip[1][1]]:
+                for enabled in range(1, 9):
                     channels.append(board["channels"]["CH{}".format(enabled)]["prefix"])
                 self.board_sensors[board["prefix"]] = channels
                 channels = []
@@ -140,7 +148,10 @@ class MBTempMonitoring(Display):
 
             for number, pv in enumerate(self.board_sensors[mbtemp]):
                 slot = partial(
-                    self.update_channel, name_pv =pv, mbtemp_name = mbtemp, mbtemp_ch = number+1
+                    self.update_channel,
+                    name_pv=pv,
+                    mbtemp_name=mbtemp,
+                    mbtemp_ch=number + 1,
                 )
                 temp = PyDMChannel(
                     address="ca://" + pv, value_slot=slot, connection_slot=slot
@@ -161,11 +172,13 @@ class MBTempMonitoring(Display):
 
             elif chosenArea == "BO" and mbtemp_ch < 4 and mbtemp_name != "TB-MBTemp":
                 location = int(_id) % 5
-                aux = (location if location != 0 else 5)
+                aux = location if location != 0 else 5
 
             elif chosenArea in ["SI", "PA", "LA"]:
                 aux = _id
-                if (mbtemp_ch == 3) and (mbtemp_name in ["SI-01-MBTemp-13", "SI-20-MBTemp-23"]):
+                if (mbtemp_ch == 3) and (
+                    mbtemp_name in ["SI-01-MBTemp-13", "SI-20-MBTemp-23"]
+                ):
                     aux += "_2"
 
             elif chosenArea == "RF":
@@ -176,20 +189,24 @@ class MBTempMonitoring(Display):
 
             elif chosenArea == "TB":
                 if mbtemp_name[:-3] == "BO-MBTemp":
-                    return()
-                aux = ''
+                    return ()
+                aux = ""
 
             else:
-                return()
+                return ()
             channel = getattr(self, "{}{}_Ch{}".format(chosenArea, aux, mbtemp_ch))
 
         except AttributeError or ValueError:
-            return()
+            return ()
 
         # ----------- Update color and toolTip ----------
         if value == False or value < 1:
             channel.brush = QtCore.Qt.red
-            channel.setToolTip(("PV: {}\n" + "Channel: {}\n" + "Process Variable Disconnected").format(name_pv, mbtemp_ch))
+            channel.setToolTip(
+                ("PV: {}\n" + "Channel: {}\n" + "Process Variable Disconnected").format(
+                    name_pv, mbtemp_ch
+                )
+            )
             return ()
         elif value == True:
             channel.brush = QtCore.Qt.green
@@ -197,17 +214,21 @@ class MBTempMonitoring(Display):
         elif value > self.tempMax.value():
             if (value > 410) and (value < 425):
                 channel.brush = QtCore.Qt.cyan
-                channel.setToolTip(('PV: {}\n' + 'The Channel {} of MBTemp {} is open!').format(name_pv, mbtemp_ch, mbtemp_name ))
-                return()
+                channel.setToolTip(
+                    ("PV: {}\n" + "The Channel {} of MBTemp {} is open!").format(
+                        name_pv, mbtemp_ch, mbtemp_name
+                    )
+                )
+                return ()
             else:
                 channel.brush = QtCore.Qt.yellow
         else:
             channel.brush = QtCore.Qt.green
 
         channel.setToolTip(
-            ("Temperature: {} °C\n" + "MBTemp: {}\n" + "Channel: {}\n"+"PV: {}").format(
-                value, mbtemp_name, mbtemp_ch, name_pv
-            )
+            (
+                "Temperature: {} °C\n" + "MBTemp: {}\n" + "Channel: {}\n" + "PV: {}"
+            ).format(value, mbtemp_name, mbtemp_ch, name_pv)
         )
 
     def update_mbtemp(self, value, pvname, coef, sector):
@@ -223,20 +244,20 @@ class MBTempMonitoring(Display):
             id_addr = int(pvname[-2:])
         except:
             if self.tab != "TB":
-                return()
+                return ()
             else:
                 mb = 1
 
         if self.tab == "BO":
             location = id_addr % 5
-            mb = (location if location != 0 else 5)
+            mb = location if location != 0 else 5
 
         elif self.tab in ["TS", "SI", "PA", "LA", "RF"]:
             mb = id_addr
         try:
             mbtemp = getattr(self, "{}_MBTemp{:0>2d}".format(self.tab, mb))
         except AttributeError:
-            return()
+            return ()
 
         if value == False:
             mbtemp.brush = QtCore.Qt.red
@@ -309,6 +330,7 @@ class MBTempMonitoring(Display):
             self.BO_Img3.setPixmap(QPixmap(BO_PIC1))
             self.BO_Img4.setPixmap(QPixmap(BO_PIC3))
             self.BO_Img5.setPixmap(QPixmap(BO_PIC1))
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
