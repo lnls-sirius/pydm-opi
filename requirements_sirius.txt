@@ -6,4 +6,3 @@ requests
 numpy
 matplotlib
 conscommon
-openpyxl==3.0.3
