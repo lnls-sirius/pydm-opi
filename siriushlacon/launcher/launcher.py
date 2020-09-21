@@ -10,6 +10,7 @@ from siriushlacon.agilent4uhv.consts import (
     AGILENT_OVERVIEW,
     AGILENT_EXTENDED,
 )
+from siriushlacon.agilent4uhv.extended import MainWindow
 from siriushlacon.launcher.consts import LAUNCH_WINDOW_UI, PCTRL_MAIN
 from siriushlacon.mbtemp.consts import MBTEMP_MAIN
 from siriushlacon.mks937b.consts import MKS_MAIN, MKS_OVERVIEW
@@ -142,12 +143,9 @@ class Launcher(Display):
 
     def launchAgilentExtended(self):
         if self.btnAgilentExtended.validate_password():
-            if os.name == "nt":
-                subprocess.Popen("python {}".format(AGILENT_EXTENDED), shell=True)
-            else:
-                subprocess.Popen(
-                    "/usr/bin/env python3 {}".format(AGILENT_EXTENDED), shell=True
-                )
+            # @fixme: We need a better way to launch this
+            self.window = MainWindow()
+            self.window.show()
 
     def exitApp(self):
         exit()

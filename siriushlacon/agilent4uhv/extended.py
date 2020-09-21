@@ -3,8 +3,8 @@ import logging
 from qtpy.QtWidgets import (
     QApplication,
     QFrame,
+    QWidget,
     QGridLayout,
-    QMainWindow,
     QPushButton,
 )
 from qtpy.QtCore import QThreadPool
@@ -22,16 +22,16 @@ from siriushlacon.agilent4uhv.devices import DevicesFrame
 logger = logging.getLogger()
 
 
-class MainWindow(QMainWindow):
+class MainWindow(QWidget):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
 
         self.setWindowTitle("VACS - Utility Scripts")
 
         self.contentLayout = QGridLayout()
-        self.content = QFrame()
-        self.content.setFrameStyle(QFrame.Panel | QFrame.Raised)
-        self.content.setLayout(self.contentLayout)
+        #self.content = QFrame()
+        #self.content.setFrameStyle(QFrame.Panel | QFrame.Raised)
+        #self.content.setLayout(self.contentLayout)
 
         # to Step Mode
         self.toStepButton = QPushButton(" to Step ")
@@ -64,8 +64,9 @@ class MainWindow(QMainWindow):
         self.devices = DevicesFrame()
         self.devices.show()
         self.contentLayout.addWidget(self.devices, 5, 0, 1, 2)
-        self.content.show()
-        self.setCentralWidget(self.content)
+        #self.content.show()
+        #self.setCentralWidget(self.content)
+        self.setLayout(self.contentLayout)
 
         # Thread !
         self.commandRunning = False
@@ -115,7 +116,6 @@ class MainWindow(QMainWindow):
                 devices_selection=self.devices.getSelectedDevices(),
             )
             QThreadPool.globalInstance().start(runnable)
-
 
 def launch():
     app = QApplication([])
