@@ -93,33 +93,33 @@ class Regatron(Display):
         self.configWidget()
 
         self.slopeVoltageMax = PyDMChannel(
-            address="ca://" + macros["P"] + ":Sys-SlopeVoltMax-Mon",
+            address="ca://" + macros["P"] + ":SysSlopeVoltMax-Mon",
             value_slot=self.voltageSlopeMaxChanged,
         )
         self.slopeVoltageMin = PyDMChannel(
-            address="ca://" + macros["P"] + ":Sys-SlopeVoltMin-Mon",
+            address="ca://" + macros["P"] + ":SysSlopeVoltMin-Mon",
             value_slot=self.voltageSlopeMinChanged,
         )
         self.slopeVoltageMax.connect()
         self.slopeVoltageMin.connect()
 
         self.slopeCurrentMax = PyDMChannel(
-            address="ca://" + macros["P"] + ":Sys-SlopeCurrMax-Mon",
+            address="ca://" + macros["P"] + ":SysSlopeCurrMax-Mon",
             value_slot=self.currentSlopeMaxChanged,
         )
         self.slopeCurrentMin = PyDMChannel(
-            address="ca://" + macros["P"] + ":Sys-SlopeCurrMin-Mon",
+            address="ca://" + macros["P"] + ":SysSlopeCurrMin-Mon",
             value_slot=self.currentSlopeMinChanged,
         )
         self.slopeCurrentMax.connect()
         self.slopeCurrentMin.connect()
 
         self.modStatusPV = PyDMChannel(
-            address="ca://{}{}".format(macros["P"], ":Mod-State-Mon"),
+            address="ca://{}{}".format(macros["P"], ":ModState-Mon"),
             value_slot=self.update_mod_state_label,
         )
         self.sysStatusPV = PyDMChannel(
-            address="ca://{}{}".format(macros["P"], ":Sys-State-Mon"),
+            address="ca://{}{}".format(macros["P"], ":SysState-Mon"),
             value_slot=self.update_sys_state_label,
         )
         self.modStatusPV.connect()
@@ -331,10 +331,10 @@ class Regatron(Display):
         self.sysStatus.setVisible(self.isMaster)
 
         self.warnByte.channel = "ca://{}{}".format(
-            self.macros_dict["P"], ":GenWarn-Mon" if self.isMaster else ":Mod-WarnGroup-Mon",
+            self.macros_dict["P"], ":GenWarn-Mon" if self.isMaster else ":ModWarnGroup-Mon",
         )
         self.errorByte.channel = "ca://{}{}".format(
-            self.macros_dict["P"], ":GenErr-Mon" if self.isMaster else ":Mod-ErrGroup-Mon",
+            self.macros_dict["P"], ":GenErr-Mon" if self.isMaster else ":ModErrGroup-Mon",
         )
 
     def changeProtectionLevel(self):
