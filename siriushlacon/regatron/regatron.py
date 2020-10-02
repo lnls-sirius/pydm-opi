@@ -119,7 +119,7 @@ class Regatron(Display):
             value_slot=self.update_mod_state_label,
         )
         self.sysStatusPV = PyDMChannel(
-            address="ca://{}{}".format(macros["P"], ":SysState-Mon"),
+            address="ca://{}{}".format(macros["P"], ":OpMode-Sts"),
             value_slot=self.update_sys_state_label,
         )
         self.modStatusPV.connect()
