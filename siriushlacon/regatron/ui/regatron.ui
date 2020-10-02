@@ -1630,7 +1630,7 @@
                  <bool>true</bool>
                 </property>
                 <property name="channel" stdset="0">
-                 <string>ca://${P}:SysOutVolt-Mon</string>
+                 <string>ca://${P}:Voltage-Mon</string>
                 </property>
                </widget>
               </item>
@@ -2234,7 +2234,7 @@
                  <bool>true</bool>
                 </property>
                 <property name="channel" stdset="0">
-                 <string>ca://${P}:SysOutVolt-Mon</string>
+                 <string>ca://${P}:Voltage-Mon</string>
                 </property>
                </widget>
               </item>
@@ -2880,7 +2880,7 @@ p, li { white-space: pre-wrap; }
                  <bool>false</bool>
                 </property>
                 <property name="channel" stdset="0">
-                 <string>ca://${P}:SysOutVolt-Mon.DESC</string>
+                 <string>ca://${P}:Voltage-Mon.DESC</string>
                 </property>
                </widget>
               </item>
