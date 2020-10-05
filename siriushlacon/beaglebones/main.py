@@ -2,9 +2,11 @@
 For Corporate BBB configuration comment lines 342 - 349"""
 
 import sys
+import subprocess
 from time import sleep, localtime, strftime
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 
+from pydm import Display
 from siriushlacon.beaglebones.BBBread import RedisServer
 from siriushlacon.beaglebones.consts import (
     BEAGLEBONES_MAIN_UI,
@@ -39,13 +41,15 @@ Ui_MainWindow_config, QtBaseClass_config = uic.loadUiType(qtCreator_configfile)
 Ui_MainWindow_info, QtBaseClass_info = uic.loadUiType(qtCreator_infofile)
 
 
-class BBBreadMainWindow(QtWidgets.QWidget, Ui_MainWindow):
+class BBBreadMainWindow(Display):
     """BeagleBone Black Redis Activity Display"""
 
-    def __init__(self, redis_host=REDIS_HOST):
-        QtWidgets.QWidget.__init__(self)
-        Ui_MainWindow.__init__(self)
-        self.setupUi(self)
+    def __init__(self, parent=None, macros=None, **kwargs):
+        super().__init__(parent=parent, macros=macros, ui_filename=BEAGLEBONES_MAIN_UI)
+
+        redis_host = macros.get("REDIS_HOST", REDIS_HOST)
+        if redis_host == "":
+            redis_host = REDIS_HOST
 
         # Configures redis Server
         self.server = RedisServer(host=redis_host)
@@ -524,7 +528,4 @@ class BBBConfig(QtWidgets.QWidget, Ui_MainWindow_config):
 
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
-    window = BBBreadMainWindow()
-    window.show()
-    sys.exit(app.exec_())
+    subprocess.Popen("pydm --hide-nav-bar " + BEAGLEBONES_MAIN, shell=True)

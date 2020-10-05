@@ -1,6 +1,5 @@
 import json
 import os
-import subprocess
 from qtpy.QtGui import QPixmap
 from pydm import Display
 
@@ -133,15 +132,13 @@ class Launcher(Display):
         self.btnGamma.filenames = [GAMMA_COUNTING_MAIN]
         self.btnGamma.openInNewWindow = True
 
-        self.btnBBB.clicked.connect(self.launchBeagleManager)
+        self.btnBBB.filenames = [BEAGLEBONES_MAIN]
+        self.btnBBB.openInNewWindow = True
 
         self.btnExit.clicked.connect(self.exitApp)
 
         self.label_cnpem.setPixmap(QPixmap(CNPEM_INVISIBLE_IMG))
         self.label_lnls.setPixmap(QPixmap(LNLS_INVISIBLE_IMG))
-
-    def launchBeagleManager(self):
-        subprocess.Popen("python " + BEAGLEBONES_MAIN, shell=True)
 
     def launchAgilentExtended(self):
         if self.btnAgilentExtended.validate_password():
