@@ -4,7 +4,7 @@ For Corporate BBB configuration comment lines 342 - 349"""
 import sys
 import subprocess
 from time import sleep, localtime, strftime
-from PyQt5 import QtCore, QtGui, QtWidgets, uic
+from qtpy import QtCore, QtGui, QtWidgets, uic
 
 from pydm import Display
 from siriushlacon.beaglebones.BBBread import RedisServer
