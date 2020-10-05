@@ -5,22 +5,34 @@ import sys
 from time import sleep, localtime, strftime
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 
-from BBBread import RedisServer
+from siriushlacon.beaglebones.BBBread import RedisServer
+from siriushlacon.beaglebones.consts import (
+    BEAGLEBONES_MAIN_UI,
+    INFO_BBB_UI,
+    CHANGE_BBB_UI,
+)
 
-qtCreatorFile = "ui/main.ui"
-qtCreator_configfile = "ui/configBBB.ui"
-qtCreator_infofile = "ui/infoBBB.ui"
+qtCreatorFile = BEAGLEBONES_MAIN_UI
+qtCreator_configfile = CHANGE_BBB_UI
+qtCreator_infofile = INFO_BBB_UI
 
 BASIC_TAB = 0
 ADVANCED_TAB = 1
 # Corporate test server
 # REDIS_HOST = '10.0.6.64'
 # Sirius server
-REDIS_HOST = '10.128.255.3'
+REDIS_HOST = "10.128.255.3"
 
-room_names = {"All": "", "Corporate": "1", "TL": "21", "Connectivity": "22", "Power Supplies": "23", "RF": "24"}
+room_names = {
+    "All": "",
+    "Corporate": "1",
+    "TL": "21",
+    "Connectivity": "22",
+    "Power Supplies": "23",
+    "RF": "24",
+}
 for i in range(20):
-    room_names["IA-{:02d}".format(i + 1)] = "{:02d}".format(i+1)
+    room_names["IA-{:02d}".format(i + 1)] = "{:02d}".format(i + 1)
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 Ui_MainWindow_config, QtBaseClass_config = uic.loadUiType(qtCreator_configfile)
