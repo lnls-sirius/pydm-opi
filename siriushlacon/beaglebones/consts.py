@@ -8,5 +8,5 @@ def get_abs_path(filename):
 BEAGLEBONES_MAIN = get_abs_path('main.py')
 BEAGLEBONES_MAIN_UI = get_abs_path('ui/main.ui')
 
-INFO_BBB_UI = get_abs_path('ui/info_bbb.ui')
-CHANGE_BBB_UI = get_abs_path('ui/change_bbb.ui')
+INFO_BBB_UI = get_abs_path('ui/infoBBB.ui')
+CHANGE_BBB_UI = get_abs_path('ui/configBBB.ui')
