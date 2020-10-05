@@ -13,7 +13,7 @@ if len(sys.argv) == 1:
 
 SERVER_IP = "10.128.255.3"
 CONFIG_PATH = "/var/tmp/bbb.bin"
-LOG_PATH_SERVER = "/var/tmp/bbbread.log"
+LOG_PATH_SERVER = "/var/tmp/bbbread_server.log"
 LOG_PATH_BBB = "/var/tmp/bbbread.log"
 
 
@@ -98,9 +98,15 @@ class RedisServer:
         self.logger = logging.getLogger("bbbreadServer")
         self.logger.setLevel(logging.DEBUG)
         formatter = logging.Formatter("%(levelname)s:%(asctime)s:%(name)s:%(message)s")
-        file_handler = logging.FileHandler(log_path)
-        file_handler.setFormatter(formatter)
-        self.logger.addHandler(file_handler)
+        try:
+            file_handler = logging.FileHandler(log_path)
+            file_handler.setFormatter(formatter)
+            self.logger.addHandler(file_handler)
+        except:
+            self.logger.exception(
+                "Failed to create file_handler at '{}'".format(log_path)
+            )
+            pass
 
     # TODO: Change function name
     def list_connected(self, ip="", hostname=""):
@@ -303,9 +309,14 @@ class RedisClient:
         self.logger = logging.getLogger("bbbread")
         self.logger.setLevel(logging.INFO)
         formatter = logging.Formatter("%(levelname)s:%(asctime)s:%(name)s:%(message)s")
-        file_handler = logging.FileHandler(log_path)
-        file_handler.setFormatter(formatter)
-        self.logger.addHandler(file_handler)
+        try:
+            file_handler = logging.FileHandler(log_path)
+            file_handler.setFormatter(formatter)
+            self.logger.addHandler(file_handler)
+        except:
+            self.logger.exception(
+                "Failed to crate file_handler at '{}'".format(file_handler)
+            )
 
         # Defining local and remote database
         self.remote_host = remote_host
