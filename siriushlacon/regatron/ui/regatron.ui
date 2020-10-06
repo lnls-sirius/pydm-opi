@@ -1187,7 +1187,7 @@
                     <string>Clear Errors and Warnings</string>
                    </property>
                    <property name="channel" stdset="0">
-                    <string>ca://${P}:Clear-Cmd.PROC</string>
+                    <string>ca://${P}:Reset-Cmd</string>
                    </property>
                    <property name="showConfirmDialog" stdset="0">
                     <bool>true</bool>
