@@ -35,7 +35,7 @@
           <string/>
          </property>
          <property name="channel" stdset="0">
-          <string>ca://${P}:${D}-${T}Group-Mon</string>
+          <string>ca://${P}:${D}${T}Group-Mon</string>
          </property>
          <property name="onColor" stdset="0">
           <color>
@@ -116,7 +116,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Conf-Mon</string>
+            <string>ca://${P}:${D}${T}Conf-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -162,7 +162,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IBCSuppply-Mon</string>
+            <string>ca://${P}:${D}${T}IBCSuppply-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -211,7 +211,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Misc-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}Misc-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -221,7 +221,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Conf4-Mon</string>
+            <string>ca://${P}:${D}${T}Conf4-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -267,7 +267,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}AD1Ovr-Mon</string>
+            <string>ca://${P}:${D}${T}AD1Ovr-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -313,7 +313,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Comm-Mon</string>
+            <string>ca://${P}:${D}${T}Comm-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -359,7 +359,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Conf2-Mon</string>
+            <string>ca://${P}:${D}${T}Conf2-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -405,7 +405,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IBCMisc-Mon</string>
+            <string>ca://${P}:${D}${T}IBCMisc-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -451,7 +451,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Supply2-Mon</string>
+            <string>ca://${P}:${D}${T}Supply2-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -497,7 +497,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Supply-Mon</string>
+            <string>ca://${P}:${D}${T}Supply-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -546,7 +546,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Supply-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}Supply-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -559,7 +559,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IBCInv-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}IBCInv-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -572,7 +572,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}T-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}T-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -585,7 +585,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Supply2-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}Supply2-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -598,7 +598,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}OutCurrent-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}OutCurrent-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -608,7 +608,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Intrn-Mon</string>
+            <string>ca://${P}:${D}${T}Intrn-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -654,7 +654,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}T-Mon</string>
+            <string>ca://${P}:${D}${T}T-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -703,7 +703,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}AD1Undr-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}AD1Undr-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -716,7 +716,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Intrn-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}Intrn-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -726,7 +726,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IBCInv2-Mon</string>
+            <string>ca://${P}:${D}${T}IBCInv2-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -772,7 +772,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IBCComm-Mon</string>
+            <string>ca://${P}:${D}${T}IBCComm-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -818,7 +818,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Login-Mon</string>
+            <string>ca://${P}:${D}${T}Login-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -867,7 +867,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Supply2-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}Supply2-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -880,7 +880,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Login-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}Login-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -893,7 +893,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IBCSuppply-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}IBCSuppply-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -903,7 +903,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}OutVolt-Mon</string>
+            <string>ca://${P}:${D}${T}OutVolt-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -952,7 +952,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IBCComm-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}IBCComm-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -965,7 +965,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}AD2Ovr-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}AD2Ovr-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -975,7 +975,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IBCSystem-Mon</string>
+            <string>ca://${P}:${D}${T}IBCSystem-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -1021,7 +1021,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}OutCurrent-Mon</string>
+            <string>ca://${P}:${D}${T}OutCurrent-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -1070,7 +1070,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IBCMisc-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}IBCMisc-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1083,7 +1083,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}AD2Undr-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}AD2Undr-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1096,7 +1096,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Conf4-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}Conf4-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1106,7 +1106,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IBCInv-Mon</string>
+            <string>ca://${P}:${D}${T}IBCInv-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -1155,7 +1155,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IBCSystem-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}IBCSystem-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1168,7 +1168,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IntrnMod-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}IntrnMod-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1178,7 +1178,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Intrn-Mon</string>
+            <string>ca://${P}:${D}${T}Intrn-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -1234,7 +1234,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}OutVolt-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}OutVolt-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1247,7 +1247,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IBCPwr-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}IBCPwr-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1257,7 +1257,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Supply2-Mon</string>
+            <string>ca://${P}:${D}${T}Supply2-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -1303,7 +1303,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Misc-Mon</string>
+            <string>ca://${P}:${D}${T}Misc-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -1349,7 +1349,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IntrnMod-Mon</string>
+            <string>ca://${P}:${D}${T}IntrnMod-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -1398,7 +1398,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IBCInv2-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}IBCInv2-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1408,7 +1408,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Conf3-Mon</string>
+            <string>ca://${P}:${D}${T}Conf3-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -1457,7 +1457,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Conf3-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}Conf3-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1467,7 +1467,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IBCPwr-Mon</string>
+            <string>ca://${P}:${D}${T}IBCPwr-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -1516,7 +1516,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}AD1Ovr-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}AD1Ovr-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1529,7 +1529,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Conf2-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}Conf2-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1539,7 +1539,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}AD2Undr-Mon</string>
+            <string>ca://${P}:${D}${T}AD2Undr-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -1588,7 +1588,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IntrnPDSP-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}IntrnPDSP-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1601,7 +1601,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Conf-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}Conf-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1611,7 +1611,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}AD1Undr-Mon</string>
+            <string>ca://${P}:${D}${T}AD1Undr-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -1660,7 +1660,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Comm-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}Comm-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1670,7 +1670,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}IntrnPDSP-Mon</string>
+            <string>ca://${P}:${D}${T}IntrnPDSP-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -1716,7 +1716,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}AD2Ovr-Mon</string>
+            <string>ca://${P}:${D}${T}AD2Ovr-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -1762,7 +1762,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Misc2-Mon</string>
+            <string>ca://${P}:${D}${T}Misc2-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -1811,7 +1811,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:${D}-${T}Misc2-Mon.DESC</string>
+            <string>ca://${P}:${D}${T}Misc2-Mon.DESC</string>
            </property>
           </widget>
          </item>

@@ -32,23 +32,23 @@ class AlarmTree(Display):
 
         # Warning Groups
         self.ch_mod_warn_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Mod-WarnGroup-Mon",
+            address="ca://" + macros["P"] + ":ModWarnGroup-Mon",
             value_slot=self.get_mod_warn_report,
         )
 
         self.ch_sys_warn_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Sys-WarnGroup-Mon",
+            address="ca://" + macros["P"] + ":SysWarnGroup-Mon",
             value_slot=self.get_sys_warn_report,
         )
 
         # Error Groups
         self.ch_mod_error_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Mod-ErrGroup-Mon",
+            address="ca://" + macros["P"] + ":ModErrGroup-Mon",
             value_slot=self.get_mod_error_report,
         )
 
         self.ch_sys_error_report = PyDMChannel(
-            address="ca://" + macros["P"] + ":Sys-ErrGroup-Mon",
+            address="ca://" + macros["P"] + ":SysErrGroup-Mon",
             value_slot=self.get_sys_error_report,
         )
 

@@ -43,7 +43,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MaxPwr-Mon.PROC</string>
+            <string>ca://${P}:SysMaxPwr-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -59,7 +59,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MaxPwr-Mon</string>
+            <string>ca://${P}:SysMaxPwr-Mon</string>
            </property>
           </widget>
          </item>
@@ -78,7 +78,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MinCurrent-Mon_err</string>
+            <string>ca://${P}:SysMinCurrent-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -97,7 +97,7 @@
             <iconset theme="sync"/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MaxVolt-Mon.PROC</string>
+            <string>ca://${P}:SysMaxVolt-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -119,7 +119,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MaxCurrent-Mon_err</string>
+            <string>ca://${P}:SysMaxCurrent-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -138,7 +138,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MaxPwr-Mon_err</string>
+            <string>ca://${P}:SysMaxPwr-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -151,7 +151,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-NomIntrnRes-Mon</string>
+            <string>ca://${P}:SysNomIntrnRes-Mon</string>
            </property>
           </widget>
          </item>
@@ -164,7 +164,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MinPwr-Mon</string>
+            <string>ca://${P}:SysMinPwr-Mon</string>
            </property>
           </widget>
          </item>
@@ -183,7 +183,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MaxVolt-Mon_err</string>
+            <string>ca://${P}:SysMaxVolt-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -199,7 +199,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MinCurrent-Mon.PROC</string>
+            <string>ca://${P}:SysMinCurrent-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -218,7 +218,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-NomIntrnRes-Mon.PROC</string>
+            <string>ca://${P}:SysNomIntrnRes-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -237,7 +237,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MinVolt-Mon.PROC</string>
+            <string>ca://${P}:SysMinVolt-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -259,7 +259,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-NomIntrnRes-Mon_err</string>
+            <string>ca://${P}:SysNomIntrnRes-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -272,7 +272,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MinVolt-Mon</string>
+            <string>ca://${P}:SysMinVolt-Mon</string>
            </property>
           </widget>
          </item>
@@ -288,7 +288,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MaxCurrent-Mon.PROC</string>
+            <string>ca://${P}:SysMaxCurrent-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -304,7 +304,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MaxVolt-Mon.DESC</string>
+            <string>ca://${P}:SysMaxVolt-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -317,7 +317,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MinCurrent-Mon</string>
+            <string>ca://${P}:SysMinCurrent-Mon</string>
            </property>
           </widget>
          </item>
@@ -333,7 +333,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MinPwr-Mon.PROC</string>
+            <string>ca://${P}:SysMinPwr-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -349,7 +349,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MaxCurrent-Mon</string>
+            <string>ca://${P}:SysMaxCurrent-Mon</string>
            </property>
           </widget>
          </item>
@@ -362,7 +362,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-NomIntrnRes-Mon.DESC</string>
+            <string>ca://${P}:SysNomIntrnRes-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -381,7 +381,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MinPwr-Mon_err</string>
+            <string>ca://${P}:SysMinPwr-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -394,7 +394,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MinVolt-Mon.DESC</string>
+            <string>ca://${P}:SysMinVolt-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -407,7 +407,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MaxPwr-Mon.DESC</string>
+            <string>ca://${P}:SysMaxPwr-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -426,7 +426,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MinVolt-Mon_err</string>
+            <string>ca://${P}:SysMinVolt-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -439,7 +439,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MinPwr-Mon.DESC</string>
+            <string>ca://${P}:SysMinPwr-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -452,7 +452,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MaxCurrent-Mon.DESC</string>
+            <string>ca://${P}:SysMaxCurrent-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -465,7 +465,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MinCurrent-Mon.DESC</string>
+            <string>ca://${P}:SysMinCurrent-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -478,7 +478,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-MaxVolt-Mon</string>
+            <string>ca://${P}:SysMaxVolt-Mon</string>
            </property>
           </widget>
          </item>
@@ -549,7 +549,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-OutVolt-Mon.DESC</string>
+            <string>ca://${P}:ModOutVolt-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -575,7 +575,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-OutVolt-Mon</string>
+            <string>ca://${P}:ModOutVolt-Mon</string>
            </property>
           </widget>
          </item>
@@ -588,7 +588,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-OutCurrent-Mon.DESC</string>
+            <string>ca://${P}:ModOutCurrent-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -668,7 +668,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-OutVolt-Mon.PROC</string>
+            <string>ca://${P}:ModOutVolt-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -684,7 +684,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-OutPwr-Mon.DESC</string>
+            <string>ca://${P}:ModOutPwr-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -719,7 +719,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-OutPwr-Mon</string>
+            <string>ca://${P}:ModOutPwr-Mon</string>
            </property>
           </widget>
          </item>
@@ -741,7 +741,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-OutPwr-Mon_err</string>
+            <string>ca://${P}:ModOutPwr-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -754,7 +754,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-OutCurrent-Mon</string>
+            <string>ca://${P}:ModOutCurrent-Mon</string>
            </property>
           </widget>
          </item>
@@ -776,7 +776,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-OutCurrent-Mon_err</string>
+            <string>ca://${P}:ModOutCurrent-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -798,7 +798,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-OutVolt-Mon_err</string>
+            <string>ca://${P}:ModOutVolt-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -836,7 +836,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-OutPwr-Mon.PROC</string>
+            <string>ca://${P}:ModOutPwr-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -855,7 +855,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-OutCurrent-Mon.PROC</string>
+            <string>ca://${P}:ModOutCurrent-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -889,7 +889,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-OutVolt-Mon.DESC</string>
+            <string>ca://${P}:Voltage-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -911,7 +911,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-OutPwr-Mon_err</string>
+            <string>ca://${P}:SysOutPwr-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -924,7 +924,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-OutCurrent-Mon.DESC</string>
+            <string>ca://${P}:SysOutCurrent-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -946,7 +946,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-OutCurrent-Mon_err</string>
+            <string>ca://${P}:SysOutCurrent-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -968,7 +968,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-OutVolt-Mon_err</string>
+            <string>ca://${P}:Voltage-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -981,7 +981,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-OutPwr-Mon.DESC</string>
+            <string>ca://${P}:SysOutPwr-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -997,7 +997,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-OutPwr-Mon.PROC</string>
+            <string>ca://${P}:SysOutPwr-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -1027,7 +1027,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-OutVolt-Mon</string>
+            <string>ca://${P}:Voltage-Mon</string>
            </property>
           </widget>
          </item>
@@ -1047,7 +1047,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-OutPwr-Mon</string>
+            <string>ca://${P}:SysOutPwr-Mon</string>
            </property>
           </widget>
          </item>
@@ -1063,7 +1063,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-OutVolt-Mon.PROC</string>
+            <string>ca://${P}:Voltage-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -1079,7 +1079,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-OutCurrent-Mon</string>
+            <string>ca://${P}:SysOutCurrent-Mon</string>
            </property>
           </widget>
          </item>
@@ -1095,7 +1095,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-OutCurrent-Mon.PROC</string>
+            <string>ca://${P}:SysOutCurrent-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -1122,7 +1122,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MinVolt-Mon</string>
+            <string>ca://${P}:ModMinVolt-Mon</string>
            </property>
           </widget>
          </item>
@@ -1141,7 +1141,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MaxPwr-Mon_err</string>
+            <string>ca://${P}:ModMaxPwr-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -1157,7 +1157,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MaxCurrent-Mon.PROC</string>
+            <string>ca://${P}:ModMaxCurrent-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -1176,7 +1176,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MaxPwr-Mon.PROC</string>
+            <string>ca://${P}:ModMaxPwr-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -1192,7 +1192,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MaxCurrent-Mon.DESC</string>
+            <string>ca://${P}:ModMaxCurrent-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1205,7 +1205,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MaxPwr-Mon</string>
+            <string>ca://${P}:ModMaxPwr-Mon</string>
            </property>
           </widget>
          </item>
@@ -1218,7 +1218,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-NomIntrnRes-Mon</string>
+            <string>ca://${P}:ModNomIntrnRes-Mon</string>
            </property>
           </widget>
          </item>
@@ -1231,7 +1231,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-NomIntrnRes-Mon.DESC</string>
+            <string>ca://${P}:ModNomIntrnRes-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1247,7 +1247,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MaxVolt-Mon.PROC</string>
+            <string>ca://${P}:ModMaxVolt-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -1263,7 +1263,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MinPwr-Mon.DESC</string>
+            <string>ca://${P}:ModMinPwr-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1279,7 +1279,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-NomIntrnRes-Mon.PROC</string>
+            <string>ca://${P}:ModNomIntrnRes-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -1301,7 +1301,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MinVolt-Mon_err</string>
+            <string>ca://${P}:ModMinVolt-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -1320,7 +1320,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MinCurrent-Mon_err</string>
+            <string>ca://${P}:ModMinCurrent-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -1333,7 +1333,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MaxPwr-Mon.DESC</string>
+            <string>ca://${P}:ModMaxPwr-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1346,7 +1346,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MinCurrent-Mon</string>
+            <string>ca://${P}:ModMinCurrent-Mon</string>
            </property>
           </widget>
          </item>
@@ -1359,7 +1359,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MaxVolt-Mon</string>
+            <string>ca://${P}:ModMaxVolt-Mon</string>
            </property>
           </widget>
          </item>
@@ -1372,7 +1372,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MaxVolt-Mon.DESC</string>
+            <string>ca://${P}:ModMaxVolt-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1388,7 +1388,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MinVolt-Mon.PROC</string>
+            <string>ca://${P}:ModMinVolt-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -1410,7 +1410,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MinPwr-Mon_err</string>
+            <string>ca://${P}:ModMinPwr-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -1429,7 +1429,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-NomIntrnRes-Mon_err</string>
+            <string>ca://${P}:ModNomIntrnRes-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -1445,7 +1445,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MaxVolt-Mon_err</string>
+            <string>ca://${P}:ModMaxVolt-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -1464,7 +1464,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MaxCurrent-Mon_err</string>
+            <string>ca://${P}:ModMaxCurrent-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -1480,7 +1480,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MinPwr-Mon.PROC</string>
+            <string>ca://${P}:ModMinPwr-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -1496,7 +1496,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MinCurrent-Mon.DESC</string>
+            <string>ca://${P}:ModMinCurrent-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1509,7 +1509,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MinPwr-Mon</string>
+            <string>ca://${P}:ModMinPwr-Mon</string>
            </property>
           </widget>
          </item>
@@ -1522,7 +1522,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MinVolt-Mon.DESC</string>
+            <string>ca://${P}:ModMinVolt-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1535,7 +1535,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MaxCurrent-Mon</string>
+            <string>ca://${P}:ModMaxCurrent-Mon</string>
            </property>
           </widget>
          </item>
@@ -1548,7 +1548,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MinCurrent-Mon</string>
+            <string>ca://${P}:ModMinCurrent-Mon</string>
            </property>
           </widget>
          </item>
@@ -1564,7 +1564,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MinCurrent-Mon.PROC</string>
+            <string>ca://${P}:ModMinCurrent-Mon.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -1580,7 +1580,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MinCurrent-Mon.DESC</string>
+            <string>ca://${P}:ModMinCurrent-Mon.DESC</string>
            </property>
           </widget>
          </item>
@@ -1599,7 +1599,7 @@
             <bool>true</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-MinCurrent-Mon_err</string>
+            <string>ca://${P}:ModMinCurrent-Mon_err</string>
            </property>
           </widget>
          </item>
@@ -1653,7 +1653,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-VoltPreset-RB_err</string>
+            <string>ca://${P}:SysVoltPreset-RB_err</string>
            </property>
           </widget>
          </item>
@@ -1666,7 +1666,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-VoltPreset-RB.DESC</string>
+            <string>ca://${P}:SysVoltPreset-RB.DESC</string>
            </property>
           </widget>
          </item>
@@ -1679,7 +1679,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-VoltLimQ4-RB.DESC</string>
+            <string>ca://${P}:SysVoltLimQ4-RB.DESC</string>
            </property>
           </widget>
          </item>
@@ -1701,7 +1701,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-VoltLimQ4-RB_err</string>
+            <string>ca://${P}:SysVoltLimQ4-RB_err</string>
            </property>
           </widget>
          </item>
@@ -1714,7 +1714,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-PwrPreset-RB.DESC</string>
+            <string>ca://${P}:SysPwrPreset-RB.DESC</string>
            </property>
           </widget>
          </item>
@@ -1727,7 +1727,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-ResPreset-RB.DESC</string>
+            <string>ca://${P}:SysResPreset-RB.DESC</string>
            </property>
           </widget>
          </item>
@@ -1749,7 +1749,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-CurrentPreset-RB_err</string>
+            <string>ca://${P}:SysCurrentPreset-RB_err</string>
            </property>
           </widget>
          </item>
@@ -1771,7 +1771,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-PwrPreset-RB_err</string>
+            <string>ca://${P}:SysPwrPreset-RB_err</string>
            </property>
           </widget>
          </item>
@@ -1793,7 +1793,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-ResPreset-RB_err</string>
+            <string>ca://${P}:SysResPreset-RB_err</string>
            </property>
           </widget>
          </item>
@@ -1803,7 +1803,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-CurrentPreset-RB</string>
+            <string>ca://${P}:SysCurrentPreset-RB</string>
            </property>
           </widget>
          </item>
@@ -1816,7 +1816,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-CurrentPreset-RB.DESC</string>
+            <string>ca://${P}:SysCurrentPreset-RB.DESC</string>
            </property>
           </widget>
          </item>
@@ -1826,7 +1826,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-VoltLimQ4-RB</string>
+            <string>ca://${P}:SysVoltLimQ4-RB</string>
            </property>
           </widget>
          </item>
@@ -1836,7 +1836,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-VoltPreset-RB</string>
+            <string>ca://${P}:SysVoltPreset-RB</string>
            </property>
           </widget>
          </item>
@@ -1846,7 +1846,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-ResPreset-RB</string>
+            <string>ca://${P}:SysResPreset-RB</string>
            </property>
           </widget>
          </item>
@@ -1859,7 +1859,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-CurrentLimQ4-RB.DESC</string>
+            <string>ca://${P}:SysCurrentLimQ4-RB.DESC</string>
            </property>
           </widget>
          </item>
@@ -1881,7 +1881,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-CurrentLimQ4-RB_err</string>
+            <string>ca://${P}:SysCurrentLimQ4-RB_err</string>
            </property>
           </widget>
          </item>
@@ -1891,7 +1891,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-PwrPreset-RB</string>
+            <string>ca://${P}:SysPwrPreset-RB</string>
            </property>
           </widget>
          </item>
@@ -1901,7 +1901,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-CurrentLimQ4-RB</string>
+            <string>ca://${P}:SysCurrentLimQ4-RB</string>
            </property>
           </widget>
          </item>
@@ -1911,7 +1911,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-PwrLimQ4-RB</string>
+            <string>ca://${P}:SysPwrLimQ4-RB</string>
            </property>
           </widget>
          </item>
@@ -1924,7 +1924,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-PwrLimQ4-RB.DESC</string>
+            <string>ca://${P}:SysPwrLimQ4-RB.DESC</string>
            </property>
           </widget>
          </item>
@@ -1946,7 +1946,7 @@
             <bool>false</bool>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-PwrLimQ4-RB_err</string>
+            <string>ca://${P}:SysPwrLimQ4-RB_err</string>
            </property>
           </widget>
          </item>
@@ -1962,7 +1962,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-PwrLimQ4-RB.PROC</string>
+            <string>ca://${P}:SysPwrLimQ4-RB.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -1981,7 +1981,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-ResPreset-RB.PROC</string>
+            <string>ca://${P}:SysResPreset-RB.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -2000,7 +2000,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-PwrPreset-RB.PROC</string>
+            <string>ca://${P}:SysPwrPreset-RB.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -2019,7 +2019,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-CurrentLimQ4-RB.PROC</string>
+            <string>ca://${P}:SysCurrentLimQ4-RB.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -2038,7 +2038,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-CurrentPreset-RB.PROC</string>
+            <string>ca://${P}:SysCurrentPreset-RB.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -2057,7 +2057,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-VoltLimQ4-RB.PROC</string>
+            <string>ca://${P}:SysVoltLimQ4-RB.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -2076,7 +2076,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-VoltPreset-RB.PROC</string>
+            <string>ca://${P}:SysVoltPreset-RB.PROC</string>
            </property>
            <property name="pressValue" stdset="0">
             <string>1</string>
@@ -2356,7 +2356,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-StdWarnGroup-Mon</string>
+            <string>ca://${P}:ModStdWarnGroup-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -2402,7 +2402,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-StdErrGroup-Mon</string>
+            <string>ca://${P}:SysStdErrGroup-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -2448,7 +2448,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Sys-StdWarnGroup-Mon</string>
+            <string>ca://${P}:SysStdWarnGroup-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
@@ -2520,7 +2520,7 @@
             <string/>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://${P}:Mod-StdErrGroup-Mon</string>
+            <string>ca://${P}:ModStdErrGroup-Mon</string>
            </property>
            <property name="onColor" stdset="0">
             <color>
