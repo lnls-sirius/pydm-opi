@@ -29,8 +29,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>874</width>
-        <height>1178</height>
+        <width>864</width>
+        <height>1038</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
@@ -4232,7 +4232,7 @@ color: rgb(255, 255, 255);</string>
                  <string>Disconnect</string>
                 </property>
                 <property name="channel" stdset="0">
-                 <string>ca://${P}:Disconnect-Cmd.PROC</string>
+                 <string>ca://${P}:Disconnect-Cmd</string>
                 </property>
                 <property name="pressValue" stdset="0">
                  <string>1</string>
@@ -4267,7 +4267,7 @@ color: rgb(255, 255, 255);</string>
                  <string>Connect</string>
                 </property>
                 <property name="channel" stdset="0">
-                 <string>ca://${P}:Connect-Cmd.PROC</string>
+                 <string>ca://${P}:Connect-Cmd</string>
                 </property>
                 <property name="pressValue" stdset="0">
                  <string>1</string>
