@@ -298,7 +298,7 @@
                     <string/>
                    </property>
                    <property name="channel" stdset="0">
-                    <string>ca://${P}:SysVoltageRef-RB.PROC</string>
+                    <string>ca://${P}:VoltageRef-Mon.PROC</string>
                    </property>
                    <property name="pressValue" stdset="0">
                     <string>1</string>
@@ -346,7 +346,7 @@
                     <bool>false</bool>
                    </property>
                    <property name="channel" stdset="0">
-                    <string>ca://${P}:SysVoltageRef-SP.DESC</string>
+                    <string>ca://${P}:VoltageRef-Mon.DESC</string>
                    </property>
                   </widget>
                  </item>
@@ -606,7 +606,7 @@
                     <bool>true</bool>
                    </property>
                    <property name="channel" stdset="0">
-                    <string>ca://${P}:SysVoltageRef-SP</string>
+                    <string>ca://${P}:Voltage-SP</string>
                    </property>
                   </widget>
                  </item>
@@ -836,7 +836,7 @@
                     <bool>true</bool>
                    </property>
                    <property name="channel" stdset="0">
-                    <string>ca://${P}:SysVoltageRef-RB</string>
+                    <string>ca://${P}:VoltageRef-Mon</string>
                    </property>
                   </widget>
                  </item>
@@ -2020,7 +2020,7 @@
                  <bool>true</bool>
                 </property>
                 <property name="channel" stdset="0">
-                 <string>ca://${P}:SysVoltageRef-RB</string>
+                 <string>ca://${P}:VoltageRef-Mon</string>
                 </property>
                </widget>
               </item>
@@ -2641,7 +2641,7 @@
                  <bool>true</bool>
                 </property>
                 <property name="channel" stdset="0">
-                 <string>ca://${P}:SysVoltageRef-SP</string>
+                 <string>ca://${P}:Voltage-SP</string>
                 </property>
                </widget>
               </item>
@@ -2912,7 +2912,7 @@ p, li { white-space: pre-wrap; }
                  <bool>false</bool>
                 </property>
                 <property name="channel" stdset="0">
-                 <string>ca://${P}:SysVoltageRef-SP.DESC</string>
+                 <string>ca://${P}:Voltage-SP.DESC</string>
                 </property>
                </widget>
               </item>
@@ -2979,7 +2979,7 @@ p, li { white-space: pre-wrap; }
                  <string>Refresh Reading</string>
                 </property>
                 <property name="channel" stdset="0">
-                 <string>ca://${P}:SysVoltageRef-RB.PROC</string>
+                 <string>ca://${P}:VoltageRef-Mon.PROC</string>
                 </property>
                 <property name="pressValue" stdset="0">
                  <string>1</string>
