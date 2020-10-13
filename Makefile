@@ -34,5 +34,5 @@ endif
 
 install: clean clean-git install-files
 	make -C ./cons-common install
-	sudo /usr/bin/env python3 -m pip install .
+	sudo /usr/bin/env python3 -m pip install -r requirements_sirius.txt .
 

@@ -1,5 +1,4 @@
 import json
-import subprocess
 import os
 from qtpy.QtGui import QPixmap
 from pydm import Display
