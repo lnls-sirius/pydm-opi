@@ -1,6 +1,5 @@
 import datetime
 import logging
-import typing
 import asyncio
 import requests
 
@@ -12,7 +11,6 @@ from siriushlacon.regatron.consts import (
     ALARM_UI,
     STD_READINGS,
     EXT_READINGS,
-    READINGS_MAP,
 )
 from siriushlacon.utils.alarm import Alarm, Severity
 from siriushlacon.utils.archiver import get_data_from_archiver
@@ -190,9 +188,7 @@ class AlarmDisplay(Display):
             for response in await asyncio.gather(*futures):
                 self.update_alarm_tree(widget, response)
 
-
     def search_alarms(self):
         """ Update all tree widgets """
         loop = asyncio.get_event_loop()
         loop.run_until_complete(self.search())
-

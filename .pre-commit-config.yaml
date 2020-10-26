@@ -4,11 +4,8 @@ repos:
     hooks:
       - id: trailing-whitespace
       - id: check-json
-      - id: check-toml
-        id: pretty-format-json
-        args: ['--no-sort-keys']
   - repo: https://github.com/psf/black
-    rev: 19.10b0 # Replace by any tag/version: https://github.com/psf/black/tags
+    rev: 19.10b0
     hooks:
       - id: black
         language_version: python3 # Should be a command that runs python3.6+

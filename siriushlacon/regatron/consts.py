@@ -19,14 +19,17 @@ TREE_32_UI = get_abs_path("ui/tree32.ui")
 COMPLETE_UI = get_abs_path("ui/regatron.ui")
 ALARM_UI = get_abs_path("ui/alarm.ui")
 
+
 def load_data():
     data = None
     with open(DATA_JSON, "r") as f:
         data = json.load(f)
     return data
 
-REGATRON_DEVICES = load_data()
 
+REGATRON_DEVICES = {}
+for d in load_data():
+    REGATRON_DEVICES[d["P"]] = {**d}
 
 ERROR_LIST_PDF = get_abs_path("ui/error-list-en.pdf")
 CODES = [

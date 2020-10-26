@@ -2,7 +2,6 @@
 import os
 import subprocess
 import argparse as _argparse
-import json
 
 from siriushlacon.regatron.consts import COMPLETE_MAIN, REGATRON_DEVICES
 
@@ -13,11 +12,10 @@ parser.add_argument("-dev", "--device", type=str, default="")
 parser.add_argument("--master", action="store_true")
 args = parser.parse_args()
 
-isMaster = args.master
-if not args.master:
-    for data in REGATRON_DEVICES:
-        if data["P"] == args.device:
-            isMaster = data["master"] == 1
+if args.device in REGATRON_DEVICES:
+    isMaster = REGATRON_DEVICES[args.device]["master"]
+else:
+    isMaster = args.master
 
 subprocess.Popen(
     "pydm --hide-nav-bar -m 'P={}, master={}' {}".format(
