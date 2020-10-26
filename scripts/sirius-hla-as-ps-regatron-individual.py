@@ -14,12 +14,13 @@ args = parser.parse_args()
 
 if args.device in REGATRON_DEVICES:
     isMaster = REGATRON_DEVICES[args.device]["master"]
+    print("Master", isMaster, type(isMaster))
 else:
     isMaster = args.master
 
 subprocess.Popen(
     "pydm --hide-nav-bar -m 'P={}, master={}' {}".format(
-        args.device, "1" if isMaster else "0", COMPLETE_MAIN
+        args.device, isMaster, COMPLETE_MAIN
     ),
     shell=True,
 )
