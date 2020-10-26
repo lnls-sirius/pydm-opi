@@ -265,7 +265,9 @@ class Regatron(Display):
             )
             self.flashHistoryTable.setItem(i, 0, QTableWidgetItem(n))
             self.flashHistoryTable.setItem(
-                i, 1, QTableWidgetItem(str(eventTimedelta)),
+                i,
+                1,
+                QTableWidgetItem(str(eventTimedelta)),
             )
 
             if self.operatingTimeDatetime and self.pwrupTimeDatetime:
@@ -331,10 +333,12 @@ class Regatron(Display):
         self.sysStatus.setVisible(self.isMaster)
 
         self.warnByte.channel = "ca://{}{}".format(
-            self.macros_dict["P"], ":GenWarn-Mon" if self.isMaster else ":ModWarnGroup-Mon",
+            self.macros_dict["P"],
+            ":GenWarn-Mon" if self.isMaster else ":ModWarnGroup-Mon",
         )
         self.errorByte.channel = "ca://{}{}".format(
-            self.macros_dict["P"], ":Intlk-Mon" if self.isMaster else ":ModErrGroup-Mon",
+            self.macros_dict["P"],
+            ":GenIntlk-Mon" if self.isMaster else ":ModErrGroup-Mon",
         )
 
     def changeProtectionLevel(self):
