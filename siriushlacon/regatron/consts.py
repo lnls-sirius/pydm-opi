@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import pkg_resources
+import json
 
 
 def get_abs_path(filename):
@@ -17,6 +18,15 @@ REGATRON_UI = get_abs_path("ui/main.ui")
 TREE_32_UI = get_abs_path("ui/tree32.ui")
 COMPLETE_UI = get_abs_path("ui/regatron.ui")
 ALARM_UI = get_abs_path("ui/alarm.ui")
+
+def load_data():
+    data = None
+    with open(DATA_JSON, "r") as f:
+        data = json.load(f)
+    return data
+
+REGATRON_DEVICES = load_data()
+
 
 ERROR_LIST_PDF = get_abs_path("ui/error-list-en.pdf")
 CODES = [
