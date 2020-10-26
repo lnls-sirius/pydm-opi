@@ -8,7 +8,15 @@ This repo should contain every PyDM OPI developed by the CONS group currently in
 [![Latest release](https://img.shields.io/github/release/lnls-sirius/pydm-opi.svg?style=flat)](https://github.com/lnls-sirius/pydm-opi/releases)
 [![PyPI version fury.io](https://badge.fury.io/py/siriushlacon.svg)](https://pypi.python.org/pypi/siriushlacon/)
 [![Read the Docs](https://readthedocs.org/projects/spack/badge/?version=latest)](https://lnls-sirius.github.io/pydm-opi/)
- 
+
+Develop
+-------
+In order to contribute with this repository the developer must have **pre-commit** installed locally.
+```command
+pip install pre-commit
+pre-commit install
+```
+
 Install
 -------
 Available at **PyPi** https://pypi.org/project/siriushlacon/
