@@ -1,5 +1,4 @@
 #!/usr/bin/python-sirius
-import ipaddress
 import logging
 import pickle
 import os
@@ -43,7 +42,12 @@ class BBB:
         self.node.state_string = NodeState.to_string(self.node.state)
 
         self.node.type = Type.from_code(Type.UNDEFINED)
-        self.node.ip_address = str(ipaddress.ip_address(self.get_ip_address()[0]))
+        (
+            self.node.ip_type,
+            self.node.ip_address,
+            self.node.nameservers,
+        ) = self.get_network_specs()
+        self.node.sector = Sector.get_sector_by_ip_address(self.node.ip_address)
 
         self.current_config_json_mtime = None
 
@@ -130,7 +134,7 @@ class BBB:
                     )
                 )
             self.change_ip_address(dhcp_manual, new_ip_address, new_mask, new_gateway)
-            self.node.ip_address = self.get_ip_address()[0]
+            self.node.ip_type, self.node.ip_address = self.get_network_specs()[:1]
 
     def read_node_parameters(self):
         """
@@ -162,22 +166,37 @@ class BBB:
             file.close()
             self.logger.info("Node configuration file updated successfully.")
 
-    def get_ip_address(self):
-        """
-        Get the host's IP address with the 'ip addr' Linux command.
-        :return: a tuple containing the host's ip address and network address.
-        """
-        command_out = subprocess.check_output(
-            "ip addr show dev {} scope global".format(self.interface_name).split()
-        ).decode("utf-8")
-
-        lines = command_out.split("\n")
-        address_line = lines[2].split()[1]
-
-        return (
-            ipaddress.IPv4Address(address_line[0 : address_line.index("/")]),
-            ipaddress.IPv4Network(address_line, strict=False),
+    def get_network_specs(self):
+        services = (
+            subprocess.check_output(["connmanctl", "services"]).decode().split("\n")
         )
+        for service in services:
+            if "Wired" in service:
+                network = service.split(16 * " ")[1]
+                break
+            else:
+                network = None
+        if not network:
+            return False
+        command_out = (
+            subprocess.check_output(["connmanctl", "services", network])
+            .decode()
+            .split("\n")
+        )
+        nameservers = ""
+        ip_type = ""
+        ip_address = ""
+        for line in command_out:
+            # Address line
+            if "IPv4 = " in line:
+                ip_type = line[18 : line.index(",")]
+                ip_address = line[
+                    line.index("Address=") + 8 : line.index("Netmask") - 2
+                ]
+            # Nameservers line
+            if "Nameservers = " in line:
+                nameservers = line[line.index("=") + 4 : -2]
+        return ip_type, ip_address, nameservers
 
     def change_ip_address(
         self, dhcp_manual, new_ip_address="", new_mask="", new_gateway=""
@@ -198,7 +217,7 @@ class BBB:
         if new_ip_address != "":
             self.logger.info(
                 "Changing current IP address from {} to {}".format(
-                    self.get_ip_address()[0], new_ip_address
+                    self.get_network_specs()[1], new_ip_address
                 )
             )
             if new_gateway is None:
@@ -206,7 +225,7 @@ class BBB:
         else:
             self.logger.info(
                 "Changing current IP address from {} to DHCP".format(
-                    self.get_ip_address()[0]
+                    self.get_network_specs()[1]
                 )
             )
 
@@ -221,7 +240,7 @@ class BBB:
 
         time.sleep(2)
         self.logger.debug(
-            "IP address after update is {}".format(self.get_ip_address()[0])
+            "IP address after update is {}".format(self.get_network_specs()[1])
         )
 
     def update_nameservers(self, nameserver_1="", nameserver_2=""):
@@ -346,13 +365,11 @@ class Sector:
     A static class providing helper functions to manage sectors.
     """
 
-    SECTORS = [("Sala" + str(i).zfill(2)) for i in range(1, 21)] + [
-        "Conectividade",
-        "LINAC",
-        "RF",
-        "Fontes",
-        "Outros",
-    ]
+    SECTORS = (
+        ["LINAC"]
+        + [("Sala" + str(i).zfill(2)) for i in range(1, 21)]
+        + ["LTs", "Conectividade", "Fontes", "RF", "Outros"]
+    )
 
     SUBNETS = (
         [
@@ -393,6 +410,9 @@ class Sector:
         :return: the sector that contains the given IP address.
         :raise SectorNotFoundError: IP address is not contained in any sub-network.
         """
+        if type(ip_address) is not ipaddress.IPv4Address:
+            ip_address = ipaddress.ip_address(ip_address)
+
         for idx, subnet in enumerate(Sector.SUBNETS):
             if type(subnet) is list:
                 for s in subnet:
@@ -411,6 +431,9 @@ class Sector:
         :return: the default gateway of that host. An ipaddress.IPv4Address object.
         :raise SectorNotFoundError: IP address is not contained in any sub-network.
         """
+        if type(ip_address) is not ipaddress.IPv4Address:
+            ip_address = ipaddress.ip_address(ip_address)
+
         for subnet in Sector.SUBNETS:
             if type(subnet) is list:
                 for s in subnet:
@@ -458,7 +481,7 @@ class NodeState:
 
 class Type:
     """
-    This class provides a wrapper for host types. 
+    This class provides a wrapper for host types.
     """
 
     KEY_PREFIX = "Type:"
@@ -581,7 +604,9 @@ class Node:
         """
         Initializes a node instance.
         :param name: a node's name.
-        :param ip: string representation of a node's ip address.
+        :param ip_address: string representation of a node's ip address.
+        :param ip_type: string representation of a node's ip type
+        :param nameservers: string representation of nodes nameservers
         :param state: current node's state.
         :param type_node: current node's type.
         :param sector: current node's sector.
@@ -592,6 +617,8 @@ class Node:
 
         self.name = kwargs.get("name", "r0n0")
         self.ip_address = kwargs.get("ip_address", "10.128.0.0")
+        self.ip_type = kwargs.get("ip_type", "Undefined")
+        self.nameservers = kwargs.get("nameservers", "")
         self.state = kwargs.get("state", NodeState.CONNECTED)
         self.state_string = NodeState.to_string(self.state)
         self.type = kwargs.get("type_node", Type(code=Type.UNDEFINED))

@@ -1,488 +1,599 @@
-import threading
-import redis
-import time
+"""Alter REDIS_HOST to your host's IP"""
+
 import subprocess
-import logging
+from time import sleep, localtime, strftime
+from qtpy import QtCore, QtGui, QtWidgets, uic
 
-import os
-import sys
+from pydm import Display
+from siriushlacon.beaglebones.BBBread import RedisServer
+from siriushlacon.beaglebones.consts import (
+    BEAGLEBONES_MAIN_UI,
+    INFO_BBB_UI,
+    CHANGE_BBB_UI,
+)
 
-if len(sys.argv) == 1:
-    sys.path.insert(0, "/root/bbb-function/src/scripts")
-    from bbb import BBB
+qtCreatorFile = BEAGLEBONES_MAIN_UI
+qtCreator_configfile = CHANGE_BBB_UI
+qtCreator_infofile = INFO_BBB_UI
 
-SERVER_IP = "10.128.255.3"
-CONFIG_PATH = "/var/tmp/bbb.bin"
-LOG_PATH_SERVER = "/var/tmp/bbbread_server.log"
-LOG_PATH_BBB = "/var/tmp/bbbread.log"
+BASIC_TAB = 0
+ADVANCED_TAB = 1
+SERVICE_TAB = 2
 
+room_names = {
+    "All": "",
+    "Others": "Outros",
+    "TL": "LTs",
+    "Connectivity": "Conectividade",
+    "Power Supplies": "Fontes",
+    "RF": "RF",
+}
 
-def update_local_db():
-    """Updates local redis database with device.json info"""
-    node = BBB(CONFIG_PATH)
-    local_db = redis.StrictRedis(host="127.0.0.1", port=6379, socket_timeout=2)
-    info = node.get_current_config()["n"]
+for i in range(20):
+    room_names["IA-{:02d}".format(i + 1)] = "Sala{:02d}".format(i + 1)
 
-    info["ping_time"] = str(time.time())
-    services = subprocess.check_output(["connmanctl", "services"]).decode().split("\n")
-
-    """
-    ip_specs is a string similar to:
-    '... IPv4 = [ Method=XXXXX, Address=W.X.Y.Z  ...
-    ... IPv4.Configuration ...
-    ... Nameservers = [ X.X.X.X, Y.Y.Y.Y ] 
-    Nameservers.Configuration ...'
-    """
-
-    for service in services:
-        if "*AO Wired" in service or "*AR Wired" in service:
-            service = service.split(16 * " ")[1]
-            ip_specs = subprocess.check_output(
-                ["connmanctl", "services", service]
-            ).decode()
-            # Determines IP type
-            if "IPv4.Configuration = [ Method=dhcp" in ip_specs:
-                info["ip_type"] = "DHCP"
-            else:
-                info["ip_type"] = "StaticIP"
-            info["nameservers"] = ip_specs.split("Nameservers")[1][5:-5]
-            # Determines IP
-            ip_string = ip_specs.split("IPv4")[1].split(",")[1][9:]
-            if "10.128.1" in ip_string:
-                info["sector"] = ip_string.split(".")[2][1:]
-            else:
-                info["sector"] = "1"
-            break
-        else:
-            info["ip_type"] = "Undefined"
-            info["nameservers"] = "Undefined"
-            info["sector"] = "1"
-
-    local_db.hmset("device", info)
-    return info["ip_address"], info["name"]
+Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
+Ui_MainWindow_config, QtBaseClass_config = uic.loadUiType(qtCreator_configfile)
+Ui_MainWindow_info, QtBaseClass_info = uic.loadUiType(qtCreator_infofile)
 
 
-class Command:
-    (
-        PING,
-        REBOOT,
-        EXIT,
-        END,
-        TYPE,
-        APPEND_TYPE,
-        REMOVE_TYPE,
-        NODE,
-        APPEND_NODE,
-        REMOVE_NODE,
-        SWITCH,
-        GET_TYPES,
-        GET_UNREG_NODES_SECTOR,
-        GET_REG_NODES_SECTOR,
-        GET_REG_NODE_BY_IP,
-        OK,
-        FAILURE,
-        SET_IP,
-        SET_HOSTNAME,
-        SET_NAMESERVERS,
-    ) = range(20)
+class BBBreadMainWindow(Display):
+    """BeagleBone Black Redis Activity Display"""
 
+    def __init__(self, parent=None, macros=None, **kwargs):
+        super().__init__(parent=parent, macros=macros, ui_filename=BEAGLEBONES_MAIN_UI)
 
-class RedisServer:
-    """Runs on Control System's Server"""
+        # Configures redis Server
+        self.server = RedisServer()
 
-    def __init__(self, host=SERVER_IP, log_path=LOG_PATH_SERVER):
-        # Configuring redis server
-        self.local_db = redis.Redis(host=host)
-
-        # Configuring logging
-        self.logger = logging.getLogger("bbbreadServer")
-        self.logger.setLevel(logging.DEBUG)
-        formatter = logging.Formatter("%(levelname)s:%(asctime)s:%(name)s:%(message)s")
-        try:
-            file_handler = logging.FileHandler(log_path)
-            file_handler.setFormatter(formatter)
-            self.logger.addHandler(file_handler)
-        except:
-            self.logger.exception(
-                "Failed to create file_handler at '{}'".format(log_path)
-            )
-            pass
-
-    # TODO: Change function name
-    def list_connected(self, ip="", hostname=""):
-        """Returns a list of all BeagleBone Blacks connected to REDIS database
-        If IP or hostname is specified lists only the ones with the exact specified parameter"""
-        if ip and hostname:
-            all_instances = self.local_db.keys("BBB:{}:{}".format(ip, hostname))
-            command_instances = []
-        elif ip and not hostname:
-            all_instances = self.local_db.keys("BBB:{}:*".format(ip))
-            command_instances = self.local_db.keys("BBB:{}:*:Command".format(ip))
-        elif not ip and hostname:
-            all_instances = self.local_db.keys("BBB:*:{}".format(hostname))
-            command_instances = []
-        else:
-            all_instances = self.local_db.keys("BBB:*")
-            command_instances = self.local_db.keys("BBB:*:Command")
-        all_connected = []
-        for node in all_instances:
-            if node in command_instances:
-                continue
-            all_connected.append(node.decode())
-        return all_connected
-
-    def get_node(self, hashname):
-        """Returns a BBB info, if an error occurs returns False"""
-        try:
-            info = self.local_db.hgetall(hashname)
-            return info
-        except Exception as e:
-            self.logger.error("Failed to return nodes info due to error:\n{}".format(e))
-            return False
-
-    def send_command(self, ip: str, command, hostname=""):
-        """Sends a command to a BeagleBone Black
-        Returns False if it fails to send command"""
-        try:
-            bbb_hashname = self.list_connected(ip, hostname)
-            if len(bbb_hashname) == 1:
-                bbb_state = self.local_db.hget(bbb_hashname[0], "state_string").decode()
-                if bbb_state != "Connected":
-                    self.logger.error("failed to send command, node is inactive")
-                    return False
-                bbb_command_listname = "{}:Command".format(bbb_hashname[0])
-                check = self.local_db.rpush(bbb_command_listname, command)
-                return bool(check)
-            elif len(bbb_hashname) < 1:
-                self.logger.error(
-                    "no node found with the specified IP and hostname:" + ip + hostname
-                )
-            else:
-                self.logger.error(
-                    "two or more nodes found with the specified ip, please specify a hostname"
-                )
-            return False
-        except Exception as e:
-            self.logger.critical(
-                "A fatal error occurred while sending the command:\n{}".format(e)
-            )
-            return False
-
-    # TODO: verify if this method is still necessary
-    def generate_hashname(self, bbb_ip: str):
-        """Verifies if there is one hash for the specified IP.
-        Returns the BBB hash name or NONE"""
-        bbb_hashname = sorted(self.local_db.keys("BBB:{}:*".format(bbb_ip)))
-        bbb_commandlistname = self.local_db.keys("BBB:{}:*:Command".format(bbb_ip))
-        if len(bbb_hashname) == 1:
-            return bbb_hashname[0].decode()
-        elif len(bbb_hashname) == 2 and bbb_commandlistname:
-            return bbb_hashname[0].decode()
-        elif len(bbb_hashname) < 1:
-            self.logger.error(
-                "Failed to find any BBB redis instance for the specified IP"
-            )
-            return None
-        else:
-            self.logger.error("Two or more hash with the same IP")
-            return None
-
-    def bbb_state(self, hashname: str):
-        """Verifies if node is active. Ping time inferior to 15 seconds
-        Zero if active node, One if disconnected and Two if moved to other hash"""
-        last_ping = float(self.local_db.hget(hashname, "ping_time").decode())
-        time_since_ping = time.time() - last_ping
-        node_state = self.local_db.hget(hashname, "state_string").decode()
-        if node_state[:3] == "BBB":
-            return 2
-        elif time_since_ping >= 11:
-            self.local_db.hset(hashname, "state_string", "Disconnected")
-            return 1
-        return 0
-
-    # TODO: verify if this method is still necessary
-    def move_bbb(self, hashname: str):
-        """Verifies if a node was successfully moved to another hash.
-        If so, deletes it's previous hashname"""
-        if self.local_db.exists(hashname):
-            new_hash = self.local_db.hget(hashname, "state_string").decode()
-            if new_hash == "BBB:IP-moved-to-DHCP":
-                hashes = self.list_connected(hostname=hashname.split(":")[2])
-                if len(hashes) == 2:
-                    self.local_db.delete(hashname)
-                    return True
-                return False
-            elif new_hash[:3] == "BBB":
-                if (
-                    self.local_db.exists(new_hash)
-                    and self.local_db.hget(new_hash, "state_string") == b"Connected"
-                ):
-                    self.local_db.delete(hashname)
-                    return True
-            else:
-                self.logger.warning("BBB didn't change IP")
-                return False
-        else:
-            self.logger.warning("Invalid hashname")
-            return False
-
-    def delete_bbb(self, hashname: str):
-        """Removes a hash from redis database"""
-        self.local_db.delete(hashname)
-
-    def change_hostname(self, ip: str, new_hostname: str, current_hostname=""):
-        """Changes a BeagleBone Black hostname
-        Returns false if an error occurs while sending the command or BBB isn't connected to Redis"""
-        command = "{};{}".format(Command.SET_HOSTNAME, new_hostname)
-        check = self.send_command(ip, command, current_hostname)
-        # If command is sent successfully logs hostname change
-        if check:
-            self.logger.info("{} NEW HOSTNAME - {}".format(ip, new_hostname))
-        return check
-
-    def change_nameservers(
-        self, ip: str, nameserver_1: str, nameserver_2: str, hostname=""
-    ):
-        """Changes a BeagleBone Black nameservers
-        Returns false if an error occurs while sending the command or BBB isn't connected to Redis"""
-        command = "{};{};{}".format(Command.SET_NAMESERVERS, nameserver_1, nameserver_2)
-        check = self.send_command(ip, command, hostname)
-        # If command is sent successfully logs hostname change
-        if check:
-            self.logger.debug(
-                "{} NEW NAMESERVERS - {}  {}".format(ip, nameserver_1, nameserver_2)
-            )
-        return check
-
-    def change_ip(
-        self,
-        current_ip: str,
-        ip_type: str,
-        hostname="",
-        new_ip="",
-        new_mask="",
-        new_gateway="",
-    ):
-        """Changes a BeagleBone Black IP address (DHCP or manual)
-        Returns false if an error occurs while sending the command or BBB isn't connected to Redis"""
-        command = "{};{}".format(Command.SET_IP, ip_type)
-        if ip_type == "manual":
-            # Verifies if new_ip is possible
-            check_integrity = new_ip.split(".")
-            if len(check_integrity) != 4:
-                self.logger.warning("{} NEW IP NOT FORMATTED CORRECTLY")
-                return False
-            # Verifies if specified IP is available
-            ip_available = os.system('ping "-c" 1 -w2 "10.0.6.6" > /dev/null 2>&1')
-            if ip_available:
-                command += ";{};{};{}".format(new_ip, new_mask, new_gateway)
-            else:
-                self.logger.warning("{} IP NOT AVAILABLE")
-                return False
-        check = self.send_command(current_ip, command, hostname)
-        if check:
-            self.logger.info(
-                "{} NEW IP - type:{} - new ip: {} - mask: {} - gateway: {}".format(
-                    current_ip, ip_type, new_ip, new_mask, new_gateway
-                )
-            )
-        return check
-
-    def reboot_node(self, ip: str, hostname=""):
-        """Reboots the specified BeagleBone Black
-        Returns false if an error occurs while sending the command or BBB isn't connected to Redis"""
-        check = self.send_command(ip, Command.REBOOT, hostname)
-        if check:
-            self.logger.info("{} REBOOT".format(ip))
-        return check
-
-
-# TODO: Implement commutable server IP
-class RedisClient:
-    """
-    A class to write BBB information on a REDIS server
-    """
-
-    def __init__(self, path=CONFIG_PATH, remote_host=SERVER_IP, log_path=LOG_PATH_BBB):
-        self.bbb = BBB(path)
-        # Configuring logging
-        self.logger = logging.getLogger("bbbread")
-        self.logger.setLevel(logging.INFO)
-        formatter = logging.Formatter("%(levelname)s:%(asctime)s:%(name)s:%(message)s")
-        try:
-            file_handler = logging.FileHandler(log_path)
-            file_handler.setFormatter(formatter)
-            self.logger.addHandler(file_handler)
-        except:
-            self.logger.exception(
-                "Failed to crate file_handler at '{}'".format(file_handler)
-            )
-
-        # Defining local and remote database
-        self.remote_host = remote_host
-        self.local_db = redis.Redis(host="127.0.0.1", port=6379, socket_timeout=2)
-        self.remote_db = redis.Redis(host=self.remote_host, port=6379, socket_timeout=2)
-
-        # Formats remote hash name as "BBB:IP_ADDRESS:HOSTNAME"
-        update_local_db()
-        self.bbb_ip, self.bbb_hostname = self.local_db.hmget(
-            "device", "ip_address", "name"
+        # Lists
+        self.nodes = []
+        self.nodes_info = {}
+        self.basicList.setSortingEnabled(True)
+        self.basicList.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
+        self.advancedList.setSortingEnabled(True)
+        self.advancedList.setSelectionMode(
+            QtWidgets.QAbstractItemView.ExtendedSelection
         )
-        self.bbb_ip = self.bbb_ip.decode()
-        self.bbb_hostname = self.bbb_hostname.decode()
-        self.hashname = "BBB:{}:{}".format(self.bbb_ip, self.bbb_hostname)
-        self.command_listname = "BBB:{}:{}:Command".format(
-            self.bbb_ip, self.bbb_hostname
-        )
-        self.remote_db.rpush(self.command_listname, "")
+        self.serviceList.setSortingEnabled(True)
+        self.serviceList.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
 
-        # Pinging thread
-        self.ping_thread = threading.Thread(target=self.ping_remote, daemon=True)
-        self.pinging = True
-        self.ping_thread.start()
+        # List Update Timer
+        self.autoUpdate_timer = QtCore.QTimer(self)
+        self.autoUpdate_timer.timeout.connect(self.update_nodes)
+        self.autoUpdate_timer.setSingleShot(False)
+        self.autoUpdate_timer.start(1000)
 
-        # Listening thread
-        self.listen_thread = threading.Thread(target=self.listen, daemon=True)
-        self.listening = True
-        self.listen_thread.start()
+        # Buttons
+        self.basicList.itemSelectionChanged.connect(self.enable_buttons)
+        self.advancedList.itemSelectionChanged.connect(self.enable_buttons)
+        self.serviceList.itemSelectionChanged.connect(self.enable_buttons)
+        self.tabWidget.currentChanged.connect(self.enable_buttons)
+        self.deleteButton.clicked.connect(self.delete_nodes)
+        self.rebootButton.clicked.connect(self.reboot_nodes)
+        self.configButton.clicked.connect(self.config_node)
+        self.infoButton.clicked.connect(self.show_node_info)
+        self.applyserviceButton.clicked.connect(self.service_application)
 
-    def ping_remote(self):
-        """Thread that updates remote database every 10s, if pinging is enabled"""
-        while True:
-            if not self.pinging:
-                time.sleep(2)
+    def update_nodes(self):
+        """Updates list of BBBs shown"""
+        # Stores every BBB information
+        self.nodes = self.server.list_connected()
+        connected_number = 0
+        for node in self.nodes:
+            self.nodes_info[node] = self.server.get_node(node)
+
+        current_tab = self.tabWidget.currentIndex()
+        if current_tab == ADVANCED_TAB:
+            state_filter = {
+                "Connected": self.connectedAdvancedBox.isChecked(),
+                "Disconnected": self.disconnectedAdvancedBox.isChecked(),
+                "Moved": self.movedAdvancedBox.isChecked(),
+            }
+            list_name = self.advancedList
+        elif current_tab == BASIC_TAB:
+            state_filter = {
+                "Connected": self.connectedCheckBox.isChecked(),
+                "Disconnected": self.disconnectedCheckBox.isChecked(),
+                "Moved": self.movedCheckBox.isChecked(),
+            }
+            list_name = self.basicList
+        else:
+            state_filter = {"Connected": True, "Disconnected": False, "Moved": False}
+            list_name = self.serviceList
+
+        # Advanced Tab filters
+        ip_filter = {
+            "manual": self.staticipAdvancedBox.isChecked(),
+            "dhcp": self.dhcpAdvancedBox.isChecked(),
+            "Undefined": self.undeterminedAdvancedBox.isChecked(),
+            "StaticIP": self.staticipAdvancedBox.isChecked(),
+        }
+        equipment_filter = {
+            "MKS": self.mksAdvancedBox.isChecked(),
+            "4UHV": self.uhvAdvancedBox.isChecked(),
+            "MBTEMP": self.mbtempAdvancedBox.isChecked(),
+            "THERMO": self.thermoAdvancedBox.isChecked(),
+            "COUNTING": self.countingpruAdvancedBox.isChecked(),
+            "POWER": self.powersupplyAdvancedBox.isChecked(),
+            "SPIXCONV": self.spixconvAdvancedBox.isChecked(),
+            "RACK_MON": self.rackmonitorAdvancedBox.isChecked(),
+            "Searching": self.nodevAdvancedBox.isChecked(),
+            "": self.nodevAdvancedBox.isChecked(),
+        }
+        self.Lock = True
+        for node, info in self.nodes_info.items():
+            if node not in self.nodes:
                 continue
-            # self.remote_db = redis.Redis(host=self.remote_host, port=6379)
             try:
-                self.force_update()
-                self.logger.debug("Remote DataBase pinged successfully")
-                time.sleep(10)
+                # Organizes node information
+                node_ip = info[b"ip_address"].decode()
+                node_ip_type = info[b"ip_type"].decode()
+                node_name = info[b"name"].decode()
+                node_sector = info[b"sector"].decode()
+                node_state = info[b"state_string"].decode()
+                node_details = info[b"details"].decode()
+                node_string = "{} - {}".format(node_ip, node_name)
             except Exception as e:
-                self.logger.error("Pinging Thread died:\n{}".format(e))
-                time.sleep(1)
-
-    def listen(self):
-        """Thread to process server's commands"""
-        while True:
-            time.sleep(2)
-            if not self.listening:
-                time.sleep(2)
+                print(e)
                 continue
-            try:
-                self.command_listname = self.hashname + ":Command"
-                if self.remote_db.keys(self.command_listname):
-                    command = self.remote_db.lpop(self.command_listname).decode()
-                    command = command.split(";")
-                    # Verifies if command is an integer
-                    try:
-                        command[0] = int(command[0])
-                    except ValueError:
-                        self.logger.error(
-                            "Failed to convert first part of the command to integer"
-                        )
-                        continue
-                    self.logger.info("command received {}".format(command))
-                    if command[0] == Command.REBOOT:
-                        self.logger.info("Reboot command received")
-                        self.bbb.reboot()
+            # Increments Connected Number of BBBs if beagle is connected
+            if node_state == "Connected":
+                connected_number += 1
+            # Filters by name and displays node in list
+            if (
+                self.filterEdit.text() == "" or self.filterEdit.text() in node_string
+            ) and room_names[self.roomBox.currentText()] in [node_sector, ""]:
+                item = QtWidgets.QListWidgetItem(node_string)
+                equipment_len = len(equipment_filter)
+                current_equipment = 0
+                for equipment, efilter in equipment_filter.items():
+                    current_equipment += 1
+                    # Filters by equipment if advanced tab is selected
+                    if (
+                        equipment in node_details
+                        and efilter
+                        and (ip_filter[node_ip_type] or ip_filter["Undefined"])
+                    ) or current_tab in [BASIC_TAB, SERVICE_TAB]:
 
-                    # TODO: Needs to lock update_local_db in order to prevent state_string to be quoted wrong
-                    elif command[0] == Command.SET_HOSTNAME and len(command) == 2:
-                        new_hostname = command[1]
-                        # bbb_ip = self.local_db.hget('device', 'ip_address').decode()
-                        # self.remote_db.hset(self.hashname, 'state_string', 'BBB:{}:{}'.format(bbb_ip, new_hostname))
-                        self.bbb.update_hostname(new_hostname)
-                        # Updates variable names
-                        self.logger.info("renaming command")
-                        # self.remote_db = redis.StrictRedis(host=self.remote_host, port=6379, socket_timeout=2)
-                        # if self.remote_db.keys(self.command_listname):
-                        #     self.remote_db.rename(self.command_listname, self.hashname + ":Command")
-                        self.logger.info("Hostname changed to " + new_hostname)
-
-                    elif command[0] == Command.SET_IP:
-                        ip_type = command[1]
-                        # Verifies if IP is to be set manually
-                        if ip_type == "manual" and len(command) == 5:
-                            new_ip = command[2]
-                            new_mask = command[3]
-                            new_gateway = command[4]
-                            # bbb_hostname = self.local_db.hget('device', 'name').decode()
-                            # self.remote_db.hset(self.hashname, 'state_string', 'BBB:{}:{}'.format(new_ip,
-                            #                                                                          bbb_hostname))
-                            self.bbb.update_ip_address(
-                                ip_type, new_ip, new_mask, new_gateway
-                            )
-                            # Updates variable names
-                            self.logger.info("UPDATING")
-                            self.logger.info("renaming command")
-                            # self.remote_db = redis.StrictRedis(host=self.remote_host, port=6379, socket_timeout=2)
-                            # if self.remote_db.keys(self.command_listname):
-                            #     self.remote_db.rename(self.command_listname, self.hashname + ":Command")
-                            self.logger.info(
-                                "IP manually changed to {}, netmask {}, gateway {}".format(
-                                    new_ip, new_mask, new_gateway
+                        # Filters by node state
+                        if node_state == "Connected":
+                            if state_filter[node_state]:
+                                # Verifies if the node is already on the list
+                                qlistitem = list_name.findItems(
+                                    node_string, QtCore.Qt.MatchExactly
                                 )
-                            )
+                                if not qlistitem:
+                                    list_name.addItem(item)
+                                    item_index = list_name.row(item)
+                                else:
+                                    self.remove_faulty(node_string, list_name, False)
+                                    item_index = list_name.row(qlistitem[0])
+                                # Sets background color as white
+                                list_name.item(item_index).setBackground(
+                                    QtGui.QColor("white")
+                                )
+                            else:
+                                self.remove_faulty(node_string, list_name)
 
-                        # Verifies if IP is DHCP
-                        elif ip_type == "dhcp":
-                            # self.remote_db.hset(self.hashname, 'state_string', 'BBB:IP-moved-to-DHCP')
-                            self.bbb.update_ip_address(ip_type)
-                            # Updates variable names
-                            time.sleep(1)
-                            self.logger.info("renaming command")
-                            # self.remote_db = redis.StrictRedis(host=self.remote_host, port=6379, socket_timeout=2)
-                            # if self.remote_db.keys(self.command_listname):
-                            #     self.remote_db.rename(self.command_listname, self.hashname + ":Command")
-                            self.logger.info("IP changed to DHCP")
+                        # Disconnected nodes have red background
+                        elif node_state == "Disconnected":
+                            if state_filter[node_state]:
+                                # Verifies if the node is already on the list
+                                qlistitem = list_name.findItems(
+                                    node_string, QtCore.Qt.MatchExactly
+                                )
+                                if not qlistitem:
+                                    list_name.addItem(item)
+                                    item_index = list_name.row(item)
+                                else:
+                                    self.remove_faulty(node_string, list_name, False)
+                                    item_index = list_name.row(qlistitem[0])
+                                # Sets background color as red
+                                list_name.item(item_index).setBackground(
+                                    QtGui.QColor("red")
+                                )
 
-                    elif command[0] == Command.SET_NAMESERVERS and len(command) == 3:
-                        nameserver_1 = command[1]
-                        nameserver_2 = command[2]
-                        self.bbb.update_nameservers(nameserver_1, nameserver_2)
-                        self.logger.info("Nameservers changed")
-            except Exception as e:
-                self.logger.error("Listening Thread died:\n{}".format(e))
-                time.sleep(1)
-                self.remote_db = redis.StrictRedis(
-                    host=self.remote_host, port=6379, socket_timeout=2
-                )
-                continue
+                            else:
+                                self.remove_faulty(node_string, list_name)
 
-    def force_update(self, log=False):
-        """Updates local and remote database"""
-        if log:
-            self.logger.info("updating local db")
-        new_ip, new_hostname = update_local_db()
-        if log:
-            self.logger.info("local db updated")
-        info = self.local_db.hgetall("device")
-        # Formats remote hash name as "BBB:IP_ADDRESS"
-        self.hashname = "BBB:{}:{}".format(new_ip, new_hostname)
-        if new_ip != self.bbb_ip or new_hostname != self.bbb_hostname:
-            old_hashname = "BBB:{}:{}".format(self.bbb_ip, self.bbb_hostname)
-            old_info = info.copy()
-            old_info[b"state_string"] = self.hashname
-            old_info[b"name"] = self.bbb_hostname
-            old_info[b"ip_address"] = self.bbb_ip
-            if self.remote_db.keys(old_hashname + ":Command"):
-                self.remote_db.rename(
-                    old_hashname + ":Command", self.hashname + ":Command"
+                        # Moved nodes have yellow background
+                        elif node_state[:3] == "BBB":
+                            # print(node_name)
+                            if state_filter["Moved"]:
+                                # Verifies if the node is already on the list
+                                qlistitem = list_name.findItems(
+                                    node_string, QtCore.Qt.MatchExactly
+                                )
+                                if not qlistitem:
+                                    list_name.addItem(item)
+                                    item_index = list_name.row(item)
+                                else:
+                                    self.remove_faulty(node_string, list_name, False)
+                                    item_index = list_name.row(qlistitem[0])
+                                # Sets background color as yellow
+                                list_name.item(item_index).setBackground(
+                                    QtGui.QColor("yellow")
+                                )
+                            else:
+                                self.remove_faulty(node_string, list_name)
+                        break
+
+                    # If not in any of the selected equipments, removes node
+                    if current_equipment == equipment_len:
+                        self.remove_faulty(node_string, list_name)
+
+                # Removing duplicates
+                self.remove_faulty(node_string, list_name, False)
+
+            else:
+                self.remove_faulty(node_string, list_name)
+        self.Lock = False
+        # Updates the number of connected and listed nodes
+        self.connectedLabel.setText("Connected nodes: {}".format(connected_number))
+        self.listedLabel.setText("Listed: {}".format(list_name.count()))
+
+    @staticmethod
+    def remove_faulty(node_string, list_name: QtWidgets.QListWidget, all_elements=True):
+        """Removes duplicates and nodes that shouldn't be on the list"""
+        qlistitem = list_name.findItems(node_string, QtCore.Qt.MatchExactly)
+        if qlistitem:
+            if all_elements:
+                for node in qlistitem:
+                    list_name.takeItem(list_name.row(node))
+            elif len(qlistitem) > 1:
+                qlistitem.reverse()
+                list_name.takeItem(list_name.row(qlistitem[0]))
+
+    def enable_buttons(self):
+        """Enables Buttons when one or more boards are selected"""
+        current_tab = self.tabWidget.currentIndex()
+        if current_tab == BASIC_TAB:
+            selected_items = self.basicList.selectedItems()
+        elif current_tab == ADVANCED_TAB:
+            selected_items = self.advancedList.selectedItems()
+        else:
+            selected_items = self.serviceList.selectedItems()
+        if selected_items:
+            self.rebootButton.setEnabled(True)
+            self.deleteButton.setEnabled(True)
+            if len(selected_items) == 1:
+                self.configButton.setEnabled(True)
+                self.infoButton.setEnabled(True)
+            else:
+                self.configButton.setEnabled(False)
+                self.infoButton.setEnabled(False)
+            if current_tab == SERVICE_TAB:
+                self.applyserviceButton.setEnabled(True)
+            else:
+                self.applyserviceButton.setEnabled(False)
+        else:
+            self.rebootButton.setEnabled(False)
+            self.deleteButton.setEnabled(False)
+            self.configButton.setEnabled(False)
+            self.infoButton.setEnabled(False)
+            self.applyserviceButton.setEnabled(False)
+
+    def reboot_nodes(self):
+        """Reboots the selected nodes"""
+        confirmation = QtWidgets.QMessageBox.question(
+            self,
+            "Confirmation",
+            "Are you sure about rebooting these nodes?",
+            QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+        )
+        if confirmation == QtWidgets.QMessageBox.Yes:
+            current_list = self.tabWidget.currentIndex()
+            if current_list == BASIC_TAB:
+                selected_bbbs = self.basicList.selectedItems()
+            elif current_list == ADVANCED_TAB:
+                selected_bbbs = self.advancedList.selectedItems()
+            else:
+                selected_bbbs = self.serviceList.selectedItems()
+            for bbb in selected_bbbs:
+                bbb_ip, hostname = bbb.text().split(" - ")
+                self.server.reboot_node(bbb_ip, hostname)
+
+    def delete_nodes(self):
+        """Deletes hashs from Redis Database"""
+        confirmation = QtWidgets.QMessageBox.question(
+            self,
+            "Confirmation",
+            "Are you sure about deleting these nodes from Redis Database?",
+            QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+        )
+        if confirmation == QtWidgets.QMessageBox.Yes:
+            current_index = self.tabWidget.currentIndex()
+            if current_index == BASIC_TAB:
+                current_list = self.basicList
+            elif current_index == ADVANCED_TAB:
+                current_list = self.advancedList
+            else:
+                current_list = self.serviceList
+            selected_bbbs = current_list.selectedItems()
+            errors = []
+            for bbb in selected_bbbs:
+                bbb_ip, bbb_hostname = bbb.text().split(" - ")
+                bbb_hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
+                try:
+                    self.server.delete_bbb(bbb_hashname)
+                    self.remove_faulty(bbb.text(), current_list)
+                    while self.Lock:
+                        sleep(0.1)
+                    self.nodes_info.pop(bbb_hashname)
+                except KeyError:
+                    errors.append(bbb_hashname)
+                    continue
+            if errors:
+                QtWidgets.QMessageBox.warning(
+                    self,
+                    "Warning",
+                    "The following nodes weren't found in the Redis Database:\n{}".format(
+                        "\n".join(errors)
+                    ),
+                    QtWidgets.QMessageBox.Abort,
                 )
-            self.logger.info(
-                "old ip: {}, new ip: {}, old hostname: {}, new hostname: {}".format(
-                    self.bbb_ip, new_ip, self.bbb_hostname, new_hostname
-                )
+
+    def show_node_info(self):
+        """Shows selected BBB's information"""
+        current_list = self.tabWidget.currentIndex()
+        if current_list == BASIC_TAB:
+            bbb = self.basicList.selectedItems()[0].text()
+        elif current_list == ADVANCED_TAB:
+            bbb = self.advancedList.selectedItems()[0].text()
+        else:
+            bbb = self.serviceList.selectedItems()[0].text()
+        bbb_ip, bbb_hostname = bbb.split(" - ")
+        hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
+        try:
+            info = self.nodes_info[hashname]
+            self.window = BBBInfo(info)
+            self.window.show()
+        except KeyError:
+            QtWidgets.QMessageBox.warning(
+                self,
+                "Warning",
+                "The node you are trying to get information isn't connected",
+                QtWidgets.QMessageBox.Abort,
             )
-            self.remote_db.hmset(old_hashname, old_info)
-        # Updates remote hash
-        if log:
-            self.logger.info("updating remote db")
-        self.remote_db.hmset(self.hashname, info)
-        self.bbb_ip, self.bbb_hostname = (new_ip, new_hostname)
+
+    def config_node(self):
+        """Opens configuration the selected BBB's configuration window"""
+        current_list = self.tabWidget.currentIndex()
+        if current_list == BASIC_TAB:
+            bbb = self.basicList.selectedItems()[0].text()
+        elif current_list == ADVANCED_TAB:
+            bbb = self.advancedList.selectedItems()[0].text()
+        else:
+            bbb = self.serviceList.selectedItems()[0].text()
+        bbb_ip, bbb_hostname = bbb.split(" - ")
+        hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
+        info = self.nodes_info[hashname]
+        if info[b"state_string"].decode() == "Connected":
+            self.window = BBBConfig(hashname, info, self.server)
+            self.window.show()
+        else:
+            QtWidgets.QMessageBox.warning(
+                self,
+                "Warning",
+                "The node you are trying to configure isn't connected",
+                QtWidgets.QMessageBox.Abort,
+            )
+
+    def service_application(self):
+        """Applies services modification"""
+        confirmation = QtWidgets.QMessageBox.question(
+            self,
+            "Confirmation",
+            "Are you sure applying these changes?",
+            QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+        )
+        if confirmation == QtWidgets.QMessageBox.Yes:
+            selected_operation = self.operationcomboBox.currentText()
+            if selected_operation == "Restart":
+                operation = self.server.restart_service
+            else:
+                operation = self.server.stop_service
+            selected_bbbs = self.serviceList.selectedItems()
+            for bbb in selected_bbbs:
+                bbb_ip, bbb_hostname = bbb.text().split(" - ")
+                if self.bbbreadBox.isChecked():
+                    operation(bbb_ip, "bbbread", bbb_hostname)
+                if self.bbbfunctionBox.isChecked():
+                    operation(bbb_ip, "bbb-function", bbb_hostname)
+                if self.ethbridgeBox.isChecked():
+                    operation(bbb_ip, "eth-bridge-pru-serial485", bbb_hostname)
+
+
+class BBBInfo(QtWidgets.QWidget, Ui_MainWindow_info):
+    """BBB info display"""
+
+    def __init__(self, info):
+        QtWidgets.QWidget.__init__(self)
+        Ui_MainWindow_info.__init__(self)
+        self.setupUi(self)
+
+        if info:
+            node_ip = info[b"ip_address"].decode()
+            node_ip_type = info[b"ip_type"].decode()
+            node_name = info[b"name"].decode()
+            node_sector = info[b"sector"].decode()
+            ping_time = float(info[b"ping_time"].decode())
+            for room, number in room_names.items():
+                if number == node_sector:
+                    node_sector = room
+                    break
+            node_state = info[b"state_string"].decode()
+            node_details = info[b"details"].decode()
+            node_config_time = info[b"config_time"].decode()
+            nameservers = info[b"nameservers"].decode()
+            self.nameLabel.setText(node_name)
+            self.ipLabel.setText(node_ip)
+            self.stateLabel.setText(node_state)
+            self.iptypeLabel.setText(node_ip_type)
+            self.configtimevalueLabel.setText(node_config_time)
+            self.equipmentvalueLabel.setText(node_details)
+            self.nameserversvalueLabel.setText(nameservers)
+            self.sectorvalueLabel.setText(node_sector)
+            self.lastseenvalueLabel.setText(
+                strftime("%a, %d %b %Y   %H:%M:%S", localtime(ping_time))
+            )
+
+
+class BBBConfig(QtWidgets.QWidget, Ui_MainWindow_config):
+    """BBB configuration display"""
+
+    def __init__(self, hashname, info, server):
+        QtWidgets.QWidget.__init__(self)
+        Ui_MainWindow_config.__init__(self)
+        self.setupUi(self)
+
+        self.server = server
+
+        self.hashname = hashname
+        self.hostname = info[b"name"].decode()
+        self.ip_address = info[b"ip_address"].decode()
+        ip = self.ip_address.split(".")
+        self.ip_suffix = ip[-1]
+        self.bbb_sector = info[b"sector"].decode()
+
+        self.currenthostnamevalueLabel.setText(self.hostname)
+        self.currentipvalueLabel.setText(self.ip_address)
+
+        self.ip_prefix = ".".join(ip[:-1]) + "."
+
+        if ip[1] != "128":
+            self.ipComboBox.setEnabled(False)
+            self.newipSpinBox.setEnabled(False)
+            self.nameserver1Edit.setEnabled(False)
+            self.nameserver2Edit.setEnabled(False)
+            self.keepipBox.setChecked(True)
+            self.keepipBox.setEnabled(False)
+            self.keepnameserversBox.setChecked(True)
+            self.keepnameserversBox.setEnabled(False)
+
+        self.newipLabel.setText(self.ip_prefix)
+        self.ipComboBox.currentIndexChanged.connect(self.disable_spinbox)
+
+        self.applyButton.clicked.connect(self.apply_changes)
+
+    def disable_spinbox(self):
+        if self.ipComboBox.currentText() == "MANUAL":
+            self.newipSpinBox.setEnabled(True)
+        else:
+            self.newipSpinBox.setEnabled(False)
+
+    def apply_changes(self):
+        # Before asking for confirmation annotates configuration parameters in order to prevent delay bugs
+        self.applyButton.setEnabled(False)
+        hostname_changed = False
+        # DNS
+        keep_dns = self.keepnameserversBox.isChecked()
+        nameserver_1 = self.nameserver1Edit.text()
+        nameserver_2 = self.nameserver2Edit.text()
+
+        # Hostname
+        keep_hostname = self.keephostnameBox.isChecked()
+        new_hostname = self.hostnameEdit.text()
+
+        # IP
+        keep_ip = self.keepipBox.isChecked()
+        ip_type = self.ipComboBox.currentText()
+        new_ip_suffix = str(self.newipSpinBox.value())
+
+        # Bools to verify if command was sent successfully
+        ip_sent = False
+
+        # Confirmation screen
+        confirmation = QtWidgets.QMessageBox.question(
+            self,
+            "Confirmation",
+            "Apply changes?",
+            QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+        )
+        if confirmation == QtWidgets.QMessageBox.Yes:
+            # Nameservers configuration
+            if not keep_dns and nameserver_1 and nameserver_2:
+                dns_sent = self.server.change_nameservers(
+                    self.ip_address, nameserver_1, nameserver_2, self.hostname
+                )
+            else:
+                dns_sent = True
+            # Hostname configuration
+            if not keep_hostname and new_hostname:
+                name_sent = self.server.change_hostname(
+                    self.ip_address, new_hostname, self.hostname
+                )
+                hostname_changed = name_sent
+            else:
+                name_sent = True
+            if not keep_ip:
+                if ip_type in ["DHCP", "dhcp"]:
+                    if hostname_changed and name_sent:
+                        ip_sent = self.server.change_ip(
+                            self.ip_address, "dhcp", self.hostname, override=True
+                        )
+                        self.hostname = new_hostname
+                    else:
+                        ip_sent = self.server.change_ip(
+                            self.ip_address, "dhcp", self.hostname
+                        )
+                elif new_ip_suffix not in [self.ip_suffix, "0", "1", "2"]:
+                    new_ip = self.ip_prefix + new_ip_suffix
+                    if hostname_changed and name_sent:
+                        ip_sent = self.server.change_ip(
+                            self.ip_address,
+                            "manual",
+                            self.hostname,
+                            new_ip,
+                            "255.255.255.0",
+                            self.ip_prefix + "1",
+                            override=True,
+                        )
+                        self.hostname = new_hostname
+                    else:
+                        ip_sent = self.server.change_ip(
+                            self.ip_address,
+                            "manual",
+                            self.hostname,
+                            new_ip,
+                            "255.255.255.0",
+                            self.ip_prefix + "1",
+                        )
+            else:
+                ip_sent = True
+            if ip_sent and dns_sent and name_sent:
+                QtWidgets.QMessageBox.information(
+                    self,
+                    "Success",
+                    "Node configured successfully",
+                    QtWidgets.QMessageBox.Close,
+                )
+            if not name_sent:
+                QtWidgets.QMessageBox.warning(
+                    self,
+                    "Error",
+                    "Error in Hostname configuration",
+                    QtWidgets.QMessageBox.Abort,
+                )
+            if not dns_sent:
+                QtWidgets.QMessageBox.warning(
+                    self,
+                    "Error",
+                    "Error in Nameservers configuration",
+                    QtWidgets.QMessageBox.Abort,
+                )
+            if not ip_sent:
+                QtWidgets.QMessageBox.warning(
+                    self,
+                    "Error",
+                    "Error in IP configuration",
+                    QtWidgets.QMessageBox.Abort,
+                )
+            self.close()
+        else:
+            self.applyButton.setEnabled(True)
 
 
 if __name__ == "__main__":
-    server = RedisServer()
-    client = RedisClient()
-    sys.exit()
+    subprocess.Popen("pydm --hide-nav-bar " + BEAGLEBONES_MAIN_UI, shell=True)
