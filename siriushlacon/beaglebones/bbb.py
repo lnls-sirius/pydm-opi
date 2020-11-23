@@ -1,5 +1,4 @@
 #!/usr/bin/python-sirius
-import ipaddress
 import logging
 import pickle
 import os
@@ -12,17 +11,15 @@ import ast
 import ipaddress
 import copy
 
-# from entities import Command, Node, Sector, Type, NodeState
-
+#from entities import Command, Node, Sector, Type, NodeState
 
 class BBB:
     """
     A class to represent a Beaglebone host.
     """
+    CONFIG_JSON_PATH = '/opt/device.json'
 
-    CONFIG_JSON_PATH = "/opt/device.json"
-
-    def __init__(self, path="/var/tmp/bbb.bin", interface="eth0"):
+    def __init__(self, path='/var/tmp/bbb.bin', interface='eth0'):
         """
         Creates a new object instance.
         :param path: the configuration file's location
@@ -30,7 +27,7 @@ class BBB:
         # Creates the objects that wrap the host's settings.
         self.node = Node()
 
-        self.logger = logging.getLogger("BBB")
+        self.logger = logging.getLogger('BBB')
 
         #  Parameters that define absolute locations inside the host
         self.configuration_file_path = path
@@ -43,7 +40,8 @@ class BBB:
         self.node.state_string = NodeState.to_string(self.node.state)
 
         self.node.type = Type.from_code(Type.UNDEFINED)
-        self.node.ip_address = str(ipaddress.ip_address(self.get_ip_address()[0]))
+        self.node.ip_type, self.node.ip_address, self.node.nameservers = self.get_network_specs()
+        self.node.sector = Sector.get_sector_by_ip_address(self.node.ip_address)
 
         self.current_config_json_mtime = None
 
@@ -57,18 +55,13 @@ class BBB:
         """
         if os.path.exists(BBB.CONFIG_JSON_PATH):
             config_json_mtime = os.path.getmtime(BBB.CONFIG_JSON_PATH)
-            if (
-                self.current_config_json_mtime == None
-                or config_json_mtime != self.current_config_json_mtime
-            ):
-                with open(BBB.CONFIG_JSON_PATH, "r") as f:
+            if self.current_config_json_mtime == None or config_json_mtime != self.current_config_json_mtime:
+                with open(BBB.CONFIG_JSON_PATH, 'r') as f:
                     config = json.load(f)
                     self.current_config_json_mtime = config_json_mtime
-                    self.node.type.code = int(config["device"])
-                    self.node.details = "{}\tbaudrate={}".format(
-                        config["details"], config["baudrate"]
-                    )
-                    self.node.config_time = config["time"]
+                    self.node.type.code = int(config['device'])
+                    self.node.details = '{}\tbaudrate={}'.format(config['details'], config['baudrate'])
+                    self.node.config_time = config['time']
 
                     self.write_node_configuration()
 
@@ -79,30 +72,26 @@ class BBB:
         """
         self.check_config_json()
         dict_res = self.node.to_dict()
-        return {"comm": Command.PING, "n": dict_res[1]}
+        return {'comm' : Command.PING, 'n' : dict_res[1]}
 
     def reboot(self):
         """
         Reboots this node.
         """
         self.logger.info("Setting state to reboot ... Waiting for the next ping ...")
-        time.sleep(3.0)
+        time.sleep(3.)
         self.logger.info("Rebooting system.")
-        os.system("reboot")
+        os.system('reboot')
 
     def update_hostname(self, new_hostname):
         """
         Updates the host with anew hostname.
         """
-        old_hostname = self.node.name.replace(":", "--")
-        new_hostname = new_hostname.replace(":", "--")
+        old_hostname = self.node.name.replace(':', '--')
+        new_hostname = new_hostname.replace(':','--')
 
         if old_hostname != new_hostname:
-            self.logger.info(
-                "Updating current hostname from {} to {}.".format(
-                    old_hostname, new_hostname
-                )
-            )
+            self.logger.info("Updating current hostname from {} to {}.".format(old_hostname, new_hostname))
 
             with open("/etc/hostname", "w") as hostnameFile:
                 hostnameFile.write(new_hostname)
@@ -110,27 +99,19 @@ class BBB:
             os.system("hostname {}".format(new_hostname))
             self.node.name = new_hostname
 
-    def update_ip_address(
-        self, dhcp_manual, new_ip_address="", new_mask="", new_gateway=""
-    ):
+    def update_ip_address(self, dhcp_manual, new_ip_address="", new_mask="", new_gateway=""):
         """
         Updates the host with a new ip address
         """
         if self.node.ip_address != new_ip_address:
             if new_ip_address != "":
-                self.logger.info(
-                    "Updating current ip address from {} to {}, mask {}, default gateway {}.".format(
-                        self.node.ip_address, new_ip_address, new_mask, new_gateway
-                    )
-                )
+                self.logger.info("Updating current ip address from {} to {}, mask {}, default gateway {}.".format(
+                    self.node.ip_address, new_ip_address, new_mask, new_gateway))
             else:
-                self.logger.info(
-                    "Updating current ip address from {} to DHCP.".format(
-                        self.node.ip_address
-                    )
-                )
+                self.logger.info("Updating current ip address from {} to DHCP.".format(self.node.ip_address))
             self.change_ip_address(dhcp_manual, new_ip_address, new_mask, new_gateway)
-            self.node.ip_address = self.get_ip_address()[0]
+            self.node.ip_type, self.node.ip_address = self.get_network_specs()[:1]
+
 
     def read_node_parameters(self):
         """
@@ -141,14 +122,14 @@ class BBB:
         except IOError:
             self.logger.error("Configuration file not found. Adopting default values.")
 
-        name = subprocess.check_output(["hostname"]).decode("utf-8").strip("\n")
-        self.node.name = name.replace("--", ":")
+        name = subprocess.check_output(["hostname"]).decode('utf-8').strip('\n')
+        self.node.name = name.replace('--',':')
 
     def read_node_configuration(self):
         """
         Reads the current node configuration from a binary file with the pickle module.
         """
-        with open(self.configuration_file_path, "rb") as file:
+        with open(self.configuration_file_path, 'rb') as file:
             self.node = pickle.load(file)
             file.close()
             self.logger.info("Node configuration file read successfully.")
@@ -157,31 +138,36 @@ class BBB:
         """
         Writes the current node configuration to a binary file with the pickle module. Overrides old files.
         """
-        with open(self.configuration_file_path, "wb") as file:
+        with open(self.configuration_file_path, 'wb') as file:
             file.write(pickle.dumps(self.node))
             file.close()
             self.logger.info("Node configuration file updated successfully.")
 
-    def get_ip_address(self):
-        """
-        Get the host's IP address with the 'ip addr' Linux command.
-        :return: a tuple containing the host's ip address and network address.
-        """
-        command_out = subprocess.check_output(
-            "ip addr show dev {} scope global".format(self.interface_name).split()
-        ).decode("utf-8")
+    def get_network_specs(self):
+        services = subprocess.check_output(['connmanctl', 'services']).decode().split('\n')
+        for service in services:
+            if 'Wired' in service:
+                network = service.split(16 * ' ')[1]
+                break
+            else:
+                network = None
+        if not network:
+            return False
+        command_out = subprocess.check_output(['connmanctl', 'services', network]).decode().split('\n')
+        nameservers = ''
+        ip_type = ''
+        ip_address = ''
+        for line in command_out:
+            # Address line
+            if 'IPv4 = ' in line:
+                ip_type = line[18:line.index(',')]
+                ip_address = line[line.index('Address=') + 8:line.index('Netmask') - 2]
+            # Nameservers line
+            if 'Nameservers = ' in line:
+                nameservers = line[line.index('=') + 4:-2]
+        return ip_type, ip_address, nameservers
 
-        lines = command_out.split("\n")
-        address_line = lines[2].split()[1]
-
-        return (
-            ipaddress.IPv4Address(address_line[0 : address_line.index("/")]),
-            ipaddress.IPv4Network(address_line, strict=False),
-        )
-
-    def change_ip_address(
-        self, dhcp_manual, new_ip_address="", new_mask="", new_gateway=""
-    ):
+    def change_ip_address(self, dhcp_manual, new_ip_address="", new_mask="", new_gateway=""):
         """
         Execute the connmanclt tool to change the host' IP address.
         :param dchp_manual: either if its a DHCP ("dhcp") ou STATIC IP ("manual")
@@ -191,52 +177,27 @@ class BBB:
         :raise TypeError: new_ip_address or net_address are None or are neither ipaddress nor string objects.
         """
         service = self.get_connman_service_name()
-        self.logger.debug(
-            "Service for interface {} is {}.".format(self.interface_name, service)
-        )
+        self.logger.debug("Service for interface {} is {}.".format(self.interface_name, service))
 
         if new_ip_address != "":
-            self.logger.info(
-                "Changing current IP address from {} to {}".format(
-                    self.get_ip_address()[0], new_ip_address
-                )
-            )
+            self.logger.info('Changing current IP address from {} to {}'.format(self.get_network_specs()[1], new_ip_address))
             if new_gateway is None:
                 new_gateway = Sector.get_default_gateway_of_address(new_ip_address)
         else:
-            self.logger.info(
-                "Changing current IP address from {} to DHCP".format(
-                    self.get_ip_address()[0]
-                )
-            )
+            self.logger.info('Changing current IP address from {} to DHCP'.format(self.get_network_specs()[1]))
 
         subprocess.check_output(
-            [
-                "connmanctl config {} --ipv4 {} {} {} {}".format(
-                    service, dhcp_manual, new_ip_address, new_mask, new_gateway
-                )
-            ],
-            shell=True,
-        )
+            ['connmanctl config {} --ipv4 {} {} {} {}'.format(service, dhcp_manual, new_ip_address, new_mask,
+                                                            new_gateway)],
+            shell=True)
 
         time.sleep(2)
-        self.logger.debug(
-            "IP address after update is {}".format(self.get_ip_address()[0])
-        )
+        self.logger.debug('IP address after update is {}'.format(self.get_network_specs()[1]))
 
-    def update_nameservers(self, nameserver_1="", nameserver_2=""):
+    def update_nameservers(self, nameserver_1 = "", nameserver_2 = ""):
         service = self.get_connman_service_name()
-        self.logger.info(
-            "Changing DSN server to {} and {}".format(nameserver_1, nameserver_2)
-        )
-        subprocess.check_output(
-            [
-                "connmanctl config {} --nameservers {} {}".format(
-                    service, nameserver_1, nameserver_2
-                )
-            ],
-            shell=True,
-        )
+        self.logger.info('Changing DSN server to {} and {}'.format(nameserver_1,nameserver_2))
+        subprocess.check_output(['connmanctl config {} --nameservers {} {}'.format(service, nameserver_1,nameserver_2)], shell = True)
 
     def get_connman_service_name(self):
         """
@@ -245,33 +206,28 @@ class BBB:
         :return: A service's name.
         :raise ValueError: service is not found.
         """
-        services = subprocess.check_output(
-            ["connmanctl services"], stderr=subprocess.STDOUT, shell=True
-        ).decode("utf-8")
+        services = subprocess.check_output(['connmanctl services'], stderr=subprocess.STDOUT,
+                                           shell=True).decode('utf-8')
 
         for service in services.split():
 
-            if service.startswith("ethernet_"):
-                service_properties = subprocess.check_output(
-                    ["connmanctl services " + service],
-                    stderr=subprocess.STDOUT,
-                    shell=True,
-                ).decode("utf-8")
+            if service.startswith('ethernet_'):
+                service_properties = subprocess.check_output(['connmanctl services ' + service],
+                                                             stderr=subprocess.STDOUT,
+                                                             shell=True).decode('utf-8')
 
-                for prop in service_properties.split("\n"):
-                    if prop.strip().startswith("Ethernet"):
-                        data = prop.split("[")[1].strip()[:-1].split(",")
+                for prop in service_properties.split('\n'):
+                    if prop.strip().startswith('Ethernet'):
+                        data = prop.split('[')[1].strip()[:-1].split(',')
                         for d_info in data:
                             d_info = d_info.strip()
-                            if d_info.startswith("Interface"):
-                                if d_info == "Interface={}".format(self.interface_name):
+                            if d_info.startswith('Interface'):
+                                if d_info == 'Interface={}'.format(self.interface_name):
                                     return service
 
-        raise ValueError(
-            "Connmanctl service could not be found for interface {}".format(
-                self.interface_name
-            )
-        )
+        raise ValueError('Connmanctl service could not be found for interface {}'.format(self.interface_name))
+
+
 
 
 class Command:
@@ -279,28 +235,8 @@ class Command:
     A simple class to wrap command codes.
     """
 
-    (
-        PING,
-        REBOOT,
-        EXIT,
-        END,
-        TYPE,
-        APPEND_TYPE,
-        REMOVE_TYPE,
-        NODE,
-        APPEND_NODE,
-        REMOVE_NODE,
-        SWITCH,
-        GET_TYPES,
-        GET_UNREG_NODES_SECTOR,
-        GET_REG_NODES_SECTOR,
-        GET_REG_NODE_BY_IP,
-        OK,
-        FAILURE,
-        SET_IP,
-        SET_HOSTNAME,
-        SET_NAMESERVERS,
-    ) = range(20)
+    PING, REBOOT, EXIT, END, TYPE, APPEND_TYPE, REMOVE_TYPE, NODE, APPEND_NODE, REMOVE_NODE, SWITCH, \
+    GET_TYPES, GET_UNREG_NODES_SECTOR, GET_REG_NODES_SECTOR, GET_REG_NODE_BY_IP, OK, FAILURE, SET_IP, SET_HOSTNAME, SET_NAMESERVERS= range(20)
 
     @staticmethod
     def command_name(command):
@@ -320,59 +256,35 @@ class Command:
         :param command: a command id.
         :return: True if command should be appear in logs and False, otherwise.
         """
-        return command not in [
-            Command.GET_TYPES,
-            Command.GET_UNREG_NODES_SECTOR,
-            Command.GET_REG_NODES_SECTOR,
-            Command.GET_REG_NODE_BY_IP,
-            Command.OK,
-            Command.FAILURE,
-            Command.SET_IP,
-            Command.SET_HOSTNAME,
-            Command.SET_NAMESERVERS,
-        ]
+        return command not in [Command.GET_TYPES, Command.GET_UNREG_NODES_SECTOR,
+                               Command.GET_REG_NODES_SECTOR, Command.GET_REG_NODE_BY_IP,
+                               Command.OK, Command.FAILURE, Command.SET_IP,Command.SET_HOSTNAME, Command.SET_NAMESERVERS]
 
 
 class SectorNotFoundError(Exception):
     """
     A simple exception class to represent sector errors.
     """
-
     pass
-
 
 class Sector:
     """
     A static class providing helper functions to manage sectors.
     """
+    SECTORS = ['LINAC'] + [('Sala' + str(i).zfill(2)) for i in range(1, 21)] + ["LTs", "Conectividade", "Fontes", "RF", "Outros"]
 
-    SECTORS = [("Sala" + str(i).zfill(2)) for i in range(1, 21)] + [
-        "Conectividade",
-        "LINAC",
-        "RF",
-        "Fontes",
-        "Outros",
-    ]
-
-    SUBNETS = (
-        [
-            [
-                ipaddress.ip_network(u"10.128.1.0/24"),
-                ipaddress.ip_network(u"10.128.255.0/24"),
-            ]
-        ]
-        + [ipaddress.ip_network(u"10.128.{}.0/24".format(i)) for i in range(101, 124)]
-        + [ipaddress.ip_network(u"10.128.{}.0/24".format(i)) for i in range(201, 222)]
-        + [ipaddress.ip_network(u"10.128.{}.0/24".format(i)) for i in range(150, 153)]
-    )
+    SUBNETS = [[ipaddress.ip_network(u'10.128.1.0/24'),
+                ipaddress.ip_network(u'10.128.255.0/24')]] + \
+              [ipaddress.ip_network(u'10.128.{}.0/24'.format(i)) for i in range(101, 124)] + \
+              [ipaddress.ip_network(u'10.128.{}.0/24'.format(i)) for i in range(201, 222)] + \
+              [ipaddress.ip_network(u'10.128.{}.0/24'.format(i)) for i in range(150, 153)]
 
     # SECTORS_LIST = []
     SECTORS_DICT = {}
-    for i in range(1, 22):
-        SECTORS_DICT[
-            str(ipaddress.ip_network(u"10.128.{}.0/24".format(i + 100)))
-        ] = "CON-RACK{}".format(str(i).zfill(2))
-
+    for i in range(1,22):
+        SECTORS_DICT[str(ipaddress.ip_network(u'10.128.{}.0/24'.format(i + 100)))] = 'CON-RACK{}'.format(str(i).zfill(2))
+    
+    
     @staticmethod
     def subnets():
         return Sector.SUBNETS
@@ -393,6 +305,9 @@ class Sector:
         :return: the sector that contains the given IP address.
         :raise SectorNotFoundError: IP address is not contained in any sub-network.
         """
+        if type(ip_address) is not ipaddress.IPv4Address:
+            ip_address = ipaddress.ip_address(ip_address)
+
         for idx, subnet in enumerate(Sector.SUBNETS):
             if type(subnet) is list:
                 for s in subnet:
@@ -411,6 +326,9 @@ class Sector:
         :return: the default gateway of that host. An ipaddress.IPv4Address object.
         :raise SectorNotFoundError: IP address is not contained in any sub-network.
         """
+        if type(ip_address) is not ipaddress.IPv4Address:
+            ip_address = ipaddress.ip_address(ip_address)
+
         for subnet in Sector.SUBNETS:
             if type(subnet) is list:
                 for s in subnet:
@@ -456,86 +374,77 @@ class NodeState:
         return "Unknown state"
 
 
-class Type:
+class Type():
     """
     This class provides a wrapper for host types. 
     """
 
-    KEY_PREFIX = "Type:"
+    KEY_PREFIX = 'Type:'
     KEY_PREFIX_LEN = len(KEY_PREFIX)
 
     NUM_TYPES = 8
-    (
-        UNDEFINED,
-        POWER_SUPPLY,
-        COUNTING_PRU,
-        SERIAL_THERMO,
-        MBTEMP,
-        AGILENT4UHV,
-        MKS937B,
-        SPIXCONV,
-    ) = range(NUM_TYPES)
+    UNDEFINED, POWER_SUPPLY, COUNTING_PRU, SERIAL_THERMO, MBTEMP, AGILENT4UHV, MKS937B, SPIXCONV = range(NUM_TYPES)
     TYPES = []
 
     @staticmethod
     def from_code(type_code):
         if type_code not in range(Type.NUM_TYPES):
             raise ValueError("type_code {} invalid.".format(type_code))
-
+        
         return Type(code=type_code)
-
-    def __init__(self, **kwargs):
+        
+    def __init__(self,  **kwargs):
         """
         Initializes a type instance.
         :param name: a type's name.
         :param description: A brief description of the type
         :param sha: A way to provide error detection.
         """
-        self.code = kwargs.get("code", Type.UNDEFINED)
+        self.code = kwargs.get('code', Type.UNDEFINED)
 
     @property
     def description(self):
         if self.code == Type.POWER_SUPPLY:
-            return "Desc: Power Supply"
+            return 'Desc: Power Supply'
         elif self.code == Type.COUNTING_PRU:
-            return "Desc: CountingPRU"
+            return 'Desc: CountingPRU'
         elif self.code == Type.SERIAL_THERMO:
-            return "Desc: Thermo Probe"
+            return 'Desc: Thermo Probe'
         elif self.code == Type.MBTEMP:
-            return "Desc: MBTemp"
+            return 'Desc: MBTemp'
         elif self.code == Type.AGILENT4UHV:
-            return "Desc: Agilent 4UHV"
+            return 'Desc: Agilent 4UHV'
         elif self.code == Type.MKS937B:
-            return "Desc: MKS 937b"
+            return 'Desc: MKS 937b'
         elif self.code == Type.SPIXCONV:
-            return "Desc: SPIxCONV"
+            return 'Desc: SPIxCONV'
         else:
-            return "Desc: Undefined"
+            return 'Desc: Undefined'
 
     @property
     def name(self):
 
         if self.code == Type.POWER_SUPPLY:
-            return "Power Supply"
+            return 'Power Supply'
         elif self.code == Type.COUNTING_PRU:
-            return "CountingPRU"
+            return 'CountingPRU'
         elif self.code == Type.SERIAL_THERMO:
-            return "Thermo Probe"
+            return 'Thermo Probe'
         elif self.code == Type.MBTEMP:
-            return "MBTemp"
+            return 'MBTemp'
         elif self.code == Type.AGILENT4UHV:
-            return "Agilent 4UHV"
+            return 'Agilent 4UHV'
         elif self.code == Type.MKS937B:
-            return "MKS 937b"
+            return 'MKS 937b'
         elif self.code == Type.SPIXCONV:
-            return "SPIxCONV"
+            return 'SPIxCONV'
         else:
-            return "Undefined"
+            return 'Undefined'
 
     @name.setter
     def name(self, value):
         pass
-
+        
     @description.setter
     def description(self, value):
         pass
@@ -552,10 +461,10 @@ class Type:
         return other.code == self.code
 
     def __str__(self):
-        return "{}\t{}".format(type(self), str(self.__dict__))
+        return '{}\t{}'.format(type(self), str(self.__dict__))
 
     def to_dict(self):
-        return {"name": self.name, "description": self.description}
+        return {'name':self.name, 'description':self.description}
 
     @staticmethod
     def get_types():
@@ -564,24 +473,25 @@ class Type:
             d[_t.code] = _t.to_dict()
         return d
 
-
 for n in range(Type.NUM_TYPES):
     Type.TYPES.append(Type(code=n))
 
 
-class Node:
+class Node():
     """
     This class represents a Controls group's host. Each host has a symbolic name, a valid IP address, a type
     and the sector where it is located.
     """
 
-    KEY_PREFIX = "Node:"
+    KEY_PREFIX = 'Node:'
 
     def __init__(self, **kwargs):
         """
         Initializes a node instance.
         :param name: a node's name.
-        :param ip: string representation of a node's ip address.
+        :param ip_address: string representation of a node's ip address.
+        :param ip_type: string representation of a node's ip type
+        :param nameservers: string representation of nodes nameservers
         :param state: current node's state.
         :param type_node: current node's type.
         :param sector: current node's sector.
@@ -590,16 +500,18 @@ class Node:
         :param config_time: when the host found it's configuration
         """
 
-        self.name = kwargs.get("name", "r0n0")
-        self.ip_address = kwargs.get("ip_address", "10.128.0.0")
-        self.state = kwargs.get("state", NodeState.CONNECTED)
+        self.name = kwargs.get('name', 'r0n0')
+        self.ip_address = kwargs.get('ip_address', '10.128.0.0')
+        self.ip_type = kwargs.get('ip_type', 'Undefined')
+        self.nameservers = kwargs.get('nameservers', '')
+        self.state = kwargs.get('state', NodeState.CONNECTED)
         self.state_string = NodeState.to_string(self.state)
-        self.type = kwargs.get("type_node", Type(code=Type.UNDEFINED))
-        self.sector = kwargs.get("sector", 1)
-        self.counter = kwargs.get("counter", 0)
+        self.type = kwargs.get('type_node', Type(code=Type.UNDEFINED))
+        self.sector = kwargs.get('sector', 1)
+        self.counter = kwargs.get('counter', 0)
 
-        self.details = kwargs.get("details", "")
-        self.config_time = kwargs.get("config_time", "")
+        self.details = kwargs.get('details', '')
+        self.config_time = kwargs.get('config_time', '')
 
     def to_dict(self):
         """
@@ -607,13 +519,13 @@ class Node:
         :return: node's key with prefix, the node's dictionary representation and the type of the node.
         """
         node_dict = copy.deepcopy(self.__dict__)
-        if node_dict["type"] is not None:
-            node_dict["type"] = self.type.code
+        if node_dict['type'] is not None:
+            node_dict['type'] = self.type.code
         else:
-            node_dict["type"] = Type(code=Type.UNDEFINED)
+            node_dict['type'] = Type(code=Type.UNDEFINED)
         return self.get_key(), node_dict
 
-    def from_dict(self, node_dict, **kwargs):
+    def from_dict(self, node_dict , **kwargs):
         """
         Load the values from a redis set.
         :param node_dict: dictionary representing the node object according to the pattern defined
@@ -621,11 +533,11 @@ class Node:
         :raise TypeError: the dictionary provided is None.
         """
         for key in node_dict:
-            if key == "type":
+            if key == 'type':
                 _type = node_dict[key]
                 if _type is not None:
                     if type(_type) != Type:
-                        node_dict[key] = Type(code=int(_type))
+                        node_dict[key] = Type(code = int(_type))
                     else:
                         node_dict[key] = _type
                 else:
@@ -633,8 +545,10 @@ class Node:
 
             setattr(self, key, node_dict[key])
 
+
     def get_key(self):
         """
         :return: returns the node's key with prefix
         """
-        return (Node.KEY_PREFIX + str(self.ip_address)).replace(" ", "")
+        return (Node.KEY_PREFIX + str(self.ip_address)).replace(' ', '')
+
