@@ -18,7 +18,7 @@
     {"type":"DIP","P":"PA-RaPSD07:PS-DCLink-4B", "master":"0"},
 
     {"type":"QUA","P":"PA-RaPSA01:PS-DCLink-QFAP", "master":"1"},
-    {"type":"QUA","P":"PA-RaPSA01:PS-DCLink-QFB",  "master":"0"},
+    {"type":"QUA","P":"PA-RaPSA01:PS-DCLink-QFB",  "master":"1"},
     {"type":"QUA","P":"PA-RaPSA03:PS-DCLink-QDAP", "master":"1"},
     {"type":"QUA","P":"PA-RaPSA04:PS-DCLink-QDB",  "master":"1"},
     {"type":"QUA","P":"PA-RaPSA06:PS-DCLink-Q13A", "master":"1"},
