@@ -597,4 +597,4 @@ class BBBConfig(QtWidgets.QWidget, Ui_MainWindow_config):
 
 
 if __name__ == "__main__":
-    subprocess.Popen("pydm --hide-nav-bar " + BEAGLEBONES_MAIN_UI, shell=True)
+    subprocess.Popen("pydm --hide-nav-bar " + BEAGLEBONES_MAIN, shell=True)
