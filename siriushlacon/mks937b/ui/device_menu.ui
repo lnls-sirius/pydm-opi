@@ -618,7 +618,7 @@
          </size>
         </property>
         <property name="text">
-         <string>developed by Controls Group</string>
+         <string>developed by GAS</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
