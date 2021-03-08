@@ -22,7 +22,7 @@ setup(
         "Topic :: Scientific/Engineering",
         "Operating System :: OS Independent",
     ],
-    description="Client Applications for Sirius developed in PyDM by CONS",
+    description="Client Applications for Sirius",
     download_url="https://github.com/lnls-sirius/pydm-opi",
     license="GNU GPLv3",
     long_description=long_description,
