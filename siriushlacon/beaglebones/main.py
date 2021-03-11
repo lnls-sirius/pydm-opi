@@ -1,6 +1,6 @@
 """Alter REDIS_HOST to your host's IP"""
 
-import sys
+import subprocess
 from time import sleep, localtime, strftime, strptime, mktime
 from qtpy import QtCore, QtGui, QtWidgets, uic
 
@@ -8,6 +8,7 @@ from pydm import Display
 from siriushlacon.beaglebones.BBBread import RedisServer
 from siriushlacon.beaglebones.consts import (
     BEAGLEBONES_MAIN_UI,
+    BEAGLEBONES_MAIN,
     INFO_BBB_UI,
     CHANGE_BBB_UI,
     LOGS_BBB_UI,
@@ -186,7 +187,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                 node_state = info[b"state_string"].decode()
                 node_details = info[b"details"].decode()
                 node_string = "{} - {}".format(node_ip, node_name)
-            except Exception as e:
+            except Exception:
                 # print(e)
                 continue
             # Increments Connected Number of BBBs if beagle is connected
@@ -284,6 +285,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         # Updates the number of connected and listed nodes
         self.connectedLabel.setText("Connected nodes: {}".format(connected_number))
         self.listedLabel.setText("Listed: {}".format(list_name.count()))
+        self.loadingLabel.hide()
 
     @staticmethod
     def remove_faulty(node_string, list_name: QtWidgets.QListWidget, all_elements=True):
