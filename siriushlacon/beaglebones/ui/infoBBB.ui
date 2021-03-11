@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>BBB Info</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,1,1,0">
    <item>

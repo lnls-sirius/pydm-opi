@@ -1,9 +1,7 @@
-"""Alter REDIS_HOST to your host's IP
-For Corporate BBB configuration comment lines 342 - 349"""
+"""Alter REDIS_HOST to your host's IP"""
 
 import sys
-import subprocess
-from time import sleep, localtime, strftime
+from time import sleep, localtime, strftime, strptime, mktime
 from qtpy import QtCore, QtGui, QtWidgets, uic
 
 from pydm import Display
@@ -12,14 +10,17 @@ from siriushlacon.beaglebones.consts import (
     BEAGLEBONES_MAIN_UI,
     INFO_BBB_UI,
     CHANGE_BBB_UI,
+    LOGS_BBB_UI,
 )
 
 qtCreatorFile = BEAGLEBONES_MAIN_UI
 qtCreator_configfile = CHANGE_BBB_UI
 qtCreator_infofile = INFO_BBB_UI
+qtCreator_logsfile = LOGS_BBB_UI
 
 BASIC_TAB = 0
 ADVANCED_TAB = 1
+SERVICE_TAB = 2
 # Corporate test server
 # REDIS_HOST = '10.0.6.64'
 # Sirius server
@@ -27,32 +28,68 @@ REDIS_HOST = "10.128.255.3"
 
 room_names = {
     "All": "",
-    "Corporate": "1",
-    "TL": "21",
-    "Connectivity": "22",
-    "Power Supplies": "23",
-    "RF": "24",
+    "Others": "Outros",
+    "TL": "LTs",
+    "Connectivity": "Conectividade",
+    "Power Supplies": "Fontes",
+    "RF": "RF",
 }
+# "LTs", "Conectividade", "Fontes", "RF", "Outros"
 for i in range(20):
-    room_names["IA-{:02d}".format(i + 1)] = "{:02d}".format(i + 1)
+    room_names["IA-{:02d}".format(i + 1)] = "Sala{:02d}".format(i + 1)
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 Ui_MainWindow_config, QtBaseClass_config = uic.loadUiType(qtCreator_configfile)
 Ui_MainWindow_info, QtBaseClass_info = uic.loadUiType(qtCreator_infofile)
+Ui_MainWindow_logs, QtBaseClass_logs = uic.loadUiType(qtCreator_logsfile)
 
 
-class BBBreadMainWindow(Display):
+class UpdateNodesThread(QtCore.QThread):
+    finished = QtCore.Signal(tuple)
+
+    def __init__(self, server):
+        QtCore.QThread.__init__(self)
+        self.server = server
+
+    def __del__(self):
+        self.wait()
+
+    def run(self):
+        nodes = self.server.list_connected()
+        nodes_info = {}
+
+        for node in nodes:
+            nodes_info[node] = self.server.get_node(node)
+
+        self.finished.emit((nodes, nodes_info))
+
+
+class UpdateLogsThread(QtCore.QThread):
+    received = QtCore.Signal(list)
+
+    def __init__(self, server, hostname):
+        QtCore.QThread.__init__(self)
+        self.server = server
+        self.hostname = hostname
+
+    def __del__(self):
+        self.wait()
+
+    def run(self):
+        while True:
+            logs = self.server.get_logs(self.hostname)
+            self.received.emit(logs)
+            sleep(10)
+
+
+class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
     """BeagleBone Black Redis Activity Display"""
 
     def __init__(self, parent=None, macros=None, **kwargs):
         super().__init__(parent=parent, macros=macros, ui_filename=BEAGLEBONES_MAIN_UI)
 
-        redis_host = macros.get("REDIS_HOST", REDIS_HOST)
-        if redis_host == "":
-            redis_host = REDIS_HOST
-
         # Configures redis Server
-        self.server = RedisServer(host=redis_host)
+        self.server = RedisServer()
 
         # Lists
         self.nodes = []
@@ -63,8 +100,10 @@ class BBBreadMainWindow(Display):
         self.advancedList.setSelectionMode(
             QtWidgets.QAbstractItemView.ExtendedSelection
         )
+        self.serviceList.setSortingEnabled(True)
+        self.serviceList.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
 
-        # List Update
+        # List Update Timer
         self.autoUpdate_timer = QtCore.QTimer(self)
         self.autoUpdate_timer.timeout.connect(self.update_nodes)
         self.autoUpdate_timer.setSingleShot(False)
@@ -72,20 +111,29 @@ class BBBreadMainWindow(Display):
 
         # Buttons
         self.basicList.itemSelectionChanged.connect(self.enable_buttons)
-        self.tabWidget.currentChanged.connect(self.enable_buttons)
         self.advancedList.itemSelectionChanged.connect(self.enable_buttons)
+        self.serviceList.itemSelectionChanged.connect(self.enable_buttons)
+        self.tabWidget.currentChanged.connect(self.enable_buttons)
         self.deleteButton.clicked.connect(self.delete_nodes)
         self.rebootButton.clicked.connect(self.reboot_nodes)
         self.configButton.clicked.connect(self.config_node)
         self.infoButton.clicked.connect(self.show_node_info)
+        self.applyserviceButton.clicked.connect(self.service_application)
+        self.logsButton.clicked.connect(self.display_logs)
+
+        # Threading
+        self.nodes_thread = UpdateNodesThread(self.server)
+        self.nodes_thread.finished.connect(self.update_node_list)
 
     def update_nodes(self):
         """Updates list of BBBs shown"""
         # Stores every BBB information
-        self.nodes = self.server.list_connected()
+        if not self.nodes_thread.isRunning():
+            self.nodes_thread.start()
+
+    def update_node_list(self, nodes):
+        self.nodes, self.nodes_info = nodes
         connected_number = 0
-        for node in self.nodes:
-            self.nodes_info[node] = self.server.get_node(node)
 
         current_tab = self.tabWidget.currentIndex()
         if current_tab == ADVANCED_TAB:
@@ -95,19 +143,23 @@ class BBBreadMainWindow(Display):
                 "Moved": self.movedAdvancedBox.isChecked(),
             }
             list_name = self.advancedList
-        else:
+        elif current_tab == BASIC_TAB:
             state_filter = {
                 "Connected": self.connectedCheckBox.isChecked(),
                 "Disconnected": self.disconnectedCheckBox.isChecked(),
                 "Moved": self.movedCheckBox.isChecked(),
             }
             list_name = self.basicList
+        else:
+            state_filter = {"Connected": True, "Disconnected": False, "Moved": False}
+            list_name = self.serviceList
 
         # Advanced Tab filters
         ip_filter = {
-            "StaticIP": self.staticipAdvancedBox.isChecked(),
-            "DHCP": self.dhcpAdvancedBox.isChecked(),
+            "manual": self.staticipAdvancedBox.isChecked(),
+            "dhcp": self.dhcpAdvancedBox.isChecked(),
             "Undefined": self.undeterminedAdvancedBox.isChecked(),
+            "StaticIP": self.staticipAdvancedBox.isChecked(),
         }
         equipment_filter = {
             "MKS": self.mksAdvancedBox.isChecked(),
@@ -119,6 +171,7 @@ class BBBreadMainWindow(Display):
             "SPIXCONV": self.spixconvAdvancedBox.isChecked(),
             "RACK_MON": self.rackmonitorAdvancedBox.isChecked(),
             "Searching": self.nodevAdvancedBox.isChecked(),
+            "": self.nodevAdvancedBox.isChecked(),
         }
         self.Lock = True
         for node, info in self.nodes_info.items():
@@ -134,7 +187,7 @@ class BBBreadMainWindow(Display):
                 node_details = info[b"details"].decode()
                 node_string = "{} - {}".format(node_ip, node_name)
             except Exception as e:
-                print(e)
+                # print(e)
                 continue
             # Increments Connected Number of BBBs if beagle is connected
             if node_state == "Connected":
@@ -152,8 +205,8 @@ class BBBreadMainWindow(Display):
                     if (
                         equipment in node_details
                         and efilter
-                        and ip_filter[node_ip_type]
-                    ) or current_tab == BASIC_TAB:
+                        and (ip_filter[node_ip_type] or ip_filter["Undefined"])
+                    ) or current_tab in [BASIC_TAB, SERVICE_TAB]:
 
                         # Filters by node state
                         if node_state == "Connected":
@@ -232,7 +285,8 @@ class BBBreadMainWindow(Display):
         self.connectedLabel.setText("Connected nodes: {}".format(connected_number))
         self.listedLabel.setText("Listed: {}".format(list_name.count()))
 
-    def remove_faulty(self, node_string, list_name, all_elements=True):
+    @staticmethod
+    def remove_faulty(node_string, list_name: QtWidgets.QListWidget, all_elements=True):
         """Removes duplicates and nodes that shouldn't be on the list"""
         qlistitem = list_name.findItems(node_string, QtCore.Qt.MatchExactly)
         if qlistitem:
@@ -248,22 +302,31 @@ class BBBreadMainWindow(Display):
         current_tab = self.tabWidget.currentIndex()
         if current_tab == BASIC_TAB:
             selected_items = self.basicList.selectedItems()
-        else:
+        elif current_tab == ADVANCED_TAB:
             selected_items = self.advancedList.selectedItems()
+        else:
+            selected_items = self.serviceList.selectedItems()
         if selected_items:
             self.rebootButton.setEnabled(True)
             self.deleteButton.setEnabled(True)
             if len(selected_items) == 1:
                 self.configButton.setEnabled(True)
                 self.infoButton.setEnabled(True)
+                self.logsButton.setEnabled(True)
             else:
                 self.configButton.setEnabled(False)
                 self.infoButton.setEnabled(False)
+            if current_tab == SERVICE_TAB:
+                self.applyserviceButton.setEnabled(True)
+            else:
+                self.applyserviceButton.setEnabled(False)
         else:
+            self.logsButton.setEnabled(False)
             self.rebootButton.setEnabled(False)
             self.deleteButton.setEnabled(False)
             self.configButton.setEnabled(False)
             self.infoButton.setEnabled(False)
+            self.applyserviceButton.setEnabled(False)
 
     def reboot_nodes(self):
         """Reboots the selected nodes"""
@@ -274,10 +337,13 @@ class BBBreadMainWindow(Display):
             QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
         )
         if confirmation == QtWidgets.QMessageBox.Yes:
-            if self.tabWidget.currentIndex() == BASIC_TAB:
+            current_list = self.tabWidget.currentIndex()
+            if current_list == BASIC_TAB:
                 selected_bbbs = self.basicList.selectedItems()
-            else:
+            elif current_list == ADVANCED_TAB:
                 selected_bbbs = self.advancedList.selectedItems()
+            else:
+                selected_bbbs = self.serviceList.selectedItems()
             for bbb in selected_bbbs:
                 bbb_ip, hostname = bbb.text().split(" - ")
                 self.server.reboot_node(bbb_ip, hostname)
@@ -291,16 +357,19 @@ class BBBreadMainWindow(Display):
             QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
         )
         if confirmation == QtWidgets.QMessageBox.Yes:
-            if self.tabWidget.currentIndex() == BASIC_TAB:
+            current_index = self.tabWidget.currentIndex()
+            if current_index == BASIC_TAB:
                 current_list = self.basicList
-            else:
+            elif current_index == ADVANCED_TAB:
                 current_list = self.advancedList
+            else:
+                current_list = self.serviceList
             selected_bbbs = current_list.selectedItems()
             errors = []
             for bbb in selected_bbbs:
+                bbb_ip, bbb_hostname = bbb.text().split(" - ")
+                bbb_hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
                 try:
-                    bbb_ip, bbb_hostname = bbb.text().split(" - ")
-                    bbb_hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
                     self.server.delete_bbb(bbb_hashname)
                     self.remove_faulty(bbb.text(), current_list)
                     while self.Lock:
@@ -319,13 +388,37 @@ class BBBreadMainWindow(Display):
                     QtWidgets.QMessageBox.Abort,
                 )
 
+    def display_logs(self):
+        """Shows selected BBB's information"""
+        current_list = self.tabWidget.currentIndex()
+        if current_list == BASIC_TAB:
+            bbb = self.basicList.selectedItems()[0].text()
+        elif current_list == ADVANCED_TAB:
+            bbb = self.advancedList.selectedItems()[0].text()
+        else:
+            bbb = self.serviceList.selectedItems()[0].text()
+        bbb_ip, bbb_hostname = bbb.split(" - ")
+        hashname = "BBB:{}:{}:Logs".format(bbb_ip, bbb_hostname)
+        try:
+            self.window = BBBLogs(self.server, hashname)
+            self.window.show()
+        except KeyError:
+            QtWidgets.QMessageBox.warning(
+                self,
+                "Warning",
+                "The node you are trying to get information isn't connected",
+                QtWidgets.QMessageBox.Abort,
+            )
+
     def show_node_info(self):
         """Shows selected BBB's information"""
-        if self.tabWidget.currentIndex() == BASIC_TAB:
-            current_list = self.basicList
+        current_list = self.tabWidget.currentIndex()
+        if current_list == BASIC_TAB:
+            bbb = self.basicList.selectedItems()[0].text()
+        elif current_list == ADVANCED_TAB:
+            bbb = self.advancedList.selectedItems()[0].text()
         else:
-            current_list = self.advancedList
-        bbb = current_list.selectedItems()[0].text()
+            bbb = self.serviceList.selectedItems()[0].text()
         bbb_ip, bbb_hostname = bbb.split(" - ")
         hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
         try:
@@ -342,11 +435,13 @@ class BBBreadMainWindow(Display):
 
     def config_node(self):
         """Opens configuration the selected BBB's configuration window"""
-        if self.tabWidget.currentIndex() == BASIC_TAB:
-            current_list = self.basicList
+        current_list = self.tabWidget.currentIndex()
+        if current_list == BASIC_TAB:
+            bbb = self.basicList.selectedItems()[0].text()
+        elif current_list == ADVANCED_TAB:
+            bbb = self.advancedList.selectedItems()[0].text()
         else:
-            current_list = self.advancedList
-        bbb = current_list.selectedItems()[0].text()
+            bbb = self.serviceList.selectedItems()[0].text()
         bbb_ip, bbb_hostname = bbb.split(" - ")
         hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
         info = self.nodes_info[hashname]
@@ -354,14 +449,34 @@ class BBBreadMainWindow(Display):
             self.window = BBBConfig(hashname, info, self.server)
             self.window.show()
         else:
-            warning = QtWidgets.QMessageBox.warning(
+            QtWidgets.QMessageBox.warning(
                 self,
                 "Warning",
                 "The node you are trying to configure isn't connected",
                 QtWidgets.QMessageBox.Abort,
             )
-            if warning == QtWidgets.QMessageBox.Abort:
-                pass
+
+    def service_application(self):
+        """Applies services modification"""
+        confirmation = QtWidgets.QMessageBox.question(
+            self,
+            "Confirmation",
+            "Are you sure applying these changes?",
+            QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+        )
+        if confirmation == QtWidgets.QMessageBox.Yes:
+            selected_operation = self.operationcomboBox.currentText()
+            if selected_operation == "Restart":
+                operation = self.server.restart_service
+            else:
+                operation = self.server.stop_service
+            selected_bbbs = self.serviceList.selectedItems()
+            for bbb in selected_bbbs:
+                bbb_ip, bbb_hostname = bbb.text().split(" - ")
+                if self.bbbreadBox.isChecked():
+                    operation(bbb_ip, "bbbread", bbb_hostname)
+                if self.bbbfunctionBox.isChecked():
+                    operation(bbb_ip, "bbb-function", bbb_hostname)
 
 
 class BBBInfo(QtWidgets.QWidget, Ui_MainWindow_info):
@@ -399,6 +514,95 @@ class BBBInfo(QtWidgets.QWidget, Ui_MainWindow_info):
             )
 
 
+class TableModel(QtCore.QAbstractTableModel):
+    # Display model for TableView
+    def __init__(self, data):
+        super(TableModel, self).__init__()
+        self._data = data
+        self._header = ["Timestamp", "Occurence"]
+
+    def headerData(self, section, orientation, role=QtCore.Qt.DisplayRole):
+        if role == QtCore.Qt.DisplayRole and orientation == QtCore.Qt.Horizontal:
+            return self._header[section]
+
+    def data(self, index, role):
+        if role == QtCore.Qt.DisplayRole or role == QtCore.Qt.EditRole:
+            return self._data[index.row()][index.column()]
+
+    def get_data(self):
+        return self._data
+
+    def set_data(self, data):
+        self._data = data
+        self.layoutChanged.emit()
+
+    def rowCount(self, index):
+        return len(self._data)
+
+    def columnCount(self, index):
+        if self.rowCount(0) < 1:
+            return 0
+        return len(self._data[0])
+
+
+class BBBLogs(QtWidgets.QWidget, Ui_MainWindow_logs):
+    # BBB Logs Display
+    def __init__(self, server, hashname):
+        QtWidgets.QWidget.__init__(self)
+        Ui_MainWindow_logs.__init__(self)
+        self.setupUi(self)
+
+        self.logs_thread = UpdateLogsThread(server, hashname)
+        self.logs_thread.received.connect(self.update_table)
+        self.logs_thread.start()
+
+        self.model = TableModel([[]])
+        self.logsTable.setModel(self.model)
+        self.logsTable.horizontalHeader().setStretchLastSection(True)
+
+        self.fromTimeEdit.dateTimeChanged.connect(self.update_time_window)
+        self.toTimeEdit.dateTimeChanged.connect(self.update_time_window)
+
+        self.filterEdit.textChanged.connect(self.update_name_filter)
+
+    def update_table(self, logs):
+        self.model.set_data(logs)
+        self.data = logs
+
+    def update_time_window(self):
+        max_date = self.toTimeEdit.dateTime().toPyDateTime().timestamp()
+        min_date = self.fromTimeEdit.dateTime().toPyDateTime().timestamp()
+
+        if min_date > max_date:
+            self.fromTimeEdit.setDateTime(self.toTimeEdit.dateTime())
+
+        if min_date == max_date:
+            self.model.set_data(self.data)
+
+        length = len(self.data)
+        min_index, max_index = 0, length
+
+        # Compares Unix timestamp for logs and filter, stops when a log satisfies the filter
+        for index, r in enumerate(self.data):
+            if mktime(strptime(r[0], "%d/%m/%Y-%H:%M:%S")) > min_date:
+                min_index = index
+                break
+
+        for index, r in enumerate(self.data[::-1]):
+            if mktime(strptime(r[0], "%d/%m/%Y-%H:%M:%S")) < max_date:
+                max_index = length - index
+                break
+
+        self.model.set_data(self.data[min_index:max_index])
+
+    def update_name_filter(self):
+        search = self.filterEdit.text()
+        # Creates list with names that contain the filter
+        data = [r for r in self.data if search in r[1]]
+
+        self.model.set_data(data)
+
+
 class BBBConfig(QtWidgets.QWidget, Ui_MainWindow_config):
     """BBB configuration display"""
 
@@ -419,7 +623,9 @@ class BBBConfig(QtWidgets.QWidget, Ui_MainWindow_config):
         self.currenthostnamevalueLabel.setText(self.hostname)
         self.currentipvalueLabel.setText(self.ip_address)
 
-        if self.bbb_sector == room_names["Corporate"]:
+        self.ip_prefix = ".".join(ip[:-1]) + "."
+
+        if ip[1] != "128":
             self.ipComboBox.setEnabled(False)
             self.newipSpinBox.setEnabled(False)
             self.nameserver1Edit.setEnabled(False)
@@ -428,11 +634,7 @@ class BBBConfig(QtWidgets.QWidget, Ui_MainWindow_config):
             self.keepipBox.setEnabled(False)
             self.keepnameserversBox.setChecked(True)
             self.keepnameserversBox.setEnabled(False)
-            self.ip_prefix = ".".join(ip[:-1]) + "."
-            pass
 
-        else:
-            self.ip_prefix = "10.128.1{}.".format(info[b"sector"].decode())
         self.newipLabel.setText(self.ip_prefix)
         self.ipComboBox.currentIndexChanged.connect(self.disable_spinbox)
 
@@ -448,17 +650,24 @@ class BBBConfig(QtWidgets.QWidget, Ui_MainWindow_config):
         # Before asking for confirmation annotates configuration parameters in order to prevent delay bugs
         self.applyButton.setEnabled(False)
         hostname_changed = False
+        # DNS
         keep_dns = self.keepnameserversBox.isChecked()
         nameserver_1 = self.nameserver1Edit.text()
         nameserver_2 = self.nameserver2Edit.text()
 
+        # Hostname
         keep_hostname = self.keephostnameBox.isChecked()
         new_hostname = self.hostnameEdit.text()
 
+        # IP
         keep_ip = self.keepipBox.isChecked()
         ip_type = self.ipComboBox.currentText()
         new_ip_suffix = str(self.newipSpinBox.value())
 
+        # Bools to verify if command was sent successfully
+        ip_sent = False
+
+        # Confirmation screen
         confirmation = QtWidgets.QMessageBox.question(
             self,
             "Confirmation",
@@ -468,46 +677,45 @@ class BBBConfig(QtWidgets.QWidget, Ui_MainWindow_config):
         if confirmation == QtWidgets.QMessageBox.Yes:
             # Nameservers configuration
             if not keep_dns and nameserver_1 and nameserver_2:
-                self.server.change_nameservers(
+                dns_sent = self.server.change_nameservers(
                     self.ip_address, nameserver_1, nameserver_2, self.hostname
                 )
+            else:
+                dns_sent = True
             # Hostname configuration
             if not keep_hostname and new_hostname:
-                self.server.change_hostname(
+                name_sent = self.server.change_hostname(
                     self.ip_address, new_hostname, self.hostname
                 )
-                self.hostname = new_hostname
-                hostname_changed = True
+                hostname_changed = name_sent
+            else:
+                name_sent = True
             if not keep_ip:
-                retry = 0
-                if ip_type == "DHCP":
-                    if hostname_changed:
-                        for retry in range(11):
-                            if self.server.list_connected(
-                                self.ip_address, self.hostname
-                            ):
-                                break
-                            sleep(0.5)
-                    if retry < 10:
-                        self.server.change_ip(self.ip_address, "dhcp", self.hostname)
+                if ip_type in ["DHCP", "dhcp"]:
+                    if hostname_changed and name_sent:
+                        ip_sent = self.server.change_ip(
+                            self.ip_address, "dhcp", self.hostname, override=True
+                        )
+                        self.hostname = new_hostname
                     else:
-                        QtWidgets.QMessageBox.warning(
-                            self,
-                            "Warning",
-                            "Failed to change nodes IP",
-                            QtWidgets.QMessageBox.Abort,
+                        ip_sent = self.server.change_ip(
+                            self.ip_address, "dhcp", self.hostname
                         )
                 elif new_ip_suffix not in [self.ip_suffix, "0", "1", "2"]:
-                    if hostname_changed:
-                        for retry in range(11):
-                            if self.server.list_connected(
-                                self.ip_address, self.hostname
-                            ):
-                                break
-                            sleep(1)
-                    if retry < 10:
-                        new_ip = self.ip_prefix + new_ip_suffix
-                        self.server.change_ip(
+                    new_ip = self.ip_prefix + new_ip_suffix
+                    if hostname_changed and name_sent:
+                        ip_sent = self.server.change_ip(
+                            self.ip_address,
+                            "manual",
+                            self.hostname,
+                            new_ip,
+                            "255.255.255.0",
+                            self.ip_prefix + "1",
+                            override=True,
+                        )
+                        self.hostname = new_hostname
+                    else:
+                        ip_sent = self.server.change_ip(
                             self.ip_address,
                             "manual",
                             self.hostname,
@@ -515,13 +723,36 @@ class BBBConfig(QtWidgets.QWidget, Ui_MainWindow_config):
                             "255.255.255.0",
                             self.ip_prefix + "1",
                         )
-                    else:
-                        QtWidgets.QMessageBox.warning(
-                            self,
-                            "Warning",
-                            "Failed to change nodes IP",
-                            QtWidgets.QMessageBox.Abort,
-                        )
+            else:
+                ip_sent = True
+            if ip_sent and dns_sent and name_sent:
+                QtWidgets.QMessageBox.information(
+                    self,
+                    "Success",
+                    "Node configured successfully",
+                    QtWidgets.QMessageBox.Close,
+                )
+            if not name_sent:
+                QtWidgets.QMessageBox.warning(
+                    self,
+                    "Error",
+                    "Error in Hostname configuration",
+                    QtWidgets.QMessageBox.Abort,
+                )
+            if not dns_sent:
+                QtWidgets.QMessageBox.warning(
+                    self,
+                    "Error",
+                    "Error in Nameservers configuration",
+                    QtWidgets.QMessageBox.Abort,
+                )
+            if not ip_sent:
+                QtWidgets.QMessageBox.warning(
+                    self,
+                    "Error",
+                    "Error in IP configuration",
+                    QtWidgets.QMessageBox.Abort,
+                )
             self.close()
         else:
             self.applyButton.setEnabled(True)
