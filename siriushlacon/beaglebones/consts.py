@@ -12,3 +12,4 @@ BEAGLEBONES_MAIN_UI = get_abs_path("ui/main.ui")
 
 INFO_BBB_UI = get_abs_path("ui/infoBBB.ui")
 CHANGE_BBB_UI = get_abs_path("ui/configBBB.ui")
+LOGS_BBB_UI = get_abs_path("ui/logsBBB.ui")

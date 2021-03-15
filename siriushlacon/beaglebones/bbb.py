@@ -458,7 +458,7 @@ class NodeState:
 
 class Type:
     """
-    This class provides a wrapper for host types. 
+    This class provides a wrapper for host types.
     """
 
     KEY_PREFIX = "Type:"
