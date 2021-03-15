@@ -3,7 +3,7 @@ import redis
 import time
 import subprocess
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import os
 import sys
@@ -94,11 +94,15 @@ class RedisServer:
                 self.logger.error("No BBBread Server found")
                 raise Exception("No BBBread Server found")
 
-    def get_logs(self, hashname):
-        return [
-            [key.decode("utf-8"), value.decode("utf-8")]
-            for key, value in self.local_db.hgetall(hashname).items()
-        ]
+    def get_logs(self, hashname=None):
+
+        if hashname:
+            return [
+                [key.decode("utf-8"), value.decode("utf-8")]
+                for key, value in self.local_db.hgetall(hashname).items()
+            ]
+        else:
+            return [name.decode("utf-8") for name in self.local_db.keys("BBB:*:Logs")]
 
     # TODO: Change function name
     def list_connected(self, ip="", hostname=""):
@@ -170,18 +174,28 @@ class RedisServer:
     def bbb_state(self, hashname: str):
         """Verifies if node is active. Ping time inferior to 15 seconds
         Zero if active node, One if disconnected and Two if moved to other hash"""
-        now = datetime.now().strftime("%d/%m/%Y-%H:%M:%S")
+        now = time.time()
 
         last_ping = float(self.local_db.hget(hashname, "ping_time").decode())
-        time_since_ping = time.time() - last_ping
+        time_since_ping = int(time.time()) - last_ping
         node_state = self.local_db.hget(hashname, "state_string").decode()
         if node_state[:3] == "BBB":
             return 2
         elif time_since_ping >= 11:
             if node_state != "Disconnected":
-                self.log_remote(hashname + ":Logs", "Disconnected", now)
+                if time_since_ping > 60:
+                    self.log_remote(hashname + ":Logs", "Disconnected", int(now))
                 self.local_db.hset(hashname, "state_string", "Disconnected")
             return 1
+        if (
+            len(self.local_db.hvals(hashname + ":Logs")) > 0
+            and self.local_db.hvals(hashname + ":Logs")[len - 1].decode()
+            == "Disconnected"
+            and time_since_ping > 60
+        ):
+            self.log_remote(
+                hashname + ":Logs", "Reconnected (logged by server)", int(now)
+            )
         return 0
 
     def delete_bbb(self, hashname: str):
@@ -362,7 +376,7 @@ class RedisClient:
                 self.force_update()
                 time.sleep(10)
             except Exception as e:
-                now = datetime.now().strftime("%d/%m/%Y-%H:%M:%S")
+                now = int(time.time()) - 10800
                 self.logger.error("Pinging Thread died:\n{}".format(e))
                 self.log_remote("Pinging Thread died: {}".format(e), now)
                 time.sleep(1)
@@ -377,7 +391,7 @@ class RedisClient:
                 continue
             try:
                 time.sleep(1)
-                now = datetime.now().strftime("%d/%m/%Y-%H:%M:%S")
+                now = int(time.time()) - 10800
                 self.command_listname = self.hashname + ":Command"
                 if self.remote_db.keys(self.command_listname):
                     command = self.remote_db.lpop(self.command_listname).decode()
@@ -512,8 +526,11 @@ class RedisClient:
             self.logger.info("updating remote db")
         status = self.remote_db.hget(self.hashname, "state_string")
         if status and status.decode() == "Disconnected":
-            now = datetime.now().strftime("%d/%m/%Y-%H:%M:%S")
-            self.log_remote("Reconnected", now)
+            last_ping = float(self.local_db.hget(hashname, "ping_time").decode())
+            time_since_ping = int(time.time()) - last_ping
+            if time_since_ping > 60:
+                now = int(time.time()) - 10800
+                self.log_remote("Reconnected", now)
         self.remote_db.hmset(self.hashname, info)
         self.bbb_ip, self.bbb_hostname = (new_ip, new_hostname)
         self.logs_name = "BBB:{}:{}:Logs".format(self.bbb_ip, self.bbb_hostname)
