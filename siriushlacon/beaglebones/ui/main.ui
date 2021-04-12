@@ -49,7 +49,7 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="15,1">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="15,0">
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
@@ -61,7 +61,7 @@
           <enum>QTabWidget::Rounded</enum>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="basicTab">
           <attribute name="title">
@@ -140,6 +140,9 @@
                <property name="text">
                 <string>Connected</string>
                </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="0" column="2">
@@ -147,12 +150,18 @@
                <property name="text">
                 <string>Moved</string>
                </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="0" column="3">
               <widget class="QCheckBox" name="disconnectedAdvancedBox">
                <property name="text">
                 <string>Disconnected</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -178,6 +187,9 @@
                <property name="text">
                 <string>StaticIP</string>
                </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="1" column="2">
@@ -187,6 +199,9 @@
                </property>
                <property name="text">
                 <string>DHCP</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -209,12 +224,18 @@
                <property name="text">
                 <string>MKS</string>
                </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="2" column="2">
               <widget class="QCheckBox" name="thermoAdvancedBox">
                <property name="text">
                 <string>Thermo Probe</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -223,12 +244,18 @@
                <property name="text">
                 <string>SPIxCONV</string>
                </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="3" column="1">
               <widget class="QCheckBox" name="uhvAdvancedBox">
                <property name="text">
                 <string>4UHV</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -237,12 +264,18 @@
                <property name="text">
                 <string>CountingPRU</string>
                </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="3" column="3">
               <widget class="QCheckBox" name="rackmonitorAdvancedBox">
                <property name="text">
                 <string>Rack Monitor</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -251,6 +284,9 @@
                <property name="text">
                 <string>Power Supply</string>
                </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="4" column="1">
@@ -258,12 +294,18 @@
                <property name="text">
                 <string>MBTemp</string>
                </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="4" column="3">
               <widget class="QCheckBox" name="nodevAdvancedBox">
                <property name="text">
                 <string>No Device</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -274,6 +316,9 @@
                </property>
                <property name="text">
                 <string>Undetermined</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -736,19 +781,15 @@
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_5">
          <item>
-          <widget class="QLabel" name="loadingLabel">
-           <property name="text">
-            <string>Loading...</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QPushButton" name="logsButton">
            <property name="enabled">
             <bool>false</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
            </property>
            <property name="text">
             <string>View Logs</string>
@@ -756,28 +797,15 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="infoButton">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="text">
-            <string>Info</string>
-           </property>
-           <property name="autoDefault">
-            <bool>false</bool>
-           </property>
-           <property name="default">
-            <bool>false</bool>
-           </property>
-           <property name="flat">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QPushButton" name="rebootButton">
            <property name="enabled">
             <bool>false</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
            </property>
            <property name="text">
             <string>Reboot Nodes</string>
@@ -794,9 +822,40 @@
           </widget>
          </item>
          <item>
+          <widget class="QPushButton" name="infoButton">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Info</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+           <property name="default">
+            <bool>false</bool>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="deleteButton">
            <property name="enabled">
             <bool>false</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
            </property>
            <property name="text">
             <string>Delete nodes from list</string>
@@ -817,6 +876,12 @@
            <property name="enabled">
             <bool>false</bool>
            </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="text">
             <string>Configure Node</string>
            </property>
@@ -836,6 +901,13 @@
       </layout>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="status_icon">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

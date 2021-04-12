@@ -2,7 +2,7 @@
 
 import subprocess
 from datetime import datetime
-from time import sleep, localtime, strftime, strptime, mktime
+from time import sleep, localtime, strftime
 from qtpy import QtCore, QtGui, QtWidgets, uic
 
 from pydm import Display
@@ -13,6 +13,8 @@ from siriushlacon.beaglebones.consts import (
     INFO_BBB_UI,
     CHANGE_BBB_UI,
     LOGS_BBB_UI,
+    RED_LED,
+    GREEN_LED,
 )
 
 qtCreatorFile = BEAGLEBONES_MAIN_UI
@@ -68,7 +70,7 @@ class UpdateNodesThread(QtCore.QThread):
 
 
 class UpdateLogsThread(QtCore.QThread):
-    received = QtCore.Signal(list)
+    finished = QtCore.Signal(list)
 
     def __init__(self, server, hostname=None):
         QtCore.QThread.__init__(self)
@@ -79,21 +81,24 @@ class UpdateLogsThread(QtCore.QThread):
         self.wait()
 
     def run(self):
-        while True:
-            log_names = self.server.get_logs()
-            all_logs = []
-            for name in log_names:
+        # If no host name is set, all logs must be retrieved
+        logs = self.server.get_logs(self.hostname)
+        all_logs = logs if self.hostname else []
+
+        # Iterates through BBB logs
+        if not self.hostname:
+            for name in logs:
                 bbb_logs = []
                 bbb_logs = self.server.get_logs(name)
-                for l in bbb_logs:
-                    l.insert(1, name[4 : name.index(":Logs")])
+                for _log in bbb_logs:
+                    _log.insert(1, name[4 : name.index(":Logs")])
 
                 all_logs.extend(bbb_logs)
 
+            # Sorts logs by most recent to least recent
             all_logs = sorted(all_logs, key=lambda x: int(x[0]), reverse=True)
 
-            self.received.emit(all_logs)
-            sleep(50)
+        self.finished.emit(all_logs)
 
 
 class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
@@ -147,26 +152,35 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         self.nodes_thread = UpdateNodesThread(self.server)
         self.nodes_thread.finished.connect(self.update_node_list)
         self.logs_thread = UpdateLogsThread(self.server)
-        self.logs_thread.received.connect(self.update_table)
-        self.logs_thread.start()
+        self.logs_thread.finished.connect(self.update_table)
 
         # Log Filters
         self.toTimeEdit.dateTimeChanged.connect(self.update_filters)
         self.fromTimeEdit.dateTimeChanged.connect(self.update_filters)
         self.filterEdit.textChanged.connect(self.update_log_text)
 
+        # Loads loading indicators
+        self.loading_icon = QtGui.QPixmap(RED_LED).scaledToHeight(20)
+        self.idle_icon = QtGui.QPixmap(GREEN_LED).scaledToHeight(20)
+
     def update_nodes(self):
         """Updates list of BBBs shown"""
         # Stores every BBB information
-        self.loadingLabel.show()
+        self.status_icon.setPixmap(self.loading_icon)
         if not self.nodes_thread.isRunning():
             self.nodes_thread.start()
 
+        # Updates logs
+        if not self.logs_thread.isRunning():
+            self.logs_thread.start()
+
     def update_log_text(self):
+        """ Sets table values and converts timestamp, deep copies logs """
         if self.tabWidget.currentIndex() == LOGS_TAB:
             self.update_filters()
 
     def update_filters(self):
+        """ Updates log table with filters set by user """
         if not self.data:
             return
 
@@ -197,47 +211,52 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
 
         data = self.data[max_index:min_index]
 
+        # If the user has set a string filter, all logs without a mention of the filter are removed
         if search:
             data = [r for r in data if search in r[2] or search in r[1]]
 
         self.update_table(data, update=False)
 
     def update_table(self, logs, update=True):
+        """Updates content of logs table"""
         if update:
             self.data = logs
             self.update_filters()
             return
 
+        # Formats timestamp in human readable form
         data = [
             [
-                datetime.utcfromtimestamp(int(l[0])).strftime("%d/%m/%Y %H:%M:%S"),
-                l[1],
-                l[2],
+                datetime.utcfromtimestamp(int(_log[0])).strftime("%d/%m/%Y %H:%M:%S"),
+                _log[1],
+                _log[2],
             ]
-            for l in logs
+            for _log in logs
         ]
 
+        # Filters out thread statuses and commands (if boxes aren't checked)
         if self.threadCheckBox.isChecked():
             if not self.commandsCheckBox.isChecked():
                 data = [
-                    l
-                    for l in data
-                    if "connected" in l[2].lower()
-                    or "hostname" in l[2].lower()
-                    or "thread died" in l[2].lower()
+                    _log
+                    for _log in data
+                    if "connected" in _log[2].lower()
+                    or "hostname" in _log[2].lower()
+                    or "thread died" in _log[2].lower()
                 ]
         else:
             if not self.commandsCheckBox.isChecked():
                 data = [
-                    l
-                    for l in data
-                    if "connected" in l[2].lower() or "hostname" in l[2].lower()
+                    _log
+                    for _log in data
+                    if "connected" in _log[2].lower() or "hostname" in _log[2].lower()
                 ]
-            data = [l for l in data if "thread died" not in l[2].lower()]
+            data = [_log for _log in data if "thread died" not in _log[2].lower()]
 
         self.logs_model.set_data(data)
 
-    def update_node_list(self, nodes):
+    def update_node_list(self, nodes):  # noqa: C901
+        """Gets updated node list and applies it to all lists"""
         self.nodes, self.nodes_info = nodes
         connected_number = 0
 
@@ -397,7 +416,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         # Updates the number of connected and listed nodes
         self.connectedLabel.setText("Connected nodes: {}".format(connected_number))
         self.listedLabel.setText("Listed: {}".format(list_name.count()))
-        self.loadingLabel.hide()
+        self.status_icon.setPixmap(self.idle_icon)
 
     @staticmethod
     def remove_faulty(node_string, list_name: QtWidgets.QListWidget, all_elements=True):
@@ -689,8 +708,7 @@ class BBBLogs(QtWidgets.QWidget, Ui_MainWindow_logs):
         self.setupUi(self)
 
         self.logs_thread = UpdateLogsThread(server, hashname)
-        self.logs_thread.received.connect(self.update_table)
-        self.logs_thread.start()
+        self.logs_thread.finished.connect(self.update_table)
 
         self.model = TableModel([[]])
         self.logsTable.setModel(self.model)
@@ -700,20 +718,30 @@ class BBBLogs(QtWidgets.QWidget, Ui_MainWindow_logs):
 
         self.filterEdit.textChanged.connect(self.update_filters)
 
+        self.autoUpdate_timer = QtCore.QTimer(self)
+        self.autoUpdate_timer.timeout.connect(self.logs_thread.start)
+        self.autoUpdate_timer.setSingleShot(False)
+        self.autoUpdate_timer.start(1000)
+
     def update_table(self, logs, update=True):
+        """ Sets table values and converts timestamp, deep copies logs """
         if update:
             self.data = logs
             self.update_filters()
             return
 
         data = [
-            [datetime.utcfromtimestamp(int(l[0])).strftime("%d/%m/%Y %H:%M:%S"), l[1]]
-            for l in logs
+            [
+                datetime.utcfromtimestamp(int(_log[0])).strftime("%d/%m/%Y %H:%M:%S"),
+                _log[1],
+            ]
+            for _log in logs
         ]
 
         self.model.set_data(data)
 
     def update_filters(self):
+        """ Updates log table with filters set by user """
         if not self.data:
             return
 
@@ -744,6 +772,7 @@ class BBBLogs(QtWidgets.QWidget, Ui_MainWindow_logs):
 
         data = self.data[max_index:min_index]
 
+        # If the user has set a string filter, all logs without a mention of the filter are removed
         if search:
             data = [r for r in data if search in r[1]]
 
