@@ -1,14 +1,11 @@
 #!/usr/bin/python-sirius
-import ipaddress
 import logging
 import pickle
 import os
-import shutil
 import subprocess
 import time
 import json
 
-import ast
 import ipaddress
 import copy
 
@@ -58,7 +55,7 @@ class BBB:
         if os.path.exists(BBB.CONFIG_JSON_PATH):
             config_json_mtime = os.path.getmtime(BBB.CONFIG_JSON_PATH)
             if (
-                self.current_config_json_mtime == None
+                self.current_config_json_mtime is None
                 or config_json_mtime != self.current_config_json_mtime
             ):
                 with open(BBB.CONFIG_JSON_PATH, "r") as f:
