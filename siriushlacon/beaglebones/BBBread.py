@@ -3,18 +3,10 @@ import redis
 import time
 import subprocess
 import logging
-from datetime import datetime, timedelta
+from logging.handlers import RotatingFileHandler
 
 import os
 import sys
-
-# Verifies if device is a BBB
-if "armv7" in subprocess.check_output(["uname", "-a"]).decode():
-    device = "bbb"
-    sys.path.insert(0, "/root/bbb-function/src/scripts")
-    from bbb import BBB
-else:
-    device = "server"
 
 LA_SERVER_IP = "10.0.38.46"
 CA_SERVER_IP = "10.0.38.59"
@@ -22,10 +14,20 @@ CONFIG_PATH = "/var/tmp/bbb.bin"
 LOG_PATH_SERVER = "bbbread.log"
 LOG_PATH_BBB = "/var/log/bbbread.log"
 
+# Verifies if device is a BBB
+if "armv7" in subprocess.check_output(["uname", "-a"]).decode():
+    device = "bbb"
+    sys.path.insert(0, "/root/bbb-function/src/scripts")
+    from bbb import BBB
+
+    node = BBB(CONFIG_PATH)
+else:
+    device = "server"
+
 
 def update_local_db():
     """Updates local redis database with device.json info"""
-    node = BBB(CONFIG_PATH)
+
     local_db = redis.StrictRedis(host="127.0.0.1", port=6379, socket_timeout=2)
     info = node.get_current_config()["n"]
     info["ping_time"] = str(time.time())
@@ -68,10 +70,6 @@ class RedisServer:
         # Configuring logging
         self.logger = logging.getLogger("bbbreadServer")
         self.logger.setLevel(logging.DEBUG)
-        # formatter = logging.Formatter('%(levelname)s:%(asctime)s:%(name)s:%(message)s')
-        # file_handler = logging.FileHandler(log_path)
-        # file_handler.setFormatter(formatter)
-        # self.logger.addHandler(file_handler)
         self.logger.debug("Starting up BBBread Server")
 
         # Probably connecting to a existing server, tries to connect to primary server
@@ -177,25 +175,20 @@ class RedisServer:
         now = time.time()
 
         last_ping = float(self.local_db.hget(hashname, "ping_time").decode())
-        time_since_ping = int(time.time()) - last_ping
+        time_since_ping = now - last_ping
         node_state = self.local_db.hget(hashname, "state_string").decode()
+        last_logs = self.local_db.hvals(hashname + ":Logs")
         if node_state[:3] == "BBB":
             return 2
-        elif time_since_ping >= 11:
+        elif time_since_ping >= 25:
             if node_state != "Disconnected":
-                if time_since_ping > 60:
-                    self.log_remote(hashname + ":Logs", "Disconnected", int(now))
                 self.local_db.hset(hashname, "state_string", "Disconnected")
+                self.log_remote(hashname + ":Logs", "Disconnected", int(now) - 10800)
             return 1
-        if (
-            len(self.local_db.hvals(hashname + ":Logs")) > 0
-            and self.local_db.hvals(hashname + ":Logs")[len - 1].decode()
-            == "Disconnected"
-            and time_since_ping > 60
-        ):
-            self.log_remote(
-                hashname + ":Logs", "Reconnected (logged by server)", int(now)
-            )
+        if last_logs:
+            known_status = last_logs[-1].decode()
+            if known_status == "Disconnected" or known_status == hashname:
+                self.log_remote(hashname + ":Logs", "Reconnected", int(now) - 10800)
         return 0
 
     def delete_bbb(self, hashname: str):
@@ -308,20 +301,22 @@ class RedisClient:
         self.logger = logging.getLogger("bbbread")
         self.logger.setLevel(logging.DEBUG)
         formatter = logging.Formatter("%(levelname)s:%(asctime)s:%(name)s:%(message)s")
-        file_handler = logging.FileHandler(log_path)
+        file_handler = RotatingFileHandler(log_path, maxBytes=15000000, backupCount=5)
         file_handler.setFormatter(formatter)
         self.logger.addHandler(file_handler)
 
         self.logger.debug("Starting BBBread up")
 
         # Defining local and remote database
-        self.local_db = redis.StrictRedis(host="127.0.0.1", port=6379, socket_timeout=2)
+        self.local_db = redis.StrictRedis(host="127.0.0.1", port=6379, socket_timeout=4)
         self.remote_db_1 = redis.StrictRedis(
-            host=remote_host_1, port=6379, socket_timeout=2
+            host=remote_host_1, port=6379, socket_timeout=4
         )
         self.remote_db_2 = redis.StrictRedis(
-            host=remote_host_2, port=6379, socket_timeout=2
+            host=remote_host_2, port=6379, socket_timeout=4
         )
+        self.server_connected = False
+
         self.logger.debug("Searching for active database")
         self.remote_db = self.find_active()
 
@@ -353,23 +348,28 @@ class RedisClient:
         self.logs_name = "BBB:{}:{}:Logs".format(self.bbb_ip, self.bbb_hostname)
 
     def find_active(self):
-        try:
-            self.remote_db_1.ping()
-            self.logger.debug("Connected to LA-RaCtrl-CO-Srv-1 Redis Server")
-            return self.remote_db_1
-        except redis.exceptions.ConnectionError:
+        while True:
             try:
-                self.remote_db_2.ping()
-                self.logger.debug("Connected to CA-RaCtrl-CO-Srv-1 Redis Server")
-                return self.remote_db_2
+                self.remote_db_1.ping()
+                self.logger.debug("Connected to LA-RaCtrl-CO-Srv-1 Redis Server")
+                self.server_connected = True
+                return self.remote_db_1
             except redis.exceptions.ConnectionError:
-                self.logger.critical("No remote database found")
-                raise Exception("No remote database found")
+                try:
+                    self.remote_db_2.ping()
+                    self.logger.debug("Connected to CA-RaCtrl-CO-Srv-1 Redis Server")
+                    self.server_connected = True
+                    return self.remote_db_2
+                except redis.exceptions.ConnectionError:
+                    self.logger.critical("No remote database found")
+                    raise Exception("No remote database found")
+            self.logger.info("Server not found. Retrying to connect in 10 seconds...")
+            time.sleep(10)
 
     def ping_remote(self):
         """Thread that updates remote database every 10s, if pinging is enabled"""
         while True:
-            if not self.pinging:
+            if not self.pinging or not self.server_connected:
                 time.sleep(2)
                 continue
             try:
@@ -389,98 +389,29 @@ class RedisClient:
             if not self.listening:
                 time.sleep(2)
                 continue
+
+            time.sleep(1)
+            now = int(time.time()) - 10800
+            self.command_listname = self.hashname + ":Command"
+            command = []
+
             try:
-                time.sleep(1)
-                now = int(time.time()) - 10800
-                self.command_listname = self.hashname + ":Command"
                 if self.remote_db.keys(self.command_listname):
                     command = self.remote_db.lpop(self.command_listname).decode()
                     command = command.split(";")
-                    # Verifies if command is an integer
-                    try:
-                        command[0] = int(command[0])
-                    except ValueError:
-                        self.logger.error(
-                            "Failed to convert first part of the command to integer"
-                        )
-                        continue
-                    self.logger.info("command received {}".format(command))
-                    if command[0] == Command.REBOOT:
-                        self.logger.info("Reboot command received")
-                        self.log_remote("Reboot command received", now)
-                        self.bbb.reboot()
-
-                    elif command[0] == Command.SET_HOSTNAME and len(command) == 2:
-                        new_hostname = command[1]
-                        self.bbb.update_hostname(new_hostname)
-                        # Updates variable names
-                        self.logger.info("Hostname changed to " + new_hostname)
-                        self.log_remote(
-                            "Hostname changed to {}".format(new_hostname), now
-                        )
-                        self.listening = False
-
-                    elif command[0] == Command.SET_IP:
-                        ip_type = command[1]
-                        # Verifies if IP is to be set manually
-                        if ip_type == "manual" and len(command) == 5:
-                            new_ip = command[2]
-                            new_mask = command[3]
-                            new_gateway = command[4]
-                            self.bbb.update_ip_address(
-                                ip_type, new_ip, new_mask, new_gateway
-                            )
-                            # Updates variable names
-                            info = "IP manually changed to {}, netmask {}, gateway {}".format(
-                                new_ip, new_mask, new_gateway
-                            )
-                            self.logger.info(info)
-                            self.log_remote(info, now)
-                            self.listening = False
-
-                        # Verifies if IP is DHCP
-                        elif ip_type == "dhcp":
-                            self.bbb.update_ip_address(ip_type)
-                            # Updates variable names
-                            time.sleep(1)
-                            self.logger.info("IP changed to DHCP")
-                            self.log_remote("IP changed to DHCP", now)
-                            self.listening = False
-
-                    elif command[0] == Command.SET_NAMESERVERS and len(command) == 3:
-                        nameserver_1 = command[1]
-                        nameserver_2 = command[2]
-                        self.logger.info(
-                            "Nameservers changed: {}, {}".format(
-                                nameserver_1, nameserver_2
-                            )
-                        )
-                        self.log_remote(
-                            "Nameservers changed: {}, {}".format(
-                                nameserver_1, nameserver_2
-                            ),
-                            now,
-                        )
-                        self.bbb.update_nameservers(nameserver_1, nameserver_2)
-
-                    elif command[0] == Command.STOP_SERVICE and len(command) == 2:
-                        service_name = command[1]
-                        if service_name == "bbbread":
-                            self.logger.warning("Stopping BBBread")
-                        self.logger.info("{} service stopped".format(service_name))
-                        self.log_remote("{} service stopped".format(service_name), now)
-                        subprocess.check_output(["systemctl", "stop", service_name])
-
-                    elif command[0] == Command.RESTART_SERVICE and len(command) == 2:
-                        service_name = command[1]
-                        if service_name == "bbbread":
-                            self.logger.warning("Restarting BBBread")
-                        self.logger.info("{} service restarted".format(service_name))
-                        self.log_remote(
-                            "{} service restarted".format(service_name), now
-                        )
-                        subprocess.check_output(["systemctl", "restart", service_name])
-
+                    command[0] = int(command[0])
+                else:
+                    continue
+            except redis.exceptions.TimeoutError:
+                self.logger.error("Reconnecting to Redis server")
+                time.sleep(1)
+                self.find_active()
+                continue
+            except ValueError:
+                self.logger.error(
+                    "Failed to convert first part of the command to integer"
+                )
+                continue
             except Exception as e:
                 self.logger.error("Listening Thread died:\n{}".format(e))
                 self.log_remote("Listening Thread died: {}".format(e), now)
@@ -488,8 +419,78 @@ class RedisClient:
                 self.find_active()
                 continue
 
+            self.logger.info("command received {}".format(command))
+            if command[0] == Command.REBOOT:
+                self.logger.info("Reboot command received")
+                self.log_remote("Reboot command received", now)
+                self.bbb.reboot()
+
+            elif command[0] == Command.SET_HOSTNAME and len(command) == 2:
+                new_hostname = command[1]
+                self.bbb.update_hostname(new_hostname)
+                # Updates variable names
+                self.logger.info("Hostname changed to " + new_hostname)
+                self.log_remote("Hostname changed to {}".format(new_hostname), now)
+                self.listening = False
+
+            elif command[0] == Command.SET_IP:
+                ip_type = command[1]
+                # Verifies if IP is to be set manually
+                if ip_type == "manual" and len(command) == 5:
+                    new_ip = command[2]
+                    new_mask = command[3]
+                    new_gateway = command[4]
+                    self.bbb.update_ip_address(ip_type, new_ip, new_mask, new_gateway)
+                    # Updates variable names
+                    info = "IP manually changed to {}, netmask {}, gateway {}".format(
+                        new_ip, new_mask, new_gateway
+                    )
+                    self.logger.info(info)
+                    self.log_remote(info, now)
+                    self.listening = False
+
+                # Verifies if IP is DHCP
+                elif ip_type == "dhcp":
+                    self.bbb.update_ip_address(ip_type)
+                    # Updates variable names
+                    time.sleep(1)
+                    self.logger.info("IP changed to DHCP")
+                    self.log_remote("IP changed to DHCP", now)
+                    self.listening = False
+
+            elif command[0] == Command.SET_NAMESERVERS and len(command) == 3:
+                nameserver_1 = command[1]
+                nameserver_2 = command[2]
+                self.logger.info(
+                    "Nameservers changed: {}, {}".format(nameserver_1, nameserver_2)
+                )
+                self.log_remote(
+                    "Nameservers changed: {}, {}".format(nameserver_1, nameserver_2),
+                    now,
+                )
+                self.bbb.update_nameservers(nameserver_1, nameserver_2)
+
+            elif command[0] == Command.STOP_SERVICE and len(command) == 2:
+                service_name = command[1]
+                if service_name == "bbbread":
+                    self.logger.warning("Stopping BBBread")
+                self.logger.info("{} service stopped".format(service_name))
+                self.log_remote("{} service stopped".format(service_name), now)
+                subprocess.check_output(["systemctl", "stop", service_name])
+
+            elif command[0] == Command.RESTART_SERVICE and len(command) == 2:
+                service_name = command[1]
+                if service_name == "bbbread":
+                    self.logger.warning("Restarting BBBread")
+                self.logger.info("{} service restarted".format(service_name))
+                self.log_remote("{} service restarted".format(service_name), now)
+                subprocess.check_output(["systemctl", "restart", service_name])
+
     def log_remote(self, message, date):
-        self.remote_db.hset(self.logs_name, date, message)
+        try:
+            self.remote_db.hset(self.logs_name, date, message)
+        except Exception as e:
+            self.logger.error("Failed to send remote log information: {}".format(e))
 
     def force_update(self, log=False):
         """Updates local and remote database"""
@@ -524,13 +525,7 @@ class RedisClient:
         # Updates remote hash
         if log:
             self.logger.info("updating remote db")
-        status = self.remote_db.hget(self.hashname, "state_string")
-        if status and status.decode() == "Disconnected":
-            last_ping = float(self.local_db.hget(hashname, "ping_time").decode())
-            time_since_ping = int(time.time()) - last_ping
-            if time_since_ping > 60:
-                now = int(time.time()) - 10800
-                self.log_remote("Reconnected", now)
+
         self.remote_db.hmset(self.hashname, info)
         self.bbb_ip, self.bbb_hostname = (new_ip, new_hostname)
         self.logs_name = "BBB:{}:{}:Logs".format(self.bbb_ip, self.bbb_hostname)
