@@ -241,10 +241,23 @@ class Window(Display, QMainWindow):
     def open_remote(self, file):
         self.transport = paramiko.Transport(EPICSTEL_SERVER)
         logger.info("Fetching from {}".format(EPICSTEL_SERVER))
-        self.transport.connect(
-            username=EPICSTEL_SERVER_USER, password=EPICSTEL_SERVER_PASS
-        )  # Root?
         logger.info("Logging in...")
+
+        try:
+            self.transport.connect(
+                username=EPICSTEL_SERVER_USER, password=EPICSTEL_SERVER_PASS
+            )  # Root?
+        except paramiko.ssh_exception.AuthenticationException:
+            QMessageBox.critical(
+                self,
+                "Could not authenticate",
+                "The program could not authenticate itself to the remote servers. You may only edit files locally.",
+                QMessageBox.Ok
+            )
+
+            logger.error("Could not authenticate to remote server and retrieve files.")
+            return
+
         self.is_remote = True
 
         self.sftp = paramiko.SFTPClient.from_transport(self.transport)
@@ -343,6 +356,8 @@ class Window(Display, QMainWindow):
 
         self.new_usrgp_btn.clicked.connect(self.add_usrgp)
 
+        urllib3.disable_warnings()
+
 
 class Login(QtWidgets.QDialog):
     def __init__(self, parent=None, macros=None, args=None):
@@ -364,6 +379,13 @@ class Login(QtWidgets.QDialog):
                 verify=False,
             )
         except ConnectionError:
+            QMessageBox.critical(
+                self,
+                "Could not authenticate",
+                "The program could not connect itself to the remote authentication server.",
+                QMessageBox.Ok
+            )
+
             logger.error("Could not connect to authentication server.")
 
         if "authenticated" in response.text:
@@ -402,8 +424,6 @@ class EditGroup(QtWidgets.QDialog):
 
 
 if __name__ == "__main__":
-    urllib3.disable_warnings()
-
     app = QApplication(sys.argv)
     win = Window()
     win.show()
