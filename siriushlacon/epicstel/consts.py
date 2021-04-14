@@ -16,4 +16,4 @@ EPICSTEL_SERVER = "10.0.38.46"
 EPICSTEL_SERVER_USER = ""
 EPICSTEL_SERVER_PASS = ""
 
-EPICSTEL_LOCATION = "/storage/services/repository/telepydisc/Data/"
+EPICSTEL_LOCATION = "/storage/services/repository/telegrampy/Data/"
