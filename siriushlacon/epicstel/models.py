@@ -63,6 +63,16 @@ class TableModel(QtCore.QAbstractTableModel):
         self._data = data
         self._header = header
 
+    def setHeader(self, index, new_value):
+        self._header[index] = new_value
+
+    def deleteHeader(self, index, new_value):
+        self._header.pop(index)
+        for data_row in self._data:
+            data_row.pop(index)
+
+        self.layoutChanged.emit()
+
     def headerData(self, section, orientation, role=QtCore.Qt.DisplayRole):
         if role == QtCore.Qt.DisplayRole and orientation == QtCore.Qt.Horizontal:
             return self._header[section]

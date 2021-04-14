@@ -1,4 +1,4 @@
-from qtpy import QtWidgets, uic
+from qtpy import QtWidgets, QtCore, uic
 from pydm import Display
 
 from qtpy.QtWidgets import QMainWindow, QMessageBox, QFileDialog, QApplication
@@ -7,16 +7,22 @@ import paramiko
 import pandas
 import requests
 import sys
+import logging
+import urllib3
 
 from models import TableModel, PvTableModel
 
 from siriushlacon.epicstel.consts import (
     EPICSTEL_MAIN_UI,
     EPICSTEL_LOGIN_UI,
+    EPICSTEL_SERVER,
     EPICSTEL_SERVER_USER,
     EPICSTEL_SERVER_PASS,
     EPICSTEL_LOCATION,
+    EPICSTEL_GROUP_UI,
 )
+
+logger = logging.getLogger()
 
 
 class Window(Display, QMainWindow):
@@ -60,11 +66,12 @@ class Window(Display, QMainWindow):
         if self.config_file is not None and self.config_file != "":
             self.display_table()
             self.is_remote = False
+            logger.debug("Loaded config file from {}".format(self.config_file))
 
     def remote_save(self):
         df = pandas.DataFrame.from_dict(self.table.model()._data, orient="columns")
         df.to_csv(self.config_file, header=self.table.model()._header, index=False)
-        print(self.config_file)
+        logger.debug("Loaded and pushed config file from {}".format(self.config_file))
 
         self.sftp.put(self.config_file, f"{EPICSTEL_LOCATION}{self.config_file[4:]}")
 
@@ -233,20 +240,31 @@ class Window(Display, QMainWindow):
 
     def open_remote(self, file):
         self.transport = paramiko.Transport(EPICSTEL_SERVER)
-        print("Fetching from {}".format(EPICSTEL_SERVER))
+        logger.info("Fetching from {}".format(EPICSTEL_SERVER))
         self.transport.connect(
-            username=EPICSTEL_SERVER_USER, password=EPICSTEL_USER_PASS
+            username=EPICSTEL_SERVER_USER, password=EPICSTEL_SERVER_PASS
         )  # Root?
-        print("Logging in...")
+        logger.info("Logging in...")
         self.is_remote = True
 
         self.sftp = paramiko.SFTPClient.from_transport(self.transport)
-        print("Finalized file transfer!")
+        logger.info("Finalized file transfer!")
 
         self.config_file = f"/tmp/{file}"
         self.sftp.get(f"{EPICSTEL_LOCATION}{file}", self.config_file)
 
         self.display_table()
+
+    def edit_header(self, index):
+        if self.config_type_label.text() == "User Groups":
+            gp_dialog = EditGroup(self.table.model()._header[index])
+
+            gp_dialog.group_edited.connect(
+                lambda name: self.table.model().setHeader(index, name)
+            )
+            gp_dialog.group_deleted.connect(
+                lambda name: self.table.model().deleteHeader(index, name)
+            )
 
     def display_table(self):
         self.new_filetype = ""
@@ -256,6 +274,7 @@ class Window(Display, QMainWindow):
 
         model = TableModel(table, data["columns"])
         self.table.setModel(model)
+        self.table.horizontalHeader().sectionClicked.connect(self.edit_header)
 
         self.save_btn.setEnabled(True)
         self.delete_row_btn.setEnabled(True)
@@ -335,11 +354,17 @@ class Login(QtWidgets.QDialog):
         self.button_box.rejected.connect(self.destroy)
 
     def handle_login(self):
-        response = requests.post(
-            "https://10.0.38.42/mgmt/bpl/login",
-            data={"username": self.username.text(), "password": self.password.text()},
-            verify=False,
-        )
+        try:
+            response = requests.post(
+                "https://10.0.38.42/mgmt/bpl/login",
+                data={
+                    "username": self.username.text(),
+                    "password": self.password.text(),
+                },
+                verify=False,
+            )
+        except ConnectionError:
+            logger.error("Could not connect to authentication server.")
 
         if "authenticated" in response.text:
             self.accept()
@@ -353,7 +378,32 @@ class Login(QtWidgets.QDialog):
             self.destroy()
 
 
+class EditGroup(QtWidgets.QDialog):
+    group_edited = QtCore.Signal(str)
+    group_deleted = QtCore.Signal(str)
+
+    def __init__(self, group, parent=None, macros=None, args=None):
+        super(EditGroup, self).__init__()
+        uic.loadUi(EPICSTEL_GROUP_UI, self)
+        self.show()
+
+        self.group_edit.setText(group)
+
+        self.button_box.accepted.connect(self.handle_edit_group)
+        self.button_box.rejected.connect(self.destroy)
+        self.delete_btn.clicked.connect(self.handle_delete_group)
+
+    def handle_edit_group(self):
+        self.group_edited.emit(self.group_edit.text())
+
+    def handle_delete_group(self):
+        self.group_deleted.emit(self.group_edit.text())
+        self.destroy()
+
+
 if __name__ == "__main__":
+    urllib3.disable_warnings()
+
     app = QApplication(sys.argv)
     win = Window()
     win.show()
