@@ -1,25 +1,22 @@
-from qtpy import QtWidgets, QtCore, uic
 from pydm import Display
 
 from qtpy.QtWidgets import QMainWindow, QMessageBox, QFileDialog, QApplication
 
 import paramiko
-import pandas
-import requests
 import sys
+import pandas
 import logging
 import urllib3
 
+from aux_dialogs import EditGroup, Login
 from models import TableModel, PvTableModel
 
 from siriushlacon.epicstel.consts import (
     EPICSTEL_MAIN_UI,
-    EPICSTEL_LOGIN_UI,
     EPICSTEL_SERVER,
     EPICSTEL_SERVER_USER,
     EPICSTEL_SERVER_PASS,
     EPICSTEL_LOCATION,
-    EPICSTEL_GROUP_UI,
 )
 
 logger = logging.getLogger()
@@ -168,7 +165,7 @@ class Window(Display, QMainWindow):
                 parent_model._data[index.row()][i] = ";".join(vals)
 
         model.layoutChanged.emit()
-        parent_model.layoutChanged.emit()
+        self.update_table()
 
     def add_pv(self, args):
         row = self.table.selectedIndexes()[0].row()
@@ -185,8 +182,8 @@ class Window(Display, QMainWindow):
         for i in range(2, 4):
             parent_model._data[row][i] = parent_model._data[row][i] + ";1"
 
-        parent_model.layoutChanged.emit()
         model.layoutChanged.emit()
+        self.update_table()
 
     def add_row(self, args):
         data = self.table.model()._data
@@ -195,6 +192,7 @@ class Window(Display, QMainWindow):
         data.append(new_row)
 
         self.table.model().layoutChanged.emit()
+        self.table.resizeColumnsToContents()
 
     def del_row(self, args):
         indexes = self.table.selectedIndexes()
@@ -208,7 +206,7 @@ class Window(Display, QMainWindow):
                     self.table.model()._data.pop(i)
                     break
 
-        self.table.model().layoutChanged.emit()
+        self.update_table()
 
     def add_usrgp(self, args):
         model = self.table.model()
@@ -219,6 +217,7 @@ class Window(Display, QMainWindow):
         model._header.append("New Group")
 
         model.layoutChanged.emit()
+        self.table.resizeColumnsToContents()
 
     def keep_changes(self):
         if self.config_file is not None:
@@ -252,7 +251,7 @@ class Window(Display, QMainWindow):
                 self,
                 "Could not authenticate",
                 "The program could not authenticate itself to the remote servers. You may only edit files locally.",
-                QMessageBox.Ok
+                QMessageBox.Ok,
             )
 
             logger.error("Could not authenticate to remote server and retrieve files.")
@@ -278,6 +277,10 @@ class Window(Display, QMainWindow):
             gp_dialog.group_deleted.connect(
                 lambda name: self.table.model().deleteHeader(index, name)
             )
+
+    def update_table(self):
+        self.table.model().layoutChanged.emit()
+        self.table.resizeColumnsToContents()
 
     def display_table(self):
         self.new_filetype = ""
@@ -334,10 +337,6 @@ class Window(Display, QMainWindow):
         self.save_btn.clicked.connect(self.save)
         self.table.clicked.connect(self.cell_clicked)
 
-        self.table.horizontalHeader().setSectionResizeMode(
-            QtWidgets.QHeaderView.Stretch
-        )
-
         self.add_pv_btn.clicked.connect(self.add_pv)
         self.del_pv_btn.clicked.connect(self.del_pv)
 
@@ -357,70 +356,6 @@ class Window(Display, QMainWindow):
         self.new_usrgp_btn.clicked.connect(self.add_usrgp)
 
         urllib3.disable_warnings()
-
-
-class Login(QtWidgets.QDialog):
-    def __init__(self, parent=None, macros=None, args=None):
-        super(Login, self).__init__()
-        uic.loadUi(EPICSTEL_LOGIN_UI, self)
-        self.show()
-
-        self.button_box.accepted.connect(self.handle_login)
-        self.button_box.rejected.connect(self.destroy)
-
-    def handle_login(self):
-        try:
-            response = requests.post(
-                "https://10.0.38.42/mgmt/bpl/login",
-                data={
-                    "username": self.username.text(),
-                    "password": self.password.text(),
-                },
-                verify=False,
-            )
-        except ConnectionError:
-            QMessageBox.critical(
-                self,
-                "Could not authenticate",
-                "The program could not connect itself to the remote authentication server.",
-                QMessageBox.Ok
-            )
-
-            logger.error("Could not connect to authentication server.")
-
-        if "authenticated" in response.text:
-            self.accept()
-        else:
-            QMessageBox.information(
-                self,
-                "Invalid credentials",
-                "Invalid credentials",
-                QMessageBox.Ok,
-            )
-            self.destroy()
-
-
-class EditGroup(QtWidgets.QDialog):
-    group_edited = QtCore.Signal(str)
-    group_deleted = QtCore.Signal(str)
-
-    def __init__(self, group, parent=None, macros=None, args=None):
-        super(EditGroup, self).__init__()
-        uic.loadUi(EPICSTEL_GROUP_UI, self)
-        self.show()
-
-        self.group_edit.setText(group)
-
-        self.button_box.accepted.connect(self.handle_edit_group)
-        self.button_box.rejected.connect(self.destroy)
-        self.delete_btn.clicked.connect(self.handle_delete_group)
-
-    def handle_edit_group(self):
-        self.group_edited.emit(self.group_edit.text())
-
-    def handle_delete_group(self):
-        self.group_deleted.emit(self.group_edit.text())
-        self.destroy()
 
 
 if __name__ == "__main__":
