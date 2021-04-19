@@ -20,7 +20,11 @@ if "armv7" in subprocess.check_output(["uname", "-a"]).decode():
     sys.path.insert(0, "/root/bbb-function/src/scripts")
     from bbb import BBB
 
-    node = BBB(CONFIG_PATH)
+    try:
+        node = BBB(CONFIG_PATH)
+    except ModuleNotFoundError:
+        CONFIG_PATH = "/var/tmp/nonexistentpath.bin"
+        node = BBB(CONFIG_PATH)  # Forces BBBread to use default configurations 
 else:
     device = "server"
 
