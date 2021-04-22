@@ -6,7 +6,6 @@ import paramiko
 import sys
 import pandas
 import logging
-import urllib3
 
 from aux_dialogs import EditGroup, Login
 from models import TableModel, PvTableModel
@@ -358,8 +357,6 @@ class Window(Display, QMainWindow):
         )
 
         self.new_usrgp_btn.clicked.connect(self.add_usrgp)
-
-        urllib3.disable_warnings()
 
 
 if __name__ == "__main__":
