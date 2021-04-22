@@ -13,7 +13,5 @@ EPICSTEL_LOGIN_UI = get_abs_path("ui/login.ui")
 EPICSTEL_GROUP_UI = get_abs_path("ui/group.ui")
 
 EPICSTEL_SERVER = "10.0.38.46"
-EPICSTEL_SERVER_USER = ""
-EPICSTEL_SERVER_PASS = ""
 
 EPICSTEL_LOCATION = "/storage/services/repository/telegrampy/Data/"

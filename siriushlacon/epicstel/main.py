@@ -14,8 +14,6 @@ from models import TableModel, PvTableModel
 from siriushlacon.epicstel.consts import (
     EPICSTEL_MAIN_UI,
     EPICSTEL_SERVER,
-    EPICSTEL_SERVER_USER,
-    EPICSTEL_SERVER_PASS,
     EPICSTEL_LOCATION,
 )
 
@@ -48,6 +46,8 @@ class Window(Display, QMainWindow):
         "authorized_personnel.csv": ["ADM", "TeamADM", "General"],
     }
 
+    sftp = None
+    transport = None
     new_filetype = None
     config_file = None
     is_remote = False
@@ -68,16 +68,13 @@ class Window(Display, QMainWindow):
     def remote_save(self):
         df = pandas.DataFrame.from_dict(self.table.model()._data, orient="columns")
         df.to_csv(self.config_file, header=self.table.model()._header, index=False)
-        logger.debug("Loaded and pushed config file from {}".format(self.config_file))
+        logger.info("Loaded and pushed config file from {}".format(self.config_file))
 
         self.sftp.put(self.config_file, f"{EPICSTEL_LOCATION}{self.config_file[4:]}")
 
     def save(self, args):
         if self.is_remote:
-            login = Login()
-            login.accepted.connect(self.remote_save)
-
-            login.show()
+            self.remote_save()
         else:
             if self.new_filetype is not None:
                 save_file, _ = QFileDialog.getSaveFileName(
@@ -237,33 +234,40 @@ class Window(Display, QMainWindow):
         else:
             return False
 
-    def open_remote(self, file):
-        self.transport = paramiko.Transport(EPICSTEL_SERVER)
-        logger.info("Fetching from {}".format(EPICSTEL_SERVER))
-        logger.info("Logging in...")
+    def login_remote(self, file):
+        if not self.transport:
+            self.transport = paramiko.Transport(EPICSTEL_SERVER)
+            logger.info("Fetching from {}".format(EPICSTEL_SERVER))
 
-        try:
-            self.transport.connect(
-                username=EPICSTEL_SERVER_USER, password=EPICSTEL_SERVER_PASS
-            )  # Root?
-        except paramiko.ssh_exception.AuthenticationException:
-            QMessageBox.critical(
-                self,
-                "Could not authenticate",
-                "The program could not authenticate itself to the remote servers. You may only edit files locally.",
-                QMessageBox.Ok,
-            )
+        if self.sftp is None or not self.transport.is_active():
+            logger.info("Logging in...")
+            login = Login()
+            login.logged_in.connect(lambda c: self.open_remote(file, c))
 
-            logger.error("Could not authenticate to remote server and retrieve files.")
-            return
+            login.show()
+        else:
+            self.open_remote(file)
+
+    def open_remote(self, file, credentials=None):
+        if credentials is not None:
+            try:
+                self.transport.connect(username=credentials[0], password=credentials[1])
+            except paramiko.ssh_exception.AuthenticationException:
+                QMessageBox.critical(
+                    self,
+                    "Could not authenticate",
+                    "Invalid credentials",
+                    QMessageBox.Ok,
+                )
 
         self.is_remote = True
 
-        self.sftp = paramiko.SFTPClient.from_transport(self.transport)
-        logger.info("Finalized file transfer!")
+        if not self.sftp:
+            self.sftp = paramiko.SFTPClient.from_transport(self.transport)
 
         self.config_file = f"/tmp/{file}"
         self.sftp.get(f"{EPICSTEL_LOCATION}{file}", self.config_file)
+        logger.info("Finalized file transfer!")
 
         self.display_table()
 
@@ -347,10 +351,10 @@ class Window(Display, QMainWindow):
         self.new_pvinfo.triggered.connect(lambda: self.new("monitor_info.csv"))
         self.new_usrgp.triggered.connect(lambda: self.new("authorized_personnel.csv"))
 
-        self.open_groups.triggered.connect(lambda: self.open_remote("groups.csv"))
-        self.open_info.triggered.connect(lambda: self.open_remote("monitor_info.csv"))
+        self.open_groups.triggered.connect(lambda: self.login_remote("groups.csv"))
+        self.open_info.triggered.connect(lambda: self.login_remote("monitor_info.csv"))
         self.open_usr.triggered.connect(
-            lambda: self.open_remote("authorized_personnel.csv")
+            lambda: self.login_remote("authorized_personnel.csv")
         )
 
         self.new_usrgp_btn.clicked.connect(self.add_usrgp)

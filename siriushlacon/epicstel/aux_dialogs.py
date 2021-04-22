@@ -1,9 +1,6 @@
 from qtpy import QtWidgets, QtCore, uic
 
-from qtpy.QtWidgets import QMessageBox
-
 import logging
-import requests
 
 from siriushlacon.epicstel.consts import (
     EPICSTEL_LOGIN_UI,
@@ -14,6 +11,8 @@ logger = logging.getLogger()
 
 
 class Login(QtWidgets.QDialog):
+    logged_in = QtCore.Signal(tuple)
+
     def __init__(self, parent=None, macros=None, args=None):
         super(Login, self).__init__()
         uic.loadUi(EPICSTEL_LOGIN_UI, self)
@@ -23,35 +22,7 @@ class Login(QtWidgets.QDialog):
         self.button_box.rejected.connect(self.destroy)
 
     def handle_login(self):
-        try:
-            response = requests.post(
-                "https://10.0.38.42/mgmt/bpl/login",
-                data={
-                    "username": self.username.text(),
-                    "password": self.password.text(),
-                },
-                verify=False,
-            )
-        except ConnectionError:
-            QMessageBox.critical(
-                self,
-                "Could not authenticate",
-                "The program could not connect itself to the remote authentication server.",
-                QMessageBox.Ok,
-            )
-
-            logger.error("Could not connect to authentication server.")
-
-        if "authenticated" in response.text:
-            self.accept()
-        else:
-            QMessageBox.information(
-                self,
-                "Invalid credentials",
-                "Invalid credentials",
-                QMessageBox.Ok,
-            )
-            self.destroy()
+        self.logged_in.emit((self.username.text(), self.password.text()))
 
 
 class EditGroup(QtWidgets.QDialog):
