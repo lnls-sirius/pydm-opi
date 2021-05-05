@@ -14,8 +14,10 @@ class DeviceMenu(Display):
         )
 
         # defining macros for PyDMShellCommand (valve open/close confirmation)
-        RELAY_SH_STR = "pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {} {}".format(
-            CONFIRMATION_MESSAGE_PY, macros["IOC"]
+        RELAY_SH_STR = (
+            "pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {} {}".format(
+                CONFIRMATION_MESSAGE_PY, macros["IOC"]
+            )
         )
         self.Relay1.commands = [RELAY_SH_STR]
         self.Relay2.commands = [RELAY_SH_STR]
