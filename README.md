@@ -19,15 +19,27 @@ pre-commit install
 
 Install
 -------
-Available at **PyPi** https://pypi.org/project/siriushlacon/
+Available at **PyPi** https://pypi.org/project/siriushlacon/, can be installed using pip but specific versions of QT are needed.
 
 ```
 pip install siriushlacon
 ```
+
 Conda setup:
 ```
+# Install Miniconda
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+sh Miniconda3-latest-Linux-x86_64.sh
+
+# Remove the install script
+rm Miniconda3-latest-Linux-x86_64.sh
+
+# Optionally create an environment using a tested python version
 conda create -p /opt/conda/envs/cons python=3.8
+
+# Dependencies
 conda install qt==5.12.9 pyqt==5.12.3 pydm==1.10.4
+
 pip install siriushlacon
 ```
 
@@ -51,5 +63,5 @@ If using conda, remember to fix the Exec entry at the `.desktop' file accordingl
 
 Run
 ---
-To launch the main window use the script: `sirius-hla-as-ap-conlauncher.py`
+To launch the main window use the script: `sirius-hla-as-ap-conlauncher.py`. On Windows make sure that the correct `python.exe` is the default program for `*.py` files.
 
