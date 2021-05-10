@@ -38,6 +38,8 @@ rm Miniconda3-latest-Linux-x86_64.sh
 conda create -p /opt/conda/envs/cons python=3.8
 
 # Dependencies
+conda config --add channels conda-forge
+conda config --set channel_priority strict
 conda install qt==5.12.9 pyqt==5.12.3 pydm==1.10.4
 
 pip install siriushlacon
