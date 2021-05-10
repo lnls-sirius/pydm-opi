@@ -21,12 +21,12 @@ Install
 -------
 Available at **PyPi** https://pypi.org/project/siriushlacon/, can be installed using pip but specific versions of QT are needed.
 
-```
+```command
 pip install siriushlacon
 ```
 
 Conda setup:
-```
+```command
 # Install Miniconda
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 sh Miniconda3-latest-Linux-x86_64.sh
@@ -53,7 +53,7 @@ The `<EPICS_BASE>/bin` folder must be added to the environment variable `PATH` a
 
 ### Desktop
 In order to install the `.desktop` launcher:
-```bash
+```command
 make install-files
 ```
 If using conda, remember to fix the Exec entry at the `.desktop' file accordingly:
