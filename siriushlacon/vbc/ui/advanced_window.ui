@@ -2511,7 +2511,7 @@
                 </color>
                </property>
                <property name="circles" stdset="0">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
                <property name="labels" stdset="0">
                 <stringlist/>
@@ -9454,7 +9454,7 @@
                 </color>
                </property>
                <property name="circles" stdset="0">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
                <property name="labels" stdset="0">
                 <stringlist/>
@@ -10370,7 +10370,7 @@
                 </color>
                </property>
                <property name="circles" stdset="0">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
                <property name="labels" stdset="0">
                 <stringlist/>
@@ -10469,7 +10469,7 @@
                 </color>
                </property>
                <property name="circles" stdset="0">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
                <property name="labels" stdset="0">
                 <stringlist/>
@@ -10616,7 +10616,7 @@
                 </color>
                </property>
                <property name="circles" stdset="0">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
                <property name="labels" stdset="0">
                 <stringlist/>
@@ -10964,7 +10964,7 @@
                 </color>
                </property>
                <property name="circles" stdset="0">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
                <property name="labels" stdset="0">
                 <stringlist/>
@@ -11075,7 +11075,7 @@
                 </color>
                </property>
                <property name="circles" stdset="0">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
                <property name="labels" stdset="0">
                 <stringlist/>
