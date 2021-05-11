@@ -1,9 +1,9 @@
-﻿$DistPath = "$Home\Documents\pydm-opi\miscellaneous\windows"
-$IcoUrl = "https://github.com/lnls-sirius/pydm-opi/raw/master/miscellaneous/windows/lnls.ico"
+﻿$IcoUrl = "https://github.com/lnls-sirius/pydm-opi/raw/master/miscellaneous/windows/lnls.ico"
 $IcoDestPath = "$Home\Icons\"
+$ShortcutName = "Sirius PyDM OPI.lnk"
 
 function CreateShortcut {
-    param ( [string]$DistPath, [string]$DestinationPath, [string]$Desc )
+    param ( [string]$DestinationPath, [string]$Desc )
 
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut($DestinationPath)
@@ -16,4 +16,4 @@ function CreateShortcut {
 
 New-Item -ItemType Directory -Force -Path "$IcoDestPath"
 Invoke-WebRequest -Uri $IcoUrl -OutFile "$IcoDestPath\lnls.ico"
-CreateShortcut $DistPath "$Home\Desktop\Sirius PyDM OPI.lnk" "Sirius PyDM OPI Launcher"
+CreateShortcut "$Home\Desktop\$ShortcutName" "Sirius PyDM OPI Launcher"
