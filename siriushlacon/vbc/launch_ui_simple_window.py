@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import sys
 from qtpy.QtGui import QPixmap
 from pydm import Display
 from siriushlacon.utils.consts import LNLS_IMG
 from siriushlacon.vbc.consts import (
     SIMPLE_WINDOW_UI,
-    COMMUTE_VALVE_SCRIPT,
-    CONFIRMATION_MESSAGE_PY,
 )
-
-import json
 
 
 class DeviceMenu(Display):

@@ -7,13 +7,11 @@ from pydm import Display
 from siriushlacon.vbc.consts import (
     ADVANCED_WINDOW_PY,
     CHECK_PRESSURE_SCRIPT,
-    COMMUTE_VALVE_SCRIPT,
     OK_MESSAGE_PY,
     PROCESS_OFF_SCRIPT,
     PROCESS_ON_SCRIPT,
     SYSTEM_WINDOW_UI,
     WARNING_WINDOW_PY,
-    CONFIRMATION_MESSAGE_PY,
     STOP_IMG,
     SIMPLE_WINDOW_PY,
     PLAY_IMG,
