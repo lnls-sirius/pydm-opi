@@ -3,7 +3,6 @@ from setuptools import setup, find_namespace_packages
 from siriushlacon import __author__, __version__
 import pkg_resources
 
-
 def get_abs_path(relative):
     return pkg_resources.resource_filename(__name__, relative)
 
@@ -18,9 +17,15 @@ setup(
     author=__author__,
     classifiers=[
         "Intended Audience :: Science/Research",
-        "Programming Language :: Python :: 3",
-        "Topic :: Scientific/Engineering",
         "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3 :: Only",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python",
+        "Topic :: Scientific/Engineering",
     ],
     description="Client Applications for Sirius",
     download_url="https://github.com/lnls-sirius/pydm-opi",
@@ -46,6 +51,7 @@ setup(
         "scripts/sirius-hla-as-va-agilent4uhv-device.py",
         "scripts/sirius-hla-as-va-agilent4uhv.py",
         "scripts/sirius-hla-as-va-mks937b.py",
+        "scripts/sirius-hla-as-va-vbc.py",
         "scripts/sirius-hla-bo-va-agilent4uhv-overview.py",
         "scripts/sirius-hla-bo-va-mks937b-overview.py",
         "scripts/sirius-hla-si-va-agilent4uhv-overview.py",
