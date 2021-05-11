@@ -19,6 +19,8 @@ pre-commit install
 
 Install
 -------
+[Windows instructions](miscellaneous/windows).
+
 Available at **PyPi** https://pypi.org/project/siriushlacon/, can be installed using pip but specific versions of QT are needed.
 
 ```command
