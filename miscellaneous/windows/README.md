@@ -73,3 +73,6 @@ choco install git neovim
 ```
 
 ## Criar atalho
+```powershell
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/lnls-sirius/pydm-opi/master/miscellaneous/windows/Create-Shortcut.ps1'))
+```
