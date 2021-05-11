@@ -22,6 +22,14 @@ Download at https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64
 
 Create a conda environment using Python 3.6
 
+```powershell
+$ProgressPreference = 'Continue'
+Invoke-WebRequest -Uri https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe -O Miniconda3-latest-Windows-x86_64.exe
+Start-Process Miniconda3-latest-Windows-x86_64.exe
+# Start-Process /wait "" Miniconda3-latest-Windows-x86_64.exe /AddToPath=1 /InstallationType=JustMe /RegisterPython=0 /S /D=%UserProfile%\Miniconda3
+Remove-Item Miniconda3-latest-Windows-x86_64.exe
+```
+
 ```command
 conda create --name py36 python=3.6
 ```
