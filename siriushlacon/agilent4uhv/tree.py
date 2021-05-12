@@ -6,16 +6,17 @@ from qtpy import QtGui, QtWidgets
 
 from conscommon.data import getAgilent
 from conscommon.data_model import (
-    getDevicesFromList,
     getBeaglesFromList,
     getDevicesFromBeagles,
     Device,
 )
 
+
 class DeviceTreeSelection(object):
     def __init__(self, device: Device, channels_selected: List[bool]):
         self.device = device
         self.channels_selected = channels_selected
+
 
 class DeviceTreeView(QtWidgets.QWidget):
     def __init__(self):
@@ -103,8 +104,7 @@ class DeviceTreeView(QtWidgets.QWidget):
 
                 selected.append(
                     DeviceTreeSelection(
-                        Device(prefix=row.text(), channels=channels),
-                        channels_selected
+                        Device(prefix=row.text(), channels=channels), channels_selected
                     )
                 )
         return selected

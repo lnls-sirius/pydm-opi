@@ -72,7 +72,15 @@ class UHVDataController(TableDataController):
                 get_label(self.table, "", "", PyDMLabel.DisplayFormat.Exponential),
             )
             # Temperature
-            self.table.setCellWidget(actual_row, 8, get_label(self.table, "", "",))
+            self.table.setCellWidget(
+                actual_row,
+                8,
+                get_label(
+                    self.table,
+                    "",
+                    "",
+                ),
+            )
             # Error Code Mon
             self.table.setCellWidget(
                 actual_row, 9, get_byte_indicator(self.table, "", "")
@@ -223,29 +231,24 @@ class UHV(Display):
         super(UHV, self).__init__(
             parent=parent, args=args, macros=macros, ui_filename=AGILENT_MAIN_UI
         )
-        # fmt: off
         horizontal_header_labels = [
-                'Channel Name',             # 0
-                'Device Name',              # 1
-                'Fan Temperature',          # 2
-                'Autostart',                # 3
-
-                'Pressure',                 # 4
-                'Unit',                     # 5
-
-                'Voltage',                  # 6
-                'Current',                  # 7
-                'Temperature',              # 8
-                'Error Code Mon LSB',       # 9
-
-                'HV State',                 # 10
-                'Power Max',                # 11
-                'V Target',                 # 12
-                'I Protect',                # 13
-                'Setpoint',                 # 14
-
-                'Details']
-        # fmt: on
+            "Channel Name",  # 0
+            "Device Name",  # 1
+            "Fan Temperature",  # 2
+            "Autostart",  # 3
+            "Pressure",  # 4
+            "Unit",  # 5
+            "Voltage",  # 6
+            "Current",  # 7
+            "Temperature",  # 8
+            "Error Code Mon LSB",  # 9
+            "HV State",  # 10
+            "Power Max",  # 11
+            "V Target",  # 12
+            "I Protect",  # 13
+            "Setpoint",  # 14
+            "Details",
+        ]
         table_batch = 0
         for device in DEVICES:
             if not device.enable:

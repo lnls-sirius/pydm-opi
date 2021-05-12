@@ -4,7 +4,6 @@ import logging
 import math
 import asyncio
 import sys
-import typing
 import time
 from typing import List
 
@@ -18,7 +17,7 @@ from qtpy.QtCore import QObject, Signal, QRunnable
 logger = logging.getLogger()
 
 EPICS_TOUT = 1
-CMD_TOUT = 1.
+CMD_TOUT = 1.0
 TIMER_BETWEEN_DEVICES = 0.5
 
 FIXED, STEP, STEP_TO_FIXED = "fixed", "step", "step_to_fixed"
@@ -39,7 +38,7 @@ class AgilentAsync(QObject):
 
         pv = device.prefix + ":Step-SP"
         actual_value = epics.caget(device.prefix + ":Step-RB", timeout=EPICS_TOUT)
-        if actual_value == None:
+        if actual_value is None:
             logger.fatal(
                 "Failed to get {} value, aborting operation.".format(
                     device.prefix + ":Step-RB"
@@ -101,7 +100,7 @@ class AgilentAsync(QObject):
 
         pv = device.prefix + ":Step-SP"
         actual_value = epics.caget(device.prefix + ":Step-RB", timeout=EPICS_TOUT)
-        if actual_value == None:
+        if actual_value is None:
             logger.fatal(
                 "Failed to get {} value, aborting operation.".format(
                     device.prefix + ":Step-RB"
@@ -160,7 +159,7 @@ class AgilentAsync(QObject):
         _delay: float,
         channels_selected,
     ):
-        """ Run a function then another ..."""
+        """Run a function then another ..."""
         logger.info(
             'Running initial function "{}" for device "{}". Next method in {} seconds.'.format(
                 self.toStep.__name__, device, _delay
@@ -224,7 +223,11 @@ class AgilentAsync(QObject):
         await asyncio.gather(*tasks)
 
     def asyncStart(
-        self, mode, step_to_fixed_delay, voltage, devices_selection,
+        self,
+        mode,
+        step_to_fixed_delay,
+        voltage,
+        devices_selection,
     ):
         if sys.version_info >= (3, 7):
             from asyncio import run as asyncio_run

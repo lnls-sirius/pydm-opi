@@ -4,7 +4,6 @@ from typing import List
 from qtpy.QtWidgets import (
     QFrame,
     QGridLayout,
-    QHeaderView,
     QLabel,
     QLineEdit,
     QPushButton,
@@ -51,7 +50,7 @@ class DevicesFrame(QFrame):
 
         self.deviceStatus = QTableWidget()
         self.deviceStatus.setColumnCount(2)
-        #self.deviceStatus.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        # self.deviceStatus.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.deviceStatus.setHorizontalHeaderLabels(["Device", "Status"])
         self.deviceStatusLabel = QLabel("Status")
 

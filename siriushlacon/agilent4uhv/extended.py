@@ -2,7 +2,6 @@
 import logging
 from qtpy.QtWidgets import (
     QApplication,
-    QFrame,
     QWidget,
     QGridLayout,
     QPushButton,
@@ -29,9 +28,9 @@ class MainWindow(QWidget):
         self.setWindowTitle("VACS - Utility Scripts")
 
         self.contentLayout = QGridLayout()
-        #self.content = QFrame()
-        #self.content.setFrameStyle(QFrame.Panel | QFrame.Raised)
-        #self.content.setLayout(self.contentLayout)
+        # self.content = QFrame()
+        # self.content.setFrameStyle(QFrame.Panel | QFrame.Raised)
+        # self.content.setLayout(self.contentLayout)
 
         # to Step Mode
         self.toStepButton = QPushButton(" to Step ")
@@ -64,8 +63,8 @@ class MainWindow(QWidget):
         self.devices = DevicesFrame()
         self.devices.show()
         self.contentLayout.addWidget(self.devices, 5, 0, 1, 2)
-        #self.content.show()
-        #self.setCentralWidget(self.content)
+        # self.content.show()
+        # self.setCentralWidget(self.content)
         self.setLayout(self.contentLayout)
 
         # Thread !
@@ -117,6 +116,7 @@ class MainWindow(QWidget):
             )
             QThreadPool.globalInstance().start(runnable)
 
+
 def launch():
     app = QApplication([])
     logging.basicConfig(
@@ -128,6 +128,7 @@ def launch():
     window = MainWindow()
     window.show()
     app.exec_()
+
 
 if __name__ == "__main__":
     launch()
