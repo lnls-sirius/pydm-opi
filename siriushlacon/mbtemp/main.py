@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import logging, requests, sys
+import logging
+import requests
+import sys
 from pydm import Display
 from pydm.widgets.channel import PyDMChannel
 from qtpy import QtWidgets, QtCore
@@ -8,24 +10,21 @@ from qtpy.QtGui import QPixmap
 from functools import partial
 
 from siriushlacon.mbtemp.consts import (
-    MBTEMP_MAIN,
-    MBTEMP_MAIN_UI,
-    OVERVIEW_MAIN,
     BOEXTRACTION_PIC,
-    OVERVIEW_MAIN,
     BOINJ_PIC,
     BO_PIC1,
     BO_PIC2,
     BO_PIC3,
     BO_PIC4,
-    SR_PICS,
     CNPEM_LOGO,
     LNLS_LOGO,
-    SRINJ_PIC,
-    PIC_P7RF,
-    SR_PICS,
-    PIC_PA,
+    MBTEMP_MAIN_UI,
+    OVERVIEW_MAIN,
     PIC_LA,
+    PIC_P7RF,
+    PIC_PA,
+    SRINJ_PIC,
+    SR_PICS,
 )
 
 logger = logging.getLogger()
@@ -200,7 +199,7 @@ class MBTempMonitoring(Display):
             return ()
 
         # ----------- Update color and toolTip ----------
-        if value == False or value < 1:
+        if value is False or value < 1:
             channel.brush = QtCore.Qt.red
             channel.setToolTip(
                 ("PV: {}\n" + "Channel: {}\n" + "Process Variable Disconnected").format(
@@ -208,7 +207,7 @@ class MBTempMonitoring(Display):
                 )
             )
             return ()
-        elif value == True:
+        elif value is True:
             channel.brush = QtCore.Qt.green
             return ()
         elif value > self.tempMax.value():
@@ -259,11 +258,11 @@ class MBTempMonitoring(Display):
         except AttributeError:
             return ()
 
-        if value == False:
+        if value is False:
             mbtemp.brush = QtCore.Qt.red
             mbtemp.setToolTip(("{} - MBTemp Board is disconnected").format(pvname))
             return ()
-        elif value == True:
+        elif value is True:
             mbtemp.brush = QtCore.Qt.blue
             return ()
         mbtemp.brush = QtCore.Qt.blue
