@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 from pydm import Display
 from siriushlacon.vbc.consts import (
     WARNING_WINDOW_UI,

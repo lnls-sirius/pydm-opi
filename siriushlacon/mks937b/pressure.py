@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 from pydm import Display
 from conscommon.data_model.mks import MKS_SENSOR_COLD_CATHODE

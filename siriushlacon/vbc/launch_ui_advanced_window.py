@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 from pydm import Display
 from siriushlacon.vbc.consts import ADVANCED_WINDOW_UI, CONFIRMATION_MESSAGE_PY
 

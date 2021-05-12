@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 import json
 from pydm import Display
 from siriushlacon.vbc.consts import MAIN_WINDOW_UI, SYSTEM_WINDOW_PY

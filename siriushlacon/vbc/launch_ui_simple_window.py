@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 from qtpy.QtGui import QPixmap
 from pydm import Display
 from siriushlacon.utils.consts import LNLS_IMG
