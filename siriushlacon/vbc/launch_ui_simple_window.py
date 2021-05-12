@@ -4,6 +4,8 @@ from qtpy.QtGui import QPixmap
 from pydm import Display
 from siriushlacon.utils.consts import LNLS_IMG
 from siriushlacon.vbc.consts import (
+    COMMUTE_VALVE_SCRIPT,
+    CONFIRMATION_MESSAGE_PY,
     SIMPLE_WINDOW_UI,
 )
 
@@ -14,14 +16,12 @@ class DeviceMenu(Display):
             parent=parent, args=args, macros=macros, ui_filename=SIMPLE_WINDOW_UI
         )
         self.lnlsLabel.setPixmap(QPixmap(LNLS_IMG))
-        # self.Relay1.commands = [
-        #    "python {} {} 1 yes".format(COMMUTE_VALVE_SCRIPT, macros["IOC"])
-        # ]
-        # self.Relay5.commands = [
-        #    "pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {} {} 5".format(
-        #        CONFIRMATION_MESSAGE_PY, macros["IOC"]
-        #    )
-        # ]
-        # self.Relay1_2.commands = [
-        #    "python {} {} 2 yes".format(COMMUTE_VALVE_SCRIPT, macros["IOC"])
-        # ]
+        macros_ioc = macros["IOC"]
+
+        self.Relay1.commands = [f"python {COMMUTE_VALVE_SCRIPT} {macros_ioc} 1 yes"]
+
+        self.Relay1_2.commands = [f"python {COMMUTE_VALVE_SCRIPT} {macros_ioc} 2 yes"]
+
+        self.Relay5.commands = [
+            f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {CONFIRMATION_MESSAGE_PY} {macros_ioc} 5"
+        ]
