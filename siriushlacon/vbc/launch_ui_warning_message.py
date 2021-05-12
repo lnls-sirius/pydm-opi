@@ -28,7 +28,6 @@ class DeviceMenu(Display):
         self.pressure_exp.channel = f"ca://{IOC}:BBB:TorrExpMsg"
 
         self.pop_up_OK_message.commands = [
-            f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {OK_MESSAGE_PY}"
+            f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {OK_MESSAGE_PY} {IOC}"
         ]
-        ioc_macros = macros["IOC"]
-        self.Shell.commands = [f"python {PROCESS_RECOVERYY_SCRIPT} {ioc_macros}"]
+        self.Shell.commands = [f"python {PROCESS_RECOVERYY_SCRIPT} {IOC}"]
