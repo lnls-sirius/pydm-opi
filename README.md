@@ -3,7 +3,8 @@ Sirius HLA CONS - GUI
 
 This repo should contain every PyDM OPI developed by the CONS group currently in use.
 
-[![Build Status](https://api.travis-ci.org/lnls-sirius/pydm-opi.svg)](https://travis-ci.org/lnls-sirius/pydm-opi)
+[![PyPi Deploy](https://api.travis-ci.org/lnls-sirius/pydm-opi.svg)](https://travis-ci.org/lnls-sirius/pydm-opi)
+[![Lint](https://github.com/lnls-sirius/pydm-opi/actions/workflows/lint.yml/badge.svg)](https://github.com/lnls-sirius/pydm-opi/actions/workflows/lint.yml)
 ![Latest tag](https://img.shields.io/github/tag/lnls-sirius/pydm-opi.svg?style=flat)
 [![Latest release](https://img.shields.io/github/release/lnls-sirius/pydm-opi.svg?style=flat)](https://github.com/lnls-sirius/pydm-opi/releases)
 [![PyPI version fury.io](https://badge.fury.io/py/siriushlacon.svg)](https://pypi.python.org/pypi/siriushlacon/)
