@@ -4,8 +4,8 @@ import sys
 from qtpy.QtGui import QPixmap
 from pydm import Display
 from siriushlacon.vbc.consts import (
-    CONFIRMATION_MESSAGE_UI,
     COMMUTE_VALVE_SCRIPT,
+    CONFIRMATION_MESSAGE_UI,
     WARNING_IMG,
 )
 
