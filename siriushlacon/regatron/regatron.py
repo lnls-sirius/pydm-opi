@@ -264,7 +264,9 @@ class Regatron(Display):
             )
             self.flashHistoryTable.setItem(i, 0, QTableWidgetItem(n))
             self.flashHistoryTable.setItem(
-                i, 1, QTableWidgetItem(str(eventTimedelta)),
+                i,
+                1,
+                QTableWidgetItem(str(eventTimedelta)),
             )
 
             if self.operatingTimeDatetime and self.pwrupTimeDatetime:
