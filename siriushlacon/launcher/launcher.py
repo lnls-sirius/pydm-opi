@@ -1,5 +1,4 @@
 import json
-import os
 from qtpy.QtGui import QPixmap
 from pydm import Display
 
@@ -7,7 +6,6 @@ from siriushlacon import __version__
 from siriushlacon.agilent4uhv.consts import (
     AGILENT_MAIN,
     AGILENT_OVERVIEW,
-    AGILENT_EXTENDED,
 )
 from siriushlacon.agilent4uhv.extended import MainWindow
 from siriushlacon.launcher.consts import LAUNCH_WINDOW_UI, PCTRL_MAIN
