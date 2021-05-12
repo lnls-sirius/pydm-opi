@@ -3,6 +3,7 @@ from setuptools import setup, find_namespace_packages
 from siriushlacon import __author__, __version__
 import pkg_resources
 
+
 def get_abs_path(relative):
     return pkg_resources.resource_filename(__name__, relative)
 
