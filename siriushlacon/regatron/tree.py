@@ -1,14 +1,10 @@
 import logging
 from pydm import Display
-from pydm.utilities import IconFont
 from pydm.widgets.channel import PyDMChannel
-from qtpy.QtWidgets import QTableWidgetItem
 
 from siriushlacon.regatron.consts import (
-    COMPLETE_UI,
     TREE_32_UI,
     READINGS_MAP,
-    ALARM_MAIN,
 )
 
 logger = logging.getLogger()

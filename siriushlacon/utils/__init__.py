@@ -3,7 +3,7 @@ import conscommon.data_model
 
 
 class LazyDevices:
-    """ Helper class for lazy loading """
+    """Helper class for lazy loading"""
 
     _data = None
 

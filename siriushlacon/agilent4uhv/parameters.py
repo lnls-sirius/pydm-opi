@@ -7,7 +7,7 @@ from qtpy.QtWidgets import (
     QLineEdit,
     QPushButton,
 )
-from qtpy.QtGui import QDoubleValidator, QIntValidator, QRegExpValidator
+from qtpy.QtGui import QIntValidator, QRegExpValidator
 from qtpy.QtCore import QRegExp
 
 

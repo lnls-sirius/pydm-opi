@@ -84,11 +84,14 @@ class AlarmDisplay(Display):
         :return: the PV name
         """
         return "{}:{}-{}{}".format(
-            self.macros["P"], self.macros["T"], "Err" if error else "Warn", signal,
+            self.macros["P"],
+            self.macros["T"],
+            "Err" if error else "Warn",
+            signal,
         )
 
     def set_time_now(self):
-        """ Set current date and time to the "dfTo" widget """
+        """Set current date and time to the "dfTo" widget"""
         self.dtTo.setDateTime(QDateTime.currentDateTime())
 
     def do_search(self, time_to, time_from, std, error):
@@ -155,7 +158,10 @@ class AlarmDisplay(Display):
             (
                 self.treeStdWarn,
                 self.do_search(
-                    time_to=time_to, time_from=time_from, std=True, error=False,
+                    time_to=time_to,
+                    time_from=time_from,
+                    std=True,
+                    error=False,
                 ),
             )
         )
@@ -163,7 +169,10 @@ class AlarmDisplay(Display):
             (
                 self.treeStdErr,
                 self.do_search(
-                    time_to=time_to, time_from=time_from, std=True, error=True,
+                    time_to=time_to,
+                    time_from=time_from,
+                    std=True,
+                    error=True,
                 ),
             )
         )
@@ -171,7 +180,10 @@ class AlarmDisplay(Display):
             (
                 self.treeExtWarn,
                 self.do_search(
-                    time_to=time_to, time_from=time_from, std=False, error=False,
+                    time_to=time_to,
+                    time_from=time_from,
+                    std=False,
+                    error=False,
                 ),
             )
         )
@@ -179,7 +191,10 @@ class AlarmDisplay(Display):
             (
                 self.treeExtErr,
                 self.do_search(
-                    time_to=time_to, time_from=time_from, std=False, error=True,
+                    time_to=time_to,
+                    time_from=time_from,
+                    std=False,
+                    error=True,
                 ),
             )
         )
@@ -189,6 +204,6 @@ class AlarmDisplay(Display):
                 self.update_alarm_tree(widget, response)
 
     def search_alarms(self):
-        """ Update all tree widgets """
+        """Update all tree widgets"""
         loop = asyncio.get_event_loop()
         loop.run_until_complete(self.search())

@@ -25,25 +25,23 @@ logger = logging.getLogger()
 
 @enum.unique
 class TableColumn(enum.Enum):
-    # fmt: off
-    Channel       = "Channel"
-    Device        = "Device"
-    Pressure      = "Pressure"
-    Alarm         = "Alarm"
-    Unit          = "Unit"
-    Protect       = "Protect"
-    Relay_1_SP    = "Relay 1 SP"
-    Relay_1_Hyst  = "Relay 1 Hyst"
-    Relay_5_SP    = "Relay 5 SP"
-    Relay_5_Hyst  = "Relay 5 Hyst"
-    Relay_7_SP    = "Relay 7 SP"
-    Relay_7_Hyst  = "Relay 7 Hyst"
-    Relay_11_SP   = "Relay 11 SP"
+    Channel = "Channel"
+    Device = "Device"
+    Pressure = "Pressure"
+    Alarm = "Alarm"
+    Unit = "Unit"
+    Protect = "Protect"
+    Relay_1_SP = "Relay 1 SP"
+    Relay_1_Hyst = "Relay 1 Hyst"
+    Relay_5_SP = "Relay 5 SP"
+    Relay_5_Hyst = "Relay 5 Hyst"
+    Relay_7_SP = "Relay 7 SP"
+    Relay_7_Hyst = "Relay 7 Hyst"
+    Relay_11_SP = "Relay 11 SP"
     Relay_11_Hyst = "Relay 11 Hyst"
-    Relay_12_SP   = "Relay 12 SP"
+    Relay_12_SP = "Relay 12 SP"
     Relay_12_Hyst = "Relay 12 Hyst"
-    Details       = "Details"
-    # fmt: on
+    Details = "Details"
 
 
 class MKSTableDataController(TableDataController):

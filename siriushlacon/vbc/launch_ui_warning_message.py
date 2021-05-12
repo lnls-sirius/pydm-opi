@@ -19,19 +19,15 @@ class DeviceMenu(Display):
         )
 
         # defining macro for PyDMShellCommand (for launching "warning_message.ui")
-        self.Stage_1.channel = "ca://" + IOC + ":ProcessRecovery:Status1"
-        self.Stage_2.channel = "ca://" + IOC + ":ProcessRecovery:Status2"
-        self.Stage_3.channel = "ca://" + IOC + ":ProcessRecovery:Status3"
-        self.Stage_4.channel = "ca://" + IOC + ":ProcessRecovery:Status4"
-        self.Stage_5.channel = "ca://" + IOC + ":ProcessRecovery:Status5"
-        self.pressure_base.channel = "ca://" + IOC + ":BBB:TorrBaseMsg"
-        self.pressure_exp.channel = "ca://" + IOC + ":BBB:TorrExpMsg"
+        self.Stage_1.channel = f"ca://{IOC}:ProcessRecovery:Status1"
+        self.Stage_2.channel = f"ca://{IOC}:ProcessRecovery:Status2"
+        self.Stage_3.channel = f"ca://{IOC}:ProcessRecovery:Status3"
+        self.Stage_4.channel = f"ca://{IOC}:ProcessRecovery:Status4"
+        self.Stage_5.channel = f"ca://{IOC}:ProcessRecovery:Status5"
+        self.pressure_base.channel = f"ca://{IOC}:BBB:TorrBaseMsg"
+        self.pressure_exp.channel = f"ca://{IOC}:BBB:TorrExpMsg"
 
         self.pop_up_OK_message.commands = [
-            "pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {}".format(
-                OK_MESSAGE_PY
-            )
+            f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {OK_MESSAGE_PY} {IOC}"
         ]
-        self.Shell.commands = [
-            "python {} {}".format(PROCESS_RECOVERYY_SCRIPT, macros["IOC"])
-        ]
+        self.Shell.commands = [f"python {PROCESS_RECOVERYY_SCRIPT} {IOC}"]
