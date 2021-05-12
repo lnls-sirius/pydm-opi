@@ -1461,8 +1461,8 @@
           </property>
           <property name="whatsThis">
            <string>
-    A QPushButton capable of execute shell commands.
-    </string>
+             Commute valve script: Valve 2 (yes)
+           </string>
           </property>
           <property name="iconSize">
            <size>
@@ -2098,8 +2098,8 @@
           </property>
           <property name="whatsThis">
            <string>
-    A QPushButton capable of execute shell commands.
-    </string>
+            Commute valve script: Valve 1 (yes)
+           </string>
           </property>
           <property name="iconSize">
            <size>
