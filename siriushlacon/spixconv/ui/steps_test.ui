@@ -200,7 +200,7 @@
           </color>
          </brush>
         </colorrole>
-        
+
        </active>
        <inactive>
         <colorrole role="WindowText">
@@ -338,7 +338,7 @@
           </color>
          </brush>
         </colorrole>
-        
+
        </inactive>
        <disabled>
         <colorrole role="WindowText">
@@ -476,7 +476,7 @@
           </color>
          </brush>
         </colorrole>
-        
+
        </disabled>
       </palette>
      </property>
@@ -752,7 +752,7 @@
           </color>
          </brush>
         </colorrole>
-        
+
        </active>
        <inactive>
         <colorrole role="WindowText">
@@ -890,7 +890,7 @@
           </color>
          </brush>
         </colorrole>
-        
+
        </inactive>
        <disabled>
         <colorrole role="WindowText">
@@ -1028,7 +1028,7 @@
           </color>
          </brush>
         </colorrole>
-        
+
        </disabled>
       </palette>
      </property>
@@ -1509,7 +1509,7 @@
           </color>
          </brush>
         </colorrole>
-        
+
        </active>
        <inactive>
         <colorrole role="WindowText">
@@ -1647,7 +1647,7 @@
           </color>
          </brush>
         </colorrole>
-        
+
        </inactive>
        <disabled>
         <colorrole role="WindowText">
@@ -1785,7 +1785,7 @@
           </color>
          </brush>
         </colorrole>
-        
+
        </disabled>
       </palette>
      </property>
