@@ -175,12 +175,12 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
             self.logs_thread.start()
 
     def update_log_text(self):
-        """ Sets table values and converts timestamp, deep copies logs """
+        """Sets table values and converts timestamp, deep copies logs"""
         if self.tabWidget.currentIndex() == LOGS_TAB:
             self.update_filters()
 
     def update_filters(self):
-        """ Updates log table with filters set by user """
+        """Updates log table with filters set by user"""
         if not self.data:
             return
 
@@ -724,7 +724,7 @@ class BBBLogs(QtWidgets.QWidget, Ui_MainWindow_logs):
         self.autoUpdate_timer.start(1000)
 
     def update_table(self, logs, update=True):
-        """ Sets table values and converts timestamp, deep copies logs """
+        """Sets table values and converts timestamp, deep copies logs"""
         if update:
             self.data = logs
             self.update_filters()
@@ -741,7 +741,7 @@ class BBBLogs(QtWidgets.QWidget, Ui_MainWindow_logs):
         self.model.set_data(data)
 
     def update_filters(self):
-        """ Updates log table with filters set by user """
+        """Updates log table with filters set by user"""
         if not self.data:
             return
 
