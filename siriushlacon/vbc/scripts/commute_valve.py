@@ -7,9 +7,6 @@ import sys
 """
 this is script is used to commute a valve value
 """
-print("========================")
-print("Script: commute_valve.py")
-print("========================")
 # ------------------------------------------------------------------------------
 # define the PREFIX that will be used (passed as a parameter)
 VBC = sys.argv[1]

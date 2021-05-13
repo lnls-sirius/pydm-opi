@@ -6,12 +6,9 @@ import sys
 """
 this script runs after the user hits the "ON" button under the "system_tab.ui"
 window. It checks whether the pressure is lower or higher than 0.05 Torr.
- - if its value is lower than 0.05, then the "process_on" script is executed
- - if its value is higher, then the "system_pressurized" window will pop-up
+ - if it's value is higher than 0.05, then the "process_on" script is executed
+ - if it's value is lower, then the "system_pressurized" window will pop-up
 """
-print("=========================")
-print("Script: check_pressure.py")
-print("=========================")
 # ------------------------------------------------------------------------------
 # define the PREFIX that will be used (passed as a parameter)
 VBC = sys.argv[1]
