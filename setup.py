@@ -52,8 +52,10 @@ setup(
     install_requires=requirements,
     include_package_data=True,
     packages=find_packages(
-        where = "src",
-        include=["siriushlacon*",],
+        where="src",
+        include=[
+            "siriushlacon*",
+        ],
     ),
     package_dir={"": "src"},
     python_requires=">=3.6",
