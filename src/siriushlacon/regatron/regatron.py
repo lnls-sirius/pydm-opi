@@ -130,7 +130,7 @@ class Regatron(Display):
             self.flash_error_history(self.errorHistoryPV.value)
             # self.update_sys_state_labels(self.sysStatusPV.char_value)
             # self.update_mod_state_labels(self.modStatusPV.value)
-        except:
+        except Exception:
             pass
 
         # --------- Power Up and Operating time ------------
@@ -323,7 +323,7 @@ class Regatron(Display):
         try:
             # This function was introduced in Qt 5.15.
             self.tabWidget.setTabVisible(TabId.System, self.isMaster)
-        except:
+        except Exception:
             pass
 
         self.sysOutVolt.setVisible(self.isMaster)

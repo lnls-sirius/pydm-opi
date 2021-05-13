@@ -47,9 +47,9 @@ class MKSTableDataController(TableDataController):
     def __init__(
         self,
         table,
-        devices: List[conscommon.data_model.Device] = [],
+        devices: List[conscommon.data_model.Device] = None,
         table_batch: int = 24,
-        horizontal_header_labels: List[str] = [],
+        horizontal_header_labels: List[str] = None,
         *args,
         **kwargs
     ):
@@ -212,7 +212,7 @@ class MKSTableDataController(TableDataController):
 
 
 class MKS(Display):
-    def __init__(self, parent=None, args=[], macros=None):
+    def __init__(self, parent=None, args=None, macros=None):
         super(MKS, self).__init__(
             parent=parent, args=args, macros=macros, ui_filename=MKS_MAIN_UI
         )

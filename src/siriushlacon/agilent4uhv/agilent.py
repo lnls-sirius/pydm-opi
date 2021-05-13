@@ -39,7 +39,7 @@ class AgilentAsync(QObject):
         pv = device.prefix + ":Step-SP"
         actual_value = epics.caget(device.prefix + ":Step-RB", timeout=EPICS_TOUT)
         if actual_value is None:
-            logger.fatal(
+            logger.critical(
                 "Failed to get {} value, aborting operation.".format(
                     device.prefix + ":Step-RB"
                 )
@@ -50,7 +50,7 @@ class AgilentAsync(QObject):
             return
 
         val = actual_value
-        for ch, selected, shift in zip(
+        for _, selected, shift in zip(
             device.channels, channels_selected, range(len(channels_selected))
         ):
             if selected:
@@ -101,7 +101,7 @@ class AgilentAsync(QObject):
         pv = device.prefix + ":Step-SP"
         actual_value = epics.caget(device.prefix + ":Step-RB", timeout=EPICS_TOUT)
         if actual_value is None:
-            logger.fatal(
+            logger.critical(
                 "Failed to get {} value, aborting operation.".format(
                     device.prefix + ":Step-RB"
                 )
@@ -113,7 +113,7 @@ class AgilentAsync(QObject):
 
         val = actual_value
         n = 0
-        for ch, selected in zip(device.channels, channels_selected):
+        for _, selected in zip(device.channels, channels_selected):
             if selected:
                 val |= 1 << n
             n += 1

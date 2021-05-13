@@ -13,7 +13,7 @@ from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
 
 
 class MksLauncher(Display):
-    def __init__(self, parent=None, args=[], macros=None):
+    def __init__(self, parent=None, args=None, macros=None):
         super(MksLauncher, self).__init__(parent=parent, args=args, macros=macros)
 
         self.btnOverview.filenames = [MKS_OVERVIEW]

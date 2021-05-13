@@ -1,21 +1,17 @@
 #!/usr/bin/env python3
-import sys
-from typing import List
+from typing import List, NamedTuple
+import typing
 
 from qtpy import QtGui, QtWidgets
 
-from conscommon.data import getAgilent
 from conscommon.data_model import (
-    getBeaglesFromList,
-    getDevicesFromBeagles,
     Device,
 )
 
 
-class DeviceTreeSelection(object):
-    def __init__(self, device: Device, channels_selected: List[bool]):
-        self.device = device
-        self.channels_selected = channels_selected
+class DeviceTreeSelection(NamedTuple):
+    device: Device
+    channels_selected: typing.List[bool]
 
 
 class DeviceTreeView(QtWidgets.QWidget):
@@ -148,14 +144,3 @@ class DeviceTreeView(QtWidgets.QWidget):
                 self.paintItem(i1, i1.checkState())
                 self.paintItem(i2, i1.checkState())
             self.cont = True
-
-
-if __name__ == "__main__":
-
-    data = getDevicesFromBeagles(getBeaglesFromList(getAgilent()))
-
-    app = QtWidgets.QApplication(sys.argv)
-    window = DeviceTreeView(data)
-    window.setGeometry(600, 50, 400, 250)
-    window.show()
-    sys.exit(app.exec_())

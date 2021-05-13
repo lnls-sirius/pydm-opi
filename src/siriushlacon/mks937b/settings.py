@@ -8,7 +8,7 @@ from siriushlacon.mks937b.macros import get_macro
 
 
 class Settings(Display):
-    def __init__(self, parent=None, args=[], macros=None):
+    def __init__(self, parent=None, args=None, macros=None):
         super(Settings, self).__init__(parent=parent, args=args, macros=macros)
 
         self.pdispA.macros = json.dumps(

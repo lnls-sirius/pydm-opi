@@ -7,7 +7,7 @@ from siriushlacon.mks937b.consts import DEVICE_PREVIEW_UI, DEVICE_MENU
 
 
 class DevicePreview(Display):
-    def __init__(self, parent=None, args=[], macros=None):
+    def __init__(self, parent=None, args=None, macros=None):
         super(DevicePreview, self).__init__(parent=parent, args=args, macros=macros)
         self.btn1.filenames = [DEVICE_MENU]
         self.btn1.setIcon(IconFont().icon("edit"))

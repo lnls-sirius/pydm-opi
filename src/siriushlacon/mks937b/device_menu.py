@@ -15,7 +15,7 @@ def get_json_macro(macros):
 
 
 class DeviceMenu(Display):
-    def __init__(self, parent=None, args=[], macros=None):
+    def __init__(self, parent=None, args=None, macros=None):
         super(DeviceMenu, self).__init__(parent=parent, args=args, macros=macros)
         json_macro = get_json_macro(macros)
 

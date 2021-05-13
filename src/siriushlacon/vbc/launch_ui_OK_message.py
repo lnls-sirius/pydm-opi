@@ -6,7 +6,7 @@ from siriushlacon.vbc.consts import OK_MESSAGE_UI, CLEAN_STATUS_SCRIPT, CHECK_IM
 
 
 class DeviceMenu(Display):
-    def __init__(self, parent=None, args=[], macros=None):
+    def __init__(self, parent=None, args=None, macros=None):
         super(DeviceMenu, self).__init__(
             parent=parent, args=args, macros=macros, ui_filename=OK_MESSAGE_UI
         )

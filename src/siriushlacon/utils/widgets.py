@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, NamedTuple
 
 from pydm.widgets import PyDMLabel, PyDMByteIndicator, channel
 from qtpy.QtCore import Qt, QObject, Signal, QRect, QSize, QPoint
@@ -146,16 +146,10 @@ class FlowLayout(QLayout):
             return parent.spacing()
 
 
-class TableDataRow:
-    def __init__(
-        self,
-        device: conscommon.data_model.Device,
-        channel: conscommon.data_model.Channel,
-        render: bool,
-    ):
-        self.device = device
-        self.channel = channel
-        self.render = render
+class TableDataRow(NamedTuple):
+    device: conscommon.data_model.Device
+    channel: conscommon.data_model.Channel
+    render: bool
 
 
 class TableDataController(QObject):
@@ -168,9 +162,9 @@ class TableDataController(QObject):
     def __init__(
         self,
         table,
-        devices: List[conscommon.data_model.Device] = [],
+        devices: List[conscommon.data_model.Device] = None,
         table_batch=24,
-        horizontal_header_labels=[],
+        horizontal_header_labels=None,
         *args,
         **kwargs
     ):
@@ -262,7 +256,7 @@ class TableDataController(QObject):
                 else:
                     return ()
                 cell.setStyleSheet("background-color: rgb{}".format((R, G, 00)))
-        except:
+        except Exception:
             print("Problema com setColor")
             logger.exception('Problema com "setColor"')
 

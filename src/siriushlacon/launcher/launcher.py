@@ -31,7 +31,7 @@ class Launcher(Display):
     Vacuum main application interface that gives access to all devices.
     """
 
-    def __init__(self, parent=None, args=[], macros=None, **kwargs):
+    def __init__(self, parent=None, args=None, macros=None, **kwargs):
         super(Launcher, self).__init__(parent=parent, args=args, macros=macros)
 
         self.lblVersion.setText("v" + __version__)

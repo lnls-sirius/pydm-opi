@@ -146,7 +146,7 @@ class AlarmDisplay(Display):
 
                 pv_node_child = self.reading_tree_item(data)
                 pv_node.addChild(pv_node_child)
-        except:
+        except Exception:
             logger.exception("Failed to add node")
 
     async def search(self):

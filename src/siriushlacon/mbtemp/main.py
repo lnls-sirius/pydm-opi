@@ -86,7 +86,7 @@ class MBTempMonitoring(Display):
             info_request = requests.get(
                 self.url, verify=False, params={"type": "mbtemp"}, timeout=5
             )
-        except:
+        except Exception:
             QtWidgets.QMessageBox.warning(
                 self, "Warning", "Impossible connect to {}".format(self.url)
             )
@@ -240,7 +240,7 @@ class MBTempMonitoring(Display):
 
         try:
             id_addr = int(pvname[-2:])
-        except:
+        except Exception:
             if self.tab != "TB":
                 return ()
             else:

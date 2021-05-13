@@ -8,7 +8,7 @@ logger = logging.getLogger()
 
 
 class AgilentDevice(Display):
-    def __init__(self, parent=None, args=[], macros=None):
+    def __init__(self, parent=None, args=None, macros=None):
         super(AgilentDevice, self).__init__(
             parent=parent, args=args, macros=macros, ui_filename=AGILENT_DEVICE_UI
         )

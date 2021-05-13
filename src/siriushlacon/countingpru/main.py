@@ -307,7 +307,7 @@ class MonitoringCountingPRU(Display):
                     )
                 else:
                     return ()
-            except:
+            except Exception:
                 QtWidgets.QMessageBox.warning(
                     self, "Attention", "Please, choose a valid gamma detector"
                 )
