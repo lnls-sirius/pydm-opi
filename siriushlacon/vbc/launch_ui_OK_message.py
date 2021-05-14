@@ -24,5 +24,5 @@ class DeviceMenu(Display):
         )
 
         self.pushButton.clicked(
-            lambda _, *_args, **_kwargs: self.CleanStatusCommand.execute_command()
+            lambda *_args, **_kwargs: self.CleanStatusCommand.execute_command()
         )
