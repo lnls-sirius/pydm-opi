@@ -12,8 +12,8 @@ git:
 
 script:
     # Update repository version
-  - sed -i -e "s/__version__ =.*/__version__ = \"$(git describe --tags)\"/" siriushlacon/__init__.py
-  - cat siriushlacon/__init__.py | grep 'version\|author'
+  - sed -i -e "s/__version__ =.*/__version__ = \"$(git describe --tags)\"/" src/siriushlacon/__init__.py
+  - cat src/siriushlacon/__init__.py | grep 'version\|author'
 
 deploy:
   skip_cleanup: true
