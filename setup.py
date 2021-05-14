@@ -17,6 +17,8 @@ def get_long_description() -> str:
 
     with open(get_abs_path("CHANGES.md"), "r") as _f:
         desc += _f.read().strip()
+    
+    return desc
 
 
 long_description = get_long_description()
