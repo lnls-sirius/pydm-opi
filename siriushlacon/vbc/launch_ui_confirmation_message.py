@@ -11,6 +11,7 @@ from siriushlacon.vbc.consts import (
     CONFIRMATION_MESSAGE_UI,
     WARNING_IMG,
 )
+from siriushlacon.vbc.command_runner import ShellCommandRunner
 
 logger = logging.getLogger(__name__)
 
@@ -41,22 +42,16 @@ class DeviceMenu(Display):
         elif self.relay_number == "5":
             self.VALVE.setText("Venting Valve?")
 
-        self.btnNo.clicked.connect(lambda _: self.CommuteValve(False))
-        self.btnYes.clicked.connect(lambda _: self.CommuteValve(True))
-
-    def CommuteValve(self, yes: bool):
-        if self.CommuteValvePopen and not self.CommuteValvePopen.poll():
-            logger.error(
-                f"Commute Valve: Process {self.CommuteValvePopen.pid} still running"
-            )
-            return
-
-        yes_no = "yes" if yes else "no"
-        args = f"python {COMMUTE_VALVE_SCRIPT} {self.ioc_prefix} {self.relay_number} {yes_no}"
-        self.CommuteValvePopen = subprocess.Popen(args)
-        logger.info(
-            f"Commute Valve: Spawn new process with cmd '{args}', PID={self.CommuteValvePopen.pid}"
+        self.CommuteValveYesCommand = ShellCommandRunner(
+            command=f"python {COMMUTE_VALVE_SCRIPT} {self.ioc_prefix} {self.relay_number} yes"
+        )
+        self.CommuteValveNoCommand = ShellCommandRunner(
+            command=f"python {COMMUTE_VALVE_SCRIPT} {self.ioc_prefix} {self.relay_number} no"
         )
 
-        # @Fixme!
-        exit(0)
+        self.buttonBox.rejected.connect(
+            lambda _, *_args, **_kwargs: self.CommuteValveNoCommand.execute_command()
+        )
+        self.buttonBox.accepted.connect(
+            lambda _, *_args, **_kwargs: self.CommuteValveYesCommand.execute_command()
+        )

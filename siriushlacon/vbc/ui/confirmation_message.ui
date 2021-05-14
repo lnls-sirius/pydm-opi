@@ -13,27 +13,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="PyDMShellCommand" name="PyDMShellCommand_yes">
-   <property name="geometry">
-    <rect>
-     <x>153</x>
-     <y>10</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string/>
-   </property>
-   <property name="whatsThis">
-    <string>
-    A QPushButton capable of execute shell commands.
-    </string>
-   </property>
-   <property name="command" stdset="0">
-    <string>&quot;python ../scripts/commute_valve.py &quot; + str(sys.argv[5]) + &quot; &quot; + sys.argv[6] + &quot; yes&quot;</string>
-   </property>
-  </widget>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
@@ -243,27 +222,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="PyDMShellCommand" name="PyDMShellCommand_no">
-   <property name="geometry">
-    <rect>
-     <x>223</x>
-     <y>10</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string/>
-   </property>
-   <property name="whatsThis">
-    <string>
-    A QPushButton capable of execute shell commands.
-    </string>
-   </property>
-   <property name="command" stdset="0">
-    <string>&quot;python ../scripts/commute_valve.py &quot; + str(sys.argv[5]) + &quot; &quot; + sys.argv[6] + &quot; no&quot;</string>
-   </property>
-  </widget>
   <widget class="PyDMLabel" name="PyDMLabel_40">
    <property name="geometry">
     <rect>
@@ -297,17 +255,10 @@
     <string>ca://${IOC}:BBB:TorrExp</string>
    </property>
   </widget>
-  <zorder>PyDMShellCommand_yes</zorder>
-  <zorder>PyDMShellCommand_no</zorder>
   <zorder>PyDMLabel_40</zorder>
   <zorder>frame</zorder>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>PyDMShellCommand</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.shell_command</header>
-  </customwidget>
   <customwidget>
    <class>PyDMLabel</class>
    <extends>QLabel</extends>
@@ -345,38 +296,6 @@
     <hint type="destinationlabel">
      <x>4</x>
      <y>80</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>PyDMShellCommand_no</receiver>
-   <slot>execute_command()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>162</x>
-     <y>78</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>230</x>
-     <y>17</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>PyDMShellCommand_yes</receiver>
-   <slot>execute_command()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>229</x>
-     <y>76</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>160</x>
-     <y>17</y>
     </hint>
    </hints>
   </connection>
