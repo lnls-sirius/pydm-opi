@@ -12,6 +12,6 @@ class DeviceMenu(Display):
         )
         self.label_2.setPixmap(QPixmap(CHECK_IMG))
 
-        self.Shell_clean_PVs.commands = [
-            "python {} {}".format(CLEAN_STATUS_SCRIPT, sys.argv[5])
-        ]
+        finished = sys.argv[5]
+
+        self.Shell_clean_PVs.commands = [f"python {CLEAN_STATUS_SCRIPT} {finished}"]
