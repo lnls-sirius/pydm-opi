@@ -30,5 +30,5 @@ logger = get_logger(None)
 def set_level_global(level):
     global loggers
 
-    for k, l in loggers.items():
+    for _, l in loggers.items():
         l.setLevel(level)
