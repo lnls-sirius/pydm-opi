@@ -24,7 +24,7 @@ if "armv7" in subprocess.check_output(["uname", "-a"]).decode():
         node = BBB(CONFIG_PATH)
     except ModuleNotFoundError:
         CONFIG_PATH = "/var/tmp/nonexistentpath.bin"
-        node = BBB(CONFIG_PATH)  # Forces BBBread to use default configurations 
+        node = BBB(CONFIG_PATH)  # Forces BBBread to use default configurations
 else:
     device = "server"
 
