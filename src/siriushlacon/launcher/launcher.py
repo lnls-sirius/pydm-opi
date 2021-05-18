@@ -16,6 +16,7 @@ from siriushlacon.spixconv.consts import SPIXCONV_MAIN
 from siriushlacon.countingpru.consts import GAMMA_COUNTING_MAIN
 from siriushlacon.beaglebones.consts import BEAGLEBONES_MAIN
 from siriushlacon.vbc.consts import MAIN_WINDOW_PY as VBC_MAIN_WINDOW_PY
+from siriushlacon.epicstel.consts import EPICSTEL_MAIN
 from siriushlacon.utils.consts import (
     CNPEM_INVISIBLE_IMG,
     LNLS_INVISIBLE_IMG,
@@ -132,6 +133,9 @@ class Launcher(Display):
 
         self.btnBBB.filenames = [BEAGLEBONES_MAIN]
         self.btnBBB.openInNewWindow = True
+
+        self.btnEPICSTel.filenames = [EPICSTEL_MAIN]
+        self.btnEPICSTel.openInNewWindow = True
 
         self.btnExit.clicked.connect(self.exitApp)
 

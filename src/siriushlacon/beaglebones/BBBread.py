@@ -6,7 +6,6 @@ import time
 LA_SERVER_IP = "10.0.38.46"
 CA_SERVER_IP = "10.0.38.59"
 LOG_PATH_SERVER = "bbbread.log"
-
 device = "server"
 
 
