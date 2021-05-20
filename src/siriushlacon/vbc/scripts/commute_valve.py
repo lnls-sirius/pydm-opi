@@ -1,47 +1,30 @@
-#!/usr/bin/python
-from epics import caget, caput
+import epics
 import time
-import sys
 
-# ------------------------------------------------------------------------------
-"""
-this is script is used to commute a valve value
-"""
-# ------------------------------------------------------------------------------
-# define the PREFIX that will be used (passed as a parameter)
-VBC = sys.argv[1]
-VALVE = sys.argv[2]
-SW = VBC + ":BBB:Relay" + VALVE + "-SW"
-UI = VBC + ":BBB:Relay" + VALVE + "-UI"
-# ------------------------------------------------------------------------------
-time.sleep(1)
-# if relay swtiching message is confirmed, change PV SW values:
-if str(sys.argv[3]) == "yes":
-    if VALVE == "1":
-        caput(SW, not (caget(SW)))
-    elif VALVE == "2":
-        caput(SW, not (caget(SW)))
-    elif VALVE == "3":
-        caput(SW, not (caget(SW)))
-    elif VALVE == "4":
-        caput(SW, not (caget(SW)))
-    elif VALVE == "5":
-        caput(
-            VBC + ":TURBOVAC:VentingValve-SW",
-            not (caget(VBC + ":TURBOVAC:VentingValve-SW")),
-        )
-# if relay swtiching message is canceled, do nothing:
-elif sys.argv[3] == "no":
-    if VALVE == "1":
-        caput(UI + ".RVAL", caget(SW))
-    elif VALVE == "2":
-        caput(UI + ".RVAL", caget(SW))
-    elif VALVE == "3":
-        caput(UI + ".RVAL", caget(SW))
-    elif VALVE == "4":
-        caput(UI + ".RVAL", caget(SW))
-    elif VALVE == "5":
-        caput(
-            VBC + ":TURBOVAC:VentingValve-UI.RVAL",
-            caget(VBC + ":TURBOVAC:VentingValve-SW"),
-        )
+
+def commute_valve(prefix: str, valve: int, confirmed: bool):
+    """
+    this is script is used to commute a valve value
+    """
+    sw_pv = epics.PV(pvname=f"{prefix}:BBB:Relay{valve}-SW")
+    ui_pv = epics.PV(pvname=f"{prefix}:BBB:Relay{valve}-UI.RVAL")
+    turbovac_venting_valve_pv = epics.PV(pvname=f"{prefix}:TURBOVAC:VentingValve-SW")
+    turbovac_venting_valve_ui_pv = epics.PV(
+        pvname=f"{prefix}:TURBOVAC:VentingValve-UI.RVAL"
+    )
+
+    time.sleep(1)
+
+    # if relay swtiching message is confirmed, change PV SW values:
+    if confirmed:
+        if valve >= 1 and valve <= 4:
+            sw_pv.value = not (sw_pv.value)
+        elif valve == 5:
+            turbovac_venting_valve_pv.value = not (turbovac_venting_valve_pv.value)
+
+    # if relay swtiching message is canceled, do nothing:
+    else:
+        if valve >= 1 and valve <= 4:
+            ui_pv.value = sw_pv.value
+        elif valve == 5:
+            turbovac_venting_valve_ui_pv.value = turbovac_venting_valve_pv.value

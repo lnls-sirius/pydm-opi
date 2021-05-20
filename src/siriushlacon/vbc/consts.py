@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
 import pkg_resources
+import enum
 
 
 def get_abs_path(filename):
     return pkg_resources.resource_filename(__name__, filename)
+
+
+class Finished(enum.Enum):
+    ON = "ON"
+    OFF = "OFF"
+    REC = "REC"
 
 
 # Images
@@ -31,11 +38,3 @@ OK_MESSAGE_PY = get_abs_path("launch_ui_OK_message.py")
 SYSTEM_WINDOW_PY = get_abs_path("launch_ui_system_window.py")
 WARNING_WINDOW_PY = get_abs_path("launch_ui_warning_message.py")
 SIMPLE_WINDOW_PY = get_abs_path("launch_ui_simple_window.py")
-
-# Scripts
-CHECK_PRESSURE_SCRIPT = get_abs_path("scripts/check_pressure.py")
-CLEAN_STATUS_SCRIPT = get_abs_path("scripts/clean_status_PV.py")
-COMMUTE_VALVE_SCRIPT = get_abs_path("scripts/commute_valve.py")
-PROCESS_OFF_SCRIPT = get_abs_path("scripts/process_off.py")
-PROCESS_ON_SCRIPT = get_abs_path("scripts/process_on.py")
-PROCESS_RECOVERY_SCRIPT = get_abs_path("scripts/process_recovery.py")
