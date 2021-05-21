@@ -3,7 +3,7 @@ import sys
 from qtpy.QtGui import QPixmap
 from pydm import Display
 from siriushlacon.vbc.consts import OK_MESSAGE_UI, CHECK_IMG
-from siriushlacon.vbc.command_runner import CommandRunner
+from siriushlacon.utils.command_runner import CommandRunner
 from siriushlacon.vbc.scripts import clean_status_pv
 
 

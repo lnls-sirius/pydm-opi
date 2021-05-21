@@ -5,7 +5,7 @@ from qtpy.QtGui import QPixmap
 from pydm import Display
 
 from siriushlacon.utils.consts import LNLS_IMG
-from siriushlacon.vbc.command_runner import ShellCommandRunner, CommandRunner
+from siriushlacon.utils.command_runner import ShellCommandRunner, CommandRunner
 from siriushlacon.vbc.scripts import commute_valve
 from siriushlacon.vbc.consts import (
     CONFIRMATION_MESSAGE_PY,

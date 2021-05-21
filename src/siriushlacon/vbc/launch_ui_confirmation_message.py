@@ -10,7 +10,7 @@ from siriushlacon.vbc.consts import (
     CONFIRMATION_MESSAGE_UI,
     WARNING_IMG,
 )
-from siriushlacon.vbc.command_runner import CommandRunner
+from siriushlacon.utils.command_runner import CommandRunner
 from siriushlacon.vbc.scripts import commute_valve
 
 logger = logging.getLogger(__name__)

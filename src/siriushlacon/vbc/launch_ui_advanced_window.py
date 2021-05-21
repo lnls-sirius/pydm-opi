@@ -4,7 +4,7 @@ from pydm import Display
 
 from qtpy.QtGui import QPixmap
 from siriushlacon.vbc.consts import ADVANCED_WINDOW_UI, CONFIRMATION_MESSAGE_PY
-from siriushlacon.vbc.command_runner import ShellCommandRunner
+from siriushlacon.utils.command_runner import ShellCommandRunner
 from siriushlacon.utils.consts import LNLS_IMG, CNPEM_IMG
 
 

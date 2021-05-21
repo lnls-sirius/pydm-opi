@@ -7,7 +7,7 @@ from siriushlacon.vbc.consts import (
     WARNING_WINDOW_UI,
     OK_MESSAGE_PY,
 )
-from siriushlacon.vbc.command_runner import CommandRunner, ShellCommandRunner
+from siriushlacon.utils.command_runner import CommandRunner, ShellCommandRunner
 from siriushlacon.vbc.scripts import process_recovery
 from siriushlacon.utils.consts import CNPEM_IMG
 
