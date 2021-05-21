@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1096</width>
-    <height>654</height>
+    <height>656</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -71,6 +71,9 @@
               <weight>75</weight>
               <bold>true</bold>
              </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="text">
              <string>ON</string>
@@ -1619,6 +1622,9 @@
               <weight>75</weight>
               <bold>true</bold>
              </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="text">
              <string>OFF</string>
@@ -6627,6 +6633,9 @@
            <bold>true</bold>
           </font>
          </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
          <property name="toolTip">
           <string/>
          </property>
@@ -6652,9 +6661,6 @@
          </property>
          <property name="showIcon" stdset="0">
           <bool>false</bool>
-         </property>
-         <property name="displayFilename" stdset="0">
-          <string>./simple_window.ui</string>
          </property>
          <property name="macros" stdset="0">
           <string>{&quot;IOC&quot;:&quot;$IOC&quot;, &quot;CAR&quot;:&quot;$CAR&quot;}</string>
@@ -6786,6 +6792,9 @@
            <bold>true</bold>
           </font>
          </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
          <property name="toolTip">
           <string/>
          </property>
@@ -6811,9 +6820,6 @@
          </property>
          <property name="showIcon" stdset="0">
           <bool>false</bool>
-         </property>
-         <property name="displayFilename" stdset="0">
-          <string>./advanced_window.ui</string>
          </property>
          <property name="macros" stdset="0">
           <string>{&quot;IOC&quot;:&quot;$IOC&quot;, &quot;CAR&quot;:&quot;$CAR&quot;}</string>
