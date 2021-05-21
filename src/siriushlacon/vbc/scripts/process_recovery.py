@@ -1,95 +1,107 @@
 import time
 
-import epics
+from siriushlacon.vbc.epics import ACP, BBB, ProcessRecovery, Turbovac
 
 
-def _clear_status(prefix: str):
-    # ------------------------------------------------------------------------------
-    # clear all status PVs
-    epics.caput(f"{prefix}:ProcessRecovery:Status1", 0)
-    epics.caput(f"{prefix}:ProcessRecovery:Status2", 0)
-    epics.caput(f"{prefix}:ProcessRecovery:Status3", 0)
-    epics.caput(f"{prefix}:ProcessRecovery:Status4", 0)
-    epics.caput(f"{prefix}:ProcessRecovery:Status5", 0)
+class ProcessRecoveryAction:
+    def __init__(self, prefix: str):
+        if not prefix:
+            raise ValueError(f"parameter prefix cannot be empty {prefix}")
+        self.prefix = prefix
+        self._tick = 0.05
 
+        self.process_recovery = ProcessRecovery(prefix=self.prefix)
+        self.acp = ACP(prefix=self.prefix)
+        self.bbb = BBB(prefix=self.prefix)
+        self.turbovac = Turbovac(prefix=self.prefix)
 
-def _stage_1(prefix: str):
-    """Stage 1:"""
-    epics.caput(f"{prefix}:ProcessRecovery:Status1", 1)
-    # turn ACP15 pump ON and wait 30 s
-    epics.caput(f"{prefix}:ACP:OnOff", 1)
-    # set ACP15 speed to maximum (6000 rpm)
-    epics.caput(f"{prefix}:ACP:SpeedRPM", 6000)
-    # wait until pump receives command to turn on
-    while epics.caget(f"{prefix}:ACP:OnOff") == 0:
-        pass
-    time.sleep(30)
+    def run(self):
+        self._clear_status()
+        self._stage_1()
+        self._stage_2()
+        self._stage_3()
+        self._stage_4()
+        self._stage_5()
 
+    def _clear_status(self):
+        """clear all status PVs"""
+        self.process_recovery.set_all_clear()
 
-def _stage_2(prefix: str):
-    """Stage 2:"""
-    PRE_VACUUM_VALVE_SW = f"{prefix}:BBB:Relay1-SW"
-    # open pre-vacuum valve
-    epics.caput(PRE_VACUUM_VALVE_SW, 1)
+    def _stage_1(self):
+        """Stage 1:"""
+        self.process_recovery.status1_pv.value = 1
+        # turn ACP15 pump ON and wait 30 s
+        self.acp.on_off_pv.value = 1
+        # set ACP15 speed to maximum (6000 rpm)
+        self.acp.speed_rpm.value = 6000
+        # wait until pump receives command to turn on
+        while self.acp.on_off_pv.value == 0:
+            time.sleep(self._tick)
 
-    # update UI checkbox status
-    # epics.caput(PRE_VACUUM_VALVE_UI, 1)
+        time.sleep(30)
 
-    # wait pre-vacuum valve receives value to open
-    while epics.caget(PRE_VACUUM_VALVE_SW) == 0:
-        pass
-    epics.caput(f"{prefix}:ProcessRecovery:Status2", 1)
-    pass
+    def _stage_2(self):
+        """Stage 2:"""
+        # open pre-vacuum valve
+        self.bbb.pre_vacuum_valve_sw_pv.value = 1
 
+        # update UI checkbox status
+        # epics.caput(PRE_VACUUM_VALVE_UI, 1)
 
-def _stage_3(prefix: str):
-    """Stage 3:"""
-    # turn TURBOVAC pump ON
-    epics.caput(f"{prefix}:TURBOVAC:PZD1-SP.TEVL", 1)
-    epics.caput(f"{prefix}:TURBOVAC:PZD1-SP.ZRVL", 1)
-    # wait until pump receives command to turn on
-    while (epics.caget(f"{prefix}:TURBOVAC:PZD1-SP.ZRVL") == 0) & (
-        epics.caget(f"{prefix}:TURBOVAC:PZD1-SP.TEVL") == 0
-    ):
-        pass
-    epics.caput(f"{prefix}:ProcessRecovery:Status3", 1)
+        # wait pre-vacuum valve receives value to open
+        while self.bbb.pre_vacuum_valve_sw_pv.value == 0:
+            time.sleep(self._tick)
 
+        self.process_recovery.status2_pv.value = 1
 
-def _stage_4(prefix: str):
-    """Stage 4:"""
-    # wait TURBOVAC pump reaches 1200 Hz
-    epics.caput(f"{prefix}:TURBOVAC:PZD2-SP", 1200)
-    epics.caput(f"{prefix}:TURBOVAC:PZD1-SP.SXVL", 1)
-    while epics.caget(f"{prefix}:TURBOVAC:PZD2-RB") < 1200:
-        pass
-    epics.caput(f"{prefix}:TURBOVAC:PZD1-SP.SXVL", 0)
-    epics.caput(f"{prefix}:ProcessRecovery:Status4", 1)
+    def _stage_3(self):
+        """Stage 3:"""
+        # turn TURBOVAC pump ON
+        self.turbovac.pzd1_sp_tevl_pv.value = 1
+        self.turbovac.pzd1_sp_zrvl_pv.value = 1
 
+        # wait until pump receives command to turn on
+        while (self.turbovac.pzd1_sp_zrvl_pv.value == 0) & (
+            self.turbovac.pzd1_sp_tevl_pv.value == 0
+        ):
+            time.sleep(self._tick)
 
-def _stage_5(prefix: str):
-    """Stage 5:"""
-    GATE_VALVE_SW = f"{prefix}:BBB:Relay2-SW"
-    # open gate valve (VAT)
-    epics.caput(GATE_VALVE_SW, 1)
+        self.process_recovery.status3_pv.value = 1
 
-    # update UI checkbox status
-    # epics.caput(GATE_VALVE_UI, 1)
+    def _stage_4(self):
+        """Stage 4:"""
+        # wait TURBOVAC pump reaches 1200 Hz
+        self.turbovac.pzd2_sp_pv.value = 1200
+        self.turbovac.pzd1_sp_sxvl_pv.value = 1
 
-    # ---------------------------------------
-    # read gate valve (VAT) status to check if it is really open
-    loop = True
-    while loop:
-        Lo = epics.caget(f"{prefix}:BBB:ValveOpen")
-        Lg = epics.caget(f"{prefix}:BBB:ValveClosed")
-        if Lo & (not Lg):
-            loop = False
-    epics.caput(f"{prefix}:ProcessRecovery:Status5", 1)
-    # ==============================================================================
-    # complement value of PV to launch "Process Finished" window
-    # epics.caput(VBC + ":Process:Bool", not(epics.caget(VBC + ":Process:Bool")))
-    epics.caput(f"{prefix}:ProcessRec:Bool", 1)
-    epics.caput(f"{prefix}:ProcessRec:Bool", 0)
-    # ==============================================================================
+        while self.turbovac.pzd2_rb_pv_pv.value < 1200:
+            time.sleep(self._tick)
+
+        self.turbovac.pzd1_sp_sxvl_pv.value = 0
+        self.process_recovery.status4_pv.value = 1
+
+    def _stage_5(self):
+        """Stage 5:"""
+        # open gate valve (VAT)
+        self.bbb.gate_valve_sw_pv.value = 1
+
+        # update UI checkbox status
+        # epics.caput(GATE_VALVE_UI, 1)
+
+        # ---------------------------------------
+        # read gate valve (VAT) status to check if it is really open
+        loop = True
+        while loop:
+            Lo = self.bbb.valve_open_pv.value
+            Lg = self.bbb.valve_closed_pv.value
+            if Lo & (not Lg):
+                loop = False
+            time.sleep(self._tick)
+
+        self.process_recovery.status5_pv.value = 1
+
+        # complement value of PV to launch "Process Finished" window
+        self.process_recovery.toggle()
 
 
 def process_recovery(prefix: str):
@@ -103,9 +115,5 @@ def process_recovery(prefix: str):
         -stage 4: wait TURBOVAC frequency reaches 1200 Hz
         -stage 5: open gate valve
     """
-    _clear_status(prefix=prefix)
-    _stage_1(prefix=prefix)
-    _stage_2(prefix=prefix)
-    _stage_3(prefix=prefix)
-    _stage_4(prefix=prefix)
-    _stage_5(prefix=prefix)
+    action = ProcessRecoveryAction(prefix=prefix)
+    action.run()

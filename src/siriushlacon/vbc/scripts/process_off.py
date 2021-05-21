@@ -50,7 +50,7 @@ class ProcessOffAction:
         self.turbovac.ak_sp_pv.value = 7
 
         # turn TURBOVAC and ACP15 pumps OFF
-        self.turbovac.pzd1_sp_zrvl_pv = 0
+        self.turbovac.pzd1_sp_zrvl_pv.value = 0
         self.acp.on_off_pv.value = 0
 
         # wait until pump receives command to turn off

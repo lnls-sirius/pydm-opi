@@ -28,7 +28,9 @@ class Initialization:
 
     def run(self):
         """if pressure is between 0.05 and 1*10**-8, trigger "process_recovery" script"""
-        if (self.bbb.pressure_pv.value < 0.05) & (self.bbb.pressure_pv > 10 ** -8):
+        if (self.bbb.pressure_pv.value < 0.05) & (
+            self.bbb.pressure_pv.value > 10 ** -8
+        ):
             self._stage_1()
             self._stage_2()
             self._stage_3()

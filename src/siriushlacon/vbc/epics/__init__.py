@@ -13,6 +13,8 @@ class ProcessOn:
         self.status4_pv = create_connected_pv(pvname=f"{self.prefix}:ProcessOn:Status4")
         self.status5_pv = create_connected_pv(pvname=f"{self.prefix}:ProcessOn:Status5")
 
+        self.bool = create_connected_pv(pvname=f"{self.prefix}:ProcessOn:Bool")
+
     def activate_all_status(self):
         self.status1_pv.value = 1
         self.status2_pv.value = 1
@@ -26,6 +28,10 @@ class ProcessOn:
         self.status3_pv.value = 0
         self.status4_pv.value = 0
         self.status5_pv.value = 0
+
+    def toggle(self):
+        self.bool.value = 1
+        self.bool.value = 0
 
 
 class ProcessOff:
@@ -92,6 +98,12 @@ class ProcessRecovery:
             pvname=f"{self.prefix}:ProcessRecovery:Status5"
         )
 
+        self.bool = create_connected_pv(pvname=f"{self.prefix}:ProcessRec:Bool")
+
+    def toggle(self):
+        self.bool.value = 1
+        self.bool.value = 0
+
     def set_all_clear(self):
         self.status1_pv.value = 0
         self.status2_pv.value = 0
@@ -139,6 +151,7 @@ class Turbovac:
         self.pzd1_sp_sxvl_pv = create_connected_pv(
             pvname=f"{self.prefix}:TURBOVAC:PZD1-SP.SXVL"
         )
+
         self.pzd2_rb_pv = create_connected_pv(pvname=f"{self.prefix}:TURBOVAC:PZD2-RB")
         self.pzd2_sp_pv = create_connected_pv(pvname=f"{self.prefix}:TURBOVAC:PZD2-SP")
 
@@ -172,6 +185,13 @@ class System:
         )
         self.off_pressure_exp_pv = create_connected_pv(
             pvname=f"{self.prefix}:SYSTEM:OffPressureExp"
+        )
+
+        self.on_pressure_base_pv = create_connected_pv(
+            pvname=f"{self.prefix}:SYSTEM:OnPressureBase"
+        )
+        self.on_pressure_exp_pv = create_connected_pv(
+            pvname=f"{self.prefix}:SYSTEM:OnPressureExp"
         )
 
 
