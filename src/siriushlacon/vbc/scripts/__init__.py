@@ -1,5 +1,5 @@
 # flake8: noqa
-from .check_pressure import check_pressure_script
+from .check_pressure import check_pressure
 from .clean_status_PV import clean_status_pv
 from .commute_valve import commute_valve
 from .initialization import initialization

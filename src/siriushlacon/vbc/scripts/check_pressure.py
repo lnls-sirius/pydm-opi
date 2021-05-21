@@ -1,7 +1,7 @@
 import epics
 
 
-def check_pressure_script(prefix: str, first_time: bool):
+def check_pressure(prefix: str, first_time: bool):
     """
     this script runs after the user hits the "ON" button under the "system_tab.ui"
     window. It checks whether the pressure is lower or higher than 0.05 Torr.
