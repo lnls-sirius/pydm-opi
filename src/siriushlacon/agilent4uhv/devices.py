@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 import logging
 from typing import List
+
+from conscommon.data import getAgilent
+from conscommon.data_model import Device, getBeaglesFromList, getDevicesFromBeagles
+from qtpy.QtCore import Qt
+from qtpy.QtGui import QColor
 from qtpy.QtWidgets import (
     QFrame,
     QGridLayout,
@@ -10,12 +15,8 @@ from qtpy.QtWidgets import (
     QTableWidget,
     QTableWidgetItem,
 )
-from qtpy.QtGui import QColor
-from qtpy.QtCore import Qt
 
-from conscommon.data import getAgilent
-from conscommon.data_model import getDevicesFromBeagles, getBeaglesFromList, Device
-from siriushlacon.agilent4uhv.tree import DeviceTreeView, DeviceTreeSelection
+from siriushlacon.agilent4uhv.tree import DeviceTreeSelection, DeviceTreeView
 
 logger = logging.getLogger()
 

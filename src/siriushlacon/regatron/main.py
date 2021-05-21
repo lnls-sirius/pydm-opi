@@ -7,7 +7,7 @@ from pydm.widgets.related_display_button import PyDMRelatedDisplayButton
 from qtpy.QtGui import QPixmap
 from qtpy.QtWidgets import QGridLayout
 
-from siriushlacon.regatron.consts import REGATRON_UI, DATA_JSON, COMPLETE_MAIN
+from siriushlacon.regatron.consts import COMPLETE_MAIN, DATA_JSON, REGATRON_UI
 from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
 
 logger = logging.getLogger()

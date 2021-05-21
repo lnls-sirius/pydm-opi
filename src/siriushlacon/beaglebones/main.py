@@ -2,19 +2,20 @@
 
 import subprocess
 from datetime import datetime
-from time import sleep, localtime, strftime
-from qtpy import QtCore, QtGui, QtWidgets, uic
+from time import localtime, sleep, strftime
 
 from pydm import Display
+from qtpy import QtCore, QtGui, QtWidgets, uic
+
 from siriushlacon.beaglebones.BBBread import RedisServer
 from siriushlacon.beaglebones.consts import (
-    BEAGLEBONES_MAIN_UI,
     BEAGLEBONES_MAIN,
-    INFO_BBB_UI,
+    BEAGLEBONES_MAIN_UI,
     CHANGE_BBB_UI,
+    GREEN_LED,
+    INFO_BBB_UI,
     LOGS_BBB_UI,
     RED_LED,
-    GREEN_LED,
 )
 
 qtCreatorFile = BEAGLEBONES_MAIN_UI

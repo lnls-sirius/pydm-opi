@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-from pydm import Display
 from conscommon.data_model.mks import MKS_SENSOR_COLD_CATHODE
+from pydm import Display
+
 from siriushlacon.mks937b.consts import PRESSURE_UI
 from siriushlacon.utils.consts import IS_LINUX
 

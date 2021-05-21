@@ -1,16 +1,15 @@
-import numpy
 import json
-from pydm import Display, PyDMApplication
-import matplotlib.pyplot as plt
 from functools import partial
 
+import matplotlib.pyplot as plt
+import numpy
 from matplotlib.animation import FuncAnimation
 from matplotlib.widgets import CheckButtons
-
-from pydm.widgets.channel import PyDMChannel
+from pydm import Display, PyDMApplication
 from pydm.widgets import PyDMEmbeddedDisplay
+from pydm.widgets.channel import PyDMChannel
 
-from siriushlacon.countingpru.consts import OVERVIEW_UI, LAYOUT_OVERVIEW_UI
+from siriushlacon.countingpru.consts import LAYOUT_OVERVIEW_UI, OVERVIEW_UI
 
 counters = ["C2", "C3", "M1"]  # Positions of conters on storage ring
 Det_Location = ["M2", "C1", "C2", "C3", "C4"]  # Location of detectors

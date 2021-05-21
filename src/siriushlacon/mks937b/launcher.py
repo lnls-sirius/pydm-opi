@@ -2,11 +2,11 @@ from pydm import Display
 from qtpy.QtGui import QPixmap
 
 from siriushlacon.mks937b.consts import (
-    MKS_LAUNCH_UI,
-    MKS_OVERVIEW,
-    LTB_UI,
     BOOSTER_UI,
     BTS_UI,
+    LTB_UI,
+    MKS_LAUNCH_UI,
+    MKS_OVERVIEW,
     STORAGE_RING_UI,
 )
 from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG

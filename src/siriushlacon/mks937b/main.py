@@ -6,15 +6,15 @@ import re
 import threading
 from typing import List
 
-from qtpy.QtWidgets import QLabel, QCheckBox
-from qtpy.QtCore import Qt
+import conscommon.data_model
 from pydm import Display
 from pydm.utilities import IconFont
-from pydm.widgets import PyDMRelatedDisplayButton, PyDMLabel
-import conscommon.data_model
+from pydm.widgets import PyDMLabel, PyDMRelatedDisplayButton
+from qtpy.QtCore import Qt
+from qtpy.QtWidgets import QCheckBox, QLabel
 
-from siriushlacon.mks937b.consts import MKS_MAIN_UI, DEVICE_MENU, lazy_devices
-from siriushlacon.utils.widgets import get_label, TableDataController, TableDataRow
+from siriushlacon.mks937b.consts import DEVICE_MENU, MKS_MAIN_UI, lazy_devices
+from siriushlacon.utils.widgets import TableDataController, TableDataRow, get_label
 
 CH_REG = re.compile(r":[ABC][0-9]")
 DEVICES = lazy_devices.get()

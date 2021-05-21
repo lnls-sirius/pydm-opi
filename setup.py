@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-from setuptools import setup, find_packages
-from src.siriushlacon import __author__, __version__
 import pkg_resources
+from setuptools import find_packages, setup
+
+from src.siriushlacon import __author__, __version__
 
 
 def get_abs_path(relative) -> str:

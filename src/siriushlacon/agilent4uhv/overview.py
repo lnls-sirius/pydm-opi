@@ -1,19 +1,18 @@
 #!/usr/bin/env python3
 import logging
 import re
-from typing import Optional, List
+from typing import List, Optional
 
+import conscommon.data_model
 from pydm import Display
 from pydm.widgets.drawing import PyDMDrawingRectangle
 from pydm.widgets.label import PyDMLabel
-from qtpy.QtCore import Qt, QRect
+from qtpy.QtCore import QRect, Qt
 from qtpy.QtGui import QBrush, QColor, QFont
 from qtpy.QtWidgets import QFrame, QLabel
 
-import conscommon.data_model
-
 from siriushlacon.agilent4uhv.consts import lazy_devices
-from siriushlacon.utils.consts import OVERVIEW_UI, BO, TB, TS, SI
+from siriushlacon.utils.consts import BO, OVERVIEW_UI, SI, TB, TS
 from siriushlacon.utils.widgets import FlowLayout
 
 logger = logging.getLogger()

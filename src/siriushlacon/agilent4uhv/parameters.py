@@ -1,15 +1,9 @@
 import logging
 import re
-from qtpy.QtWidgets import (
-    QFrame,
-    QGridLayout,
-    QLabel,
-    QLineEdit,
-    QPushButton,
-)
-from qtpy.QtGui import QIntValidator, QRegExpValidator
-from qtpy.QtCore import QRegExp
 
+from qtpy.QtCore import QRegExp
+from qtpy.QtGui import QIntValidator, QRegExpValidator
+from qtpy.QtWidgets import QFrame, QGridLayout, QLabel, QLineEdit, QPushButton
 
 logger = logging.getLogger()
 

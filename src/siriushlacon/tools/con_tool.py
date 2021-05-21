@@ -6,7 +6,7 @@ from pydm.utilities.iconfont import IconFont
 from qtpy.QtCore import QUrl
 from qtpy.QtGui import QDesktopServices
 
-from siriushlacon.tools.consts import VIEWER_URL, MGMT_URL, BBB_URL
+from siriushlacon.tools.consts import BBB_URL, MGMT_URL, VIEWER_URL
 
 
 def get_abs_path(relative):
