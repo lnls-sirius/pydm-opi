@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import argparse
-import pcaspy
 
+import pcaspy
 from log import get_logger
 
 logger = get_logger(__name__)
