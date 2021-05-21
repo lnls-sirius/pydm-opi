@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 from pydm import Display
-
 from qtpy.QtGui import QPixmap
-from siriushlacon.vbc.consts import ADVANCED_WINDOW_UI, CONFIRMATION_MESSAGE_PY
+
 from siriushlacon.utils.command_runner import ShellCommandRunner
-from siriushlacon.utils.consts import LNLS_IMG, CNPEM_IMG
+from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
+from siriushlacon.vbc.consts import ADVANCED_WINDOW_UI, CONFIRMATION_MESSAGE_PY
 
 
 class DeviceMenu(Display):

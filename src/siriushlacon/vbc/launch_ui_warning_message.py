@@ -1,16 +1,13 @@
 #!/usr/bin/env python3
 import sys
+
 from pydm import Display
 from qtpy.QtGui import QPixmap
 
-from siriushlacon.vbc.consts import (
-    WARNING_WINDOW_UI,
-    OK_MESSAGE_PY,
-)
 from siriushlacon.utils.command_runner import CommandRunner, ShellCommandRunner
-from siriushlacon.vbc.scripts import process_recovery
 from siriushlacon.utils.consts import CNPEM_IMG
-
+from siriushlacon.vbc.consts import OK_MESSAGE_PY, WARNING_WINDOW_UI
+from siriushlacon.vbc.scripts import process_recovery
 
 IOC = str(sys.argv[5])
 

@@ -1,5 +1,6 @@
-import epics
 import time
+
+import epics
 
 
 def _stage_1(prefix: str):

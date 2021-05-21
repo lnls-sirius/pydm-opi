@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 
 import json
-import typing
-import subprocess
 import logging
+import subprocess
+import typing
 
-from qtpy.QtGui import QPixmap
 from pydm import Display
+from qtpy.QtGui import QPixmap
 
+from siriushlacon.utils.command_runner import CommandRunner, ShellCommandRunner
+from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
 from siriushlacon.vbc.consts import (
     ADVANCED_WINDOW_PY,
     OK_MESSAGE_PY,
@@ -18,9 +20,6 @@ from siriushlacon.vbc.consts import (
     WARNING_WINDOW_PY,
 )
 from siriushlacon.vbc.scripts import check_pressure, process_off, process_on
-from siriushlacon.utils.command_runner import ShellCommandRunner, CommandRunner
-from siriushlacon.utils.consts import LNLS_IMG, CNPEM_IMG
-
 
 logger = logging.getLogger(__name__)
 

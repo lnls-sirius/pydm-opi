@@ -1,16 +1,13 @@
 #!/usr/bin/env python3
 import logging
 
-from qtpy.QtGui import QPixmap
 from pydm import Display
+from qtpy.QtGui import QPixmap
 
+from siriushlacon.utils.command_runner import CommandRunner, ShellCommandRunner
 from siriushlacon.utils.consts import LNLS_IMG
-from siriushlacon.utils.command_runner import ShellCommandRunner, CommandRunner
+from siriushlacon.vbc.consts import CONFIRMATION_MESSAGE_PY, SIMPLE_WINDOW_UI
 from siriushlacon.vbc.scripts import commute_valve
-from siriushlacon.vbc.consts import (
-    CONFIRMATION_MESSAGE_PY,
-    SIMPLE_WINDOW_UI,
-)
 
 logger = logging.getLogger(__name__)
 

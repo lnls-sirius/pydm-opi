@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 import sys
-from qtpy.QtGui import QPixmap
+
 from pydm import Display
-from siriushlacon.vbc.consts import OK_MESSAGE_UI, CHECK_IMG
+from qtpy.QtGui import QPixmap
+
 from siriushlacon.utils.command_runner import CommandRunner
+from siriushlacon.vbc.consts import CHECK_IMG, OK_MESSAGE_UI
 from siriushlacon.vbc.scripts import clean_status_pv
 
 

@@ -1,5 +1,6 @@
-import epics
 import time
+
+import epics
 
 
 def commute_valve(prefix: str, valve: int, confirmed: bool):

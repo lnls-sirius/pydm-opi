@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-import pkg_resources
 import enum
+
+import pkg_resources
 
 
 def get_abs_path(filename):
