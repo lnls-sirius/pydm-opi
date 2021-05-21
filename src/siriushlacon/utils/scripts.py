@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import epics
-
 from conscommon.data import getMKS
 from conscommon.data_model import getBeaglesFromList, getDevicesFromBeagles
 

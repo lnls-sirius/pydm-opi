@@ -1,10 +1,9 @@
 import logging
+import shlex
 import subprocess
 import sys
 import threading
-
 import typing
-import shlex
 
 logger = logging.getLogger(__name__)
 

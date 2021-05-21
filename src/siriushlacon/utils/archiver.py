@@ -5,7 +5,7 @@ import pytz
 import requests
 
 from siriushlacon.utils.alarm import Alarm, Severity
-from siriushlacon.utils.consts import TIME_ZERO, SP_TZ, ARCHIVER_URL
+from siriushlacon.utils.consts import ARCHIVER_URL, SP_TZ, TIME_ZERO
 
 logger = logging.getLogger()
 
