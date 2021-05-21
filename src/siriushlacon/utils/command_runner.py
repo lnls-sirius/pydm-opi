@@ -26,7 +26,9 @@ class CommandRunner:
             self._thread.name = self.name
         logger.info(f"Thread '{self._thread}' created")
 
-    def execute_command(self, join: bool, timeout: typing.Optional[float]):
+    def execute_command(
+        self, join: bool = False, timeout: typing.Optional[float] = None
+    ):
         if self._thread and self._thread.is_alive():
             logger.error(f"Cannot start thread, '{self._thread}' is alive")
             return
