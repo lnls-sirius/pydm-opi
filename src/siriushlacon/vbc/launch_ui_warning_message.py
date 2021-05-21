@@ -6,9 +6,9 @@ from qtpy.QtGui import QPixmap
 from siriushlacon.vbc.consts import (
     WARNING_WINDOW_UI,
     OK_MESSAGE_PY,
-    PROCESS_RECOVERY_SCRIPT,
 )
-from siriushlacon.vbc.command_runner import ShellCommandRunner
+from siriushlacon.vbc.command_runner import CommandRunner, ShellCommandRunner
+from siriushlacon.vbc.scripts import process_recovery
 from siriushlacon.utils.consts import CNPEM_IMG
 
 
@@ -32,8 +32,8 @@ class DeviceMenu(Display):
 
         self.label_9.setPixmap(QPixmap(CNPEM_IMG))
 
-        self.ProcessRecoveryCommand = ShellCommandRunner(
-            command=f"python {PROCESS_RECOVERY_SCRIPT} {IOC}"
+        self.ProcessRecoveryCommand = CommandRunner(
+            command=lambda: process_recovery(IOC), name="ProcessRecovery"
         )
         self.OkMessageCommand = ShellCommandRunner(
             command=f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {OK_MESSAGE_PY} {IOC} REC"

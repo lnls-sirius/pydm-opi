@@ -2,8 +2,9 @@
 import sys
 from qtpy.QtGui import QPixmap
 from pydm import Display
-from siriushlacon.vbc.consts import OK_MESSAGE_UI, CLEAN_STATUS_SCRIPT, CHECK_IMG
-from siriushlacon.vbc.command_runner import ShellCommandRunner
+from siriushlacon.vbc.consts import OK_MESSAGE_UI, CHECK_IMG
+from siriushlacon.vbc.command_runner import CommandRunner
+from siriushlacon.vbc.scripts import clean_status_pv
 
 
 class DeviceMenu(Display):
@@ -19,8 +20,8 @@ class DeviceMenu(Display):
         ioc_prefix = sys.argv[5]
         finished = sys.argv[6]
 
-        self.CleanStatusCommand = ShellCommandRunner(
-            command=f"python {CLEAN_STATUS_SCRIPT} {ioc_prefix} {finished}"
+        self.CleanStatusCommand = CommandRunner(
+            command=lambda: clean_status_pv(prefix=ioc_prefix, finished=finished)
         )
 
         self.pushButton.clicked(
