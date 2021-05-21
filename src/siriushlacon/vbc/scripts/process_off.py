@@ -1,106 +1,110 @@
-import epics
+import time
+
+from siriushlacon.vbc.epics import ACP, BBB, ProcessOff, ProcessOn, System, Turbovac
 
 
-def _clear_pvs(prefix: str):
-    # clear all status PVs
-    epics.caput(f"{prefix}:ProcessOffFV:Status1", 0)
-    epics.caput(f"{prefix}:ProcessOffFV:Status2", 0)
-    epics.caput(f"{prefix}:ProcessOffFV:Status3", 0)
-    epics.caput(f"{prefix}:ProcessOffFV:Status4", 0)
-    epics.caput(f"{prefix}:ProcessOffFV:Status5", 0)
-    epics.caput(f"{prefix}:ProcessOffFV:Status6", 0)
-    # clear all status PVs
-    epics.caput(f"{prefix}:ProcessOn:Status1", 0)
-    epics.caput(f"{prefix}:ProcessOn:Status2", 0)
-    epics.caput(f"{prefix}:ProcessOn:Status3", 0)
-    epics.caput(f"{prefix}:ProcessOn:Status4", 0)
-    epics.caput(f"{prefix}:ProcessOn:Status5", 0)
+class ProcessOffAction:
+    def __init__(self, prefix: str):
+        if not prefix:
+            raise ValueError(f"parameter prefix cannot be empty {prefix}")
+        self.prefix = prefix
+        self._tick = 0.05
 
+        self.process_on = ProcessOn(prefix=prefix)
+        self.process_off = ProcessOff(prefix=prefix)
+        self.bbb = BBB(prefix=prefix)
+        self.turbovac = Turbovac(prefix=prefix)
+        self.acp = ACP(prefix=prefix)
+        self.system = System(prefix=prefix)
 
-def _stage_1(prefix: str):
-    PRE_VACUUM_VALVE_SW = f"{prefix}:BBB:Relay1-SW"
+    def run(self):
+        self._clear_pvs()
+        self._stage_1()
+        self._stage_2()
+        self._stage_3()
+        self._stage_4()
+        self._stage_5()
+        self._stage_6()
 
-    # close pre-vacuum valve (and keeps gate valve open)
-    epics.caput(PRE_VACUUM_VALVE_SW, 0)
+    def _clear_pvs(self):
+        """clear all status PVs"""
+        self.process_off.clear_all_fv_status()
+        self.process_on.clear_all_status()
 
-    # update UI checkbox status
-    # epics.caput(PRE_VACUUM_VALVE_UI, 0)
+    def _stage_1(self):
+        # close pre-vacuum valve (and keeps gate valve open)
+        self.turbovac.pre_vacuum_valve_sw_pv.value = 0
 
-    # wait until valve receives command to open
-    while epics.caget(PRE_VACUUM_VALVE_SW):
-        pass
-    epics.caput(f"{prefix}:ProcessOffFV:Status1", 1)
+        # wait until valve receives command to open
+        while self.turbovac.pre_vacuum_valve_sw_pv:
+            time.sleep(self._tick)
 
+        self.process_off.off_fv_status1_pv.value = 1
 
-def _stage_2(prefix: str):
-    # change venting valve to manual control
-    epics.caput(f"{prefix}:TURBOVAC:AK-SP", 0)
-    epics.caput(f"{prefix}:TURBOVAC:PNU-SP", 134)
-    epics.caput(f"{prefix}:TURBOVAC:IND-SP", 2)
-    epics.caput(f"{prefix}:TURBOVAC:PWE-SP", 18)
-    epics.caput(f"{prefix}:TURBOVAC:AK-SP", 7)
+    def _stage_2(self):
+        # change venting valve to manual control
+        self.turbovac.ak_sp_pv.value = 0
+        self.turbovac.pnu_sp_pv.value = 134
+        self.turbovac.ind_sp_pv.value = 2
+        self.turbovac.pwe_sp_pv.value = 18
+        self.turbovac.ak_sp_pv.value = 7
 
-    # turn TURBOVAC and ACP15 pumps OFF
-    epics.caput(f"{prefix}:TURBOVAC:PZD1-SP.ZRVL", 0)
-    epics.caput(f"{prefix}:ACP:OnOff", 0)
-    # wait until pump receives command to turn off
-    while epics.caget(f"{prefix}:ACP:OnOff"):
-        pass
-    epics.caput(f"{prefix}:ProcessOffFV:Status2", 1)
+        # turn TURBOVAC and ACP15 pumps OFF
+        self.turbovac.pzd1_sp_zrvl_pv = 0
+        self.acp.on_off_pv.value = 0
 
+        # wait until pump receives command to turn off
+        while self.acp.on_off_pv.value:
+            time.sleep(self._tick)
 
-def _stage_3(prefix: str):
-    # wait until TURBOVAC frequency decrease to 600 Hz
-    while epics.caget(f"{prefix}:TURBOVAC:PZD2-RB") > epics.caget(
-        f"{prefix}:SYSTEM:OffFrequency"
-    ):
-        pass
-    epics.caput(f"{prefix}:ProcessOffFV:Status3", 1)
+        self.process_off.off_fv_status2_pv.value = 1
 
+    def _stage_3(self):
+        """wait until TURBOVAC frequency decrease to 600 Hz"""
+        while self.turbovac.pzd2_rb_pv.value > self.system.off_frequency_pv.value:
+            time.sleep(self._tick)
 
-def _stage_4(prefix: str):
-    # open X203 valve (TURBOVAC venting valve)
-    epics.caput(f"{prefix}:TURBOVAC:VentingValve-SW", 1)
-    # update UI checkbox status
-    epics.caput(f"{prefix}:TURBOVAC:VentingValve-UI", 1)
-    # wait until venting valve receives command to close
-    while epics.caget(f"{prefix}:TURBOVAC:VentingValve-SW") == 0:
-        pass
-    epics.caput(f"{prefix}:ProcessOffFV:Status4", 1)
+        self.process_off.off_fv_status3_pv.value = 1
 
+    def _stage_4(self):
+        # open X203 valve (TURBOVAC venting valve)
+        self.turbovac.venting_valve_sw_pv.value = 1
 
-def _stage_5(prefix: str):
-    # wait until pressure gets 760 Torr
-    while epics.caget(f"{prefix}:BBB:Torr") < (
-        epics.caget(f"{prefix}:SYSTEM:OffPressureBase")
-        * 10 ** epics.caget(f"{prefix}:SYSTEM:OffPressureExp")
-    ):
-        pass
-    epics.caput(f"{prefix}:ProcessOffFV:Status5", 1)
+        # update UI checkbox status
+        self.turbovac.venting_valve_ui_pv.value = 1
 
+        # wait until venting valve receives command to close
+        while self.turbovac.venting_valve_sw_pv.value == 0:
+            time.sleep(self._tick)
 
-def _stage_6(prefix: str):
-    # valve names definition
-    GATE_VALVE_SW = f"{prefix}:BBB:Relay2-SW"
-    GATE_VALVE_UI = f"{prefix}:BBB:Relay2-UI"
-    # Stage 6:
-    # ==============================================================================
-    # close all the valves (gate valve is already closed)
-    epics.caput(GATE_VALVE_SW, 0)
-    epics.caput(f"{prefix}:TURBOVAC:VentingValve-SW", 0)  # close X203
-    # update UI checkbox status
-    epics.caput(GATE_VALVE_UI, 0)
-    epics.caput(f"{prefix}:TURBOVAC:VentingValve-UI", 0)  # close X203
-    # wait until venting valve receives command to close
-    while epics.caget(GATE_VALVE_SW):
-        pass
-    epics.caput(f"{prefix}:ProcessOffFV:Status6", 1)
-    # ==============================================================================
-    # complement value of PV to launch "Process Finished" window
-    # epics.caput(VBC + ":Process:Bool", not(epics.caget(VBC + ":Process:Bool")))
-    epics.caput(f"{prefix}:ProcessOff:Bool", 1)
-    epics.caput(f"{prefix}:ProcessOff:Bool", 0)
-    # ==============================================================================
+        self.process_off.off_fv_status4_pv.value = 1
+
+    def _stage_5(self):
+        while self.bbb.pressure_pv.value < (
+            self.system.off_pressure_base_pv.value
+            * 10 ** self.system.off_pressure_exp_pv.value
+        ):
+            time.sleep(self._tick)
+
+        self.process_off.off_fv_status5_pv.value = 1
+
+    def _stage_6(self):
+        """Stage 6:"""
+        # ==============================================================================
+        # close all the valves (gate valve is already closed)
+        self.bbb.gate_valve_sw_pv.value = 0
+        self.turbovac.venting_valve_sw_pv.value = 0  # close X203
+        self.bbb.gate_valve_ui_pv.value = 0
+        self.turbovac.venting_valve_ui_pv.value = 0  # close X203
+
+        # wait until venting valve receives command to close
+        while self.bbb.gate_valve_sw_pv.value:
+            time.sleep(self._tick)
+
+        self.process_off.off_fv_status6_pv.value = 1
+
+        # complement value of PV to launch "Process Finished" window
+        self.process_off.toggle()
 
 
 def process_off(prefix: str):
@@ -114,11 +118,5 @@ def process_off(prefix: str):
         -stage 5: wait pressure decrease to 760 Torr
         -stage 6: close X203 and gate valves
     """
-
-    _clear_pvs(prefix=prefix)
-    _stage_1(prefix=prefix)
-    _stage_2(prefix=prefix)
-    _stage_3(prefix=prefix)
-    _stage_4(prefix=prefix)
-    _stage_5(prefix=prefix)
-    _stage_6(prefix=prefix)
+    action = ProcessOffAction(prefix=prefix)
+    action.run()

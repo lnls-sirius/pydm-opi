@@ -100,7 +100,7 @@ class Initialization:
             time.sleep(self._tick)
 
         self.process_recovery.status5_pv.value = 1
-        self.process_on.set_all_active()
+        self.process_on.activate_all_status()
 
 
 def initialization(prefix: str):
