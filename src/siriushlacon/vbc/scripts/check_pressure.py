@@ -1,4 +1,4 @@
-import epics
+from siriushlacon.utils.epics import create_connected_pv
 
 
 def check_pressure(prefix: str, first_time: bool):
@@ -8,15 +8,15 @@ def check_pressure(prefix: str, first_time: bool):
     - if it's value is higher than 0.05, then the "process_on" script is executed
     - if it's value is lower, then the "system_pressurized" window will pop-up
     """
-    pressure_pv = epics.PV(pvname=f"{prefix}:BBB:Torr")
-    torr_base_pv = epics.PV(pvname=f"{prefix}:BBB:TorrBase")
-    torr_exp_pv = epics.PV(pvname=f"{prefix}:BBB:TorrExp")
+    pressure_pv = create_connected_pv(pvname=f"{prefix}:BBB:Torr")
+    torr_base_pv = create_connected_pv(pvname=f"{prefix}:BBB:TorrBase")
+    torr_exp_pv = create_connected_pv(pvname=f"{prefix}:BBB:TorrExp")
 
-    torr_base_msg_pv = epics.PV(pvname=f"{prefix}:BBB:TorrBaseMsg")
-    torr_exp_msg_pv = epics.PV(pvname=f"{prefix}:BBB:TorrExpMsg")
+    torr_base_msg_pv = create_connected_pv(pvname=f"{prefix}:BBB:TorrBaseMsg")
+    torr_exp_msg_pv = create_connected_pv(pvname=f"{prefix}:BBB:TorrExpMsg")
 
-    process_trigger_on_pv = epics.PV(pvname=f"{prefix}:Process:TriggerOn")
-    process_trigger_pressurized_pv = epics.PV(
+    process_trigger_on_pv = create_connected_pv(pvname=f"{prefix}:Process:TriggerOn")
+    process_trigger_pressurized_pv = create_connected_pv(
         pvname=f"{prefix}:Process:TriggerPressurized"
     )
 

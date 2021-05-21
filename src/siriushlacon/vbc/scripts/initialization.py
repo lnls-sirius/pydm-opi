@@ -1,73 +1,106 @@
 import time
 
-import epics
+from siriushlacon.vbc.epics import ACP, BBB, ProcessOn, ProcessRecovery, Turbovac
 
 
-def _stage_1(prefix: str):
-    epics.caput(f"{prefix}:ProcessRecovery:Status1", 1)
-    # turn ACP15 pump ON and wait 30 s
-    epics.caput(f"{prefix}:ACP:OnOff", 1)
-    # set ACP15 speed to maximum (6000 rpm)
-    epics.caput(f"{prefix}:ACP:SpeedRPM", 6000)
-    # wait until pump receives command to turn on
-    while epics.caget(f"{prefix}:ACP:OnOff") == 0:
-        pass
-    time.sleep(30)
+class Initialization:
+    def __init__(self, prefix: str):
+        if not prefix:
+            raise ValueError(f"parameter prefix cannot be empty {prefix}")
+        self.prefix = prefix
 
+        self._tick = 0.05
 
-def _stage_2(prefix: str):
-    PRE_VACUUM_VALVE_SW = f"{prefix}:BBB:Relay1-SW"
-    # open pre-vacuum valve
-    epics.caput(PRE_VACUUM_VALVE_SW, 1)
+        # Create TURBOVAC PVs
+        self.turbovac = Turbovac(prefix=prefix)
 
-    # wait gate valve receives command to open
-    while epics.caget(PRE_VACUUM_VALVE_SW) == 0:
-        pass
-    epics.caput(f"{prefix}:ProcessRecovery:Status2", 1)
+        # Create beaglebone PVs
+        self.bbb = BBB(prefix=prefix)
 
+        # Create ACP PVs
+        self.acp = ACP(prefix=prefix)
 
-def _stage_3(prefix: str):
-    # turn TURBOVAC pump ON
-    epics.caput(f"{prefix}:TURBOVAC:PZD1-SP.TEVL", 1)
-    epics.caput(f"{prefix}:TURBOVAC:PZD1-SP.ZRVL", 1)
-    # wait until pump receives command to turn on
-    while (epics.caget(f"{prefix}:TURBOVAC:PZD1-SP.ZRVL") == 0) & (
-        epics.caget(f"{prefix}:TURBOVAC:PZD1-SP.TEVL") == 0
-    ):
-        pass
-    epics.caput(f"{prefix}:ProcessRecovery:Status3", 1)
+        # Create process recovery status PVs
+        self.process_recovery = ProcessRecovery(prefix=prefix)
 
+        # Create process ON status PVs
+        self.process_on = ProcessOn(prefix=prefix)
 
-def _stage_4(prefix: str):
-    # wait TURBOVAC pump reaches 1200 Hz
-    epics.caput(f"{prefix}:TURBOVAC:PZD2-SP", 1200)
-    epics.caput(f"{prefix}:TURBOVAC:PZD1-SP.SXVL", 1)
-    while epics.caget(f"{prefix}:TURBOVAC:PZD2-RB") < 1200:
-        pass
-    epics.caput(f"{prefix}:TURBOVAC:PZD1-SP.SXVL", 0)
-    epics.caput(f"{prefix}:ProcessRecovery:Status4", 1)
+    def run(self):
+        """if pressure is between 0.05 and 1*10**-8, trigger "process_recovery" script"""
+        if (self.bbb.pressure_pv.value < 0.05) & (self.bbb.pressure_pv > 10 ** -8):
+            self._stage_1()
+            self._stage_2()
+            self._stage_3()
+            self._stage_4()
+            self._stage_5()
 
+    def _stage_1(self):
+        self.process_recovery.status1_pv.value = 1
 
-def _stage_5(prefix: str):
-    GATE_VALVE_SW = f"{prefix}:BBB:Relay2-SW"
-    # open gate valve (VAT)
-    epics.caput(GATE_VALVE_SW, 1)
+        # turn ACP15 pump ON and wait 30 s
+        self.acp.on_off_pv.value = 1
 
-    # ---------------------------------------
-    # read gate valve (VAT) status to check if it is really open
-    loop = True
-    while loop:
-        Lo = epics.caget(f"{prefix}:BBB:ValveOpen")
-        Lg = epics.caget(f"{prefix}:BBB:ValveClosed")
-        if Lo & (not Lg):
-            loop = False
-    epics.caput(f"{prefix}:ProcessRecovery:Status5", 1)
+        # set ACP15 speed to maximum (6000 rpm)
+        self.acp.speed_rpm.value = 6000
 
-    epics.caput(f"{prefix}:ProcessOn:Status1", 1)
-    epics.caput(f"{prefix}:ProcessOn:Status2", 1)
-    epics.caput(f"{prefix}:ProcessOn:Status3", 1)
-    epics.caput(f"{prefix}:ProcessOn:Status4", 1)
-    epics.caput(f"{prefix}:ProcessOn:Status5", 1)
+        # wait until pump receives command to turn on
+        while self.acp.on_off_pv.value == 0:
+            time.sleep(self._tick)
+
+        time.sleep(30)
+
+    def _stage_2(self):
+        # open pre-vacuum valve
+        self.bbb.pre_vacuum_valve_sw_pv.value = 1
+
+        # wait gate valve receives command to open
+        while self.bbb.pre_vacuum_valve_sw_pv.value == 0:
+            time.sleep(self._tick)
+
+        # update status
+        self.process_recovery.status2_pv.value = 1
+
+    def _stage_3(self):
+        # turn TURBOVAC pump ON
+        self.turbovac.pzd1_sp_tevl_pv.value = 1
+        self.turbovac.pzd1_sp_zrvl_pv.value = 1
+
+        # wait until pump receives command to turn on
+        while (self.turbovac.pzd1_sp_zrvl_pv.value == 0) & (
+            self.turbovac.pzd1_sp_tevl_pv.value == 0
+        ):
+            time.sleep(self._tick)
+
+        self.process_recovery.status3_pv.value = 1
+
+    def _stage_4(self):
+        # wait TURBOVAC pump reaches 1200 Hz
+        self.turbovac.pzd2_sp_pv.value = 1200
+        self.turbovac.pzd1_sp_sxvl_pv.value = 1
+
+        while self.turbovac.pzd2_rb_pv.value < 1200:
+            time.sleep(self._tick)
+
+        self.turbovac.pzd1_sp_sxvl_pv.value = 0
+
+        self.process_recovery.status4_pv.value = 1
+
+    def _stage_5(self):
+        # open gate valve (VAT)
+        self.bbb.gate_valve_sw_pv.value = 1
+
+        # read gate valve (VAT) status to check if it is really open
+        loop = True
+        while loop:
+            Lo = self.bbb.valve_open_pv.value
+            Lg = self.bbb.valve_closed_pv.value
+            if Lo & (not Lg):
+                loop = False
+            time.sleep(self._tick)
+
+        self.process_recovery.status5_pv.value = 1
+        self.process_on.set_all_active()
 
 
 def initialization(prefix: str):
@@ -76,13 +109,5 @@ def initialization(prefix: str):
     pressure is lower or higher than 0.05 Torr. In case it's lower than 0.05, then
     run the "process_recovery.py" script.
     """
-    # ------------------------------------------------------------------------------
-    # read pressure value in Torr
-    PRESSURE = epics.caget(f"{prefix}:BBB:Torr")
-    # if pressure is between 0.05 and 1*10**-8, trigger "process_recovery" script
-    if (PRESSURE < 0.05) & (PRESSURE > 10 ** -8):
-        _stage_1(prefix=prefix)
-        _stage_2(prefix=prefix)
-        _stage_3(prefix=prefix)
-        _stage_4(prefix=prefix)
-        _stage_5(prefix=prefix)
+    init = Initialization(prefix=prefix)
+    init.run()

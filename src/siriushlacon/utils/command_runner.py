@@ -19,11 +19,12 @@ class CommandRunner:
 
         self._command = command
         self._name = name
+        self._thread: typing.Optional[threading.Thread] = None
 
     def _create_thread(self):
-        self._thread = threading.Thread(target=self.command, daemon=False)
-        if self.name:
-            self._thread.name = self.name
+        self._thread = threading.Thread(target=self._command, daemon=False)
+        if self._name:
+            self._thread.name = self._name
         logger.info(f"Thread '{self._thread}' created")
 
     def execute_command(
