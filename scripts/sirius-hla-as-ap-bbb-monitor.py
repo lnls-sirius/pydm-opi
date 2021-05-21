@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-import subprocess
-import os
 import argparse
+import os
+import subprocess
+
 from siriushlacon.beaglebones.consts import BEAGLEBONES_MAIN
 
 parser = argparse.ArgumentParser(description="Beaglebone monitor interface")

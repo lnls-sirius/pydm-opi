@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-import subprocess
 import os
+import subprocess
+
 from siriushlacon.launcher.consts import LAUNCH_WINDOW
 from siriushlacon.tools.consts import PYDM_TOOLS_PATH
 
