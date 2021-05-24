@@ -3,6 +3,7 @@ import sys
 from qtpy.QtGui import QPixmap
 from pydm import Display
 from siriushlacon.vbc.consts import OK_MESSAGE_UI, CLEAN_STATUS_SCRIPT, CHECK_IMG
+from siriushlacon.vbc.command_runner import ShellCommandRunner
 
 
 class DeviceMenu(Display):
@@ -12,6 +13,16 @@ class DeviceMenu(Display):
         )
         self.label_2.setPixmap(QPixmap(CHECK_IMG))
 
-        self.Shell_clean_PVs.commands = [
-            "python {} {}".format(CLEAN_STATUS_SCRIPT, sys.argv[5])
-        ]
+        if len(sys.argv) < 6:
+            raise RuntimeError(f"Invalid arguments {sys.argv}")
+
+        ioc_prefix = sys.argv[5]
+        finished = sys.argv[6]
+
+        self.CleanStatusCommand = ShellCommandRunner(
+            command=f"python {CLEAN_STATUS_SCRIPT} {ioc_prefix} {finished}"
+        )
+
+        self.pushButton.clicked(
+            lambda *_args, **_kwargs: self.CleanStatusCommand.execute_command()
+        )

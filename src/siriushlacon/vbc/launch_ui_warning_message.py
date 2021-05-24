@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
+import sys
 from pydm import Display
+from qtpy.QtGui import QPixmap
+
 from siriushlacon.vbc.consts import (
     WARNING_WINDOW_UI,
     OK_MESSAGE_PY,
-    PROCESS_RECOVERYY_SCRIPT,
+    PROCESS_RECOVERY_SCRIPT,
 )
+from siriushlacon.vbc.command_runner import ShellCommandRunner
+from siriushlacon.utils.consts import CNPEM_IMG
 
-import sys
 
 IOC = str(sys.argv[5])
 
@@ -26,7 +30,18 @@ class DeviceMenu(Display):
         self.pressure_base.channel = f"ca://{IOC}:BBB:TorrBaseMsg"
         self.pressure_exp.channel = f"ca://{IOC}:BBB:TorrExpMsg"
 
-        self.pop_up_OK_message.commands = [
-            f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {OK_MESSAGE_PY} {IOC}"
-        ]
-        self.Shell.commands = [f"python {PROCESS_RECOVERYY_SCRIPT} {IOC}"]
+        self.label_9.setPixmap(QPixmap(CNPEM_IMG))
+
+        self.ProcessRecoveryCommand = ShellCommandRunner(
+            command=f"python {PROCESS_RECOVERY_SCRIPT} {IOC}"
+        )
+        self.OkMessageCommand = ShellCommandRunner(
+            command=f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {OK_MESSAGE_PY} {IOC} REC"
+        )
+
+        self.Shell_PV_Trigger_OK_MESSAGE.toggled.connect(
+            lambda *_args, **_kwargs: self.OkMessageCommand.execute_command()
+        )
+        self.buttonBox_2.accepted.connect(
+            lambda *_args, **_kwargs: self.ProcessRecoveryCommand.execute_command()
+        )

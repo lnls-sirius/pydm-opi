@@ -13,9 +13,6 @@ it is divided in 6 stages, described as follow:
     -stage 5: wait pressure decrease to 760 Torr
     -stage 6: close X203 and gate valves
 """
-print("======================")
-print("Script: process_off.py")
-print("======================")
 # ------------------------------------------------------------------------------
 # define the PREFIX that will be used (passed as a parameter)
 VBC = sys.argv[1]
@@ -33,6 +30,12 @@ caput(VBC + ":ProcessOffFV:Status3", 0)
 caput(VBC + ":ProcessOffFV:Status4", 0)
 caput(VBC + ":ProcessOffFV:Status5", 0)
 caput(VBC + ":ProcessOffFV:Status6", 0)
+# clear all status PVs
+caput(VBC + ":ProcessOn:Status1", 0)
+caput(VBC + ":ProcessOn:Status2", 0)
+caput(VBC + ":ProcessOn:Status3", 0)
+caput(VBC + ":ProcessOn:Status4", 0)
+caput(VBC + ":ProcessOn:Status5", 0)
 # ==============================================================================
 # Stage 1:
 # ==============================================================================
@@ -96,18 +99,18 @@ caput(VBC + ":ProcessOffFV:Status5", 1)
 # Stage 6:
 # ==============================================================================
 # close all the valves (gate valve is already closed)
-caput(PRE_VACUUM_VALVE_SW, 0)
+caput(GATE_VALVE_SW, 0)
 caput(VBC + ":TURBOVAC:VentingValve-SW", 0)  # close X203
 # update UI checkbox status
-caput(PRE_VACUUM_VALVE_UI, 0)
+caput(GATE_VALVE_UI, 0)
 caput(VBC + ":TURBOVAC:VentingValve-UI", 0)  # close X203
 # wait until venting valve receives command to close
-while caget(PRE_VACUUM_VALVE_SW):
+while caget(GATE_VALVE_SW):
     pass
 caput(VBC + ":ProcessOffFV:Status6", 1)
 # ==============================================================================
 # complement value of PV to launch "Process Finished" window
 # caput(VBC + ":Process:Bool", not(caget(VBC + ":Process:Bool")))
-caput(VBC + ":Process:Bool", 1)
-caput(VBC + ":Process:Bool", 0)
+caput(VBC + ":ProcessOff:Bool", 1)
+caput(VBC + ":ProcessOff:Bool", 0)
 # ==============================================================================

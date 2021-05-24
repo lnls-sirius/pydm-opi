@@ -12,9 +12,6 @@ it is divided in 5 stages, described as follow:
     -stage 4: wait pressure decrease to less than 0.05 Torr
     -stage 5: turn TURBOVAC on
 """
-print("=====================")
-print("Script: process_on.py")
-print("=====================")
 # ------------------------------------------------------------------------------
 # define the PREFIX that will be used (passed as a parameter)
 VBC = sys.argv[1]
@@ -31,6 +28,13 @@ caput(VBC + ":ProcessOn:Status2", 0)
 caput(VBC + ":ProcessOn:Status3", 0)
 caput(VBC + ":ProcessOn:Status4", 0)
 caput(VBC + ":ProcessOn:Status5", 0)
+# clear all status PVs for "Off Process"
+caput(VBC + ":ProcessOffFV:Status1", 0)
+caput(VBC + ":ProcessOffFV:Status2", 0)
+caput(VBC + ":ProcessOffFV:Status3", 0)
+caput(VBC + ":ProcessOffFV:Status4", 0)
+caput(VBC + ":ProcessOffFV:Status5", 0)
+caput(VBC + ":ProcessOffFV:Status6", 0)
 # ==============================================================================
 # Stage 1:
 # ==============================================================================
@@ -96,6 +100,6 @@ caput(VBC + ":ProcessOn:Status5", 1)
 # ==============================================================================
 # complement value of PV to launch "Process Finished" window
 # caput(VBC + ":Process:Bool", not(caget(VBC + ":Process:Bool")))
-caput(VBC + ":Process:Bool", 1)
-caput(VBC + ":Process:Bool", 0)
+caput(VBC + ":ProcessOn:Bool", 1)
+caput(VBC + ":ProcessOn:Bool", 0)
 # ==============================================================================

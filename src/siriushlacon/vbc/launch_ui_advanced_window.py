@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-from pydm import Display
-from siriushlacon.vbc.consts import ADVANCED_WINDOW_UI, CONFIRMATION_MESSAGE_PY
 
-import json
+from pydm import Display
+
+from qtpy.QtGui import QPixmap
+from siriushlacon.vbc.consts import ADVANCED_WINDOW_UI, CONFIRMATION_MESSAGE_PY
+from siriushlacon.vbc.command_runner import ShellCommandRunner
+from siriushlacon.utils.consts import LNLS_IMG, CNPEM_IMG
 
 
 class DeviceMenu(Display):
@@ -11,28 +14,30 @@ class DeviceMenu(Display):
             parent=parent, args=args, macros=macros, ui_filename=ADVANCED_WINDOW_UI
         )
 
+        self.lnlsLabel.setPixmap(QPixmap(LNLS_IMG))
+        self.cnpemLabel.setPixmap(QPixmap(CNPEM_IMG))
         # defining macros for PyDMShellCommand (valve open/close confirmation)
         macros_ioc = macros["IOC"]
         RELAY_SH_STR = f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {CONFIRMATION_MESSAGE_PY} {macros_ioc}"
 
-        self.Relay1.commands = [f"{RELAY_SH_STR} 1"]
-        self.Relay2.commands = [f"{RELAY_SH_STR} 2"]
-        self.Relay3.commands = [f"{RELAY_SH_STR} 3"]
-        self.Relay4.commands = [f"{RELAY_SH_STR} 4"]
-        self.Relay5.commands = [f"{RELAY_SH_STR} 5"]
+        self.Relay1ConfirmationCommand = ShellCommandRunner(command=f"{RELAY_SH_STR} 1")
+        self.Relay2ConfirmationCommand = ShellCommandRunner(command=f"{RELAY_SH_STR} 2")
+        self.Relay3ConfirmationCommand = ShellCommandRunner(command=f"{RELAY_SH_STR} 3")
+        self.Relay4ConfirmationCommand = ShellCommandRunner(command=f"{RELAY_SH_STR} 4")
+        self.Relay5ConfirmationCommand = ShellCommandRunner(command=f"{RELAY_SH_STR} 5")
 
-        self.Relay1.macros = json.dumps(
-            {"IOC": macros_ioc, "RELAY": "1", "VALVE": "Valve 1?"}
+        self.PyDMCheckbox_Relay1.clicked.connect(
+            lambda *_args: self.Relay1ConfirmationCommand.execute_command()
         )
-        self.Relay2.macros = json.dumps(
-            {"IOC": macros_ioc, "RELAY": "2", "VALVE": "Pre-vacuum Valve?"}
+        self.PyDMCheckbox_Relay2.clicked.connect(
+            lambda *_args: self.Relay2ConfirmationCommand.execute_command()
         )
-        self.Relay3.macros = json.dumps(
-            {"IOC": macros_ioc, "RELAY": "3", "VALVE": "Valve 3?"}
+        self.PyDMCheckbox_Relay3.clicked.connect(
+            lambda *_args: self.Relay3ConfirmationCommand.execute_command()
         )
-        self.Relay4.macros = json.dumps(
-            {"IOC": macros_ioc, "RELAY": "4", "VALVE": "Gate Valve?"}
+        self.PyDMCheckbox_Relay4.clicked.connect(
+            lambda *_args: self.Relay4ConfirmationCommand.execute_command()
         )
-        self.Relay5.macros = json.dumps(
-            {"IOC": macros_ioc, "RELAY": "venting_valve", "VALVE": "Venting Valve?"}
+        self.PyDMCheckbox_Relay5.clicked.connect(
+            lambda *_args: self.Relay5ConfirmationCommand.execute_command()
         )

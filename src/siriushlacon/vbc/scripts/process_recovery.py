@@ -14,9 +14,6 @@ It is divided in 5 stages, described as follow:
     -stage 4: wait TURBOVAC frequency reaches 1200 Hz
     -stage 5: open gate valve
 """
-print("===========================")
-print("Script: process_recovery.py")
-print("===========================")
 # ------------------------------------------------------------------------------
 # define the PREFIX that will be used (passed as a parameter)
 VBC = sys.argv[1]
@@ -33,7 +30,6 @@ caput(VBC + ":ProcessRecovery:Status2", 0)
 caput(VBC + ":ProcessRecovery:Status3", 0)
 caput(VBC + ":ProcessRecovery:Status4", 0)
 caput(VBC + ":ProcessRecovery:Status5", 0)
-caput(VBC + ":ProcessRecovery:Status6", 0)
 # ==============================================================================
 # Stage 1:
 # ==============================================================================
@@ -57,7 +53,7 @@ caput(PRE_VACUUM_VALVE_SW, 1)
 # caput(PRE_VACUUM_VALVE_UI, 1)
 
 
-# wait gate valve receives command to open
+# wait pre-vacuum valve receives value to open
 while caget(PRE_VACUUM_VALVE_SW) == 0:
     pass
 caput(VBC + ":ProcessRecovery:Status2", 1)
@@ -106,6 +102,6 @@ caput(VBC + ":ProcessRecovery:Status5", 1)
 # ==============================================================================
 # complement value of PV to launch "Process Finished" window
 # caput(VBC + ":Process:Bool", not(caget(VBC + ":Process:Bool")))
-caput(VBC + ":Process:RecBool", 1)
-caput(VBC + ":Process:RecBool", 0)
+caput(VBC + ":ProcessRec:Bool", 1)
+caput(VBC + ":ProcessRec:Bool", 0)
 # ==============================================================================
