@@ -1,2 +1,2 @@
-__version__ = "2.0.17-110-g36ad585"
+__version__ = "2.0.17-111-g59ff769"
 __author__ = "lnls-sirius"
