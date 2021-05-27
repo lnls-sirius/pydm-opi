@@ -25,15 +25,15 @@ class DeviceMenu(Display):
         self.ClearStatusCommand: CommandRunner
 
         finished = finished.upper().replace(" ", "")
-        if finished == Finished.ON:
+        if finished == Finished.ON.value:
             self.ClearStatusCommand: CommandRunner = CommandRunner(
                 command=lambda: clear_status_on(prefix=ioc_prefix)
             )
-        elif finished == Finished.OFF:
+        elif finished == Finished.OFF.value:
             self.ClearStatusCommand: CommandRunner = CommandRunner(
                 command=lambda: clear_status_off(prefix=ioc_prefix)
             )
-        elif finished == Finished.REC:
+        elif finished == Finished.REC.value:
             self.ClearStatusCommand: CommandRunner = CommandRunner(
                 command=lambda: clear_status_rec(prefix=ioc_prefix)
             )
