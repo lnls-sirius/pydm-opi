@@ -1,6 +1,9 @@
+import logging
 import time
 
 from siriushlacon.vbc.epics import ACP, BBB, ProcessRecovery, Turbovac
+
+logger = logging.getLogger(__name__)
 
 
 class ProcessRecoveryAction:
@@ -25,10 +28,12 @@ class ProcessRecoveryAction:
 
     def _clear_status(self):
         """clear all status PVs"""
+        logger.info("clear_status")
         self.process_recovery.set_all_clear()
 
     def _stage_1(self):
         """Stage 1:"""
+        logger.info("stage1")
         self.process_recovery.status1_pv.value = 1
         # turn ACP15 pump ON and wait 30 s
         self.acp.on_off_pv.value = 1
@@ -42,6 +47,7 @@ class ProcessRecoveryAction:
 
     def _stage_2(self):
         """Stage 2:"""
+        logger.info("stage2")
         # open pre-vacuum valve
         self.bbb.pre_vacuum_valve_sw_pv.value = 1
 
@@ -56,6 +62,7 @@ class ProcessRecoveryAction:
 
     def _stage_3(self):
         """Stage 3:"""
+        logger.info("stage3")
         # turn TURBOVAC pump ON
         self.turbovac.pzd1_sp_tevl_pv.value = 1
         self.turbovac.pzd1_sp_zrvl_pv.value = 1
@@ -70,6 +77,7 @@ class ProcessRecoveryAction:
 
     def _stage_4(self):
         """Stage 4:"""
+        logger.info("stage4")
         # wait TURBOVAC pump reaches 1200 Hz
         self.turbovac.pzd2_sp_pv.value = 1200
         self.turbovac.pzd1_sp_sxvl_pv.value = 1
@@ -82,6 +90,7 @@ class ProcessRecoveryAction:
 
     def _stage_5(self):
         """Stage 5:"""
+        logger.info("stage5")
         # open gate valve (VAT)
         self.bbb.gate_valve_sw_pv.value = 1
 

@@ -24,6 +24,7 @@ class DeviceMenu(Display):
 
         self.ClearStatusCommand: CommandRunner
 
+        finished = finished.upper().replace(" ", "")
         if finished == Finished.ON:
             self.ClearStatusCommand: CommandRunner = CommandRunner(
                 command=lambda: clear_status_on(prefix=ioc_prefix)

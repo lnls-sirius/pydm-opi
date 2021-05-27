@@ -1,6 +1,9 @@
+import logging
 import time
 
 from siriushlacon.vbc.epics import ACP, BBB, ProcessOff, ProcessOn, System, Turbovac
+
+logger = logging.getLogger(__name__)
 
 
 class ProcessOffAction:
@@ -28,10 +31,12 @@ class ProcessOffAction:
 
     def _clear_pvs(self):
         """clear all status PVs"""
+        logger.info("clear_pvs")
         self.process_off.clear_all_fv_status()
         self.process_on.clear_all_status()
 
     def _stage_1(self):
+        logger.info("stage1")
         # close pre-vacuum valve (and keeps gate valve open)
         self.turbovac.pre_vacuum_valve_sw_pv.value = 0
 
@@ -42,6 +47,7 @@ class ProcessOffAction:
         self.process_off.off_fv_status1_pv.value = 1
 
     def _stage_2(self):
+        logger.info("stage2")
         # change venting valve to manual control
         self.turbovac.ak_sp_pv.value = 0
         self.turbovac.pnu_sp_pv.value = 134
@@ -61,12 +67,14 @@ class ProcessOffAction:
 
     def _stage_3(self):
         """wait until TURBOVAC frequency decrease to 600 Hz"""
+        logger.info("stage3")
         while self.turbovac.pzd2_rb_pv.value > self.system.off_frequency_pv.value:
             time.sleep(self._tick)
 
         self.process_off.off_fv_status3_pv.value = 1
 
     def _stage_4(self):
+        logger.info("stage4")
         # open X203 valve (TURBOVAC venting valve)
         self.turbovac.venting_valve_sw_pv.value = 1
 
@@ -80,6 +88,7 @@ class ProcessOffAction:
         self.process_off.off_fv_status4_pv.value = 1
 
     def _stage_5(self):
+        logger.info("stage5")
         while self.bbb.pressure_pv.value < (
             self.system.off_pressure_base_pv.value
             * 10 ** self.system.off_pressure_exp_pv.value
@@ -90,7 +99,8 @@ class ProcessOffAction:
 
     def _stage_6(self):
         """Stage 6:"""
-        # ==============================================================================
+        logger.info("stage6")
+
         # close all the valves (gate valve is already closed)
         self.bbb.gate_valve_sw_pv.value = 0
         self.turbovac.venting_valve_sw_pv.value = 0  # close X203

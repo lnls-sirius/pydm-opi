@@ -1,6 +1,9 @@
+import logging
 import time
 
 from siriushlacon.vbc.epics import ACP, BBB, ProcessOff, ProcessOn, System, Turbovac
+
+logger = logging.getLogger(__name__)
 
 
 class ProcessOnAction:
@@ -26,12 +29,14 @@ class ProcessOnAction:
         self._stage_5()
 
     def _clear_status(self):
+        logger.info("Clear status")
         # clear all status PVs
         self.process_on.clear_all_status()
         self.process_off.clear_all_fv_status()
 
     def _stage_1(self):
         """wait TURBOVAC pump stops completely"""
+        logger.info("Stage 1")
         self.process_on.status1_pv.value = 1
 
         while self.turbovc.pzd2_rb_pv.value != 0:
@@ -39,6 +44,7 @@ class ProcessOnAction:
 
     def _stage_2(self):
         """Stage 2:"""
+        logger.info("Stage 2")
         # open gate valve (VAT) and the pre-vacuum valve
         self.bbb.gate_valve_sw_pv.value = 1
         self.bbb.pre_vacuum_valve_sw_pv.value = 1
@@ -66,6 +72,7 @@ class ProcessOnAction:
 
     def _stage_3(self):
         """Stage 3:"""
+        logger.info("Stage 3")
         # turn ACP15 pump ON
         self.acp.on_off_pv.value = 1
         # wait until pump receives command to turn on
@@ -83,6 +90,7 @@ class ProcessOnAction:
 
     def _stage_4(self):
         """Stage 4: read the pressure and proceed when its value is under 5*(10^-2) Torr"""
+        logger.info("Stage 4")
         while self.check_pressure_limits():
             time.sleep(self._tick)
 
@@ -90,6 +98,7 @@ class ProcessOnAction:
 
     def _stage_5(self):
         """Stage 5:"""
+        logger.info("Stage 5")
         # turn TURBOVAC pump ON
         self.turbovc.pzd1_sp_tevl_pv.value = 1
         self.turbovc.pzd1_sp_zrvl_pv.value = 1
