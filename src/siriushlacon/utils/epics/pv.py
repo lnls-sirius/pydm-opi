@@ -9,7 +9,7 @@ def create_connected_pv(
     auto_monitor=None,
     count=None,
     connection_callback=None,
-    connection_timeout=None,
+    connection_timeout=5.0,
     access_callback=None,
 ) -> epics.PV:
     """Create a connected PV or raise an exception"""

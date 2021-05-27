@@ -71,7 +71,7 @@ class ProcessOffAction:
         self.turbovac.venting_valve_sw_pv.value = 1
 
         # update UI checkbox status
-        self.turbovac.venting_valve_ui_pv.value = 1
+        self.turbovac.venting_valve_ui_pv_rval.value = 1
 
         # wait until venting valve receives command to close
         while self.turbovac.venting_valve_sw_pv.value == 0:
@@ -95,7 +95,7 @@ class ProcessOffAction:
         self.bbb.gate_valve_sw_pv.value = 0
         self.turbovac.venting_valve_sw_pv.value = 0  # close X203
         self.bbb.gate_valve_ui_pv.value = 0
-        self.turbovac.venting_valve_ui_pv.value = 0  # close X203
+        self.turbovac.venting_valve_ui_pv_rval.value = 0  # close X203
 
         # wait until venting valve receives command to close
         while self.bbb.gate_valve_sw_pv.value:

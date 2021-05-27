@@ -167,8 +167,8 @@ class Turbovac:
         self.venting_valve_sw_pv = create_connected_pv(
             pvname=f"{self.prefix}:TURBOVAC:VentingValve-SW"
         )
-        self.venting_valve_ui_pv = create_connected_pv(
-            pvname=f"{self.prefix}:TURBOVAC:VentingValve-UI"
+        self.venting_valve_ui_pv_rval = create_connected_pv(
+            pvname=f"{self.prefix}:TURBOVAC:VentingValve-UI.RVAL"
         )
 
 
