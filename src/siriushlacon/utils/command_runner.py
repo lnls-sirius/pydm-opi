@@ -21,8 +21,12 @@ class CommandRunner:
         self._name = name
         self._thread: typing.Optional[threading.Thread] = None
 
+    def _command_log(self):
+        self._command()
+        logger.info(f"Thread finished {self._thread}")
+
     def _create_thread(self):
-        self._thread = threading.Thread(target=self._command, daemon=False)
+        self._thread = threading.Thread(target=self._command_log, daemon=False)
         if self._name:
             self._thread.name = self._name
         logger.info(f"Thread '{self._thread}' created")
@@ -35,6 +39,9 @@ class CommandRunner:
             return
 
         self._create_thread()
+        if not self._thread:
+            raise RuntimeError("Failed to create thread")
+
         self._thread.start()
         logger.info(f"Thread stated '{self._thread}' join={join}")
         if join:
