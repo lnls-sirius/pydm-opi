@@ -21,7 +21,7 @@ endif
 ifneq (,$(wildcard /home/sirius/Desktop/$(NAME).desktop))
 	sudo rm /home/sirius/Desktop/$(NAME).desktop
 endif
-	sudo cp siriushlacon/utils/images/sirius-hla-as-cons-lnls.png /usr/share/icons/sirius-hla-as-cons-lnls.png
+	sudo cp src/siriushlacon/utils/images/sirius-hla-as-cons-lnls.png /usr/share/icons/sirius-hla-as-cons-lnls.png
 	sudo cp miscellaneous/$(NAME).desktop /home/sirius/Desktop/$(NAME).desktop
 
 uninstall:
