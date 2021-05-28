@@ -484,7 +484,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                 selected_bbbs = self.logsTable.selectionModel().selectedRows()
             for bbb in selected_bbbs:
                 if current_list == LOGS_TAB:
-                    bbb_ip, bbb_hostname = bbb.sibling(bbb.row(), 1).data().split(":")
+                    bbb_ip, bbb_hostname = bbb.sibling(bbb.row(), 1).data().split(" - ")
                 else:
                     bbb_ip, bbb_hostname = bbb.text().split(" - ")
                 self.server.reboot_node(bbb_ip, bbb_hostname)
@@ -510,7 +510,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
             errors = []
             for bbb in selected_bbbs:
                 if current_index == LOGS_TAB:
-                    bbb_ip, bbb_hostname = bbb.sibling(bbb.row(), 1).data().split(":")
+                    bbb_ip, bbb_hostname = bbb.sibling(bbb.row(), 1).data().split(" - ")
                 else:
                     bbb_ip, bbb_hostname = bbb.text().split(" - ")
                 bbb_hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
@@ -698,10 +698,10 @@ class TableModel(QtCore.QAbstractTableModel):
         self._data = data
         self.layoutChanged.emit()
 
-    def rowCount(self, index):
+    def rowCount(self, _):
         return len(self._data)
 
-    def columnCount(self, index):
+    def columnCount(self, _):
         if self.rowCount(0) < 1:
             return 0
         return len(self._data[0])
