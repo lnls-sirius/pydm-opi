@@ -38,6 +38,12 @@ class PSDriver(pcaspy.Driver):
 
 def ioc(prefix: str):
     PVs = {}
+    PVs[f"{prefix}:BBB:Relay1-UI"] = {"type": "int"}
+    PVs[f"{prefix}:BBB:Relay2-UI"] = {"type": "int"}
+    PVs[f"{prefix}:BBB:Relay3-UI"] = {"type": "int"}
+    PVs[f"{prefix}:BBB:Relay4-UI"] = {"type": "int"}
+    PVs[f"{prefix}:BBB:Relay5-UI"] = {"type": "int"}
+    PVs[f"{prefix}:TURBOVAC:VentingValve-UI"] = {"type": "int"}
     # -----------------------------------------------
     # status PVs for "turning the system ON" process
     PVs[f"{prefix}:ProcessOn:Status1"] = {"type": "int"}

@@ -1,6 +1,7 @@
 import logging
+from typing import Dict
 
-loggers = {}
+loggers: Dict[str, logging.Logger] = {}
 
 
 def get_logger(name):
