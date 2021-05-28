@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import logging
 import re
-from typing import List, Optional
+from typing import List
 
 import conscommon.data_model
 from pydm import Display
@@ -31,11 +31,11 @@ class Overview(Display):
         for pv in self.pvs:
             layout.addWidget(self.get_gauge(None, macros=pv))
 
-    def getPVDict(
+    def load_pv_dict(
         self,
         device: conscommon.data_model.Device,
         channel: conscommon.data_model.Channel,
-    ) -> Optional[dict]:
+    ):
         if (
             (self.ch_reg.match(channel.prefix[-3:]))
             or (self.macros.get("TYPE") == BO and not channel.prefix.startswith(BO))
@@ -62,9 +62,7 @@ class Overview(Display):
             if not device.enable:
                 continue
             for channel in device.channels:
-                macro = self.getPVDict(device, channel)
-                if macro:
-                    self.pvs.append(macro)
+                self.load_pv_dict(device, channel)
 
     def get_gauge(self, parent, macros):
         aux = []

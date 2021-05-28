@@ -50,7 +50,6 @@ class MKSTableDataController(TableDataController):
         devices: List[conscommon.data_model.Device] = None,
         table_batch: int = 24,
         horizontal_header_labels: List[str] = None,
-        *args,
         **kwargs
     ):
         super().__init__(
@@ -58,7 +57,6 @@ class MKSTableDataController(TableDataController):
             devices=devices,
             table_batch=table_batch,
             horizontal_header_labels=horizontal_header_labels,
-            *args,
             **kwargs
         )
 
