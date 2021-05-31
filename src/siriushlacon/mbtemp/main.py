@@ -1,20 +1,21 @@
 #!/usr/bin/env python3
 import logging
-import requests
 import sys
-from pydm import Display
-from pydm.widgets.channel import PyDMChannel
-from qtpy import QtWidgets, QtCore
-from qtpy.QtGui import QPixmap
 from functools import partial
 
+import requests
+from pydm import Display
+from pydm.widgets.channel import PyDMChannel
+from qtpy import QtCore, QtWidgets
+from qtpy.QtGui import QPixmap
+
 from siriushlacon.mbtemp.consts import (
-    BOEXTRACTION_PIC,
-    BOINJ_PIC,
     BO_PIC1,
     BO_PIC2,
     BO_PIC3,
     BO_PIC4,
+    BOEXTRACTION_PIC,
+    BOINJ_PIC,
     CNPEM_LOGO,
     LNLS_LOGO,
     MBTEMP_MAIN_UI,
@@ -22,8 +23,8 @@ from siriushlacon.mbtemp.consts import (
     PIC_LA,
     PIC_P7RF,
     PIC_PA,
-    SRINJ_PIC,
     SR_PICS,
+    SRINJ_PIC,
 )
 
 logger = logging.getLogger()

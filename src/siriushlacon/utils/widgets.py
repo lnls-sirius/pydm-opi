@@ -1,13 +1,12 @@
+import logging
+import re
 from typing import List, NamedTuple
 
-from pydm.widgets import PyDMLabel, PyDMByteIndicator, channel
-from qtpy.QtCore import Qt, QObject, Signal, QRect, QSize, QPoint
+import conscommon.data_model
+from pydm.widgets import PyDMByteIndicator, PyDMLabel, channel
+from qtpy.QtCore import QObject, QPoint, QRect, QSize, Qt, Signal
 from qtpy.QtGui import QColor
 from qtpy.QtWidgets import QLayout, QSizePolicy, QStyle
-
-import conscommon.data_model
-import re
-import logging
 
 from siriushlacon.utils.consts import TABLE_ALARMS_QSS
 
@@ -165,11 +164,10 @@ class TableDataController(QObject):
         devices: List[conscommon.data_model.Device] = None,
         table_batch=24,
         horizontal_header_labels=None,
-        *args,
         **kwargs
     ):
         super().__init__()
-        self.devices: List[conscommon.data_model.Device] = devices
+        self.devices: List[conscommon.data_model.Device] = devices if devices else []
         self.table_data: List[TableDataRow] = []
         self.table = table
         self.table_batch = table_batch

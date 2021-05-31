@@ -1,19 +1,18 @@
 #!/usr/bin/env python3
 import logging
 import re
-from typing import Optional, List
+from typing import List
 
+import conscommon.data_model
 from pydm import Display
 from pydm.widgets.drawing import PyDMDrawingRectangle
 from pydm.widgets.label import PyDMLabel
-from qtpy.QtCore import Qt, QRect
+from qtpy.QtCore import QRect, Qt
 from qtpy.QtGui import QBrush, QColor, QFont
 from qtpy.QtWidgets import QFrame, QLabel
 
-import conscommon.data_model
-
 from siriushlacon.agilent4uhv.consts import lazy_devices
-from siriushlacon.utils.consts import OVERVIEW_UI, BO, TB, TS, SI
+from siriushlacon.utils.consts import BO, OVERVIEW_UI, SI, TB, TS
 from siriushlacon.utils.widgets import FlowLayout
 
 logger = logging.getLogger()
@@ -32,11 +31,11 @@ class Overview(Display):
         for pv in self.pvs:
             layout.addWidget(self.get_gauge(None, macros=pv))
 
-    def getPVDict(
+    def load_pv_dict(
         self,
         device: conscommon.data_model.Device,
         channel: conscommon.data_model.Channel,
-    ) -> Optional[dict]:
+    ):
         if (
             (self.ch_reg.match(channel.prefix[-3:]))
             or (self.macros.get("TYPE") == BO and not channel.prefix.startswith(BO))
@@ -63,9 +62,7 @@ class Overview(Display):
             if not device.enable:
                 continue
             for channel in device.channels:
-                macro = self.getPVDict(device, channel)
-                if macro:
-                    self.pvs.append(macro)
+                self.load_pv_dict(device, channel)
 
     def get_gauge(self, parent, macros):
         aux = []

@@ -1,19 +1,17 @@
-from pydm import Display
-
-from qtpy.QtWidgets import QMainWindow, QMessageBox, QFileDialog, QApplication
-
-import paramiko
-import sys
-import pandas
 import logging
+import sys
 
+import pandas
+import paramiko
 from aux_dialogs import EditGroup, Login
-from models import TableModel, PvTableModel
+from models import PvTableModel, TableModel
+from pydm import Display
+from qtpy.QtWidgets import QApplication, QFileDialog, QMainWindow, QMessageBox
 
 from siriushlacon.epicstel.consts import (
+    EPICSTEL_LOCATION,
     EPICSTEL_MAIN_UI,
     EPICSTEL_SERVER,
-    EPICSTEL_LOCATION,
 )
 
 logger = logging.getLogger()

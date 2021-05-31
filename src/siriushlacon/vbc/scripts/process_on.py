@@ -1,105 +1,129 @@
-#!/usr/bin/python
-from epics import caget, caput
-import sys
+import logging
+import time
 
-# ------------------------------------------------------------------------------
-"""
-this script do all the procedures to decrease the pressure of the system
-it is divided in 5 stages, described as follow:
-    -stage 1: open gate and pre-vacuum valves (and wait gate valve really closes)
-    -stage 2: wait until gate valve actually closes
-    -stage 3: turn ACP15 on
-    -stage 4: wait pressure decrease to less than 0.05 Torr
-    -stage 5: turn TURBOVAC on
-"""
-# ------------------------------------------------------------------------------
-# define the PREFIX that will be used (passed as a parameter)
-VBC = sys.argv[1]
-# ------------------------------------------------------------------------------
-# valve names definition
-PRE_VACUUM_VALVE_SW = VBC + ":BBB:Relay1-SW"
-PRE_VACUUM_VALVE_UI = VBC + ":BBB:Relay1-UI"
-GATE_VALVE_SW = VBC + ":BBB:Relay2-SW"
-GATE_VALVE_UI = VBC + ":BBB:Relay2-UI"
-# ------------------------------------------------------------------------------
-# clear all status PVs
-caput(VBC + ":ProcessOn:Status1", 0)
-caput(VBC + ":ProcessOn:Status2", 0)
-caput(VBC + ":ProcessOn:Status3", 0)
-caput(VBC + ":ProcessOn:Status4", 0)
-caput(VBC + ":ProcessOn:Status5", 0)
-# clear all status PVs for "Off Process"
-caput(VBC + ":ProcessOffFV:Status1", 0)
-caput(VBC + ":ProcessOffFV:Status2", 0)
-caput(VBC + ":ProcessOffFV:Status3", 0)
-caput(VBC + ":ProcessOffFV:Status4", 0)
-caput(VBC + ":ProcessOffFV:Status5", 0)
-caput(VBC + ":ProcessOffFV:Status6", 0)
-# ==============================================================================
-# Stage 1:
-# ==============================================================================
-# wait TURBOVAC pump stops completely
-caput(VBC + ":ProcessOn:Status1", 1)
-while caget(VBC + ":TURBOVAC:PZD2-RB") != 0:
-    pass
-# ==============================================================================
-# Stage 2:
-# ==============================================================================
-# open gate valve (VAT) and the pre-vacuum valve
-caput(GATE_VALVE_SW, 1)
-caput(PRE_VACUUM_VALVE_SW, 1)
+from siriushlacon.vbc.epics import ACP, BBB, ProcessOff, ProcessOn, System, Turbovac
+
+logger = logging.getLogger(__name__)
 
 
-# update UI checkbox status
-# caput(GATE_VALVE_UI, 1)
-# caput(PRE_VACUUM_VALVE_UI, 1)
+class ProcessOnAction:
+    def __init__(self, prefix: str):
+        if not prefix:
+            raise ValueError(f"parameter prefix cannot be empty {prefix}")
+        self.prefix = prefix
+        self._tick = 0.05
+
+        self.process_on = ProcessOn(prefix=self.prefix)
+        self.process_off = ProcessOff(prefix=self.prefix)
+        self.turbovc = Turbovac(prefix=self.prefix)
+        self.bbb = BBB(prefix=self.prefix)
+        self.acp = ACP(prefix=self.prefix)
+        self.system = System(prefix=self.prefix)
+
+    def run(self):
+        self._clear_status()
+        self._stage_1()
+        self._stage_2()
+        self._stage_3()
+        self._stage_4()
+        self._stage_5()
+
+    def _clear_status(self):
+        logger.info("Clear status")
+        # clear all status PVs
+        self.process_on.clear_all_status()
+        self.process_off.clear_all_fv_status()
+
+    def _stage_1(self):
+        """wait TURBOVAC pump stops completely"""
+        logger.info("Stage 1")
+        self.process_on.status1_pv.value = 1
+
+        while self.turbovc.pzd2_rb_pv.value != 0:
+            time.sleep(self._tick)
+
+    def _stage_2(self):
+        """Stage 2:"""
+        logger.info("Stage 2")
+        # open gate valve (VAT) and the pre-vacuum valve
+        self.bbb.gate_valve_sw_pv.value = 1
+        self.bbb.pre_vacuum_valve_sw_pv.value = 1
+
+        # update UI checkbox status
+        # epics.caput(GATE_VALVE_UI, 1)
+        # epics.caput(PRE_VACUUM_VALVE_UI, 1)
+
+        # ---------------------------------------
+        # wait gate valve receives command to open
+        while self.bbb.pre_vacuum_valve_sw_pv.value == 0:
+            time.sleep(self._tick)
+
+        # read gate valve (VAT) status to check if it is really open
+        loop = True
+        while loop:
+            Lo = self.bbb.valve_open_pv.value
+            Lg = self.bbb.valve_closed_pv.value
+
+            if Lo & (not (Lg)):
+                loop = False
+            time.sleep(self._tick)
+
+        self.process_on.status2_pv.value = 1
+
+    def _stage_3(self):
+        """Stage 3:"""
+        logger.info("Stage 3")
+        # turn ACP15 pump ON
+        self.acp.on_off_pv.value = 1
+        # wait until pump receives command to turn on
+        while self.acp.on_off_pv.value == 0:
+            time.sleep(self._tick)
+
+        self.process_on.status3_pv.value = 1
+
+    def check_pressure_limits(self) -> bool:
+        """Is pressure under 5*(10^-2) Torr"""
+        return self.bbb.pressure_pv.value > (
+            self.system.on_pressure_base_pv.value
+            * 10 ** self.system.on_pressure_exp_pv.value
+        )
+
+    def _stage_4(self):
+        """Stage 4: read the pressure and proceed when its value is under 5*(10^-2) Torr"""
+        logger.info("Stage 4")
+        while self.check_pressure_limits():
+            time.sleep(self._tick)
+
+        self.process_on.status4_pv.value = 1
+
+    def _stage_5(self):
+        """Stage 5:"""
+        logger.info("Stage 5")
+        # turn TURBOVAC pump ON
+        self.turbovc.pzd1_sp_tevl_pv.value = 1
+        self.turbovc.pzd1_sp_zrvl_pv.value = 1
+
+        # wait until pump receives command to turn on
+        while (self.turbovc.pzd1_sp_tevl_pv.value == 0) & (
+            self.turbovc.pzd1_sp_zrvl_pv.value == 0
+        ):
+            time.sleep(self._tick)
+
+        self.process_on.status5_pv.value = 1
+
+        # complement value of PV to launch "Process Finished" window
+        self.process_on.toggle()
 
 
-# ---------------------------------------
-# wait gate valve receives command to open
-while caget(PRE_VACUUM_VALVE_SW) == 0:
-    pass
-# read gate valve (VAT) status to check if it is really open
-loop = True
-while loop:
-    Lo = caget(VBC + ":BBB:ValveOpen")
-    Lg = caget(VBC + ":BBB:ValveClosed")
-    if Lo & (not (Lg)):
-        loop = False
-caput(VBC + ":ProcessOn:Status2", 1)
-# ==============================================================================
-# Stage 3:
-# ==============================================================================
-# turn ACP15 pump ON
-caput(VBC + ":ACP:OnOff", 1)
-# wait until pump receives command to turn on
-while caget(VBC + ":ACP:OnOff") == 0:
-    pass
-caput(VBC + ":ProcessOn:Status3", 1)
-# ==============================================================================
-# Stage 4:
-# ==============================================================================
-# read the pressure and proceed when its value is under 5*(10^-2) Torr
-while caget(VBC + ":BBB:Torr") > (
-    caget(VBC + ":SYSTEM:OnPressureBase") * 10 ** caget(VBC + ":SYSTEM:OnPressureExp")
-):
-    pass
-caput(VBC + ":ProcessOn:Status4", 1)
-# ==============================================================================
-# Stage 5:
-# ==============================================================================
-# turn TURBOVAC pump ON
-caput(VBC + ":TURBOVAC:PZD1-SP.TEVL", 1)
-caput(VBC + ":TURBOVAC:PZD1-SP.ZRVL", 1)
-# wait until pump receives command to turn on
-while (caget(VBC + ":TURBOVAC:PZD1-SP.ZRVL") == 0) & (
-    caget(VBC + ":TURBOVAC:PZD1-SP.TEVL") == 0
-):
-    pass
-caput(VBC + ":ProcessOn:Status5", 1)
-# ==============================================================================
-# complement value of PV to launch "Process Finished" window
-# caput(VBC + ":Process:Bool", not(caget(VBC + ":Process:Bool")))
-caput(VBC + ":ProcessOn:Bool", 1)
-caput(VBC + ":ProcessOn:Bool", 0)
-# ==============================================================================
+def process_on(prefix: str):
+    """
+    this script do all the procedures to decrease the pressure of the system
+    it is divided in 5 stages, described as follow:
+        -stage 1: open gate and pre-vacuum valves (and wait gate valve really closes)
+        -stage 2: wait until gate valve actually closes
+        -stage 3: turn ACP15 on
+        -stage 4: wait pressure decrease to less than 0.05 Torr
+        -stage 5: turn TURBOVAC on
+    """
+    action = ProcessOnAction(prefix=prefix)
+    action.run()

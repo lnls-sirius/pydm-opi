@@ -1,28 +1,25 @@
 #!/usr/bin/env python3
 
 import json
-import typing
-import subprocess
 import logging
+import subprocess
+import typing
 
-from qtpy.QtGui import QPixmap
 from pydm import Display
+from qtpy.QtGui import QPixmap
 
+from siriushlacon.utils.command_runner import CommandRunner, ShellCommandRunner
+from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
 from siriushlacon.vbc.consts import (
     ADVANCED_WINDOW_PY,
-    CHECK_PRESSURE_SCRIPT,
     OK_MESSAGE_PY,
     PLAY_IMG,
-    PROCESS_OFF_SCRIPT,
-    PROCESS_ON_SCRIPT,
     SIMPLE_WINDOW_PY,
     STOP_IMG,
     SYSTEM_WINDOW_UI,
     WARNING_WINDOW_PY,
 )
-from siriushlacon.vbc.command_runner import ShellCommandRunner
-from siriushlacon.utils.consts import LNLS_IMG, CNPEM_IMG
-
+from siriushlacon.vbc.scripts import check_pressure, process_off, process_on
 
 logger = logging.getLogger(__name__)
 
@@ -42,12 +39,20 @@ class DeviceMenu(Display):
 
         self.macros_ioc = macros["IOC"]
 
+        # Command Runners
+        self.ProcessOnCommand = CommandRunner(
+            command=lambda: process_on(self.macros_ioc), name="ProcessOn"
+        )
+        self.CheckPressureCommand = CommandRunner(
+            command=lambda: check_pressure(prefix=self.macros_ioc, first_time=False)
+        )
+        self.ProcessOffCommand = CommandRunner(
+            command=lambda: process_off(prefix=self.macros_ioc)
+        )
+
         # Shell script runners
         self.WarningWindowCommand = ShellCommandRunner(
             command=f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {WARNING_WINDOW_PY} {self.macros_ioc}"
-        )
-        self.ProcessOnCommand = ShellCommandRunner(
-            command=f"python {PROCESS_ON_SCRIPT} {self.macros_ioc}"
         )
         self.LaunchOkMessageOnCommand = ShellCommandRunner(
             command=f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {OK_MESSAGE_PY} {self.macros_ioc} ON"
@@ -77,11 +82,11 @@ class DeviceMenu(Display):
         self.btnAdvancedTab.filenames = [ADVANCED_WINDOW_PY]
 
         # ON Button
-        self.Shell_ON_button.commands = [
-            f"python {CHECK_PRESSURE_SCRIPT} {self.macros_ioc} 0"
-        ]
+        self.Shell_ON_button.clicked.connect(
+            lambda: self.CheckPressureCommand.execute_command()
+        )
 
         # OFF Button
-        self.Shell_OFF_button.commands = [
-            f"python {PROCESS_OFF_SCRIPT} {self.macros_ioc}"
-        ]
+        self.Shell_OFF_button.clicked.connect(
+            lambda: self.ProcessOffCommand.execute_command()
+        )

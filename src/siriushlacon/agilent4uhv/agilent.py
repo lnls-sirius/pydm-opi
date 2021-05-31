@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
-import epics
+import asyncio
 import logging
 import math
-import asyncio
 import sys
 import time
+from datetime import datetime, timedelta
 from typing import List
 
-from datetime import timedelta, datetime
+import epics
 from conscommon.data import TIMEFMT
 from conscommon.data_model import Device
-from siriushlacon.agilent4uhv.tree import DeviceTreeSelection
+from qtpy.QtCore import QObject, QRunnable, Signal
 
-from qtpy.QtCore import QObject, Signal, QRunnable
+from siriushlacon.agilent4uhv.tree import DeviceTreeSelection
 
 logger = logging.getLogger()
 

@@ -4,7 +4,7 @@ import logging
 
 from pydm import Display
 from pydm.widgets.related_display_button import PyDMRelatedDisplayButton
-from qtpy.QtWidgets import QWidget, QVBoxLayout
+from qtpy.QtWidgets import QVBoxLayout, QWidget
 
 from siriushlacon.pctrl.consts import IOCS_JSON, PCTRL_UI
 

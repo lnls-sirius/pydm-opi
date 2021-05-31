@@ -1,4 +1,5 @@
 import logging
+
 from pydm import Display
 
 from siriushlacon.agilent4uhv.consts import AGILENT_CHANNEL_UI

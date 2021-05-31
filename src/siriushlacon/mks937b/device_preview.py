@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
+from conscommon.data_model.mks import MKS_SENSOR_COLD_CATHODE
 from pydm import Display
 from pydm.utilities import IconFont
 
-from conscommon.data_model.mks import MKS_SENSOR_COLD_CATHODE
-from siriushlacon.mks937b.consts import DEVICE_PREVIEW_UI, DEVICE_MENU
+from siriushlacon.mks937b.consts import DEVICE_MENU, DEVICE_PREVIEW_UI
 
 
 class DevicePreview(Display):

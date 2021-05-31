@@ -1,116 +1,136 @@
-#!/usr/bin/python
-from epics import caget, caput
-import sys
+import logging
+import time
 
-# ------------------------------------------------------------------------------
-"""
-this script do all the procedures turn off the system with full ventilation
-it is divided in 6 stages, described as follow:
-    -stage 1: close pre-vacuum valve (keep gate valve open)
-    -stage 2: turn ACP15 and TURBOVAC pumps off
-    -stage 3: wait TURBOVAC slowdown to 600 Hz
-    -stage 4: open X203 (TURBOVAC venting valve)
-    -stage 5: wait pressure decrease to 760 Torr
-    -stage 6: close X203 and gate valves
-"""
-# ------------------------------------------------------------------------------
-# define the PREFIX that will be used (passed as a parameter)
-VBC = sys.argv[1]
-# ------------------------------------------------------------------------------
-# valve names definition
-PRE_VACUUM_VALVE_SW = VBC + ":BBB:Relay1-SW"
-PRE_VACUUM_VALVE_UI = VBC + ":BBB:Relay1-UI"
-GATE_VALVE_SW = VBC + ":BBB:Relay2-SW"
-GATE_VALVE_UI = VBC + ":BBB:Relay2-UI"
-# ------------------------------------------------------------------------------
-# clear all status PVs
-caput(VBC + ":ProcessOffFV:Status1", 0)
-caput(VBC + ":ProcessOffFV:Status2", 0)
-caput(VBC + ":ProcessOffFV:Status3", 0)
-caput(VBC + ":ProcessOffFV:Status4", 0)
-caput(VBC + ":ProcessOffFV:Status5", 0)
-caput(VBC + ":ProcessOffFV:Status6", 0)
-# clear all status PVs
-caput(VBC + ":ProcessOn:Status1", 0)
-caput(VBC + ":ProcessOn:Status2", 0)
-caput(VBC + ":ProcessOn:Status3", 0)
-caput(VBC + ":ProcessOn:Status4", 0)
-caput(VBC + ":ProcessOn:Status5", 0)
-# ==============================================================================
-# Stage 1:
-# ==============================================================================
-# close pre-vacuum valve (and keeps gate valve open)
-caput(PRE_VACUUM_VALVE_SW, 0)
+from siriushlacon.vbc.epics import ACP, BBB, ProcessOff, ProcessOn, System, Turbovac
+
+logger = logging.getLogger(__name__)
 
 
-# update UI checkbox status
-# caput(PRE_VACUUM_VALVE_UI, 0)
+class ProcessOffAction:
+    def __init__(self, prefix: str):
+        if not prefix:
+            raise ValueError(f"parameter prefix cannot be empty {prefix}")
+        self.prefix = prefix
+        self._tick = 0.05
+
+        self.process_on = ProcessOn(prefix=prefix)
+        self.process_off = ProcessOff(prefix=prefix)
+        self.bbb = BBB(prefix=prefix)
+        self.turbovac = Turbovac(prefix=prefix)
+        self.acp = ACP(prefix=prefix)
+        self.system = System(prefix=prefix)
+
+    def run(self):
+        self._clear_pvs()
+        self._stage_1()
+        self._stage_2()
+        self._stage_3()
+        self._stage_4()
+        self._stage_5()
+        self._stage_6()
+
+    def _clear_pvs(self):
+        """clear all status PVs"""
+        logger.info("clear_pvs")
+        self.process_off.clear_all_fv_status()
+        self.process_on.clear_all_status()
+
+    def _stage_1(self):
+        logger.info("stage1")
+        # close pre-vacuum valve (and keeps gate valve open)
+        self.turbovac.pre_vacuum_valve_sw_pv.value = 0
+
+        # wait until valve receives command to open
+        while self.turbovac.pre_vacuum_valve_sw_pv.value:
+            time.sleep(self._tick)
+
+        self.process_off.off_fv_status1_pv.value = 1
+
+    def _stage_2(self):
+        logger.info("stage2")
+        # change venting valve to manual control
+        self.turbovac.ak_sp_pv.value = 0
+        self.turbovac.pnu_sp_pv.value = 134
+        self.turbovac.ind_sp_pv.value = 2
+        self.turbovac.pwe_sp_pv.value = 18
+        self.turbovac.ak_sp_pv.value = 7
+
+        # turn TURBOVAC and ACP15 pumps OFF
+        self.turbovac.pzd1_sp_zrvl_pv.value = 0
+        self.acp.on_off_pv.value = 0
+
+        # wait until pump receives command to turn off
+        while self.acp.on_off_pv.value:
+            time.sleep(self._tick)
+
+        self.process_off.off_fv_status2_pv.value = 1
+
+    def _stage_3(self):
+        """wait until TURBOVAC frequency decrease to 600 Hz"""
+        logger.info("stage3")
+        while self.turbovac.pzd2_rb_pv.value > self.system.off_frequency_pv.value:
+            time.sleep(self._tick)
+
+        self.process_off.off_fv_status3_pv.value = 1
+
+    def _stage_4(self):
+        logger.info("stage4")
+        # open X203 valve (TURBOVAC venting valve)
+        self.turbovac.venting_valve_sw_pv.value = 1
+
+        # update UI checkbox status
+        self.turbovac.venting_valve_ui_pv_rval.value = 1
+
+        # wait until venting valve receives command to close
+        while self.turbovac.venting_valve_sw_pv.value == 0:
+            time.sleep(self._tick)
+
+        self.process_off.off_fv_status4_pv.value = 1
+
+    def _check_bbb_less_than_off_pressure(self) -> bool:
+        bbb_off_pressure = (
+            self.system.off_pressure_base_pv.value
+            * 10 ** self.system.off_pressure_exp_pv.value
+        )
+        return self.bbb.pressure_pv.value < bbb_off_pressure
+
+    def _stage_5(self):
+        logger.info("stage5")
+        while self._check_bbb_less_than_off_pressure():
+            time.sleep(self._tick)
+
+        self.process_off.off_fv_status5_pv.value = 1
+
+    def _stage_6(self):
+        """Stage 6:"""
+        logger.info("stage6")
+
+        # close all the valves (gate valve is already closed)
+        self.bbb.gate_valve_sw_pv.value = 0
+        self.turbovac.venting_valve_sw_pv.value = 0  # close X203
+        self.bbb.gate_valve_ui_pv.value = 0
+        self.turbovac.venting_valve_ui_pv_rval.value = 0  # close X203
+
+        # wait until venting valve receives command to close
+        while self.bbb.gate_valve_sw_pv.value:
+            time.sleep(self._tick)
+
+        self.process_off.off_fv_status6_pv.value = 1
+
+        # complement value of PV to launch "Process Finished" window
+        self.process_off.toggle()
 
 
-# wait until valve receives command to open
-while caget(PRE_VACUUM_VALVE_SW):
-    pass
-caput(VBC + ":ProcessOffFV:Status1", 1)
-# ==============================================================================
-# Stage 2:
-# ==============================================================================
-# change venting valve to manual control
-caput(VBC + ":TURBOVAC:AK-SP", 0)
-caput(VBC + ":TURBOVAC:PNU-SP", 134)
-caput(VBC + ":TURBOVAC:IND-SP", 2)
-caput(VBC + ":TURBOVAC:PWE-SP", 18)
-caput(VBC + ":TURBOVAC:AK-SP", 7)
-
-# turn TURBOVAC and ACP15 pumps OFF
-caput(VBC + ":TURBOVAC:PZD1-SP.ZRVL", 0)
-caput(VBC + ":ACP:OnOff", 0)
-# wait until pump receives command to turn off
-while caget(VBC + ":ACP:OnOff"):
-    pass
-caput(VBC + ":ProcessOffFV:Status2", 1)
-# ==============================================================================
-# Stage 3:
-# ==============================================================================
-# wait until TURBOVAC frequency decrease to 600 Hz
-while caget(VBC + ":TURBOVAC:PZD2-RB") > caget(VBC + ":SYSTEM:OffFrequency"):
-    pass
-caput(VBC + ":ProcessOffFV:Status3", 1)
-# ==============================================================================
-# Stage 4:
-# ==============================================================================
-# open X203 valve (TURBOVAC venting valve)
-caput(VBC + ":TURBOVAC:VentingValve-SW", 1)
-# update UI checkbox status
-caput(VBC + ":TURBOVAC:VentingValve-UI", 1)
-# wait until venting valve receives command to close
-while caget(VBC + ":TURBOVAC:VentingValve-SW") == 0:
-    pass
-caput(VBC + ":ProcessOffFV:Status4", 1)
-# ==============================================================================
-# Stage 5:
-# ==============================================================================
-# wait until pressure gets 760 Torr
-while caget(VBC + ":BBB:Torr") < (
-    caget(VBC + ":SYSTEM:OffPressureBase") * 10 ** caget(VBC + ":SYSTEM:OffPressureExp")
-):
-    pass
-caput(VBC + ":ProcessOffFV:Status5", 1)
-# ==============================================================================
-# Stage 6:
-# ==============================================================================
-# close all the valves (gate valve is already closed)
-caput(GATE_VALVE_SW, 0)
-caput(VBC + ":TURBOVAC:VentingValve-SW", 0)  # close X203
-# update UI checkbox status
-caput(GATE_VALVE_UI, 0)
-caput(VBC + ":TURBOVAC:VentingValve-UI", 0)  # close X203
-# wait until venting valve receives command to close
-while caget(GATE_VALVE_SW):
-    pass
-caput(VBC + ":ProcessOffFV:Status6", 1)
-# ==============================================================================
-# complement value of PV to launch "Process Finished" window
-# caput(VBC + ":Process:Bool", not(caget(VBC + ":Process:Bool")))
-caput(VBC + ":ProcessOff:Bool", 1)
-caput(VBC + ":ProcessOff:Bool", 0)
-# ==============================================================================
+def process_off(prefix: str):
+    """
+    this script do all the procedures turn off the system with full ventilation
+    it is divided in 6 stages, described as follow:
+        -stage 1: close pre-vacuum valve (keep gate valve open)
+        -stage 2: turn ACP15 and TURBOVAC pumps off
+        -stage 3: wait TURBOVAC slowdown to 600 Hz
+        -stage 4: open X203 (TURBOVAC venting valve)
+        -stage 5: wait pressure decrease to 760 Torr
+        -stage 6: close X203 and gate valves
+    """
+    action = ProcessOffAction(prefix=prefix)
+    action.run()

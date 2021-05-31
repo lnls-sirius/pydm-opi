@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>VBC - Warning</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_5">
    <item row="2" column="0">
@@ -972,9 +972,6 @@
             <height>1</height>
            </size>
           </property>
-          <property name="command" stdset="0">
-           <string>pydm --hide-nav-bar --hide-menu-bar --hide-status-bar ../python/launch_ui_OK_message.py ${IOC} REC</string>
-          </property>
          </widget>
         </item>
         <item row="1" column="1">
@@ -1153,9 +1150,6 @@
             <width>1</width>
             <height>1</height>
            </size>
-          </property>
-          <property name="command" stdset="0">
-           <string>python ../scripts/process_recovery.py ${IOC}</string>
           </property>
          </widget>
         </item>
@@ -1382,14 +1376,14 @@
    <header>pydm.widgets.label</header>
   </customwidget>
   <customwidget>
-   <class>PyDMShellCommand</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.shell_command</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMCheckbox</class>
    <extends>QCheckBox</extends>
    <header>pydm.widgets.checkbox</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMShellCommand</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.shell_command</header>
   </customwidget>
  </customwidgets>
  <resources/>

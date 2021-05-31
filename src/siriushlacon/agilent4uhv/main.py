@@ -1,21 +1,22 @@
 #!/usr/bin/env python3
 import json
 import re
+
 from pydm import Display
 from pydm.utilities import IconFont
-from pydm.widgets import PyDMRelatedDisplayButton, PyDMLabel
+from pydm.widgets import PyDMLabel, PyDMRelatedDisplayButton
 from qtpy.QtWidgets import QLabel
 
 from siriushlacon.agilent4uhv.consts import (
-    lazy_devices,
-    AGILENT_MAIN_UI,
     AGILENT_DEVICE_MAIN,
+    AGILENT_MAIN_UI,
+    lazy_devices,
 )
 from siriushlacon.utils.widgets import (
-    get_label,
-    get_byte_indicator,
     TableDataController,
     TableDataRow,
+    get_byte_indicator,
+    get_label,
 )
 
 DEVICES = lazy_devices.get()

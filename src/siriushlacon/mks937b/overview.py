@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 import logging
 
+from conscommon.data_model.mks import MKS_SENSOR_COLD_CATHODE
 from pydm import Display
 from pydm.widgets.drawing import PyDMDrawingRectangle
 from pydm.widgets.label import PyDMLabel
-from qtpy.QtCore import Qt, QRect
+from qtpy.QtCore import QRect, Qt
 from qtpy.QtGui import QBrush, QColor, QFont
 from qtpy.QtWidgets import QFrame, QLabel
 
-from conscommon.data_model.mks import MKS_SENSOR_COLD_CATHODE
 from siriushlacon.mks937b.consts import lazy_devices
-from siriushlacon.utils.consts import OVERVIEW_UI, BO, SI, TB, TS
+from siriushlacon.utils.consts import BO, OVERVIEW_UI, SI, TB, TS
 from siriushlacon.utils.widgets import FlowLayout
 
 DEVICES = lazy_devices.get()

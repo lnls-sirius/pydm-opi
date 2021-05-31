@@ -1,11 +1,8 @@
-from qtpy import QtWidgets, QtCore, uic
-
 import logging
 
-from siriushlacon.epicstel.consts import (
-    EPICSTEL_LOGIN_UI,
-    EPICSTEL_GROUP_UI,
-)
+from qtpy import QtCore, QtWidgets, uic
+
+from siriushlacon.epicstel.consts import EPICSTEL_GROUP_UI, EPICSTEL_LOGIN_UI
 
 logger = logging.getLogger()
 

@@ -1,11 +1,9 @@
 import logging
+
 from pydm import Display
 from pydm.widgets.channel import PyDMChannel
 
-from siriushlacon.regatron.consts import (
-    TREE_32_UI,
-    READINGS_MAP,
-)
+from siriushlacon.regatron.consts import READINGS_MAP, TREE_32_UI
 
 logger = logging.getLogger()
 

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-import pkg_resources
-
 import conscommon.data
+import pkg_resources
 
 from siriushlacon.utils import LazyDevices
 

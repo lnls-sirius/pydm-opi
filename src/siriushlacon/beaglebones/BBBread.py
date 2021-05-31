@@ -1,7 +1,8 @@
 import logging
 import os
-import redis
 import time
+
+import redis
 
 LA_SERVER_IP = "10.0.38.46"
 CA_SERVER_IP = "10.0.38.59"

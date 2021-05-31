@@ -1,6 +1,7 @@
 import logging
-from pydm import Display
+
 from epics import caput
+from pydm import Display
 
 from siriushlacon.agilent4uhv.consts import AGILENT_DEVICE_UI
 

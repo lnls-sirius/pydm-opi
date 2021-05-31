@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>VBC - Confirm</string>
   </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
@@ -171,6 +171,9 @@
           <width>210</width>
           <height>0</height>
          </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>ArrowCursor</cursorShape>
         </property>
         <property name="standardButtons">
          <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
