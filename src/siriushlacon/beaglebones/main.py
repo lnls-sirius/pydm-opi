@@ -92,12 +92,12 @@ class UpdateLogsThread(QtCore.QThread):
                 bbb_logs = []
                 bbb_logs = self.server.get_logs(name)
                 for _log in bbb_logs:
-                    _log.insert(1, name[4 : name.index(":Logs")])
+                    _log.insert(1, name[4 : name.index(":Logs")].replace(":", " - ", 1))
 
                 all_logs.extend(bbb_logs)
 
-            # Sorts logs by most recent to least recent
-            all_logs = sorted(all_logs, key=lambda x: int(x[0]), reverse=True)
+        # Sorts logs by most recent to least recent
+        all_logs = sorted(all_logs, key=lambda x: int(x[0]), reverse=True)
 
         self.finished.emit(all_logs)
 
@@ -485,7 +485,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                 selected_bbbs = self.logsTable.selectionModel().selectedRows()
             for bbb in selected_bbbs:
                 if current_list == LOGS_TAB:
-                    bbb_ip, bbb_hostname = bbb.sibling(bbb.row(), 1).data().split(":")
+                    bbb_ip, bbb_hostname = bbb.sibling(bbb.row(), 1).data().split(" - ")
                 else:
                     bbb_ip, bbb_hostname = bbb.text().split(" - ")
                 self.server.reboot_node(bbb_ip, bbb_hostname)
@@ -511,7 +511,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
             errors = []
             for bbb in selected_bbbs:
                 if current_index == LOGS_TAB:
-                    bbb_ip, bbb_hostname = bbb.sibling(bbb.row(), 1).data().split(":")
+                    bbb_ip, bbb_hostname = bbb.sibling(bbb.row(), 1).data().split(" - ")
                 else:
                     bbb_ip, bbb_hostname = bbb.text().split(" - ")
                 bbb_hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
@@ -551,7 +551,8 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         else:
             index = self.logsTable.selectionModel().selectedRows()[0]
             bbb = index.sibling(index.row(), 1).data()
-        bbb_ip, bbb_hostname = bbb.split(" - " if current_list != LOGS_TAB else ":")
+
+        bbb_ip, bbb_hostname = bbb.split(" - ")
         hashname = "BBB:{}:{}:Logs".format(bbb_ip, bbb_hostname)
         try:
             self.window = BBBLogs(self.server, hashname)
@@ -576,7 +577,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         else:
             index = self.logsTable.selectionModel().selectedRows()[0]
             bbb = index.sibling(index.row(), 1).data()
-        bbb_ip, bbb_hostname = bbb.split(" - " if current_list != LOGS_TAB else ":")
+        bbb_ip, bbb_hostname = bbb.split(" - ")
         hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
         try:
             info = self.nodes_info[hashname]
@@ -602,7 +603,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         else:
             index = self.logsTable.selectionModel().selectedRows()[0]
             bbb = index.sibling(index.row(), 1).data()
-        bbb_ip, bbb_hostname = bbb.split(" - " if current_list != LOGS_TAB else ":")
+        bbb_ip, bbb_hostname = bbb.split(" - ")
         hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
         info = self.nodes_info[hashname]
         if info[b"state_string"].decode() == "Connected":
@@ -698,10 +699,10 @@ class TableModel(QtCore.QAbstractTableModel):
         self._data = data
         self.layoutChanged.emit()
 
-    def rowCount(self, index):
+    def rowCount(self, _):
         return len(self._data)
 
-    def columnCount(self, index):
+    def columnCount(self, _):
         if self.rowCount(0) < 1:
             return 0
         return len(self._data[0])
