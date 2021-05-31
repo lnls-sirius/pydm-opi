@@ -40,6 +40,6 @@ class DeviceMenu(Display):
         else:
             raise ValueError(f"Invalid argument {finished}, required {Finished}")
 
-        self.pushButton.clicked(
+        self.pushButton.clicked.connect(
             lambda *_args, **_kwargs: self.ClearStatusCommand.execute_command()
         )
