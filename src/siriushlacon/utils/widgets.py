@@ -164,11 +164,10 @@ class TableDataController(QObject):
         devices: List[conscommon.data_model.Device] = None,
         table_batch=24,
         horizontal_header_labels=None,
-        *args,
         **kwargs
     ):
         super().__init__()
-        self.devices: List[conscommon.data_model.Device] = devices
+        self.devices: List[conscommon.data_model.Device] = devices if devices else []
         self.table_data: List[TableDataRow] = []
         self.table = table
         self.table_batch = table_batch
