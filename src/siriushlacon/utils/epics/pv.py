@@ -1,5 +1,6 @@
-import epics
 import time
+
+import epics
 
 
 def create_connected_pv(
@@ -12,8 +13,8 @@ def create_connected_pv(
     connection_callback=None,
     connection_timeout=5.0,
     access_callback=None,
-    attempt_max: int=2,
-    attempt_delay: float=0.5
+    attempt_max: int = 2,
+    attempt_delay: float = 0.5,
 ) -> epics.PV:
     """Create a connected PV or raise an exception"""
     if not pvname:
