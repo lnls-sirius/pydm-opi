@@ -41,7 +41,7 @@ class ProcessOffAction:
         self.turbovac.pre_vacuum_valve_sw_pv.value = 0
 
         # wait until valve receives command to open
-        while self.turbovac.pre_vacuum_valve_sw_pv:
+        while self.turbovac.pre_vacuum_valve_sw_pv.value:
             time.sleep(self._tick)
 
         self.process_off.off_fv_status1_pv.value = 1
