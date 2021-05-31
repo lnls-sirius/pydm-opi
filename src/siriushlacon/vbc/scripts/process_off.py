@@ -87,12 +87,16 @@ class ProcessOffAction:
 
         self.process_off.off_fv_status4_pv.value = 1
 
-    def _stage_5(self):
-        logger.info("stage5")
-        while self.bbb.pressure_pv.value < (
+    def _check_bbb_less_than_off_pressure(self) -> bool:
+        bbb_off_pressure = (
             self.system.off_pressure_base_pv.value
             * 10 ** self.system.off_pressure_exp_pv.value
-        ):
+        )
+        return self.bbb.pressure_pv.value < bbb_off_pressure
+
+    def _stage_5(self):
+        logger.info("stage5")
+        while self._check_bbb_less_than_off_pressure():
             time.sleep(self._tick)
 
         self.process_off.off_fv_status5_pv.value = 1
