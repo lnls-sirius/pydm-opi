@@ -40,6 +40,7 @@ conda init powershell
 conda activate py36
 conda config --add channels conda-forge
 conda config --set channel_priority strict
+conda install -c conda-forge/label/cf202003 epics-base
 conda install qt==5.12.9 pyqt==5.12.3 pydm==1.10.4
 
 pip install siriushlacon
