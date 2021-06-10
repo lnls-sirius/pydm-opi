@@ -1,360 +1,277 @@
 import logging
 import sys
 
-import pandas
-import paramiko
-from aux_dialogs import EditGroup, Login
-from models import PvTableModel, TableModel
+from aux_dialogs import AddPV, AddTeam, AddUser, Login
+from models import TableModel
 from pydm import Display
-from qtpy.QtWidgets import QApplication, QFileDialog, QMainWindow, QMessageBox
+from pymongo import MongoClient, errors
+from PyQt5.QtCore import QThread, QTimer, Signal
+from qtpy.QtWidgets import QApplication, QMainWindow, QMessageBox
 
-from siriushlacon.epicstel.consts import (
-    EPICSTEL_LOCATION,
-    EPICSTEL_MAIN_UI,
-    EPICSTEL_SERVER,
-)
+from siriushlacon.epicstel.consts import EPICSTEL_HOST, EPICSTEL_MAIN_UI, EPICSTEL_TABS
 
 logger = logging.getLogger()
 
 
+class UpdateTableThread(QThread):
+    finished = Signal(dict)
+
+    def __init__(self, db):
+        QThread.__init__(self)
+        self.db = db
+
+    def __del__(self):
+        self.wait()
+
+    def run(self):
+        tables = {}
+        for table in EPICSTEL_TABS:
+            items = list(self.db[table].find())
+            headers = list(items[0].keys())
+            data = []
+
+            for doc in items:
+                row = []
+                for header in headers:
+                    item = doc[header]
+
+                    if type(item) == list:
+                        if len(item) and type(item[0]) == dict:
+                            row.append(
+                                ",".join(["-".join(list(i.values())[:2]) for i in item])
+                            )
+                        else:
+                            row.append(",".join(item))
+                    else:
+                        row.append(item)
+                data.append(row)
+
+            tables[table] = (headers, data)
+
+        self.finished.emit(tables)
+
+
 class Window(Display, QMainWindow):
-    filetypes = {
-        "authorized_personnel.csv": "User Groups",
-        "groups.csv": "PV Groups",
-        "monitor_info.csv": "PV Monitor Information",
-    }
+    def open(self, credentials):
+        client = MongoClient(EPICSTEL_HOST)
 
-    supported_files = (
-        "Configuration files (authorized_personnel.csv groups.csv monitor_info.csv)"
-    )
+        try:
+            client.admin.authenticate(credentials[0], credentials[1])
+            client.server_info()
+            self.db = client.epicstel
 
-    headers = {
-        "groups.csv": ["Group", "PVs", "StdMax", "StdMin", "StdTimeout"],
-        "monitor_info.csv": [
-            "PVNames",
-            "PVGroups",
-            "ChatIDs",
-            "Max",
-            "Min",
-            "Timeout",
-            "DisconnectDate",
-            "WarningCount",
-        ],
-        "authorized_personnel.csv": ["ADM", "TeamADM", "General"],
-    }
+            self.update_thread = UpdateTableThread(self.db)
+            self.update_thread.finished.connect(self.display_table)
 
-    sftp = None
-    transport = None
-    new_filetype = None
-    config_file = None
-    is_remote = False
+            self.update_timer = QTimer(self)
+            self.update_timer.timeout.connect(self.update_table)
+            self.update_timer.setSingleShot(False)
 
-    def open(self, args):
-        if self.keep_changes():
-            return
-
-        self.config_file, _ = QFileDialog.getOpenFileName(
-            None, "Open", "", self.supported_files
-        )
-
-        if self.config_file is not None and self.config_file != "":
-            self.display_table()
-            self.is_remote = False
-            logger.debug("Loaded config file from {}".format(self.config_file))
-
-    def remote_save(self):
-        df = pandas.DataFrame.from_dict(self.table.model()._data, orient="columns")
-        df.to_csv(self.config_file, header=self.table.model()._header, index=False)
-        logger.info("Loaded and pushed config file from {}".format(self.config_file))
-
-        self.sftp.put(self.config_file, f"{EPICSTEL_LOCATION}{self.config_file[4:]}")
-
-    def save(self, args):
-        if self.is_remote:
-            self.remote_save()
-        else:
-            if self.new_filetype is not None:
-                save_file, _ = QFileDialog.getSaveFileName(
-                    None, "Save", self.new_filetype, self.supported_files
-                )
-
-                if save_file:
-                    self.config_file = save_file
-                    self.new_filetype = ""
-                    self.location_label.setText(self.config_file)
-
-            if self.config_file is not None:
-                df = pandas.DataFrame.from_dict(
-                    self.table.model()._data, orient="columns"
-                )
-                df.to_csv(
-                    self.config_file, header=self.table.model()._header, index=False
-                )
-
-                self.statusBar().showMessage(f"Saved at {self.config_file}")
-
-    def new(self, args):
-        if self.keep_changes():
-            return
-
-        model = TableModel(
-            [["" for i in range(0, len(self.headers[args]))]], self.headers[args]
-        )
-        self.table.setModel(model)
-
-        self.config_type_label.setText(self.filetypes[args])
-
-        self.save_btn.setEnabled(True)
-        self.delete_row_btn.setEnabled(True)
-        self.new_row_btn.setEnabled(True)
-
-        self.new_filetype = args
-        self.config_file = None
-
-        self.new_usrgp_btn.setEnabled(args == "authorized_personnel.csv")
-
-        self.is_remote = False
+            self.update_timer.start(10000)
+            self.update_table()
+        except errors.OperationFailure as e:
+            print(e)
+            QMessageBox.critical(
+                self,
+                "Could not authenticate",
+                "Invalid credentials",
+                QMessageBox.Ok,
+            )
+            self.login_remote()
 
     def cell_clicked(self, args):
-        if len(self.table.selectedIndexes()) < 1:
-            return
-        row = self.table.selectedIndexes()[0].row()
-        col = self.table.selectedIndexes()[0].column()
+        pass
 
-        data = self.table.model()._data[row][col]
-        pv_data = self.table.model()._data[row][1]
+    def del_team(self, args):
+        indexes = self.teams_table.selectedIndexes()
+        model = self.teams_table.model()
+        team_i = model.getHeaders().index("team")
+        teams = list(set([model.getRow(index)[team_i] for index in indexes]))
 
-        if type(data) == str and ";" in data:
-            c_data = [pv_data.split(";")]
-            header = ["PV"]
+        self.db.teams.delete_many({"team": {"$in": teams}})
+        self.db.users.update_many(
+            {"teams": {"$in": teams}}, {"$pullAll": {"teams": teams}}
+        )
 
-            if col != 1:
-                c_data.append(data.split(";"))
-                header.append(self.table.model()._header[col])
-
-            model = PvTableModel(c_data, header, self.table)
-            self.pv_table.setModel(model)
-            self.pv_table.resizeColumnsToContents()
-
-            self.del_pv_btn.setEnabled(True)
-            self.add_pv_btn.setEnabled(True)
+        self.update_table()
 
     def del_pv(self, args):
-        index = self.table.selectedIndexes()[0]
-        indexes = self.pv_table.selectedIndexes()
+        indexes = self.pvs_table.selectedIndexes()
+        model = self.pvs_table.model()
+        group_i, name_i = model.getHeaders().index("group"), model.getHeaders().index(
+            "name"
+        )
 
-        model = self.pv_table.model()
-        parent_model = self.table.model()
+        groups, pvs = [], []
 
-        marked_for_deletion = [self.pv_table.model()._data[0][i.row()] for i in indexes]
+        for index in indexes:
+            row = model.getRow(index)
+            groups.append(row[group_i])
+            pvs.append(row[name_i])
 
-        for del_pv in marked_for_deletion:
-            del_index = model._data[0].index(del_pv)
-            model._data[0].pop(del_index)
-            model._data[1].pop(del_index)
+        groups, pvs = list(set(groups)), list(set(pvs))
 
-            for i in range(1, 4):
-                vals = parent_model._data[index.row()][i].split(";")
-                vals.pop(del_index)
-                parent_model._data[index.row()][i] = ";".join(vals)
+        self.db.pvs.delete_many({"group": {"$in": groups}, "name": {"$in": pvs}})
+        self.db.users.update_many(
+            {}, {"$pull": {"pvs": {"group": groups, "name": pvs}}}
+        )
+        self.db.teams.update_many(
+            {}, {"$pull": {"pvs": {"group": groups, "name": pvs}}}
+        )
 
-        model.layoutChanged.emit()
+        self.update_table()
+
+    def del_user(self, args):
+        indexes = self.users_table.selectedIndexes()
+        model = self.users_table.model()
+        ids = list(set([model.getRow(index)[0] for index in indexes]))
+
+        self.db.users.delete_many({"_id": {"$in": ids}})
+        self.update_table()
+
+    def show_add_dialog(self, args):
+        if args == "user":
+            dialog = AddUser([t.get("team") for t in self.db.teams.find()])
+        elif args == "pv":
+            dialog = AddPV(self.db.pvs.distinct("group"))
+        elif args == "team":
+            dialog = AddTeam(
+                [
+                    "{} ({})".format(u.get("fullname"), u.get("chat_id"))
+                    for u in self.db.users.find()
+                ]
+            )
+
+        add_type = "add_" + args
+        getattr(dialog, add_type).connect(lambda c: getattr(self, add_type)(c))
+        dialog.show()
+
+    def add_user(self, args):
+        if self.db.users.find_one({"chat_id": args[1]}):
+            QMessageBox.critical(
+                self,
+                "Invalid Chat ID",
+                "{} already exists in the user database".format(args[1]),
+                QMessageBox.Ok,
+            )
+            self.show_add_dialog("user")
+            return
+
+        self.db.users.insert_one(
+            {
+                "chat_id": args[1],
+                "pvs": [],
+                "groups": [],
+                "adminof": [],
+                "teams": [args[2]],
+                "fullname": args[0],
+            }
+        )
         self.update_table()
 
     def add_pv(self, args):
-        row = self.table.selectedIndexes()[0].row()
+        if self.db.pvs.find_one({"name": args[0], "group": args[4]}):
+            QMessageBox.critical(
+                self,
+                "Invalid Name/Group",
+                "{} already exists under the group {} in the PV database".format(
+                    args[0], args[4]
+                ),
+                QMessageBox.Ok,
+            )
+            self.show_add_dialog("pv")
+            return
 
-        parent_model = self.table.model()
-        model = self.pv_table.model()
+        if args[2] < args[1] or args[3] <= 0:
+            QMessageBox.critical(
+                self,
+                "Invalid Min/Max",
+                "The maximum limit should be greater than the minimum limit",
+                QMessageBox.Ok,
+            )
+            self.show_add_dialog("pv")
+            return
 
-        model._data[0].append("New PV")
-        if len(model._data) > 1:
-            model._data[1].append("1")
-
-        parent_model._data[row][1] = parent_model._data[row][1] + ";New Pv"
-
-        for i in range(2, 4):
-            parent_model._data[row][i] = parent_model._data[row][i] + ";1"
-
-        model.layoutChanged.emit()
+        self.db.pvs.insert_one(
+            {
+                "name": args[0],
+                "group": args[4],
+                "max": args[2],
+                "min": args[1],
+                "timeout": args[3],
+                "value": 0,
+                "last_alert": 0,
+                "d_time": 0,
+                "d_count": 0,
+            }
+        )
         self.update_table()
 
-    def add_row(self, args):
-        data = self.table.model()._data
-        new_row = ["" for i in range(0, len(data[0]))]
-
-        data.append(new_row)
-
-        self.table.model().layoutChanged.emit()
-        self.table.resizeColumnsToContents()
-
-    def del_row(self, args):
-        indexes = self.table.selectedIndexes()
-        marked_for_deletion = [
-            self.table.model()._data[index.row()][0] for index in indexes
-        ]
-
-        for pv in marked_for_deletion:
-            for i in range(0, len(self.table.model()._data)):
-                if self.table.model()._data[i][0] == pv:
-                    self.table.model()._data.pop(i)
-                    break
-
-        self.update_table()
-
-    def add_usrgp(self, args):
-        model = self.table.model()
-
-        for m in model._data:
-            m.append("")
-
-        model._header.append("New Group")
-
-        model.layoutChanged.emit()
-        self.table.resizeColumnsToContents()
-
-    def keep_changes(self):
-        if self.config_file is not None:
-            data = pandas.read_csv(self.config_file).to_dict("split")["data"]
-
-            if self.new_filetype is not None or self.table.model()._data != data:
-                reply = QMessageBox.question(
-                    self,
-                    "Unsaved changes",
-                    "You have unsaved changes. Do you wish to continue?",
-                    QMessageBox.Yes | QMessageBox.No,
-                    QMessageBox.No,
-                )
-                return reply != QMessageBox.Yes
-            else:
-                return False
-        else:
-            return False
-
-    def login_remote(self, file):
-        if not self.transport:
-            self.transport = paramiko.Transport(EPICSTEL_SERVER)
-            logger.info("Fetching from {}".format(EPICSTEL_SERVER))
-
-        if self.sftp is None or not self.transport.is_active():
-            logger.info("Logging in...")
-            login = Login()
-            login.logged_in.connect(lambda c: self.open_remote(file, c))
-
-            login.show()
-        else:
-            self.open_remote(file)
-
-    def open_remote(self, file, credentials=None):
-        if credentials is not None:
-            try:
-                self.transport.connect(username=credentials[0], password=credentials[1])
-            except paramiko.ssh_exception.AuthenticationException:
-                QMessageBox.critical(
-                    self,
-                    "Could not authenticate",
-                    "Invalid credentials",
-                    QMessageBox.Ok,
-                )
-
-        self.is_remote = True
-
-        if not self.sftp:
-            self.sftp = paramiko.SFTPClient.from_transport(self.transport)
-
-        self.config_file = f"/tmp/{file}"
-        self.sftp.get(f"{EPICSTEL_LOCATION}{file}", self.config_file)
-        logger.info("Finalized file transfer!")
-
-        self.display_table()
-
-    def edit_header(self, index):
-        if self.config_type_label.text() == "User Groups":
-            gp_dialog = EditGroup(self.table.model()._header[index])
-
-            gp_dialog.group_edited.connect(
-                lambda name: self.table.model().setHeader(index, name)
+    def add_team(self, args):
+        if self.bot.teams.find_one({"team": args[0]}):
+            QMessageBox.critical(
+                self,
+                "Invalid Team Name",
+                "{} team already exists".format(args[0]),
+                QMessageBox.Ok,
             )
-            gp_dialog.group_deleted.connect(
-                lambda name: self.table.model().deleteHeader(index, name)
+            self.show_add_dialog("team")
+            return
+
+        adm = args[1].split("(")
+        adm[1] = int(adm[1][:-1])
+
+        users = [[u.split("(")[0], int(u.split("(")[:-1])] for u in args[2]].append(adm)
+
+        for user in users:
+            self.bot.users.update_one(
+                {"chat_id": user[1]},
+                {
+                    "$setOnInsert": {
+                        "pvs": [],
+                        "groups": [],
+                        "adminof": [],
+                        "chat_id": user[1],
+                        "fullname": user[0],
+                    },
+                    "$addToSet": {"teams": args[0]},
+                },
+                upsert=True,
             )
+
+        self.bot.teams.insert_one({"team": args[0], "pvs": [], "groups": []})
+        self.bot.users.update_one(
+            {"chat_id": adm[1]}, {"$addToSet": {"adminof": args[0]}}
+        )
+
+    def login_remote(self):
+        logger.info("Logging in...")
+        login = Login()
+        login.logged_in.connect(lambda c: self.open(c))
+
+        login.show()
+
+    def display_table(self, tables):
+        for tab, table in tables.items():
+            model = TableModel(table[1], table[0])
+            getattr(self, "{}_table".format(tab)).setModel(model)
+            getattr(self, "{}_table".format(tab)).setColumnHidden(0, True)
 
     def update_table(self):
-        self.table.model().layoutChanged.emit()
-        self.table.resizeColumnsToContents()
-
-    def display_table(self):
-        self.new_filetype = ""
-        data = pandas.read_csv(self.config_file).fillna("").to_dict("split")
-
-        table = data["data"]
-
-        model = TableModel(table, data["columns"])
-        self.table.setModel(model)
-        self.table.horizontalHeader().sectionClicked.connect(self.edit_header)
-
-        self.save_btn.setEnabled(True)
-        self.delete_row_btn.setEnabled(True)
-        self.new_row_btn.setEnabled(True)
-
-        config_type = self.filetypes[
-            self.config_file[self.config_file.rfind("/") + 1 :]
-        ]
-
-        self.location_label.setText("Remote")
-        self.config_type_label.setText(config_type)
-
-        self.new_usrgp_btn.setEnabled(config_type == "User Groups")
-
-    def save_on_close(self):
-        if self.is_remote or self.config_file is not None:
-            data = pandas.read_csv(self.config_file).fillna("").to_dict("split")["data"]
-            condition = self.table.model()._data != data
-        else:
-            condition = self.new_filetype is not None and self.table.model()._data != [
-                ["" for i in range(0, len(self.table.model()._header))]
-            ]
-
-        if condition:
-            reply = QMessageBox.question(
-                self,
-                "Unsaved changes",
-                "You have unsaved changes. Do you wish to save?",
-                QMessageBox.Yes | QMessageBox.No,
-                QMessageBox.No,
-            )
-            if reply == QMessageBox.Yes:
-                self.save(0)
-
-    def closeEvent(self, args):
-        self.save_on_close()
-        # Keeping for possible additions in the future
+        if not self.update_thread.isRunning():
+            self.update_thread.start()
 
     def __init__(self, parent=None, macros=None, **kwargs):
         super().__init__(parent=parent, macros=macros, ui_filename=EPICSTEL_MAIN_UI)
+        self.login_remote()
 
-        self.open_config.triggered.connect(self.open)
+        self.delete_pv_btn.clicked.connect(self.del_pv)
+        self.delete_user_btn.clicked.connect(self.del_user)
+        self.delete_team_btn.clicked.connect(self.del_team)
 
-        self.save_btn.clicked.connect(self.save)
-        self.table.clicked.connect(self.cell_clicked)
-
-        self.add_pv_btn.clicked.connect(self.add_pv)
-        self.del_pv_btn.clicked.connect(self.del_pv)
-
-        self.delete_row_btn.clicked.connect(self.del_row)
-        self.new_row_btn.clicked.connect(self.add_row)
-
-        self.new_pvgps.triggered.connect(lambda: self.new("groups.csv"))
-        self.new_pvinfo.triggered.connect(lambda: self.new("monitor_info.csv"))
-        self.new_usrgp.triggered.connect(lambda: self.new("authorized_personnel.csv"))
-
-        self.open_groups.triggered.connect(lambda: self.login_remote("groups.csv"))
-        self.open_info.triggered.connect(lambda: self.login_remote("monitor_info.csv"))
-        self.open_usr.triggered.connect(
-            lambda: self.login_remote("authorized_personnel.csv")
-        )
-
-        self.new_usrgp_btn.clicked.connect(self.add_usrgp)
+        self.add_user_btn.clicked.connect(lambda: self.show_add_dialog("user"))
+        self.add_pv_btn.clicked.connect(lambda: self.show_add_dialog("pv"))
+        self.add_team_btn.clicked.connect(lambda: self.show_add_dialog("team"))
 
 
 if __name__ == "__main__":
