@@ -1,7 +1,7 @@
 import logging
 import sys
 
-from aux_dialogs import AddPV, AddTeam, AddUser, Login
+from aux_dialogs import AddPV, AddTeam, AddUser, EditItems, Login
 from models import TableModel
 from pydm import Display
 from pymongo import MongoClient, errors
@@ -44,7 +44,15 @@ class UpdateTableThread(QThread):
                     if type(item) == list:
                         if len(item) and type(item[0]) == dict:
                             row.append(
-                                ",".join(["-".join(list(i.values())[:2]) for i in item])
+                                ",".join(
+                                    [
+                                        "{} ({})".format(
+                                            (list(i.values())[:2])[0],
+                                            (list(i.values())[:2])[1],
+                                        )
+                                        for i in item
+                                    ]
+                                )
                             )
                         else:
                             row.append(",".join(item))
@@ -109,11 +117,68 @@ class Window(Display, QMainWindow):
             self.login_remote()
 
     def cell_clicked(self, args, tab):
-        if tab == "pvs" and args.column() == 2:
+        col = args.column()
+        if tab == "pvs" and col == 2:
             self.pvs_table.setItemDelegateForColumn(
                 2, Delegate(self.pvs_table.model(), list(self.db.pvs.distinct("group")))
             )
             self.pvs_table.openPersistentEditor(args)
+        elif (tab == "users" and col not in [1, 3]) or (tab == "teams" and col != 1):
+            model = getattr(self, tab + "_table").model()
+            previous_data = list(filter(lambda x: x, model.data(args).split(",")))
+            mongo_id = model.data(model.index(args.row(), 0))
+
+            print(previous_data)
+
+            if (tab == "users" and col == 5) or (tab == "teams" and col == 2):
+                pvs = [
+                    "{} ({})".format(p.get("name"), p.get("group"))
+                    for p in self.db.pvs.find()
+                ]
+                dialog = EditItems(mongo_id, previous_data, pvs, tab, "pvs")
+            elif tab == "users" and col == 6:
+                dialog = EditItems(
+                    mongo_id,
+                    previous_data,
+                    self.db.teams.distinct("team"),
+                    tab,
+                    "teams",
+                )
+            elif tab == "users" and col == 2:
+                dialog = EditItems(
+                    mongo_id,
+                    previous_data,
+                    self.db.teams.distinct("team"),
+                    tab,
+                    "adminof",
+                )
+            else:
+                dialog = EditItems(
+                    mongo_id,
+                    previous_data,
+                    self.db.pvs.distinct("group"),
+                    tab,
+                    "groups",
+                )
+
+            dialog.edit_items.connect(self.edit_items)
+            dialog.show()
+
+    def edit_items(self, id, values, tab, field):
+        if field == "pvs":
+            pvs = {"pvs": []}
+            for pv in values:
+                splitted = pv.split(" ")
+                print(splitted)
+                name, group = splitted[0], splitted[1][1:-1]
+                pv_id = self.db.pvs.find_one({"name": name, "group": group}).get("_id")
+                pvs["pvs"].append({"name": name, "group": group, "ext_id": pv_id})
+
+            print(pvs)
+            self.db.users.update_one({"_id": id}, {"$set": pvs})
+        else:
+            self.db[tab].update_one({"_id": id}, {"$set": {field: values}})
+        self.update_table()
 
     def del_team(self, args):
         indexes = self.teams_table.selectedIndexes()
@@ -254,7 +319,7 @@ class Window(Display, QMainWindow):
         adm = args[1].split("(")
         adm[1] = int(adm[1][:-1])
 
-        users = [[u.split("(")[0], int(u.split("(")[:-1])] for u in args[2]]
+        users = [[u.split("(")[0], int(u.split("(")[1][:-1])] for u in args[2]]
         users.append(adm)
 
         for user in users:
@@ -278,6 +343,8 @@ class Window(Display, QMainWindow):
             {"chat_id": adm[1]}, {"$addToSet": {"adminof": args[0]}}
         )
 
+        self.update_table()
+
     def login_remote(self):
         logger.info("Logging in...")
         login = Login()
@@ -287,9 +354,12 @@ class Window(Display, QMainWindow):
 
     def update_data(self, value, prop, id):
         col = EPICSTEL_TABS[self.tabWidget.currentIndex()]
-        self.db[col].update_one({"_id": id}, {"$set": {prop: value}})
-
-        self.update_table()
+        if not (
+            (col == "users" and prop not in ["chat_id", "fullname"])
+            or (col == "teams" and prop != "team")
+        ):
+            self.db[col].update_one({"_id": id}, {"$set": {prop: value}})
+            self.update_table()
 
     def display_table(self, tables):
         for tab, table in tables.items():

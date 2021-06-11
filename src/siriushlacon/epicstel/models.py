@@ -24,7 +24,7 @@ class TableModel(QtCore.QAbstractTableModel):
         if role == QtCore.Qt.DisplayRole and orientation == QtCore.Qt.Horizontal:
             return self._header[section]
 
-    def data(self, index, role):
+    def data(self, index, role=QtCore.Qt.DisplayRole):
         if role == QtCore.Qt.DisplayRole or role == QtCore.Qt.EditRole:
             return self._data[index.row()][index.column()]
 

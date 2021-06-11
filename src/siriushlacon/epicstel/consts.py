@@ -11,6 +11,7 @@ EPICSTEL_LOGIN_UI = get_abs_path("ui/login.ui")
 EPICSTEL_USER_UI = get_abs_path("ui/user.ui")
 EPICSTEL_TEAM_UI = get_abs_path("ui/team.ui")
 EPICSTEL_PV_UI = get_abs_path("ui/pv.ui")
+EPICSTEL_ITEMS_UI = get_abs_path("ui/editlist.ui")
 
 EPICSTEL_TABS = ["pvs", "users", "teams"]
 

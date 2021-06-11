@@ -1,10 +1,12 @@
 import logging
 
+from bson.objectid import ObjectId
 from PyQt5.QtGui import QIntValidator, QKeySequence
 from PyQt5.QtWidgets import QShortcut
 from qtpy import QtCore, QtWidgets, uic
 
 from siriushlacon.epicstel.consts import (
+    EPICSTEL_ITEMS_UI,
     EPICSTEL_LOGIN_UI,
     EPICSTEL_PV_UI,
     EPICSTEL_TEAM_UI,
@@ -127,4 +129,56 @@ class AddTeam(QtWidgets.QDialog):
                     for i in range(self.users_list.count())
                 ],
             )
+        )
+
+
+class EditItems(QtWidgets.QDialog):
+    edit_items = QtCore.Signal(ObjectId, list, str, str)
+
+    def __init__(
+        self, id: ObjectId, prev_items: list, items: list, tab: str, field: str
+    ):
+        super(EditItems, self).__init__()
+        uic.loadUi(EPICSTEL_ITEMS_UI, self)
+        self.items, self.tab, self.field, self.id = items, tab, field, id
+
+        self.items_list.addItems(prev_items)
+        self.items_combobox.addItems(set(items) ^ set(prev_items))
+
+        self.btn_box.accepted.connect(self.handle_edit_items)
+        self.btn_box.rejected.connect(self.destroy)
+
+        self.del_sc = QShortcut(QKeySequence("Del"), self)
+        self.del_sc.activated.connect(self.del_item)
+        self.add_btn.clicked.connect(self.add_item)
+        self.show()
+
+    def del_item(self):
+        new_items_list = [
+            self.items_list.item(i).text() for i in range(self.items_list.count())
+        ]
+        new_items_list.remove(self.items_list.currentItem().text())
+
+        self.items_list.clear()
+        self.items_list.addItems(new_items_list)
+
+        self.items_combobox.clear()
+        self.items_combobox.addItems(set(self.items) ^ set(new_items_list))
+
+    def add_item(self):
+        self.items_list.addItem(self.items_combobox.currentText())
+
+        listed_users_set = set(
+            [self.items_list.item(i).text() for i in range(self.items_list.count())]
+        )
+
+        self.items_combobox.clear()
+        self.items_combobox.addItems(set(self.items) ^ listed_users_set)
+
+    def handle_edit_items(self):
+        self.edit_items.emit(
+            self.id,
+            [self.items_list.item(i).text() for i in range(self.items_list.count())],
+            self.tab,
+            self.field,
         )
