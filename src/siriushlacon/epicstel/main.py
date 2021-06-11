@@ -5,8 +5,14 @@ from aux_dialogs import AddPV, AddTeam, AddUser, Login
 from models import TableModel
 from pydm import Display
 from pymongo import MongoClient, errors
-from PyQt5.QtCore import QThread, QTimer, Signal
-from qtpy.QtWidgets import QApplication, QMainWindow, QMessageBox
+from qtpy.QtCore import Qt, QThread, QTimer, Signal
+from qtpy.QtWidgets import (
+    QApplication,
+    QComboBox,
+    QItemDelegate,
+    QMainWindow,
+    QMessageBox,
+)
 
 from siriushlacon.epicstel.consts import EPICSTEL_HOST, EPICSTEL_MAIN_UI, EPICSTEL_TABS
 
@@ -51,6 +57,29 @@ class UpdateTableThread(QThread):
         self.finished.emit(tables)
 
 
+class Delegate(QItemDelegate):
+    def __init__(self, owner, choices):
+        super().__init__(owner)
+        self.items = choices
+
+    def createEditor(self, parent, option, index):
+        self.editor = QComboBox(parent)
+        self.editor.addItems(self.items)
+        return self.editor
+
+    def setEditorData(self, editor, index):
+        value = index.data(Qt.DisplayRole)
+        num = self.items.index(value)
+        editor.setCurrentIndex(num)
+
+    def setModelData(self, editor, model, index):
+        value = editor.currentText()
+        model.setData(index, value, Qt.EditRole)
+
+    def updateEditorGeometry(self, editor, option, index):
+        editor.setGeometry(option.rect)
+
+
 class Window(Display, QMainWindow):
     def open(self, credentials):
         client = MongoClient(EPICSTEL_HOST)
@@ -67,10 +96,10 @@ class Window(Display, QMainWindow):
             self.update_timer.timeout.connect(self.update_table)
             self.update_timer.setSingleShot(False)
 
-            self.update_timer.start(10000)
+            # self.update_timer.start(10000)
+            self.first = True
             self.update_table()
-        except errors.OperationFailure as e:
-            print(e)
+        except errors.OperationFailure:
             QMessageBox.critical(
                 self,
                 "Could not authenticate",
@@ -79,8 +108,12 @@ class Window(Display, QMainWindow):
             )
             self.login_remote()
 
-    def cell_clicked(self, args):
-        pass
+    def cell_clicked(self, args, tab):
+        if tab == "pvs" and args.column() == 2:
+            self.pvs_table.setItemDelegateForColumn(
+                2, Delegate(self.pvs_table.model(), list(self.db.pvs.distinct("group")))
+            )
+            self.pvs_table.openPersistentEditor(args)
 
     def del_team(self, args):
         indexes = self.teams_table.selectedIndexes()
@@ -90,7 +123,7 @@ class Window(Display, QMainWindow):
 
         self.db.teams.delete_many({"team": {"$in": teams}})
         self.db.users.update_many(
-            {"teams": {"$in": teams}}, {"$pullAll": {"teams": teams}}
+            {"teams": {"$in": teams}}, {"$pullAll": {"teams": teams, "adminof": teams}}
         )
 
         self.update_table()
@@ -208,7 +241,7 @@ class Window(Display, QMainWindow):
         self.update_table()
 
     def add_team(self, args):
-        if self.bot.teams.find_one({"team": args[0]}):
+        if self.db.teams.find_one({"team": args[0]}):
             QMessageBox.critical(
                 self,
                 "Invalid Team Name",
@@ -221,10 +254,11 @@ class Window(Display, QMainWindow):
         adm = args[1].split("(")
         adm[1] = int(adm[1][:-1])
 
-        users = [[u.split("(")[0], int(u.split("(")[:-1])] for u in args[2]].append(adm)
+        users = [[u.split("(")[0], int(u.split("(")[:-1])] for u in args[2]]
+        users.append(adm)
 
         for user in users:
-            self.bot.users.update_one(
+            self.db.users.update_one(
                 {"chat_id": user[1]},
                 {
                     "$setOnInsert": {
@@ -239,8 +273,8 @@ class Window(Display, QMainWindow):
                 upsert=True,
             )
 
-        self.bot.teams.insert_one({"team": args[0], "pvs": [], "groups": []})
-        self.bot.users.update_one(
+        self.db.teams.insert_one({"team": args[0], "pvs": [], "groups": []})
+        self.db.users.update_one(
             {"chat_id": adm[1]}, {"$addToSet": {"adminof": args[0]}}
         )
 
@@ -251,14 +285,28 @@ class Window(Display, QMainWindow):
 
         login.show()
 
+    def update_data(self, value, prop, id):
+        col = EPICSTEL_TABS[self.tabWidget.currentIndex()]
+        self.db[col].update_one({"_id": id}, {"$set": {prop: value}})
+
+        self.update_table()
+
     def display_table(self, tables):
         for tab, table in tables.items():
+            view = getattr(self, "{}_table".format(tab))
             model = TableModel(table[1], table[0])
-            getattr(self, "{}_table".format(tab)).setModel(model)
-            getattr(self, "{}_table".format(tab)).setColumnHidden(0, True)
+            model.data_changed.connect(self.update_data)
+
+            view.setModel(model)
+            view.setColumnHidden(0, True)
 
     def update_table(self):
-        if not self.update_thread.isRunning():
+        editing = (
+            self.pvs_table.state() == 3
+            or self.users_table.state() == 3
+            or self.teams_table.state() == 3
+        )
+        if not self.update_thread.isRunning() and not editing:
             self.update_thread.start()
 
     def __init__(self, parent=None, macros=None, **kwargs):
@@ -272,6 +320,10 @@ class Window(Display, QMainWindow):
         self.add_user_btn.clicked.connect(lambda: self.show_add_dialog("user"))
         self.add_pv_btn.clicked.connect(lambda: self.show_add_dialog("pv"))
         self.add_team_btn.clicked.connect(lambda: self.show_add_dialog("team"))
+
+        self.pvs_table.clicked.connect(lambda c: self.cell_clicked(c, "pvs"))
+        self.teams_table.clicked.connect(lambda c: self.cell_clicked(c, "teams"))
+        self.users_table.clicked.connect(lambda c: self.cell_clicked(c, "users"))
 
 
 if __name__ == "__main__":

@@ -12,6 +12,6 @@ EPICSTEL_USER_UI = get_abs_path("ui/user.ui")
 EPICSTEL_TEAM_UI = get_abs_path("ui/team.ui")
 EPICSTEL_PV_UI = get_abs_path("ui/pv.ui")
 
-EPICSTEL_TABS = ["pvs", "teams", "users"]
+EPICSTEL_TABS = ["pvs", "users", "teams"]
 
 EPICSTEL_HOST = "mongodb://10.0.38.46:27040/"

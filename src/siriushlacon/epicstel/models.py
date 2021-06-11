@@ -1,7 +1,10 @@
-from PyQt5 import QtCore
+from bson.objectid import ObjectId
+from qtpy import QtCore
 
 
 class TableModel(QtCore.QAbstractTableModel):
+    data_changed = QtCore.Signal(object, str, ObjectId)
+
     def __init__(self, data, header):
         super(TableModel, self).__init__()
         self._data = data
@@ -41,6 +44,9 @@ class TableModel(QtCore.QAbstractTableModel):
     def setData(self, index, value, role):
         if role == QtCore.Qt.EditRole:
             self._data[index.row()][index.column()] = value
+            self.data_changed.emit(
+                value, self._header[index.column()], self._data[index.row()][0]
+            )
             return True
 
     def rowCount(self, index):
