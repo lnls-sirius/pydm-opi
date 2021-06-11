@@ -6,6 +6,7 @@ from time import localtime, sleep, strftime
 
 from pydm import Display
 from qtpy import QtCore, QtGui, QtWidgets, uic
+from qtpy.QtWidgets import QInputDialog
 
 from siriushlacon.beaglebones.BBBread import RedisServer
 from siriushlacon.beaglebones.consts import (
@@ -110,6 +111,8 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
 
         # Configures redis Server
         self.server = RedisServer()
+
+        self.sudo = False
 
         # Table models
         self.logs_model = TableModel([[]], all=True)
@@ -607,8 +610,21 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
         info = self.nodes_info[hashname]
         if info[b"state_string"].decode() == "Connected":
-            self.window = BBBConfig(hashname, info, self.server)
-            self.window.show()
+            if not self.sudo:
+                text, confirmation = QInputDialog.getText(
+                    self,
+                    "Confirmation",
+                    (
+                        "This interface is meant for advanced changes that could result in downtime, failures or worse."
+                        "\nIf you want to enter sudo mode, type in 'Beaglebone' (case sensitive)"
+                    ),
+                )
+                if confirmation and text == "Beaglebone":
+                    self.sudo = True
+
+            if self.sudo:
+                self.window = BBBConfig(hashname, info, self.server)
+                self.window.show()
         else:
             QtWidgets.QMessageBox.warning(
                 self,
@@ -622,7 +638,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         confirmation = QtWidgets.QMessageBox.question(
             self,
             "Confirmation",
-            "Are you sure applying these changes?",
+            "Are you sure you want to apply these changes?",
             QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
         )
         if confirmation == QtWidgets.QMessageBox.Yes:
