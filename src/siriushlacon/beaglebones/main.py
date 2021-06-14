@@ -470,10 +470,25 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
 
     def reboot_nodes(self):
         """Reboots the selected nodes"""
+        if not self.sudo:
+            text, confirmation = QInputDialog.getText(
+                self,
+                "Confirmation",
+                (
+                    "Rebooting could result in downtime, failures or worse, and whoever"
+                    "\nexecutes this should be aware of the implications of this action.\n"
+                    "\nIf you want to enter sudo mode, type in 'Beaglebone' (case sensitive)"
+                ),
+            )
+            if confirmation and text == "Beaglebone":
+                self.sudo = True
+            else:
+                return
+
         confirmation = QtWidgets.QMessageBox.question(
             self,
             "Confirmation",
-            "Are you sure about rebooting these nodes?",
+            "Are you sure you want to reboot these nodes?",
             QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
         )
         if confirmation == QtWidgets.QMessageBox.Yes:
@@ -615,7 +630,8 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                     self,
                     "Confirmation",
                     (
-                        "This interface is meant for advanced changes that could result in downtime, failures or worse."
+                        "This interface is meant for advanced changes that could result in downtime,"
+                        "\nfailures or worse.\n"
                         "\nIf you want to enter sudo mode, type in 'Beaglebone' (case sensitive)"
                     ),
                 )
