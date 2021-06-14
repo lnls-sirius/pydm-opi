@@ -54,10 +54,32 @@
        <property name="spacing">
         <number>12</number>
        </property>
+       <item row="0" column="0" colspan="2">
+        <widget class="QLabel" name="label_3">
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+           <weight>75</weight>
+           <italic>false</italic>
+           <bold>true</bold>
+           <kerning>true</kerning>
+          </font>
+         </property>
+         <property name="text">
+          <string>EPICSTel Management Interface</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
        <item row="1" column="0" colspan="2">
         <widget class="QTabWidget" name="tabWidget">
+         <property name="tabShape">
+          <enum>QTabWidget::Rounded</enum>
+         </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="pvs_tab">
           <attribute name="title">
@@ -170,25 +192,37 @@
            </item>
           </layout>
          </widget>
-        </widget>
-       </item>
-       <item row="0" column="0" colspan="2">
-        <widget class="QLabel" name="label_3">
-         <property name="font">
-          <font>
-           <pointsize>20</pointsize>
-           <weight>75</weight>
-           <italic>false</italic>
-           <bold>true</bold>
-           <kerning>true</kerning>
-          </font>
-         </property>
-         <property name="text">
-          <string>EPICSTel Management Interface</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
+         <widget class="QWidget" name="misc_tab">
+          <attribute name="title">
+           <string>Misc.</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_7">
+           <item row="1" column="1">
+            <widget class="QPushButton" name="add_ca_addr_btn">
+             <property name="text">
+              <string>Add</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="ca_addr_input">
+             <property name="inputMask">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>EPICS_CA_ADDR_LIST</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="2">
+            <widget class="QListWidget" name="ca_addr_list"/>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
       </layout>

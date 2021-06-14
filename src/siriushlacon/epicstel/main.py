@@ -5,13 +5,15 @@ from aux_dialogs import AddPV, AddTeam, AddUser, EditItems, Login
 from models import TableModel
 from pydm import Display
 from pymongo import MongoClient, errors
-from qtpy.QtCore import Qt, QThread, QTimer, Signal
+from PyQt5.QtGui import QKeySequence, QRegExpValidator
+from qtpy.QtCore import QRegExp, Qt, QThread, QTimer, Signal
 from qtpy.QtWidgets import (
     QApplication,
     QComboBox,
     QItemDelegate,
     QMainWindow,
     QMessageBox,
+    QShortcut,
 )
 
 from siriushlacon.epicstel.consts import EPICSTEL_HOST, EPICSTEL_MAIN_UI, EPICSTEL_TABS
@@ -31,7 +33,7 @@ class UpdateTableThread(QThread):
 
     def run(self):
         tables = {}
-        for table in EPICSTEL_TABS:
+        for table in EPICSTEL_TABS[:3]:
             items = list(self.db[table].find())
             headers = list(items[0].keys())
             data = []
@@ -180,6 +182,12 @@ class Window(Display, QMainWindow):
             self.db[tab].update_one({"_id": id}, {"$set": {field: values}})
         self.update_table()
 
+    def del_ca_addr(self):
+        for index in self.ca_addr_list.selectedIndexes():
+            self.ca_addr_list.takeItem(index.row())
+
+        self.update_ca_addr()
+
     def del_team(self, args):
         indexes = self.teams_table.selectedIndexes()
         model = self.teams_table.model()
@@ -243,6 +251,19 @@ class Window(Display, QMainWindow):
         add_type = "add_" + args
         getattr(dialog, add_type).connect(lambda c: getattr(self, add_type)(c))
         dialog.show()
+
+    def update_ca_addr(self):
+        ips = [
+            self.ca_addr_list.item(i).text() for i in range(self.ca_addr_list.count())
+        ]
+        self.db.configs.update_one(
+            {"config": "EPICS_CA_ADDR_LIST"}, {"$set": {"ips": ips}}
+        )
+        self.update_table()
+
+    def add_ca_addr(self, args):
+        self.ca_addr_list.addItem(self.ca_addr_input.text())
+        self.update_ca_addr()
 
     def add_user(self, args):
         if self.db.users.find_one({"chat_id": args[1]}):
@@ -370,6 +391,11 @@ class Window(Display, QMainWindow):
             view.setModel(model)
             view.setColumnHidden(0, True)
 
+        self.ca_addr_list.clear()
+        self.ca_addr_list.addItems(
+            self.db.configs.find_one({"config": "EPICS_CA_ADDR_LIST"}).get("ips")
+        )
+
     def update_table(self):
         editing = (
             self.pvs_table.state() == 3
@@ -394,6 +420,13 @@ class Window(Display, QMainWindow):
         self.pvs_table.clicked.connect(lambda c: self.cell_clicked(c, "pvs"))
         self.teams_table.clicked.connect(lambda c: self.cell_clicked(c, "teams"))
         self.users_table.clicked.connect(lambda c: self.cell_clicked(c, "users"))
+
+        ip_regex = "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]).){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
+
+        self.ca_addr_input.setValidator(QRegExpValidator(QRegExp(ip_regex)))
+        self.del_sc = QShortcut(QKeySequence("Del"), self)
+        self.del_sc.activated.connect(self.del_ca_addr)
+        self.add_ca_addr_btn.clicked.connect(self.add_ca_addr)
 
 
 if __name__ == "__main__":
