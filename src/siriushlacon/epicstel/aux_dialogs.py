@@ -39,7 +39,7 @@ class AddUser(QtWidgets.QDialog):
         uic.loadUi(EPICSTEL_USER_UI, self)
 
         self.team_combobox.addItems(teams)
-        self.name_box.setValidator(QIntValidator())
+        self.id_box.setValidator(QIntValidator())
         self.add_user_btn_box.accepted.connect(self.handle_add_user)
         self.add_user_btn_box.rejected.connect(self.destroy)
         self.show()

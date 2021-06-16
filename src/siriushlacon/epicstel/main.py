@@ -6,7 +6,7 @@ from models import TableModel
 from pydm import Display
 from pymongo import MongoClient, errors
 from PyQt5.QtGui import QKeySequence, QRegExpValidator
-from qtpy.QtCore import QRegExp, Qt, QThread, QTimer, Signal
+from qtpy.QtCore import QRegExp, Qt, QThread, Signal
 from qtpy.QtWidgets import (
     QApplication,
     QComboBox,
@@ -102,11 +102,7 @@ class Window(Display, QMainWindow):
             self.update_thread = UpdateTableThread(self.db)
             self.update_thread.finished.connect(self.display_table)
 
-            self.update_timer = QTimer(self)
-            self.update_timer.timeout.connect(self.update_table)
-            self.update_timer.setSingleShot(False)
-
-            # self.update_timer.start(10000)
+            self.refresh_btn.clicked.connect(self.update_table)
             self.first = True
             self.update_table()
         except errors.OperationFailure:
@@ -129,8 +125,6 @@ class Window(Display, QMainWindow):
             model = getattr(self, tab + "_table").model()
             previous_data = list(filter(lambda x: x, model.data(args).split(",")))
             mongo_id = model.data(model.index(args.row(), 0))
-
-            print(previous_data)
 
             if (tab == "users" and col == 5) or (tab == "teams" and col == 2):
                 pvs = [
@@ -171,12 +165,10 @@ class Window(Display, QMainWindow):
             pvs = {"pvs": []}
             for pv in values:
                 splitted = pv.split(" ")
-                print(splitted)
                 name, group = splitted[0], splitted[1][1:-1]
                 pv_id = self.db.pvs.find_one({"name": name, "group": group}).get("_id")
                 pvs["pvs"].append({"name": name, "group": group, "ext_id": pv_id})
 
-            print(pvs)
             self.db.users.update_one({"_id": id}, {"$set": pvs})
         else:
             self.db[tab].update_one({"_id": id}, {"$set": {field: values}})
