@@ -48,22 +48,45 @@ Download at https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64
 - Local installation (single user only).
 - Add to the PATH
 
+The user should check if conda is enabled. The powershell prompt should look like:
+```powershell
+(base) ...
+```
+
+Set the powershell execution policy so external scripts are availble https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.1
+
+```powershell
+Set-ExecutionPolicy RemoteSigned
+```
+
 #### Environment setup
 
-Environment using a tested python version
+Create a conda environment using a tested python version
 ```command
 conda create --name py36 python=3.6
 ```
 
+In order to setup conda correctly on powershell:
+```powershell
+conda init powershell
+```
+
 Environment dependencies:
 ```command
-conda init powershell
+# Activate the environment "py36", the shell prompt should start with "(py36) ..."
 conda activate py36
+
+# Enable conda-forge channel
 conda config --add channels conda-forge
 conda config --set channel_priority strict
+
+# Install EPICS base
 conda install -c conda-forge/label/cf202003 epics-base
+
+# Install dependencies
 conda install qt==5.12.9 pyqt==5.12.3 pydm==1.10.4
 
+# Install interfaces
 pip install --upgrade siriushlacon
 ```
 
