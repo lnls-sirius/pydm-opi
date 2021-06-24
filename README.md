@@ -53,6 +53,11 @@ The user should check if conda is enabled. The powershell prompt should look lik
 (base) ...
 ```
 
+In order to setup conda correctly on powershell use the command below then restart the shell application:
+```powershell
+conda init powershell
+```
+
 Set the powershell execution policy so external scripts are availble https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.1
 
 ```powershell
@@ -64,11 +69,6 @@ Set-ExecutionPolicy RemoteSigned
 Create a conda environment using a tested python version
 ```command
 conda create --name py36 python=3.6
-```
-
-In order to setup conda correctly on powershell:
-```powershell
-conda init powershell
 ```
 
 Environment dependencies:
