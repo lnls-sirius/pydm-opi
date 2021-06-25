@@ -539,10 +539,13 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                         sleep(0.1)
                     self.nodes_info.pop(bbb_hashname)
 
-                    for i in selected_bbbs:
-                        self.basicList.takeItem(self.basicList.row(i))
-                        self.advancedList.takeItem(self.advancedList.row(i))
-                        self.serviceList.takeItem(self.serviceList.row(i))
+                    for tab in ["basic", "advanced", "service"]:
+                        list_widget = getattr(self, tab + "List")
+                        deleted_bbb = list_widget.findItems(
+                            bbb.text(), QtCore.Qt.MatchContains
+                        )
+                        if deleted_bbb:
+                            list_widget.takeItem(list_widget.row(deleted_bbb[0]))
 
                 except KeyError:
                     errors.append(bbb_hashname)
