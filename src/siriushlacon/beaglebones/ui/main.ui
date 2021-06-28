@@ -61,7 +61,7 @@
           <enum>QTabWidget::Rounded</enum>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="basicTab">
           <attribute name="title">
@@ -106,9 +106,9 @@
             </layout>
            </item>
            <item>
-            <widget class="QListWidget" name="basicList">
-             <property name="sortingEnabled">
-              <bool>false</bool>
+            <widget class="QTableView" name="basicTable">
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectRows</enum>
              </property>
             </widget>
            </item>
@@ -325,7 +325,11 @@
             </layout>
            </item>
            <item>
-            <widget class="QListWidget" name="advancedList"/>
+            <widget class="QTableView" name="advancedTable">
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectRows</enum>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -449,7 +453,11 @@
               </widget>
              </item>
              <item>
-              <widget class="QListWidget" name="serviceList"/>
+              <widget class="QTableView" name="servicesTable">
+               <property name="selectionBehavior">
+                <enum>QAbstractItemView::SelectRows</enum>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>

@@ -67,7 +67,6 @@ class RedisServer:
                 raise Exception("No BBBread Server found")
 
     def get_logs(self, hashname=None):
-
         if hashname:
             return [
                 [key.decode("utf-8"), value.decode("utf-8")]
