@@ -21,11 +21,11 @@ class TableModel(QtCore.QAbstractTableModel):
         self.layoutChanged.emit()
 
     def headerData(self, section, orientation, role=QtCore.Qt.DisplayRole):
-        if role == QtCore.Qt.DisplayRole and orientation == QtCore.Qt.Horizontal:
+        if role in QtCore.Qt.DisplayRole and orientation == QtCore.Qt.Horizontal:
             return self._header[section]
 
     def data(self, index, role=QtCore.Qt.DisplayRole):
-        if role == QtCore.Qt.DisplayRole or role == QtCore.Qt.EditRole:
+        if role in [QtCore.Qt.DisplayRole, role == QtCore.Qt.EditRole]:
             return self._data[index.row()][index.column()]
 
     def getRow(self, index):
@@ -49,13 +49,13 @@ class TableModel(QtCore.QAbstractTableModel):
             )
             return True
 
-    def rowCount(self, index):
+    def rowCount(self, _):
         return len(self._data)
 
-    def columnCount(self, index):
+    def columnCount(self, _):
         return len(self._data[0])
 
-    def flags(self, index):
+    def flags(self, _):
         return (
             QtCore.Qt.ItemIsSelectable
             | QtCore.Qt.ItemIsEnabled

@@ -40,7 +40,7 @@ class Command:
 class RedisServer:
     """Runs on Control System's Server"""
 
-    def __init__(self, log_path=LOG_PATH_SERVER):
+    def __init__(self):
         # Configuring logging
         self.logger = logging.getLogger("bbbreadServer")
         self.logger.setLevel(logging.DEBUG)
@@ -72,10 +72,9 @@ class RedisServer:
                 [key.decode("utf-8"), value.decode("utf-8")]
                 for key, value in self.local_db.hgetall(hashname).items()
             ]
-        else:
-            return [name.decode("utf-8") for name in self.local_db.keys("BBB:*:Logs")]
 
-    # TODO: Change function name
+        return [name.decode("utf-8") for name in self.local_db.keys("BBB:*:Logs")]
+
     def list_connected(self, ip="", hostname=""):
         """Returns a list of all BeagleBone Blacks connected to REDIS database
         If IP or hostname is specified lists only the ones with the exact specified parameter"""
@@ -127,7 +126,8 @@ class RedisServer:
                 bbb_command_listname = "{}:Command".format(bbb_hashname[0])
                 check = self.local_db.rpush(bbb_command_listname, command)
                 return bool(check)
-            elif len(bbb_hashname) < 1:
+
+            if len(bbb_hashname) < 1:
                 self.logger.error(
                     "no node found with the specified IP and hostname:" + ip + hostname
                 )
@@ -153,14 +153,16 @@ class RedisServer:
         last_logs = self.local_db.hvals(hashname + ":Logs")
         if node_state[:3] == "BBB":
             return 2
-        elif time_since_ping >= 25:
+
+        if time_since_ping >= 25:
             if node_state != "Disconnected":
                 self.local_db.hset(hashname, "state_string", "Disconnected")
                 self.log_remote(hashname + ":Logs", "Disconnected", int(now) - 10800)
             return 1
+
         if last_logs:
             known_status = last_logs[-1].decode()
-            if known_status == "Disconnected" or known_status == hashname:
+            if known_status in ["Disconnected", hashname]:
                 self.log_remote(hashname + ":Logs", "Reconnected", int(now) - 10800)
         return 0
 

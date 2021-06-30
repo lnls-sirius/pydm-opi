@@ -99,7 +99,7 @@ class UpdateLogsThread(QtCore.QThread):
 class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
     """BeagleBone Black Redis Activity Display"""
 
-    def __init__(self, parent=None, macros=None, **kwargs):
+    def __init__(self, parent=None, macros=None):
         super().__init__(parent=parent, macros=macros, ui_filename=BEAGLEBONES_MAIN_UI)
 
         # Configures redis Server
@@ -110,13 +110,13 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         self.logs_model = TableModel([[]], ["Timestamp", "BBB", "Occurence"])
         self.logsTable.setModel(self.logs_model)
 
-        self.basic_model = TableModel([[]], ["BBB", "Priority", "State"])
+        self.basic_model = TableModel([[]], ["BBB", "Role", "State"])
         self.basicTable.setModel(self.basic_model)
 
-        self.advanced_model = TableModel([[]], ["BBB", "Priority", "State"])
+        self.advanced_model = TableModel([[]], ["BBB", "Role", "State"])
         self.advancedTable.setModel(self.advanced_model)
 
-        self.services_model = TableModel([[]], ["BBB", "Priority", "State"])
+        self.services_model = TableModel([[]], ["BBB", "Role", "State"])
         self.servicesTable.setModel(self.services_model)
 
         self.servicesTable.horizontalHeader().setResizeMode(
@@ -134,7 +134,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         # Lists
         self.nodes = []
         self.nodes_info = {}
-        self.data = None
+        self.data = []
 
         # List Update Timer
         self.autoUpdate_timer = QtCore.QTimer(self)
@@ -176,6 +176,9 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         self.loading_icon = QtGui.QPixmap(RED_LED).scaledToHeight(20)
         self.idle_icon = QtGui.QPixmap(GREEN_LED).scaledToHeight(20)
 
+        # State lock
+        self.updating = False
+
     def update_nodes(self):
         """Updates list of BBBs shown"""
         # Stores every BBB information
@@ -212,13 +215,13 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         min_index, max_index = length, 0
 
         # Compares Unix timestamp for logs and filter, stops when a log satisfies the filter
-        for index, r in enumerate(self.data):
-            if int(r[0]) < min_date:
+        for index, log in enumerate(self.data):
+            if int(log[0]) < min_date:
                 min_index = index
                 break
 
-        for index, r in enumerate(self.data[::-1]):
-            if int(r[0]) > max_date:
+        for index, log in enumerate(self.data[::-1]):
+            if int(log[0]) > max_date:
                 max_index = length - index
                 break
 
@@ -314,7 +317,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
             "Searching": self.nodevAdvancedBox.isChecked(),
             "": self.nodevAdvancedBox.isChecked(),
         }
-        self.Lock = True
+        self.updating = True
         for node, info in self.nodes_info.items():
             if node not in self.nodes:
                 continue
@@ -353,24 +356,18 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                         and (ip_filter[node_ip_type] or ip_filter["Undefined"])
                     ) or current_tab in [0, 2]:
 
-                        # Filters by node state
-                        if node_state == "Connected":
-                            if state_filter[node_state]:
-                                data.append([node_string, node_importance, node_state])
-
-                        # Disconnected nodes have red background
-                        elif node_state == "Disconnected":
-                            if state_filter[node_state]:
-                                data.append([node_string, node_importance, node_state])
-
-                        # Moved nodes have yellow background
-                        elif node_state[:3] == "BBB":
-                            if state_filter["Moved"]:
-                                data.append([node_string, node_importance, "Moved"])
+                        if state_filter[node_state]:
+                            data.append(
+                                [
+                                    node_string,
+                                    node_importance,
+                                    node_state if node_state[:3] != "BBB" else "Moved",
+                                ]
+                            )
                         break
 
                 list_name.set_data(data)
-        self.Lock = False
+        self.updating = False
         # Updates the number of connected and listed nodes
         self.connectedLabel.setText("Connected nodes: {}".format(connected_number))
         self.listedLabel.setText("Listed: {}".format(list_name.rowCount()))
@@ -398,18 +395,13 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         if selected_items:
             self.rebootButton.setEnabled(True)
             self.deleteButton.setEnabled(True)
-            if len(selected_items) == 1:
-                self.configButton.setEnabled(True)
-                self.infoButton.setEnabled(True)
-                self.logsButton.setEnabled(True)
-            else:
-                self.configButton.setEnabled(False)
-                self.infoButton.setEnabled(False)
-                self.logsButton.setEnabled(False)
-            if current_tab == 2:
-                self.applyserviceButton.setEnabled(True)
-            else:
-                self.applyserviceButton.setEnabled(False)
+
+            is_single = len(selected_items) == 1
+            self.configButton.setEnabled(is_single)
+            self.infoButton.setEnabled(is_single)
+            self.logsButton.setEnabled(is_single)
+
+            self.applyserviceButton.setEnabled(current_tab == 2)
         else:
             self.logsButton.setEnabled(False)
             self.rebootButton.setEnabled(False)
@@ -483,7 +475,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                 bbb_hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
                 try:
                     self.server.delete_bbb(bbb_hashname)
-                    while self.Lock:
+                    while self.updating:
                         sleep(0.1)
                     self.nodes_info.pop(bbb_hashname)
                     self.update_nodes()
@@ -648,7 +640,8 @@ class BBBInfo(QtWidgets.QWidget, Ui_MainWindow_info):
 
 
 class TableModel(QtCore.QAbstractTableModel):
-    # Display model for TableView
+    """Display model for TableView"""
+
     def __init__(self, data, header):
         super(TableModel, self).__init__()
         self._data = data
@@ -659,14 +652,14 @@ class TableModel(QtCore.QAbstractTableModel):
             return self._header[section]
 
     def data(self, index, role):
-        if role == QtCore.Qt.DisplayRole or role == QtCore.Qt.EditRole:
+        if role in [QtCore.Qt.DisplayRole, QtCore.Qt.EditRole]:
             return self._data[index.row()][index.column()]
-        elif role == QtCore.Qt.BackgroundRole:
+        if role == QtCore.Qt.BackgroundRole:
             if self.columnCount() < 3 or self._data[index.row()][2] == "Connected":
                 return QBrush(QtCore.Qt.white)
             if self._data[index.row()][2] == "Disconnected":
                 return QBrush(QtCore.Qt.red)
-            elif self._data[index.row()][2] == "Moved":
+            if self._data[index.row()][2] == "Moved":
                 return QBrush(QtCore.Qt.yellow)
 
     def get_data(self):
@@ -691,6 +684,7 @@ class BBBLogs(QtWidgets.QWidget, Ui_MainWindow_logs):
         QtWidgets.QWidget.__init__(self)
         Ui_MainWindow_logs.__init__(self)
         self.setupUi(self)
+        self.data = []
 
         self.logs_thread = UpdateLogsThread(server, hashname)
         self.logs_thread.finished.connect(self.update_table)
@@ -703,10 +697,10 @@ class BBBLogs(QtWidgets.QWidget, Ui_MainWindow_logs):
 
         self.filterEdit.textChanged.connect(self.update_filters)
 
-        self.autoUpdate_timer = QtCore.QTimer(self)
-        self.autoUpdate_timer.timeout.connect(self.logs_thread.start)
-        self.autoUpdate_timer.setSingleShot(False)
-        self.autoUpdate_timer.start(1000)
+        self.update_timer = QtCore.QTimer(self)
+        self.update_timer.timeout.connect(self.logs_thread.start)
+        self.update_timer.setSingleShot(False)
+        self.update_timer.start(1000)
 
     def update_table(self, logs, update=True):
         """Sets table values and converts timestamp, deep copies logs"""
@@ -745,13 +739,13 @@ class BBBLogs(QtWidgets.QWidget, Ui_MainWindow_logs):
         min_index, max_index = length, 0
 
         # Compares Unix timestamp for logs and filter, stops when a log satisfies the filter
-        for index, r in enumerate(self.data):
-            if int(r[0]) < min_date:
+        for index, log in enumerate(self.data):
+            if int(log[0]) < min_date:
                 min_index = index
                 break
 
-        for index, r in enumerate(self.data[::-1]):
-            if int(r[0]) > max_date:
+        for index, log in enumerate(self.data[::-1]):
+            if int(log[0]) > max_date:
                 max_index = length - index
                 break
 
