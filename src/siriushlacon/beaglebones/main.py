@@ -602,6 +602,8 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                     operation(bbb_ip, "bbbread", bbb_hostname)
                 if self.bbbfunctionBox.isChecked():
                     operation(bbb_ip, "bbb-function", bbb_hostname)
+                if self.ethbridgeBox.isChecked():
+                    operation(bbb_ip, "eth-bridge-pru-serial485", bbb_hostname)
 
 
 class BBBInfo(QtWidgets.QWidget, Ui_MainWindow_info):

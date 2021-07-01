@@ -386,7 +386,7 @@
              <item>
               <widget class="QCheckBox" name="ethbridgeBox">
                <property name="text">
-                <string>PRUserial485</string>
+                <string>EthBridge</string>
                </property>
               </widget>
              </item>
