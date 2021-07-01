@@ -124,6 +124,80 @@
           <layout class="QVBoxLayout" name="verticalLayout_6">
            <item>
             <layout class="QGridLayout" name="gridLayout_2">
+             <item row="5" column="1">
+              <widget class="QCheckBox" name="uhvAdvancedBox">
+               <property name="text">
+                <string>4UHV</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="3">
+              <widget class="QCheckBox" name="nodevAdvancedBox">
+               <property name="text">
+                <string>No Device</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="2">
+              <widget class="QCheckBox" name="thermoAdvancedBox">
+               <property name="text">
+                <string>Thermo Probe</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="2">
+              <widget class="QCheckBox" name="countingpruAdvancedBox">
+               <property name="text">
+                <string>CountingPRU</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="3">
+              <widget class="QCheckBox" name="simarAdvancedBox">
+               <property name="text">
+                <string>SIMAR</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="ipLabel">
+               <property name="font">
+                <font>
+                 <family>Sans</family>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>IP type</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3">
+              <widget class="QCheckBox" name="disconnectedAdvancedBox">
+               <property name="text">
+                <string>Disconnected</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
              <item row="0" column="0">
               <widget class="QLabel" name="stateLabel">
                <property name="font">
@@ -138,10 +212,43 @@
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
-              <widget class="QCheckBox" name="connectedAdvancedBox">
+             <item row="4" column="1">
+              <widget class="QCheckBox" name="mksAdvancedBox">
                <property name="text">
-                <string>Connected</string>
+                <string>MKS</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="3">
+              <widget class="QCheckBox" name="spixconvAdvancedBox">
+               <property name="text">
+                <string>SPIxCONV</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="2">
+              <widget class="QCheckBox" name="powersupplyAdvancedBox">
+               <property name="text">
+                <string>Power Supply</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="2">
+              <widget class="QCheckBox" name="dhcpAdvancedBox">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="text">
+                <string>DHCP</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -158,31 +265,7 @@
                </property>
               </widget>
              </item>
-             <item row="0" column="3">
-              <widget class="QCheckBox" name="disconnectedAdvancedBox">
-               <property name="text">
-                <string>Disconnected</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="ipLabel">
-               <property name="font">
-                <font>
-                 <family>Sans</family>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>IP type</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
+             <item row="2" column="1">
               <widget class="QCheckBox" name="staticipAdvancedBox">
                <property name="enabled">
                 <bool>true</bool>
@@ -195,20 +278,37 @@
                </property>
               </widget>
              </item>
-             <item row="1" column="2">
-              <widget class="QCheckBox" name="dhcpAdvancedBox">
+             <item row="3" column="0" colspan="4">
+              <widget class="Line" name="line">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="3">
+              <widget class="QCheckBox" name="undeterminedAdvancedBox">
                <property name="enabled">
                 <bool>true</bool>
                </property>
                <property name="text">
-                <string>DHCP</string>
+                <string>Undetermined</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
                </property>
               </widget>
              </item>
-             <item row="2" column="0">
+             <item row="0" column="1">
+              <widget class="QCheckBox" name="connectedAdvancedBox">
+               <property name="text">
+                <string>Connected</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
               <widget class="QLabel" name="equipmentLabel">
                <property name="font">
                 <font>
@@ -222,77 +322,7 @@
                </property>
               </widget>
              </item>
-             <item row="2" column="1">
-              <widget class="QCheckBox" name="mksAdvancedBox">
-               <property name="text">
-                <string>MKS</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="2">
-              <widget class="QCheckBox" name="thermoAdvancedBox">
-               <property name="text">
-                <string>Thermo Probe</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="3">
-              <widget class="QCheckBox" name="spixconvAdvancedBox">
-               <property name="text">
-                <string>SPIxCONV</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QCheckBox" name="uhvAdvancedBox">
-               <property name="text">
-                <string>4UHV</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="2">
-              <widget class="QCheckBox" name="countingpruAdvancedBox">
-               <property name="text">
-                <string>CountingPRU</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="3">
-              <widget class="QCheckBox" name="rackmonitorAdvancedBox">
-               <property name="text">
-                <string>Rack Monitor</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="2">
-              <widget class="QCheckBox" name="powersupplyAdvancedBox">
-               <property name="text">
-                <string>Power Supply</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="1">
+             <item row="6" column="1">
               <widget class="QCheckBox" name="mbtempAdvancedBox">
                <property name="text">
                 <string>MBTemp</string>
@@ -302,26 +332,17 @@
                </property>
               </widget>
              </item>
-             <item row="4" column="3">
-              <widget class="QCheckBox" name="nodevAdvancedBox">
-               <property name="text">
-                <string>No Device</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
+             <item row="1" column="0" colspan="4">
+              <widget class="Line" name="line_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
                </property>
               </widget>
              </item>
-             <item row="1" column="3">
-              <widget class="QCheckBox" name="undeterminedAdvancedBox">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
+             <item row="6" column="0">
+              <widget class="QCheckBox" name="checkAllBox">
                <property name="text">
-                <string>Undetermined</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
+                <string>Check/Uncheck All</string>
                </property>
               </widget>
              </item>
@@ -929,5 +950,246 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>checkAllBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>powersupplyAdvancedBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>339</x>
+     <y>222</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAllBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>mksAdvancedBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>224</x>
+     <y>166</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAllBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>nodevAdvancedBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>471</x>
+     <y>222</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAllBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>mbtempAdvancedBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>224</x>
+     <y>222</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAllBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>simarAdvancedBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>469</x>
+     <y>194</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAllBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>countingpruAdvancedBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>339</x>
+     <y>194</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAllBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>uhvAdvancedBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>210</x>
+     <y>194</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAllBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>thermoAdvancedBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>348</x>
+     <y>166</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAllBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>spixconvAdvancedBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>471</x>
+     <y>166</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAllBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>staticipAdvancedBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>224</x>
+     <y>129</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAllBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>undeterminedAdvancedBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>471</x>
+     <y>129</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAllBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dhcpAdvancedBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>348</x>
+     <y>129</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAllBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>connectedAdvancedBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>224</x>
+     <y>92</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAllBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>movedAdvancedBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>348</x>
+     <y>92</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkAllBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>disconnectedAdvancedBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>471</x>
+     <y>92</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

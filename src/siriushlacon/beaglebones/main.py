@@ -313,7 +313,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
             "COUNTING": self.countingpruAdvancedBox.isChecked(),
             "POWER": self.powersupplyAdvancedBox.isChecked(),
             "SPIXCONV": self.spixconvAdvancedBox.isChecked(),
-            "RACK_MON": self.rackmonitorAdvancedBox.isChecked(),
+            "SIMAR": self.simarAdvancedBox.isChecked(),
             "Searching": self.nodevAdvancedBox.isChecked(),
             "": self.nodevAdvancedBox.isChecked(),
         }
@@ -366,7 +366,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                             )
                         break
 
-                list_name.set_data(data)
+        list_name.set_data(data)
         self.updating = False
         # Updates the number of connected and listed nodes
         self.connectedLabel.setText("Connected nodes: {}".format(connected_number))
