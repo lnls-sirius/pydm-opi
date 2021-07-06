@@ -276,6 +276,7 @@ class Window(Display, QMainWindow):
                 "adminof": [],
                 "teams": [args[2]],
                 "fullname": args[0],
+                "ignore": [],
             }
         )
         self.update_table()
