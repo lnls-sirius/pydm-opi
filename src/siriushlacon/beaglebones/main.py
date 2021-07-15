@@ -358,14 +358,11 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                         and (ip_filter[node_ip_type] or ip_filter["Undefined"])
                     ) or current_tab in [0, 2]:
 
+                        if node_state[:3] == "BBB":
+                            node_state = "Moved"
+
                         if state_filter[node_state]:
-                            data.append(
-                                [
-                                    node_string,
-                                    node_importance,
-                                    node_state if node_state[:3] != "BBB" else "Moved",
-                                ]
-                            )
+                            data.append([node_string, node_importance, node_state])
                         break
 
         list_name.set_data(data)
