@@ -276,8 +276,6 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                     and "thread died" not in _log[2].lower()
                 ]
 
-            print(data)
-
         self.logs_model.set_data(data)
 
         self.status_icon.setPixmap(self.idle_icon)
@@ -347,7 +345,6 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                 )
                 node_string = "{} - {}".format(node_ip, node_name)
             except Exception:
-                # print(e)
                 continue
             # Increments Connected Number of BBBs if beagle is connected
             if node_state == "Connected":
