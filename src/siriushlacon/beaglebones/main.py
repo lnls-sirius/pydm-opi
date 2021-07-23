@@ -258,6 +258,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                     for _log in data
                     if "connected" in _log[2].lower()
                     or "hostname" in _log[2].lower()
+                    or "thread found an exception" in _log[2].lower()
                     or "thread died" in _log[2].lower()
                 ]
         else:
@@ -267,7 +268,15 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                     for _log in data
                     if "connected" in _log[2].lower() or "hostname" in _log[2].lower()
                 ]
-            data = [_log for _log in data if "thread died" not in _log[2].lower()]
+            else:
+                data = [
+                    _log
+                    for _log in data
+                    if "thread found an exception" not in _log[2].lower()
+                    and "thread died" not in _log[2].lower()
+                ]
+
+            print(data)
 
         self.logs_model.set_data(data)
 
