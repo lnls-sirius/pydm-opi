@@ -4,8 +4,19 @@ import time
 
 import redis
 
-LA_SERVER_IP = "10.0.38.46"
-CA_SERVER_IP = "10.0.38.59"
+SERVER_LIST = [
+    "10.0.38.59",
+    "10.0.38.46",
+    "10.0.38.42",
+    "10.128.153.81",
+    "10.128.153.82",
+    "10.128.153.83",
+    "10.128.153.84",
+    "10.128.153.85",
+    "10.128.153.86",
+    "10.128.153.87",
+    "10.128.153.88",
+]
 LOG_PATH_SERVER = "bbbread.log"
 device = "server"
 
@@ -47,24 +58,35 @@ class RedisServer:
         self.logger.debug("Starting up BBBread Server")
 
         # Probably connecting to a existing server, tries to connect to primary server
-        self.local_db = redis.StrictRedis(
-            host=LA_SERVER_IP, port=6379, socket_timeout=2
-        )
-        try:
-            self.local_db.ping()
-            self.logger.debug("Connected to LA-RaCtrl-CO-Srv-1 Redis Server")
-        # If primary server is not available, tries to connect to backup server
-        except redis.exceptions.ConnectionError:
-            self.local_db = redis.StrictRedis(
-                host=CA_SERVER_IP, port=6379, socket_timeout=2
-            )
-            try:
-                self.local_db.ping()
-                self.logger.debug("Connected to CA-RaCtrl-CO-Srv-1 Redis Server")
-            # Case no BBBread server is found
-            except redis.exceptions.ConnectionError:
-                self.logger.error("No BBBread Server found")
-                raise Exception("No BBBread Server found")
+
+        while True:
+            for server in SERVER_LIST:
+                try:
+                    remote_db = redis.StrictRedis(
+                        host=server, port=6379, socket_timeout=4
+                    )
+                    remote_db.ping()
+                    self.logger.info("Connected to {} Redis Server".format(server))
+                    self.local_db = remote_db
+                    return
+                except redis.exceptions.ConnectionError:
+                    self.logger.warning(
+                        "{} Redis server is disconnected".format(server)
+                    )
+                except redis.exceptions.ResponseError:
+                    self.logger.warning(
+                        "Could not connect to {}, a response error has ocurred".format(
+                            server
+                        )
+                    )
+                    time.sleep(30)
+                except Exception as e:
+                    self.logger.warning("Could not connect to {}: {}".format(server, e))
+                    time.sleep(50)
+                continue
+
+            self.logger.info("Server not found. Retrying to connect in 10 seconds...")
+            time.sleep(10)
 
     def get_logs(self, hashname=None):
         if hashname:

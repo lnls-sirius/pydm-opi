@@ -24,7 +24,7 @@ from siriushlacon.beaglebones.consts import (
 # Corporate test server
 # REDIS_HOST = '10.0.6.64'
 # Sirius server
-REDIS_HOST = "10.128.255.3"
+REDIS_HOST = "10.0.38.59"
 
 room_names = {
     "All": "",
