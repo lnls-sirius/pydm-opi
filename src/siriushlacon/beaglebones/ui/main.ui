@@ -407,7 +407,14 @@
              <item>
               <widget class="QCheckBox" name="ethbridgeBox">
                <property name="text">
-                <string>EthBridge</string>
+                <string>eth-bridge</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="simarBox">
+               <property name="text">
+                <string>SIMAR</string>
                </property>
               </widget>
              </item>
