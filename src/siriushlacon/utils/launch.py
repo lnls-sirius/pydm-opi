@@ -95,7 +95,9 @@ def launch_pydm(
 
     logger = logging.getLogger("")
     handler = logging.StreamHandler()
-    formatter = logging.Formatter("[%(asctime)s] [%(levelname)-8s] - %(message)s")
+    formatter = logging.Formatter(
+        "[%(asctime)s %(levelname)-8s %(filename)s:%(lineno)s - %(funcName)s] %(message)s"
+    )
     handler.setFormatter(formatter)
     logger.addHandler(handler)
     logger.setLevel("INFO")

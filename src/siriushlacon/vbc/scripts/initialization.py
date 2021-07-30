@@ -12,7 +12,7 @@ class Initialization:
             raise ValueError(f"parameter prefix cannot be empty {prefix}")
         self.prefix = prefix
 
-        self._tick = 0.05
+        self._tick = 0.5
 
         # Create TURBOVAC PVs
         self.turbovac = Turbovac(prefix=prefix)
@@ -83,7 +83,7 @@ class Initialization:
         self.process_recovery.status3_pv.value = 1
 
     def _stage_4(self):
-        logger.info("stage4")
+        logger.info(f"stage4, wait until {self.turbovac.pzd2_rb_pv}<1200")
         # wait TURBOVAC pump reaches 1200 Hz
         self.turbovac.pzd2_sp_pv.value = 1200
         self.turbovac.pzd1_sp_sxvl_pv.value = 1

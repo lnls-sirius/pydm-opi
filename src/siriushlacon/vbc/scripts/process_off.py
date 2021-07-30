@@ -11,7 +11,7 @@ class ProcessOffAction:
         if not prefix:
             raise ValueError(f"parameter prefix cannot be empty {prefix}")
         self.prefix = prefix
-        self._tick = 0.05
+        self._tick = 0.5
 
         self.process_on = ProcessOn(prefix=prefix)
         self.process_off = ProcessOff(prefix=prefix)

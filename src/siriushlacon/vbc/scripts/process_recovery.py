@@ -11,7 +11,7 @@ class ProcessRecoveryAction:
         if not prefix:
             raise ValueError(f"parameter prefix cannot be empty {prefix}")
         self.prefix = prefix
-        self._tick = 0.05
+        self._tick = 0.5
 
         self.process_recovery = ProcessRecovery(prefix=self.prefix)
         self.acp = ACP(prefix=self.prefix)

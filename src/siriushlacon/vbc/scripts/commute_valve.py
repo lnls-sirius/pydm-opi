@@ -10,7 +10,7 @@ def _venting_valve(prefix: str, confirmed: bool):
     """
     this is script is used to commute a valve value
     """
-    logger.info("venting_valve")
+    logger.info(f"{prefix} confirmed={confirmed}")
     turbovac_venting_valve_pv = create_connected_pv(
         pvname=f"{prefix}:TURBOVAC:VentingValve-SW"
     )
@@ -19,6 +19,7 @@ def _venting_valve(prefix: str, confirmed: bool):
     )
 
     time.sleep(1)  # why?!
+    logger.info(f"pv sw update {prefix} confirmed={confirmed}")
 
     # if relay swtiching message is confirmed, change PV SW values:
     if confirmed:
@@ -33,13 +34,14 @@ def _relay(prefix: str, valve: int, confirmed: bool):
     """
     this is script is used to commute a valve value
     """
-    logger.info("relay")
+    logger.info("relay  prefix={prefix} valve={valve} confirmed={confirmed}")
 
     sw_pv = create_connected_pv(pvname=f"{prefix}:BBB:Relay{valve}-SW")
     ui_pv = create_connected_pv(pvname=f"{prefix}:BBB:Relay{valve}-UI.RVAL")
 
     time.sleep(1)  # why?!
 
+    logger.info(f"pv sw update prefix={prefix} valve={valve} confirmed={confirmed}")
     # if relay swtiching message is confirmed, change PV SW values:
     if confirmed:
         sw_pv.value = not (sw_pv.value)
@@ -53,7 +55,7 @@ def commute_valve(prefix: str, valve: int, confirmed: bool):
     """
     this is script is used to commute a valve value
     """
-
+    logger.info(f"prefix={prefix} value={valve} confirmed={confirmed}")
     if valve >= 1 and valve <= 4:
         _relay(prefix=prefix, valve=valve, confirmed=confirmed)
     elif valve == 5:

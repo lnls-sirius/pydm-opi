@@ -1,41 +1,22 @@
 #!/usr/bin/env python3
 import json
-import logging
 
 from pydm import Display
 from pydm.widgets.byte import PyDMByteIndicator
 from pydm.widgets.related_display_button import PyDMRelatedDisplayButton
-from PyQt5.QtWidgets import QPushButton
 from qtpy.QtGui import QColor
 from qtpy.QtWidgets import QLabel
 
 from siriushlacon import __version__
 from siriushlacon.utils.images import CNPEM_PIXMAP, LNLS_PIXMAP
 from siriushlacon.vbc.consts import MAIN_WINDOW_UI, SYSTEM_WINDOW_PY
-from siriushlacon.vbc.warning_message import VBCWarningMessageDialog
-
-_logger = logging.getLogger(__name__)
 
 
 class VBCMainWindow(Display):
-    def test(self, *args, **kwargs):
-        _logger.info("modal openning ...")
-        dialog = VBCWarningMessageDialog(
-            parent=self,
-            prefix="VBC1",
-            macros={"IOC": "VBC1", "CAR": "1"},
-        )
-        dialog.setModal(True)
-        dialog.open()
-
     def __init__(self, parent=None, args=None, macros=None):
         super(VBCMainWindow, self).__init__(
             parent=parent, args=args, macros=macros, ui_filename=MAIN_WINDOW_UI
         )
-        btn = QPushButton()
-        btn.setText("test button")
-        btn.clicked.connect(self.test)
-        self.children()[0].layout().addWidget(btn, 9, 4)
 
         self.lnlsLabel: QLabel
         self.labelVersion: QLabel
