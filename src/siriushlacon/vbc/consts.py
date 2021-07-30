@@ -8,7 +8,7 @@ def get_abs_path(filename):
     return pkg_resources.resource_filename(__name__, filename)
 
 
-class Finished(enum.Enum):
+class Finished(str, enum.Enum):
     ON = "ON"
     OFF = "OFF"
     REC = "REC"

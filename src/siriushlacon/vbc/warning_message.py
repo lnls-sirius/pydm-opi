@@ -9,20 +9,15 @@ from pydm.widgets.label import PyDMLabel
 from qtpy.QtWidgets import QDialogButtonBox, QLabel, QWidget
 
 from siriushlacon.utils import close_qt_application
-from siriushlacon.utils.command_runner import CommandRunner, ShellCommandRunner
+from siriushlacon.utils.command_runner import CommandRunner
 from siriushlacon.utils.dialog import BaseDialog as _BaseDialog
 from siriushlacon.utils.images import LNLS_PIXMAP
-from siriushlacon.vbc.consts import OK_MESSAGE_PY, WARNING_WINDOW_UI
+from siriushlacon.vbc.consts import WARNING_WINDOW_UI, Finished
+from siriushlacon.vbc.OK_message import OkMessageDialog
 from siriushlacon.vbc.scripts import process_recovery
 
 
 class VBCWarningMessage(Display):
-    def _close(self):
-        if self.parent() and isinstance(self.parent(), QWidget):
-            self.parent().close()
-        else:
-            close_qt_application()
-
     def __init__(
         self,
         parent=None,
@@ -33,7 +28,7 @@ class VBCWarningMessage(Display):
         super(VBCWarningMessage, self).__init__(
             parent=parent, args=args, macros=macros, ui_filename=WARNING_WINDOW_UI
         )
-        IOC = prefix if prefix else str(sys.argv[5])
+        self.prefix = prefix if prefix else str(sys.argv[5])
         self.Stage_1: PyDMByteIndicator
         self.Stage_2: PyDMByteIndicator
         self.Stage_3: PyDMByteIndicator
@@ -48,34 +43,41 @@ class VBCWarningMessage(Display):
         self.label_9: QLabel
 
         # defining macro for PyDMShellCommand (for launching "warning_message.ui")
-        self.Stage_1.channel = f"ca://{IOC}:ProcessRecovery:Status1"
-        self.Stage_2.channel = f"ca://{IOC}:ProcessRecovery:Status2"
-        self.Stage_3.channel = f"ca://{IOC}:ProcessRecovery:Status3"
-        self.Stage_4.channel = f"ca://{IOC}:ProcessRecovery:Status4"
-        self.Stage_5.channel = f"ca://{IOC}:ProcessRecovery:Status5"
-        self.pressure_base.channel = f"ca://{IOC}:BBB:TorrBaseMsg"
-        self.pressure_exp.channel = f"ca://{IOC}:BBB:TorrExpMsg"
+        self.Stage_1.channel = f"ca://{self.prefix}:ProcessRecovery:Status1"
+        self.Stage_2.channel = f"ca://{self.prefix}:ProcessRecovery:Status2"
+        self.Stage_3.channel = f"ca://{self.prefix}:ProcessRecovery:Status3"
+        self.Stage_4.channel = f"ca://{self.prefix}:ProcessRecovery:Status4"
+        self.Stage_5.channel = f"ca://{self.prefix}:ProcessRecovery:Status5"
+        self.pressure_base.channel = f"ca://{self.prefix}:BBB:TorrBaseMsg"
+        self.pressure_exp.channel = f"ca://{self.prefix}:BBB:TorrExpMsg"
 
         self.label_9.setPixmap(LNLS_PIXMAP)
         self.label_9.setFixedSize(LNLS_PIXMAP.size())
 
         self.ProcessRecoveryCommand = CommandRunner(
-            command=lambda: process_recovery(IOC), name="ProcessRecovery"
-        )
-        self.OkMessageCommand = ShellCommandRunner(
-            command=f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {OK_MESSAGE_PY} {IOC} REC"
+            command=lambda: process_recovery(self.prefix), name="ProcessRecovery"
         )
 
         self.Shell_PV_Trigger_OK_MESSAGE.setVisible(False)
-        self.Shell_PV_Trigger_OK_MESSAGE.toggled.connect(
-            lambda *_: self.OkMessageCommand.execute_command()
-        )
+        self.Shell_PV_Trigger_OK_MESSAGE.toggled.connect(self._display_ok_message)
         self.Shell_PV_Trigger_OK_MESSAGE.toggled.connect(self._close)
 
         self.buttonBox_2.accepted.connect(
             lambda *_: self.ProcessRecoveryCommand.execute_command()
         )
         self.buttonBox_2.rejected.connect(self._close)
+
+    def _display_ok_message(self, *_):
+        dialog = OkMessageDialog(
+            parent=self, finished=Finished.REC, prefix=self.prefix, macros=self.macros()
+        )
+        dialog.show()
+
+    def _close(self):
+        if self.parent() and isinstance(self.parent(), QWidget):
+            self.parent().close()
+        else:
+            close_qt_application()
 
 
 class VBCWarningMessageDialog(_BaseDialog):

@@ -18,6 +18,8 @@ class DeviceMenu(Display):
             parent=parent, args=args, macros=macros, ui_filename=SIMPLE_WINDOW_UI
         )
         self.lnlsLabel.setPixmap(LNLS_PIXMAP)
+        self.lnlsLabel.setFixedSize(LNLS_PIXMAP.size())
+
         self.prefix: str = macros["IOC"]
 
         self.CommuteValve1Command = CommandRunner(
@@ -40,6 +42,6 @@ class DeviceMenu(Display):
 
     def show_confirmation_message(self, *_args, **_kwargs):
         dialog = ConfirmationMessageDialog(
-            parent=self, prefix=self.prefix, relay_number=5, macros=self.macros
+            parent=self, prefix=self.prefix, relay_number=5, macros=self.macros()
         )
         dialog.show()

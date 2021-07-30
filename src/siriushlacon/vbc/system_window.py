@@ -8,16 +8,17 @@ import typing
 from pydm import Display
 from qtpy.QtGui import QPixmap
 
-from siriushlacon.utils.command_runner import CommandRunner, ShellCommandRunner
-from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
+from siriushlacon.utils.command_runner import CommandRunner
+from siriushlacon.utils.images import CNPEM_PIXMAP, LNLS_PIXMAP
 from siriushlacon.vbc.consts import (
     ADVANCED_WINDOW_PY,
-    OK_MESSAGE_PY,
     PLAY_IMG,
     SIMPLE_WINDOW_PY,
     STOP_IMG,
     SYSTEM_WINDOW_UI,
+    Finished,
 )
+from siriushlacon.vbc.OK_message import OkMessageDialog
 from siriushlacon.vbc.scripts import check_pressure, process_off, process_on
 from siriushlacon.vbc.warning_message import (
     VBCWarningMessageDialog as _VBCWarningMessageDialog,
@@ -34,8 +35,11 @@ class DeviceMenu(Display):
         self.lblOn.setPixmap(QPixmap(PLAY_IMG))
         self.lblOff.setPixmap(QPixmap(STOP_IMG))
 
-        self.lnlsLabel.setPixmap(QPixmap(LNLS_IMG))
-        self.cnpemLabel.setPixmap(QPixmap(CNPEM_IMG))
+        self.lnlsLabel.setPixmap(LNLS_PIXMAP)
+        self.lnlsLabel.setFixedSize(LNLS_PIXMAP.size())
+
+        self.cnpemLabel.setPixmap(CNPEM_PIXMAP)
+        self.cnpemLabel.setFixedSize(CNPEM_PIXMAP.size())
 
         self.WarningMessagePopen: typing.Optional[subprocess.Popen] = None
 
@@ -52,25 +56,13 @@ class DeviceMenu(Display):
             command=lambda: process_off(prefix=self.prefix)
         )
 
-        # Shell script runners
-        self.LaunchOkMessageOnCommand = ShellCommandRunner(
-            command=f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {OK_MESSAGE_PY} {self.prefix} ON"
-        )
-        self.LaunchOkMessageOffCommand = ShellCommandRunner(
-            command=f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {OK_MESSAGE_PY} {self.prefix} OFF"
-        )
-
         # Trigger (usually by an external script)
         self.Shell_PV_trigger_PRESSURIZED.toggled.connect(self.display_warning_message)
         self.Shell_PV_trigger_ON.toggled.connect(
             lambda *_args, **_kwargs: self.ProcessOnCommand.execute_command()
         )
-        self.Shell_PV_Trigger_OK_MESSAGE_ON.toggled.connect(
-            lambda *_args, **_kwargs: self.LaunchOkMessageOnCommand.execute_command()
-        )
-        self.Shell_PV_Trigger_OK_MESSAGE_OFF.toggled.connect(
-            lambda *_args, **_kwargs: self.LaunchOkMessageOffCommand.execute_command()
-        )
+        self.Shell_PV_Trigger_OK_MESSAGE_ON.toggled.connect(self._display_on_message)
+        self.Shell_PV_Trigger_OK_MESSAGE_OFF.toggled.connect(self._display_off_message)
 
         self.btnSimpleTab.macros = json.dumps({"IOC": self.prefix})
         self.btnSimpleTab.filenames = [SIMPLE_WINDOW_PY]
@@ -88,6 +80,20 @@ class DeviceMenu(Display):
             lambda: self.ProcessOffCommand.execute_command()
         )
 
+    def _display_ok_message(self, finished: Finished, *_):
+        dialog = OkMessageDialog(
+            parent=self, finished=finished, prefix=self.prefix, macros=self.macros()
+        )
+        dialog.show()
+
+    def _display_on_message(self, *_):
+        self._display_ok_message(finished=Finished.ON)
+
+    def _display_off_message(self, *_):
+        self._display_ok_message(finished=Finished.OFF)
+
     def display_warning_message(self):
-        dialog = _VBCWarningMessageDialog(prefix=self.prefix)
+        dialog = _VBCWarningMessageDialog(
+            parent=self, prefix=self.prefix, macros=self.macros()
+        )
         dialog.show()
