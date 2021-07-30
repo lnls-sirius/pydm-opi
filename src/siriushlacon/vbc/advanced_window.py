@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 
 from pydm import Display
-from qtpy.QtGui import QPixmap
 
 from siriushlacon.utils.command_runner import ShellCommandRunner
-from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
+from siriushlacon.utils.images import CNPEM_PIXMAP, LNLS_PIXMAP
 from siriushlacon.vbc.consts import ADVANCED_WINDOW_UI, CONFIRMATION_MESSAGE_PY
 
 
@@ -14,8 +13,8 @@ class DeviceMenu(Display):
             parent=parent, args=args, macros=macros, ui_filename=ADVANCED_WINDOW_UI
         )
 
-        self.lnlsLabel.setPixmap(QPixmap(LNLS_IMG))
-        self.cnpemLabel.setPixmap(QPixmap(CNPEM_IMG))
+        self.lnlsLabel.setPixmap(LNLS_PIXMAP)
+        self.cnpemLabel.setPixmap(CNPEM_PIXMAP)
         # defining macros for PyDMShellCommand (valve open/close confirmation)
         macros_ioc = macros["IOC"]
         RELAY_SH_STR = f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {CONFIRMATION_MESSAGE_PY} {macros_ioc}"

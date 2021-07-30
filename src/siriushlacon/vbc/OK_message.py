@@ -27,15 +27,18 @@ class DeviceMenu(Display):
         finished = finished.upper().replace(" ", "")
         if finished == Finished.ON.value:
             self.ClearStatusCommand: CommandRunner = CommandRunner(
-                command=lambda: clear_status_on(prefix=ioc_prefix)
+                command=lambda: clear_status_on(prefix=ioc_prefix),
+                close_when_finished=True,
             )
         elif finished == Finished.OFF.value:
             self.ClearStatusCommand: CommandRunner = CommandRunner(
-                command=lambda: clear_status_off(prefix=ioc_prefix)
+                command=lambda: clear_status_off(prefix=ioc_prefix),
+                close_when_finished=True,
             )
         elif finished == Finished.REC.value:
             self.ClearStatusCommand: CommandRunner = CommandRunner(
-                command=lambda: clear_status_rec(prefix=ioc_prefix)
+                command=lambda: clear_status_rec(prefix=ioc_prefix),
+                close_when_finished=True,
             )
         else:
             raise ValueError(f"Invalid argument {finished}, required {Finished}")

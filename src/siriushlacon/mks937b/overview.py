@@ -91,7 +91,6 @@ class Overview(Display):
         alarmRec.setProperty("alarmSensitiveContent", True)
         alarmRec.setProperty("brush", brush)
         alarmRec.setObjectName("alarmRec")
-        # alarmRec.setStyleSheet(DRAW_ALARMS_NO_INVALID_QSS)
 
         alarmRecComm = PyDMDrawingRectangle(frame)
         alarmRecComm.channel = "ca://{}".format(

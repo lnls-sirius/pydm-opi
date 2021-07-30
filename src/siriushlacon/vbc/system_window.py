@@ -17,9 +17,11 @@ from siriushlacon.vbc.consts import (
     SIMPLE_WINDOW_PY,
     STOP_IMG,
     SYSTEM_WINDOW_UI,
-    WARNING_WINDOW_PY,
 )
 from siriushlacon.vbc.scripts import check_pressure, process_off, process_on
+from siriushlacon.vbc.warning_message import (
+    VBCWarningMessageDialog as _VBCWarningMessageDialog,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -37,34 +39,29 @@ class DeviceMenu(Display):
 
         self.WarningMessagePopen: typing.Optional[subprocess.Popen] = None
 
-        self.macros_ioc = macros["IOC"]
+        self.prefix = macros["IOC"]
 
         # Command Runners
         self.ProcessOnCommand = CommandRunner(
-            command=lambda: process_on(self.macros_ioc), name="ProcessOn"
+            command=lambda: process_on(self.prefix), name="ProcessOn"
         )
         self.CheckPressureCommand = CommandRunner(
-            command=lambda: check_pressure(prefix=self.macros_ioc, first_time=False)
+            command=lambda: check_pressure(prefix=self.prefix, first_time=False)
         )
         self.ProcessOffCommand = CommandRunner(
-            command=lambda: process_off(prefix=self.macros_ioc)
+            command=lambda: process_off(prefix=self.prefix)
         )
 
         # Shell script runners
-        self.WarningWindowCommand = ShellCommandRunner(
-            command=f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {WARNING_WINDOW_PY} {self.macros_ioc}"
-        )
         self.LaunchOkMessageOnCommand = ShellCommandRunner(
-            command=f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {OK_MESSAGE_PY} {self.macros_ioc} ON"
+            command=f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {OK_MESSAGE_PY} {self.prefix} ON"
         )
         self.LaunchOkMessageOffCommand = ShellCommandRunner(
-            command=f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {OK_MESSAGE_PY} {self.macros_ioc} OFF"
+            command=f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {OK_MESSAGE_PY} {self.prefix} OFF"
         )
 
         # Trigger (usually by an external script)
-        self.Shell_PV_trigger_PRESSURIZED.toggled.connect(
-            lambda *_args, **_kwargs: self.WarningWindowCommand.execute_command()
-        )
+        self.Shell_PV_trigger_PRESSURIZED.toggled.connect(self.display_warning_message)
         self.Shell_PV_trigger_ON.toggled.connect(
             lambda *_args, **_kwargs: self.ProcessOnCommand.execute_command()
         )
@@ -75,10 +72,10 @@ class DeviceMenu(Display):
             lambda *_args, **_kwargs: self.LaunchOkMessageOffCommand.execute_command()
         )
 
-        self.btnSimpleTab.macros = json.dumps({"IOC": self.macros_ioc})
+        self.btnSimpleTab.macros = json.dumps({"IOC": self.prefix})
         self.btnSimpleTab.filenames = [SIMPLE_WINDOW_PY]
 
-        self.btnAdvancedTab.macros = json.dumps({"IOC": self.macros_ioc})
+        self.btnAdvancedTab.macros = json.dumps({"IOC": self.prefix})
         self.btnAdvancedTab.filenames = [ADVANCED_WINDOW_PY]
 
         # ON Button
@@ -90,3 +87,7 @@ class DeviceMenu(Display):
         self.Shell_OFF_button.clicked.connect(
             lambda: self.ProcessOffCommand.execute_command()
         )
+
+    def display_warning_message(self):
+        dialog = _VBCWarningMessageDialog(prefix=self.prefix)
+        dialog.show()
