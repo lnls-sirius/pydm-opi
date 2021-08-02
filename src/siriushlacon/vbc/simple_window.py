@@ -5,7 +5,7 @@ from pydm import Display
 
 from siriushlacon.utils.command_runner import CommandRunner
 from siriushlacon.utils.images import LNLS_PIXMAP
-from siriushlacon.vbc.confirmation_message import ConfirmationMessageDialog
+from siriushlacon.vbc.confirmation_message import VentingValveConfirmationMessageDialog
 from siriushlacon.vbc.consts import SIMPLE_WINDOW_UI
 from siriushlacon.vbc.scripts import commute_valve
 
@@ -38,10 +38,14 @@ class DeviceMenu(Display):
         self.ChkGateValve.clicked.connect(
             lambda *_args, **_kwargs: self.CommuteValve2Command.execute_command()
         )
-        self.ChkTurboVentingValve.clicked.connect(self.show_confirmation_message)
 
-    def show_confirmation_message(self, *_args, **_kwargs):
-        dialog = ConfirmationMessageDialog(
-            parent=self, prefix=self.prefix, relay_number=5, macros=self.macros()
+        self.btn_on_turbo_vent_valve.clicked.connect(
+            lambda *_args: self.show_confirmation_message(True)
         )
+        self.btn_off_turbo_vent_valve.clicked.connect(
+            lambda *_args: self.show_confirmation_message(False)
+        )
+
+    def show_confirmation_message(self, state: bool):
+        dialog = VentingValveConfirmationMessageDialog(self, self.prefix, state)
         dialog.show()
