@@ -82,7 +82,7 @@ class ProcessRecoveryAction:
         self.turbovac.pzd2_sp_pv.value = 1200
         self.turbovac.pzd1_sp_sxvl_pv.value = 1
 
-        while self.turbovac.pzd2_rb_pv_pv.value < 1200:
+        while self.turbovac.pzd2_rb_pv.value < 1200:
             time.sleep(self._tick)
 
         self.turbovac.pzd1_sp_sxvl_pv.value = 0
