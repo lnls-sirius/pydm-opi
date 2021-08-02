@@ -27,10 +27,10 @@ repos:
           - flake8-bugbear
           - flake8-implicit-str-concat
 
-  - repo: local
+  - repo: https://github.com/pycqa/isort
+    rev: 5.8.0
     hooks:
-      - id: version-update
-        name: version-update
-        description: Update project version
-        entry: bash .version-update.hook
-        language: system
+      - id: isort
+        name: isort (python)
+        args: ['--profile', 'black']
+

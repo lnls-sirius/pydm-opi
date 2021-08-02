@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 import argparse
-import pcaspy
 
+import pcaspy
 from log import get_logger
 
 logger = get_logger(__name__)
 
 
-def main() -> str:
+def main():
     parser = argparse.ArgumentParser(description="VBC Dummy IOC")
     parser.add_argument(
         "--prefix",

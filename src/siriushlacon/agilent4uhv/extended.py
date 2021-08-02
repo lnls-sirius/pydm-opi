@@ -1,22 +1,15 @@
 #!/usr/bin/env python3
 import logging
-from qtpy.QtWidgets import (
-    QApplication,
-    QWidget,
-    QGridLayout,
-    QPushButton,
-)
-from qtpy.QtCore import QThreadPool
-from siriushlacon.agilent4uhv.agilent import (
-    AgilentAsync,
-    AgilentAsyncRunnable,
-    FIXED as MODE_FIXED,
-    STEP as MODE_STEP,
-    STEP_TO_FIXED as MODE_STEP_TO_FIXED,
-)
 
-from siriushlacon.agilent4uhv.parameters import ParametersFrame
+from qtpy.QtCore import QThreadPool
+from qtpy.QtWidgets import QApplication, QGridLayout, QPushButton, QWidget
+
+from siriushlacon.agilent4uhv.agilent import FIXED as MODE_FIXED
+from siriushlacon.agilent4uhv.agilent import STEP as MODE_STEP
+from siriushlacon.agilent4uhv.agilent import STEP_TO_FIXED as MODE_STEP_TO_FIXED
+from siriushlacon.agilent4uhv.agilent import AgilentAsync, AgilentAsyncRunnable
 from siriushlacon.agilent4uhv.devices import DevicesFrame
+from siriushlacon.agilent4uhv.parameters import ParametersFrame
 
 logger = logging.getLogger()
 

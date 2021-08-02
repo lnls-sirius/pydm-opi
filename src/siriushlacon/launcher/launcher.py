@@ -1,30 +1,28 @@
 import json
-from qtpy.QtGui import QPixmap
+
 from pydm import Display
+from qtpy.QtGui import QPixmap
 
 from siriushlacon import __version__
-from siriushlacon.agilent4uhv.consts import (
-    AGILENT_MAIN,
-    AGILENT_OVERVIEW,
-)
+from siriushlacon.agilent4uhv.consts import AGILENT_MAIN, AGILENT_OVERVIEW
 from siriushlacon.agilent4uhv.extended import MainWindow
+from siriushlacon.beaglebones.consts import BEAGLEBONES_MAIN
+from siriushlacon.countingpru.consts import GAMMA_COUNTING_MAIN
+from siriushlacon.epicstel.consts import EPICSTEL_MAIN
 from siriushlacon.launcher.consts import LAUNCH_WINDOW_UI, PCTRL_MAIN
 from siriushlacon.mbtemp.consts import MBTEMP_MAIN
 from siriushlacon.mks937b.consts import MKS_MAIN, MKS_OVERVIEW
 from siriushlacon.regatron.consts import REGATRON_MAIN
 from siriushlacon.spixconv.consts import SPIXCONV_MAIN
-from siriushlacon.countingpru.consts import GAMMA_COUNTING_MAIN
-from siriushlacon.beaglebones.consts import BEAGLEBONES_MAIN
-from siriushlacon.vbc.consts import MAIN_WINDOW_PY as VBC_MAIN_WINDOW_PY
-from siriushlacon.epicstel.consts import EPICSTEL_MAIN
 from siriushlacon.utils.consts import (
+    BO,
     CNPEM_INVISIBLE_IMG,
     LNLS_INVISIBLE_IMG,
-    BO,
     SI,
     TB,
     TS,
 )
+from siriushlacon.vbc.consts import MAIN_WINDOW_PY as VBC_MAIN_WINDOW_PY
 
 
 class Launcher(Display):

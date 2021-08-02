@@ -2,26 +2,25 @@
 #           Author: Robert Willian Polli
 #           Last version: 04th April, 2020
 # *****************************************************************
-import sys
-import webbrowser
 import datetime
-import time
 import hashlib
-
-from epics import caget, caput, PV
+import sys
+import time
+import webbrowser
 from functools import partial
 
+from epics import PV, caget, caput
 from pydm import Display
+from qtpy import QtCore, QtWidgets
 from qtpy.QtGui import QPixmap
-from qtpy import QtWidgets, QtCore
 
-from siriushlacon.countingpru.Overview import Overview
 from siriushlacon.countingpru.consts import (
-    BEFORE_BC_IMAGE,
     AFTER_BC_IMAGE,
-    LNLS_IMAGE,
+    BEFORE_BC_IMAGE,
     CNPEM_IMAGE,
+    LNLS_IMAGE,
 )
+from siriushlacon.countingpru.Overview import Overview
 
 qtMainFile = "ui/main.ui"
 

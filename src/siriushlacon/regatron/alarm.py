@@ -1,20 +1,16 @@
+import asyncio
 import datetime
 import logging
-import asyncio
-import requests
 
+import requests
 from pydm import Display
 from qtpy.QtCore import QDateTime
 from qtpy.QtWidgets import QTreeWidgetItem
 
-from siriushlacon.regatron.consts import (
-    ALARM_UI,
-    STD_READINGS,
-    EXT_READINGS,
-)
-from siriushlacon.utils.alarm import Alarm, Severity
+from siriushlacon.regatron.consts import ALARM_UI, EXT_READINGS, STD_READINGS
 from siriushlacon.utils.archiver import get_data_from_archiver
 from siriushlacon.utils.consts import SP_TZ
+from siriushlacon.utils.epics import Alarm, Severity
 
 logger = logging.getLogger()
 

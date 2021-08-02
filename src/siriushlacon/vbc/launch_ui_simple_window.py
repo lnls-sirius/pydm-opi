@@ -1,16 +1,13 @@
 #!/usr/bin/env python3
 import logging
 
-from qtpy.QtGui import QPixmap
 from pydm import Display
+from qtpy.QtGui import QPixmap
 
+from siriushlacon.utils.command_runner import CommandRunner, ShellCommandRunner
 from siriushlacon.utils.consts import LNLS_IMG
-from siriushlacon.vbc.command_runner import ShellCommandRunner
-from siriushlacon.vbc.consts import (
-    COMMUTE_VALVE_SCRIPT,
-    CONFIRMATION_MESSAGE_PY,
-    SIMPLE_WINDOW_UI,
-)
+from siriushlacon.vbc.consts import CONFIRMATION_MESSAGE_PY, SIMPLE_WINDOW_UI
+from siriushlacon.vbc.scripts import commute_valve
 
 logger = logging.getLogger(__name__)
 
@@ -23,12 +20,20 @@ class DeviceMenu(Display):
         self.lnlsLabel.setPixmap(QPixmap(LNLS_IMG))
         self.macros_ioc: str = macros["IOC"]
 
-        self.CommuteValve1Command = ShellCommandRunner(
-            command=f"python {COMMUTE_VALVE_SCRIPT} {self.macros_ioc} 1 yes"
+        self.CommuteValve1Command = CommandRunner(
+            command=lambda: commute_valve(
+                prefix=self.macros_ioc, valve=1, confirmed=True
+            ),
+            name="CommuteValve1_True",
         )
-        self.CommuteValve2Command = ShellCommandRunner(
-            command=f"python {COMMUTE_VALVE_SCRIPT} {self.macros_ioc} 2 yes"
+
+        self.CommuteValve2Command = CommandRunner(
+            command=lambda: commute_valve(
+                prefix=self.macros_ioc, valve=2, confirmed=True
+            ),
+            name="CommuteValve2_True",
         )
+
         self.ConfirmationMessageCommand = ShellCommandRunner(
             command=f"pydm --hide-nav-bar --hide-menu-bar --hide-status-bar {CONFIRMATION_MESSAGE_PY} {self.macros_ioc} 5"
         )

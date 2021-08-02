@@ -1,107 +1,128 @@
-#!/usr/bin/python
-from epics import caget, caput
-import sys
+import logging
 import time
 
-# ------------------------------------------------------------------------------
-"""
-this script do all the procedures to recover from a pressurized system (after a
-power failure, for example) if the pressure is in the range (5*10^-2 ~ 1*10^-8).
-It is divided in 5 stages, described as follow:
-    -stage 1: turn ACP15 on and wait 30 s
-    -stage 2: open pre-vacuum valve
-    -stage 3: turn TURBOVAC on
-    -stage 4: wait TURBOVAC frequency reaches 1200 Hz
-    -stage 5: open gate valve
-"""
-# ------------------------------------------------------------------------------
-# define the PREFIX that will be used (passed as a parameter)
-VBC = sys.argv[1]
-# ------------------------------------------------------------------------------
-# valve names definition
-PRE_VACUUM_VALVE_SW = VBC + ":BBB:Relay1-SW"
-PRE_VACUUM_VALVE_UI = VBC + ":BBB:Relay1-UI"
-GATE_VALVE_SW = VBC + ":BBB:Relay2-SW"
-GATE_VALVE_UI = VBC + ":BBB:Relay2-UI"
-# ------------------------------------------------------------------------------
-# clear all status PVs
-caput(VBC + ":ProcessRecovery:Status1", 0)
-caput(VBC + ":ProcessRecovery:Status2", 0)
-caput(VBC + ":ProcessRecovery:Status3", 0)
-caput(VBC + ":ProcessRecovery:Status4", 0)
-caput(VBC + ":ProcessRecovery:Status5", 0)
-# ==============================================================================
-# Stage 1:
-# ==============================================================================
-caput(VBC + ":ProcessRecovery:Status1", 1)
-# turn ACP15 pump ON and wait 30 s
-caput(VBC + ":ACP:OnOff", 1)
-# set ACP15 speed to maximum (6000 rpm)
-caput(VBC + ":ACP:SpeedRPM", 6000)
-# wait until pump receives command to turn on
-while caget(VBC + ":ACP:OnOff") == 0:
-    pass
-time.sleep(30)
-# ==============================================================================
-# Stage 2:
-# ==============================================================================
-# open pre-vacuum valve
-caput(PRE_VACUUM_VALVE_SW, 1)
+from siriushlacon.vbc.epics import ACP, BBB, ProcessRecovery, Turbovac
+
+logger = logging.getLogger(__name__)
 
 
-# update UI checkbox status
-# caput(PRE_VACUUM_VALVE_UI, 1)
+class ProcessRecoveryAction:
+    def __init__(self, prefix: str):
+        if not prefix:
+            raise ValueError(f"parameter prefix cannot be empty {prefix}")
+        self.prefix = prefix
+        self._tick = 0.05
+
+        self.process_recovery = ProcessRecovery(prefix=self.prefix)
+        self.acp = ACP(prefix=self.prefix)
+        self.bbb = BBB(prefix=self.prefix)
+        self.turbovac = Turbovac(prefix=self.prefix)
+
+    def run(self):
+        self._clear_status()
+        self._stage_1()
+        self._stage_2()
+        self._stage_3()
+        self._stage_4()
+        self._stage_5()
+
+    def _clear_status(self):
+        """clear all status PVs"""
+        logger.info("clear_status")
+        self.process_recovery.set_all_clear()
+
+    def _stage_1(self):
+        """Stage 1:"""
+        logger.info("stage1")
+        self.process_recovery.status1_pv.value = 1
+        # turn ACP15 pump ON and wait 30 s
+        self.acp.on_off_pv.value = 1
+        # set ACP15 speed to maximum (6000 rpm)
+        self.acp.speed_rpm.value = 6000
+        # wait until pump receives command to turn on
+        while self.acp.on_off_pv.value == 0:
+            time.sleep(self._tick)
+
+        time.sleep(30)
+
+    def _stage_2(self):
+        """Stage 2:"""
+        logger.info("stage2")
+        # open pre-vacuum valve
+        self.bbb.pre_vacuum_valve_sw_pv.value = 1
+
+        # update UI checkbox status
+        # epics.caput(PRE_VACUUM_VALVE_UI, 1)
+
+        # wait pre-vacuum valve receives value to open
+        while self.bbb.pre_vacuum_valve_sw_pv.value == 0:
+            time.sleep(self._tick)
+
+        self.process_recovery.status2_pv.value = 1
+
+    def _stage_3(self):
+        """Stage 3:"""
+        logger.info("stage3")
+        # turn TURBOVAC pump ON
+        self.turbovac.pzd1_sp_tevl_pv.value = 1
+        self.turbovac.pzd1_sp_zrvl_pv.value = 1
+
+        # wait until pump receives command to turn on
+        while (self.turbovac.pzd1_sp_zrvl_pv.value == 0) & (
+            self.turbovac.pzd1_sp_tevl_pv.value == 0
+        ):
+            time.sleep(self._tick)
+
+        self.process_recovery.status3_pv.value = 1
+
+    def _stage_4(self):
+        """Stage 4:"""
+        logger.info("stage4")
+        # wait TURBOVAC pump reaches 1200 Hz
+        self.turbovac.pzd2_sp_pv.value = 1200
+        self.turbovac.pzd1_sp_sxvl_pv.value = 1
+
+        while self.turbovac.pzd2_rb_pv_pv.value < 1200:
+            time.sleep(self._tick)
+
+        self.turbovac.pzd1_sp_sxvl_pv.value = 0
+        self.process_recovery.status4_pv.value = 1
+
+    def _stage_5(self):
+        """Stage 5:"""
+        logger.info("stage5")
+        # open gate valve (VAT)
+        self.bbb.gate_valve_sw_pv.value = 1
+
+        # update UI checkbox status
+        # epics.caput(GATE_VALVE_UI, 1)
+
+        # ---------------------------------------
+        # read gate valve (VAT) status to check if it is really open
+        loop = True
+        while loop:
+            Lo = self.bbb.valve_open_pv.value
+            Lg = self.bbb.valve_closed_pv.value
+            if Lo & (not Lg):
+                loop = False
+            time.sleep(self._tick)
+
+        self.process_recovery.status5_pv.value = 1
+
+        # complement value of PV to launch "Process Finished" window
+        self.process_recovery.toggle()
 
 
-# wait pre-vacuum valve receives value to open
-while caget(PRE_VACUUM_VALVE_SW) == 0:
-    pass
-caput(VBC + ":ProcessRecovery:Status2", 1)
-# ==============================================================================
-# Stage 3:
-# ==============================================================================
-# turn TURBOVAC pump ON
-caput(VBC + ":TURBOVAC:PZD1-SP.TEVL", 1)
-caput(VBC + ":TURBOVAC:PZD1-SP.ZRVL", 1)
-# wait until pump receives command to turn on
-while (caget(VBC + ":TURBOVAC:PZD1-SP.ZRVL") == 0) & (
-    caget(VBC + ":TURBOVAC:PZD1-SP.TEVL") == 0
-):
-    pass
-caput(VBC + ":ProcessRecovery:Status3", 1)
-# ==============================================================================
-# Stage 4:
-# ==============================================================================
-# wait TURBOVAC pump reaches 1200 Hz
-caput(VBC + ":TURBOVAC:PZD2-SP", 1200)
-caput(VBC + ":TURBOVAC:PZD1-SP.SXVL", 1)
-while caget(VBC + ":TURBOVAC:PZD2-RB") < 1200:
-    pass
-caput(VBC + ":TURBOVAC:PZD1-SP.SXVL", 0)
-caput(VBC + ":ProcessRecovery:Status4", 1)
-# ==============================================================================
-# Stage 5:
-# ==============================================================================
-# open gate valve (VAT)
-caput(GATE_VALVE_SW, 1)
-
-
-# update UI checkbox status
-# caput(GATE_VALVE_UI, 1)
-
-
-# ---------------------------------------
-# read gate valve (VAT) status to check if it is really open
-loop = True
-while loop:
-    Lo = caget(VBC + ":BBB:ValveOpen")
-    Lg = caget(VBC + ":BBB:ValveClosed")
-    if Lo & (not Lg):
-        loop = False
-caput(VBC + ":ProcessRecovery:Status5", 1)
-# ==============================================================================
-# complement value of PV to launch "Process Finished" window
-# caput(VBC + ":Process:Bool", not(caget(VBC + ":Process:Bool")))
-caput(VBC + ":ProcessRec:Bool", 1)
-caput(VBC + ":ProcessRec:Bool", 0)
-# ==============================================================================
+def process_recovery(prefix: str):
+    """
+    this script do all the procedures to recover from a pressurized system (after a
+    power failure, for example) if the pressure is in the range (5*10^-2 ~ 1*10^-8).
+    It is divided in 5 stages, described as follow:
+        -stage 1: turn ACP15 on and wait 30 s
+        -stage 2: open pre-vacuum valve
+        -stage 3: turn TURBOVAC on
+        -stage 4: wait TURBOVAC frequency reaches 1200 Hz
+        -stage 5: open gate valve
+    """
+    action = ProcessRecoveryAction(prefix=prefix)
+    action.run()

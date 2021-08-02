@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
-from typing import List, NamedTuple
 import typing
+from typing import List, NamedTuple
 
+from conscommon.data_model import Device
 from qtpy import QtGui, QtWidgets
-
-from conscommon.data_model import (
-    Device,
-)
 
 
 class DeviceTreeSelection(NamedTuple):

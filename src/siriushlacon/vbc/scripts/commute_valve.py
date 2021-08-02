@@ -1,47 +1,62 @@
-#!/usr/bin/python
-from epics import caget, caput
+import logging
 import time
-import sys
 
-# ------------------------------------------------------------------------------
-"""
-this is script is used to commute a valve value
-"""
-# ------------------------------------------------------------------------------
-# define the PREFIX that will be used (passed as a parameter)
-VBC = sys.argv[1]
-VALVE = sys.argv[2]
-SW = VBC + ":BBB:Relay" + VALVE + "-SW"
-UI = VBC + ":BBB:Relay" + VALVE + "-UI"
-# ------------------------------------------------------------------------------
-time.sleep(1)
-# if relay swtiching message is confirmed, change PV SW values:
-if str(sys.argv[3]) == "yes":
-    if VALVE == "1":
-        caput(SW, not (caget(SW)))
-    elif VALVE == "2":
-        caput(SW, not (caget(SW)))
-    elif VALVE == "3":
-        caput(SW, not (caget(SW)))
-    elif VALVE == "4":
-        caput(SW, not (caget(SW)))
-    elif VALVE == "5":
-        caput(
-            VBC + ":TURBOVAC:VentingValve-SW",
-            not (caget(VBC + ":TURBOVAC:VentingValve-SW")),
-        )
-# if relay swtiching message is canceled, do nothing:
-elif sys.argv[3] == "no":
-    if VALVE == "1":
-        caput(UI + ".RVAL", caget(SW))
-    elif VALVE == "2":
-        caput(UI + ".RVAL", caget(SW))
-    elif VALVE == "3":
-        caput(UI + ".RVAL", caget(SW))
-    elif VALVE == "4":
-        caput(UI + ".RVAL", caget(SW))
-    elif VALVE == "5":
-        caput(
-            VBC + ":TURBOVAC:VentingValve-UI.RVAL",
-            caget(VBC + ":TURBOVAC:VentingValve-SW"),
-        )
+from siriushlacon.utils.epics import create_connected_pv
+
+logger = logging.getLogger(__name__)
+
+
+def _venting_valve(prefix: str, confirmed: bool):
+    """
+    this is script is used to commute a valve value
+    """
+    logger.info("venting_valve")
+    turbovac_venting_valve_pv = create_connected_pv(
+        pvname=f"{prefix}:TURBOVAC:VentingValve-SW"
+    )
+    turbovac_venting_valve_ui_pv = create_connected_pv(
+        pvname=f"{prefix}:TURBOVAC:VentingValve-UI.RVAL"
+    )
+
+    time.sleep(1)  # why?!
+
+    # if relay swtiching message is confirmed, change PV SW values:
+    if confirmed:
+        turbovac_venting_valve_pv.value = not (turbovac_venting_valve_pv.value)
+
+    # if relay swtiching message is canceled, do nothing:
+    else:
+        turbovac_venting_valve_ui_pv.value = turbovac_venting_valve_pv.value
+
+
+def _relay(prefix: str, valve: int, confirmed: bool):
+    """
+    this is script is used to commute a valve value
+    """
+    logger.info("relay")
+
+    sw_pv = create_connected_pv(pvname=f"{prefix}:BBB:Relay{valve}-SW")
+    ui_pv = create_connected_pv(pvname=f"{prefix}:BBB:Relay{valve}-UI.RVAL")
+
+    time.sleep(1)  # why?!
+
+    # if relay swtiching message is confirmed, change PV SW values:
+    if confirmed:
+        sw_pv.value = not (sw_pv.value)
+
+    # if relay swtiching message is canceled, do nothing:
+    else:
+        ui_pv.value = sw_pv.value
+
+
+def commute_valve(prefix: str, valve: int, confirmed: bool):
+    """
+    this is script is used to commute a valve value
+    """
+
+    if valve >= 1 and valve <= 4:
+        _relay(prefix=prefix, valve=valve, confirmed=confirmed)
+    elif valve == 5:
+        _venting_valve(prefix=prefix, confirmed=confirmed)
+    else:
+        raise ValueError(f"Invalid valve value '{valve}'")

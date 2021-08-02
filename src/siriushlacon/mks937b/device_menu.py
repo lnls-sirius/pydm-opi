@@ -5,7 +5,7 @@ from pydm import Display
 from qtpy.QtCore import QUrl
 from qtpy.QtGui import QDesktopServices, QPixmap
 
-from siriushlacon.mks937b.consts import PRESSURE, SETTINGS, INFO_UI, DEVICE_MENU_UI
+from siriushlacon.mks937b.consts import DEVICE_MENU_UI, INFO_UI, PRESSURE, SETTINGS
 from siriushlacon.tools.consts import VIEWER_URL
 from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
 

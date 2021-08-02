@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 import json
-from pydm import Display
-from siriushlacon.vbc.consts import MAIN_WINDOW_UI, SYSTEM_WINDOW_PY
-from siriushlacon.utils.consts import LNLS_IMG, CNPEM_IMG
 
+from pydm import Display
 from qtpy.QtGui import QColor, QPixmap
+
+from siriushlacon import __version__
+from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
+from siriushlacon.vbc.consts import MAIN_WINDOW_UI, SYSTEM_WINDOW_PY
 
 
 class DeviceMenu(Display):
@@ -13,6 +15,7 @@ class DeviceMenu(Display):
             parent=parent, args=args, macros=macros, ui_filename=MAIN_WINDOW_UI
         )
         self.lnlsLabel.setPixmap(QPixmap(LNLS_IMG))
+        self.labelVersion.setText(__version__)
         self.cnpemLabel.setPixmap(QPixmap(CNPEM_IMG))
 
         self.VBC_car_1.filenames = [SYSTEM_WINDOW_PY]

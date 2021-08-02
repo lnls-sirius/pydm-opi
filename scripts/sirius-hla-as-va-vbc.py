@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-import subprocess
 import os
+import subprocess
+
 from siriushlacon.vbc.consts import MAIN_WINDOW_PY as VBC_MAIN_WINDOW_PY
 
 os.environ["PYDM_DEFAULT_PROTOCOL"] = "ca://"

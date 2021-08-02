@@ -1,13 +1,13 @@
-import logging
 import json
+import logging
 
 from pydm import Display
 from qtpy.QtGui import QPixmap
 
 from siriushlacon.agilent4uhv.consts import (
-    AGILENT_DEVICE_MAIN_UI,
     AGILENT_CHANNEL,
     AGILENT_DEVICE,
+    AGILENT_DEVICE_MAIN_UI,
 )
 from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
 

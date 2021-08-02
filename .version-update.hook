@@ -1,5 +1,5 @@
 #!/bin/sh
-set -ex
+set -e
 
 # Update repository version
 original_version=$(grep -oP '(?<=__version__ = ").*(?=")' src/siriushlacon/__init__.py)

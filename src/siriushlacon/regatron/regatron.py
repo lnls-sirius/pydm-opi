@@ -1,23 +1,22 @@
-import logging
-import json
 import datetime
+import json
+import logging
 
 import epics
-
 from pydm import Display
 from pydm.utilities import IconFont
 from pydm.widgets.channel import PyDMChannel
-from qtpy.QtWidgets import QTableWidgetItem
-from qtpy.QtGui import QDesktopServices
 from qtpy.QtCore import QUrl
+from qtpy.QtGui import QDesktopServices
+from qtpy.QtWidgets import QTableWidgetItem
 
 from siriushlacon.regatron.consts import (
-    COMPLETE_UI,
-    TREE_32,
-    READINGS_MAP,
     ALARM_MAIN,
     CODES,
+    COMPLETE_UI,
     ERROR_LIST_PDF,
+    READINGS_MAP,
+    TREE_32,
 )
 
 logger = logging.getLogger()

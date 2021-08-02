@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>977</width>
-    <height>489</height>
+    <width>975</width>
+    <height>487</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>VBC - Main</string>
   </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
@@ -2647,6 +2647,13 @@
       </property>
       <property name="openInNewWindow" stdset="0">
        <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="5">
+     <widget class="QLabel" name="labelVersion">
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>

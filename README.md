@@ -1,18 +1,21 @@
 Sirius HLA CONS - GUI
 ===========
 
-This repo should contain every PyDM OPI developed by the CONS group currently in use.
+This repo contains various PyDM OPIs in use.
 
-[![PyPi Deploy](https://api.travis-ci.org/lnls-sirius/pydm-opi.svg)](https://travis-ci.org/lnls-sirius/pydm-opi)
+[![Publish siriuspy to PyPI](https://github.com/lnls-sirius/pydm-opi/actions/workflows/pypi.yml/badge.svg)](https://github.com/lnls-sirius/pydm-opi/actions/workflows/pypi.yml)
 [![Lint](https://github.com/lnls-sirius/pydm-opi/actions/workflows/lint.yml/badge.svg)](https://github.com/lnls-sirius/pydm-opi/actions/workflows/lint.yml)
+
+
 ![Latest tag](https://img.shields.io/github/tag/lnls-sirius/pydm-opi.svg?style=flat)
 [![Latest release](https://img.shields.io/github/release/lnls-sirius/pydm-opi.svg?style=flat)](https://github.com/lnls-sirius/pydm-opi/releases)
 [![PyPI version fury.io](https://badge.fury.io/py/siriushlacon.svg)](https://pypi.python.org/pypi/siriushlacon/)
+
 [![Read the Docs](https://readthedocs.org/projects/spack/badge/?version=latest)](https://lnls-sirius.github.io/pydm-opi/)
 
 Develop
 -------
-In order to contribute with this repository the developer must have **pre-commit** installed locally.
+In order to contribute with this repository the developer must have **pre-commit** installed and enabled.
 ```command
 pip install pre-commit
 pre-commit install
@@ -24,11 +27,9 @@ Install
 
 Available at **PyPi** https://pypi.org/project/siriushlacon/, can be installed using pip but specific versions of QT are needed.
 
-```command
-pip install siriushlacon
-```
+### Conda
 
-Conda setup:
+#### Install (Linux)
 ```command
 # Install Miniconda
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -36,37 +37,73 @@ sh Miniconda3-latest-Linux-x86_64.sh
 
 # Remove the install script
 rm Miniconda3-latest-Linux-x86_64.sh
+```
 
-# Optionally create an environment using a tested python version
-conda create -p /opt/conda/envs/cons python=3.8
+#### Install (Windows)
 
-# Dependencies
+Download at https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe
+
+**Important**
+
+- Local installation (single user only).
+- Add to the PATH
+
+The user should check if conda is enabled. The powershell prompt should look like:
+```powershell
+(base) ...
+```
+
+In order to setup conda correctly on powershell use the command below then restart the shell application:
+```powershell
+conda init powershell
+```
+
+Set the powershell execution policy so external scripts are availble https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.1
+
+```powershell
+Set-ExecutionPolicy RemoteSigned
+```
+
+#### Environment setup
+
+Create a conda environment using a tested python version
+```command
+conda create --name py36 python=3.6
+```
+
+Environment dependencies:
+```command
+# Activate the environment "py36", the shell prompt should start with "(py36) ..."
+conda activate py36
+
+# Enable conda-forge channel
 conda config --add channels conda-forge
 conda config --set channel_priority strict
+
+# Install EPICS base
+conda install -c conda-forge/label/cf202003 epics-base
+
+# Install dependencies
 conda install qt==5.12.9 pyqt==5.12.3 pydm==1.10.4
 
-pip install siriushlacon
+# Install interfaces
+pip install --upgrade siriushlacon
 ```
 
-### EPICS Base
-Install EPICS and add it to PATH(Windows only)
-```
-https://epics.anl.gov/download/distributions/EPICSWindowsTools1.44-x64.msi
-```
-For linux users the recommended way is to compile the latest LTS release of [EPICS Base (R3.15.8)](https://github.com/epics-base/epics-base/tree/3.15).
-The `<EPICS_BASE>/bin` folder must be added to the environment variable `PATH` and `<EPICS_BASE>/lib` folder to `LD_LIBRARY_PATH`.
-
-### Desktop
-In order to install the `.desktop` launcher:
-```command
-make install-files
-```
-If using conda, remember to fix the Exec entry at the `.desktop' file accordingly:
-```bash
-/bin/bash -c 'source /opt/conda/etc/profile.d/conda.sh && conda activate cons && sirius-hla-as-ap-conlauncher.py'
+## Desktop shortcut
+### Windows:
+This assumes a conda environment named `py36`. The `.lnk` content must be updated in case of a different name.
+```powershell
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/lnls-sirius/pydm-opi/master/miscellaneous/windows/Create-Shortcut.ps1'));
 ```
 
 Run
 ---
-To launch the main window use the script: `sirius-hla-as-ap-conlauncher.py`. On Windows make sure that the correct `python.exe` is the default program for `*.py` files.
+To launch the main window use the script: `sirius-hla-as-ap-conlauncher.py`.
 
+On Windows make sure that the correct `python.exe` or `pythonw.exe` is the default program for `*.py` files.
+
+```powershell
+pythonw.exe (Get-Command sirius-hla-as-ap-conlauncher.py).Path
+pythonw.exe (Get-Command sirius-hla-as-va-vbc.py).Path
+```
