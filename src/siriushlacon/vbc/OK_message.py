@@ -40,18 +40,24 @@ class OkMessage(Display):
 
         if finished == Finished.ON:
             self.ClearStatusCommand = CommandRunner(
+                name=f"ClearStatusOn?prefix={self.prefix}",
                 command=lambda: clear_status_on(prefix=self.prefix),
                 close_when_finished=True,
+                parent_widget=self.parent(),
             )
         elif finished == Finished.OFF:
             self.ClearStatusCommand = CommandRunner(
+                name=f"ClearStatusOff?prefix={self.prefix}",
                 command=lambda: clear_status_off(prefix=self.prefix),
                 close_when_finished=True,
+                parent_widget=self.parent(),
             )
         elif finished == Finished.REC:
             self.ClearStatusCommand = CommandRunner(
+                name=f"ClearStatusRec?prefix={self.prefix}",
                 command=lambda: clear_status_rec(prefix=self.prefix),
                 close_when_finished=True,
+                parent_widget=self.parent(),
             )
         else:
             raise ValueError(f"Invalid argument {finished}, required {Finished}")

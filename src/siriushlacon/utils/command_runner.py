@@ -34,6 +34,10 @@ class CommandRunner:
                 raise TypeError(
                     f"parameter 'parent_widget' must be of type {QWidget}, received {parent_widget}"
                 )
+        if not parent_widget and close_when_finished:
+            _logger.warning(
+                f"{self} does not have a parent widget, qt app will be closed"
+            )
 
         self._parent_widget: typing.Optional[QWidget] = parent_widget
         self._close_when_finished = close_when_finished
