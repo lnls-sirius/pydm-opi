@@ -41,6 +41,7 @@ def ioc(prefix: str):
         f"{prefix}:ACP:OnOff": {"type": "float"},
         f"{prefix}:ACP:SpeedRPM": {"type": "float"},
         f"{prefix}:BBB:Relay1-SW": {"type": "float"},
+        f"{prefix}:BBB:Relay1-UI": {"type": "int"},
         f"{prefix}:BBB:Relay1-UI.RVAL": {"type": "int"},
         f"{prefix}:BBB:Relay2-SW": {"type": "float"},
         f"{prefix}:BBB:Relay2-UI": {"type": "int"},
