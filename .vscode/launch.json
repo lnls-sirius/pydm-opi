@@ -2,6 +2,30 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "sirius-hla-as-va-agilent4uhv",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/sirius-hla-as-va-agilent4uhv.py",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src",
+        "EPICS_CA_AUTO_ADDR_LIST": "NO",
+        "EPICS_CA_ADDR_LIST": " localhost"
+      }
+    },
+    {
+      "name": "sirius-hla-as-va-mks937b",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/sirius-hla-as-va-mks937b.py",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src",
+        "EPICS_CA_AUTO_ADDR_LIST": "NO",
+        "EPICS_CA_ADDR_LIST": " localhost"
+      }
+    },
+    {
       "name": "sirius-hla-as-va-vbc",
       "type": "python",
       "request": "launch",

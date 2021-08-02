@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
+import argparse
 import os
-import subprocess
 
 from siriushlacon.agilent4uhv.consts import AGILENT_MAIN
+from siriushlacon.utils.launch import LogLevel, launch_pydm
 
 os.environ["PYDM_DEFAULT_PROTOCOL"] = "ca://"
 
-subprocess.Popen("pydm --hide-nav-bar " + AGILENT_MAIN, shell=True)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser("VAC Pumps Controller")
+    args = parser.parse_args()
+    launch_pydm(displayfile=AGILENT_MAIN, hide_nav_bar=True, log_level=LogLevel.INFO)
