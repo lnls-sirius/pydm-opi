@@ -4,8 +4,19 @@ import time
 
 import redis
 
-LA_SERVER_IP = "10.0.38.46"
-CA_SERVER_IP = "10.0.38.59"
+SERVER_LIST = [
+    "10.0.38.59",
+    "10.0.38.46",
+    "10.0.38.42",
+    "10.128.153.81",
+    "10.128.153.82",
+    "10.128.153.83",
+    "10.128.153.84",
+    "10.128.153.85",
+    "10.128.153.86",
+    "10.128.153.87",
+    "10.128.153.88",
+]
 LOG_PATH_SERVER = "bbbread.log"
 device = "server"
 
@@ -40,43 +51,52 @@ class Command:
 class RedisServer:
     """Runs on Control System's Server"""
 
-    def __init__(self, log_path=LOG_PATH_SERVER):
+    def __init__(self):
         # Configuring logging
         self.logger = logging.getLogger("bbbreadServer")
         self.logger.setLevel(logging.DEBUG)
         self.logger.debug("Starting up BBBread Server")
 
         # Probably connecting to a existing server, tries to connect to primary server
-        self.local_db = redis.StrictRedis(
-            host=LA_SERVER_IP, port=6379, socket_timeout=2
-        )
-        try:
-            self.local_db.ping()
-            self.logger.debug("Connected to LA-RaCtrl-CO-Srv-1 Redis Server")
-        # If primary server is not available, tries to connect to backup server
-        except redis.exceptions.ConnectionError:
-            self.local_db = redis.StrictRedis(
-                host=CA_SERVER_IP, port=6379, socket_timeout=2
-            )
-            try:
-                self.local_db.ping()
-                self.logger.debug("Connected to CA-RaCtrl-CO-Srv-1 Redis Server")
-            # Case no BBBread server is found
-            except redis.exceptions.ConnectionError:
-                self.logger.error("No BBBread Server found")
-                raise Exception("No BBBread Server found")
+
+        while True:
+            for server in SERVER_LIST:
+                try:
+                    remote_db = redis.StrictRedis(
+                        host=server, port=6379, socket_timeout=4
+                    )
+                    remote_db.ping()
+                    self.logger.info("Connected to {} Redis Server".format(server))
+                    self.local_db = remote_db
+                    return
+                except redis.exceptions.ConnectionError:
+                    self.logger.warning(
+                        "{} Redis server is disconnected".format(server)
+                    )
+                except redis.exceptions.ResponseError:
+                    self.logger.warning(
+                        "Could not connect to {}, a response error has ocurred".format(
+                            server
+                        )
+                    )
+                    time.sleep(30)
+                except Exception as e:
+                    self.logger.warning("Could not connect to {}: {}".format(server, e))
+                    time.sleep(50)
+                continue
+
+            self.logger.info("Server not found. Retrying to connect in 10 seconds...")
+            time.sleep(10)
 
     def get_logs(self, hashname=None):
-
         if hashname:
             return [
                 [key.decode("utf-8"), value.decode("utf-8")]
                 for key, value in self.local_db.hgetall(hashname).items()
             ]
-        else:
-            return [name.decode("utf-8") for name in self.local_db.keys("BBB:*:Logs")]
 
-    # TODO: Change function name
+        return [name.decode("utf-8") for name in self.local_db.keys("BBB:*:Logs")]
+
     def list_connected(self, ip="", hostname=""):
         """Returns a list of all BeagleBone Blacks connected to REDIS database
         If IP or hostname is specified lists only the ones with the exact specified parameter"""
@@ -128,7 +148,8 @@ class RedisServer:
                 bbb_command_listname = "{}:Command".format(bbb_hashname[0])
                 check = self.local_db.rpush(bbb_command_listname, command)
                 return bool(check)
-            elif len(bbb_hashname) < 1:
+
+            if len(bbb_hashname) < 1:
                 self.logger.error(
                     "no node found with the specified IP and hostname:" + ip + hostname
                 )
@@ -154,14 +175,16 @@ class RedisServer:
         last_logs = self.local_db.hvals(hashname + ":Logs")
         if node_state[:3] == "BBB":
             return 2
-        elif time_since_ping >= 25:
+
+        if time_since_ping >= 25:
             if node_state != "Disconnected":
                 self.local_db.hset(hashname, "state_string", "Disconnected")
                 self.log_remote(hashname + ":Logs", "Disconnected", int(now) - 10800)
             return 1
+
         if last_logs:
             known_status = last_logs[-1].decode()
-            if known_status == "Disconnected" or known_status == hashname:
+            if known_status in ["Disconnected", hashname]:
                 self.log_remote(hashname + ":Logs", "Reconnected", int(now) - 10800)
         return 0
 
