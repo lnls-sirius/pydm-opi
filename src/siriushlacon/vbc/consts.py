@@ -8,7 +8,7 @@ def get_abs_path(filename):
     return pkg_resources.resource_filename(__name__, filename)
 
 
-class Finished(enum.Enum):
+class Finished(str, enum.Enum):
     ON = "ON"
     OFF = "OFF"
     REC = "REC"
@@ -32,10 +32,10 @@ WARNING_WINDOW_UI = get_abs_path("ui/warning_message.ui")
 SIMPLE_WINDOW_UI = get_abs_path("ui/simple_window.ui")
 
 # PY
-ADVANCED_WINDOW_PY = get_abs_path("launch_ui_advanced_window.py")
-CONFIRMATION_MESSAGE_PY = get_abs_path("launch_ui_confirmation_message.py")
-MAIN_WINDOW_PY = get_abs_path("launch_ui_main_window.py")
-OK_MESSAGE_PY = get_abs_path("launch_ui_OK_message.py")
-SYSTEM_WINDOW_PY = get_abs_path("launch_ui_system_window.py")
-WARNING_WINDOW_PY = get_abs_path("launch_ui_warning_message.py")
-SIMPLE_WINDOW_PY = get_abs_path("launch_ui_simple_window.py")
+ADVANCED_WINDOW_PY = get_abs_path("advanced_window.py")
+CONFIRMATION_MESSAGE_PY = get_abs_path("confirmation_message.py")
+MAIN_WINDOW_PY = get_abs_path("main_window.py")
+OK_MESSAGE_PY = get_abs_path("OK_message.py")
+SYSTEM_WINDOW_PY = get_abs_path("system_window.py")
+WARNING_WINDOW_PY = get_abs_path("warning_message.py")
+SIMPLE_WINDOW_PY = get_abs_path("simple_window.py")
