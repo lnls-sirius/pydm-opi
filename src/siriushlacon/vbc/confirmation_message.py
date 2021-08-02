@@ -111,7 +111,8 @@ class VentingValveConfirmationMessage(_Display):
         self.relay_number = 5
         self.state = state
 
-        self.VALVE.setText("Venting Valve?")
+        text = "(on)" if state else "(off)"
+        self.VALVE.setText(f"Venting Valve? {text}")
 
         self.CommuteValveYesCommand = CommandRunner(
             command=lambda: set_venting_valve_state(prefix=self.prefix, state=state),
