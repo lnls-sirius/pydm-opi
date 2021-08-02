@@ -170,7 +170,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         # Log Filters
         self.toTimeEdit.dateTimeChanged.connect(self.update_filters)
         self.fromTimeEdit.dateTimeChanged.connect(self.update_filters)
-        self.filterEdit.textChanged.connect(self.update_log_text)
+        self.filterEdit.textChanged.connect(self.update_filters)
 
         # Loads loading indicators
         self.loading_icon = QtGui.QPixmap(RED_LED).scaledToHeight(20)
@@ -190,11 +190,6 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         if not self.logs_thread.isRunning():
             self.logs_thread.start()
 
-    def update_log_text(self):
-        """Sets table values and converts timestamp, deep copies logs"""
-        if self.tabWidget.currentIndex() == 3:
-            self.update_filters()
-
     def update_filters(self):
         """Updates log table with filters set by user"""
         if not self.data:
@@ -202,36 +197,43 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
 
         search = self.filterEdit.text()
 
-        max_date = self.toTimeEdit.dateTime().toPyDateTime().timestamp()
-        min_date = self.fromTimeEdit.dateTime().toPyDateTime().timestamp()
+        if self.tabWidget.currentIndex() == 3:
+            max_date = self.toTimeEdit.dateTime().toPyDateTime().timestamp()
+            min_date = self.fromTimeEdit.dateTime().toPyDateTime().timestamp()
 
-        if min_date > max_date:
-            self.fromTimeEdit.setDateTime(self.toTimeEdit.dateTime())
+            if min_date > max_date:
+                self.fromTimeEdit.setDateTime(self.toTimeEdit.dateTime())
 
-        if min_date == max_date:
-            self.update_table(self.data)
+            if min_date == max_date:
+                self.update_table(self.data)
 
-        length = len(self.data)
-        min_index, max_index = length, 0
+            length = len(self.data)
+            min_index, max_index = length, 0
 
-        # Compares Unix timestamp for logs and filter, stops when a log satisfies the filter
-        for index, log in enumerate(self.data):
-            if int(log[0]) < min_date:
-                min_index = index
-                break
+            # Compares Unix timestamp for logs and filter, stops when a log satisfies the filter
+            for index, log in enumerate(self.data):
+                if int(log[0]) < min_date:
+                    min_index = index
+                    break
 
-        for index, log in enumerate(self.data[::-1]):
-            if int(log[0]) > max_date:
-                max_index = length - index
-                break
+            for index, log in enumerate(self.data[::-1]):
+                if int(log[0]) > max_date:
+                    max_index = length - index
+                    break
 
-        data = self.data[max_index:min_index]
+            data = self.data[max_index:min_index]
 
-        # If the user has set a string filter, all logs without a mention of the filter are removed
-        if search:
-            data = [r for r in data if search in r[2] or search in r[1]]
+            if search:
+                data = [r for r in data if search in r[2] or search in r[1]]
 
-        self.update_table(data, update=False)
+            self.update_table(data, update=False)
+            return True
+        else:
+            data = {}
+            for key in self.nodes_info:
+                if search in key:
+                    data[key] = self.nodes_info[key]
+            self.update_node_list(data, update=False)
 
     def update_table(self, logs, update=True):
         """Updates content of logs table"""
@@ -280,9 +282,14 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
 
         self.status_icon.setPixmap(self.idle_icon)
 
-    def update_node_list(self, nodes):  # noqa: C901
+    def update_node_list(self, nodes, update=True):  # noqa: C901
+        if update:
+            self.nodes, self.nodes_info = nodes
+            self.update_filters()
+            return
         """Gets updated node list and applies it to all lists"""
-        self.nodes, self.nodes_info = nodes
+        names = nodes.keys()
+        node_info = nodes
         connected_number = 0
         data = []
 
@@ -327,8 +334,8 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
             "": self.nodevAdvancedBox.isChecked(),
         }
         self.updating = True
-        for node, info in self.nodes_info.items():
-            if node not in self.nodes:
+        for node, info in node_info.items():
+            if node not in names:
                 continue
             try:
                 # Organizes node information
@@ -350,9 +357,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
             if node_state == "Connected":
                 connected_number += 1
             # Filters by name and displays node in list
-            if (
-                self.filterEdit.text() == "" or self.filterEdit.text() in node_string
-            ) and room_names[self.roomBox.currentText()] in [node_sector, ""]:
+            if room_names[self.roomBox.currentText()] in [node_sector, ""]:
                 current_equipment = 0
                 for equipment, efilter in equipment_filter.items():
                     current_equipment += 1
