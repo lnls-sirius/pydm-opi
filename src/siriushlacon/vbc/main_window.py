@@ -7,7 +7,7 @@ from pydm.widgets.related_display_button import PyDMRelatedDisplayButton
 from qtpy.QtGui import QColor
 from qtpy.QtWidgets import QLabel
 
-from siriushlacon import __version__
+from siriushlacon import __date__, __version__
 from siriushlacon.utils.images import CNPEM_PIXMAP, LNLS_PIXMAP
 from siriushlacon.vbc.consts import MAIN_WINDOW_UI, SYSTEM_WINDOW_PY
 
@@ -50,7 +50,7 @@ class VBCMainWindow(Display):
         self.cnpemLabel.setPixmap(CNPEM_PIXMAP)
         self.cnpemLabel.setFixedSize(CNPEM_PIXMAP.size())
 
-        self.labelVersion.setText(__version__)
+        self.labelVersion.setText(f"{__version__} {__date__}")
 
         self.VBC_car_1.filenames = [SYSTEM_WINDOW_PY]
         self.VBC_car_2.filenames = [SYSTEM_WINDOW_PY]
