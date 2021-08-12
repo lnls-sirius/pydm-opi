@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>475</width>
-    <height>399</height>
+    <width>577</width>
+    <height>437</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -939,41 +939,6 @@
           </property>
          </spacer>
         </item>
-        <item row="0" column="3">
-         <widget class="PyDMShellCommand" name="Shell_OK_MESSAGE">
-          <property name="maximumSize">
-           <size>
-            <width>1</width>
-            <height>1</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Cantarell</family>
-            <pointsize>11</pointsize>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="toolTip">
-           <string/>
-          </property>
-          <property name="whatsThis">
-           <string>
-    A QPushButton capable of execute shell commands.
-    </string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>1</width>
-            <height>1</height>
-           </size>
-          </property>
-         </widget>
-        </item>
         <item row="1" column="1">
          <spacer name="horizontalSpacer_2">
           <property name="font">
@@ -1096,7 +1061,7 @@
           <property name="minimumSize">
            <size>
             <width>80</width>
-            <height>0</height>
+            <height>80</height>
            </size>
           </property>
           <property name="maximumSize">
@@ -1118,38 +1083,6 @@
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="5">
-         <widget class="PyDMShellCommand" name="Shell_rec_script">
-          <property name="maximumSize">
-           <size>
-            <width>1</width>
-            <height>1</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Cantarell</family>
-            <pointsize>11</pointsize>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="toolTip">
-           <string/>
-          </property>
-          <property name="whatsThis">
-           <string>
-    A QPushButton capable of execute shell commands.
-    </string>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>1</width>
-            <height>1</height>
-           </size>
           </property>
          </widget>
         </item>
@@ -1366,59 +1299,21 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMByteIndicator</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.byte</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMLabel</class>
    <extends>QLabel</extends>
    <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
    <class>PyDMCheckbox</class>
    <extends>QCheckBox</extends>
    <header>pydm.widgets.checkbox</header>
   </customwidget>
-  <customwidget>
-   <class>PyDMShellCommand</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.shell_command</header>
-  </customwidget>
  </customwidgets>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox_2</sender>
-   <signal>rejected()</signal>
-   <receiver>Form</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>196</x>
-     <y>157</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>7</x>
-     <y>150</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Shell_PV_Trigger_OK_MESSAGE</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>Form</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>117</x>
-     <y>143</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>2</x>
-     <y>90</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
