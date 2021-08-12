@@ -6,7 +6,7 @@ def get_abs_path(filename):
     return pkg_resources.resource_filename(__name__, filename)
 
 
-TABLES = ["basic", "advanced", "services", "logs"]
+TABLES = ["basic", "advanced", "services", "ps", "logs"]
 
 BEAGLEBONES_MAIN = get_abs_path("main.py")
 BEAGLEBONES_MAIN_UI = get_abs_path("ui/main.ui")
