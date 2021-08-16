@@ -183,6 +183,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
 
         # State lock
         self.updating = False
+        self.fetch_ps = True
 
     def update_nodes(self):
         """Updates list of BBBs shown"""
@@ -235,6 +236,8 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
             return True
         elif self.tabWidget.currentIndex() == 3:
             data = {}
+            if not self.fetch_ps:
+                return False
             for node in self.nodes_info:
                 self.nodes_info[node]["ps"] = []
                 try:
@@ -246,6 +249,16 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                             data[node] = self.nodes_info[node]
                 except KeyError:
                     continue
+                except Exception as e:
+                    if "could not" in str(e):
+                        self.fetch_ps = False
+                        QtWidgets.QMessageBox.question(
+                            self,
+                            "Error",
+                            "Could not connect to control system constants server. Please set the SIRIUS_URL_CONSTS environment variable to a valid server.",
+                            QtWidgets.QMessageBox.Ok,
+                        )
+                    return
 
             self.update_node_list(data, update=False)
         else:
