@@ -1,7 +1,7 @@
 # flake8: noqa
 from .check_pressure import check_pressure
 from .clear_status import clear_status_off, clear_status_on, clear_status_rec
-from .commute_valve import commute_valve
+from .commute_valve import commute_valve, set_venting_valve_state
 from .initialization import initialization
 from .process_off import process_off
 from .process_on import process_on
