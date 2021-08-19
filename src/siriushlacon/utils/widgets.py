@@ -1,6 +1,6 @@
 import logging
 import re
-from typing import List, NamedTuple
+import typing
 
 import conscommon.data_model
 from pydm.widgets import PyDMByteIndicator, PyDMLabel, channel
@@ -145,10 +145,16 @@ class FlowLayout(QLayout):
             return parent.spacing()
 
 
-class TableDataRow(NamedTuple):
-    device: conscommon.data_model.Device
-    channel: conscommon.data_model.Channel
-    render: bool
+class TableDataRow:
+    def __init__(
+        self,
+        device: conscommon.data_model.Device,
+        channel: conscommon.data_model.Channel,
+        render: bool,
+    ) -> None:
+        self.device: conscommon.data_model.Device = device
+        self.channel: conscommon.data_model.Channel = channel
+        self.render: bool = render
 
 
 class TableDataController(QObject):
@@ -161,14 +167,16 @@ class TableDataController(QObject):
     def __init__(
         self,
         table,
-        devices: List[conscommon.data_model.Device] = None,
+        devices: typing.List[conscommon.data_model.Device] = None,
         table_batch=24,
         horizontal_header_labels=None,
         **kwargs
     ):
         super().__init__()
-        self.devices: List[conscommon.data_model.Device] = devices if devices else []
-        self.table_data: List[TableDataRow] = []
+        self.devices: typing.List[conscommon.data_model.Device] = (
+            devices if devices else []
+        )
+        self.table_data: typing.List[TableDataRow] = []
         self.table = table
         self.table_batch = table_batch
         self.horizontalHeaderLabels = horizontal_header_labels

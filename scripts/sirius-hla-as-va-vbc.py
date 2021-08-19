@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
+import argparse
 import os
-import subprocess
 
+from siriushlacon.utils.launch import LogLevel, launch_pydm
 from siriushlacon.vbc.consts import MAIN_WINDOW_PY as VBC_MAIN_WINDOW_PY
 
 os.environ["PYDM_DEFAULT_PROTOCOL"] = "ca://"
@@ -36,4 +37,9 @@ else:
         " ".join(BBB_IOC_ADDR) + os.environ["EPICS_CA_ADDR_LIST"]
     )
 
-subprocess.Popen(f"pydm --hide-nav-bar {VBC_MAIN_WINDOW_PY}", shell=True)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser("VAC Pumps Controller")
+    args = parser.parse_args()
+    launch_pydm(
+        displayfile=VBC_MAIN_WINDOW_PY, hide_nav_bar=True, log_level=LogLevel.INFO
+    )

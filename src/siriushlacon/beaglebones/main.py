@@ -6,6 +6,8 @@ from time import localtime, sleep, strftime
 
 from pydm import Display
 from qtpy import QtCore, QtGui, QtWidgets, uic
+from qtpy.QtGui import QBrush
+from qtpy.QtWidgets import QInputDialog
 
 from siriushlacon.beaglebones.BBBread import RedisServer
 from siriushlacon.beaglebones.consts import (
@@ -16,21 +18,13 @@ from siriushlacon.beaglebones.consts import (
     INFO_BBB_UI,
     LOGS_BBB_UI,
     RED_LED,
+    TABLES,
 )
 
-qtCreatorFile = BEAGLEBONES_MAIN_UI
-qtCreator_configfile = CHANGE_BBB_UI
-qtCreator_infofile = INFO_BBB_UI
-qtCreator_logsfile = LOGS_BBB_UI
-
-BASIC_TAB = 0
-ADVANCED_TAB = 1
-SERVICE_TAB = 2
-LOGS_TAB = 3
 # Corporate test server
 # REDIS_HOST = '10.0.6.64'
 # Sirius server
-REDIS_HOST = "10.128.255.3"
+REDIS_HOST = "10.0.38.59"
 
 room_names = {
     "All": "",
@@ -44,10 +38,10 @@ room_names = {
 for i in range(20):
     room_names["IA-{:02d}".format(i + 1)] = "Sala{:02d}".format(i + 1)
 
-Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
-Ui_MainWindow_config, QtBaseClass_config = uic.loadUiType(qtCreator_configfile)
-Ui_MainWindow_info, QtBaseClass_info = uic.loadUiType(qtCreator_infofile)
-Ui_MainWindow_logs, QtBaseClass_logs = uic.loadUiType(qtCreator_logsfile)
+Ui_MainWindow, QtBaseClass = uic.loadUiType(BEAGLEBONES_MAIN_UI)
+Ui_MainWindow_config, QtBaseClass_config = uic.loadUiType(CHANGE_BBB_UI)
+Ui_MainWindow_info, QtBaseClass_info = uic.loadUiType(INFO_BBB_UI)
+Ui_MainWindow_logs, QtBaseClass_logs = uic.loadUiType(LOGS_BBB_UI)
 
 
 class UpdateNodesThread(QtCore.QThread):
@@ -105,28 +99,42 @@ class UpdateLogsThread(QtCore.QThread):
 class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
     """BeagleBone Black Redis Activity Display"""
 
-    def __init__(self, parent=None, macros=None, **kwargs):
+    def __init__(self, parent=None, macros=None):
         super().__init__(parent=parent, macros=macros, ui_filename=BEAGLEBONES_MAIN_UI)
 
         # Configures redis Server
         self.server = RedisServer()
+        self.sudo = False
 
         # Table models
-        self.logs_model = TableModel([[]], all=True)
+        self.logs_model = TableModel([[]], ["Timestamp", "BBB", "Occurence"])
         self.logsTable.setModel(self.logs_model)
+
+        self.basic_model = TableModel([[]], ["BBB", "Role", "State"])
+        self.basicTable.setModel(self.basic_model)
+
+        self.advanced_model = TableModel([[]], ["BBB", "Role", "State"])
+        self.advancedTable.setModel(self.advanced_model)
+
+        self.services_model = TableModel([[]], ["BBB", "Role", "State"])
+        self.servicesTable.setModel(self.services_model)
+
+        self.servicesTable.horizontalHeader().setResizeMode(
+            QtWidgets.QHeaderView.ResizeToContents
+        )
+
+        self.basicTable.horizontalHeader().setResizeMode(
+            QtWidgets.QHeaderView.ResizeToContents
+        )
+
+        self.advancedTable.horizontalHeader().setResizeMode(
+            QtWidgets.QHeaderView.ResizeToContents
+        )
 
         # Lists
         self.nodes = []
         self.nodes_info = {}
-        self.data = None
-        self.basicList.setSortingEnabled(True)
-        self.basicList.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
-        self.advancedList.setSortingEnabled(True)
-        self.advancedList.setSelectionMode(
-            QtWidgets.QAbstractItemView.ExtendedSelection
-        )
-        self.serviceList.setSortingEnabled(True)
-        self.serviceList.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
+        self.data = []
 
         # List Update Timer
         self.autoUpdate_timer = QtCore.QTimer(self)
@@ -135,9 +143,13 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         self.autoUpdate_timer.start(1000)
 
         # Buttons
-        self.basicList.itemSelectionChanged.connect(self.enable_buttons)
-        self.advancedList.itemSelectionChanged.connect(self.enable_buttons)
-        self.serviceList.itemSelectionChanged.connect(self.enable_buttons)
+        self.basicTable.selectionModel().selectionChanged.connect(self.enable_buttons)
+        self.advancedTable.selectionModel().selectionChanged.connect(
+            self.enable_buttons
+        )
+        self.servicesTable.selectionModel().selectionChanged.connect(
+            self.enable_buttons
+        )
         self.logsTable.selectionModel().selectionChanged.connect(self.enable_buttons)
         self.tabWidget.currentChanged.connect(self.enable_buttons)
         self.deleteButton.clicked.connect(self.delete_nodes)
@@ -158,11 +170,14 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         # Log Filters
         self.toTimeEdit.dateTimeChanged.connect(self.update_filters)
         self.fromTimeEdit.dateTimeChanged.connect(self.update_filters)
-        self.filterEdit.textChanged.connect(self.update_log_text)
+        self.filterEdit.textChanged.connect(self.update_filters)
 
         # Loads loading indicators
         self.loading_icon = QtGui.QPixmap(RED_LED).scaledToHeight(20)
         self.idle_icon = QtGui.QPixmap(GREEN_LED).scaledToHeight(20)
+
+        # State lock
+        self.updating = False
 
     def update_nodes(self):
         """Updates list of BBBs shown"""
@@ -175,11 +190,6 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         if not self.logs_thread.isRunning():
             self.logs_thread.start()
 
-    def update_log_text(self):
-        """Sets table values and converts timestamp, deep copies logs"""
-        if self.tabWidget.currentIndex() == LOGS_TAB:
-            self.update_filters()
-
     def update_filters(self):
         """Updates log table with filters set by user"""
         if not self.data:
@@ -187,36 +197,43 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
 
         search = self.filterEdit.text()
 
-        max_date = self.toTimeEdit.dateTime().toPyDateTime().timestamp()
-        min_date = self.fromTimeEdit.dateTime().toPyDateTime().timestamp()
+        if self.tabWidget.currentIndex() == 3:
+            max_date = self.toTimeEdit.dateTime().toPyDateTime().timestamp()
+            min_date = self.fromTimeEdit.dateTime().toPyDateTime().timestamp()
 
-        if min_date > max_date:
-            self.fromTimeEdit.setDateTime(self.toTimeEdit.dateTime())
+            if min_date > max_date:
+                self.fromTimeEdit.setDateTime(self.toTimeEdit.dateTime())
 
-        if min_date == max_date:
-            self.update_table(self.data)
+            if min_date == max_date:
+                self.update_table(self.data)
 
-        length = len(self.data)
-        min_index, max_index = length, 0
+            length = len(self.data)
+            min_index, max_index = length, 0
 
-        # Compares Unix timestamp for logs and filter, stops when a log satisfies the filter
-        for index, r in enumerate(self.data):
-            if int(r[0]) < min_date:
-                min_index = index
-                break
+            # Compares Unix timestamp for logs and filter, stops when a log satisfies the filter
+            for index, log in enumerate(self.data):
+                if int(log[0]) < min_date:
+                    min_index = index
+                    break
 
-        for index, r in enumerate(self.data[::-1]):
-            if int(r[0]) > max_date:
-                max_index = length - index
-                break
+            for index, log in enumerate(self.data[::-1]):
+                if int(log[0]) > max_date:
+                    max_index = length - index
+                    break
 
-        data = self.data[max_index:min_index]
+            data = self.data[max_index:min_index]
 
-        # If the user has set a string filter, all logs without a mention of the filter are removed
-        if search:
-            data = [r for r in data if search in r[2] or search in r[1]]
+            if search:
+                data = [r for r in data if search in r[2] or search in r[1]]
 
-        self.update_table(data, update=False)
+            self.update_table(data, update=False)
+            return True
+        else:
+            data = {}
+            for key in self.nodes_info:
+                if search in key:
+                    data[key] = self.nodes_info[key]
+            self.update_node_list(data, update=False)
 
     def update_table(self, logs, update=True):
         """Updates content of logs table"""
@@ -243,6 +260,7 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                     for _log in data
                     if "connected" in _log[2].lower()
                     or "hostname" in _log[2].lower()
+                    or "thread found an exception" in _log[2].lower()
                     or "thread died" in _log[2].lower()
                 ]
         else:
@@ -252,40 +270,49 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                     for _log in data
                     if "connected" in _log[2].lower() or "hostname" in _log[2].lower()
                 ]
-            data = [_log for _log in data if "thread died" not in _log[2].lower()]
+            else:
+                data = [
+                    _log
+                    for _log in data
+                    if "thread found an exception" not in _log[2].lower()
+                    and "thread died" not in _log[2].lower()
+                ]
 
         self.logs_model.set_data(data)
 
-    def update_node_list(self, nodes):  # noqa: C901
+        self.status_icon.setPixmap(self.idle_icon)
+
+    def update_node_list(self, nodes, update=True):  # noqa: C901
+        if update:
+            self.nodes, self.nodes_info = nodes
+            self.update_filters()
+            return
         """Gets updated node list and applies it to all lists"""
-        self.nodes, self.nodes_info = nodes
+        names = nodes.keys()
+        node_info = nodes
         connected_number = 0
+        data = []
 
         current_tab = self.tabWidget.currentIndex()
-        if current_tab == LOGS_TAB:
-            self.connectedLabel.hide()
-            self.listedLabel.hide()
-        else:
-            self.connectedLabel.show()
-            self.listedLabel.show()
+        if current_tab == 3:
+            return
 
-        if current_tab == ADVANCED_TAB:
+        if current_tab == 1:
             state_filter = {
                 "Connected": self.connectedAdvancedBox.isChecked(),
                 "Disconnected": self.disconnectedAdvancedBox.isChecked(),
                 "Moved": self.movedAdvancedBox.isChecked(),
             }
-            list_name = self.advancedList
-        elif current_tab == BASIC_TAB:
+        elif current_tab == 0:
             state_filter = {
                 "Connected": self.connectedCheckBox.isChecked(),
                 "Disconnected": self.disconnectedCheckBox.isChecked(),
                 "Moved": self.movedCheckBox.isChecked(),
             }
-            list_name = self.basicList
         else:
             state_filter = {"Connected": True, "Disconnected": False, "Moved": False}
-            list_name = self.serviceList
+
+        list_name = getattr(self, TABLES[current_tab] + "_model")
 
         # Advanced Tab filters
         ip_filter = {
@@ -302,13 +329,13 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
             "COUNTING": self.countingpruAdvancedBox.isChecked(),
             "POWER": self.powersupplyAdvancedBox.isChecked(),
             "SPIXCONV": self.spixconvAdvancedBox.isChecked(),
-            "RACK_MON": self.rackmonitorAdvancedBox.isChecked(),
+            "SIMAR": self.simarAdvancedBox.isChecked(),
             "Searching": self.nodevAdvancedBox.isChecked(),
             "": self.nodevAdvancedBox.isChecked(),
         }
-        self.Lock = True
-        for node, info in self.nodes_info.items():
-            if node not in self.nodes:
+        self.updating = True
+        for node, info in node_info.items():
+            if node not in names:
                 continue
             try:
                 # Organizes node information
@@ -318,19 +345,19 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                 node_sector = info[b"sector"].decode()
                 node_state = info[b"state_string"].decode()
                 node_details = info[b"details"].decode()
+                node_importance = (
+                    info.get(b"matching_bbb").decode().capitalize()
+                    if info.get(b"matching_bbb")
+                    else "Primary"
+                )
                 node_string = "{} - {}".format(node_ip, node_name)
             except Exception:
-                # print(e)
                 continue
             # Increments Connected Number of BBBs if beagle is connected
             if node_state == "Connected":
                 connected_number += 1
             # Filters by name and displays node in list
-            if (
-                self.filterEdit.text() == "" or self.filterEdit.text() in node_string
-            ) and room_names[self.roomBox.currentText()] in [node_sector, ""]:
-                item = QtWidgets.QListWidgetItem(node_string)
-                equipment_len = len(equipment_filter)
+            if room_names[self.roomBox.currentText()] in [node_sector, ""]:
                 current_equipment = 0
                 for equipment, efilter in equipment_filter.items():
                     current_equipment += 1
@@ -338,85 +365,22 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
                     if (
                         equipment in node_details
                         and efilter
+                        and node_ip_type != "0.0.0.0"
                         and (ip_filter[node_ip_type] or ip_filter["Undefined"])
-                    ) or current_tab in [BASIC_TAB, SERVICE_TAB]:
+                    ) or current_tab in [0, 2]:
 
-                        # Filters by node state
-                        if node_state == "Connected":
-                            if state_filter[node_state]:
-                                # Verifies if the node is already on the list
-                                qlistitem = list_name.findItems(
-                                    node_string, QtCore.Qt.MatchExactly
-                                )
-                                if not qlistitem:
-                                    list_name.addItem(item)
-                                    item_index = list_name.row(item)
-                                else:
-                                    self.remove_faulty(node_string, list_name, False)
-                                    item_index = list_name.row(qlistitem[0])
-                                # Sets background color as white
-                                list_name.item(item_index).setBackground(
-                                    QtGui.QColor("white")
-                                )
-                            else:
-                                self.remove_faulty(node_string, list_name)
+                        if node_state[:3] == "BBB":
+                            node_state = "Moved"
 
-                        # Disconnected nodes have red background
-                        elif node_state == "Disconnected":
-                            if state_filter[node_state]:
-                                # Verifies if the node is already on the list
-                                qlistitem = list_name.findItems(
-                                    node_string, QtCore.Qt.MatchExactly
-                                )
-                                if not qlistitem:
-                                    list_name.addItem(item)
-                                    item_index = list_name.row(item)
-                                else:
-                                    self.remove_faulty(node_string, list_name, False)
-                                    item_index = list_name.row(qlistitem[0])
-                                # Sets background color as red
-                                list_name.item(item_index).setBackground(
-                                    QtGui.QColor("red")
-                                )
-
-                            else:
-                                self.remove_faulty(node_string, list_name)
-
-                        # Moved nodes have yellow background
-                        elif node_state[:3] == "BBB":
-                            # print(node_name)
-                            if state_filter["Moved"]:
-                                # Verifies if the node is already on the list
-                                qlistitem = list_name.findItems(
-                                    node_string, QtCore.Qt.MatchExactly
-                                )
-                                if not qlistitem:
-                                    list_name.addItem(item)
-                                    item_index = list_name.row(item)
-                                else:
-                                    self.remove_faulty(node_string, list_name, False)
-                                    item_index = list_name.row(qlistitem[0])
-                                # Sets background color as yellow
-                                list_name.item(item_index).setBackground(
-                                    QtGui.QColor("yellow")
-                                )
-                            else:
-                                self.remove_faulty(node_string, list_name)
+                        if state_filter[node_state]:
+                            data.append([node_string, node_importance, node_state])
                         break
 
-                    # If not in any of the selected equipments, removes node
-                    if current_equipment == equipment_len:
-                        self.remove_faulty(node_string, list_name)
-
-                # Removing duplicates
-                self.remove_faulty(node_string, list_name, False)
-
-            else:
-                self.remove_faulty(node_string, list_name)
-        self.Lock = False
+        list_name.set_data(data)
+        self.updating = False
         # Updates the number of connected and listed nodes
         self.connectedLabel.setText("Connected nodes: {}".format(connected_number))
-        self.listedLabel.setText("Listed: {}".format(list_name.count()))
+        self.listedLabel.setText("Listed: {}".format(list_name.rowCount()))
         self.status_icon.setPixmap(self.idle_icon)
 
     @staticmethod
@@ -434,29 +398,20 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
     def enable_buttons(self):
         """Enables Buttons when one or more boards are selected"""
         current_tab = self.tabWidget.currentIndex()
-        if current_tab == BASIC_TAB:
-            selected_items = self.basicList.selectedItems()
-        elif current_tab == ADVANCED_TAB:
-            selected_items = self.advancedList.selectedItems()
-        elif current_tab == SERVICE_TAB:
-            selected_items = self.serviceList.selectedItems()
-        else:
-            selected_items = self.logsTable.selectionModel().selectedRows()
+        selected_items = (
+            getattr(self, TABLES[current_tab] + "Table").selectionModel().selectedRows()
+        )
+
         if selected_items:
             self.rebootButton.setEnabled(True)
             self.deleteButton.setEnabled(True)
-            if len(selected_items) == 1:
-                self.configButton.setEnabled(True)
-                self.infoButton.setEnabled(True)
-                self.logsButton.setEnabled(True)
-            else:
-                self.configButton.setEnabled(False)
-                self.infoButton.setEnabled(False)
-                self.logsButton.setEnabled(False)
-            if current_tab == SERVICE_TAB:
-                self.applyserviceButton.setEnabled(True)
-            else:
-                self.applyserviceButton.setEnabled(False)
+
+            is_single = len(selected_items) == 1
+            self.configButton.setEnabled(is_single)
+            self.infoButton.setEnabled(is_single)
+            self.logsButton.setEnabled(is_single)
+
+            self.applyserviceButton.setEnabled(current_tab == 2)
         else:
             self.logsButton.setEnabled(False)
             self.rebootButton.setEnabled(False)
@@ -467,27 +422,41 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
 
     def reboot_nodes(self):
         """Reboots the selected nodes"""
+        if not self.sudo:
+            text, confirmation = QInputDialog.getText(
+                self,
+                "Confirmation",
+                (
+                    "Rebooting could result in downtime, failures or worse, and whoever"
+                    "\nexecutes this should be aware of the implications of this action.\n"
+                    "\nIf you want to enter sudo mode, type in 'Beaglebone' (case sensitive)"
+                ),
+            )
+            if confirmation and text == "Beaglebone":
+                self.sudo = True
+            else:
+                return
+
         confirmation = QtWidgets.QMessageBox.question(
             self,
             "Confirmation",
-            "Are you sure about rebooting these nodes?",
+            "Are you sure you want to reboot these nodes?",
             QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
         )
         if confirmation == QtWidgets.QMessageBox.Yes:
-            current_list = self.tabWidget.currentIndex()
-            if current_list == BASIC_TAB:
-                selected_bbbs = self.basicList.selectedItems()
-            elif current_list == ADVANCED_TAB:
-                selected_bbbs = self.advancedList.selectedItems()
-            elif current_list == SERVICE_TAB:
-                selected_bbbs = self.serviceList.selectedItems()
-            else:
-                selected_bbbs = self.logsTable.selectionModel().selectedRows()
-            for bbb in selected_bbbs:
-                if current_list == LOGS_TAB:
-                    bbb_ip, bbb_hostname = bbb.sibling(bbb.row(), 1).data().split(" - ")
-                else:
-                    bbb_ip, bbb_hostname = bbb.text().split(" - ")
+            current_tab = self.tabWidget.currentIndex()
+            selected_items = (
+                getattr(self, TABLES[current_tab] + "Table")
+                .selectionModel()
+                .selectedRows()
+            )
+
+            for bbb in selected_items:
+                bbb_ip, bbb_hostname = (
+                    bbb.sibling(bbb.row(), 0 if current_tab != 3 else 1)
+                    .data()
+                    .split(" - ")
+                )
                 self.server.reboot_node(bbb_ip, bbb_hostname)
 
     def delete_nodes(self):
@@ -499,32 +468,27 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
             QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
         )
         if confirmation == QtWidgets.QMessageBox.Yes:
-            current_index = self.tabWidget.currentIndex()
-            if current_index == BASIC_TAB:
-                selected_bbbs = self.basicList.selectedItems()
-            elif current_index == ADVANCED_TAB:
-                selected_bbbs = self.advancedList.selectedItems()
-            elif current_index == SERVICE_TAB:
-                selected_bbbs = self.serviceList.selectedItems()
-            else:
-                selected_bbbs = self.logsTable.selectionModel().selectedRows()
+            current_tab = self.tabWidget.currentIndex()
+            selected_items = (
+                getattr(self, TABLES[current_tab] + "Table")
+                .selectionModel()
+                .selectedRows()
+            )
+
             errors = []
-            for bbb in selected_bbbs:
-                if current_index == LOGS_TAB:
-                    bbb_ip, bbb_hostname = bbb.sibling(bbb.row(), 1).data().split(" - ")
-                else:
-                    bbb_ip, bbb_hostname = bbb.text().split(" - ")
+            for bbb in selected_items:
+                bbb_ip, bbb_hostname = (
+                    bbb.sibling(bbb.row(), 0 if current_tab != 3 else 1)
+                    .data()
+                    .split(" - ")
+                )
                 bbb_hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
                 try:
                     self.server.delete_bbb(bbb_hashname)
-                    while self.Lock:
+                    while self.updating:
                         sleep(0.1)
                     self.nodes_info.pop(bbb_hashname)
-
-                    for i in selected_bbbs:
-                        self.basicList.takeItem(self.basicList.row(i))
-                        self.advancedList.takeItem(self.advancedList.row(i))
-                        self.serviceList.takeItem(self.serviceList.row(i))
+                    self.update_nodes()
 
                 except KeyError:
                     errors.append(bbb_hashname)
@@ -541,16 +505,14 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
 
     def display_logs(self):
         """Shows selected BBB's logs"""
-        current_list = self.tabWidget.currentIndex()
-        if current_list == BASIC_TAB:
-            bbb = self.basicList.selectedItems()[0].text()
-        elif current_list == ADVANCED_TAB:
-            bbb = self.advancedList.selectedItems()[0].text()
-        elif current_list == SERVICE_TAB:
-            bbb = self.serviceList.selectedItems()[0].text()
-        else:
-            index = self.logsTable.selectionModel().selectedRows()[0]
-            bbb = index.sibling(index.row(), 1).data()
+        current_tab = self.tabWidget.currentIndex()
+
+        index = (
+            getattr(self, TABLES[current_tab] + "Table")
+            .selectionModel()
+            .selectedRows()[0]
+        )
+        bbb = index.sibling(index.row(), 0 if current_tab != 3 else 1).data()
 
         bbb_ip, bbb_hostname = bbb.split(" - ")
         hashname = "BBB:{}:{}:Logs".format(bbb_ip, bbb_hostname)
@@ -567,16 +529,14 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
 
     def show_node_info(self):
         """Shows selected BBB's information"""
-        current_list = self.tabWidget.currentIndex()
-        if current_list == BASIC_TAB:
-            bbb = self.basicList.selectedItems()[0].text()
-        elif current_list == ADVANCED_TAB:
-            bbb = self.advancedList.selectedItems()[0].text()
-        elif current_list == SERVICE_TAB:
-            bbb = self.serviceList.selectedItems()[0].text()
-        else:
-            index = self.logsTable.selectionModel().selectedRows()[0]
-            bbb = index.sibling(index.row(), 1).data()
+        current_tab = self.tabWidget.currentIndex()
+        index = (
+            getattr(self, TABLES[current_tab] + "Table")
+            .selectionModel()
+            .selectedRows()[0]
+        )
+        bbb = index.sibling(index.row(), 0 if current_tab != 3 else 1).data()
+
         bbb_ip, bbb_hostname = bbb.split(" - ")
         hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
         try:
@@ -593,22 +553,34 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
 
     def config_node(self):
         """Opens configuration the selected BBB's configuration window"""
-        current_list = self.tabWidget.currentIndex()
-        if current_list == BASIC_TAB:
-            bbb = self.basicList.selectedItems()[0].text()
-        elif current_list == ADVANCED_TAB:
-            bbb = self.advancedList.selectedItems()[0].text()
-        elif current_list == SERVICE_TAB:
-            bbb = self.serviceList.selectedItems()[0].text()
-        else:
-            index = self.logsTable.selectionModel().selectedRows()[0]
-            bbb = index.sibling(index.row(), 1).data()
+        current_tab = self.tabWidget.currentIndex()
+        index = (
+            getattr(self, TABLES[current_tab] + "Table")
+            .selectionModel()
+            .selectedRows()[0]
+        )
+        bbb = index.sibling(index.row(), 0 if current_tab != 3 else 1).data()
+
         bbb_ip, bbb_hostname = bbb.split(" - ")
         hashname = "BBB:{}:{}".format(bbb_ip, bbb_hostname)
         info = self.nodes_info[hashname]
         if info[b"state_string"].decode() == "Connected":
-            self.window = BBBConfig(hashname, info, self.server)
-            self.window.show()
+            if not self.sudo:
+                text, confirmation = QInputDialog.getText(
+                    self,
+                    "Confirmation",
+                    (
+                        "This interface is meant for advanced changes that could result in downtime,"
+                        "\nfailures or worse.\n"
+                        "\nIf you want to enter sudo mode, type in 'Beaglebone' (case sensitive)"
+                    ),
+                )
+                if confirmation and text == "Beaglebone":
+                    self.sudo = True
+
+            if self.sudo:
+                self.window = BBBConfig(hashname, info, self.server)
+                self.window.show()
         else:
             QtWidgets.QMessageBox.warning(
                 self,
@@ -622,22 +594,28 @@ class BBBreadMainWindow(Display, QtWidgets.QWidget, Ui_MainWindow):
         confirmation = QtWidgets.QMessageBox.question(
             self,
             "Confirmation",
-            "Are you sure applying these changes?",
+            "Are you sure you want to apply these changes?",
             QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
         )
         if confirmation == QtWidgets.QMessageBox.Yes:
+            index = self.servicesTable.selectionModel().selectedRows()[0]
+
             selected_operation = self.operationcomboBox.currentText()
             if selected_operation == "Restart":
                 operation = self.server.restart_service
             else:
                 operation = self.server.stop_service
-            selected_bbbs = self.serviceList.selectedItems()
+            selected_bbbs = self.servicesTable.selectionModel().selectedRows()
             for bbb in selected_bbbs:
-                bbb_ip, bbb_hostname = bbb.text().split(" - ")
+                bbb_ip, bbb_hostname = bbb.sibling(index.row(), 0).data().split(" - ")
                 if self.bbbreadBox.isChecked():
                     operation(bbb_ip, "bbbread", bbb_hostname)
                 if self.bbbfunctionBox.isChecked():
                     operation(bbb_ip, "bbb-function", bbb_hostname)
+                if self.ethbridgeBox.isChecked():
+                    operation(bbb_ip, "eth-bridge-pru-serial485", bbb_hostname)
+                if self.simarBox.isChecked():
+                    operation(bbb_ip, "simar_sensors", bbb_hostname)
 
 
 class BBBInfo(QtWidgets.QWidget, Ui_MainWindow_info):
@@ -676,21 +654,27 @@ class BBBInfo(QtWidgets.QWidget, Ui_MainWindow_info):
 
 
 class TableModel(QtCore.QAbstractTableModel):
-    # Display model for TableView
-    def __init__(self, data, all=False):
+    """Display model for TableView"""
+
+    def __init__(self, data, header):
         super(TableModel, self).__init__()
         self._data = data
-        self._header = (
-            ["Timestamp", "BBB", "Occurence"] if all else ["Timestamp", "Occurence"]
-        )
+        self._header = header
 
     def headerData(self, section, orientation, role=QtCore.Qt.DisplayRole):
         if role == QtCore.Qt.DisplayRole and orientation == QtCore.Qt.Horizontal:
             return self._header[section]
 
     def data(self, index, role):
-        if role == QtCore.Qt.DisplayRole or role == QtCore.Qt.EditRole:
+        if role in [QtCore.Qt.DisplayRole, QtCore.Qt.EditRole]:
             return self._data[index.row()][index.column()]
+        if role == QtCore.Qt.BackgroundRole:
+            if self.columnCount() < 3 or self._data[index.row()][2] == "Connected":
+                return QBrush(QtCore.Qt.white)
+            if self._data[index.row()][2] == "Disconnected":
+                return QBrush(QtCore.Qt.red)
+            if self._data[index.row()][2] == "Moved":
+                return QBrush(QtCore.Qt.yellow)
 
     def get_data(self):
         return self._data
@@ -699,10 +683,10 @@ class TableModel(QtCore.QAbstractTableModel):
         self._data = data
         self.layoutChanged.emit()
 
-    def rowCount(self, _):
+    def rowCount(self, _=None):
         return len(self._data)
 
-    def columnCount(self, _):
+    def columnCount(self, _=None):
         if self.rowCount(0) < 1:
             return 0
         return len(self._data[0])
@@ -714,11 +698,12 @@ class BBBLogs(QtWidgets.QWidget, Ui_MainWindow_logs):
         QtWidgets.QWidget.__init__(self)
         Ui_MainWindow_logs.__init__(self)
         self.setupUi(self)
+        self.data = []
 
         self.logs_thread = UpdateLogsThread(server, hashname)
         self.logs_thread.finished.connect(self.update_table)
 
-        self.model = TableModel([[]])
+        self.model = TableModel([[]], ["Timestamp", "Occurence"])
         self.logsTable.setModel(self.model)
 
         self.fromTimeEdit.dateTimeChanged.connect(self.update_filters)
@@ -726,10 +711,10 @@ class BBBLogs(QtWidgets.QWidget, Ui_MainWindow_logs):
 
         self.filterEdit.textChanged.connect(self.update_filters)
 
-        self.autoUpdate_timer = QtCore.QTimer(self)
-        self.autoUpdate_timer.timeout.connect(self.logs_thread.start)
-        self.autoUpdate_timer.setSingleShot(False)
-        self.autoUpdate_timer.start(1000)
+        self.update_timer = QtCore.QTimer(self)
+        self.update_timer.timeout.connect(self.logs_thread.start)
+        self.update_timer.setSingleShot(False)
+        self.update_timer.start(1000)
 
     def update_table(self, logs, update=True):
         """Sets table values and converts timestamp, deep copies logs"""
@@ -768,13 +753,13 @@ class BBBLogs(QtWidgets.QWidget, Ui_MainWindow_logs):
         min_index, max_index = length, 0
 
         # Compares Unix timestamp for logs and filter, stops when a log satisfies the filter
-        for index, r in enumerate(self.data):
-            if int(r[0]) < min_date:
+        for index, log in enumerate(self.data):
+            if int(log[0]) < min_date:
                 min_index = index
                 break
 
-        for index, r in enumerate(self.data[::-1]):
-            if int(r[0]) > max_date:
+        for index, log in enumerate(self.data[::-1]):
+            if int(log[0]) > max_date:
                 max_index = length - index
                 break
 

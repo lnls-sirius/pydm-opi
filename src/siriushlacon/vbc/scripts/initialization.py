@@ -3,7 +3,7 @@ import time
 
 from siriushlacon.vbc.epics import ACP, BBB, ProcessOn, ProcessRecovery, Turbovac
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 class Initialization:
@@ -12,7 +12,7 @@ class Initialization:
             raise ValueError(f"parameter prefix cannot be empty {prefix}")
         self.prefix = prefix
 
-        self._tick = 0.05
+        self._tick = 0.5
 
         # Create TURBOVAC PVs
         self.turbovac = Turbovac(prefix=prefix)
@@ -41,7 +41,7 @@ class Initialization:
             self._stage_5()
 
     def _stage_1(self):
-        logger.info("stage1")
+        _logger.info("stage1")
         self.process_recovery.status1_pv.value = 1
 
         # turn ACP15 pump ON and wait 30 s
@@ -57,7 +57,7 @@ class Initialization:
         time.sleep(30)
 
     def _stage_2(self):
-        logger.info("stage2")
+        _logger.info("stage2")
         # open pre-vacuum valve
         self.bbb.pre_vacuum_valve_sw_pv.value = 1
 
@@ -69,7 +69,7 @@ class Initialization:
         self.process_recovery.status2_pv.value = 1
 
     def _stage_3(self):
-        logger.info("stage3")
+        _logger.info("stage3")
         # turn TURBOVAC pump ON
         self.turbovac.pzd1_sp_tevl_pv.value = 1
         self.turbovac.pzd1_sp_zrvl_pv.value = 1
@@ -83,7 +83,7 @@ class Initialization:
         self.process_recovery.status3_pv.value = 1
 
     def _stage_4(self):
-        logger.info("stage4")
+        _logger.info(f"stage4, wait until {self.turbovac.pzd2_rb_pv}<1200")
         # wait TURBOVAC pump reaches 1200 Hz
         self.turbovac.pzd2_sp_pv.value = 1200
         self.turbovac.pzd1_sp_sxvl_pv.value = 1
@@ -96,7 +96,7 @@ class Initialization:
         self.process_recovery.status4_pv.value = 1
 
     def _stage_5(self):
-        logger.info("stage5")
+        _logger.info("stage5")
         # open gate valve (VAT)
         self.bbb.gate_valve_sw_pv.value = 1
 
