@@ -1,8 +1,0 @@
-qtpy
-pydm
-pytz
-redis
-requests
-numpy
-matplotlib
-conscommon
