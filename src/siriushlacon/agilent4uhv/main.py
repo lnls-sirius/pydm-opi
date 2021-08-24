@@ -13,7 +13,7 @@ from siriushlacon.agilent4uhv.consts import (
     lazy_devices,
 )
 from siriushlacon.widgets.byte_indicator import get_byte_indicator
-from siriushlacon.widgets.label import get_label
+from siriushlacon.widgets.label import make_cell_label
 from siriushlacon.widgets.table import TableDataController, TableDataRow
 
 DEVICES = lazy_devices.get()
@@ -33,7 +33,7 @@ CH_REG = re.compile(r":[C][0-9]")
 
 
 class UHVDataController(TableDataController):
-    def init_table(self):
+    def init_tble(self):
         self.table.setRowCount(self.table_batch)
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
@@ -47,32 +47,36 @@ class UHVDataController(TableDataController):
             # Device Name
             self.table.setCellWidget(actual_row, 1, QLabel(""))
             # Fan Temperature
-            self.table.setCellWidget(actual_row, 2, get_label(self.table, "", ""))
+            self.table.setCellWidget(actual_row, 2, make_cell_label(self.table, "", ""))
             # Autostart
-            self.table.setCellWidget(actual_row, 3, get_label(self.table, "", ""))
+            self.table.setCellWidget(actual_row, 3, make_cell_label(self.table, "", ""))
 
             # Pressure
             self.table.setCellWidget(
                 actual_row,
                 4,
-                get_label(self.table, "", "", PyDMLabel.DisplayFormat.Exponential),
+                make_cell_label(
+                    self.table, "", "", PyDMLabel.DisplayFormat.Exponential
+                ),
             )
             # Device Unit
-            self.table.setCellWidget(actual_row, 5, get_label(self.table, "", ""))
+            self.table.setCellWidget(actual_row, 5, make_cell_label(self.table, "", ""))
 
             # Voltage
-            self.table.setCellWidget(actual_row, 6, get_label(self.table, "", ""))
+            self.table.setCellWidget(actual_row, 6, make_cell_label(self.table, "", ""))
             # Current
             self.table.setCellWidget(
                 actual_row,
                 7,
-                get_label(self.table, "", "", PyDMLabel.DisplayFormat.Exponential),
+                make_cell_label(
+                    self.table, "", "", PyDMLabel.DisplayFormat.Exponential
+                ),
             )
             # Temperature
             self.table.setCellWidget(
                 actual_row,
                 8,
-                get_label(
+                make_cell_label(
                     self.table,
                     "",
                     "",
@@ -88,18 +92,28 @@ class UHVDataController(TableDataController):
             rel.openInNewWindow = True
 
             # HV State
-            self.table.setCellWidget(actual_row, 10, get_label(self.table, "", ""))
+            self.table.setCellWidget(
+                actual_row, 10, make_cell_label(self.table, "", "")
+            )
             # Power Max
-            self.table.setCellWidget(actual_row, 11, get_label(self.table, "", ""))
+            self.table.setCellWidget(
+                actual_row, 11, make_cell_label(self.table, "", "")
+            )
             # V Target
-            self.table.setCellWidget(actual_row, 12, get_label(self.table, "", ""))
+            self.table.setCellWidget(
+                actual_row, 12, make_cell_label(self.table, "", "")
+            )
             # I Protect
-            self.table.setCellWidget(actual_row, 13, get_label(self.table, "", ""))
+            self.table.setCellWidget(
+                actual_row, 13, make_cell_label(self.table, "", "")
+            )
             # Setpoint
             self.table.setCellWidget(
                 actual_row,
                 14,
-                get_label(self.table, "", "", PyDMLabel.DisplayFormat.Exponential),
+                make_cell_label(
+                    self.table, "", "", PyDMLabel.DisplayFormat.Exponential
+                ),
             )
 
             # Details

@@ -14,7 +14,7 @@ from qtpy.QtCore import Qt
 from qtpy.QtWidgets import QCheckBox, QLabel
 
 from siriushlacon.mks937b.consts import DEVICE_MENU, MKS_MAIN_UI, lazy_devices
-from siriushlacon.widgets.label import get_label
+from siriushlacon.widgets.label import make_cell_label
 from siriushlacon.widgets.table import TableDataController, TableDataRow
 
 CH_REG = re.compile(r":[ABC][0-9]")
@@ -80,7 +80,7 @@ class MKSTableDataController(TableDataController):
                     rel.show()
                 else:
                     self.table.setCellWidget(
-                        actual_row, col, get_label(self.table, showUnits=False)
+                        actual_row, col, make_cell_label(self.table, showUnits=False)
                     )
                 col += 1
 

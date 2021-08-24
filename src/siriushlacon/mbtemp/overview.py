@@ -7,7 +7,7 @@ from pydm.utilities import IconFont
 from qtpy.QtWidgets import QLabel
 
 from siriushlacon.mbtemp.consts import OVERVIEW_MAIN_UI, lazy_devices
-from siriushlacon.widgets.label import get_label
+from siriushlacon.widgets.label import make_cell_label
 from siriushlacon.widgets.table import TableDataController
 
 logger = logging.getLogger()
@@ -25,9 +25,9 @@ class MBTempTableDataController(TableDataController):
             # Device Name
             self.table.setCellWidget(actual_row, 1, QLabel(""))
             # Device Alpha
-            self.table.setCellWidget(actual_row, 2, get_label(self.table, "", ""))
+            self.table.setCellWidget(actual_row, 2, make_cell_label(self.table, "", ""))
             # Temperature
-            self.table.setCellWidget(actual_row, 3, get_label(self.table, "", ""))
+            self.table.setCellWidget(actual_row, 3, make_cell_label(self.table, "", ""))
             # Temperature Raw
             # self.table.setCellWidget(actual_row, 4, get_label(self.table, "", ""))
 
