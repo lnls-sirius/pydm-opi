@@ -7,7 +7,8 @@ from pydm.utilities import IconFont
 from qtpy.QtWidgets import QLabel
 
 from siriushlacon.mbtemp.consts import OVERVIEW_MAIN_UI, lazy_devices
-from siriushlacon.utils.widgets import TableDataController, get_label
+from siriushlacon.widgets.label import get_label
+from siriushlacon.widgets.table import TableDataController
 
 logger = logging.getLogger()
 DEVICES = lazy_devices.get()

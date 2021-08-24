@@ -17,11 +17,7 @@ ARCHIVER_URL: str = "http://10.0.38.42/retrieval/data/getData.json"
 
 IS_LINUX: bool = os.name == "posix" or platform.system() == "Linux"
 
-
-TABLE_ALARMS_QSS: str = ""
-with open(get_abs_path("css/table-alarm.qss")) as f:
-    TABLE_ALARMS_QSS = "".join(f.readlines())
-
+# ui
 OVERVIEW_UI: str = get_abs_path("ui/overview.ui")
 
 # Images

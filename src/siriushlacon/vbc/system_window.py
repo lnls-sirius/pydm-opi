@@ -9,7 +9,6 @@ from pydm import Display
 from qtpy.QtGui import QPixmap
 
 from siriushlacon.utils.command_runner import CommandRunner
-from siriushlacon.utils.images import CNPEM_PIXMAP, LNLS_PIXMAP
 from siriushlacon.vbc.consts import (
     ADVANCED_WINDOW_PY,
     PLAY_IMG,
@@ -23,6 +22,7 @@ from siriushlacon.vbc.scripts import check_pressure, process_off, process_on
 from siriushlacon.vbc.warning_message import (
     VBCWarningMessageDialog as _VBCWarningMessageDialog,
 )
+from siriushlacon.widgets.images import CNPEM_PIXMAP, LNLS_PIXMAP
 
 logger = logging.getLogger(__name__)
 

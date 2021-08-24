@@ -3,7 +3,7 @@ import argparse
 import os
 
 from siriushlacon.agilent4uhv.consts import AGILENT_MAIN
-from siriushlacon.utils.launch import LogLevel, launch_pydm
+from siriushlacon.application import LogLevel, launch_pydm
 
 os.environ["PYDM_DEFAULT_PROTOCOL"] = "ca://"
 

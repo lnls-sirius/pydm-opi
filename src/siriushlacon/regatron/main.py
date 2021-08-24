@@ -4,11 +4,10 @@ import logging
 
 from pydm import Display
 from pydm.widgets.related_display_button import PyDMRelatedDisplayButton
-from qtpy.QtGui import QPixmap
 from qtpy.QtWidgets import QGridLayout
 
 from siriushlacon.regatron.consts import COMPLETE_MAIN, DATA_JSON, REGATRON_UI
-from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
+from siriushlacon.widgets.images import CNPEM_PIXMAP, LNLS_PIXMAP
 
 logger = logging.getLogger()
 
@@ -37,8 +36,8 @@ class Launcher(Display):
 
     def __init__(self, parent=None, macros=None, **kwargs):
         super().__init__(parent=parent, ui_filename=REGATRON_UI)
-        self.logo_cnpem.setPixmap(QPixmap(CNPEM_IMG))
-        self.logo_lnls.setPixmap(QPixmap(LNLS_IMG))
+        self.logo_cnpem.setPixmap(CNPEM_PIXMAP)
+        self.logo_lnls.setPixmap(LNLS_PIXMAP)
 
         self.data = load_data()
         self.layoutDipoles = QGridLayout()

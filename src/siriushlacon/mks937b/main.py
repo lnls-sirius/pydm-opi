@@ -14,7 +14,8 @@ from qtpy.QtCore import Qt
 from qtpy.QtWidgets import QCheckBox, QLabel
 
 from siriushlacon.mks937b.consts import DEVICE_MENU, MKS_MAIN_UI, lazy_devices
-from siriushlacon.utils.widgets import TableDataController, TableDataRow, get_label
+from siriushlacon.widgets.label import get_label
+from siriushlacon.widgets.table import TableDataController, TableDataRow
 
 CH_REG = re.compile(r":[ABC][0-9]")
 DEVICES = lazy_devices.get()

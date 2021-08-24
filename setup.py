@@ -66,6 +66,7 @@ setup(
         "scripts/sirius-hla-as-ap-bbb-monitor.py",
         "scripts/sirius-hla-as-ap-conlauncher.py",
         "scripts/sirius-hla-as-ap-countingpru.py",
+        "scripts/sirius-hla-as-ap-generic-launcher.py",
         "scripts/sirius-hla-as-ap-mbtemp.py",
         "scripts/sirius-hla-as-ap-pctrl.py",
         "scripts/sirius-hla-as-ps-regatron-individual.py",

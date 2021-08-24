@@ -12,12 +12,9 @@ from siriushlacon.agilent4uhv.consts import (
     AGILENT_MAIN_UI,
     lazy_devices,
 )
-from siriushlacon.utils.widgets import (
-    TableDataController,
-    TableDataRow,
-    get_byte_indicator,
-    get_label,
-)
+from siriushlacon.widgets.byte_indicator import get_byte_indicator
+from siriushlacon.widgets.label import get_label
+from siriushlacon.widgets.table import TableDataController, TableDataRow
 
 DEVICES = lazy_devices.get()
 (

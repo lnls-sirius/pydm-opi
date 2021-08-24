@@ -4,10 +4,10 @@ import logging
 from pydm import Display
 
 from siriushlacon.utils.command_runner import CommandRunner
-from siriushlacon.utils.images import LNLS_PIXMAP
 from siriushlacon.vbc.confirmation_message import VentingValveConfirmationMessageDialog
 from siriushlacon.vbc.consts import SIMPLE_WINDOW_UI
 from siriushlacon.vbc.scripts import commute_valve
+from siriushlacon.widgets.images import LNLS_PIXMAP
 
 logger = logging.getLogger(__name__)
 

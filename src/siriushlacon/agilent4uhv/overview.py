@@ -13,7 +13,7 @@ from qtpy.QtWidgets import QFrame, QLabel
 
 from siriushlacon.agilent4uhv.consts import lazy_devices
 from siriushlacon.utils.consts import BO, OVERVIEW_UI, SI, TB, TS
-from siriushlacon.utils.widgets import FlowLayout
+from siriushlacon.widgets.layout import FlowLayout
 
 logger = logging.getLogger()
 DEVICES = lazy_devices.get()

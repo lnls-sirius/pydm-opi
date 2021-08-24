@@ -4,8 +4,8 @@ import logging
 import pytz
 import requests
 
+from siriushlacon.epics import Alarm, Severity
 from siriushlacon.utils.consts import ARCHIVER_URL, SP_TZ, TIME_ZERO
-from siriushlacon.utils.epics import Alarm, Severity
 
 logger = logging.getLogger()
 

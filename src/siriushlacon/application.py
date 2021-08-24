@@ -1,12 +1,20 @@
+# import multiprocessing
 import copy
 import enum
+import json
 import logging
-import multiprocessing
+import subprocess
 import sys
 import typing
 
 import pydm
 import pydm.data_plugins
+import pydm.utilities
+from qtpy.QtWidgets import QMessageBox
+
+from siriushlacon.logging import get_logger
+
+logger = get_logger("")
 
 
 @enum.unique
@@ -53,6 +61,14 @@ class PyDMApp(pydm.PyDMApplication):
             fullscreen=fullscreen,
         )
 
+        self._generic_launcher_file_name = "sirius-hla-as-ap-generic-launcher.py"
+        self._generic_launcher_file_path = pydm.utilities.which(
+            self._generic_launcher_file_name
+        )
+
+        if not self._generic_launcher_file_path:
+            logger.error(f"'{self._generic_launcher_file_name}' not found by 'which'")
+
     def new_pydm_process(self, ui_file, macros=None, command_line_args=None):
         kwargs = copy.deepcopy(
             {
@@ -61,20 +77,26 @@ class PyDMApp(pydm.PyDMApplication):
                 "hide_nav_bar": self.hide_nav_bar,
                 "hide_menu_bar": self.hide_menu_bar,
                 "hide_status_bar": self.hide_status_bar,
-                "fullscreen": self.fullscreen,
                 "read_only": pydm.data_plugins.is_read_only(),
-                "perfmon": self.perfmon,
-                "log_level": LogLevel.INFO,
             }
         )
+        kwargs_str = json.dumps(kwargs)
+        python_exe = sys.executable
 
-        process = multiprocessing.Process(
-            target=launch_pydm,
-            kwargs=kwargs,
-            args=command_line_args if command_line_args else [],
-            daemon=False,
+        if not self._generic_launcher_file_path:
+            msg = f"Failed to launch pydm process, '{self._generic_launcher_file_name}' not found in path. Using python '{python_exe}'"
+            logger.error(msg)
+            box = QMessageBox(QMessageBox.Critical, "New PyDM Process Error", msg)
+            box.exec()
+            return
+
+        logger.info(f"Init New PyDM Processs - {ui_file}")
+        logger.info(f"Params: {kwargs_str}")
+
+        subprocess.Popen(
+            [python_exe, self._generic_launcher_file_path, kwargs_str],
+            shell=False,
         )
-        process.start()
 
 
 def launch_pydm(
@@ -88,20 +110,11 @@ def launch_pydm(
     perfmon: bool = False,
     log_level: LogLevel = LogLevel.INFO,
     *display_args,
+    **kwargs,
 ):
     _display_args = list(display_args)
     if not macros:
         macros = {}
-
-    logger = logging.getLogger("")
-    handler = logging.StreamHandler()
-    formatter = logging.Formatter(
-        "[%(asctime)s %(levelname)-8s %(filename)s:%(lineno)s - %(funcName)s] %(message)s"
-    )
-    handler.setFormatter(formatter)
-    logger.addHandler(handler)
-    logger.setLevel("INFO")
-    handler.setLevel("INFO")
 
     from pydm.utilities import setup_renderer
 
@@ -123,9 +136,7 @@ def launch_pydm(
     if macros is not None and type(macros) == str:
         macros = parse_macro_string(macros)
 
-    logger.setLevel(log_level)
-    handler.setLevel(log_level)
-
+    logger.info("siriushlacon PyDM")
     app = PyDMApp(
         ui_file=displayfile,
         command_line_args=_display_args,
@@ -142,7 +153,7 @@ def launch_pydm(
     pydm.utilities.shortcuts.install_connection_inspector(parent=app.main_window)
 
     # Qt widgets etc.. must be created after the qapplication
-    from siriushlacon.utils.images import CNPEM_INVISIBLE_LOGO_ICON
+    from siriushlacon.widgets.images import CNPEM_INVISIBLE_LOGO_ICON
 
     app.setWindowIcon(CNPEM_INVISIBLE_LOGO_ICON)
     sys.exit(app.exec_())

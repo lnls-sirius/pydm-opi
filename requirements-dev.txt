@@ -7,3 +7,5 @@ flake8-implicit-str-concat
 mypy
 pre-commit
 types-pkg_resources
+types-pytz
+types-requests

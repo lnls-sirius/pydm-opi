@@ -8,8 +8,8 @@ from qtpy.QtGui import QColor
 from qtpy.QtWidgets import QLabel
 
 from siriushlacon import __date__, __version__
-from siriushlacon.utils.images import CNPEM_PIXMAP, LNLS_PIXMAP
 from siriushlacon.vbc.consts import MAIN_WINDOW_UI, SYSTEM_WINDOW_PY
+from siriushlacon.widgets.images import CNPEM_PIXMAP, LNLS_PIXMAP
 
 
 class VBCMainWindow(Display):

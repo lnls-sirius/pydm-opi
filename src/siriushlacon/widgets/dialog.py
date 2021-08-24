@@ -7,12 +7,14 @@ from qtpy.QtWidgets import QGridLayout as _QGridLayout
 from qtpy.QtWidgets import QWidget as _QWidget
 
 from siriushlacon import DEFAULT_WINDOW_TITLE as _DEFAULT_WINDOW_TITLE
-from siriushlacon.utils.images import (
+from siriushlacon.widgets.images import (
     CNPEM_INVISIBLE_LOGO_ICON as _CNPEM_INVISIBLE_LOGO_ICON,
 )
 
 
 class BaseDialog(_QDialog):
+    """Base modal dialog"""
+
     def __init__(
         self,
         parent: _typing.Optional[_QWidget],

@@ -2,9 +2,9 @@
 
 from pydm import Display
 
-from siriushlacon.utils.images import CNPEM_PIXMAP, LNLS_PIXMAP
 from siriushlacon.vbc.confirmation_message import ConfirmationMessageDialog
 from siriushlacon.vbc.consts import ADVANCED_WINDOW_UI
+from siriushlacon.widgets.images import CNPEM_PIXMAP, LNLS_PIXMAP
 
 
 class DeviceMenu(Display):

@@ -84,7 +84,9 @@ conda config --set channel_priority strict
 conda install -c conda-forge/label/cf202003 epics-base
 
 # Install dependencies
-conda install qt==5.12.9 pyqt==5.12.3 pydm==1.10.4
+conda install -c conda-forge pyqt==5.12.3
+conda install -c conda-forge qt==5.12.9
+conda install -c conda-forge pydm==1.11.1
 
 # Install interfaces
 pip install --upgrade siriushlacon
