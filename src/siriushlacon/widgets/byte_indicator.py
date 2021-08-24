@@ -1,9 +1,13 @@
+import typing
+
 from pydm.widgets import PyDMByteIndicator
 from qtpy.QtCore import Qt
 from qtpy.QtGui import QColor
 
 
-def get_byte_indicator(parent, content, tooltip, **kwargs):
+def get_byte_indicator(
+    parent, content: typing.Optional[str], tooltip: str = "", **kwargs
+):
     byte = PyDMByteIndicator(parent, content)
     byte.offColor = QColor(59, 0, 0)
     byte.onColor = QColor(255, 0, 0)
