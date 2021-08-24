@@ -1,5 +1,6 @@
 import typing as _typing
 
+import conscommon.data
 import conscommon.data_model
 from qtpy.QtWidgets import QApplication as _QApplication
 from qtpy.QtWidgets import QMessageBox as _QMessageBox
@@ -28,8 +29,9 @@ class LazyDevices:
         except Exception as e:
             _logger.exception("Failed to acquire data from the API")
             _QMessageBox.critical(
-                title="Beaglebone Info API Error",
-                text=f"Failed to get information from the remote API. Check if the server is reachable. Error '{e}",
+                None,
+                "Beaglebone Info API Error",
+                f"Failed to get information from the remote API. Check if the server is reachable at {conscommon.data.API_CANDIDATES}.\nError '{e}'",
             )
             raise e
 
