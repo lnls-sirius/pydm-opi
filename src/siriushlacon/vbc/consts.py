@@ -38,21 +38,21 @@ class Finished(str, enum.Enum):
 
 
 # Images
-CHECK_IMG = get_abs_path("images/check.png")
-CNPEM_IMG = get_abs_path("images/CNPEM.jpg")
-LNLS_IMG = get_abs_path("images/LNLS.png")
-PLAY_IMG = get_abs_path("images/play_button.jpg")
-STOP_IMG = get_abs_path("images/stop_button.png")
-WARNING_IMG = get_abs_path("images/warning.png")
+CHECK_IMG = get_abs_path("resources/images/check.png")
+CNPEM_IMG = get_abs_path("resources/images/CNPEM.jpg")
+LNLS_IMG = get_abs_path("resources/images/LNLS.png")
+PLAY_IMG = get_abs_path("resources/images/play_button.jpg")
+STOP_IMG = get_abs_path("resources/images/stop_button.png")
+WARNING_IMG = get_abs_path("resources/images/warning.png")
 
 # UI
-ADVANCED_WINDOW_UI = get_abs_path("ui/advanced_window.ui")
-CONFIRMATION_MESSAGE_UI = get_abs_path("ui/confirmation_message.ui")
-MAIN_WINDOW_UI = get_abs_path("ui/main_window.ui")
-OK_MESSAGE_UI = get_abs_path("ui/OK_message.ui")
-SYSTEM_WINDOW_UI = get_abs_path("ui/system_window.ui")
-WARNING_WINDOW_UI = get_abs_path("ui/warning_message.ui")
-SIMPLE_WINDOW_UI = get_abs_path("ui/simple_window.ui")
+ADVANCED_WINDOW_UI = get_abs_path("resources/ui/advanced_window.ui")
+CONFIRMATION_MESSAGE_UI = get_abs_path("resources/ui/confirmation_message.ui")
+MAIN_WINDOW_UI = get_abs_path("resources/ui/main_window.ui")
+OK_MESSAGE_UI = get_abs_path("resources/ui/OK_message.ui")
+SYSTEM_WINDOW_UI = get_abs_path("resources/ui/system_window.ui")
+WARNING_WINDOW_UI = get_abs_path("resources/ui/warning_message.ui")
+SIMPLE_WINDOW_UI = get_abs_path("resources/ui/simple_window.ui")
 
 # PY
 ADVANCED_WINDOW_PY = get_abs_path("advanced_window.py")

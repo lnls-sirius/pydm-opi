@@ -26,7 +26,7 @@ class LogLevel(int, enum.Enum):
     CRITICAL = logging.CRITICAL
 
 
-class PyDMApp(pydm.PyDMApplication):
+class SiriushlaconApplication(pydm.PyDMApplication):
     def __init__(
         self,
         ui_file=None,
@@ -61,7 +61,7 @@ class PyDMApp(pydm.PyDMApplication):
             fullscreen=fullscreen,
         )
 
-        self._generic_launcher_file_name = "sirius-hla-as-ap-generic-launcher.py"
+        self._generic_launcher_file_name = "sirius-hla-as-ap-generic-launcher"
         self._generic_launcher_file_path = pydm.utilities.which(
             self._generic_launcher_file_name
         )
@@ -94,7 +94,7 @@ class PyDMApp(pydm.PyDMApplication):
         logger.info(f"Params: {kwargs_str}")
 
         subprocess.Popen(
-            [python_exe, self._generic_launcher_file_path, kwargs_str],
+            [self._generic_launcher_file_path, kwargs_str],
             shell=False,
         )
 
@@ -137,7 +137,7 @@ def launch_pydm(
         macros = parse_macro_string(macros)
 
     logger.info("siriushlacon PyDM")
-    app = PyDMApp(
+    app = SiriushlaconApplication(
         ui_file=displayfile,
         command_line_args=_display_args,
         perfmon=perfmon,

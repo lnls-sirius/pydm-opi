@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="newPrefix">
-    <file>LNLS.png</file>
-    <file>storage_ring.png</file>
-  </qresource>
-</RCC>

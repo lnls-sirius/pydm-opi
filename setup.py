@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
+import platform
+import sys
+
 import pkg_resources
 from setuptools import find_packages, setup
 
 from src.siriushlacon import __author__, __version__
+
+assert sys.version_info >= (3, 6, 2), "siriushlacon requires Python 3.6.2+"
 
 
 def get_abs_path(relative) -> str:
@@ -27,9 +32,17 @@ long_description = get_long_description()
 with open(get_abs_path("requirements.txt"), "r") as _f:
     requirements = _f.read().strip().split("\n")
 
+entry_style = "console_scripts" if platform.system() == "Windows" else "gui_scripts"
 setup(
     name="siriushlacon",
     author=__author__,
+    entry_points={
+        entry_style: [
+            "sirius-hla-as-ap-generic-launcher=siriushlacon_launcher:launch_generic",
+            "sirius-hla-as-ap-conlauncher=siriushlacon_launcher:launch_main_window",
+            "sirius-hla-as-va-vbc=siriushlacon_launcher:launch_vbc",
+        ]
+    },
     classifiers=[
         "Intended Audience :: Science/Research",
         "Operating System :: OS Independent",
@@ -54,19 +67,13 @@ setup(
     version=__version__,
     install_requires=requirements,
     include_package_data=True,
-    packages=find_packages(
-        where="src",
-        include=[
-            "siriushlacon*",
-        ],
-    ),
+    packages=find_packages(where="src"),
     package_dir={"": "src"},
     python_requires=">=3.6",
     scripts=[
         "scripts/sirius-hla-as-ap-bbb-monitor.py",
         "scripts/sirius-hla-as-ap-conlauncher.py",
         "scripts/sirius-hla-as-ap-countingpru.py",
-        "scripts/sirius-hla-as-ap-generic-launcher.py",
         "scripts/sirius-hla-as-ap-mbtemp.py",
         "scripts/sirius-hla-as-ap-pctrl.py",
         "scripts/sirius-hla-as-ps-regatron-individual.py",

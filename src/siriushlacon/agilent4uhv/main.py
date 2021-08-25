@@ -34,14 +34,14 @@ CH_REG = re.compile(r":[C][0-9]")
 
 class UHVDataController(TableDataController):
     def init_tble(self):
-        self.table.setRowCount(self.table_batch)
+        self.table.setRowCount(self._table_batch)
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
 
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
 
-        for actual_row in range(self.table_batch):
+        for actual_row in range(self._table_batch):
             # Channel Name
             self.table.setCellWidget(actual_row, 0, QLabel(""))
             # Device Name
@@ -170,7 +170,7 @@ class UHVDataController(TableDataController):
         actual_row = 0
         dataset_row = 0
 
-        iterable = range(self.batch_offset, self.table_batch + self.batch_offset)
+        iterable = range(self.batch_offset, self._table_batch + self.batch_offset)
         self.table.setVerticalHeaderLabels([str(i) for i in iterable])
         for tableRow in self.table_data:
 
@@ -178,7 +178,7 @@ class UHVDataController(TableDataController):
             if (
                 tableRow.render
                 and dataset_row >= self.batch_offset
-                and actual_row != self.table_batch
+                and actual_row != self._table_batch
             ):
                 self.table.setRowHidden(actual_row, False)
 
@@ -232,8 +232,8 @@ class UHVDataController(TableDataController):
                 actual_row += 1
             dataset_row += 1
 
-            if actual_row != self.table_batch:
-                for row in range(actual_row, self.table_batch):
+            if actual_row != self._table_batch:
+                for row in range(actual_row, self._table_batch):
                     self.table.setRowHidden(row, True)
 
 

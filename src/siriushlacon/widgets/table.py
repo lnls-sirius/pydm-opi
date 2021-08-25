@@ -25,8 +25,7 @@ class TableDataController(QObject):
 
     update_content = Signal()
 
-    table_batch = 24
-    filter_pattern = None
+    _table_batch = 24
 
     def __init__(
         self,
@@ -40,10 +39,12 @@ class TableDataController(QObject):
         self.devices: typing.List[conscommon.data_model.Device] = (
             devices if devices else []
         )
-        self.table_data: typing.List[TableDataRow] = []
-        self.table = table
-        self.table_batch = table_batch
+        self._filter_pattern: typing.Optional[str] = None
+        self._table_batch = table_batch
+
         self.horizontalHeaderLabels = horizontal_header_labels
+        self.table = table
+        self.table_data: typing.List[TableDataRow] = []
 
         self.MaxValue = 50
         self.MinValue = 1
@@ -62,7 +63,7 @@ class TableDataController(QObject):
             self.table.resizeColumnsToContents()
 
     def init_table(self):
-        self.table.setRowCount(self.table_batch)
+        self.table.setRowCount(self._table_batch)
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
 
@@ -133,11 +134,11 @@ class TableDataController(QObject):
     def changeBatch(self, increase):
         if increase:
             if self.batch_offset < len(self.table_data):
-                self.batch_offset += self.table_batch
+                self.batch_offset += self._table_batch
                 self.update_content.emit()
         else:
             if self.batch_offset != 0:
-                self.batch_offset -= self.table_batch
+                self.batch_offset -= self._table_batch
                 if self.batch_offset < 0:
                     self.batch_offset = 0
                 self.update_content.emit()

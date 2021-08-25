@@ -20,18 +20,4 @@ IS_LINUX: bool = os.name == "posix" or platform.system() == "Linux"
 # ui
 OVERVIEW_UI: str = get_abs_path("ui/overview.ui")
 
-# Images
-CNPEM_IMG: str = get_abs_path("images/CNPEM.jpg")
-CNPEM_INVISIBLE_IMG: str = get_abs_path("images/CNPEM-invisible.png")
-CNPEM_INVISIBLE_LOGO_IMG: str = get_abs_path("images/CNPEM-invisible-logo.png")
-LNLS_IMG: str = get_abs_path("images/sirius-hla-as-cons-lnls.png")
-
-LNLS_INVISIBLE_IMG: str = get_abs_path("images/lnls-invisible.png")
-LTB_IMG: str = get_abs_path("images/ltb.png")
-BOOSTER_IMG: str = get_abs_path("images/booster.png")
-BTS_IMG: str = get_abs_path("images/btts.png")
-STORAGE_RING_IMG: str = get_abs_path("images/storage_ring.png")
-RINGB1A_IMG: str = get_abs_path("images/ringB1A.png")
-RINGB2A_IMG: str = get_abs_path("images/ringB2A.png")
-
 BO, SI, TB, TS = "BO", "SI", "TB", "TS"
