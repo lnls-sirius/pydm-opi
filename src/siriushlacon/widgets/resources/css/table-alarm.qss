@@ -1,0 +1,55 @@
+/*
+GREEN_ALARM = "#00EB00"
+YELLOW_ALARM = "#EBEB00"
+RED_ALARM = "#FF0000"
+MAGENTA_ALARM = "#EB00EB"
+WHITE_ALARM = "#EBEBEB"
+*/
+/*
+ALARM_NONE = 0
+ALARM_MINOR = 1
+ALARM_MAJOR = 2
+ALARM_INVALID = 3
+ALARM_DISCONNECTED = 4
+*/
+
+/* =============== Alarm-sensitive content ================= */
+
+/* For labels and line edits, we make sure the background is dark so that the text is readable even when the
+color is very bright (like the yellow "MINOR" alarm) */
+PyDMLabel[alarmSensitiveContent="true"],
+PyDMLineEdit[alarmSensitiveContent="true"] > QLabel#valueLabel {
+	/*background-color: #444444;*/
+}
+
+PyDMLabel[alarmSensitiveContent="true"][alarmSeverity="0"],
+PyDMLineEdit[alarmSensitiveContent="true"][alarmSeverity="0"] > QLabel#valueLabel {
+
+}
+
+/* Minor */
+PyDMLabel[alarmSensitiveContent="true"][alarmSeverity="1"],
+PyDMLineEdit[alarmSensitiveContent="true"][alarmSeverity="1"] > QLabel#valueLabel {
+	color: #000000;
+    background-color: #EBEB00;
+}
+
+/* Major */
+PyDMLabel[alarmSensitiveContent="true"][alarmSeverity="2"],
+PyDMLineEdit[alarmSensitiveContent="true"][alarmSeverity="2"] > QLabel#valueLabel {
+	color: #FFFFFF;
+    background-color: #FF0000;
+}
+
+/* Invalid */
+PyDMLabel[alarmSensitiveContent="true"][alarmSeverity="3"],
+PyDMLineEdit[alarmSensitiveContent="true"][alarmSeverity="3"] > QLabel#valueLabel {
+	color: #FFFFFF;
+    background-color: #EB00EB;
+}
+
+/* Disconnected */
+PyDMLabel[alarmSensitiveContent="true"][alarmSeverity="4"],
+PyDMLineEdit[alarmSensitiveContent="true"][alarmSeverity="4"] > QLabel#valueLabel {
+	color: #FFFFFF;
+}

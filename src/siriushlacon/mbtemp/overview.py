@@ -7,7 +7,8 @@ from pydm.utilities import IconFont
 from qtpy.QtWidgets import QLabel
 
 from siriushlacon.mbtemp.consts import OVERVIEW_MAIN_UI, lazy_devices
-from siriushlacon.utils.widgets import TableDataController, get_label
+from siriushlacon.widgets.label import make_cell_label
+from siriushlacon.widgets.table import TableDataController
 
 logger = logging.getLogger()
 DEVICES = lazy_devices.get()
@@ -15,30 +16,30 @@ DEVICES = lazy_devices.get()
 
 class MBTempTableDataController(TableDataController):
     def init_table(self):
-        self.table.setRowCount(self.table_batch)
+        self.table.setRowCount(self._table_batch)
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
-        for actual_row in range(self.table_batch):
+        for actual_row in range(self._table_batch):
             # Channel Name
             self.table.setCellWidget(actual_row, 0, QLabel(""))
             # Device Name
             self.table.setCellWidget(actual_row, 1, QLabel(""))
             # Device Alpha
-            self.table.setCellWidget(actual_row, 2, get_label(self.table, "", ""))
+            self.table.setCellWidget(actual_row, 2, make_cell_label(self.table, "", ""))
             # Temperature
-            self.table.setCellWidget(actual_row, 3, get_label(self.table, "", ""))
+            self.table.setCellWidget(actual_row, 3, make_cell_label(self.table, "", ""))
             # Temperature Raw
             # self.table.setCellWidget(actual_row, 4, get_label(self.table, "", ""))
 
     def filter(self, pattern):
-        if pattern != self.filter_pattern:
-            self.filter_pattern = pattern if pattern is not None else ""
+        if pattern != self._filter_pattern:
+            self._filter_pattern = pattern if pattern is not None else ""
             self.batch_offset = 0
-            self.filter_pattern = pattern
+            self._filter_pattern = pattern
 
             for data in self.table_data:
                 data[2] = (
-                    self.filter_pattern in data[0] or self.filter_pattern in data[1]
+                    self._filter_pattern in data[0] or self._filter_pattern in data[1]
                 )
             self.update_content.emit()
 
@@ -66,12 +67,12 @@ class MBTempTableDataController(TableDataController):
         self.table.setVerticalHeaderLabels(
             [
                 str(i)
-                for i in range(self.batch_offset, self.table_batch + self.batch_offset)
+                for i in range(self.batch_offset, self._table_batch + self.batch_offset)
             ]
         )
 
         for channel, dev, render in self.table_data:
-            if channel[-3:-1] == "CH" or actual_row == self.table_batch:
+            if channel[-3:-1] == "CH" or actual_row == self._table_batch:
                 continue
 
             # To render or not to render  ...
@@ -97,7 +98,7 @@ class MBTempTableDataController(TableDataController):
 
             dataset_row += 1
 
-        for row in range(actual_row, self.table_batch):
+        for row in range(actual_row, self._table_batch):
             self.table.setRowHidden(row, True)
 
     def update_TempMaxMin(self, Maximum="", Minimum=""):

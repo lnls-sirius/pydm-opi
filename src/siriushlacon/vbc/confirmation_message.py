@@ -7,10 +7,10 @@ from pydm import Display as _Display
 from qtpy.QtWidgets import QWidget as _QWidget
 
 from siriushlacon.utils.command_runner import CommandRunner
-from siriushlacon.utils.dialog import BaseDialog as _BaseDialog
 from siriushlacon.vbc.consts import CONFIRMATION_MESSAGE_UI
 from siriushlacon.vbc.images import WARNING as _WARNING_PIXMAP
 from siriushlacon.vbc.scripts import commute_valve, set_venting_valve_state
+from siriushlacon.widgets.dialog import BaseDialog as _BaseDialog
 
 _logger = _logging.getLogger(__name__)
 

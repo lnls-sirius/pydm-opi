@@ -2,7 +2,7 @@
 import argparse
 import os
 
-from siriushlacon.utils.launch import LogLevel, launch_pydm
+from siriushlacon.application import LogLevel, launch_pydm
 from siriushlacon.vbc.consts import MAIN_WINDOW_PY as VBC_MAIN_WINDOW_PY
 
 os.environ["PYDM_DEFAULT_PROTOCOL"] = "ca://"

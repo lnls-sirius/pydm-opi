@@ -14,7 +14,8 @@ from qtpy.QtCore import Qt
 from qtpy.QtWidgets import QCheckBox, QLabel
 
 from siriushlacon.mks937b.consts import DEVICE_MENU, MKS_MAIN_UI, lazy_devices
-from siriushlacon.utils.widgets import TableDataController, TableDataRow, get_label
+from siriushlacon.widgets.label import make_cell_label
+from siriushlacon.widgets.table import TableDataController, TableDataRow
 
 CH_REG = re.compile(r":[ABC][0-9]")
 DEVICES = lazy_devices.get()
@@ -61,15 +62,17 @@ class MKSTableDataController(TableDataController):
         )
 
     def init_table(self):
-        self.table.setRowCount(self.table_batch)
+        self.table.setRowCount(self._table_batch)
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
 
-        for actual_row in range(self.table_batch):
+        for actual_row in range(self._table_batch):
             col = 0
             for col_name in TableColumn:
                 if col_name in [TableColumn.Device, TableColumn.Channel]:
-                    self.table.setCellWidget(actual_row, col, QLabel(""))
+                    lbl = QLabel("")
+                    lbl.setAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
+                    self.table.setCellWidget(actual_row, col, lbl)
 
                 elif col_name == TableColumn.Details:
                     rel = PyDMRelatedDisplayButton(self.table)
@@ -79,20 +82,20 @@ class MKSTableDataController(TableDataController):
                     rel.show()
                 else:
                     self.table.setCellWidget(
-                        actual_row, col, get_label(self.table, showUnits=False)
+                        actual_row, col, make_cell_label(self.table, showUnits=False)
                     )
                 col += 1
 
     def filter(self, pattern):
-        if pattern != self.filter_pattern:
-            self.filter_pattern = pattern if pattern is not None else ""
+        if pattern != self._filter_pattern:
+            self._filter_pattern = pattern if pattern is not None else ""
             self.batch_offset = 0
-            self.filter_pattern = pattern
+            self._filter_pattern = pattern
 
             for tableDataRow in self.table_data:
                 tableDataRow.render = (
-                    self.filter_pattern in tableDataRow.device.prefix
-                    or self.filter_pattern in tableDataRow.channel.prefix
+                    self._filter_pattern in tableDataRow.device.prefix
+                    or self._filter_pattern in tableDataRow.channel.prefix
                 )
             self.update_content.emit()
 
@@ -191,12 +194,12 @@ class MKSTableDataController(TableDataController):
         self.table.setVerticalHeaderLabels(
             [
                 str(i)
-                for i in range(self.batch_offset, self.table_batch + self.batch_offset)
+                for i in range(self.batch_offset, self._table_batch + self.batch_offset)
             ]
         )
 
         for d in self.table_data:
-            if actual_row == self.table_batch:
+            if actual_row == self._table_batch:
                 continue
 
             # To render or not to render  ...
@@ -205,7 +208,7 @@ class MKSTableDataController(TableDataController):
                 actual_row += 1
             dataset_row += 1
 
-        for row in range(actual_row, self.table_batch):
+        for row in range(actual_row, self._table_batch):
             self.table.setRowHidden(row, True)
 
 

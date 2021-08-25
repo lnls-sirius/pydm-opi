@@ -10,11 +10,11 @@ from qtpy.QtWidgets import QDialogButtonBox, QLabel, QWidget
 
 from siriushlacon.utils import close_qt_application
 from siriushlacon.utils.command_runner import CommandRunner
-from siriushlacon.utils.dialog import BaseDialog as _BaseDialog
-from siriushlacon.utils.images import LNLS_PIXMAP
 from siriushlacon.vbc.consts import WARNING_WINDOW_UI, Finished
 from siriushlacon.vbc.OK_message import OkMessageDialog
 from siriushlacon.vbc.scripts import process_recovery
+from siriushlacon.widgets.dialog import BaseDialog as _BaseDialog
+from siriushlacon.widgets.images import LNLS_PIXMAP
 
 
 class VBCWarningMessage(Display):

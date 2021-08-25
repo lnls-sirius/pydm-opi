@@ -1,4 +1,4 @@
-from siriushlacon.utils.epics import create_connected_pv
+from siriushlacon.epics import create_connected_pv
 
 
 class ProcessOn:

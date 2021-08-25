@@ -5,6 +5,7 @@ import re
 from pydm import Display
 from pydm.utilities import IconFont
 from pydm.widgets import PyDMLabel, PyDMRelatedDisplayButton
+from qtpy.QtCore import Qt
 from qtpy.QtWidgets import QLabel
 
 from siriushlacon.agilent4uhv.consts import (
@@ -12,12 +13,9 @@ from siriushlacon.agilent4uhv.consts import (
     AGILENT_MAIN_UI,
     lazy_devices,
 )
-from siriushlacon.utils.widgets import (
-    TableDataController,
-    TableDataRow,
-    get_byte_indicator,
-    get_label,
-)
+from siriushlacon.widgets.byte_indicator import get_byte_indicator
+from siriushlacon.widgets.label import make_cell_label
+from siriushlacon.widgets.table import TableDataController, TableDataRow
 
 DEVICES = lazy_devices.get()
 (
@@ -37,45 +35,53 @@ CH_REG = re.compile(r":[C][0-9]")
 
 class UHVDataController(TableDataController):
     def init_table(self):
-        self.table.setRowCount(self.table_batch)
+        self.table.setRowCount(self._table_batch)
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
 
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
 
-        for actual_row in range(self.table_batch):
+        for actual_row in range(self._table_batch):
             # Channel Name
-            self.table.setCellWidget(actual_row, 0, QLabel(""))
+            ch_lbl = QLabel("")
+            ch_lbl.setAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
+            self.table.setCellWidget(actual_row, 0, ch_lbl)
             # Device Name
-            self.table.setCellWidget(actual_row, 1, QLabel(""))
+            dev_lbl = QLabel("")
+            dev_lbl.setAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
+            self.table.setCellWidget(actual_row, 1, dev_lbl)
             # Fan Temperature
-            self.table.setCellWidget(actual_row, 2, get_label(self.table, "", ""))
+            self.table.setCellWidget(actual_row, 2, make_cell_label(self.table, "", ""))
             # Autostart
-            self.table.setCellWidget(actual_row, 3, get_label(self.table, "", ""))
+            self.table.setCellWidget(actual_row, 3, make_cell_label(self.table, "", ""))
 
             # Pressure
             self.table.setCellWidget(
                 actual_row,
                 4,
-                get_label(self.table, "", "", PyDMLabel.DisplayFormat.Exponential),
+                make_cell_label(
+                    self.table, "", "", PyDMLabel.DisplayFormat.Exponential
+                ),
             )
             # Device Unit
-            self.table.setCellWidget(actual_row, 5, get_label(self.table, "", ""))
+            self.table.setCellWidget(actual_row, 5, make_cell_label(self.table, "", ""))
 
             # Voltage
-            self.table.setCellWidget(actual_row, 6, get_label(self.table, "", ""))
+            self.table.setCellWidget(actual_row, 6, make_cell_label(self.table, "", ""))
             # Current
             self.table.setCellWidget(
                 actual_row,
                 7,
-                get_label(self.table, "", "", PyDMLabel.DisplayFormat.Exponential),
+                make_cell_label(
+                    self.table, "", "", PyDMLabel.DisplayFormat.Exponential
+                ),
             )
             # Temperature
             self.table.setCellWidget(
                 actual_row,
                 8,
-                get_label(
+                make_cell_label(
                     self.table,
                     "",
                     "",
@@ -91,18 +97,28 @@ class UHVDataController(TableDataController):
             rel.openInNewWindow = True
 
             # HV State
-            self.table.setCellWidget(actual_row, 10, get_label(self.table, "", ""))
+            self.table.setCellWidget(
+                actual_row, 10, make_cell_label(self.table, "", "")
+            )
             # Power Max
-            self.table.setCellWidget(actual_row, 11, get_label(self.table, "", ""))
+            self.table.setCellWidget(
+                actual_row, 11, make_cell_label(self.table, "", "")
+            )
             # V Target
-            self.table.setCellWidget(actual_row, 12, get_label(self.table, "", ""))
+            self.table.setCellWidget(
+                actual_row, 12, make_cell_label(self.table, "", "")
+            )
             # I Protect
-            self.table.setCellWidget(actual_row, 13, get_label(self.table, "", ""))
+            self.table.setCellWidget(
+                actual_row, 13, make_cell_label(self.table, "", "")
+            )
             # Setpoint
             self.table.setCellWidget(
                 actual_row,
                 14,
-                get_label(self.table, "", "", PyDMLabel.DisplayFormat.Exponential),
+                make_cell_label(
+                    self.table, "", "", PyDMLabel.DisplayFormat.Exponential
+                ),
             )
 
             # Details
@@ -159,7 +175,7 @@ class UHVDataController(TableDataController):
         actual_row = 0
         dataset_row = 0
 
-        iterable = range(self.batch_offset, self.table_batch + self.batch_offset)
+        iterable = range(self.batch_offset, self._table_batch + self.batch_offset)
         self.table.setVerticalHeaderLabels([str(i) for i in iterable])
         for tableRow in self.table_data:
 
@@ -167,7 +183,7 @@ class UHVDataController(TableDataController):
             if (
                 tableRow.render
                 and dataset_row >= self.batch_offset
-                and actual_row != self.table_batch
+                and actual_row != self._table_batch
             ):
                 self.table.setRowHidden(actual_row, False)
 
@@ -221,8 +237,8 @@ class UHVDataController(TableDataController):
                 actual_row += 1
             dataset_row += 1
 
-            if actual_row != self.table_batch:
-                for row in range(actual_row, self.table_batch):
+            if actual_row != self._table_batch:
+                for row in range(actual_row, self._table_batch):
                     self.table.setRowHidden(row, True)
 
 

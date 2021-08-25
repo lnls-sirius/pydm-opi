@@ -1,16 +1,22 @@
 import datetime
 import logging
+import typing
 
 import pytz
 import requests
 
+from siriushlacon.epics import Alarm, Severity
 from siriushlacon.utils.consts import ARCHIVER_URL, SP_TZ, TIME_ZERO
-from siriushlacon.utils.epics import Alarm, Severity
 
 logger = logging.getLogger()
 
 
-def get_data_from_archiver(pv, from_, to=None, fetch_latest_metadata=True):
+def get_data_from_archiver(
+    pv: str,
+    from_: datetime.datetime,
+    to: typing.Optional[datetime.datetime] = None,
+    fetch_latest_metadata: bool = True,
+):
     """
     :param fetch_latest_metadata: if true, an extra call is made to the engine as part of the retrieval to get the
         latest values of the various fields (DESC, HIHI etc).
@@ -22,19 +28,23 @@ def get_data_from_archiver(pv, from_, to=None, fetch_latest_metadata=True):
     if not from_:
         raise ValueError('cannot complete request, "_from" is not defined')
 
+    from_str = ""
     if type(from_) == datetime.datetime:
         logger.debug('converting "from_" datetime.time to str')
-        from_ = get_time_str_from_utc(from_)
-    if type(to) == datetime.datetime:
+        from_str = get_time_str_from_utc(from_)
+
+    to_str = ""
+    if to and type(to) == datetime.datetime:
         logger.debug('converting "to" datetime.time to str')
-        to = get_time_str_from_utc(to)
+        to_str = get_time_str_from_utc(to)
     if not to:
-        to = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
+        to_str = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
+
     params = {
         "pv": pv,
-        "to": to,
-        "from": from_,
-        "fetchLatestMetadata": "true" if True else "false",
+        "to": to_str,
+        "from": from_str,
+        "fetchLatestMetadata": fetch_latest_metadata,
     }
 
     req = requests.Request("GET", url=ARCHIVER_URL, params=params)

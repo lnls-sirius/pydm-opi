@@ -1,8 +1,19 @@
 #!/usr/bin/env python3
+import platform
+import sys
+
 import pkg_resources
 from setuptools import find_packages, setup
 
-from src.siriushlacon import __author__, __version__
+from src.siriushlacon import (
+    GENERIC_LAUNCHER_FILE_NAME,
+    MAIN_LAUNCHER_FILE_NAME,
+    VBC_LAUNCHER_FILE_NAME,
+    __author__,
+    __version__,
+)
+
+assert sys.version_info >= (3, 6, 2), "siriushlacon requires Python 3.6.2+"
 
 
 def get_abs_path(relative) -> str:
@@ -27,9 +38,17 @@ long_description = get_long_description()
 with open(get_abs_path("requirements.txt"), "r") as _f:
     requirements = _f.read().strip().split("\n")
 
+entry_style = "console_scripts" if platform.system() == "Windows" else "gui_scripts"
 setup(
     name="siriushlacon",
     author=__author__,
+    entry_points={
+        entry_style: [
+            f"{GENERIC_LAUNCHER_FILE_NAME}=siriushlacon_launcher:launch_generic",
+            f"{MAIN_LAUNCHER_FILE_NAME}=siriushlacon_launcher:launch_main_window",
+            f"{VBC_LAUNCHER_FILE_NAME}=siriushlacon_launcher:launch_vbc",
+        ]
+    },
     classifiers=[
         "Intended Audience :: Science/Research",
         "Operating System :: OS Independent",
@@ -54,12 +73,7 @@ setup(
     version=__version__,
     install_requires=requirements,
     include_package_data=True,
-    packages=find_packages(
-        where="src",
-        include=[
-            "siriushlacon*",
-        ],
-    ),
+    packages=find_packages(where="src"),
     package_dir={"": "src"},
     python_requires=">=3.6",
     scripts=[

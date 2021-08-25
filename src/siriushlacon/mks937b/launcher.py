@@ -1,5 +1,4 @@
 from pydm import Display
-from qtpy.QtGui import QPixmap
 
 from siriushlacon.mks937b.consts import (
     BOOSTER_UI,
@@ -9,7 +8,7 @@ from siriushlacon.mks937b.consts import (
     MKS_OVERVIEW,
     STORAGE_RING_UI,
 )
-from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
+from siriushlacon.widgets.images import CNPEM_PIXMAP, LNLS_PIXMAP
 
 
 class MksLauncher(Display):
@@ -31,8 +30,8 @@ class MksLauncher(Display):
         self.btnBts.filenames = [BTS_UI]
         self.btnBts.openInNewWindow = True
 
-        self.label_cnpem.setPixmap(QPixmap(CNPEM_IMG))
-        self.label_lnls.setPixmap(QPixmap(LNLS_IMG))
+        self.label_cnpem.setPixmap(CNPEM_PIXMAP)
+        self.label_lnls.setPixmap(LNLS_PIXMAP)
 
     def ui_filename(self):
         return MKS_LAUNCH_UI

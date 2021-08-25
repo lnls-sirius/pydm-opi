@@ -3,11 +3,11 @@ import json
 
 from pydm import Display
 from qtpy.QtCore import QUrl
-from qtpy.QtGui import QDesktopServices, QPixmap
+from qtpy.QtGui import QDesktopServices
 
 from siriushlacon.mks937b.consts import DEVICE_MENU_UI, INFO_UI, PRESSURE, SETTINGS
 from siriushlacon.tools.consts import VIEWER_URL
-from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
+from siriushlacon.widgets.images import CNPEM_PIXMAP, LNLS_PIXMAP
 
 
 def get_json_macro(macros):
@@ -28,8 +28,8 @@ class DeviceMenu(Display):
         self.btnInfo.filenames = [INFO_UI]
         self.btnInfo.macros = json_macro
 
-        self.label_cnpem.setPixmap(QPixmap(CNPEM_IMG))
-        self.label_lnls.setPixmap(QPixmap(LNLS_IMG))
+        self.label_cnpem.setPixmap(CNPEM_PIXMAP)
+        self.label_lnls.setPixmap(LNLS_PIXMAP)
 
     def open_archiver(self):
         QDesktopServices.openUrl(QUrl(VIEWER_URL))

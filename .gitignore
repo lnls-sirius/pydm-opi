@@ -53,6 +53,7 @@
 .mypy_cache/
 .pytest_cache/
 .python-version
+.qt_for_python
 .ropeproject
 .scrapy
 .spyderproject

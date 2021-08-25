@@ -2,14 +2,13 @@ import json
 import logging
 
 from pydm import Display
-from qtpy.QtGui import QPixmap
 
 from siriushlacon.agilent4uhv.consts import (
     AGILENT_CHANNEL,
     AGILENT_DEVICE,
     AGILENT_DEVICE_MAIN_UI,
 )
-from siriushlacon.utils.consts import CNPEM_IMG, LNLS_IMG
+from siriushlacon.widgets.images import CNPEM_PIXMAP, LNLS_PIXMAP
 
 logger = logging.getLogger()
 
@@ -41,5 +40,5 @@ class DeviceMain(Display):
         self.btn_ch4.macros = json.dumps({"PREFIX": macros["PREFIX_C4"]})
         self.btn_ch4.openInNewWindow = True
 
-        self.label_cnpem.setPixmap(QPixmap(CNPEM_IMG))
-        self.label_lnls.setPixmap(QPixmap(LNLS_IMG))
+        self.label_cnpem.setPixmap(CNPEM_PIXMAP)
+        self.label_lnls.setPixmap(LNLS_PIXMAP)

@@ -11,7 +11,7 @@ from qtpy.QtWidgets import QFrame, QLabel
 
 from siriushlacon.mks937b.consts import lazy_devices
 from siriushlacon.utils.consts import BO, OVERVIEW_UI, SI, TB, TS
-from siriushlacon.utils.widgets import FlowLayout
+from siriushlacon.widgets.layout import FlowLayout
 
 DEVICES = lazy_devices.get()
 logger = logging.getLogger()
@@ -51,7 +51,6 @@ class Overview(Display):
                     or (macro_type == TS and not channel.prefix.startswith(TS))
                 ):
                     continue
-                print(channel.prefix)
 
                 self.pvs.append(
                     {

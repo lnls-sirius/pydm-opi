@@ -7,9 +7,9 @@ from qtpy.QtGui import QPixmap
 from qtpy.QtWidgets import QWidget as _QWidget
 
 from siriushlacon.utils.command_runner import CommandRunner
-from siriushlacon.utils.dialog import BaseDialog as _BaseDialog
 from siriushlacon.vbc.consts import CHECK_IMG, OK_MESSAGE_UI, Finished
 from siriushlacon.vbc.scripts import clear_status_off, clear_status_on, clear_status_rec
+from siriushlacon.widgets.dialog import BaseDialog as _BaseDialog
 
 
 class OkMessage(Display):

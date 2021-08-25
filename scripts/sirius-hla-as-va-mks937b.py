@@ -2,8 +2,8 @@
 import argparse
 import os
 
+from siriushlacon.application import LogLevel, launch_pydm
 from siriushlacon.mks937b.consts import MKS_MAIN
-from siriushlacon.utils.launch import LogLevel, launch_pydm
 
 os.environ["PYDM_DEFAULT_PROTOCOL"] = "ca://"
 
