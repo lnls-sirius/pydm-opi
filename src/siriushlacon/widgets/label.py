@@ -1,4 +1,5 @@
 from pydm.widgets import PyDMLabel
+from qtpy.QtCore import Qt
 
 from siriushlacon.widgets.qss import TABLE_ALARMS_QSS
 
@@ -20,6 +21,7 @@ def make_cell_label(
         precision = _default_precision
 
     lbl = PyDMLabel(parent=parent, init_channel=content)
+    lbl.setAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
     lbl.precisionFromPV = precision_from_pv
     lbl.precision = precision
     lbl.displayFormat = displayFormat
