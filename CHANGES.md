@@ -1,4 +1,4 @@
-# 1.3.0 - Sprint 15
+# 1.4.0 - Sprint 15
 
 - FIX: agilent4uhv details table crash.
 - FIX: regatron alarm tree view with broken PV names.
