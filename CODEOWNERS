@@ -1,0 +1,12 @@
+# @carneirofc
+# @ntanck
+# @pnallin
+# @robertpolli
+
+# --- default owners of the repo
+* @carneirofc
+
+# --- subpackage
+/src/siriushlacon/beaglebones @ntanck @pnallin @robertpolli
+/src/siriushlacon/countingpru @ntanck @pnallin @robertpolli
+/src/siriushlacon/mbtemp @ntanck @pnallin @robertpolli
