@@ -51,7 +51,6 @@ class Overview(Display):
                     or (macro_type == TS and not channel.prefix.startswith(TS))
                 ):
                     continue
-                print(channel.prefix)
 
                 self.pvs.append(
                     {

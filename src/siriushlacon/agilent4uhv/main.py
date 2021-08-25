@@ -5,6 +5,7 @@ import re
 from pydm import Display
 from pydm.utilities import IconFont
 from pydm.widgets import PyDMLabel, PyDMRelatedDisplayButton
+from qtpy.QtCore import Qt
 from qtpy.QtWidgets import QLabel
 
 from siriushlacon.agilent4uhv.consts import (
@@ -33,7 +34,7 @@ CH_REG = re.compile(r":[C][0-9]")
 
 
 class UHVDataController(TableDataController):
-    def init_tble(self):
+    def init_table(self):
         self.table.setRowCount(self._table_batch)
         self.table.setColumnCount(len(self.horizontalHeaderLabels))
         self.table.setHorizontalHeaderLabels(self.horizontalHeaderLabels)
@@ -43,9 +44,13 @@ class UHVDataController(TableDataController):
 
         for actual_row in range(self._table_batch):
             # Channel Name
-            self.table.setCellWidget(actual_row, 0, QLabel(""))
+            ch_lbl = QLabel("")
+            ch_lbl.setAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
+            self.table.setCellWidget(actual_row, 0, ch_lbl)
             # Device Name
-            self.table.setCellWidget(actual_row, 1, QLabel(""))
+            dev_lbl = QLabel("")
+            dev_lbl.setAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
+            self.table.setCellWidget(actual_row, 1, dev_lbl)
             # Fan Temperature
             self.table.setCellWidget(actual_row, 2, make_cell_label(self.table, "", ""))
             # Autostart

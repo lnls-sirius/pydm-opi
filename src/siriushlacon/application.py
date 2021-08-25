@@ -12,6 +12,7 @@ import pydm.data_plugins
 import pydm.utilities
 from qtpy.QtWidgets import QMessageBox
 
+from siriushlacon import GENERIC_LAUNCHER_FILE_NAME
 from siriushlacon.logging import get_logger
 
 logger = get_logger("")
@@ -61,7 +62,7 @@ class SiriushlaconApplication(pydm.PyDMApplication):
             fullscreen=fullscreen,
         )
 
-        self._generic_launcher_file_name = "sirius-hla-as-ap-generic-launcher"
+        self._generic_launcher_file_name = GENERIC_LAUNCHER_FILE_NAME
         self._generic_launcher_file_path = pydm.utilities.which(
             self._generic_launcher_file_name
         )

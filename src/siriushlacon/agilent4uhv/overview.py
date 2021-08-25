@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import logging
 import re
+from dataclasses import dataclass
 from typing import List
 
 import conscommon.data_model
@@ -16,16 +17,33 @@ from siriushlacon.utils.consts import BO, OVERVIEW_UI, SI, TB, TS
 from siriushlacon.widgets.layout import FlowLayout
 
 logger = logging.getLogger()
-DEVICES = lazy_devices.get()
+
+
+@dataclass
+class PVInfo:
+    PV: str
+    DISP: str
+    ALARM: str
+    SEC: str
+    RACK: str
+    RS485: str
 
 
 class Overview(Display):
     def __init__(self, parent=None, args=None, macros=None):
-        super(Overview, self).__init__(parent=parent, args=args, macros=macros)
+        super(Overview, self).__init__(
+            parent=parent, args=args, macros=macros, ui_filename=OVERVIEW_UI
+        )
+
         self.ch_reg = re.compile(r":[C][0-9]")
-        self.macros = macros
-        self.pvs: List[dict] = []
-        self.load_pvs()
+        self._devices = lazy_devices.get()
+        self.pvs: List[PVInfo] = []
+        for device in self._devices:
+            if not device.enable:
+                continue
+            for channel in device.channels:
+                self.load_pv_dict(device, channel)
+
         self.mainArea.setWidgetResizable(True)
         layout = FlowLayout(self.scrollAreaContent)
         for pv in self.pvs:
@@ -38,35 +56,28 @@ class Overview(Display):
     ):
         if (
             (self.ch_reg.match(channel.prefix[-3:]))
-            or (self.macros.get("TYPE") == BO and not channel.prefix.startswith(BO))
-            or (self.macros.get("TYPE") == SI and not channel.prefix.startswith(SI))
-            or (self.macros.get("TYPE") == TS and not channel.prefix.startswith(TS))
-            or (self.macros.get("TYPE") == TB and not channel.prefix.startswith(TB))
+            or (self.macros().get("TYPE") == BO and not channel.prefix.startswith(BO))
+            or (self.macros().get("TYPE") == SI and not channel.prefix.startswith(SI))
+            or (self.macros().get("TYPE") == TS and not channel.prefix.startswith(TS))
+            or (self.macros().get("TYPE") == TB and not channel.prefix.startswith(TB))
         ):
             logger.info("Ignored {}".format(channel.prefix))
             return None
 
         self.pvs.append(
-            {
-                "PV": channel.prefix + ":Pressure-Mon",
-                "DISP": channel.prefix + ":Pressure-Mon",
-                "ALARM": channel.prefix + ":Pressure-Mon.STAT",
-                "SEC.": device.info.sector,
-                "RACK": device.info.rack,
-                "RS485": device.info.serial_id,
-            }
+            PVInfo(
+                PV=channel.prefix + ":Pressure-Mon",
+                DISP=channel.prefix + ":Pressure-Mon",
+                ALARM=channel.prefix + ":Pressure-Mon.STAT",
+                SEC=device.info.sector,
+                RACK=device.info.rack,
+                RS485=device.info.serial_id,
+            )
         )
 
-    def load_pvs(self):
-        for device in DEVICES:
-            if not device.enable:
-                continue
-            for channel in device.channels:
-                self.load_pv_dict(device, channel)
-
-    def get_gauge(self, parent, macros):
+    def get_gauge(self, parent, macros: PVInfo):
         aux = []
-        for k, v in macros.items():
+        for k, v in macros.__dict__.items():
             aux.append("{}\t{}\n".format(k, v))
         tooltip = "".join(aux)
 
@@ -84,7 +95,7 @@ class Overview(Display):
         brush.setStyle(Qt.NoBrush)
 
         alarmRec = PyDMDrawingRectangle(frame)
-        alarmRec.channel = "ca://{}".format(macros.get("ALARM", None))
+        alarmRec.channel = "ca://{}".format(macros.ALARM)
         alarmRec.setGeometry(QRect(0, 0, width, height))
         alarmRec.setToolTip(tooltip)
         alarmRec.setProperty("alarmSensitiveContent", True)
@@ -98,7 +109,7 @@ class Overview(Display):
         font.setPointSize(12)
         lblName.setFont(font)
         lblName.setAlignment(Qt.AlignCenter)
-        lblName.setText("{}".format(macros.get("DISP", None)))
+        lblName.setText("{}".format(macros.DISP))
         lblName.setObjectName("lblName")
         lblName.setToolTip(tooltip)
 
@@ -111,15 +122,9 @@ class Overview(Display):
         lblVal.setAlignment(Qt.AlignCenter)
         lblVal.setProperty("showUnits", False)
         lblVal.setObjectName("lblVal")
-        lblVal.channel = "ca://{}".format(macros.get("PV", None))
+        lblVal.channel = "ca://{}".format(macros.PV)
         lblVal.precisionFromPV = False
         lblVal.precision = 2
-        if self.macros.get("FORMAT", "") == "EXP":
+        if self.macros().get("FORMAT", "") == "EXP":
             lblVal.displayFormat = PyDMLabel.DisplayFormat.Exponential
         return frame
-
-    def ui_filename(self):
-        return OVERVIEW_UI
-
-    def ui_filepath(self):
-        return OVERVIEW_UI

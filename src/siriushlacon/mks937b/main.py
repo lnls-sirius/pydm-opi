@@ -70,7 +70,9 @@ class MKSTableDataController(TableDataController):
             col = 0
             for col_name in TableColumn:
                 if col_name in [TableColumn.Device, TableColumn.Channel]:
-                    self.table.setCellWidget(actual_row, col, QLabel(""))
+                    lbl = QLabel("")
+                    lbl.setAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
+                    self.table.setCellWidget(actual_row, col, lbl)
 
                 elif col_name == TableColumn.Details:
                     rel = PyDMRelatedDisplayButton(self.table)
