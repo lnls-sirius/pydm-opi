@@ -50,7 +50,6 @@ class AlarmDisplay(Display):
 
     def __init__(self, parent=None, macros=None, **kwargs):
         super().__init__(parent=parent, macros=macros, ui_filename=ALARM_UI)
-        self.macros = macros
         self.btnNow.clicked.connect(self.set_time_now)
         self.btnSearch.clicked.connect(self.search_alarms)
 
@@ -70,7 +69,7 @@ class AlarmDisplay(Display):
         self.set_time_now()
         self.search_alarms()
 
-    def get_PV(self, signal, std=False, error=False):
+    def get_PV(self, signal: str, std: bool = False, error: bool = False):
         """
         Build a PV name
 
@@ -79,9 +78,9 @@ class AlarmDisplay(Display):
         :param error: True for 'Err' else 'Warn'
         :return: the PV name
         """
-        return "{}:{}-{}{}".format(
-            self.macros["P"],
-            self.macros["T"],
+        return "{}:{}{}{}".format(
+            self.macros()["P"],
+            self.macros()["T"],
             "Err" if error else "Warn",
             signal,
         )
