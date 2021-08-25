@@ -5,7 +5,13 @@ import sys
 import pkg_resources
 from setuptools import find_packages, setup
 
-from src.siriushlacon import __author__, __version__
+from src.siriushlacon import (
+    GENERIC_LAUNCHER_FILE_NAME,
+    MAIN_LAUNCHER_FILE_NAME,
+    VBC_LAUNCHER_FILE_NAME,
+    __author__,
+    __version__,
+)
 
 assert sys.version_info >= (3, 6, 2), "siriushlacon requires Python 3.6.2+"
 
@@ -38,9 +44,9 @@ setup(
     author=__author__,
     entry_points={
         entry_style: [
-            "sirius-hla-as-ap-generic-launcher=siriushlacon_launcher:launch_generic",
-            "sirius-hla-as-ap-conlauncher=siriushlacon_launcher:launch_main_window",
-            "sirius-hla-as-va-vbc=siriushlacon_launcher:launch_vbc",
+            f"{GENERIC_LAUNCHER_FILE_NAME}=siriushlacon_launcher:launch_generic",
+            f"{MAIN_LAUNCHER_FILE_NAME}=siriushlacon_launcher:launch_main_window",
+            f"{VBC_LAUNCHER_FILE_NAME}=siriushlacon_launcher:launch_vbc",
         ]
     },
     classifiers=[
