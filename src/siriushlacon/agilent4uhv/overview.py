@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import logging
 import re
-from dataclasses import dataclass
 from typing import List
 
 import conscommon.data_model
@@ -19,14 +18,19 @@ from siriushlacon.widgets.layout import FlowLayout
 logger = logging.getLogger()
 
 
-@dataclass
 class PVInfo:
-    PV: str
-    DISP: str
-    ALARM: str
-    SEC: str
-    RACK: str
-    RS485: str
+    def __init__(
+        self, PV: str, DISP: str, ALARM: str, SEC: str, RACK: str, RS485: str
+    ) -> None:
+        self.PV: str = PV
+        self.DISP: str = DISP
+        self.ALARM: str = ALARM
+        self.SEC: str = SEC
+        self.RACK: str = RACK
+        self.RS485: str = RS485
+
+    def __str__(self) -> str:
+        return f"PVInfo({self.__dict__})"
 
 
 class Overview(Display):
@@ -37,7 +41,7 @@ class Overview(Display):
 
         self.ch_reg = re.compile(r":[C][0-9]")
         self._devices = lazy_devices.get()
-        self.pvs: List[PVInfo] = []
+        self.pv_info_list: List[PVInfo] = []
         for device in self._devices:
             if not device.enable:
                 continue
@@ -46,8 +50,8 @@ class Overview(Display):
 
         self.mainArea.setWidgetResizable(True)
         layout = FlowLayout(self.scrollAreaContent)
-        for pv in self.pvs:
-            layout.addWidget(self.get_gauge(None, macros=pv))
+        for pv_info in self.pv_info_list:
+            layout.addWidget(self.get_gauge(None, pv_info=pv_info))
 
     def load_pv_dict(
         self,
@@ -64,7 +68,7 @@ class Overview(Display):
             logger.info("Ignored {}".format(channel.prefix))
             return None
 
-        self.pvs.append(
+        self.pv_info_list.append(
             PVInfo(
                 PV=channel.prefix + ":Pressure-Mon",
                 DISP=channel.prefix + ":Pressure-Mon",
@@ -75,11 +79,10 @@ class Overview(Display):
             )
         )
 
-    def get_gauge(self, parent, macros: PVInfo):
-        aux = []
-        for k, v in macros.__dict__.items():
-            aux.append("{}\t{}\n".format(k, v))
-        tooltip = "".join(aux)
+    def get_gauge(self, parent, pv_info: PVInfo):
+        tooltip = "".join(
+            [f"{key}\t{value}\n" for key, value in pv_info.__dict__.items()]
+        )
 
         width = 320
         height = 100
@@ -95,7 +98,7 @@ class Overview(Display):
         brush.setStyle(Qt.NoBrush)
 
         alarmRec = PyDMDrawingRectangle(frame)
-        alarmRec.channel = "ca://{}".format(macros.ALARM)
+        alarmRec.channel = "ca://{}".format(pv_info.ALARM)
         alarmRec.setGeometry(QRect(0, 0, width, height))
         alarmRec.setToolTip(tooltip)
         alarmRec.setProperty("alarmSensitiveContent", True)
@@ -109,7 +112,7 @@ class Overview(Display):
         font.setPointSize(12)
         lblName.setFont(font)
         lblName.setAlignment(Qt.AlignCenter)
-        lblName.setText("{}".format(macros.DISP))
+        lblName.setText("{}".format(pv_info.DISP))
         lblName.setObjectName("lblName")
         lblName.setToolTip(tooltip)
 
@@ -122,7 +125,7 @@ class Overview(Display):
         lblVal.setAlignment(Qt.AlignCenter)
         lblVal.setProperty("showUnits", False)
         lblVal.setObjectName("lblVal")
-        lblVal.channel = "ca://{}".format(macros.PV)
+        lblVal.channel = "ca://{}".format(pv_info.PV)
         lblVal.precisionFromPV = False
         lblVal.precision = 2
         if self.macros().get("FORMAT", "") == "EXP":
