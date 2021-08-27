@@ -1,3 +1,8 @@
+# 1.3.1 - Sprint 15
+
+- UPDATE: Merge PR beaglebones
+- FIX: Check Python version before using `dataclasses` (required 3.7+)
+
 # 1.3.0 - Sprint 15
 
 - FIX: agilent4uhv details table crash.
