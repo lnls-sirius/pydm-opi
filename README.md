@@ -87,7 +87,7 @@ conda install -c conda-forge/label/cf202003 epics-base
 conda install -c conda-forge bottleneck
 conda install -c conda-forge pyqt==5.12.3
 conda install -c conda-forge qt==5.12.9
-conda install -c conda-forge pydm==1.11.1
+conda install -c conda-forge pydm==1.10.4
 
 # Install interfaces
 pip install --upgrade siriushlacon
