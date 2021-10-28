@@ -117,9 +117,12 @@ def launch_pydm(
     if not macros:
         macros = {}
 
-    from pydm.utilities import setup_renderer
+    try:
+        from pydm.utilities import setup_renderer
 
-    setup_renderer()
+        setup_renderer()
+    except ImportError as e:
+        logger.error(f"Failed to rever renderer to Software rendering. {e}")
 
     try:
         """
