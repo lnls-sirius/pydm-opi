@@ -21,8 +21,7 @@ jobs:
 
       - name: Generate coverage report
         run: |
-          pip install -r requirements.txt
-          pip install -r requirements-dev.txt
+          pip install coverage
           pip install -e . -v
           coverage run -m unittest discover
           coverage xml
