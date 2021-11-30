@@ -5,6 +5,7 @@ This repo contains various PyDM OPIs in use.
 
 [![Publish siriuspy to PyPI](https://github.com/lnls-sirius/pydm-opi/actions/workflows/pypi.yml/badge.svg)](https://github.com/lnls-sirius/pydm-opi/actions/workflows/pypi.yml)
 [![Lint](https://github.com/lnls-sirius/pydm-opi/actions/workflows/lint.yml/badge.svg)](https://github.com/lnls-sirius/pydm-opi/actions/workflows/lint.yml)
+[![Test and Coverage](https://github.com/lnls-sirius/pydm-opi/actions/workflows/tests.yml/badge.svg)](https://github.com/lnls-sirius/pydm-opi/actions/workflows/tests.yml)
 
 
 ![Latest tag](https://img.shields.io/github/tag/lnls-sirius/pydm-opi.svg?style=flat)
