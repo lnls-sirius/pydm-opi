@@ -8,6 +8,7 @@ from siriushlacon.agilent4uhv.consts import AGILENT_MAIN, AGILENT_OVERVIEW
 from siriushlacon.agilent4uhv.extended import MainWindow
 from siriushlacon.beaglebones.consts import BEAGLEBONES_MAIN
 from siriushlacon.countingpru.consts import GAMMA_COUNTING_MAIN
+from siriushlacon.danfysik.consts import DANSYFIK_MAIN_PY
 from siriushlacon.epicstel.consts import EPICSTEL_MAIN
 from siriushlacon.launcher.consts import LAUNCH_WINDOW_UI, PCTRL_MAIN
 from siriushlacon.mbtemp.consts import MBTEMP_MAIN
@@ -31,6 +32,65 @@ class Launcher(Display):
         self.btnVbc.filenames = [VBC_MAIN_WINDOW_PY]
         self.btnVbc.openInNewWindow = True
 
+        self._init_agilent()
+
+        self._init_mks()
+
+        self.btnMBTemp.filenames = [MBTEMP_MAIN]
+        self.btnMBTemp.openInNewWindow = True
+
+        self.btnProcServCtrl.filenames = [PCTRL_MAIN]
+        self.btnProcServCtrl.openInNewWindow = True
+
+        self.btnRegatron.filenames = [REGATRON_MAIN]
+        self.btnRegatron.openInNewWindow = True
+
+        self.btnEpp.filenames = [SPIXCONV_MAIN]
+        self.btnEpp.openInNewWindow = True
+
+        self.btnGamma.filenames = [GAMMA_COUNTING_MAIN]
+        self.btnGamma.openInNewWindow = True
+
+        self.btnBBB.filenames = [BEAGLEBONES_MAIN]
+        self.btnBBB.openInNewWindow = True
+
+        self.btnEPICSTel.filenames = [EPICSTEL_MAIN]
+
+        self.btnEPICSTel.openInNewWindow = True
+        self.btnExit.clicked.connect(self.exitApp)
+
+        self.label_cnpem.setPixmap(CNPEM_INVISIBLE_PIXMAP)
+        self.label_lnls.setPixmap(LNLS_PIXMAP)
+
+    def _init_mks(self):
+        self.btnMks.filenames = [MKS_MAIN]
+        self.btnMks.openInNewWindow = True
+
+        self.btnMksSROverview.filenames = [MKS_OVERVIEW]
+        self.btnMksSROverview.macros = json.dumps(
+            {"device": "MKS", "TYPE": SI, "TITLE": "MKS 937b - SI"}
+        )
+        self.btnMksSROverview.openInNewWindow = True
+
+        self.btnMksTBOverview.filenames = [MKS_OVERVIEW]
+        self.btnMksTBOverview.macros = json.dumps(
+            {"device": "MKS", "TYPE": TB, "TITLE": "MKS 937b - TB"}
+        )
+        self.btnMksTBOverview.openInNewWindow = True
+
+        self.btnMksTSOverview.filenames = [MKS_OVERVIEW]
+        self.btnMksTSOverview.macros = json.dumps(
+            {"device": "MKS", "TYPE": TS, "TITLE": "MKS 937b - TS"}
+        )
+        self.btnMksTSOverview.openInNewWindow = True
+
+        self.btnMksBOOverview.filenames = [MKS_OVERVIEW]
+        self.btnMksBOOverview.macros = json.dumps(
+            {"device": "MKS", "TYPE": BO, "TITLE": "MKS 937b - BO"}
+        )
+        self.btnMksBOOverview.openInNewWindow = True
+
+    def _init_agilent(self):
         self.btnAgilentExtended.passwordProtected = True
         self.btnAgilentExtended.password = "VACS"
         self.btnAgilentExtended.clicked.connect(self.launchAgilentExtended)
@@ -82,58 +142,9 @@ class Launcher(Display):
         )
         self.btnAgilentTSOverview.openInNewWindow = True
 
-        self.btnMks.filenames = [MKS_MAIN]
-        self.btnMks.openInNewWindow = True
-
-        self.btnMksSROverview.filenames = [MKS_OVERVIEW]
-        self.btnMksSROverview.macros = json.dumps(
-            {"device": "MKS", "TYPE": SI, "TITLE": "MKS 937b - SI"}
-        )
-        self.btnMksSROverview.openInNewWindow = True
-
-        self.btnMksTBOverview.filenames = [MKS_OVERVIEW]
-        self.btnMksTBOverview.macros = json.dumps(
-            {"device": "MKS", "TYPE": TB, "TITLE": "MKS 937b - TB"}
-        )
-        self.btnMksTBOverview.openInNewWindow = True
-
-        self.btnMksTSOverview.filenames = [MKS_OVERVIEW]
-        self.btnMksTSOverview.macros = json.dumps(
-            {"device": "MKS", "TYPE": TS, "TITLE": "MKS 937b - TS"}
-        )
-        self.btnMksTSOverview.openInNewWindow = True
-
-        self.btnMksBOOverview.filenames = [MKS_OVERVIEW]
-        self.btnMksBOOverview.macros = json.dumps(
-            {"device": "MKS", "TYPE": BO, "TITLE": "MKS 937b - BO"}
-        )
-        self.btnMksBOOverview.openInNewWindow = True
-
-        self.btnMBTemp.filenames = [MBTEMP_MAIN]
-        self.btnMBTemp.openInNewWindow = True
-
-        self.btnProcServCtrl.filenames = [PCTRL_MAIN]
-        self.btnProcServCtrl.openInNewWindow = True
-
-        self.btnRegatron.filenames = [REGATRON_MAIN]
-        self.btnRegatron.openInNewWindow = True
-
-        self.btnEpp.filenames = [SPIXCONV_MAIN]
-        self.btnEpp.openInNewWindow = True
-
-        self.btnGamma.filenames = [GAMMA_COUNTING_MAIN]
-        self.btnGamma.openInNewWindow = True
-
-        self.btnBBB.filenames = [BEAGLEBONES_MAIN]
-        self.btnBBB.openInNewWindow = True
-
-        self.btnEPICSTel.filenames = [EPICSTEL_MAIN]
-
-        self.btnEPICSTel.openInNewWindow = True
-        self.btnExit.clicked.connect(self.exitApp)
-
-        self.label_cnpem.setPixmap(CNPEM_INVISIBLE_PIXMAP)
-        self.label_lnls.setPixmap(LNLS_PIXMAP)
+    def _init_danfisik(self):
+        self.btnDanfysik: PyDMRelatedDisplayButton
+        self.btnDanfysik.filenames = [DANSYFIK_MAIN_PY]
 
     def launchAgilentExtended(self):
         if self.btnAgilentExtended.validate_password():
