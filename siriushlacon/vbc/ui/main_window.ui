@@ -611,7 +611,7 @@
        <enum>QFrame::Plain</enum>
       </property>
       <property name="text">
-       <string>Project based on BeagleBone Black (BBB) used to control vaccum car system. Used to monitor nytrogen insertion during vacuum chamber ventilation process.</string>
+       <string>Project based on BeagleBone Black (BBB) used to control vacuum car system. Used to monitor nytrogen insertion during vacuum chamber ventilation process.</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
