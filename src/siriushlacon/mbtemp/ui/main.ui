@@ -1,0 +1,4470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>681</width>
+    <height>637</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>670</width>
+    <height>637</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="inputMethodHints">
+   <set>Qt::ImhNoPredictiveText</set>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="leftMargin">
+      <number>5</number>
+     </property>
+     <property name="rightMargin">
+      <number>5</number>
+     </property>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="LogoLNLS">
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt; font-weight:600;&quot;&gt;MBTemp Monitoring&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="LogoCNPEM">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>50</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Room:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="sector">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>20</number>
+         </property>
+         <property name="singleStep">
+          <number>2</number>
+         </property>
+         <property name="value">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="PyDMRelatedDisplayButton" name="OverviewButton">
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="text">
+          <string>Temperature Overview</string>
+         </property>
+         <property name="showIcon" stdset="0">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>90</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Maximum temperature:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="tempMax">
+         <property name="value">
+          <number>50</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>°C</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="minimumSize">
+        <size>
+         <width>600</width>
+         <height>450</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>650</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <widget class="QWidget" name="tab_4">
+        <attribute name="title">
+         <string>RF</string>
+        </attribute>
+        <widget class="QLabel" name="P7RF">
+         <property name="geometry">
+          <rect>
+           <x>9</x>
+           <y>9</y>
+           <width>620</width>
+           <height>448</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap>../../../../../.designer/images/Area/Petra7.png</pixmap>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="SI23_2_Ch5">
+         <property name="geometry">
+          <rect>
+           <x>158</x>
+           <y>130</y>
+           <width>35</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+         <property name="rotation" stdset="0">
+          <double>45.000000000000000</double>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="RF_MBTemp02">
+         <property name="geometry">
+          <rect>
+           <x>320</x>
+           <y>200</y>
+           <width>35</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+         <property name="rotation" stdset="0">
+          <double>45.000000000000000</double>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="RF_MBTemp01">
+         <property name="geometry">
+          <rect>
+           <x>280</x>
+           <y>158</y>
+           <width>35</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+         <property name="rotation" stdset="0">
+          <double>45.000000000000000</double>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="RF02_Ch7">
+         <property name="geometry">
+          <rect>
+           <x>106</x>
+           <y>148</y>
+           <width>35</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+         <property name="rotation" stdset="0">
+          <double>45.000000000000000</double>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="SI23_2_Ch4">
+         <property name="geometry">
+          <rect>
+           <x>350</x>
+           <y>316</y>
+           <width>35</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+         <property name="rotation" stdset="0">
+          <double>45.000000000000000</double>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="RF02_Ch8">
+         <property name="geometry">
+          <rect>
+           <x>350</x>
+           <y>370</y>
+           <width>35</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+         <property name="rotation" stdset="0">
+          <double>45.000000000000000</double>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="RF01_Ch7">
+         <property name="geometry">
+          <rect>
+           <x>240</x>
+           <y>120</y>
+           <width>35</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+         <property name="rotation" stdset="0">
+          <double>45.000000000000000</double>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="RF01_Ch8">
+         <property name="geometry">
+          <rect>
+           <x>358</x>
+           <y>238</y>
+           <width>35</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+         <property name="rotation" stdset="0">
+          <double>45.000000000000000</double>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="RF_MBTemp23">
+         <property name="geometry">
+          <rect>
+           <x>408</x>
+           <y>320</y>
+           <width>35</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+         <property name="rotation" stdset="0">
+          <double>45.000000000000000</double>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_19">
+         <property name="geometry">
+          <rect>
+           <x>48</x>
+           <y>156</y>
+           <width>59</width>
+           <height>14</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Ambient:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_20">
+         <property name="geometry">
+          <rect>
+           <x>292</x>
+           <y>378</y>
+           <width>59</width>
+           <height>14</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Ambient:</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab">
+        <attribute name="title">
+         <string>LTB</string>
+        </attribute>
+        <widget class="QLabel" name="label_8">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>9</y>
+           <width>641</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Booster Injection&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="BOInj">
+         <property name="geometry">
+          <rect>
+           <x>6</x>
+           <y>60</y>
+           <width>627</width>
+           <height>175</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap>../images/TL/BOInj.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TB_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>222</x>
+           <y>132</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TB_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>288</x>
+           <y>132</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TB_MBTemp01">
+         <property name="geometry">
+          <rect>
+           <x>256</x>
+           <y>154</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TB_Ch4">
+         <property name="geometry">
+          <rect>
+           <x>266</x>
+           <y>132</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TB_Ch3">
+         <property name="geometry">
+          <rect>
+           <x>244</x>
+           <y>132</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="TLTab">
+        <attribute name="title">
+         <string>BTS</string>
+        </attribute>
+        <widget class="QLabel" name="BOExtraction">
+         <property name="geometry">
+          <rect>
+           <x>32</x>
+           <y>40</y>
+           <width>575</width>
+           <height>151</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="SRInj">
+         <property name="geometry">
+          <rect>
+           <x>34</x>
+           <y>238</y>
+           <width>571</width>
+           <height>167</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_5">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>9</y>
+           <width>641</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Booster Extraction&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_6">
+         <property name="geometry">
+          <rect>
+           <x>8</x>
+           <y>206</y>
+           <width>631</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Storage Ring Injection&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS01_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>414</x>
+           <y>112</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS01_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>436</x>
+           <y>112</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS01_Ch3">
+         <property name="geometry">
+          <rect>
+           <x>458</x>
+           <y>112</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS01_Ch4">
+         <property name="geometry">
+          <rect>
+           <x>480</x>
+           <y>112</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS_MBTemp01">
+         <property name="geometry">
+          <rect>
+           <x>448</x>
+           <y>134</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+         <property name="penColor" stdset="0">
+          <color>
+           <red>255</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS02_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>214</x>
+           <y>344</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS02_Ch3">
+         <property name="geometry">
+          <rect>
+           <x>236</x>
+           <y>344</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS02_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>178</x>
+           <y>344</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS02_Ch4">
+         <property name="geometry">
+          <rect>
+           <x>268</x>
+           <y>344</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS02_Ch5">
+         <property name="geometry">
+          <rect>
+           <x>290</x>
+           <y>344</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS02_Ch6">
+         <property name="geometry">
+          <rect>
+           <x>320</x>
+           <y>344</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS_MBTemp02">
+         <property name="geometry">
+          <rect>
+           <x>272</x>
+           <y>368</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+         <property name="penColor" stdset="0">
+          <color>
+           <red>255</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="SI14_Ch3">
+         <property name="geometry">
+          <rect>
+           <x>514</x>
+           <y>262</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="SI14_Ch4">
+         <property name="geometry">
+          <rect>
+           <x>540</x>
+           <y>262</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="SI14_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>564</x>
+           <y>262</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="SI14_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>588</x>
+           <y>262</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS_MBTemp14">
+         <property name="geometry">
+          <rect>
+           <x>554</x>
+           <y>242</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+         <property name="penColor" stdset="0">
+          <color>
+           <red>255</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS_MBTemp04">
+         <property name="geometry">
+          <rect>
+           <x>104</x>
+           <y>158</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+         <property name="penColor" stdset="0">
+          <color>
+           <red>255</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS04_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>138</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS04_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>94</x>
+           <y>138</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS04_Ch3">
+         <property name="geometry">
+          <rect>
+           <x>116</x>
+           <y>138</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="TS04_Ch4">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>138</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="BOTab">
+        <attribute name="title">
+         <string>Booster</string>
+        </attribute>
+        <widget class="PyDMDrawingRectangle" name="BO1_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>100</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO1_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>230</x>
+           <y>100</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO1_Ch3">
+         <property name="geometry">
+          <rect>
+           <x>270</x>
+           <y>100</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO_MBTemp01">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>130</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO2_Ch3">
+         <property name="geometry">
+          <rect>
+           <x>270</x>
+           <y>160</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO2_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>160</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO2_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>230</x>
+           <y>160</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO_MBTemp02">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>190</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO3_Ch3">
+         <property name="geometry">
+          <rect>
+           <x>270</x>
+           <y>220</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO3_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>220</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO3_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>230</x>
+           <y>220</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO_MBTemp03">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>250</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO4_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>280</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO_MBTemp04">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>310</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO4_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>230</x>
+           <y>280</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO4_Ch3">
+         <property name="geometry">
+          <rect>
+           <x>270</x>
+           <y>280</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO5_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>340</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO_MBTemp05">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>370</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO5_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>230</x>
+           <y>340</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="BO5_Ch3">
+         <property name="geometry">
+          <rect>
+           <x>270</x>
+           <y>340</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="QLabel" name="BO_Sec_1">
+         <property name="geometry">
+          <rect>
+           <x>376</x>
+           <y>100</y>
+           <width>141</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="BO_Sec_2">
+         <property name="geometry">
+          <rect>
+           <x>376</x>
+           <y>160</y>
+           <width>141</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="BO_Sec_3">
+         <property name="geometry">
+          <rect>
+           <x>376</x>
+           <y>220</y>
+           <width>151</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="BO_Sec_4">
+         <property name="geometry">
+          <rect>
+           <x>376</x>
+           <y>280</y>
+           <width>131</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="BO_Sec_5">
+         <property name="geometry">
+          <rect>
+           <x>376</x>
+           <y>340</y>
+           <width>131</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="BO_Img1">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>90</y>
+           <width>561</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="BO_Img3">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>210</y>
+           <width>561</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="BO_Img4">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>270</y>
+           <width>561</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="BO_Img5">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>330</y>
+           <width>561</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="BO_Img2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>150</y>
+           <width>561</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="PyDMDrawingRectangle">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>90</y>
+           <width>561</width>
+           <height>301</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_13">
+         <property name="geometry">
+          <rect>
+           <x>4</x>
+           <y>9</y>
+           <width>631</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Booster&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <zorder>PyDMDrawingRectangle</zorder>
+        <zorder>BO_Img2</zorder>
+        <zorder>BO_Img5</zorder>
+        <zorder>BO_Img4</zorder>
+        <zorder>BO_Img3</zorder>
+        <zorder>BO_Img1</zorder>
+        <zorder>BO1_Ch1</zorder>
+        <zorder>BO1_Ch2</zorder>
+        <zorder>BO1_Ch3</zorder>
+        <zorder>BO_MBTemp01</zorder>
+        <zorder>BO2_Ch3</zorder>
+        <zorder>BO2_Ch1</zorder>
+        <zorder>BO2_Ch2</zorder>
+        <zorder>BO_MBTemp02</zorder>
+        <zorder>BO3_Ch3</zorder>
+        <zorder>BO3_Ch1</zorder>
+        <zorder>BO3_Ch2</zorder>
+        <zorder>BO_MBTemp03</zorder>
+        <zorder>BO4_Ch1</zorder>
+        <zorder>BO_MBTemp04</zorder>
+        <zorder>BO4_Ch2</zorder>
+        <zorder>BO4_Ch3</zorder>
+        <zorder>BO5_Ch1</zorder>
+        <zorder>BO_MBTemp05</zorder>
+        <zorder>BO5_Ch2</zorder>
+        <zorder>BO5_Ch3</zorder>
+        <zorder>BO_Sec_1</zorder>
+        <zorder>BO_Sec_2</zorder>
+        <zorder>BO_Sec_3</zorder>
+        <zorder>BO_Sec_4</zorder>
+        <zorder>BO_Sec_5</zorder>
+        <zorder>label_13</zorder>
+       </widget>
+       <widget class="QWidget" name="SRTab">
+        <attribute name="title">
+         <string>Storage Ring</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="2" column="0">
+          <widget class="QScrollArea" name="scrollArea">
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="scrollAreaWidgetContents">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>628</width>
+              <height>1244</height>
+             </rect>
+            </property>
+            <layout class="QGridLayout" name="gridLayout">
+             <item row="1" column="0">
+              <widget class="QFrame" name="frame_2">
+               <property name="minimumSize">
+                <size>
+                 <width>610</width>
+                 <height>170</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <widget class="PyDMDrawingRectangle" name="SI12_Ch4">
+                <property name="geometry">
+                 <rect>
+                  <x>398</x>
+                  <y>142</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI12_Ch1">
+                <property name="geometry">
+                 <rect>
+                  <x>6</x>
+                  <y>60</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI12_Ch5">
+                <property name="geometry">
+                 <rect>
+                  <x>46</x>
+                  <y>60</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="SR_Pic2">
+                <property name="geometry">
+                 <rect>
+                  <x>4</x>
+                  <y>40</y>
+                  <width>602</width>
+                  <height>138</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap>../../../../../.designer/images/SR/SR_pic2.png</pixmap>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI12_Ch2">
+                <property name="geometry">
+                 <rect>
+                  <x>94</x>
+                  <y>154</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI12_Ch7">
+                <property name="geometry">
+                 <rect>
+                  <x>124</x>
+                  <y>50</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI_MBTemp12">
+                <property name="geometry">
+                 <rect>
+                  <x>178</x>
+                  <y>134</y>
+                  <width>40</width>
+                  <height>18</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI12_Ch3">
+                <property name="geometry">
+                 <rect>
+                  <x>234</x>
+                  <y>44</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_31">
+                <property name="geometry">
+                 <rect>
+                  <x>4</x>
+                  <y>12</y>
+                  <width>602</width>
+                  <height>19</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Trecho C1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI12_Ch6">
+                <property name="geometry">
+                 <rect>
+                  <x>86</x>
+                  <y>40</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <zorder>SR_Pic2</zorder>
+               <zorder>SI12_Ch2</zorder>
+               <zorder>SI12_Ch7</zorder>
+               <zorder>SI_MBTemp12</zorder>
+               <zorder>SI12_Ch3</zorder>
+               <zorder>label_31</zorder>
+               <zorder>SI12_Ch6</zorder>
+               <zorder>SI12_Ch4</zorder>
+               <zorder>SI12_Ch1</zorder>
+               <zorder>SI12_Ch5</zorder>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QFrame" name="frame_3">
+               <property name="minimumSize">
+                <size>
+                 <width>610</width>
+                 <height>170</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <widget class="PyDMDrawingRectangle" name="SI11_Ch3">
+                <property name="geometry">
+                 <rect>
+                  <x>534</x>
+                  <y>29</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="SR_Pic3">
+                <property name="geometry">
+                 <rect>
+                  <x>2</x>
+                  <y>26</y>
+                  <width>602</width>
+                  <height>138</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI_MBTemp11">
+                <property name="geometry">
+                 <rect>
+                  <x>260</x>
+                  <y>137</y>
+                  <width>40</width>
+                  <height>18</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI11_Ch5">
+                <property name="geometry">
+                 <rect>
+                  <x>100</x>
+                  <y>35</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI11_Ch6">
+                <property name="geometry">
+                 <rect>
+                  <x>390</x>
+                  <y>25</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI11_Ch4">
+                <property name="geometry">
+                 <rect>
+                  <x>66</x>
+                  <y>35</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI11_Ch2">
+                <property name="geometry">
+                 <rect>
+                  <x>94</x>
+                  <y>141</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_43">
+                <property name="geometry">
+                 <rect>
+                  <x>2</x>
+                  <y>2</y>
+                  <width>602</width>
+                  <height>19</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Trecho C2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI11_Ch1">
+                <property name="geometry">
+                 <rect>
+                  <x>24</x>
+                  <y>94</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI_MBTemp10">
+                <property name="geometry">
+                 <rect>
+                  <x>42</x>
+                  <y>138</y>
+                  <width>40</width>
+                  <height>18</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI10_Ch2">
+                <property name="geometry">
+                 <rect>
+                  <x>240</x>
+                  <y>26</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI10_Ch1">
+                <property name="geometry">
+                 <rect>
+                  <x>218</x>
+                  <y>26</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_15">
+                <property name="geometry">
+                 <rect>
+                  <x>46</x>
+                  <y>154</y>
+                  <width>33</width>
+                  <height>16</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>8</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>ID 10</string>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_21">
+                <property name="geometry">
+                 <rect>
+                  <x>144</x>
+                  <y>26</y>
+                  <width>67</width>
+                  <height>16</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Front End: </string>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="PyDMDrawingRectangle_3">
+                <property name="geometry">
+                 <rect>
+                  <x>96</x>
+                  <y>34</y>
+                  <width>100</width>
+                  <height>10</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>255</red>
+                   <green>255</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <zorder>SR_Pic3</zorder>
+               <zorder>SI_MBTemp11</zorder>
+               <zorder>SI11_Ch6</zorder>
+               <zorder>SI11_Ch4</zorder>
+               <zorder>SI11_Ch2</zorder>
+               <zorder>label_43</zorder>
+               <zorder>SI11_Ch3</zorder>
+               <zorder>SI11_Ch1</zorder>
+               <zorder>SI_MBTemp10</zorder>
+               <zorder>SI10_Ch2</zorder>
+               <zorder>SI10_Ch1</zorder>
+               <zorder>label_15</zorder>
+               <zorder>PyDMDrawingRectangle_3</zorder>
+               <zorder>SI11_Ch5</zorder>
+               <zorder>label_21</zorder>
+              </widget>
+             </item>
+             <item row="6" column="0">
+              <widget class="QFrame" name="frame_7">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>610</width>
+                 <height>170</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <widget class="PyDMDrawingRectangle" name="SI23_Ch2">
+                <property name="geometry">
+                 <rect>
+                  <x>20</x>
+                  <y>64</y>
+                  <width>23</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>20</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_45">
+                <property name="geometry">
+                 <rect>
+                  <x>2</x>
+                  <y>2</y>
+                  <width>602</width>
+                  <height>19</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Trecho Reto&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI23_Ch3">
+                <property name="geometry">
+                 <rect>
+                  <x>224</x>
+                  <y>42</y>
+                  <width>23</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>23</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="SR_Pic7">
+                <property name="geometry">
+                 <rect>
+                  <x>2</x>
+                  <y>27</y>
+                  <width>602</width>
+                  <height>138</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI13_2_Ch3">
+                <property name="geometry">
+                 <rect>
+                  <x>326</x>
+                  <y>88</y>
+                  <width>23</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>23</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI13_Ch4">
+                <property name="geometry">
+                 <rect>
+                  <x>378</x>
+                  <y>80</y>
+                  <width>23</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>23</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI13_Ch5">
+                <property name="geometry">
+                 <rect>
+                  <x>426</x>
+                  <y>72</y>
+                  <width>23</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>23</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI13_Ch6">
+                <property name="geometry">
+                 <rect>
+                  <x>476</x>
+                  <y>66</y>
+                  <width>23</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>23</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI13_Ch7">
+                <property name="geometry">
+                 <rect>
+                  <x>524</x>
+                  <y>60</y>
+                  <width>23</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>23</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI23_Ch4">
+                <property name="geometry">
+                 <rect>
+                  <x>172</x>
+                  <y>106</y>
+                  <width>23</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>20</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI23_2_Ch3">
+                <property name="geometry">
+                 <rect>
+                  <x>92</x>
+                  <y>118</y>
+                  <width>23</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>20</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_22">
+                <property name="geometry">
+                 <rect>
+                  <x>408</x>
+                  <y>104</y>
+                  <width>121</width>
+                  <height>16</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Sector 01 - ID:13</string>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingLine" name="PyDMDrawingLine">
+                <property name="geometry">
+                 <rect>
+                  <x>326</x>
+                  <y>44</y>
+                  <width>224</width>
+                  <height>102</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="penWidth" stdset="0">
+                 <double>1.000000000000000</double>
+                </property>
+                <property name="rotation" stdset="0">
+                 <double>32.000000000000000</double>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingLine" name="PyDMDrawingLine_2">
+                <property name="geometry">
+                 <rect>
+                  <x>466</x>
+                  <y>36</y>
+                  <width>85</width>
+                  <height>39</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="penWidth" stdset="0">
+                 <double>1.000000000000000</double>
+                </property>
+                <property name="rotation" stdset="0">
+                 <double>32.000000000000000</double>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_23">
+                <property name="geometry">
+                 <rect>
+                  <x>504</x>
+                  <y>38</y>
+                  <width>59</width>
+                  <height>14</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>ID</string>
+                </property>
+               </widget>
+               <zorder>SR_Pic7</zorder>
+               <zorder>PyDMDrawingLine</zorder>
+               <zorder>label_45</zorder>
+               <zorder>SI23_Ch2</zorder>
+               <zorder>SI23_Ch3</zorder>
+               <zorder>SI13_2_Ch3</zorder>
+               <zorder>SI13_Ch4</zorder>
+               <zorder>SI13_Ch5</zorder>
+               <zorder>SI23_Ch4</zorder>
+               <zorder>SI23_2_Ch3</zorder>
+               <zorder>label_22</zorder>
+               <zorder>label_23</zorder>
+               <zorder>PyDMDrawingLine_2</zorder>
+               <zorder>SI13_Ch6</zorder>
+               <zorder>SI13_Ch7</zorder>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QFrame" name="frame_6">
+               <property name="minimumSize">
+                <size>
+                 <width>610</width>
+                 <height>170</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <widget class="PyDMDrawingRectangle" name="SI_MBTemp23">
+                <property name="geometry">
+                 <rect>
+                  <x>462</x>
+                  <y>134</y>
+                  <width>40</width>
+                  <height>18</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI22_Ch3">
+                <property name="geometry">
+                 <rect>
+                  <x>188</x>
+                  <y>26</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI22_Ch4">
+                <property name="geometry">
+                 <rect>
+                  <x>216</x>
+                  <y>26</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="SR_Pic6">
+                <property name="geometry">
+                 <rect>
+                  <x>4</x>
+                  <y>28</y>
+                  <width>602</width>
+                  <height>138</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_41">
+                <property name="geometry">
+                 <rect>
+                  <x>4</x>
+                  <y>3</y>
+                  <width>602</width>
+                  <height>19</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Trecho Matching&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI23_Ch1">
+                <property name="geometry">
+                 <rect>
+                  <x>472</x>
+                  <y>70</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI23_Ch8">
+                <property name="geometry">
+                 <rect>
+                  <x>584</x>
+                  <y>28</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_16">
+                <property name="geometry">
+                 <rect>
+                  <x>526</x>
+                  <y>30</y>
+                  <width>55</width>
+                  <height>14</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Ambient:</string>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI23_Ch5">
+                <property name="geometry">
+                 <rect>
+                  <x>538</x>
+                  <y>80</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI23_Ch6">
+                <property name="geometry">
+                 <rect>
+                  <x>576</x>
+                  <y>122</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <zorder>SR_Pic6</zorder>
+               <zorder>label_41</zorder>
+               <zorder>SI22_Ch3</zorder>
+               <zorder>SI22_Ch4</zorder>
+               <zorder>SI_MBTemp23</zorder>
+               <zorder>SI23_Ch1</zorder>
+               <zorder>SI23_Ch8</zorder>
+               <zorder>label_16</zorder>
+               <zorder>SI23_Ch5</zorder>
+               <zorder>SI23_Ch6</zorder>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QFrame" name="frame_4">
+               <property name="minimumSize">
+                <size>
+                 <width>610</width>
+                 <height>170</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch8">
+                <property name="geometry">
+                 <rect>
+                  <x>502</x>
+                  <y>28</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch6">
+                <property name="geometry">
+                 <rect>
+                  <x>196</x>
+                  <y>28</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch1">
+                <property name="geometry">
+                 <rect>
+                  <x>104</x>
+                  <y>28</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch7">
+                <property name="geometry">
+                 <rect>
+                  <x>258</x>
+                  <y>28</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI_MBTemp21">
+                <property name="geometry">
+                 <rect>
+                  <x>296</x>
+                  <y>132</y>
+                  <width>40</width>
+                  <height>18</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch5">
+                <property name="geometry">
+                 <rect>
+                  <x>396</x>
+                  <y>28</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch2">
+                <property name="geometry">
+                 <rect>
+                  <x>148</x>
+                  <y>28</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch4">
+                <property name="geometry">
+                 <rect>
+                  <x>342</x>
+                  <y>28</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="SR_Pic4">
+                <property name="geometry">
+                 <rect>
+                  <x>2</x>
+                  <y>29</y>
+                  <width>602</width>
+                  <height>138</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap>../../../../../.designer/images/SR/SR_pic4.png</pixmap>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_38">
+                <property name="geometry">
+                 <rect>
+                  <x>2</x>
+                  <y>4</y>
+                  <width>602</width>
+                  <height>19</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Trecho C3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI21_Ch3">
+                <property name="geometry">
+                 <rect>
+                  <x>198</x>
+                  <y>98</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <zorder>SR_Pic4</zorder>
+               <zorder>label_38</zorder>
+               <zorder>SI_MBTemp21</zorder>
+               <zorder>SI21_Ch4</zorder>
+               <zorder>SI21_Ch5</zorder>
+               <zorder>SI21_Ch1</zorder>
+               <zorder>SI21_Ch8</zorder>
+               <zorder>SI21_Ch6</zorder>
+               <zorder>SI21_Ch7</zorder>
+               <zorder>SI21_Ch2</zorder>
+               <zorder>SI21_Ch3</zorder>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QFrame" name="frame_5">
+               <property name="minimumSize">
+                <size>
+                 <width>610</width>
+                 <height>170</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <widget class="PyDMDrawingRectangle" name="SI_MBTemp22">
+                <property name="geometry">
+                 <rect>
+                  <x>430</x>
+                  <y>134</y>
+                  <width>40</width>
+                  <height>18</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI22_Ch2">
+                <property name="geometry">
+                 <rect>
+                  <x>422</x>
+                  <y>26</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="SR_Pic5">
+                <property name="geometry">
+                 <rect>
+                  <x>2</x>
+                  <y>27</y>
+                  <width>602</width>
+                  <height>139</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_39">
+                <property name="geometry">
+                 <rect>
+                  <x>2</x>
+                  <y>0</y>
+                  <width>602</width>
+                  <height>23</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Trecho C4&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI22_Ch1">
+                <property name="geometry">
+                 <rect>
+                  <x>224</x>
+                  <y>26</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI22_Ch5">
+                <property name="geometry">
+                 <rect>
+                  <x>136</x>
+                  <y>42</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI22_Ch6">
+                <property name="geometry">
+                 <rect>
+                  <x>534</x>
+                  <y>90</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_18">
+                <property name="geometry">
+                 <rect>
+                  <x>528</x>
+                  <y>72</y>
+                  <width>59</width>
+                  <height>14</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>DCCT</string>
+                </property>
+               </widget>
+               <zorder>SR_Pic5</zorder>
+               <zorder>label_39</zorder>
+               <zorder>SI_MBTemp22</zorder>
+               <zorder>SI22_Ch1</zorder>
+               <zorder>SI22_Ch2</zorder>
+               <zorder>SI22_Ch5</zorder>
+               <zorder>SI22_Ch6</zorder>
+               <zorder>label_18</zorder>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QFrame" name="frame_8">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>610</width>
+                 <height>170</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <widget class="PyDMDrawingRectangle" name="SI13_Ch1">
+                <property name="geometry">
+                 <rect>
+                  <x>78</x>
+                  <y>58</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>20</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_46">
+                <property name="geometry">
+                 <rect>
+                  <x>2</x>
+                  <y>2</y>
+                  <width>602</width>
+                  <height>19</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Trecho de Matching&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="PyDMDrawingRectangle_43">
+                <property name="geometry">
+                 <rect>
+                  <x>488</x>
+                  <y>26</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>20</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>130</red>
+                   <green>130</green>
+                   <blue>130</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="SR_Pic1">
+                <property name="geometry">
+                 <rect>
+                  <x>2</x>
+                  <y>27</y>
+                  <width>602</width>
+                  <height>138</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI13_Ch2">
+                <property name="geometry">
+                 <rect>
+                  <x>186</x>
+                  <y>50</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>20</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="PyDMDrawingRectangle_45">
+                <property name="geometry">
+                 <rect>
+                  <x>376</x>
+                  <y>36</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>20</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>130</red>
+                   <green>130</green>
+                   <blue>130</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI_MBTemp13">
+                <property name="geometry">
+                 <rect>
+                  <x>268</x>
+                  <y>124</y>
+                  <width>40</width>
+                  <height>18</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>20</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>0</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="PyDMDrawingRectangle_2">
+                <property name="geometry">
+                 <rect>
+                  <x>14</x>
+                  <y>114</y>
+                  <width>60</width>
+                  <height>18</height>
+                 </rect>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>195</red>
+                   <green>195</green>
+                   <blue>195</blue>
+                  </color>
+                 </brush>
+                </property>
+                <property name="rotation" stdset="0">
+                 <double>6.000000000000000</double>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI13_Ch3">
+                <property name="geometry">
+                 <rect>
+                  <x>32</x>
+                  <y>134</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>20</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="PyDMDrawingRectangle" name="SI13_Ch8">
+                <property name="geometry">
+                 <rect>
+                  <x>68</x>
+                  <y>30</y>
+                  <width>20</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>20</width>
+                  <height>15</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="brush" stdset="0">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>255</green>
+                   <blue>0</blue>
+                  </color>
+                 </brush>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_17">
+                <property name="geometry">
+                 <rect>
+                  <x>8</x>
+                  <y>30</y>
+                  <width>59</width>
+                  <height>14</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Ambient:</string>
+                </property>
+               </widget>
+               <zorder>SR_Pic1</zorder>
+               <zorder>label_46</zorder>
+               <zorder>SI13_Ch2</zorder>
+               <zorder>PyDMDrawingRectangle_45</zorder>
+               <zorder>SI_MBTemp13</zorder>
+               <zorder>PyDMDrawingRectangle_43</zorder>
+               <zorder>SI13_Ch1</zorder>
+               <zorder>PyDMDrawingRectangle_2</zorder>
+               <zorder>SI13_Ch3</zorder>
+               <zorder>SI13_Ch8</zorder>
+               <zorder>label_17</zorder>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tab_2">
+        <attribute name="title">
+         <string>Linac Area</string>
+        </attribute>
+        <widget class="QLabel" name="LinacArea">
+         <property name="geometry">
+          <rect>
+           <x>58</x>
+           <y>70</y>
+           <width>615</width>
+           <height>283</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="LA_MBTemp01">
+         <property name="geometry">
+          <rect>
+           <x>472</x>
+           <y>270</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="LA_MBTemp02">
+         <property name="geometry">
+          <rect>
+           <x>472</x>
+           <y>212</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="LA_MBTemp03">
+         <property name="geometry">
+          <rect>
+           <x>472</x>
+           <y>182</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="LA01_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>506</x>
+           <y>270</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="LA02_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>506</x>
+           <y>212</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="LA03_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>506</x>
+           <y>182</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="LA01_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>530</x>
+           <y>270</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="LA02_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>530</x>
+           <y>212</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="LA03_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>530</x>
+           <y>182</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="LA02_Ch3">
+         <property name="geometry">
+          <rect>
+           <x>506</x>
+           <y>240</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="LA02_Ch4">
+         <property name="geometry">
+          <rect>
+           <x>530</x>
+           <y>240</y>
+           <width>20</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_12">
+         <property name="geometry">
+          <rect>
+           <x>2</x>
+           <y>9</y>
+           <width>637</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Linac Area&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab_3">
+        <attribute name="title">
+         <string>Power Area</string>
+        </attribute>
+        <widget class="QLabel" name="PowerArea">
+         <property name="geometry">
+          <rect>
+           <x>6</x>
+           <y>68</y>
+           <width>625</width>
+           <height>315</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingCircle" name="PA01_Ch3">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>148</y>
+           <width>15</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingCircle" name="PA01_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>158</x>
+           <y>190</y>
+           <width>15</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingCircle" name="PA01_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>138</x>
+           <y>148</y>
+           <width>15</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingCircle" name="PA03_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>356</x>
+           <y>162</y>
+           <width>15</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingCircle" name="PA02_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>480</x>
+           <y>204</y>
+           <width>15</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingCircle" name="PA02_Ch3">
+         <property name="geometry">
+          <rect>
+           <x>424</x>
+           <y>208</y>
+           <width>15</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingCircle" name="PA02_Ch1">
+         <property name="geometry">
+          <rect>
+           <x>526</x>
+           <y>198</y>
+           <width>15</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingCircle" name="PA03_Ch2">
+         <property name="geometry">
+          <rect>
+           <x>296</x>
+           <y>164</y>
+           <width>15</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingCircle" name="PA03_Ch3">
+         <property name="geometry">
+          <rect>
+           <x>230</x>
+           <y>164</y>
+           <width>15</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="PA_MBTemp01">
+         <property name="geometry">
+          <rect>
+           <x>136</x>
+           <y>128</y>
+           <width>20</width>
+           <height>18</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="PA_MBTemp02">
+         <property name="geometry">
+          <rect>
+           <x>504</x>
+           <y>212</y>
+           <width>20</width>
+           <height>18</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="PyDMDrawingRectangle" name="PA_MBTemp03">
+         <property name="geometry">
+          <rect>
+           <x>294</x>
+           <y>146</y>
+           <width>20</width>
+           <height>18</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_3">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>9</y>
+           <width>637</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Power Area&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="PyDMDrawingRectangle" name="legend_7">
+         <property name="maximumSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_14">
+         <property name="text">
+          <string>Disconnected</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="PyDMDrawingRectangle" name="legend_6">
+         <property name="maximumSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>Temperature Ok</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="PyDMDrawingRectangle" name="legend_5">
+         <property name="maximumSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+          <string>High Temperature</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="PyDMDrawingRectangle" name="legend_4">
+         <property name="maximumSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="brush" stdset="0">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>MBTemp Board</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PyDMDrawingLine</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.drawing</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMDrawingRectangle</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.drawing</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMDrawingCircle</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.drawing</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMRelatedDisplayButton</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.related_display_button</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

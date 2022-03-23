@@ -1,0 +1,12 @@
+PyQt5-stubs
+bandit
+black
+flake8
+flake8-bugbear
+flake8-implicit-str-concat
+isort
+mypy
+pre-commit
+types-pkg_resources
+types-pytz
+types-requests

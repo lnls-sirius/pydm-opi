@@ -1,0 +1,1898 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1077</width>
+    <height>761</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1053</width>
+        <height>737</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="2" column="0">
+        <widget class="PyDMByteIndicator" name="PyDMByteIndicator_88">
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="channel" stdset="0">
+          <string>ca://${P}:${D}${T}Group-Mon</string>
+         </property>
+         <property name="onColor" stdset="0">
+          <color>
+           <red>255</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </property>
+         <property name="orientation" stdset="0">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="showLabels" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="numBits" stdset="0">
+          <number>32</number>
+         </property>
+         <property name="labels" stdset="0">
+          <stringlist>
+           <string>Intrn</string>
+           <string>Intrn (PDSP)</string>
+           <string>Out Current</string>
+           <string>Out Volt</string>
+           <string>Supply</string>
+           <string>T</string>
+           <string>Comm</string>
+           <string>Intrn (Mod)</string>
+           <string>Intrn (AD OvrRng 1)</string>
+           <string>Intrn (AD OvrRng 2)</string>
+           <string>Intrn (AD UndrRng 1)</string>
+           <string>Intrn (AD UndrRng 2)</string>
+           <string>Login</string>
+           <string>Conf</string>
+           <string>Conf 2</string>
+           <string>Misc</string>
+           <string>IBCSystem-Mon</string>
+           <string>IBCSuppply-Mon17</string>
+           <string>IBCComm-Mon</string>
+           <string>IBCPwr-Mon</string>
+           <string>IBCInv-Mon</string>
+           <string>IBCMisc-Mon</string>
+           <string>IBCInv2-Mon</string>
+           <string>Supply2-Mon</string>
+           <string>Login2-Mon</string>
+           <string>Conf3-Mon</string>
+           <string>not used</string>
+           <string>not used</string>
+           <string>not used</string>
+           <string>Comm3-Mon</string>
+           <string>Intrn2-Mon</string>
+           <string>Comm2-Mon</string>
+          </stringlist>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="2">
+        <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>${Title}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <layout class="QGridLayout" name="gridLayout_6">
+         <item row="13" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_102">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Conf-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="17" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_107">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IBCSuppply-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="15" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_93">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Misc-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="24" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_114">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Conf4-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_97">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}AD1Ovr-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_95">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Comm-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="14" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_103">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Conf2-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="21" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_111">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IBCMisc-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="26" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_116">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Supply2-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_93">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Supply-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_82">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Supply-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="20" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_98">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IBCInv-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_83">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}T-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="27" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_102">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Supply2-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_80">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}OutCurrent-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_89">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Intrn-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_94">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}T-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_88">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}AD1Undr-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_78">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Intrn-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="22" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_112">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IBCInv2-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="18" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_108">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IBCComm-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_101">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Login-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="26" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_101">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Supply2-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_90">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Login-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="17" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_95">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IBCSuppply-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_0">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}OutVolt-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="18" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_96">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IBCComm-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_87">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}AD2Ovr-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_106">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IBCSystem-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_91">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}OutCurrent-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="21" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_99">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IBCMisc-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_89">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}AD2Undr-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="24" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_104">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Conf4-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="20" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_110">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IBCInv-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_94">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IBCSystem-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_85">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IntrnMod-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="23" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_113">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Intrn-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="offColor" stdset="0">
+            <color>
+             <red>211</red>
+             <green>215</green>
+             <blue>207</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_81">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}OutVolt-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="19" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_97">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IBCPwr-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="27" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_117">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Supply2-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="15" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_104">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Misc-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_96">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IntrnMod-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="22" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_100">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IBCInv2-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="28" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_118">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Conf3-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="28" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_103">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Conf3-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="19" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_109">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IBCPwr-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_86">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}AD1Ovr-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="14" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_0">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Conf2-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_100">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}AD2Undr-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_79">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IntrnPDSP-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="13" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_91">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Conf-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_99">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}AD1Undr-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_84">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Comm-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_90">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}IntrnPDSP-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_98">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}AD2Ovr-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="25" column="1">
+          <widget class="PyDMByteIndicator" name="PyDMByteIndicator_115">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Misc2-Mon</string>
+           </property>
+           <property name="onColor" stdset="0">
+            <color>
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </property>
+           <property name="orientation" stdset="0">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="showLabels" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="numBits" stdset="0">
+            <number>16</number>
+           </property>
+           <property name="labels" stdset="0">
+            <stringlist>
+             <string>Intrn</string>
+             <string>Intrn (PDSP)</string>
+             <string>Out Current</string>
+             <string>Out Volt</string>
+             <string>Supply</string>
+             <string>T</string>
+             <string>Comm</string>
+             <string>Intrn (Mod)</string>
+             <string>Intrn (AD OvrRng 1)</string>
+             <string>Intrn (AD OvrRng 2)</string>
+             <string>Intrn (AD UndrRng 1)</string>
+             <string>Intrn (AD UndrRng 2)</string>
+             <string>Login</string>
+             <string>Conf</string>
+             <string>Conf 2</string>
+             <string>Misc</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="25" column="2">
+          <widget class="PyDMLabel" name="PyDMLabel_105">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="alarmSensitiveBorder" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="channel" stdset="0">
+            <string>ca://${P}:${D}${T}Misc2-Mon.DESC</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="5" column="0">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="1" rowspan="4">
+        <widget class="QScrollArea" name="scrollArea_2">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>511</width>
+            <height>683</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

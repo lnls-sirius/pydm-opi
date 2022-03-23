@@ -1,0 +1,30 @@
+[
+    {"pv":"ProcCtrl:BR-RF-DLLRF-01"             ,"ip":"10.128.124.140:20200", "desc":"Booster - Low-Level",                         "area":"RF"},
+    {"pv":"ProcCtrl:RA-RaBO01:RF-LLRFCalSys"    ,"ip":"10.128.124.163:20200", "desc":"Booster - Low-Level Calibration",             "area":"RF"},
+    {"pv":"ProcCtrl:RA-RaBO01:RF-LLRFPlDrivers" ,"ip":"10.128.124.164:20200", "desc":"Booster - Low-Level Plunger Drivers Booster", "area":"RF"},
+    {"pv":"ProcCtrl:ILK-Booster"                ,"ip":"10.128.124.140:20202", "desc":"Booster - Interlock",                         "area":"RF"},
+    {"pv":"ProcCtrl:RF-PowerMeter"              ,"ip":"10.128.124.140:20206", "desc":"Booster - Power Meter",                       "area":"RF"},
+    {"pv":"ProcCtrl:TCU6"                       ,"ip":"10.128.124.140:20208", "desc":"Booster - Circulator",                        "area":"RF"},
+    {"pv":"ProcCtrl:ToBO-SSA01"                 ,"ip":"10.128.124.160:20200", "desc":"Booster - Solid-State Aplifiers",             "area":"RF"},
+
+    {"pv":"ProcCtrl:ToSI-SSA01"                 ,"ip":"10.128.124.161:20200", "desc":"Storage Ring - Solid-State Aplifiers 01",     "area":"RF"},
+    {"pv":"ProcCtrl:ToSI-SSA02"                 ,"ip":"10.128.124.162:20200", "desc":"Storage Ring - Solid-State Aplifiers 02",     "area":"RF"},
+    {"pv":"ProcCtrl:SR-RF-DLLRF-01"             ,"ip":"10.128.124.141:20200", "desc":"Storage Ring - Low-Level",                    "area":"RF"},
+    {"pv":"ProcCtrl:ILK-SR1"                    ,"ip":"10.128.124.141:20202", "desc":"Storage Ring - Interlock",                    "area":"RF"},
+    {"pv":"ProcCtrl:RA-RaSIA01:RF-LLRFCalSys"   ,"ip":"10.128.124.165:20200", "desc":"Storage Ring - Low-Level Calibration",        "area":"RF"},
+    {"pv":"ProcCtrl:RA-RaSIA01:RF-CavPlDrivers" ,"ip":"10.128.124.166:20200", "desc":"Storage Ring - Low-Level Plunger Drivers",    "area":"RF"},
+    {"pv":"ProcCtrl:P7WaterCalc",                "ip":"10.128.124.140:20210", "desc":"Petra 7 Power Calc",                          "area":"RF"},
+
+    {"pv":"ProcCtrl:TB-04:PU-InjSept"           ,"ip":"10.128.255.4:21001", "desc":"Booster - Injection Septum",                    "area":"EPP"},
+    {"pv":"ProcCtrl:BO-01D:PU-InjKckr"          ,"ip":"10.128.255.4:21002", "desc":"Booster - Injection Kicker",                    "area":"EPP"},
+    {"pv":"ProcCtrl:TS-04:PU-InjSeptG-1"        ,"ip":"10.128.255.4:21003", "desc":"Storage Ring - Injection Septum Thick-1",       "area":"EPP"},
+    {"pv":"ProcCtrl:TS-04:PU-InjSeptG-2"        ,"ip":"10.128.255.4:21004", "desc":"Storage Ring - Injection Septum Thick-2",       "area":"EPP"},
+    {"pv":"ProcCtrl:TS-04:PU-InjSeptF"          ,"ip":"10.128.255.4:21005", "desc":"Storage Ring - Injection Septum Thin",          "area":"EPP"},
+    {"pv":"ProcCtrl:SI-01SA:PU-PingH"       	,"ip":"10.128.255.4:21006", "desc":"Storage Ring - Horizontal Pinger",              "area":"EPP"},
+    {"pv":"ProcCtrl:SI-01SA:PU-InjDpKckr"       ,"ip":"10.128.255.4:21007", "desc":"Storage Ring - Kicker On Axis",                 "area":"EPP"},
+    {"pv":"ProcCtrl:SI-01SA:PU-InjNLKckr"       ,"ip":"10.128.255.4:21010", "desc":"Storage Ring - Kicker NLK",             	    "area":"EPP"},
+    {"pv":"ProcCtrl:BO-48D:PU-EjeKckr"          ,"ip":"10.128.255.4:21011", "desc":"Booster - Ejection Kicker",                     "area":"EPP"},
+    {"pv":"ProcCtrl:TS-01:PU-EjeSeptF"          ,"ip":"10.128.255.4:21012", "desc":"Booster - Ejection Septum Thin",                "area":"EPP"},
+    {"pv":"ProcCtrl:TS-01:PU-EjeSeptG"          ,"ip":"10.128.255.4:21013", "desc":"Booster - Ejection Septum Thick",               "area":"EPP"},
+    {"pv":"ProcCtrl:SI-19C4:PU-PingV"           ,"ip":"10.128.255.4:21014", "desc":"Storage Ring - Vertical Pinger",                "area":"EPP"}
+]

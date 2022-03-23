@@ -1,81 +1,113 @@
-CONS OPIs
+Sirius HLA CONS - GUI
 ===========
 
-This repo should contain every PyDM OPI developed by the CONS group currently in use.
+This repo contains various PyDM OPIs in use.
 
-[Read the docs !](https://lnls-sirius.github.io/pydm-opi/)
-----------------------------------------------------------
+[![Publish siriuspy to PyPI](https://github.com/lnls-sirius/pydm-opi/actions/workflows/pypi.yml/badge.svg)](https://github.com/lnls-sirius/pydm-opi/actions/workflows/pypi.yml)
+[![Lint](https://github.com/lnls-sirius/pydm-opi/actions/workflows/lint.yml/badge.svg)](https://github.com/lnls-sirius/pydm-opi/actions/workflows/lint.yml)
+[![Test and Coverage](https://github.com/lnls-sirius/pydm-opi/actions/workflows/tests.yml/badge.svg)](https://github.com/lnls-sirius/pydm-opi/actions/workflows/tests.yml)
 
-Requirements
-------------
-**Python>=3.6** .<br>
-[PyDM](https://github.com/slaclab/pydm)==**1.10.1**<br>
-[CONS commons](https://github.com/lnls-sirius/cons-common) module.<br>
-Other dependencies are listed at `requirements.txt`.<br>
+
+![Latest tag](https://img.shields.io/github/tag/lnls-sirius/pydm-opi.svg?style=flat)
+[![Latest release](https://img.shields.io/github/release/lnls-sirius/pydm-opi.svg?style=flat)](https://github.com/lnls-sirius/pydm-opi/releases)
+[![PyPI version fury.io](https://badge.fury.io/py/siriushlacon.svg)](https://pypi.python.org/pypi/siriushlacon/)
+
+[![Read the Docs](https://readthedocs.org/projects/spack/badge/?version=latest)](https://lnls-sirius.github.io/pydm-opi/)
+
+Develop
+-------
+In order to contribute with this repository the developer must have **pre-commit** installed and enabled.
+```command
+pip install pre-commit
+pre-commit install
+```
 
 Install
 -------
-This repository depends on [PyDM](https://github.com/slaclab/pydm),
-[PyEPICS](https://github.com/pyepics/pyepics), [CONS Common](https://github.com/lnls-sirius/cons-common) and Python>=3.6 .
+[Windows instructions](miscellaneous/windows).
 
-Clone from master or download the lattest release.<br>
-Optionally the user may clone recursive in order to pull the module `conscommon`. If so, install the submodule using `cd cons-common && pip install .`.<br>
+Available at **PyPi** https://pypi.org/project/siriushlacon/, can be installed using pip but specific versions of QT are needed.
 
-### EPICS Base
-Install EPICS and add it to PATH(Windows only)
-```
-https://epics.anl.gov/download/distributions/EPICSWindowsTools1.44-x64.msi
-```
-For linux users the recommended way is to compile the lattest LTS release of the [EPICS Base (R3.15.8)](https://github.com/epics-base/epics-base/tree/3.15).
-After the compilation is completed, the `bin` folder must be added to the environment `PATH` and the `lib` folder to `LD_LIBRARY_PATH`.
+### Conda
 
-### Sirius Environment
-To install in a machine managed by [lnls-sirius/lnls-ansible](https://github.com/lnls-sirius/lnls-ansible) clone the repo recursively and make install as sudo.
-```
-cd ~/ && git clone --recursive https://github.com/lnls-sirius/pydm-opi && cd pydm-opi && sudo make install
+#### Install (Linux)
+```command
+# Install Miniconda
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+sh Miniconda3-latest-Linux-x86_64.sh
+
+# Remove the install script
+rm Miniconda3-latest-Linux-x86_64.sh
 ```
 
-### Using [Conda](https://docs.conda.io/en/latest/miniconda.html)
-This is the recommended way to install ! If you're a Windows user, using `git bash` may simplify the steps as the syntax will be similar.
+#### Install (Windows)
 
-Create and activate the conda environment:
-```
-conda init <shell name> # Restart shell after ... (bash, powershell, etc...)
-conda create --name pydm python=3.7 # pyqtgraph==0.1.0 does not work with python 3.8
-conda activate pydm
-```
+Download at https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe
 
-Install dependencies and OPIs (Will use ~/ as the default path but feel free to change):
-```
-# Install PyDM (If on Windows `wget` and `tar` may not be available, just download the file using a browser and extract it)
-wget https://github.com/slaclab/pydm/archive/v1.10.1.tar.gz
-tar -zxvf v1.10.1.tar.gz && rm -f v1.10.1.tar.gz && cd pydm-1.10.1 && pip install . && cd ..
+**Important**
 
-# Install pydm-opi and cons-common
-cd ~/ && git clone --recursive https://github.com/lnls-sirius/pydm-opi && cd pydm-opi
-cd ~/pydm-opi/cons-common && pip install . && cd ../ && pip install . -r requirements.txt
+- Local installation (single user only).
+- Add to the PATH
+
+The user should check if conda is enabled. The powershell prompt should look like:
+```powershell
+(base) ...
 ```
 
-### Desktop
-In order to install the `.desktop` launcher:
+In order to setup conda correctly on powershell use the command below then restart the shell application:
+```powershell
+conda init powershell
 ```
-make install-files
+
+Set the powershell execution policy so external scripts are availble https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.1
+
+```powershell
+Set-ExecutionPolicy RemoteSigned
 ```
-If using conda, remember to fix the Exec entry at the `.desktop' file accordingly:
-``` 
-/bin/bash -c 'source ~/miniconda3/etc/profile.d/conda.sh && conda activate pydm && sirius-hla-as-ap-conlauncher.py'
+
+#### Environment setup
+
+Create a conda environment using a tested python version
+```command
+conda create --name py36 python=3.6
+```
+
+Environment dependencies:
+```command
+# Activate the environment "py36", the shell prompt should start with "(py36) ..."
+conda activate py36
+
+# Enable conda-forge channel
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+
+# Install EPICS base
+conda install -c conda-forge/label/cf202003 epics-base
+
+# Install dependencies
+conda install -c conda-forge bottleneck
+conda install -c conda-forge pyqt==5.12.3
+conda install -c conda-forge qt==5.12.9
+conda install -c conda-forge pydm==1.10.4
+
+# Install interfaces
+pip install --upgrade siriushlacon
+```
+
+## Desktop shortcut
+### Windows:
+This assumes a conda environment named `py36`. The `.lnk` content must be updated in case of a different name.
+```powershell
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/lnls-sirius/pydm-opi/master/miscellaneous/windows/Create-Shortcut.ps1'));
 ```
 
 Run
 ---
-All scripts used to start the applications should be at the `bin` folder relative to the python installation environment, for example:
-```
-~/.local/bin
-/usr/local/bin
-...
-```
+To launch the main window use the script: `sirius-hla-as-ap-conlauncher.py`.
 
-To launch the main window use the script: `sirius-hla-as-ap-conlauncher.py`
+On Windows make sure that the correct `python.exe` or `pythonw.exe` is the default program for `*.py` files.
 
-### Windows
-There should be no problems running on windows.
+```powershell
+pythonw.exe (Get-Command sirius-hla-as-ap-conlauncher.py).Path
+pythonw.exe (Get-Command sirius-hla-as-va-vbc.py).Path
+```

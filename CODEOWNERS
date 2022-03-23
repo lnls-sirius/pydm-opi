@@ -1,0 +1,15 @@
+# @carneirofc
+# @ntanck
+# @pnallin
+# @robertpolli
+
+# --- default owners of the repo
+* @carneirofc
+
+# --- subpackage
+/src/siriushlacon/danfysik @carneirofc @rbatistacardoso
+/tests/danfysik @carneirofc @rbatistacardoso
+
+/src/siriushlacon/beaglebones @ntanck @pnallin @robertpolli
+/src/siriushlacon/countingpru @ntanck @pnallin @robertpolli
+/src/siriushlacon/mbtemp @ntanck @pnallin @robertpolli

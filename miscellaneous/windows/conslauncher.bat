@@ -1,1 +1,0 @@
-conda activate pydm-environment && C:\PyDM-1.7.3\envs\pydm-environment\pythonw.exe C:\PyDM-1.7.3\envs\pydm-environment\pydm-opi\scripts\sirius-hla-as-ap-conlauncher.py
