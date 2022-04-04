@@ -85,7 +85,7 @@ class ProcessOnAction:
         """Is pressure under 5*(10^-2) Torr"""
         return self.bbb.pressure_pv.value > (
             self.system.on_pressure_base_pv.value
-            * 10 ** self.system.on_pressure_exp_pv.value
+            * 10**self.system.on_pressure_exp_pv.value
         )
 
     def _stage_4(self):

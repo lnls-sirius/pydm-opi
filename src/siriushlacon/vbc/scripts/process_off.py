@@ -90,7 +90,7 @@ class ProcessOffAction:
     def _check_bbb_less_than_off_pressure(self) -> bool:
         bbb_off_pressure = (
             self.system.off_pressure_base_pv.value
-            * 10 ** self.system.off_pressure_exp_pv.value
+            * 10**self.system.off_pressure_exp_pv.value
         )
         return self.bbb.pressure_pv.value < bbb_off_pressure
 
