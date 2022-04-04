@@ -20,4 +20,4 @@ IS_LINUX: bool = os.name == "posix" or platform.system() == "Linux"
 # ui
 OVERVIEW_UI: str = get_abs_path("ui/overview.ui")
 
-BO, SI, TB, TS = "BO", "SI", "TB", "TS"
+BO, SI, TB, TS, IT = "BO", "SI", "TB", "TS", "IT"
