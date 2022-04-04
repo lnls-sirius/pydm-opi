@@ -10,7 +10,7 @@ from qtpy.QtGui import QBrush, QColor, QFont
 from qtpy.QtWidgets import QFrame, QLabel
 
 from siriushlacon.mks937b.consts import lazy_devices
-from siriushlacon.utils.consts import BO, OVERVIEW_UI, SI, TB, TS, IT
+from siriushlacon.utils.consts import BO, IT, OVERVIEW_UI, SI, TB, TS
 from siriushlacon.widgets.layout import FlowLayout
 
 DEVICES = lazy_devices.get()
