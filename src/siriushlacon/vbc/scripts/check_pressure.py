@@ -36,6 +36,6 @@ def check_pressure(prefix: str, first_time: bool):
             process_trigger_on_pv.value = 0
 
     # if pressure is between 0.05 and 1*10**-8, trigger "process_recovery" script
-    elif (pressure_pv.value < 0.05) & (pressure_pv.value > 10 ** -8):
+    elif (pressure_pv.value < 0.05) & (pressure_pv.value > 10**-8):
         process_trigger_pressurized_pv.value = 1
         process_trigger_pressurized_pv.value = 0

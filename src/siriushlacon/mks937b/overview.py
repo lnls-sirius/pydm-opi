@@ -10,7 +10,7 @@ from qtpy.QtGui import QBrush, QColor, QFont
 from qtpy.QtWidgets import QFrame, QLabel
 
 from siriushlacon.mks937b.consts import lazy_devices
-from siriushlacon.utils.consts import BO, OVERVIEW_UI, SI, TB, TS
+from siriushlacon.utils.consts import BO, IT, OVERVIEW_UI, SI, TB, TS
 from siriushlacon.widgets.layout import FlowLayout
 
 DEVICES = lazy_devices.get()
@@ -41,7 +41,7 @@ class Overview(Display):
                 if channel.info.sensor != MKS_SENSOR_COLD_CATHODE:
                     continue
 
-                if macro_type not in [BO, SI, TB, TS]:
+                if macro_type not in [BO, SI, TB, TS, IT]:
                     logger.warning('Invalid type "{}".'.format(macro_type))
                     continue
                 if (
@@ -49,6 +49,7 @@ class Overview(Display):
                     or (macro_type == TB and not channel.prefix.startswith(TB))
                     or (macro_type == SI and not channel.prefix.startswith(SI))
                     or (macro_type == TS and not channel.prefix.startswith(TS))
+                    or (macro_type == IT and not channel.prefix.startswith(IT))
                 ):
                     continue
 

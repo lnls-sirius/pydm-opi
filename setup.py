@@ -97,6 +97,7 @@ setup(
         "scripts/sirius-hla-tb-va-mks937b-overview.py",
         "scripts/sirius-hla-ts-va-agilent4uhv-overview.py",
         "scripts/sirius-hla-ts-va-mks937b-overview.py",
+        "scripts/sirius-hla-it-va-mks937b-overview.py",
     ],
     test_suite="tests",
     zip_safe=False,
