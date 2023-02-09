@@ -51,7 +51,10 @@ class AgilentAsync(QObject):
 
         val = actual_value
         for _, selected, shift in zip(
-            device.channels, channels_selected, range(len(channels_selected))
+            device.channels,
+            channels_selected,
+            range(len(channels_selected)),
+            strict=False,
         ):
             if selected:
                 val &= ~(1 << shift)
@@ -72,7 +75,7 @@ class AgilentAsync(QObject):
         if epics.caput(pv, val, timeout=EPICS_TOUT) == 1:
             await asyncio.sleep(CMD_TOUT)
 
-            for ch, selected in zip(device.channels, channels_selected):
+            for ch, selected in zip(device.channels, channels_selected, strict=False):
                 if not selected:
                     continue
                 pv, val = ch.prefix + ":VoltageTarget-SP", voltage
@@ -113,7 +116,7 @@ class AgilentAsync(QObject):
 
         val = actual_value
         n = 0
-        for _, selected in zip(device.channels, channels_selected):
+        for _, selected in zip(device.channels, channels_selected, strict=False):
             if selected:
                 val |= 1 << n
             n += 1

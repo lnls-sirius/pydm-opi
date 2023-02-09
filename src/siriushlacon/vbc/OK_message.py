@@ -32,7 +32,7 @@ class OkMessage(Display):
             finished = sys.argv[6]
             finished = finished.upper().replace(" ", "")
         if not prefix:
-            raise ValueError(f"prefix '{prefix}' cannot be empty {self}")
+            raise ValueError(f"prefix {prefix!r} cannot be empty {self}")
         self.prefix: str = prefix
 
         self.label_2.setPixmap(QPixmap(CHECK_IMG))

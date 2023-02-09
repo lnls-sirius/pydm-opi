@@ -32,7 +32,7 @@ class PSDriver(pcaspy.Driver):
     def write(self, reason, value):
         self.setParam(reason, value)
         self.updatePVs()
-        logger.info(f"Write at '{reason}': {value}")
+        logger.info(f"Write at {reason!r}: {value}")
         return True
 
 

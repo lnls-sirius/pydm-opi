@@ -71,4 +71,4 @@ def commute_valve(prefix: str, valve: int, confirmed: bool):
     elif valve == 5:
         _commute_venting_valve(prefix=prefix, confirmed=confirmed)
     else:
-        raise ValueError(f"Invalid valve value '{valve}'")
+        raise ValueError(f"Invalid valve value {valve!r}")
