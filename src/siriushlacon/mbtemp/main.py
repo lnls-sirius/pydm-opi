@@ -195,7 +195,7 @@ class MBTempMonitoring(Display):
                 return ()
             channel = getattr(self, "{}{}_Ch{}".format(chosenArea, aux, mbtemp_ch))
 
-        except AttributeError or ValueError:
+        except (AttributeError, ValueError):
             return ()
 
         # ----------- Update color and toolTip ----------
