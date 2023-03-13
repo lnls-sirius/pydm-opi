@@ -922,7 +922,7 @@ Power Supply</string>
             <set>Qt::AlignCenter</set>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://SpareNLK1:CCoilHVoltage-Mon</string>
+            <string>ca://SpareNLK1:CCoilVVoltage-Mon</string>
            </property>
           </widget>
          </item>
@@ -4477,7 +4477,7 @@ Power Supply</string>
             <set>Qt::AlignCenter</set>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://SpareNLK2:CCoilHVoltage-Mon</string>
+            <string>ca://SpareNLK2:CCoilVVoltage-Mon</string>
            </property>
           </widget>
          </item>
@@ -8080,7 +8080,7 @@ Power Supply</string>
             <set>Qt::AlignCenter</set>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://SpareNLK3:CCoilHVoltage-Mon</string>
+            <string>ca://SpareNLK3:CCoilVVoltage-Mon</string>
            </property>
           </widget>
          </item>

@@ -929,7 +929,7 @@ Power Supply</string>
             <set>Qt::AlignCenter</set>
            </property>
            <property name="channel" stdset="0">
-            <string>ca://SI-01SA:PU-InjNLKckr:CCoilHVoltage-Mon</string>
+            <string>ca://SI-01SA:PU-InjNLKckr:CCoilVVoltage-Mon</string>
            </property>
           </widget>
          </item>
