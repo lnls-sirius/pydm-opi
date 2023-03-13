@@ -1,15 +1,16 @@
-# @carneirofc
-# @ntanck
 # @pnallin
 # @robertpolli
+# @rbatistacardoso
+# @edupcoelho
+# @anacso17
 
 # --- default owners of the repo
-* @carneirofc
+* @pnallin
 
 # --- subpackage
-/src/siriushlacon/danfysik @carneirofc @rbatistacardoso
-/tests/danfysik @carneirofc @rbatistacardoso
+/src/siriushlacon/danfysik @rbatistacardoso
+/tests/danfysik @rbatistacardoso
 
-/src/siriushlacon/beaglebones @ntanck @pnallin @robertpolli
-/src/siriushlacon/countingpru @ntanck @pnallin @robertpolli
-/src/siriushlacon/mbtemp @ntanck @pnallin @robertpolli
+/src/siriushlacon/beaglebones @pnallin @robertpolli
+/src/siriushlacon/countingpru @pnallin @robertpolli
+/src/siriushlacon/mbtemp @pnallin @robertpolli

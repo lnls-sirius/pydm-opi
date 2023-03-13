@@ -64,13 +64,13 @@ class CommandRunner:
         self._thread = threading.Thread(target=self._command_log, daemon=False)
         if self._name:
             self._thread.name = self._name
-        _logger.info(f"Thread '{self._thread}' created")
+        _logger.info(f"Thread {self._thread!r} created")
 
     def execute_command(
         self, join: bool = False, timeout: typing.Optional[float] = None
     ):
         if self._thread and self._thread.is_alive():
-            _logger.error(f"Cannot start thread, '{self._thread}' is alive")
+            _logger.error(f"Cannot start thread, {self._thread!r} is alive")
             return
 
         self._create_thread()
@@ -78,7 +78,7 @@ class CommandRunner:
             raise RuntimeError("Failed to create thread")
 
         self._thread.start()
-        _logger.info(f"Thread stated '{self._thread}' join={join}")
+        _logger.info(f"Thread stated {self._thread!r} join={join}")
         if join:
             self._thread.join(timeout=timeout)
 
@@ -101,4 +101,4 @@ class ShellCommandRunner:
             except Exception:
                 _logger.exception(f"Error in shell command: {self.command}")
         else:
-            _logger.error(f"Command '{self.command}' already active.")
+            _logger.error(f"Command {self.command!r} already active.")

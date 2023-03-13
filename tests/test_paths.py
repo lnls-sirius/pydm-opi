@@ -26,9 +26,7 @@ class ConstsFileReference(unittest.TestCase):
 
     def _check_get_abs_path_of_module(self, module):
         for key, value in self._get_paths_from_module(module):
-            self.assertTrue(
-                os.path.exists(value), f"Check '{key} = \"{value}\"' exists"
-            )
+            self.assertTrue(os.path.exists(value), f"Check '{key} = {value!r}' exists")
 
     def test_pctrl(self):
         self._check_get_abs_path_of_module(pctrl_consts)

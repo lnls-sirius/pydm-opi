@@ -31,7 +31,7 @@ class LazyDevices:
             _QMessageBox.critical(
                 None,
                 "Beaglebone Info API Error",
-                f"Failed to get information from the remote API. Check if the server is reachable at {conscommon.data.API_CANDIDATES}.\nError '{e}'",
+                f"Failed to get information from the remote API. Check if the server is reachable at {conscommon.data.API_CANDIDATES}.\nError {e!r}",
             )
             raise e
 
@@ -39,5 +39,5 @@ class LazyDevices:
 def close_qt_application(*args, **kwargs):
     app = _QApplication.instance()
     if app:
-        _logger.info(f"Closing qt application '{app}'")
+        _logger.info(f"Closing qt application {app!r}")
         app.quit()

@@ -68,7 +68,7 @@ class SiriushlaconApplication(pydm.PyDMApplication):
         )
 
         if not self._generic_launcher_file_path:
-            logger.error(f"'{self._generic_launcher_file_name}' not found by 'which'")
+            logger.error(f"{self._generic_launcher_file_name!r} not found by 'which'")
 
     def new_pydm_process(self, ui_file, macros=None, command_line_args=None):
         kwargs = copy.deepcopy(
@@ -85,7 +85,7 @@ class SiriushlaconApplication(pydm.PyDMApplication):
         python_exe = sys.executable
 
         if not self._generic_launcher_file_path:
-            msg = f"Failed to launch pydm process, '{self._generic_launcher_file_name}' not found in path. Using python '{python_exe}'"
+            msg = f"Failed to launch pydm process, {self._generic_launcher_file_name!r} not found in path. Using python {python_exe!r}"
             logger.error(msg)
             box = QMessageBox(QMessageBox.Critical, "New PyDM Process Error", msg)
             box.exec()
