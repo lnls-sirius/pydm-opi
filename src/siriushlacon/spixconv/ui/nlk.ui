@@ -907,7 +907,7 @@ Power Supply</string>
          <set>Qt::AlignCenter</set>
         </property>
         <property name="channel" stdset="0">
-         <string>ca://${pv_prefix}:CCoilHVoltage-Mon</string>
+         <string>ca://${pv_prefix}:CCoilVVoltage-Mon</string>
         </property>
        </widget>
       </item>
