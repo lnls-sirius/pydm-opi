@@ -37642,7 +37642,7 @@ Power Supply</string>
                        <bool>false</bool>
                       </property>
                       <property name="channel" stdset="0">
-                       <string>ca://${pv_prefix}:PwrState-Sel</string>
+                       <string>ca://SI-01SA:PU-InjNLKckr:PwrState-Sel</string>
                       </property>
                      </widget>
                     </item>
@@ -37790,7 +37790,7 @@ Power Supply</string>
                        <enum>Qt::LeftToRight</enum>
                       </property>
                       <property name="channel" stdset="0">
-                       <string>ca://${pv_prefix}:Pulse-Sel</string>
+                       <string>ca://SI-01SA:PU-InjNLKckr:Pulse-Sel</string>
                       </property>
                      </widget>
                     </item>
